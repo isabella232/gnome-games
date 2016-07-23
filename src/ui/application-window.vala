@@ -5,6 +5,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private const uint WINDOW_SIZE_UPDATE_DELAY_MILLISECONDS = 500;
 	private const uint FOCUS_OUT_DELAY_MILLISECONDS = 500;
 
+	private const string CONTRIBUTE_URI = "https://wiki.gnome.org/Apps/Games/Contribute";
+
 	private UiState _ui_state;
 	public UiState ui_state {
 		set {
@@ -34,6 +36,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 				break;
 			}
+
+			konami_code.reset ();
 		}
 		get { return _ui_state; }
 	}
@@ -90,6 +94,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private uint inhibit_cookie;
 	private Gtk.ApplicationInhibitFlags inhibit_flags;
 
+	private KonamiCode konami_code;
+
 	public ApplicationWindow (ListModel collection) {
 		collection_box.collection = collection;
 	}
@@ -120,6 +126,9 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		                                        BindingFlags.BIDIRECTIONAL);
 		header_bar_fullscreen_binding = bind_property ("is-fullscreen", display_header_bar, "is-fullscreen",
 		                                               BindingFlags.BIDIRECTIONAL);
+
+		konami_code = new KonamiCode (this);
+		konami_code.code_performed.connect (on_konami_code_performed);
 
 		window_size_update_timeout = -1;
 		focus_out_timeout_id = -1;
@@ -575,5 +584,17 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		display_box.runner = null;
 		display_header_bar.media_set = null;
 		display_box.header_bar.media_set = null;
+	}
+
+	private void on_konami_code_performed () {
+		if (ui_state != UiState.COLLECTION)
+			return;
+
+		try {
+			Gtk.show_uri_on_window (this, CONTRIBUTE_URI, Gtk.get_current_event_time ());
+		}
+		catch (Error e) {
+			critical (e.message);
+		}
 	}
 }
