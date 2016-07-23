@@ -130,6 +130,7 @@ gnome_games_SOURCES = \
 	ui/keyboard-configurer.vala \
 	ui/keyboard-mapper.vala \
 	ui/keyboard-tester.vala \
+	ui/konami-code.vala \
 	ui/media-selector.vala \
 	ui/media-menu-button.vala \
 	ui/preferences-page.vala \
