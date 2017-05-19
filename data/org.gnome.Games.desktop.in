@@ -1,7 +1,7 @@
 [Desktop Entry]
 _Name=Games
-_GenericName=Video game player
-_Comment=View and play your video games collection
+_GenericName=Video Game Player
+_Comment=Browse and play your games
 _Keywords=game;videogame;video game;player;
 Exec=gnome-games %U
 Icon=org.gnome.Games

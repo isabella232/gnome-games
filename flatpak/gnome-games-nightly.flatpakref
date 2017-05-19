@@ -1,7 +1,7 @@
 [Flatpak Ref]
 Title=Games (Nightly)
 Comment=Nightly version of GNOME Games
-Description=Games is a GNOME application to browse your video games library and to easily pick and play a game from it.
+Description=Browse and play your games
 Name=org.gnome.Games
 Branch=master
 Url=https://sdk.gnome.org/nightly/repo-apps/
