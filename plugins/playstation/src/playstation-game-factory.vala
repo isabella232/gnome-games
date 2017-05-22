@@ -51,78 +51,78 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 			return;
 
 		var file = uri.to_file ();
-		var file_info = file.query_info (FileAttribute.STANDARD_CONTENT_TYPE, FileQueryInfoFlags.NONE);
-		var mime_type = file_info.get_content_type ();
+		// var file_info = file.query_info (FileAttribute.STANDARD_CONTENT_TYPE, FileQueryInfoFlags.NONE);
+		// var mime_type = file_info.get_content_type ();
 
 		File bin_file;
-		switch (mime_type) {
-		case CUE_MIME_TYPE:
-			var cue = new CueSheet (file);
-			if (cue.tracks_number == 0)
-				return;
+		// switch (mime_type) {
+		// case CUE_MIME_TYPE:
+			// var cue = new CueSheet (file);
+			// if (cue.tracks_number == 0)
+			// 	return;
 
-			var track = cue.get_track (0);
-			if (track.track_mode != CueSheetTrackMode.MODE1_2352 &&
-			    track.track_mode != CueSheetTrackMode.MODE2_2352)
-				return;
+			// var track = cue.get_track (0);
+			// if (track.track_mode != CueSheetTrackMode.MODE1_2352 &&
+			//     track.track_mode != CueSheetTrackMode.MODE2_2352)
+			// 	return;
 
-			bin_file = track.file.file;
+			// bin_file = track.file.file;
 
-			break;
+		// 	break;
 		// TODO Add support for binary files.
-		default:
-			return;
-		}
+		// default:
+		// 	return;
+		// }
 
-		var header = new PlayStationHeader (bin_file);
-		header.check_validity ();
-		var disc_id = header.disc_id;
+		// var header = new PlayStationHeader (bin_file);
+		// header.check_validity ();
+		// var disc_id = header.disc_id;
 
-		var gameinfo = get_gameinfo ();
-		var disc_set_id = gameinfo.get_disc_set_id_for_disc_id (disc_id);
+		// var gameinfo = get_gameinfo ();
+		// var disc_set_id = gameinfo.get_disc_set_id_for_disc_id (disc_id);
 
-		return_if_fail (media_for_disc_id.contains (disc_id) == game_for_disc_set_id.contains (disc_set_id));
+		// return_if_fail (media_for_disc_id.contains (disc_id) == game_for_disc_set_id.contains (disc_set_id));
 
 		// Check whether we already have a media and by extension a media set
 		// and a game for this disc ID. If such a case, simply add the new URI.
-		if (media_for_disc_id.contains (disc_id)) {
-			var media = media_for_disc_id.lookup (disc_id);
-			media.add_uri (uri);
-			game_for_uri[uri] = game_for_disc_set_id[disc_set_id];
+		// if (media_for_disc_id.contains (disc_id)) {
+		// 	var media = media_for_disc_id.lookup (disc_id);
+		// 	media.add_uri (uri);
+		// 	game_for_uri[uri] = game_for_disc_set_id[disc_set_id];
 
-			return;
-		}
+		// 	return;
+		// }
 
 		// A game correspond to this URI but we don't have it yet: create it.
 
-		var new_medias = new HashTable<string, Media> (str_hash, str_equal);
-		Media[] new_medias_array = {};
-		var new_disc_ids = gameinfo.get_disc_set_ids_for_disc_id (disc_id);
-		foreach (var new_disc_id in new_disc_ids) {
-			assert (!media_for_disc_id.contains (new_disc_id));
+		// var new_medias = new HashTable<string, Media> (str_hash, str_equal);
+		// Media[] new_medias_array = {};
+		// var new_disc_ids = gameinfo.get_disc_set_ids_for_disc_id (disc_id);
+		// foreach (var new_disc_id in new_disc_ids) {
+		// 	assert (!media_for_disc_id.contains (new_disc_id));
 
-			var title = new GameinfoDiscIdDiscTitle (gameinfo, new_disc_id);
-			var media = new Media (title);
-			new_medias_array += media;
-			new_medias[new_disc_id] = media;
-		}
+		// 	var title = new GameinfoDiscIdDiscTitle (gameinfo, new_disc_id);
+		// 	var media = new Media (title);
+		// 	new_medias_array += media;
+		// 	new_medias[new_disc_id] = media;
+		// }
 
-		var media = new_medias.lookup (disc_id);
-		media.add_uri (uri);
+		// var media = new_medias.lookup (disc_id);
+		// media.add_uri (uri);
 
-		var icon = GLib.Icon.new_for_string (ICON_NAME);
-		var media_set = new MediaSet (new_medias_array, icon);
-		var game = create_game (media_set, disc_set_id, uri);
+		// var icon = GLib.Icon.new_for_string (ICON_NAME);
+		// var media_set = new MediaSet (new_medias_array, icon);
+		// var game = create_game (media_set, disc_set_id, uri);
 
 		// Creating the Medias, MediaSet and Game worked, we can save them.
 
-		foreach (var new_disc_id in new_medias.get_keys ())
-			media_for_disc_id[new_disc_id] = new_medias[new_disc_id];
+		// foreach (var new_disc_id in new_medias.get_keys ())
+		// 	media_for_disc_id[new_disc_id] = new_medias[new_disc_id];
 
-		game_for_uri[uri] = game;
-		game_for_disc_set_id[disc_set_id] = game;
-		games.add (game);
-		game_added (game);
+		// game_for_uri[uri] = game;
+		// game_for_disc_set_id[disc_set_id] = game;
+		// games.add (game);
+		// game_added (game);
 	}
 
 	public async void foreach_game (GameCallback game_callback) {

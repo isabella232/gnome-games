@@ -31,7 +31,7 @@ private class Games.CollectionIconView : Gtk.Stack {
 			}
 			model_changed_id = model.items_changed.connect (on_items_changed);
 
-			flow_box.invalidate_sort ();
+			// flow_box.invalidate_sort ();
 		}
 	}
 
@@ -49,7 +49,7 @@ private class Games.CollectionIconView : Gtk.Stack {
 	construct {
 		flow_box.max_children_per_line = uint.MAX;
 		flow_box.set_filter_func (filter_box);
-		flow_box.set_sort_func (sort_boxes);
+		// flow_box.set_sort_func (sort_boxes);
 	}
 
 	[GtkCallback]

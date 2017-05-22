@@ -62,12 +62,8 @@ private class Games.PcEnginePlugin : Object, Plugin {
 
 	private static bool is_valid_disc (Uri uri) throws Error {
 		var file = uri.to_file ();
-		var file_info = file.query_info (FileAttribute.STANDARD_CONTENT_TYPE, FileQueryInfoFlags.NONE);
-		var mime_type = file_info.get_content_type ();
 
 		File bin_file;
-		switch (mime_type) {
-		case CUE_MIME_TYPE:
 			var cue = new CueSheet (file);
 			if (cue.tracks_number < 2)
 				return false;
@@ -78,16 +74,9 @@ private class Games.PcEnginePlugin : Object, Plugin {
 
 			bin_file = track.file.file;
 
-			break;
-		// TODO Add support for binary files.
-		default:
-			return false;
-		}
-
 		var path = bin_file.get_path ();
-		var offsets = Grep.get_offsets (path, CD_MAGIC_VALUE);
 
-		return offsets.length > 0;
+		return true;
 	}
 }
 
