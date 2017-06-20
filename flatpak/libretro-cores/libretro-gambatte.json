@@ -22,7 +22,7 @@
                 },
                 {
                     "type": "file",
-                    "path": "libretro-cores/gambatte.libretro"
+                    "path": "gambatte.libretro"
                 }
             ]
         }
