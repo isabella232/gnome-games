@@ -5,15 +5,26 @@ private class Games.MediaSelector : Gtk.Popover {
 	private MediaSet _media_set;
 	public MediaSet media_set {
 		set {
+			if (media_set_changed_id != 0) {
+				_media_set.disconnect (media_set_changed_id);
+				media_set_changed_id = 0;
+			}
 			_media_set = value;
+			if (_media_set != null)
+				media_set_changed_id = _media_set.notify["selected-media-number"].connect (reset_media);
 
-			remove_media ();
-			update_media ();
+			reset_media ();
 		}
 	}
 
+	private ulong media_set_changed_id = 0;
 	[GtkChild]
 	private Gtk.ListBox list_box;
+
+	private void reset_media () {
+		remove_media ();
+		update_media ();
+	}
 
 	private void update_media () {
 		var media_number = 0;
