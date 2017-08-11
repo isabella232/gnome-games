@@ -64,6 +64,7 @@ gnome_games_SOURCES = \
 	core/game-collection.vala \
 	core/game-uri-adapter.vala \
 	core/icon.vala \
+	core/controller-set.vala \
 	core/input-capabilities.vala \
 	core/media.vala \
 	core/media-info.vala \
