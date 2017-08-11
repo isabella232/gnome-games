@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="GamesControllerReassigner" parent="GtkDialog">
+    <property name="destroy-with-parent">True</property>
+    <property name="type_hint">dialog</property>
+    <property name="title" translatable="yes">Reassign controllers</property>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="visible">True</property>
+        <property name="spacing">6</property>
+        <property name="margin-bottom">6</property>
+        <child>
+          <object class="GtkInfoBar" id="info_bar">
+            <property name="visible">True</property>
+            <child internal-child="content_area">
+              <object class="GtkBox">
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Reassign controllers by pressing buttons on your controllers in the desired order</property>
+                    <attributes>
+                      <attribute name="weight" value="bold"/>
+                    </attributes>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkListBox" id="controllers_list_box">
+            <property name="visible">True</property>
+            <property name="selection_mode">none</property>
+            <property name="margin-start">12</property>
+            <property name="margin-end">12</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton" id="button_apply">
+        <property name="visible">True</property>
+        <property name="can-default">True</property>
+        <property name="label" translatable="yes">Apply</property>
+        <style>
+          <class name="suggested-action"/>
+        </style>
+      </object>
+    </child>
+    <child type="action">
+      <object class="GtkButton" id="button_cancel">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Cancel</property>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="apply" default="true">button_apply</action-widget>
+      <action-widget response="cancel">button_cancel</action-widget>
+    </action-widgets>
+  </template>
+</interface>
