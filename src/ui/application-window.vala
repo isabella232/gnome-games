@@ -254,6 +254,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		display_box.runner = runner;
 		display_header_bar.media_set = runner.media_set;
 		display_box.header_bar.media_set = runner.media_set;
+		display_header_bar.controller_set = runner.controller_set;
+		display_box.header_bar.controller_set = runner.controller_set;
 
 		is_fullscreen = settings.get_boolean ("fullscreen") && runner.can_fullscreen;
 

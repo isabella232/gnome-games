@@ -6,6 +6,8 @@ private class Games.DisplayHeaderBar : Gtk.HeaderBar {
 
 	[GtkChild]
 	private MediaMenuButton media_button;
+	[GtkChild]
+	private Gtk.MenuButton controller_button;
 
 	public string game_title {
 		set { title = value; }
@@ -21,7 +23,15 @@ private class Games.DisplayHeaderBar : Gtk.HeaderBar {
 		}
 	}
 
+	public ControllerSet? controller_set {
+		set {
+			controller_popover.controller_set = value;
+			controller_button.visible = value != null;
+		}
+	}
+
 	private MediaSelector media_selector;
+	private ControllerPopover controller_popover;
 
 	[GtkChild]
 	private Gtk.Button fullscreen;
@@ -33,6 +43,10 @@ private class Games.DisplayHeaderBar : Gtk.HeaderBar {
 
 	construct {
 		settings = new Settings ("org.gnome.Games");
+
+		controller_popover = new ControllerPopover ();
+		controller_popover.set_relative_to (controller_button);
+		controller_button.set_popover (controller_popover);
 
 		media_selector = new MediaSelector ();
 		media_selector.set_relative_to (media_button);

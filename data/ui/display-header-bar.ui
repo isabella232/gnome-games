@@ -92,5 +92,30 @@
         <property name="pack-type">end</property>
       </packing>
     </child>
+    <child>
+      <object class="GtkMenuButton" id="controller_button">
+        <property name="visible">True</property>
+        <property name="valign">center</property>
+        <property name="use-underline">True</property>
+        <style>
+          <class name="image-button"/>
+        </style>
+        <child internal-child="accessible">
+          <object class="AtkObject" id="a11y-controller">
+            <property name="accessible-name" translatable="yes">controller</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkImage" id="controller_image">
+            <property name="visible">True</property>
+            <property name="icon-name">input-gaming-symbolic</property>
+            <property name="icon-size">1</property>
+          </object>
+        </child>
+      </object>
+      <packing>
+        <property name="pack-type">end</property>
+      </packing>
+    </child>
   </template>
 </interface>
