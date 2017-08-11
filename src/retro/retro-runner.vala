@@ -34,6 +34,10 @@ public class Games.RetroRunner : Object, Runner {
 		get { return _media_set; }
 	}
 
+	internal ControllerSet? controller_set {
+		get { return input_manager.controller_set; }
+	}
+
 	private Retro.Core core;
 	private Retro.CairoDisplay video;
 	private Retro.PaPlayer audio;

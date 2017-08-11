@@ -17,6 +17,10 @@ public class Games.CommandRunner : Object, Runner {
 		get { return null; }
 	}
 
+	internal ControllerSet? controller_set {
+		get { return null; }
+	}
+
 	private string[] args;
 	private bool watch_child;
 

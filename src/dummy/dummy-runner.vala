@@ -17,6 +17,10 @@ private class Games.DummyRunner : Object, Runner {
 		get { return null; }
 	}
 
+	internal ControllerSet? controller_set {
+		get { return null; }
+	}
+
 	public bool check_is_valid (out string error_message) throws Error {
 		return true;
 	}
