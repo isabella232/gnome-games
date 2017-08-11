@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.16"/>
+  <template class="GamesControllerPopover" parent="GtkPopover">
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <property name="margin-top">6</property>
+        <property name="margin-bottom">6</property>
+        <property name="margin-start">6</property>
+        <property name="margin-end">6</property>
+        <property name="margin">6</property>
+        <property name="spacing">12</property>
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkListBox" id="controllers_list_box">
+            <property name="visible">True</property>
+            <property name="selection_mode">none</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="reassign_button">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">Reassign</property>
+            <signal name="clicked" handler="on_reassign_clicked"/>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>
