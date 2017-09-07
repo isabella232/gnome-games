@@ -44,20 +44,15 @@
 
            We build them first, because some of them are very big, and they
            change more rarely than the rest of the modules. */
-        "libretro-cores/libretro-blastem.json",
         "libretro-cores/libretro-bsnes.json",
-        "libretro-cores/libretro-desmume.json",
-        "libretro-cores/libretro-dosbox.json",
         "libretro-cores/libretro-gambatte.json",
         "libretro-cores/libretro-handy.json",
         "libretro-cores/libretro-mednafen_ngp.json",
         "libretro-cores/libretro-mednafen_pce_fast.json",
-        "libretro-cores/libretro-mednafen_saturn.json",
         "libretro-cores/libretro-mednafen_wswan.json",
         "libretro-cores/libretro-mgba.json",
         "libretro-cores/libretro-nestopia.json",
         "libretro-cores/libretro-pcsx_rearmed.json",
-        "libretro-cores/libretro-prboom.json",
         "libretro-cores/libretro-prosystem.json",
         "libretro-cores/libretro-stella.json",
         /* End libretro cores */
