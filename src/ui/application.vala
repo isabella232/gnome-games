@@ -12,6 +12,8 @@ public class Games.Application : Gtk.Application {
 
 	private GameCollection game_collection;
 
+	private Manette.Monitor manette_monitor;
+
 	internal Application () {
 		Object (application_id: Config.APPLICATION_ID,
 		        flags: ApplicationFlags.HANDLES_OPEN);
@@ -34,6 +36,13 @@ public class Games.Application : Gtk.Application {
 		catch (Error e) {
 			debug (e.message);
 		}
+
+		manette_monitor = new Manette.Monitor ();
+		var manette_iterator = manette_monitor.iterate ();
+		Manette.Device manette_device = null;
+		while (manette_iterator.next (out manette_device))
+			on_device_connected (manette_device);
+		manette_monitor.device_connected.connect (on_device_connected);
 	}
 
 	private void add_actions () {
@@ -392,4 +401,21 @@ public class Games.Application : Gtk.Application {
 		return provider;
 	}
 
+	private void on_gamepad_button_press_event (Manette.Device device, Manette.Event event) {
+		window.gamepad_button_press_event (event);
+	}
+
+	private void on_gamepad_button_release_event (Manette.Event event) {
+		window.gamepad_button_release_event (event);
+	}
+
+	private void on_gamepad_absolute_axis_event (Manette.Event event) {
+		window.gamepad_absolute_axis_event (event);
+	}
+
+	private void on_device_connected (Manette.Device device) {
+		device.button_press_event.connect (on_gamepad_button_press_event);
+		device.button_release_event.connect (on_gamepad_button_release_event);
+		device.absolute_axis_event.connect (on_gamepad_absolute_axis_event);
+	}
 }
