@@ -88,6 +88,10 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private Cancellable run_game_cancellable;
 	private Cancellable quit_game_cancellable;
 
+	private ResumeDialog resume_dialog;
+	private ResumeFailedDialog resume_failed_dialog;
+	private QuitDialog quit_dialog;
+
 	private long window_size_update_timeout;
 	private long focus_out_timeout_id;
 
@@ -313,15 +317,20 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	private bool prompt_resume_with_cancellable (Cancellable cancellable) {
-		var dialog = new ResumeDialog ();
-		dialog.set_transient_for (this);
+		if (resume_dialog != null)
+			return false;
+
+		resume_dialog = new ResumeDialog ();
+		resume_dialog.set_transient_for (this);
 
 		cancellable.cancelled.connect (() => {
-			dialog.destroy ();
+			resume_dialog.destroy ();
+			resume_dialog = null;
 		});
 
-		var response = dialog.run ();
-		dialog.destroy ();
+		var response = resume_dialog.run ();
+		resume_dialog.destroy ();
+		resume_dialog = null;
 
 		if (cancellable.is_cancelled ())
 			response = Gtk.ResponseType.CANCEL;
@@ -349,15 +358,20 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	private void prompt_resume_fail_with_cancellable (Runner runner, Cancellable cancellable) {
-		var dialog = new ResumeFailedDialog ();
-		dialog.set_transient_for (this);
+		if (resume_failed_dialog != null)
+			return;
+
+		resume_failed_dialog = new ResumeFailedDialog ();
+		resume_failed_dialog.set_transient_for (this);
 
 		cancellable.cancelled.connect (() => {
-			dialog.destroy ();
+			resume_failed_dialog.destroy ();
+			resume_failed_dialog = null;
 		});
 
-		var response = dialog.run ();
-		dialog.destroy ();
+		var response = resume_failed_dialog.run ();
+		resume_failed_dialog.destroy ();
+		resume_failed_dialog = null;
 
 		if (cancellable.is_cancelled ())
 			response = Gtk.ResponseType.CANCEL;
@@ -386,15 +400,20 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (display_box.runner.can_quit_safely)
 			return true;
 
-		var dialog = new QuitDialog ();
-		dialog.set_transient_for (this);
+		if (quit_dialog != null)
+			return false;
+
+		quit_dialog = new QuitDialog ();
+		quit_dialog.set_transient_for (this);
 
 		cancellable.cancelled.connect (() => {
-			dialog.destroy ();
+			quit_dialog.destroy ();
+			quit_dialog = null;
 		});
 
-		var response = dialog.run ();
-		dialog.destroy ();
+		var response = quit_dialog.run ();
+		quit_dialog.destroy ();
+		quit_dialog = null;
 
 		if (cancellable.is_cancelled ())
 			return cancel_quitting_game ();
