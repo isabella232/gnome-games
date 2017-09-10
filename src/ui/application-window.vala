@@ -253,6 +253,58 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		return false;
 	}
 
+	public bool gamepad_button_press_event (Manette.Event event) {
+		switch (ui_state) {
+		case UiState.COLLECTION:
+			return collection_box.gamepad_button_press_event (event);
+		case UiState.DISPLAY:
+			if (resume_dialog != null)
+				return resume_dialog.gamepad_button_press_event (event);
+
+			if (resume_failed_dialog != null)
+				return resume_failed_dialog.gamepad_button_press_event (event);
+
+			if (quit_dialog != null)
+				return quit_dialog.gamepad_button_press_event (event);
+
+			if (!visible)
+				return false;
+
+			uint16 button;
+			if (!event.get_button (out button))
+				return false;
+
+			switch (button) {
+			case EventCode.BTN_MODE:
+				ui_state = UiState.COLLECTION;
+
+				return true;
+			default:
+				return false;
+			}
+		default:
+			return false;
+		}
+	}
+
+	public bool gamepad_button_release_event (Manette.Event event) {
+		switch (ui_state) {
+		case UiState.COLLECTION:
+			return collection_box.gamepad_button_release_event (event);
+		default:
+			return false;
+		}
+	}
+
+	public bool gamepad_absolute_axis_event (Manette.Event event) {
+		switch (ui_state) {
+		case UiState.COLLECTION:
+			return collection_box.gamepad_absolute_axis_event (event);
+		default:
+			return false;
+		}
+	}
+
 	[GtkCallback]
 	private void on_game_activated (Game game) {
 		run_game (game);
