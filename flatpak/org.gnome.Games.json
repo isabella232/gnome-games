@@ -52,6 +52,7 @@
         "libretro-cores/libretro-handy.json",
         "libretro-cores/libretro-mednafen_ngp.json",
         "libretro-cores/libretro-mednafen_pce_fast.json",
+        "libretro-cores/libretro-mednafen_saturn.json",
         "libretro-cores/libretro-mednafen_wswan.json",
         "libretro-cores/libretro-mgba.json",
         "libretro-cores/libretro-nestopia.json",
