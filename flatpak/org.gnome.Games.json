@@ -55,6 +55,7 @@
         "libretro-cores/libretro-mgba.json",
         "libretro-cores/libretro-nestopia.json",
         "libretro-cores/libretro-pcsx_rearmed.json",
+        "libretro-cores/libretro-stella.json",
         /* End libretro cores */
         "org.lua.modules.json",
         {
