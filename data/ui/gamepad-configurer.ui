@@ -37,7 +37,7 @@
         <child>
           <object class="GtkButton" id="reset_button">
             <property name="visible">True</property>
-            <property name="label" translatable="yes">Reset</property>
+            <property name="label" translatable="yes" context="Gamepad configuration factory reset">Reset</property>
             <signal name="clicked" handler="on_reset_clicked"/>
             <style>
               <class name="destructive-action"/>
