@@ -17,7 +17,7 @@
     <child type="action">
       <object class="GtkButton" id="button_reset">
         <property name="visible">True</property>
-        <property name="label" translatable="yes">Reset</property>
+        <property name="label" translatable="yes" context="Resuming a game failed dialog">Reset</property>
       </object>
     </child>
     <action-widgets>
