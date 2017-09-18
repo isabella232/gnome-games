@@ -9,9 +9,9 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-08-30 12:06+0000\n"
-"PO-Revision-Date: 2017-09-13 23:07+0200\n"
-"Last-Translator: Josef Andersson <l10nl18nsweja@gmail.com>\n"
+"POT-Creation-Date: 2017-09-18 08:28+0000\n"
+"PO-Revision-Date: 2017-09-19 01:08+0200\n"
+"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -175,8 +175,7 @@ msgstr ""
 "sökkällor."
 
 #: ../data/ui/gamepad-configurer.ui.h:1
-#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:4
-#: ../data/ui/resume-failed-dialog.ui.h:3
+msgctxt "Gamepad configuration factory reset"
 msgid "Reset"
 msgstr "Återställ"
 
@@ -261,6 +260,11 @@ msgstr "Fabriksåterställning av mappning för denna handkontroll?"
 msgid "Your mapping will be lost."
 msgstr "Dina mappningar kommer gå förlorade."
 
+#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:4
+msgctxt "Confirm gamepad configuration factory reset"
+msgid "Reset"
+msgstr "Återställ"
+
 #: ../data/ui/resume-dialog.ui.h:1
 msgid "Resume last game?"
 msgstr "Återuppta senaste spel?"
@@ -276,6 +280,11 @@ msgstr "Återuppta"
 #: ../data/ui/resume-failed-dialog.ui.h:1
 msgid "Resuming failed. Do you want to restart the game?"
 msgstr "Misslyckades med att återuppta. Vill du starta om spelet?"
+
+#: ../data/ui/resume-failed-dialog.ui.h:3
+msgctxt "Resuming a game failed dialog"
+msgid "Reset"
+msgstr "Återställ"
 
 #: ../plugins/desktop/src/desktop-plugin.vala:48
 #, c-format
