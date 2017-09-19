@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-08-07 19:52+0000\n"
-"PO-Revision-Date: 2017-08-31 19:12+0200\n"
+"POT-Creation-Date: 2017-09-18 08:28+0000\n"
+"PO-Revision-Date: 2017-09-19 14:57+0200\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.12\n"
+"X-Generator: Poedit 2.0.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
@@ -175,10 +175,9 @@ msgstr ""
 "Installa giochi o aggiungi cartelle contenenti giochi alle fonti di ricerca."
 
 #: ../data/ui/gamepad-configurer.ui.h:1
-#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:4
-#: ../data/ui/resume-failed-dialog.ui.h:3
+msgctxt "Gamepad configuration factory reset"
 msgid "Reset"
-msgstr "Azzera"
+msgstr "Ripristina"
 
 #: ../data/ui/gamepad-configurer.ui.h:2
 msgid "Configure"
@@ -199,7 +198,6 @@ msgid "Media"
 msgstr "Supporti"
 
 #: ../data/ui/preferences-page-controllers.ui.h:1
-#| msgid "Games"
 msgid "Gamepads"
 msgstr "Gamepad"
 
@@ -262,6 +260,11 @@ msgstr "Ripristinare il gamepad alle impostazioni di fabbrica?"
 msgid "Your mapping will be lost."
 msgstr "La mappatura personalizzata sarà persa."
 
+#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:4
+msgctxt "Confirm gamepad configuration factory reset"
+msgid "Reset"
+msgstr "Ripristina"
+
 #: ../data/ui/resume-dialog.ui.h:1
 msgid "Resume last game?"
 msgstr "Riprendere l'ultima partita?"
@@ -277,6 +280,11 @@ msgstr "Riprendi"
 #: ../data/ui/resume-failed-dialog.ui.h:1
 msgid "Resuming failed. Do you want to restart the game?"
 msgstr "Ripresa della partita non riuscita. Ricominciare?"
+
+#: ../data/ui/resume-failed-dialog.ui.h:3
+msgctxt "Resuming a game failed dialog"
+msgid "Reset"
+msgstr "Ripristina"
 
 #: ../plugins/desktop/src/desktop-plugin.vala:48
 #, c-format
@@ -339,7 +347,6 @@ msgstr "ID gioco MAME «%s» non valido per «%s»."
 
 #: ../plugins/playstation/src/playstation-header.vala:27
 #, c-format
-#| msgid "No game title found for disc ID “%s”."
 msgid "Not a PlayStation disc: “%s”."
 msgstr "Non è un disco PlayStation: «%s»."
 
@@ -539,7 +546,6 @@ msgid "Atari 7800"
 msgstr "Atari 7800"
 
 #: ../src/retro/retro-platform.vala:15
-#| msgid "Atari 2600"
 msgid "Atari Lynx"
 msgstr "Atari Lynx"
 
@@ -702,17 +708,17 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: ../src/retro/retro-runner.vala:248
+#: ../src/retro/retro-runner.vala:246
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nessun modulo trovato per «%s»."
 
-#: ../src/retro/retro-runner.vala:579
+#: ../src/retro/retro-runner.vala:577
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Il sistema «%s» non è ancora supportato, ma presto lo sarà."
 
-#: ../src/retro/retro-runner.vala:582
+#: ../src/retro/retro-runner.vala:580
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Il sistema non è ancora supportato, ma presto lo sarà."
 
