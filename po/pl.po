@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-11 17:08+0200\n"
-"PO-Revision-Date: 2017-08-11 17:09+0200\n"
+"POT-Creation-Date: 2017-09-20 02:11+0200\n"
+"PO-Revision-Date: 2017-09-20 02:12+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -179,8 +179,7 @@ msgstr ""
 "wyszukiwania."
 
 #: ../data/ui/gamepad-configurer.ui.h:1
-#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:4
-#: ../data/ui/resume-failed-dialog.ui.h:3
+msgctxt "Gamepad configuration factory reset"
 msgid "Reset"
 msgstr "Przywróć"
 
@@ -265,6 +264,11 @@ msgstr "Przywrócić ten kontroler do ustawień fabrycznych?"
 msgid "Your mapping will be lost."
 msgstr "Ustawienia przycisków zostaną utracone."
 
+#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:4
+msgctxt "Confirm gamepad configuration factory reset"
+msgid "Reset"
+msgstr "Przywróć"
+
 #: ../data/ui/resume-dialog.ui.h:1
 msgid "Resume last game?"
 msgstr "Wznowić ostatnią grę?"
@@ -280,6 +284,11 @@ msgstr "Wznów"
 #: ../data/ui/resume-failed-dialog.ui.h:1
 msgid "Resuming failed. Do you want to restart the game?"
 msgstr "Wznowienie się nie powiodło. Uruchomić grę ponownie?"
+
+#: ../data/ui/resume-failed-dialog.ui.h:3
+msgctxt "Resuming a game failed dialog"
+msgid "Reset"
+msgstr "Uruchom ponownie"
 
 #: ../plugins/desktop/src/desktop-plugin.vala:48
 #, c-format
@@ -703,17 +712,17 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: ../src/retro/retro-runner.vala:248
+#: ../src/retro/retro-runner.vala:246
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nie odnaleziono modułu dla „%s”."
 
-#: ../src/retro/retro-runner.vala:579
+#: ../src/retro/retro-runner.vala:577
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Konsola „%s” nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: ../src/retro/retro-runner.vala:582
+#: ../src/retro/retro-runner.vala:580
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Konsola nie jest jeszcze obsługiwana, ale jest w planach."
 
