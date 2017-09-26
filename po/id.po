@@ -5,12 +5,12 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-games master\n"
+"Project-Id-Version: gnome-games gnome-3-26\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-08-07 19:52+0000\n"
-"PO-Revision-Date: 2017-08-09 15:34+0700\n"
-"Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>\n"
+"POT-Creation-Date: 2017-09-18 08:28+0000\n"
+"PO-Revision-Date: 2017-09-26 13:39+0700\n"
+"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -57,7 +57,7 @@ msgstr "Fitur:"
 #: ../data/org.gnome.Games.appdata.xml.in.h:6
 msgid "List your installed games, your Steam games, your game ROMs…"
 msgstr ""
-"Daftar ermainan yang terpasang, permainan Steam Anda, ROM permainan Anda..."
+"Daftar permainan yang terpasang, permainan Steam Anda, ROM permainan Anda…"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:7
 msgid "Search in your games collection"
@@ -176,8 +176,7 @@ msgstr ""
 "sumber."
 
 #: ../data/ui/gamepad-configurer.ui.h:1
-#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:4
-#: ../data/ui/resume-failed-dialog.ui.h:3
+msgctxt "Gamepad configuration factory reset"
 msgid "Reset"
 msgstr "Atur Ulang"
 
@@ -248,7 +247,7 @@ msgstr "Gunakan jendela permainan sendiri untuk memainkannya"
 
 #: ../data/ui/remote-display.ui.h:2
 msgid "This game isn’t integrated to GNOME Games."
-msgstr "Permainan ini tidak terintegrasi dengan Permainan GNOME"
+msgstr "Permainan ini tidak terintegrasi dengan Permainan GNOME."
 
 #: ../data/ui/remote-display.ui.h:3
 msgid "You have to use its own window to play it."
@@ -260,7 +259,12 @@ msgstr "Atur ulang bawaan pabrik untuk gamepad ini?"
 
 #: ../data/ui/reset-gamepad-mapping-dialog.ui.h:2
 msgid "Your mapping will be lost."
-msgstr "Pemetaan Anda akan hilang"
+msgstr "Pemetaan Anda akan hilang."
+
+#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:4
+msgctxt "Confirm gamepad configuration factory reset"
+msgid "Reset"
+msgstr "Atur Ulang"
 
 #: ../data/ui/resume-dialog.ui.h:1
 msgid "Resume last game?"
@@ -277,6 +281,11 @@ msgstr "Lanjutkan"
 #: ../data/ui/resume-failed-dialog.ui.h:1
 msgid "Resuming failed. Do you want to restart the game?"
 msgstr "Gagal melanjutkan. Apakah Anda ingin memulai ulang permainan?"
+
+#: ../data/ui/resume-failed-dialog.ui.h:3
+msgctxt "Resuming a game failed dialog"
+msgid "Reset"
+msgstr "Mulai Ulang"
 
 #: ../plugins/desktop/src/desktop-plugin.vala:48
 #, c-format
@@ -701,17 +710,17 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: ../src/retro/retro-runner.vala:248
+#: ../src/retro/retro-runner.vala:246
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Tidak ada modul yang ditemukan untuk \"%s\"."
 
-#: ../src/retro/retro-runner.vala:579
+#: ../src/retro/retro-runner.vala:577
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Sistem \"%s\" tidak didukung, tapi dukungan penuh direncanakan."
 
-#: ../src/retro/retro-runner.vala:582
+#: ../src/retro/retro-runner.vala:580
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Sistem ini belum didukung, tetapi dukungan penuh direncanakan."
 
@@ -852,24 +861,3 @@ msgstr "%s:%lu: Akhir baris tidak terduga, diharapkan token."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: Token tidak terduga %s, diharapkan akhir baris."
-
-#~ msgid "No game file found for media “%s”."
-#~ msgstr "Tidak ada judul permainan yang ditemukan untuk media \"%s\"."
-
-#~ msgid "Invalid game file: “%s”."
-#~ msgstr "Berkas permainan tidak valid: “%s”."
-
-#~ msgid "The file doesn’t have a Master System header."
-#~ msgstr "Berkas tidak memiliki header Master System."
-
-#~ msgid "Disc with disc_id %s is unknown"
-#~ msgstr "Diska dengan disc_id %s tidak diketahui"
-
-#~ msgid ""
-#~ "<b><span size=\"large\">Use the game's own window to play it</span></b>"
-#~ msgstr ""
-#~ "<b><span size=\"large\">Gunakan jendela sendiri untuk memainkannya</"
-#~ "span></b>"
-
-#~ msgid "Main Menu"
-#~ msgstr "Menu Utama"
