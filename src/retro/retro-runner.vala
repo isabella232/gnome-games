@@ -36,8 +36,6 @@ public class Games.RetroRunner : Object, Runner {
 
 	private Retro.Core core;
 	private Retro.CoreView view;
-	private Retro.CairoDisplay video;
-	private Retro.PaPlayer audio;
 	private RetroInputManager input_manager;
 	private Retro.MainLoop loop;
 
@@ -61,7 +59,7 @@ public class Games.RetroRunner : Object, Runner {
 			if (running)
 				should_save = true;
 
-			video.sensitive = running;
+			view.sensitive = running;
 		}
 		get { return _running; }
 	}
@@ -189,11 +187,9 @@ public class Games.RetroRunner : Object, Runner {
 			return;
 
 		view = new Retro.CoreView ();
-		video = view.get_display ();
 		settings.changed["video-filter"].connect (on_video_filter_changed);
 		on_video_filter_changed ();
 
-		video.visible = true;
 		var present_analog_sticks = input_capabilities == null || input_capabilities.get_allow_analog_gamepads ();
 		input_manager = new RetroInputManager (view, present_analog_sticks);
 
@@ -220,9 +216,6 @@ public class Games.RetroRunner : Object, Runner {
 		core = null;
 		view.set_core (null);
 		view = null;
-		video = null;
-		audio.set_core (null);
-		audio = null;
 		input_manager = null;
 		loop = null;
 
@@ -235,7 +228,7 @@ public class Games.RetroRunner : Object, Runner {
 	private void on_video_filter_changed () {
 		var filter_name = settings.get_string ("video-filter");
 		var filter = Retro.VideoFilter.from_string (filter_name);
-		video.set_filter (filter);
+		view.set_filter (filter);
 	}
 
 	private void prepare_core () throws Error {
@@ -250,7 +243,6 @@ public class Games.RetroRunner : Object, Runner {
 		else
 			module_path = core_source.get_module_path ();
 		core = new Retro.Core (module_path);
-		audio = new Retro.PaPlayer ();
 
 		if (core_source != null) {
 			var platforms_dir = Application.get_platforms_dir ();
@@ -264,7 +256,6 @@ public class Games.RetroRunner : Object, Runner {
 
 		core.log.connect (Retro.g_log);
 		view.set_core (core);
-		audio.set_core (core);
 		core.input_interface = input_manager;
 		core.rumble_interface = input_manager;
 
@@ -508,7 +499,7 @@ public class Games.RetroRunner : Object, Runner {
 		if (!core.supports_serialization ())
 			return;
 
-		var pixbuf = video.pixbuf;
+		var pixbuf = view.pixbuf;
 		if (pixbuf == null)
 			return;
 
@@ -547,7 +538,7 @@ public class Games.RetroRunner : Object, Runner {
 			return;
 
 		var pixbuf = new Gdk.Pixbuf.from_file (screenshot_path);
-		video.pixbuf = pixbuf;
+		view.pixbuf = pixbuf;
 	}
 
 	private bool on_shutdown () {
