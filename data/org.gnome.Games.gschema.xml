@@ -3,7 +3,7 @@
     <value nick="smooth" value="0"/>
     <value nick="sharp" value="1"/>
   </enum>
-  <schema path="/org/gnome/Games/" id="org.gnome.Games">
+  <schema path="/org/gnome/Games/" id="org.gnome.Games" gettext-domain="gnome-games">
     <key name='fullscreen' type='b'>
       <default>false</default>
       <summary>Fullscreen</summary>
