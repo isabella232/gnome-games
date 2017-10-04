@@ -129,8 +129,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/retro-gtk/0.12/retro-gtk-0.12.0.tar.xz",
-                    "sha256": "10e2df86eb5797444103d95af989b7b5fcc52d664bb5f3adba77b8961afe8eb6"
+                    "url": "https://download.gnome.org/sources/retro-gtk/0.12/retro-gtk-0.12.1.tar.xz",
+                    "sha256": "daadab43c8189d92be5832e2cfbf1afdfa6ad3201933cc946a2d6761bfd5b166"
                 }
             ]
         },
@@ -140,8 +140,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://download.gnome.org/sources/gnome-games/3.26/gnome-games-3.26.0.tar.xz",
-                    "sha256": "220a29c99afdea7ce6707efec2db955156fbd34aee36c84890c356fde0fc59d2"
+                    "url": "https://download.gnome.org/sources/gnome-games/3.26/gnome-games-3.26.1.1.tar.xz",
+                    "sha256": "d28415000c92edee86f9a5cd97759a81c3a4a243f37addaed8c3e227e0b478e4"
                 }
             ]
         }
