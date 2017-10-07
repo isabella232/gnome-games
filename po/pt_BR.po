@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-09-11 12:14+0000\n"
-"PO-Revision-Date: 2017-06-25 12:13-0200\n"
+"POT-Creation-Date: 2017-09-18 08:28+0000\n"
+"PO-Revision-Date: 2017-10-07 03:59-0200\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
@@ -178,10 +178,10 @@ msgstr ""
 "pesquisa."
 
 #: ../data/ui/gamepad-configurer.ui.h:1
-#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:4
-#: ../data/ui/resume-failed-dialog.ui.h:3
+#| msgid "Reset"
+msgctxt "Gamepad configuration factory reset"
 msgid "Reset"
-msgstr "Reiniciar"
+msgstr "Redefinir"
 
 #: ../data/ui/gamepad-configurer.ui.h:2
 msgid "Configure"
@@ -264,6 +264,12 @@ msgstr "Redefinir mapeamento deste gamepad?"
 msgid "Your mapping will be lost."
 msgstr "Seu mapeamento será perdido."
 
+#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:4
+#| msgid "Reset"
+msgctxt "Confirm gamepad configuration factory reset"
+msgid "Reset"
+msgstr "Redefinir"
+
 #: ../data/ui/resume-dialog.ui.h:1
 msgid "Resume last game?"
 msgstr "Continuar último jogo?"
@@ -279,6 +285,12 @@ msgstr "Continuar"
 #: ../data/ui/resume-failed-dialog.ui.h:1
 msgid "Resuming failed. Do you want to restart the game?"
 msgstr "Falha ao continuar. Você deseja reiniciar o jogo?"
+
+#: ../data/ui/resume-failed-dialog.ui.h:3
+#| msgid "Reset"
+msgctxt "Resuming a game failed dialog"
+msgid "Reset"
+msgstr "Reiniciar"
 
 #: ../plugins/desktop/src/desktop-plugin.vala:48
 #, c-format
