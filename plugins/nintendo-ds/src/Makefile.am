@@ -20,6 +20,7 @@ libgames_nintendo_ds_plugin_la_VALAFLAGS = \
 libgames_nintendo_ds_plugin_la_CFLAGS = \
 	$(NINTENDO_DS_PLUGIN_CFLAGS) \
 	$(GNOME_GAMES_CFLAGS) \
+	-DRETRO_GTK_USE_UNSTABLE_API \
 	-DG_LOG_DOMAIN=\"GamesNintendoDS\" \
 	-DLOCALEDIR=\"$(localedir)\" \
 	$(NULL)

@@ -25,6 +25,7 @@ libgames_steam_plugin_la_VALAFLAGS = \
 libgames_steam_plugin_la_CFLAGS = \
 	$(STEAM_PLUGIN_CFLAGS) \
 	$(GNOME_GAMES_CFLAGS) \
+	-DRETRO_GTK_USE_UNSTABLE_API \
 	-DG_LOG_DOMAIN=\"GamesSteam\" \
 	-DLOCALEDIR=\"$(localedir)\" \
 	$(NULL)

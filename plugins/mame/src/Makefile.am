@@ -46,6 +46,7 @@ libgames_mame_plugin_la_VALAFLAGS = \
 libgames_mame_plugin_la_CFLAGS = \
 	$(MAME_PLUGIN_CFLAGS) \
 	$(GNOME_GAMES_CFLAGS) \
+	-DRETRO_GTK_USE_UNSTABLE_API \
 	-DG_LOG_DOMAIN=\"GamesMAME\" \
 	-DLOCALEDIR=\"$(localedir)\" \
 	$(NULL)

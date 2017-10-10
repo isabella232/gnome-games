@@ -20,6 +20,7 @@ libgames_game_cube_plugin_la_VALAFLAGS = \
 libgames_game_cube_plugin_la_CFLAGS = \
 	$(GAME_CUBE_PLUGIN_CFLAGS) \
 	$(GNOME_GAMES_CFLAGS) \
+	-DRETRO_GTK_USE_UNSTABLE_API \
 	-DG_LOG_DOMAIN=\"GamesGameCube\" \
 	-DLOCALEDIR=\"$(localedir)\" \
 	$(NULL)

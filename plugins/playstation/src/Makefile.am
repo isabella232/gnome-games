@@ -57,6 +57,7 @@ libgames_playstation_plugin_la_VALAFLAGS = \
 libgames_playstation_plugin_la_CFLAGS = \
 	$(PLAYSTATION_PLUGIN_CFLAGS) \
 	$(GNOME_GAMES_CFLAGS) \
+	-DRETRO_GTK_USE_UNSTABLE_API \
 	-DG_LOG_DOMAIN=\"GamesPlayStation\" \
 	-DLOCALEDIR=\"$(localedir)\" \
 	$(NULL)

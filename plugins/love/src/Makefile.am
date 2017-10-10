@@ -23,6 +23,7 @@ libgames_love_plugin_la_VALAFLAGS = \
 libgames_love_plugin_la_CFLAGS = \
 	$(LOVE_PLUGIN_CFLAGS) \
 	$(GNOME_GAMES_CFLAGS) \
+	-DRETRO_GTK_USE_UNSTABLE_API \
 	-DG_LOG_DOMAIN=\"GamesLove\" \
 	-DLOCALEDIR=\"$(localedir)\" \
 	$(NULL)

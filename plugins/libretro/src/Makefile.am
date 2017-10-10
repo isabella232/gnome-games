@@ -24,6 +24,7 @@ libgames_libretro_plugin_la_VALAFLAGS = \
 libgames_libretro_plugin_la_CFLAGS = \
 	$(LIBRETRO_PLUGIN_CFLAGS) \
 	$(GNOME_GAMES_CFLAGS) \
+	-DRETRO_GTK_USE_UNSTABLE_API \
 	-DG_LOG_DOMAIN=\"GamesLibretro\" \
 	-DLOCALEDIR=\"$(localedir)\" \
 	$(NULL)

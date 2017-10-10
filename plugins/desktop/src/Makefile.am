@@ -48,6 +48,7 @@ libgames_desktop_plugin_la_VALAFLAGS = \
 libgames_desktop_plugin_la_CFLAGS = \
 	$(DESKTOP_PLUGIN_CFLAGS) \
 	$(GNOME_GAMES_CFLAGS) \
+	-DRETRO_GTK_USE_UNSTABLE_API \
 	-DG_LOG_DOMAIN=\"GamesDesktop\" \
 	-DLOCALEDIR=\"$(localedir)\" \
 	$(NULL)
