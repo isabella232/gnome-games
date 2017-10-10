@@ -37,7 +37,7 @@ public class Games.RetroCoreSource : Object {
 			throw new RetroError.MODULE_NOT_FOUND (_("No module found for platform “%s” and MIME types [ “%s” ]."), platform, string.joinv (_("”, “"), mime_types));
 
 		if (core_descriptor.has_firmwares (platform))
-			foreach (var firmware in core_descriptor.get_firmwares (platform))
+			foreach (var firmware in core_descriptor_get_firmwares (core_descriptor, platform))
 				check_firmware_is_valid (firmware);
 	}
 
@@ -99,4 +99,9 @@ public class Games.RetroCoreSource : Object {
 				throw new RetroError.FIRMWARE_NOT_FOUND (_("This game requires the %s firmware file with a SHA-512 fingerprint of %s to run."), firmware_file.get_path (), sha512);
 		}
 	}
+
+	// FIXME Workaround a bug in valac or vapigen preventing from using the
+	// version from the retro-gtk VAPI.
+	[CCode (cname="retro_core_descriptor_get_firmwares", array_length=true, array_length_cname="length", array_length_type="gsize")]
+	private static extern string[] core_descriptor_get_firmwares (Retro.CoreDescriptor core_descriptor, string platform) throws Error;
 }

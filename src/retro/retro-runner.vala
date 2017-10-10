@@ -190,10 +190,10 @@ public class Games.RetroRunner : Object, Runner {
 		settings.changed["video-filter"].connect (on_video_filter_changed);
 		on_video_filter_changed ();
 
-		var present_analog_sticks = input_capabilities == null || input_capabilities.get_allow_analog_gamepads ();
-		input_manager = new RetroInputManager (view, present_analog_sticks);
-
 		prepare_core ();
+
+		var present_analog_sticks = input_capabilities == null || input_capabilities.get_allow_analog_gamepads ();
+		input_manager = new RetroInputManager (core, view, present_analog_sticks);
 
 		core.shutdown.connect (on_shutdown);
 
@@ -256,8 +256,6 @@ public class Games.RetroRunner : Object, Runner {
 
 		core.log.connect (Retro.g_log);
 		view.set_core (core);
-		core.input_interface = input_manager;
-		core.rumble_interface = input_manager;
 
 		string[] medias_uris = {};
 		media_set.foreach_media ((media) => {
@@ -266,9 +264,7 @@ public class Games.RetroRunner : Object, Runner {
 		});
 
 		core.set_medias (medias_uris);
-
-		core.init ();
-
+		core.boot ();
 		core.set_current_media (media_set.selected_media_number);
 	}
 
@@ -428,7 +424,7 @@ public class Games.RetroRunner : Object, Runner {
 		if (!core.supports_serialization ())
 			return;
 
-		var buffer = core.serialize_state ();
+		var buffer = core.get_state ();
 
 		var dir = Application.get_snapshots_dir ();
 		try_make_dir (dir);
@@ -450,7 +446,7 @@ public class Games.RetroRunner : Object, Runner {
 		uint8[] data = null;
 		FileUtils.get_data (snapshot_path, out data);
 
-		core.deserialize_state (data);
+		core.set_state (data);
 	}
 
 	private void save_media_data () throws Error {
