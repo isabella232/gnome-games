@@ -20,7 +20,7 @@ libgames_wii_plugin_la_VALAFLAGS = \
 libgames_wii_plugin_la_CFLAGS = \
 	$(WII_PLUGIN_CFLAGS) \
 	$(GNOME_GAMES_CFLAGS) \
-	-DG_LOG_DOMAIN=\"GamesDesktop\" \
+	-DG_LOG_DOMAIN=\"GamesWii\" \
 	-DLOCALEDIR=\"$(localedir)\" \
 	$(NULL)
 

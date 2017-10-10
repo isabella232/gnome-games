@@ -20,7 +20,7 @@ libgames_dreamcast_plugin_la_VALAFLAGS = \
 libgames_dreamcast_plugin_la_CFLAGS = \
 	$(DREAMCAST_PLUGIN_CFLAGS) \
 	$(GNOME_GAMES_CFLAGS) \
-	-DG_LOG_DOMAIN=\"GamesDesktop\" \
+	-DG_LOG_DOMAIN=\"GamesDreamcast\" \
 	-DLOCALEDIR=\"$(localedir)\" \
 	$(NULL)
 

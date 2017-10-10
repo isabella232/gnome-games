@@ -23,7 +23,7 @@ libgames_love_plugin_la_VALAFLAGS = \
 libgames_love_plugin_la_CFLAGS = \
 	$(LOVE_PLUGIN_CFLAGS) \
 	$(GNOME_GAMES_CFLAGS) \
-	-DG_LOG_DOMAIN=\"GamesDesktop\" \
+	-DG_LOG_DOMAIN=\"GamesLove\" \
 	-DLOCALEDIR=\"$(localedir)\" \
 	$(NULL)
 

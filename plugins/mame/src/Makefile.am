@@ -46,7 +46,7 @@ libgames_mame_plugin_la_VALAFLAGS = \
 libgames_mame_plugin_la_CFLAGS = \
 	$(MAME_PLUGIN_CFLAGS) \
 	$(GNOME_GAMES_CFLAGS) \
-	-DG_LOG_DOMAIN=\"GamesMame\" \
+	-DG_LOG_DOMAIN=\"GamesMAME\" \
 	-DLOCALEDIR=\"$(localedir)\" \
 	$(NULL)
 

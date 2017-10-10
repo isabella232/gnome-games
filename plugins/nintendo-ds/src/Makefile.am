@@ -20,7 +20,7 @@ libgames_nintendo_ds_plugin_la_VALAFLAGS = \
 libgames_nintendo_ds_plugin_la_CFLAGS = \
 	$(NINTENDO_DS_PLUGIN_CFLAGS) \
 	$(GNOME_GAMES_CFLAGS) \
-	-DG_LOG_DOMAIN=\"GamesDesktop\" \
+	-DG_LOG_DOMAIN=\"GamesNintendoDS\" \
 	-DLOCALEDIR=\"$(localedir)\" \
 	$(NULL)
 

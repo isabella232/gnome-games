@@ -21,7 +21,7 @@ libgames_sega_saturn_plugin_la_VALAFLAGS = \
 libgames_sega_saturn_plugin_la_CFLAGS = \
 	$(SEGA_SATURN_PLUGIN_CFLAGS) \
 	$(GNOME_GAMES_CFLAGS) \
-	-DG_LOG_DOMAIN=\"GamesDesktop\" \
+	-DG_LOG_DOMAIN=\"GamesSegaSaturn\" \
 	-DLOCALEDIR=\"$(localedir)\" \
 	$(NULL)
 
