@@ -13,7 +13,7 @@ public class Games.RetroRunner : Object, Runner {
 		get {
 			try {
 				init ();
-				if (!core.supports_serialization ())
+				if (!core.get_can_access_state ())
 					return false;
 
 				var snapshot_path = get_snapshot_path ();
@@ -349,7 +349,7 @@ public class Games.RetroRunner : Object, Runner {
 		if (media_set.get_size () > 1)
 			save_media_data ();
 
-		if (!core.supports_serialization ())
+		if (!core.get_can_access_state ())
 			return;
 
 		save_snapshot ();
@@ -381,7 +381,8 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private void save_ram () throws Error{
-		var save = core.get_memory (Retro.MemoryType.SAVE_RAM);
+		var bytes = core.get_memory (Retro.MemoryType.SAVE_RAM);
+		var save = bytes.get_data ();
 		if (save.length == 0)
 			return;
 
@@ -406,7 +407,8 @@ public class Games.RetroRunner : Object, Runner {
 		if (data.length != expected_size)
 			warning ("Unexpected RAM data size: got %lu, expected %lu\n", data.length, expected_size);
 
-		core.set_memory (Retro.MemoryType.SAVE_RAM, data);
+		var bytes = new Bytes.take (data);
+		core.set_memory (Retro.MemoryType.SAVE_RAM, bytes);
 	}
 
 	private string get_snapshot_path () throws Error {
@@ -421,10 +423,11 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private void save_snapshot () throws Error {
-		if (!core.supports_serialization ())
+		if (!core.get_can_access_state ())
 			return;
 
-		var buffer = core.get_state ();
+		var bytes = core.get_state ();
+		var buffer = bytes.get_data ();
 
 		var dir = Application.get_snapshots_dir ();
 		try_make_dir (dir);
@@ -435,7 +438,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private void load_snapshot () throws Error {
-		if (!core.supports_serialization ())
+		if (!core.get_can_access_state ())
 			return;
 
 		var snapshot_path = get_snapshot_path ();
@@ -446,7 +449,8 @@ public class Games.RetroRunner : Object, Runner {
 		uint8[] data = null;
 		FileUtils.get_data (snapshot_path, out data);
 
-		core.set_state (data);
+		var bytes = new Bytes.take (data);
+		core.set_state (bytes);
 	}
 
 	private void save_media_data () throws Error {
@@ -492,7 +496,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private void save_screenshot () throws Error {
-		if (!core.supports_serialization ())
+		if (!core.get_can_access_state ())
 			return;
 
 		var pixbuf = view.pixbuf;
@@ -525,7 +529,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private void load_screenshot () throws Error {
-		if (!core.supports_serialization ())
+		if (!core.get_can_access_state ())
 			return;
 
 		var screenshot_path = get_screenshot_path ();

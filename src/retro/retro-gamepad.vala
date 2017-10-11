@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-private class Games.RetroGamepad: Object, Retro.InputDevice {
+private class Games.RetroGamepad: Object, Retro.Controller {
 	public Gamepad gamepad { get; construct; }
 	public bool present_analog_sticks { get; construct; }
 
@@ -22,26 +22,26 @@ private class Games.RetroGamepad: Object, Retro.InputDevice {
 
 	public void poll () {}
 
-	public int16 get_input_state (Retro.DeviceType device, uint index, uint id) {
-		switch (device) {
-		case Retro.DeviceType.JOYPAD:
+	public int16 get_input_state (Retro.ControllerType controller_type, uint index, uint id) {
+		switch (controller_type) {
+		case Retro.ControllerType.JOYPAD:
 			return get_button_pressed ((Retro.JoypadId) id) ? int16.MAX : 0;
-		case Retro.DeviceType.ANALOG:
+		case Retro.ControllerType.ANALOG:
 			return get_analog_value ((Retro.AnalogIndex) index, (Retro.AnalogId) id);
 		default:
 			return 0;
 		}
 	}
 
-	public Retro.DeviceType get_device_type () {
+	public Retro.ControllerType get_controller_type () {
 		if (present_analog_sticks)
-			return Retro.DeviceType.ANALOG;
+			return Retro.ControllerType.ANALOG;
 
-		return Retro.DeviceType.JOYPAD;
+		return Retro.ControllerType.JOYPAD;
 	}
 
-	public uint64 get_device_capabilities () {
-		return (1 << Retro.DeviceType.JOYPAD) | (1 << Retro.DeviceType.ANALOG);
+	public uint64 get_capabilities () {
+		return (1 << Retro.ControllerType.JOYPAD) | (1 << Retro.ControllerType.ANALOG);
 	}
 
 	public bool get_button_pressed (Retro.JoypadId button) {
