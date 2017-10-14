@@ -1,4 +1,4 @@
-AC_INIT([gnome-games], [3.26.0])
+AC_INIT([gnome-games], [3.27.1])
 AM_INIT_AUTOMAKE([foreign subdir-objects tar-ustar no-dist-gzip dist-xz])
 
 # i18 support
@@ -44,7 +44,7 @@ PKG_CHECK_MODULES(GNOME_GAMES, [
 	librsvg-2.0
 	libsoup-2.4
 	libxml-2.0
-	retro-gtk-0.12
+	retro-gtk-0.14
 	sqlite3
 	tracker-sparql-2.0
 ])

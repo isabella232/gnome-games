@@ -220,7 +220,7 @@ gnome_games_VALAFLAGS = \
 	--pkg libxml-2.0 \
 	--pkg sqlite3 \
 	--pkg tracker-sparql-2.0 \
-	--pkg retro-gtk-0.12 \
+	--pkg retro-gtk-0.14 \
 	--pkg linux \
 	--pkg posix \
 	--pkg event \

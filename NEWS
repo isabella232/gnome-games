@@ -1,4 +1,32 @@
 ==============
+Version 3.27.1
+==============
+
+* Adapt to API changes in retro-gtk 0.13.1.
+
+* Properly define the log domains of the plugins.
+
+* Fix the gettext domain of the gschema.
+
+* Bump retro-gtk to 0.14.
+
+* Bugs fixed:
+ 783036 Many plugins shouldn't use the GamesDesktop log domain
+ 787729 Add translation context to "Reset" string
+
+* Translation updates:
+ Brazilian Portuguese
+ Croatian
+ Czech
+ German
+ Hungarian
+ Indonesian
+ Italian
+ Polish
+ Spanish
+ Swedish
+
+==============
 Version 3.26.0
 ==============
 
