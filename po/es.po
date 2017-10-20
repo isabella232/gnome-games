@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-09-11 12:14+0000\n"
-"PO-Revision-Date: 2017-09-12 16:41+0200\n"
+"POT-Creation-Date: 2017-09-18 08:28+0000\n"
+"PO-Revision-Date: 2017-10-20 09:49+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: es <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -179,10 +179,10 @@ msgstr ""
 "búsqueda."
 
 #: ../data/ui/gamepad-configurer.ui.h:1
-#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:4
-#: ../data/ui/resume-failed-dialog.ui.h:3
+#| msgid "Reset"
+msgctxt "Gamepad configuration factory reset"
 msgid "Reset"
-msgstr "Reiniciar"
+msgstr "Restablecer"
 
 #: ../data/ui/gamepad-configurer.ui.h:2
 msgid "Configure"
@@ -203,7 +203,6 @@ msgid "Media"
 msgstr "Soporte"
 
 #: ../data/ui/preferences-page-controllers.ui.h:1
-#| msgid "Games"
 msgid "Gamepads"
 msgstr "Mandos"
 
@@ -263,9 +262,14 @@ msgid "Factory reset mapping for this gamepad?"
 msgstr "¿Restaurar el mapeado de fábrica de este mando?"
 
 #: ../data/ui/reset-gamepad-mapping-dialog.ui.h:2
-#| msgid "All unsaved progress will be lost."
 msgid "Your mapping will be lost."
 msgstr "El mapa se perderá."
+
+#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:4
+#| msgid "Reset"
+msgctxt "Confirm gamepad configuration factory reset"
+msgid "Reset"
+msgstr "Restablecer"
 
 #: ../data/ui/resume-dialog.ui.h:1
 msgid "Resume last game?"
@@ -282,6 +286,12 @@ msgstr "Reanudar"
 #: ../data/ui/resume-failed-dialog.ui.h:1
 msgid "Resuming failed. Do you want to restart the game?"
 msgstr "Falló al reanudar. ¿Quiere reiniciar el juego?"
+
+#: ../data/ui/resume-failed-dialog.ui.h:3
+#| msgid "Reset"
+msgctxt "Resuming a game failed dialog"
+msgid "Reset"
+msgstr "Reiniciar"
 
 #: ../plugins/desktop/src/desktop-plugin.vala:48
 #, c-format
