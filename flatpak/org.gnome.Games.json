@@ -63,26 +63,9 @@
 
            We build them first, because some of them are very big, and they
            change more rarely than the rest of the modules. */
-        "libretro-cores/libretro-blastem.json",
-        "libretro-cores/libretro-bsnes.json",
-        "libretro-cores/libretro-desmume2015.json",
-        "libretro-cores/libretro-dosbox.json",
-        "libretro-cores/libretro-gambatte.json",
-        "libretro-cores/libretro-gearsystem.json",
-        "libretro-cores/libretro-handy.json",
-        "libretro-cores/libretro-mednafen_ngp.json",
-        "libretro-cores/libretro-mednafen_pce_fast.json",
-        "libretro-cores/libretro-mednafen_saturn.json",
-        "libretro-cores/libretro-mednafen_vb.json",
-        "libretro-cores/libretro-mednafen_wswan.json",
-        "libretro-cores/libretro-mgba.json",
-        "libretro-cores/libretro-nestopia.json",
-        "libretro-cores/libretro-pcsx_rearmed.json",
-        "libretro-cores/libretro-prboom.json",
-        "libretro-cores/libretro-prosystem.json",
-        "libretro-cores/libretro-stella.json",
         /* End libretro cores */
         "org.lua.modules.json",
+        "org.lua.luaposix.json",
         {
             "name" : "tracker",
             "config-opts" : [
@@ -198,6 +181,23 @@
                 {
                     "type" : "git",
                     "url" : "https://gitlab.gnome.org/GNOME/retro-gtk.git"
+                }
+            ]
+        },
+        {
+            "name": "flatpak-games",
+            "no-autogen": true,
+            "buildsystem": "simple",
+            "build-commands": [
+                "make check",
+                "install -m755 -p game-to-flatpak /app/bin/",
+                "mkdir -p /app/bin/lib",
+                "install -m644 -p lib/*.lua /app/bin/lib"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/hadess/flatpak-games.git"
                 }
             ]
         },

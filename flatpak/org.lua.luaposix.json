@@ -1,0 +1,13 @@
+{
+    "name": "luaposix",
+    "no-autogen": true,
+    "buildsystem": "simple",
+    "build-commands": [ "build-aux/luke" ],
+    "sources": [
+        {
+            "type": "archive",
+            "url": "https://github.com/luaposix/luaposix/archive/v34.0.1.tar.gz",
+            "sha256": "43e7fb1fa4a8b905dd256703aa62116937be72d07d3a46b66a8e9b2264921129"
+        }
+    ]
+}
