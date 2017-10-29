@@ -22,12 +22,21 @@ private class Games.RetroGamepad: Object, Retro.Controller {
 
 	public void poll () {}
 
-	public int16 get_input_state (Retro.ControllerType controller_type, uint index, uint id) {
-		switch (controller_type) {
+	public int16 get_input_state (Retro.Input input) {
+		switch (input.get_controller_type ()) {
 		case Retro.ControllerType.JOYPAD:
-			return get_button_pressed ((Retro.JoypadId) id) ? int16.MAX : 0;
+			Retro.JoypadId id;
+			if (!input.get_joypad (out id))
+				return 0;
+
+			return get_button_pressed (id) ? int16.MAX : 0;
 		case Retro.ControllerType.ANALOG:
-			return get_analog_value ((Retro.AnalogIndex) index, (Retro.AnalogId) id);
+			Retro.AnalogId id;
+			Retro.AnalogIndex index;
+			if (!input.get_analog (out id, out index))
+				return 0;
+
+			return get_analog_value (index, id);
 		default:
 			return 0;
 		}
@@ -44,7 +53,7 @@ private class Games.RetroGamepad: Object, Retro.Controller {
 		return (1 << Retro.ControllerType.JOYPAD) | (1 << Retro.ControllerType.ANALOG);
 	}
 
-	public bool get_button_pressed (Retro.JoypadId button) {
+	private bool get_button_pressed (Retro.JoypadId button) {
 		switch (button) {
 		case Retro.JoypadId.B:
 			return buttons[EventCode.BTN_A];
@@ -83,7 +92,7 @@ private class Games.RetroGamepad: Object, Retro.Controller {
 		}
 	}
 
-	public int16 get_analog_value (Retro.AnalogIndex index, Retro.AnalogId id) {
+	private int16 get_analog_value (Retro.AnalogIndex index, Retro.AnalogId id) {
 		switch (index) {
 		case Retro.AnalogIndex.LEFT:
 			switch (id) {
