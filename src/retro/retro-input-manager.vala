@@ -18,9 +18,9 @@ private class Games.RetroInputManager : Object {
 		var default_joypad = view.as_controller (Retro.ControllerType.JOYPAD);
 		var default_mouse = view.as_controller (Retro.ControllerType.MOUSE);
 		var default_pointer = view.as_controller (Retro.ControllerType.POINTER);
-		core.set_default_controller (port, default_joypad);
-		core.set_default_controller (port, default_mouse);
-		core.set_default_controller (port, default_pointer);
+		core.set_default_controller (default_joypad);
+		core.set_default_controller (default_mouse);
+		core.set_default_controller (default_pointer);
 
 		gamepad_monitor = GamepadMonitor.get_instance ();
 		gamepad_monitor.foreach_gamepad ((gamepad) => {
