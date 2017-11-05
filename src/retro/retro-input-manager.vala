@@ -71,7 +71,6 @@ private class Games.RetroInputManager : Object {
 			// Remove the controller and shift the CoreView's joypad to
 			// "lesser" port.
 			controllers[core_view_joypad_port] = null;
-			core.remove_controller (core_view_joypad_port);
 			core_view_joypad_port = port;
 			controllers[core_view_joypad_port] = core_view_joypad;
 			core.set_controller (core_view_joypad_port, core_view_joypad);
@@ -80,7 +79,7 @@ private class Games.RetroInputManager : Object {
 			// Just remove the controller as no need to shift the
 			// CoreView's joypad.
 			controllers[port] = null;
-			core.remove_controller (port);
+			core.set_controller (port, null);
 		}
 	}
 }
