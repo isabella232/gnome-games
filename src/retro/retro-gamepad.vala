@@ -1,23 +1,23 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.RetroGamepad: Object, Retro.Controller {
-	public Gamepad gamepad { get; construct; }
+	public Manette.Device device { get; construct; }
 	public bool present_analog_sticks { get; construct; }
 
 	private bool[] buttons;
 	private int16[] axes;
 
-	public RetroGamepad (Gamepad gamepad, bool present_analog_sticks) {
-		Object (gamepad: gamepad, present_analog_sticks: present_analog_sticks);
+	public RetroGamepad (Manette.Device device, bool present_analog_sticks) {
+		Object (device: device, present_analog_sticks: present_analog_sticks);
 	}
 
 	construct {
 		buttons = new bool[EventCode.KEY_MAX + 1];
 		axes = new int16[EventCode.ABS_MAX + 1];
 
-		gamepad.button_press_event.connect ((event) => buttons[event.gamepad_button.button] = true);
-		gamepad.button_release_event.connect ((event) => buttons[event.gamepad_button.button] = false);
-		gamepad.axis_event.connect ((event) => axes[event.gamepad_axis.axis] = (int16) (event.gamepad_axis.value * int16.MAX));
+		device.button_press_event.connect (on_button_press_event);
+		device.button_release_event.connect (on_button_release_event);
+		device.absolute_axis_event.connect (on_absolute_axis_event);
 	}
 
 	public void poll () {}
@@ -115,5 +115,27 @@ private class Games.RetroGamepad: Object, Retro.Controller {
 		default:
 			return 0;
 		}
+	}
+
+	private void on_button_press_event (Manette.Event event) {
+		uint16 button;
+
+		if (event.get_button (out button))
+			buttons[button] = true;
+	}
+
+	private void on_button_release_event (Manette.Event event) {
+		uint16 button;
+
+		if (event.get_button (out button))
+			buttons[button] = false;
+	}
+
+	private void on_absolute_axis_event (Manette.Event event) {
+		uint16 axis;
+		double value;
+
+		if (event.get_absolute (out axis, out value))
+			axes[axis] = (int16) (value * int16.MAX);
 	}
 }

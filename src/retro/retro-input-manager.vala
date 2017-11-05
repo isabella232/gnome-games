@@ -3,7 +3,7 @@
 private class Games.RetroInputManager : Object {
 	private Retro.Core core;
 	private Retro.Controller core_view_joypad;
-	private GamepadMonitor gamepad_monitor;
+	private Manette.Monitor monitor;
 	private Retro.Controller?[] controllers;
 	private int core_view_joypad_port;
 	private bool present_analog_sticks;
@@ -22,35 +22,37 @@ private class Games.RetroInputManager : Object {
 		core.set_default_controller (default_mouse);
 		core.set_default_controller (default_pointer);
 
-		gamepad_monitor = GamepadMonitor.get_instance ();
-		gamepad_monitor.foreach_gamepad ((gamepad) => {
+		monitor = new Manette.Monitor ();
+		var iterator = monitor.iterate ();
+		Manette.Device device = null;
+		while (iterator.next (out device)) {
 			var port = controllers.length;
-			var retro_gamepad = new RetroGamepad (gamepad, present_analog_sticks);
+			var retro_gamepad = new RetroGamepad (device, present_analog_sticks);
 			controllers += retro_gamepad;
 			core.set_controller (port, retro_gamepad);
-			gamepad.unplugged.connect (() => handle_gamepad_unplugged (port));
-		});
+			device.disconnected.connect (() => on_device_disconnected (port));
+		};
 
 		core_view_joypad_port = controllers.length;
 		controllers += core_view_joypad;
 		core.set_controller (core_view_joypad_port, core_view_joypad);
-		gamepad_monitor.gamepad_plugged.connect (handle_gamepad_plugged);
+		monitor.device_connected.connect (on_device_connected);
 	}
 
-	private void handle_gamepad_plugged (Gamepad gamepad) {
-		// Plug this gamepad to the port where the CoreView's joypad was
-		// plugged as a last resort.
+	private void on_device_connected (Manette.Device device) {
+		// Plug this device to the port where the CoreView's joypad was
+		// connected as a last resort.
 		var port = core_view_joypad_port;
-		var retro_gamepad = new RetroGamepad (gamepad, present_analog_sticks);
+		var retro_gamepad = new RetroGamepad (device, present_analog_sticks);
 		controllers[port] = retro_gamepad;
 		core.set_controller (port, retro_gamepad);
-		gamepad.unplugged.connect (() => handle_gamepad_unplugged (port));
+		device.disconnected.connect (() => on_device_disconnected (port));
 
-		// Assign the CoreView's joypad to another unplugged port if it
+		// Assign the CoreView's joypad to another disconnected port if it
 		// exists and return.
 		for (var i = core_view_joypad_port; i < controllers.length; i++) {
 			if (controllers[i] == null) {
-				// Found an unplugged port and so assigning core_view_joypad to it
+				// Found an disconnected port and so assigning core_view_joypad to it
 				core_view_joypad_port = i;
 				controllers[core_view_joypad_port] = core_view_joypad;
 				core.set_controller (core_view_joypad_port, core_view_joypad);
@@ -59,14 +61,14 @@ private class Games.RetroInputManager : Object {
 			}
 		}
 
-		// Now it means that there is no unplugged port so append the
+		// Now it means that there is no disconnected port so append the
 		// CoreView's joypad to ports.
 		core_view_joypad_port = controllers.length;
 		controllers += core_view_joypad;
 		core.set_controller (core_view_joypad_port, core_view_joypad);
 	}
 
-	private void handle_gamepad_unplugged (int port) {
+	private void on_device_disconnected (int port) {
 		if (core_view_joypad_port > port) {
 			// Remove the controller and shift the CoreView's joypad to
 			// "lesser" port.
