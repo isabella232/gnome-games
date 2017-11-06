@@ -69,14 +69,13 @@ private class Games.GamepadConfigurer : Gtk.Box {
 
 			switch (value) {
 			case State.TEST:
-				var user_mapping = mappings_manager.get_user_mapping (gamepad.guid);
-				reset_button.set_sensitive (user_mapping != null);
+				reset_button.set_sensitive (device.has_user_mapping ());
 
 				back_button.show ();
 				cancel_button.hide ();
 				action_bar.show ();
 				/* translators: testing a gamepad, %s is its name */
-				header_bar.title = _("Testing %s").printf (gamepad.name);
+				header_bar.title = _("Testing %s").printf (device.get_name ());
 				header_bar.get_style_context ().remove_class ("selection-mode");
 				stack.set_visible_child_name ("gamepad_tester");
 
@@ -90,7 +89,7 @@ private class Games.GamepadConfigurer : Gtk.Box {
 				cancel_button.show ();
 				action_bar.hide ();
 				/* translators: configuring a gamepad, %s is its name */
-				header_bar.title = _("Configuring %s").printf (gamepad.name);
+				header_bar.title = _("Configuring %s").printf (device.get_name ());
 				header_bar.get_style_context ().add_class ("selection-mode");
 				stack.set_visible_child_name ("gamepad_mapper");
 
@@ -128,20 +127,15 @@ private class Games.GamepadConfigurer : Gtk.Box {
 	[GtkChild]
 	private Gtk.Button cancel_button;
 
-	private Gamepad gamepad;
+	private Manette.Device device;
 	private GamepadMapper mapper;
 	private GamepadTester tester;
-	private GamepadMappingsManager mappings_manager;
 
-	construct {
-		mappings_manager = GamepadMappingsManager.get_instance ();
-	}
-
-	public GamepadConfigurer (Gamepad gamepad) {
-		this.gamepad = gamepad;
-		mapper = new GamepadMapper (gamepad, STANDARD_GAMEPAD_VIEW_CONFIGURATION, STANDARD_GAMEPAD_INPUTS);
+	public GamepadConfigurer (Manette.Device device) {
+		this.device = device;
+		mapper = new GamepadMapper (device, STANDARD_GAMEPAD_VIEW_CONFIGURATION, STANDARD_GAMEPAD_INPUTS);
 		gamepad_mapper_holder.pack_start (mapper);
-		tester = new GamepadTester (gamepad, STANDARD_GAMEPAD_VIEW_CONFIGURATION);
+		tester = new GamepadTester (device, STANDARD_GAMEPAD_VIEW_CONFIGURATION);
 		gamepad_tester_holder.pack_start (tester);
 
 		state = State.TEST;
@@ -173,9 +167,7 @@ private class Games.GamepadConfigurer : Gtk.Box {
 		message_dialog.response.connect ((response) => {
 			switch (response) {
 				case Gtk.ResponseType.ACCEPT:
-					mappings_manager.delete_mapping (gamepad.guid);
-					var sdl_string = mappings_manager.get_default_mapping (gamepad.guid);
-					set_gamepad_mapping (sdl_string);
+					device.remove_user_mapping ();
 					reset_button.set_sensitive (false);
 
 					break;
@@ -189,24 +181,7 @@ private class Games.GamepadConfigurer : Gtk.Box {
 	}
 
 	private void on_mapper_finished (string sdl_string) {
-		mappings_manager.save_mapping (gamepad.guid, gamepad.name, sdl_string);
-		set_gamepad_mapping (sdl_string);
-
+		device.save_user_mapping (sdl_string);
 		state = State.TEST;
-	}
-
-	private void set_gamepad_mapping (string? sdl_string) {
-		if (sdl_string == null) {
-			gamepad.set_mapping (null);
-
-			return;
-		}
-		try {
-			var mapping = new GamepadMapping.from_sdl_string (sdl_string);
-			gamepad.set_mapping (mapping);
-		}
-		catch (Error e) {
-			critical (e.message);
-		}
 	}
 }

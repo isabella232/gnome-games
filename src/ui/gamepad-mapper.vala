@@ -9,7 +9,7 @@ private class Games.GamepadMapper : Gtk.Box {
 	[GtkChild]
 	private Gtk.Label info_message;
 
-	private Gamepad gamepad;
+	private Manette.Device device;
 	private GamepadMappingBuilder mapping_builder;
 	private GamepadInput[] mapping_inputs;
 	private GamepadInput input;
@@ -17,8 +17,8 @@ private class Games.GamepadMapper : Gtk.Box {
 
 	private ulong gamepad_event_handler_id;
 
-	public GamepadMapper (Gamepad gamepad, GamepadViewConfiguration configuration, GamepadInput[] mapping_inputs) {
-		this.gamepad = gamepad;
+	public GamepadMapper (Manette.Device device, GamepadViewConfiguration configuration, GamepadInput[] mapping_inputs) {
+		this.device = device;
 		this.mapping_inputs = mapping_inputs;
 		try {
 			gamepad_view.set_configuration (configuration);
@@ -46,69 +46,64 @@ private class Games.GamepadMapper : Gtk.Box {
 	}
 
 	private void connect_to_gamepad () {
-		gamepad_event_handler_id = gamepad.event.connect ((event) => {
-			switch (event.type) {
-			case EventType.EVENT_GAMEPAD_BUTTON_RELEASE:
-				on_button_event (event.gamepad_button);
-
-				break;
-			case EventType.EVENT_GAMEPAD_AXIS:
-				on_axis_event (event.gamepad_axis);
-
-				break;
-			case EventType.EVENT_GAMEPAD_HAT:
-				on_hat_event (event.gamepad_hat);
-
-				break;
-			default:
-				break;
-			}
-		});
+		gamepad_event_handler_id = device.event.connect (on_event);
 	}
 
 	private void disconnect_from_gamepad () {
 		if (gamepad_event_handler_id != 0) {
-			gamepad.disconnect (gamepad_event_handler_id);
+			device.disconnect (gamepad_event_handler_id);
 			gamepad_event_handler_id = 0;
 		}
 	}
 
-	private void on_button_event (EventGamepadButton event) {
-		if (input.type == EventCode.EV_ABS)
+	private void on_event (Manette.Event event) {
+		switch (event.get_event_type ()) {
+		case Manette.EventType.EVENT_BUTTON_RELEASE:
+			if (input.type == EventCode.EV_ABS)
+				return;
+
+			if (!mapping_builder.set_button_mapping ((uint8) event.get_hardware_index (),
+				                                     input))
+				return;
+
+			break;
+		case Manette.EventType.EVENT_ABSOLUTE:
+			uint16 axis;
+			double value;
+
+			if (input.type == EventCode.EV_KEY)
+				return;
+
+			if (!event.get_absolute (out axis, out value))
+				return;
+
+			if (-0.8 < value < 0.8)
+				return;
+
+			if (!mapping_builder.set_axis_mapping ((uint8) event.get_hardware_index (),
+			                                       input))
+				return;
+
+			break;
+		case Manette.EventType.EVENT_HAT:
+			uint16 axis;
+			int8 value;
+
+			if (!event.get_hat (out axis, out value))
+				return;
+
+			if (value == 0)
+				return;
+
+			if (!mapping_builder.set_hat_mapping ((uint8) event.get_hardware_index (),
+			                                      value,
+			                                      input))
+				return;
+
+			break;
+		default:
 			return;
-
-		var success = mapping_builder.set_button_mapping (event.gamepad_button.hardware_index,
-		                                                  input);
-		if (!success)
-			return;
-
-		next_input ();
-	}
-
-	private void on_axis_event (EventGamepadAxis event) {
-		if (input.type == EventCode.EV_KEY)
-			return;
-
-		if (-0.8 < event.gamepad_axis.value < 0.8)
-			return;
-
-		var success = mapping_builder.set_axis_mapping (event.gamepad_axis.hardware_index,
-		                                                input);
-		if (!success)
-			return;
-
-		next_input ();
-	}
-
-	private void on_hat_event (EventGamepadHat event) {
-		if (event.gamepad_hat.value == 0)
-			return;
-
-		var success = mapping_builder.set_hat_mapping (event.gamepad_hat.hardware_index,
-		                                               event.gamepad_hat.value,
-		                                               input);
-		if (!success)
-			return;
+		}
 
 		next_input ();
 	}

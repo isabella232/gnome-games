@@ -5,15 +5,14 @@ private class Games.GamepadTester : Gtk.Box {
 	[GtkChild]
 	private GamepadView gamepad_view;
 
-	private Gamepad gamepad;
+	private Manette.Device device;
 
 	private ulong gamepad_button_press_event_handler_id;
 	private ulong gamepad_button_release_event_handler_id;
 	private ulong gamepad_axis_event_handler_id;
-	private ulong gamepad_hat_event_handler_id;
 
-	public GamepadTester (Gamepad gamepad, GamepadViewConfiguration configuration) {
-		this.gamepad = gamepad;
+	public GamepadTester (Manette.Device device, GamepadViewConfiguration configuration) {
+		this.device = device;
 		try {
 			gamepad_view.set_configuration (configuration);
 		}
@@ -32,51 +31,45 @@ private class Games.GamepadTester : Gtk.Box {
 	}
 
 	private void connect_to_gamepad () {
-		gamepad_button_press_event_handler_id = gamepad.button_press_event.connect ((event) => {
-			on_button_event (event.gamepad_button, true);
-		});
-		gamepad_button_release_event_handler_id = gamepad.button_release_event.connect ((event) => {
-			on_button_event (event.gamepad_button, false);
-		});
-		gamepad_axis_event_handler_id = gamepad.axis_event.connect ((event) => {
-			on_axis_event (event.gamepad_axis);
-		});
-		gamepad_hat_event_handler_id = gamepad.hat_event.connect ((event) => {
-			on_hat_event (event.gamepad_hat);
-		});
+		gamepad_button_press_event_handler_id = device.button_press_event.connect (on_button_press_event);
+		gamepad_button_release_event_handler_id = device.button_release_event.connect (on_button_release_event);
+		gamepad_axis_event_handler_id = device.absolute_axis_event.connect (on_absolute_axis_event);
 	}
 
 	private void disconnect_from_gamepad () {
 		if (gamepad_button_press_event_handler_id != 0) {
-			gamepad.disconnect (gamepad_button_press_event_handler_id);
+			device.disconnect (gamepad_button_press_event_handler_id);
 			gamepad_button_press_event_handler_id = 0;
 		}
 		if (gamepad_button_release_event_handler_id != 0) {
-			gamepad.disconnect (gamepad_button_release_event_handler_id);
+			device.disconnect (gamepad_button_release_event_handler_id);
 			gamepad_button_release_event_handler_id = 0;
 		}
 		if (gamepad_axis_event_handler_id != 0) {
-			gamepad.disconnect (gamepad_axis_event_handler_id);
-			gamepad_axis_event_handler_id = 0;
-		}
-		if (gamepad_hat_event_handler_id != 0) {
-			gamepad.disconnect (gamepad_hat_event_handler_id);
+			device.disconnect (gamepad_axis_event_handler_id);
 			gamepad_axis_event_handler_id = 0;
 		}
 	}
 
-	private void on_button_event (EventGamepadButton event, bool pressed) {
-		var highlight = pressed;
-		gamepad_view.highlight ({ EventCode.EV_KEY, event.button }, highlight);
+	private void on_button_press_event (Manette.Event event) {
+		uint16 button;
+
+		if (event.get_button (out button))
+			gamepad_view.highlight ({ EventCode.EV_KEY, button }, true);
 	}
 
-	private void on_axis_event (EventGamepadAxis event) {
-		var highlight = !(-0.8 < event.gamepad_axis.value < 0.8);
-		gamepad_view.highlight ({ EventCode.EV_ABS, event.axis }, highlight);
+	private void on_button_release_event (Manette.Event event) {
+		uint16 button;
+
+		if (event.get_button (out button))
+			gamepad_view.highlight ({ EventCode.EV_KEY, button }, false);
 	}
 
-	private void on_hat_event (EventGamepadHat event) {
-		var highlight = !(event.gamepad_hat.value == 0);
-		gamepad_view.highlight ({ EventCode.EV_ABS, event.axis }, highlight);
+	private void on_absolute_axis_event (Manette.Event event) {
+		uint16 axis;
+		double value;
+
+		if (event.get_absolute (out axis, out value))
+			gamepad_view.highlight ({ EventCode.EV_ABS, axis }, !(-0.8 < value < 0.8));
 	}
 }

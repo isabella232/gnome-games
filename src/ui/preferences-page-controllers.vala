@@ -12,7 +12,7 @@ private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 	[GtkChild]
 	private Gtk.HeaderBar default_header_bar;
 
-	private GamepadMonitor gamepad_monitor;
+	private Manette.Monitor monitor;
 
 	private Binding header_bar_binding;
 	private Binding immersive_mode_binding;
@@ -22,9 +22,9 @@ private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 		header_bar = default_header_bar;
 		immersive_mode = false;
 
-		gamepad_monitor = GamepadMonitor.get_instance ();
-		gamepad_monitor.gamepad_unplugged.connect (rebuild_gamepad_list);
-		gamepad_monitor.gamepad_plugged.connect (rebuild_gamepad_list);
+		monitor = new Manette.Monitor ();
+		monitor.device_connected.connect (rebuild_gamepad_list);
+		monitor.device_disconnected.connect (rebuild_gamepad_list);
 		build_gamepad_list ();
 	}
 
@@ -38,15 +38,17 @@ private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 	}
 
 	private void build_gamepad_list () {
+		Manette.Device device = null;
 		var i = 0;
-		gamepad_monitor.foreach_gamepad ((gamepad) => {
+		var iterator = monitor.iterate ();
+		while (iterator.next (out device)) {
 			i += 1;
 			var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-			box.pack_start (new Gtk.Label (gamepad.name), false, false);
+			box.pack_start (new Gtk.Label (device.get_name ()), false, false);
 			box.margin = 6;
 			box.show_all ();
 			gamepads_list_box.add (box);
-		});
+		};
 	}
 
 	private void clear_gamepad_list () {
@@ -55,17 +57,21 @@ private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 
 	[GtkCallback]
 	private void gamepads_list_box_row_activated (Gtk.ListBoxRow row_item) {
-		Gamepad? gamepad = null;
+		Manette.Device? device = null;
+		Manette.Device other_device = null;
 		var i = 0;
 		var row_index = row_item.get_index ();
-		gamepad_monitor.foreach_gamepad ((gamepad_) => {
-			if (i++ == row_index)
-				gamepad = gamepad_;
-		});
 
-		if (gamepad == null)
+		var iterator = monitor.iterate ();
+		while (iterator.next (out other_device)) {
+			if (i++ == row_index)
+				device = other_device;
+		};
+
+		if (device == null)
 			return;
-		var configurer = new GamepadConfigurer(gamepad);
+
+		var configurer = new GamepadConfigurer(device);
 		back_handler_id = configurer.back.connect (on_back);
 		header_bar_binding = configurer.bind_property ("header-bar", this, "header-bar",
 		                                               BindingFlags.SYNC_CREATE);
