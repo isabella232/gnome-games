@@ -195,8 +195,6 @@ gnome_games_VALAFLAGS = \
 
 gnome_games_CFLAGS = \
 	$(GNOME_GAMES_CFLAGS) \
-	$(GAMEPADS_CFLAGS) \
-	$(UDEV_CFLAGS) \
 	-I$(srcdir)/event \
 	-I$(srcdir)/gamepad \
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
@@ -207,22 +205,8 @@ gnome_games_CPPFLAGS = \
 	-DRETRO_GTK_USE_UNSTABLE_API \
 	$(NULL)
 
-if ENABLE_GAMEPADS
-gnome_games_CPPFLAGS += \
-	-DENABLE_LINUX_GAMEPADS \
-	$(NULL)
-endif
-
-if ENABLE_UDEV
-gnome_games_CPPFLAGS += \
-	-DENABLE_UDEV \
-	$(NULL)
-endif
-
 gnome_games_LDADD = \
 	$(GNOME_GAMES_LIBS) \
-	$(GAMEPADS_LIBS) \
-	$(UDEV_LIBS) \
 	$(NULL)
 
 gnome_gamesincludedir = $(includedir)
