@@ -23,8 +23,6 @@ BUILT_SOURCES = \
 
 EXTRA_DIST = \
 	$(gresource_file) \
-	event/event.h \
-	event/event.vapi \
 	event/event-codes.vapi \
 	event/linux/input-event-codes.h \
 	gamepad/gamepad-dpad.h \
@@ -75,8 +73,6 @@ gnome_games_SOURCES = \
 	dummy/dummy-game.vala \
 	dummy/dummy-icon.vala \
 	dummy/dummy-runner.vala \
-	\
-	event/event.c \
 	\
 	gameinfo/gameinfo-doc.vala \
 	gameinfo/gameinfo-error.vala \
@@ -187,7 +183,6 @@ gnome_games_VALAFLAGS = \
 	--pkg retro-gtk-0.14 \
 	--pkg linux \
 	--pkg posix \
-	--pkg event \
 	--pkg event-codes \
 	--pkg gamepad-dpad \
 	--pkg gamepad-input \
