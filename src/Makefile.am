@@ -27,24 +27,10 @@ EXTRA_DIST = \
 	event/event.vapi \
 	event/event-codes.vapi \
 	event/linux/input-event-codes.h \
-	gamepad/gamepad.h \
-	gamepad/gamepad.vapi \
 	gamepad/gamepad-dpad.h \
 	gamepad/gamepad-dpad.vapi \
 	gamepad/gamepad-input.h \
 	gamepad/gamepad-input.vapi \
-	gamepad/gamepad-mapping.h \
-	gamepad/gamepad-mapping.vapi \
-	gamepad/gamepad-mapping-error.h \
-	gamepad/gamepad-mappings-manager.h \
-	gamepad/gamepad-mappings-manager.vapi \
-	gamepad/gamepad-monitor.h \
-	gamepad/gamepad-monitor.vapi \
-	gamepad/linux/linux-raw-gamepad.h \
-	gamepad/linux/linux-raw-gamepad-monitor.h \
-	gamepad/raw-gamepad.h \
-	gamepad/raw-gamepad.vapi \
-	gamepad/raw-gamepad-monitor.h \
 	$(NULL)
 
 header_file = libgnome-games.h
@@ -98,16 +84,9 @@ gnome_games_SOURCES = \
 	gameinfo/gameinfo-disc-id-game-title.vala \
 	gameinfo/gameinfo-disc-id-input-capabilities.vala \
 	\
-	gamepad/gamepad.c \
 	gamepad/gamepad-dpad.c \
 	gamepad/gamepad-input.c \
 	gamepad/gamepad-mapping-builder.vala \
-	gamepad/gamepad-mapping.c \
-	gamepad/gamepad-mapping-error.c \
-	gamepad/gamepad-mappings-manager.c \
-	gamepad/gamepad-monitor.c \
-	gamepad/raw-gamepad.c \
-	gamepad/raw-gamepad-monitor.c \
 	\
 	generic/generic-game.vala \
 	generic/generic-game-uri-adapter.vala \
@@ -193,22 +172,6 @@ gnome_games_SOURCES = \
 	$(BUILT_SOURCES) \
 	$(NULL)
 
-if ENABLE_GAMEPADS
-gnome_games_SOURCES += \
-	gamepad/linux/linux-raw-gamepad.c \
-	$(NULL)
-
-if ENABLE_UDEV
-gnome_games_SOURCES += \
-	gamepad/linux/linux-raw-gamepad-monitor.c \
-	$(NULL)
-else
-gnome_games_SOURCES += \
-	gamepad/linux/linux-raw-gamepad-monitor-fallback.c \
-	$(NULL)
-endif
-endif
-
 gnome_games_VALAFLAGS = \
 	--target-glib=@GLIB_MIN_VERSION@ \
 	--pkg gio-2.0 \
@@ -226,13 +189,8 @@ gnome_games_VALAFLAGS = \
 	--pkg posix \
 	--pkg event \
 	--pkg event-codes \
-	--pkg gamepad \
 	--pkg gamepad-dpad \
 	--pkg gamepad-input \
-	--pkg gamepad-mapping \
-	--pkg gamepad-mappings-manager \
-	--pkg gamepad-monitor \
-	--pkg raw-gamepad \
 	--gresources $(gresource_file) \
 	--vapi $(vapi_file) \
 	--vapidir=event/ \
@@ -246,7 +204,6 @@ gnome_games_CFLAGS = \
 	$(UDEV_CFLAGS) \
 	-I$(srcdir)/event \
 	-I$(srcdir)/gamepad \
-	-I$(srcdir)/gamepad/linux \
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-DGAMES_PLUGINS_DIR=\"$(libdir)/gnome-games/plugins\" \
 	$(NULL)
