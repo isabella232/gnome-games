@@ -126,9 +126,7 @@
         },
         {
             "name": "retro-gtk",
-            "config-opts": [
-                "--disable-static"
-            ],
+            "buildsystem": "meson",
             "sources": [
                 {
                     "type": "git",
