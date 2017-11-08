@@ -23,8 +23,8 @@ BUILT_SOURCES = \
 
 EXTRA_DIST = \
 	$(gresource_file) \
-	event/event-codes.vapi \
-	event/linux/input-event-codes.h \
+	gamepad/event-codes.vapi \
+	gamepad/linux/input-event-codes.h \
 	gamepad/gamepad-dpad.h \
 	gamepad/gamepad-dpad.vapi \
 	gamepad/gamepad-input.h \
@@ -188,14 +188,12 @@ gnome_games_VALAFLAGS = \
 	--pkg gamepad-input \
 	--gresources $(gresource_file) \
 	--vapi $(vapi_file) \
-	--vapidir=event/ \
 	--vapidir=gamepad/ \
 	-H $(header_file) \
 	$(NULL)
 
 gnome_games_CFLAGS = \
 	$(GNOME_GAMES_CFLAGS) \
-	-I$(srcdir)/event \
 	-I$(srcdir)/gamepad \
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
 	-DGAMES_PLUGINS_DIR=\"$(libdir)/gnome-games/plugins\" \
