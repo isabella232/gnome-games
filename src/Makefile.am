@@ -25,8 +25,6 @@ EXTRA_DIST = \
 	$(gresource_file) \
 	gamepad/event-codes.vapi \
 	gamepad/linux/input-event-codes.h \
-	gamepad/gamepad-input.h \
-	gamepad/gamepad-input.vapi \
 	$(NULL)
 
 header_file = libgnome-games.h
@@ -79,7 +77,7 @@ gnome_games_SOURCES = \
 	gameinfo/gameinfo-disc-id-input-capabilities.vala \
 	\
 	gamepad/gamepad-dpad.vala \
-	gamepad/gamepad-input.c \
+	gamepad/gamepad-input.vala \
 	gamepad/gamepad-mapping-builder.vala \
 	\
 	generic/generic-game.vala \
@@ -182,7 +180,6 @@ gnome_games_VALAFLAGS = \
 	--pkg linux \
 	--pkg posix \
 	--pkg event-codes \
-	--pkg gamepad-input \
 	--gresources $(gresource_file) \
 	--vapi $(vapi_file) \
 	--vapidir=gamepad/ \
