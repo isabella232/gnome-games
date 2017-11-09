@@ -188,6 +188,7 @@
                 }
             ]
         },
+        "libretro-cores/libretro-mrboom.json",
         {
             "name" : "retro-gtk",
             "buildsystem" : "meson",

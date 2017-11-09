@@ -1,0 +1,14 @@
+        {
+            "name": "libretro-mrboom",
+            "buildsystem": "simple",
+            "build-commands": [
+                "make PREFIX=/app",
+                "make install-libretro PREFIX=/app"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/Kekun/mrboom-libretro"
+                }
+            ]
+        }
