@@ -126,6 +126,16 @@
             ]
         },
         {
+            "name": "libmanette",
+            "buildsystem": "meson",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.gnome.org/aplazas/libmanette.git"
+                }
+            ]
+        },
+        {
             "name": "retro-gtk",
             "buildsystem": "meson",
             "sources": [
