@@ -1,4 +1,20 @@
 ==============
+Version 3.27.2
+==============
+
+* Replace the custom game controller support by libmanette. The gamepad
+  configuration storage changed accordingly and previously configured gamepads
+  have to be configured again.
+* Set the Retro.CoreView as the default controllers for the Retro.Core.
+* Dependencies:
+ - Bump retro-gtk to 0.13.2.
+ - Add libmanette 0.1.2 dependency.
+ - Drop explicit dependencies on gudev and libevdev, they are indirectly needed
+   by libmanette.
+* Translation updates:
+ Spanish
+
+==============
 Version 3.27.1
 ==============
 
