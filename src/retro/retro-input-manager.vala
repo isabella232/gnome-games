@@ -14,13 +14,7 @@ private class Games.RetroInputManager : Object {
 
 		core_view_joypad = view.as_controller (Retro.ControllerType.JOYPAD);
 		core.set_keyboard (view);
-
-		var default_joypad = view.as_controller (Retro.ControllerType.JOYPAD);
-		var default_mouse = view.as_controller (Retro.ControllerType.MOUSE);
-		var default_pointer = view.as_controller (Retro.ControllerType.POINTER);
-		core.set_default_controller (default_joypad);
-		core.set_default_controller (default_mouse);
-		core.set_default_controller (default_pointer);
+		view.set_as_default_controller (core);
 
 		monitor = new Manette.Monitor ();
 		var iterator = monitor.iterate ();
