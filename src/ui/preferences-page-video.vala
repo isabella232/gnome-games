@@ -31,8 +31,8 @@ private class Games.PreferencesPageVideo: Gtk.Bin, PreferencesPage {
 	}
 
 	// same as video-filters in gschema
-	private string[] filter_display_names = { _("Smooth"), _("Sharp") };
-	private string[] filter_names = { "smooth", "sharp" };
+	private string[] filter_display_names = { _("Smooth"), _("Sharp"), _("CRT") };
+	private string[] filter_names = { "smooth", "sharp", "crt" };
 	[GtkChild]
 	private Gtk.ListBox filter_list_box;
 	private Settings settings;

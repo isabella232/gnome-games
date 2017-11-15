@@ -2,6 +2,7 @@
   <enum id="org.gnome.Games.video-filters">
     <value nick="smooth" value="0"/>
     <value nick="sharp" value="1"/>
+    <value nick="crt" value="2"/>
   </enum>
   <schema path="/org/gnome/Games/" id="org.gnome.Games" gettext-domain="gnome-games">
     <key name='fullscreen' type='b'>
@@ -12,7 +13,7 @@
     <key name='video-filter' enum='org.gnome.Games.video-filters'>
       <default>'smooth'</default>
       <summary>Video filter</summary>
-      <description>Filter for the game video output. Allowed values are: “smooth” (blurry pixels), “sharp” (blocky pixels).</description>
+      <description>Filter for the game video output. Allowed values are: “smooth” (blurry pixels), “sharp” (blocky pixels), “crt” (CRT emulation).</description>
     </key>
     <key name="window-maximized" type="b">
       <default>true</default>
