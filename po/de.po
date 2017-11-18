@@ -1,20 +1,20 @@
 # German translation for gnome-games.
 # Copyright (C) 2016 gnome-games's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-games package.
-# Mario Blättermann <mario.blaettermann@gmail.com>, 2016-2017.
 # Bernd Homuth <dev@hmt.im>, 2016.
 # Paul Seyfert <pseyfert@mathphys.fsk.uni-heidelberg.de>, 2017.
 # Robin Naumann <constorux@gmail.com>, 2017.
+# Mario Blättermann <mario.blaettermann@gmail.com>, 2016-2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-09-27 12:10+0000\n"
-"PO-Revision-Date: 2017-10-02 11:33+0200\n"
+"POT-Creation-Date: 2017-11-16 06:55+0000\n"
+"PO-Revision-Date: 2017-11-18 21:13+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
-"Language-Team: German <>\n"
+"Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -103,10 +103,11 @@ msgstr "Video-Filter"
 #: ../data/org.gnome.Games.gschema.xml.h:4
 msgid ""
 "Filter for the game video output. Allowed values are: “smooth” (blurry "
-"pixels), “sharp” (blocky pixels)."
+"pixels), “sharp” (blocky pixels), “crt” (CRT emulation)."
 msgstr ""
 "Filter für die Videoausgabe des Spiels. Zulässige Werte sind "
-"»smooth« (weichgezeichnete Bildpunkte) und »sharp« (blockförmige Bildpunkte)."
+"»smooth« (weichgezeichnete Bildpunkte), »sharp« (blockförmige Bildpunkte) "
+"und »crt« (Röhrenmonitor-Emulation)."
 
 #: ../data/org.gnome.Games.gschema.xml.h:5
 msgid "Window maximized"
@@ -483,24 +484,6 @@ msgstr "Keine Plattensatz-ID für Platten-ID »%s« gefunden."
 msgid "No disc found for disc ID “%s”."
 msgstr "Keine Platte gefunden für Platten-ID »%s«."
 
-#: ../src/gamepad/gamepad-mapping.c:236
-msgid "The mapping string can’t be null."
-msgstr "Die zugeordnete Zeichenkette darf nicht »null« sein."
-
-#: ../src/gamepad/gamepad-mapping.c:245
-msgid "The mapping string can’t be empty."
-msgstr "Die zugeordnete Zeichenkette darf nicht leer sein."
-
-#: ../src/gamepad/linux/linux-raw-gamepad.c:291
-#, c-format
-msgid "Unable to open file “%s”: %s"
-msgstr "Datei »%s« kann nicht geöffnet werden: %s"
-
-#: ../src/gamepad/linux/linux-raw-gamepad.c:304
-#, c-format
-msgid "Evdev is unable to open “%s”: %s"
-msgstr "»%s« kann nicht mit evdev geöffnet werden: %s"
-
 #: ../src/retro/retro-core-source.vala:25
 #: ../src/retro/retro-core-source.vala:37
 #, c-format
@@ -781,27 +764,27 @@ msgid "Oops! Unable to run the game"
 msgstr "Hoppla, das Spiel kann nicht ausgeführt werden"
 
 #. translators: testing a gamepad, %s is its name
-#: ../src/ui/gamepad-configurer.vala:79
+#: ../src/ui/gamepad-configurer.vala:78
 #, c-format
 msgid "Testing %s"
 msgstr "%s wird getestet"
 
 #. translators: configuring a gamepad, %s is its name
-#: ../src/ui/gamepad-configurer.vala:93
+#: ../src/ui/gamepad-configurer.vala:92
 #, c-format
 msgid "Configuring %s"
 msgstr "%s wird konfiguriert"
 
-#: ../src/ui/gamepad-mapper.vala:134
+#: ../src/ui/gamepad-mapper.vala:129
 msgid "Press suitable button on your gamepad"
 msgstr "Drücken Sie den entsprechenden Knopf auf Ihrem Gamepad"
 
-#: ../src/ui/gamepad-mapper.vala:139
+#: ../src/ui/gamepad-mapper.vala:134
 msgid "Move suitable axis left/right on your gamepad"
 msgstr ""
 "Bewegen Sie die entsprechende Achse auf Ihrem Gamepad nach links/rechts"
 
-#: ../src/ui/gamepad-mapper.vala:141
+#: ../src/ui/gamepad-mapper.vala:136
 msgid "Move suitable axis up/down on your gamepad"
 msgstr "Bewegen Sie die entsprechende Achse nach oben/unten auf Ihrem Gamepad"
 
@@ -818,6 +801,10 @@ msgstr "Glätten"
 #: ../src/ui/preferences-page-video.vala:34
 msgid "Sharp"
 msgstr "Schärfen"
+
+#: ../src/ui/preferences-page-video.vala:34
+msgid "CRT"
+msgstr "CRT"
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
