@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-20 02:11+0200\n"
-"PO-Revision-Date: 2017-09-20 02:12+0200\n"
+"POT-Creation-Date: 2017-11-19 19:38+0100\n"
+"PO-Revision-Date: 2017-11-19 19:39+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -102,10 +102,10 @@ msgstr "Filtr obrazu"
 #: ../data/org.gnome.Games.gschema.xml.h:4
 msgid ""
 "Filter for the game video output. Allowed values are: “smooth” (blurry "
-"pixels), “sharp” (blocky pixels)."
+"pixels), “sharp” (blocky pixels), “crt” (CRT emulation)."
 msgstr ""
 "Filtr wyjścia obrazu gry. Dozwolone wartości: „smooth” (rozmyte piksele), "
-"„sharp” (kanciaste piksele)."
+"„sharp” (kanciaste piksele), „crt” (emulacja monitora kineskopowego)."
 
 #: ../data/org.gnome.Games.gschema.xml.h:5
 msgid "Window maximized"
@@ -482,24 +482,6 @@ msgstr "Nie odnaleziono identyfikatora zestawu płyt dla identyfikatora „%s”
 msgid "No disc found for disc ID “%s”."
 msgstr "Nie odnaleziono płyty dla identyfikatora „%s”."
 
-#: ../src/gamepad/gamepad-mapping.c:236
-msgid "The mapping string can’t be null."
-msgstr "Ciąg mapowania nie może wynosić „null”."
-
-#: ../src/gamepad/gamepad-mapping.c:245
-msgid "The mapping string can’t be empty."
-msgstr "Ciąg mapowania nie może być pusty."
-
-#: ../src/gamepad/linux/linux-raw-gamepad.c:291
-#, c-format
-msgid "Unable to open file “%s”: %s"
-msgstr "Nie można otworzyć pliku „%s”: %s"
-
-#: ../src/gamepad/linux/linux-raw-gamepad.c:304
-#, c-format
-msgid "Evdev is unable to open “%s”: %s"
-msgstr "Evdev nie może otworzyć pliku „%s”: %s"
-
 #: ../src/retro/retro-core-source.vala:25
 #: ../src/retro/retro-core-source.vala:37
 #, c-format
@@ -712,17 +694,17 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: ../src/retro/retro-runner.vala:246
+#: ../src/retro/retro-runner.vala:239
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nie odnaleziono modułu dla „%s”."
 
-#: ../src/retro/retro-runner.vala:577
+#: ../src/retro/retro-runner.vala:568
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Konsola „%s” nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: ../src/retro/retro-runner.vala:580
+#: ../src/retro/retro-runner.vala:571
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Konsola nie jest jeszcze obsługiwana, ale jest w planach."
 
@@ -731,26 +713,26 @@ msgid "Select game files"
 msgstr "Wybór plików gry"
 
 #: ../src/ui/application.vala:137
-msgid "_Cancel"
-msgstr "_Anuluj"
-
-#: ../src/ui/application.vala:138
 msgid "_Add"
 msgstr "_Dodaj"
 
-#: ../src/ui/application.vala:313
+#: ../src/ui/application.vala:137
+msgid "_Cancel"
+msgstr "_Anuluj"
+
+#: ../src/ui/application.vala:310
 msgid "GNOME Games"
 msgstr "Gry GNOME"
 
-#: ../src/ui/application.vala:315
+#: ../src/ui/application.vala:312
 msgid "A video game player for GNOME"
 msgstr "Uruchamianie gier w środowisku GNOME"
 
-#: ../src/ui/application.vala:319
+#: ../src/ui/application.vala:316
 msgid "Learn more about GNOME Games"
 msgstr "Więcej informacji o Grach GNOME"
 
-#: ../src/ui/application.vala:326
+#: ../src/ui/application.vala:323
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2016-2017\n"
@@ -774,26 +756,26 @@ msgid "Oops! Unable to run the game"
 msgstr "Nie można uruchomić gry"
 
 #. translators: testing a gamepad, %s is its name
-#: ../src/ui/gamepad-configurer.vala:79
+#: ../src/ui/gamepad-configurer.vala:78
 #, c-format
 msgid "Testing %s"
 msgstr "Testowanie „%s”"
 
 #. translators: configuring a gamepad, %s is its name
-#: ../src/ui/gamepad-configurer.vala:93
+#: ../src/ui/gamepad-configurer.vala:92
 #, c-format
 msgid "Configuring %s"
 msgstr "Konfigurowanie „%s”"
 
-#: ../src/ui/gamepad-mapper.vala:134
+#: ../src/ui/gamepad-mapper.vala:129
 msgid "Press suitable button on your gamepad"
 msgstr "Proszę nacisnąć odpowiedni przycisk na kontrolerze."
 
-#: ../src/ui/gamepad-mapper.vala:139
+#: ../src/ui/gamepad-mapper.vala:134
 msgid "Move suitable axis left/right on your gamepad"
 msgstr "Proszę przesunąć odpowiednią oś w lewo/prawo na kontrolerze."
 
-#: ../src/ui/gamepad-mapper.vala:141
+#: ../src/ui/gamepad-mapper.vala:136
 msgid "Move suitable axis up/down on your gamepad"
 msgstr "Proszę przesunąć odpowiednią oś w górę/dół na kontrolerze."
 
@@ -810,6 +792,10 @@ msgstr "Gładki"
 #: ../src/ui/preferences-page-video.vala:34
 msgid "Sharp"
 msgstr "Kanciasty"
+
+#: ../src/ui/preferences-page-video.vala:34
+msgid "CRT"
+msgstr "Monitor kineskopowy"
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
