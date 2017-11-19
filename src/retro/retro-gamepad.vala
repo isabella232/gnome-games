@@ -53,6 +53,10 @@ private class Games.RetroGamepad: Object, Retro.Controller {
 		return (1 << Retro.ControllerType.JOYPAD) | (1 << Retro.ControllerType.ANALOG);
 	}
 
+	public bool set_rumble_state (Retro.RumbleEffect effect, uint16 strength) {
+		return false;
+	}
+
 	private bool get_button_pressed (Retro.JoypadId button) {
 		switch (button) {
 		case Retro.JoypadId.B:
