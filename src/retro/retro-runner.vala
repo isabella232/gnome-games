@@ -499,7 +499,7 @@ public class Games.RetroRunner : Object, Runner {
 		if (!core.get_can_access_state ())
 			return;
 
-		var pixbuf = view.pixbuf;
+		var pixbuf = view.get_pixbuf ();
 		if (pixbuf == null)
 			return;
 
@@ -538,7 +538,7 @@ public class Games.RetroRunner : Object, Runner {
 			return;
 
 		var pixbuf = new Gdk.Pixbuf.from_file (screenshot_path);
-		view.pixbuf = pixbuf;
+		view.set_pixbuf (pixbuf);
 	}
 
 	private bool on_shutdown () {
