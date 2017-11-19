@@ -6,6 +6,7 @@ private class Games.RetroGamepad: Object, Retro.Controller {
 
 	private bool[] buttons;
 	private int16[] axes;
+	private uint16 rumble_effect[2];
 
 	public RetroGamepad (Manette.Device device, bool present_analog_sticks) {
 		Object (device: device, present_analog_sticks: present_analog_sticks);
@@ -54,7 +55,16 @@ private class Games.RetroGamepad: Object, Retro.Controller {
 	}
 
 	public bool set_rumble_state (Retro.RumbleEffect effect, uint16 strength) {
-		return false;
+		rumble_effect[effect] = strength;
+
+		if (!device.has_rumble ())
+			return false;
+
+		device.rumble (rumble_effect[Retro.RumbleEffect.STRONG],
+		               rumble_effect[Retro.RumbleEffect.WEAK],
+		               uint16.MAX);
+
+		return true;
 	}
 
 	private bool get_button_pressed (Retro.JoypadId button) {
