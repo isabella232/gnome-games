@@ -141,7 +141,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://git.gnome.org/browse/retro-gtk"
+                    "url": "https://gitlab.gnome.org/GNOME/retro-gtk.git"
                 }
             ]
         },
@@ -151,7 +151,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://git.gnome.org/browse/gnome-games"
+                    "url": "https://gitlab.gnome.org/GNOME/gnome-games.git"
                 }
             ]
         }
