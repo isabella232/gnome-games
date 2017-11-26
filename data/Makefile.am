@@ -1,6 +1,6 @@
 SUBDIRS = icons
 
-appdatadir = $(datadir)/appdata
+appdatadir = $(datadir)/metainfo
 appdata_in_files = org.gnome.Games.appdata.xml.in
 appdata_DATA = $(appdata_in_files:.appdata.xml.in=.appdata.xml)
 @INTLTOOL_XML_RULE@
