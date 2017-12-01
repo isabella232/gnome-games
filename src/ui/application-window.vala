@@ -513,6 +513,14 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return true;
 		}
 
+		if (((event.state & default_modifiers) == Gdk.ModifierType.MOD1_MASK) &&
+		    (((get_direction () == Gtk.TextDirection.LTR) && event.keyval == Gdk.Key.Left) ||
+		     ((get_direction () == Gtk.TextDirection.RTL) && event.keyval == Gdk.Key.Right))) {
+			on_display_back ();
+
+			return true;
+		}
+
 		return false;
 	}
 
