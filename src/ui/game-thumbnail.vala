@@ -40,7 +40,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 			_cover = value;
 
 			if (_cover != null)
-				_cover.changed.connect (invalidate_cover);
+				cover_changed_id = _cover.changed.connect (invalidate_cover);
 
 			invalidate_cover ();
 		}
