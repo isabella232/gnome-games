@@ -56,3 +56,37 @@ window.
 
 This allows consistency and helps to quickly know which widget
 represents what.
+
+Compilation and installation Procedure
+======================================
+
+You can install this project either manually (by command line) or
+with [Builder](https://wiki.gnome.org/Apps/Builder "GNOME-Builder Wiki").
+
+## Manual installation
+
+### Get the official git repository
+```shell
+git clone https://git.gnome.org/browse/gnome-games
+```
+
+### Required dependencies
+Games always requires the matching version of [retro-gtk](https://git.gnome.org/browse/retro-gtk/)
+and [libmanette](https://gitlab.gnome.org/aplazas/libmanette),
+so if you use the master version of Games, you need to use
+the master version of retro-gtk and libmanette.
+
+### Prepare compilation
+```shell
+./autogen.sh && ./configure
+```
+
+### Compilation
+```shell
+make
+```
+
+### Install the application
+```shell
+sudo make install
+```
