@@ -6,17 +6,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games gnome-3-26\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-09-18 08:28+0000\n"
-"PO-Revision-Date: 2017-09-26 13:39+0700\n"
-"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
+"POT-Creation-Date: 2017-11-24 18:28+0000\n"
+"PO-Revision-Date: 2017-12-11 16:01+0700\n"
+"Last-Translator: Kukuh Syafaat <syafaatkukuh@gmail.com>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.3\n"
+"X-Generator: Poedit 2.0.4\n"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
@@ -98,11 +97,11 @@ msgstr "Penyaring video"
 #: ../data/org.gnome.Games.gschema.xml.h:4
 msgid ""
 "Filter for the game video output. Allowed values are: “smooth” (blurry "
-"pixels), “sharp” (blocky pixels)."
+"pixels), “sharp” (blocky pixels), “crt” (CRT emulation)."
 msgstr ""
 "Penyaring untuk keluaran video game. nilai yang diperbolehkan adalah: "
-"\"halus/smooth\" (pixel kabur/blurry pixels), \"tajam/sharp\" (blocky "
-"pixels)."
+"\"smooth\" (pixel kabur/blurry pixels), \"sharp\" (blocky pixels), \"crt"
+"\" (emulasi CRT)."
 
 #: ../data/org.gnome.Games.gschema.xml.h:5
 msgid "Window maximized"
@@ -477,24 +476,6 @@ msgstr "Tidak ada set ID diska yang ditemukan untuk ID diska \"%s\"."
 msgid "No disc found for disc ID “%s”."
 msgstr "Tidak ada diska yang ditemukan untuk ID diska \"%s\"."
 
-#: ../src/gamepad/gamepad-mapping.c:236
-msgid "The mapping string can’t be null."
-msgstr "String pemetaan tidak boleh null."
-
-#: ../src/gamepad/gamepad-mapping.c:245
-msgid "The mapping string can’t be empty."
-msgstr "String pemetaan tidak boleh kosong."
-
-#: ../src/gamepad/linux/linux-raw-gamepad.c:291
-#, c-format
-msgid "Unable to open file “%s”: %s"
-msgstr "Tidak dapat membuka berkas “%s”: %s"
-
-#: ../src/gamepad/linux/linux-raw-gamepad.c:304
-#, c-format
-msgid "Evdev is unable to open “%s”: %s"
-msgstr "Evdev tidak dapat membuka “%s”: %s"
-
 #: ../src/retro/retro-core-source.vala:25
 #: ../src/retro/retro-core-source.vala:37
 #, c-format
@@ -710,17 +691,17 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: ../src/retro/retro-runner.vala:246
+#: ../src/retro/retro-runner.vala:239
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Tidak ada modul yang ditemukan untuk \"%s\"."
 
-#: ../src/retro/retro-runner.vala:577
+#: ../src/retro/retro-runner.vala:568
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Sistem \"%s\" tidak didukung, tapi dukungan penuh direncanakan."
 
-#: ../src/retro/retro-runner.vala:580
+#: ../src/retro/retro-runner.vala:571
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Sistem ini belum didukung, tetapi dukungan penuh direncanakan."
 
@@ -729,26 +710,26 @@ msgid "Select game files"
 msgstr "Pilih berkas permainan"
 
 #: ../src/ui/application.vala:137
-msgid "_Cancel"
-msgstr "_Batal"
-
-#: ../src/ui/application.vala:138
 msgid "_Add"
 msgstr "T_ambah"
 
-#: ../src/ui/application.vala:313
+#: ../src/ui/application.vala:137
+msgid "_Cancel"
+msgstr "_Batal"
+
+#: ../src/ui/application.vala:310
 msgid "GNOME Games"
 msgstr "Permainan GNOME"
 
-#: ../src/ui/application.vala:315
+#: ../src/ui/application.vala:312
 msgid "A video game player for GNOME"
 msgstr "Player permainan video untuk GNOME"
 
-#: ../src/ui/application.vala:319
+#: ../src/ui/application.vala:316
 msgid "Learn more about GNOME Games"
 msgstr "Pelajari lebih lanjut mengenai Permainan GNOME"
 
-#: ../src/ui/application.vala:326
+#: ../src/ui/application.vala:323
 msgid "translator-credits"
 msgstr ""
 "Lorenz Adam Damara <lorenzadam@resolution-consulting.co.id>, 2016.\n"
@@ -772,26 +753,26 @@ msgid "Oops! Unable to run the game"
 msgstr "Ups! Tidak dapat menjalankan permainan"
 
 #. translators: testing a gamepad, %s is its name
-#: ../src/ui/gamepad-configurer.vala:79
+#: ../src/ui/gamepad-configurer.vala:78
 #, c-format
 msgid "Testing %s"
 msgstr "Menguji %s"
 
 #. translators: configuring a gamepad, %s is its name
-#: ../src/ui/gamepad-configurer.vala:93
+#: ../src/ui/gamepad-configurer.vala:92
 #, c-format
 msgid "Configuring %s"
 msgstr "Mengkonfigurasi %s"
 
-#: ../src/ui/gamepad-mapper.vala:134
+#: ../src/ui/gamepad-mapper.vala:129
 msgid "Press suitable button on your gamepad"
 msgstr "Tekan tombol yang sesuai pada gamepad Anda"
 
-#: ../src/ui/gamepad-mapper.vala:139
+#: ../src/ui/gamepad-mapper.vala:134
 msgid "Move suitable axis left/right on your gamepad"
 msgstr "Pindahkan sumbu yang sesuai ke kiri/kanan pada gamepad Anda"
 
-#: ../src/ui/gamepad-mapper.vala:141
+#: ../src/ui/gamepad-mapper.vala:136
 msgid "Move suitable axis up/down on your gamepad"
 msgstr "Pindahkan sumbu yang sesuai ke atas/bawah pada gamepad Anda"
 
@@ -808,6 +789,10 @@ msgstr "Halus"
 #: ../src/ui/preferences-page-video.vala:34
 msgid "Sharp"
 msgstr "Tajam"
+
+#: ../src/ui/preferences-page-video.vala:34
+msgid "CRT"
+msgstr "CRT"
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
@@ -861,3 +846,15 @@ msgstr "%s:%lu: Akhir baris tidak terduga, diharapkan token."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: Token tidak terduga %s, diharapkan akhir baris."
+
+#~ msgid "The mapping string can’t be null."
+#~ msgstr "String pemetaan tidak boleh null."
+
+#~ msgid "The mapping string can’t be empty."
+#~ msgstr "String pemetaan tidak boleh kosong."
+
+#~ msgid "Unable to open file “%s”: %s"
+#~ msgstr "Tidak dapat membuka berkas “%s”: %s"
+
+#~ msgid "Evdev is unable to open “%s”: %s"
+#~ msgstr "Evdev tidak dapat membuka “%s”: %s"
