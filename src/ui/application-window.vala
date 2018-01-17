@@ -201,6 +201,20 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	[GtkCallback]
+	public bool on_button_pressed (Gdk.EventButton event) {
+		// Mouse button 8 is the navigation previous button
+		if (event.button == 8) {
+			if (ui_state != UiState.DISPLAY)
+				return false;
+
+			on_display_back ();
+			return true;
+		}
+
+		return false;
+	}
+
+	[GtkCallback]
 	public bool on_window_state_event (Gdk.EventWindowState event) {
 		var is_maximized = (bool) (event.new_window_state & Gdk.WindowState.MAXIMIZED);
 		settings.set_boolean ("window-maximized", is_maximized);
