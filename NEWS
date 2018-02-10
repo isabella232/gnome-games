@@ -1,4 +1,38 @@
 ==============
+Version 3.28.0
+==============
+
+* Libretro backend:
+ - Add a CRT video filter.
+ - Add gamepad rumble support.
+ - Skip core descriptors with no matching module file.
+
+* UI:
+ - Make the collection icon view more compact.
+ - Exit games with Alt+Left/Right (depending on language) or mouse back button.
+ - Wrap text of the empty collection pane to allow the window to be smaller.
+
+* Flatpak: Fix accessing files outside the sandbox.
+
+* Maintainers: The project moved to GNOME's GitLab.
+
+* Replace libmanetteBump retro-gtk to 0.14.
+
+* Translation updates:
+ Brazilian Portuguese
+ Croatian
+ Czech
+ French
+ German
+ Hungarian
+ Indonesian
+ Italian
+ Norwegian bokmål
+ Polish
+ Spanish
+ Swedish
+
+==============
 Version 3.27.2
 ==============
 
