@@ -54,6 +54,9 @@ public class Games.RetroCoreSource : Object {
 				if (!core_descriptor.get_platform_supports_mime_types (platform, mime_types))
 					continue;
 
+				if (core_descriptor.get_module_file () == null)
+					continue;
+
 				this.core_descriptor = core_descriptor;
 
 				break;
