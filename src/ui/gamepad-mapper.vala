@@ -71,9 +71,6 @@ private class Games.GamepadMapper : Gtk.Box {
 			uint16 axis;
 			double value;
 
-			if (input.type == EventCode.EV_KEY)
-				return;
-
 			if (!event.get_absolute (out axis, out value))
 				return;
 
