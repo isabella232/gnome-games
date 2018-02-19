@@ -8,6 +8,8 @@ private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 	[GtkChild]
 	private Gtk.ListBox gamepads_list_box;
 	[GtkChild]
+	private Gtk.ListBox keyboard_list_box;
+	[GtkChild]
 	private Gtk.Box extra_stack_child_holder;
 	[GtkChild]
 	private Gtk.HeaderBar default_header_bar;
@@ -26,6 +28,7 @@ private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 		monitor.device_connected.connect (rebuild_gamepad_list);
 		monitor.device_disconnected.connect (rebuild_gamepad_list);
 		build_gamepad_list ();
+		build_keyboard_list ();
 	}
 
 	public void visible_page_changed () {
@@ -72,6 +75,26 @@ private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 			return;
 
 		var configurer = new GamepadConfigurer(device);
+		back_handler_id = configurer.back.connect (on_back);
+		header_bar_binding = configurer.bind_property ("header-bar", this, "header-bar",
+		                                               BindingFlags.SYNC_CREATE);
+		immersive_mode_binding = configurer.bind_property ("immersive-mode", this, "immersive-mode",
+		                                                   BindingFlags.SYNC_CREATE);
+		extra_stack_child_holder.pack_start (configurer);
+		set_visible_child_name ("extra_stack_child");
+	}
+
+	private void build_keyboard_list () {
+		var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+		box.pack_start (new Gtk.Label (_("Keyboard")), false, false);
+		box.margin = 6;
+		box.show_all ();
+		keyboard_list_box.add (box);
+	}
+
+	[GtkCallback]
+	private void keyboard_list_box_row_activated (Gtk.ListBoxRow row_item) {
+		var configurer = new KeyboardConfigurer ();
 		back_handler_id = configurer.back.connect (on_back);
 		header_bar_binding = configurer.bind_property ("header-bar", this, "header-bar",
 		                                               BindingFlags.SYNC_CREATE);
