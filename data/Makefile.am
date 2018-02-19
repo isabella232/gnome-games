@@ -40,6 +40,7 @@ EXTRA_DIST = \
 	ui/gamepad-mapper.ui \
 	ui/gamepad-tester.ui \
 	ui/game-icon-view.ui \
+	ui/keyboard-mapper.ui \
 	ui/keyboard-tester.ui \
 	ui/media-menu-button.ui \
 	ui/media-selector.ui \
