@@ -126,7 +126,7 @@
             ]
         },
         {
-            "name": "libmanette",
+            "name": "manette",
             "buildsystem": "meson",
             "sources": [
                 {
