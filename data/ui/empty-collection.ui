@@ -58,6 +58,7 @@
             <property name="label" translatable="yes">Install games or add directories containing games to your search sources.</property>
             <property name="justify">left</property>
             <property name="use_markup">true</property>
+            <property name="wrap">true</property>
           </object>
           <packing>
             <property name="expand">False</property>
