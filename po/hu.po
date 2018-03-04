@@ -1,24 +1,23 @@
 # Hungarian translation for gnome-games.
-# Copyright (C) 2016, 2017 Free Software Foundation, Inc.
+# Copyright (C) 2016, 2017, 2018 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-games package.
 #
-# Balázs Úr <urbalazs@gmail.com>, 2016, 2017.
+# Balázs Úr <urbalazs at gmail dot com>, 2016, 2017, 2018.
 # Gabor Kelemen <kelemeng at ubuntu dot com>, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-09-18 08:28+0000\n"
-"PO-Revision-Date: 2017-09-28 22:26+0200\n"
-"Last-Translator: Meskó Balázs <meskobalazs@fedoraproject.org>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
+"POT-Creation-Date: 2017-11-24 18:28+0000\n"
+"PO-Revision-Date: 2018-03-04 21:49+0100\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.3\n"
+"X-Generator: Lokalize 1.2\n"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
@@ -99,10 +98,10 @@ msgstr "Videoszűrő"
 #: ../data/org.gnome.Games.gschema.xml.h:4
 msgid ""
 "Filter for the game video output. Allowed values are: “smooth” (blurry "
-"pixels), “sharp” (blocky pixels)."
+"pixels), “sharp” (blocky pixels), “crt” (CRT emulation)."
 msgstr ""
 "A játék videokimenetének szűrése. Lehetséges értékek: „smooth” (homályos "
-"pixelek), „sharp” (kockás pixelek)."
+"pixelek), „sharp” (kockás pixelek), „crt” (CRT emuláció)."
 
 #: ../data/org.gnome.Games.gschema.xml.h:5
 msgid "Window maximized"
@@ -478,24 +477,6 @@ msgstr "Nem található lemezkészlet-azonosító a(z) „%s” lemezazonosító
 msgid "No disc found for disc ID “%s”."
 msgstr "Nem található lemez a(z) „%s” lemezazonosítóhoz."
 
-#: ../src/gamepad/gamepad-mapping.c:236
-msgid "The mapping string can’t be null."
-msgstr "A leképező karakterlánc nem lehet null."
-
-#: ../src/gamepad/gamepad-mapping.c:245
-msgid "The mapping string can’t be empty."
-msgstr "A leképező karakterlánc nem lehet üres."
-
-#: ../src/gamepad/linux/linux-raw-gamepad.c:291
-#, c-format
-msgid "Unable to open file “%s”: %s"
-msgstr "A(z) „%s” fájl nem nyitható meg: %s"
-
-#: ../src/gamepad/linux/linux-raw-gamepad.c:304
-#, c-format
-msgid "Evdev is unable to open “%s”: %s"
-msgstr "Az evdev nem tudja megnyitni a(z) „%s” fájlt: %s"
-
 #: ../src/retro/retro-core-source.vala:25
 #: ../src/retro/retro-core-source.vala:37
 #, c-format
@@ -709,18 +690,18 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: ../src/retro/retro-runner.vala:246
+#: ../src/retro/retro-runner.vala:239
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nem található modul ehhez: „%s”."
 
-#: ../src/retro/retro-runner.vala:577
+#: ../src/retro/retro-runner.vala:568
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
 "A(z) „%s” rendszer még nem támogatott, de a teljes támogatás tervezett."
 
-#: ../src/retro/retro-runner.vala:580
+#: ../src/retro/retro-runner.vala:571
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "A rendszer még nem támogatott, de a teljes támogatás tervezett."
 
@@ -729,26 +710,26 @@ msgid "Select game files"
 msgstr "Játékfájlok kiválasztása"
 
 #: ../src/ui/application.vala:137
-msgid "_Cancel"
-msgstr "_Mégse"
-
-#: ../src/ui/application.vala:138
 msgid "_Add"
 msgstr "_Hozzáadás"
 
-#: ../src/ui/application.vala:313
+#: ../src/ui/application.vala:137
+msgid "_Cancel"
+msgstr "_Mégse"
+
+#: ../src/ui/application.vala:310
 msgid "GNOME Games"
 msgstr "GNOME Játékok"
 
-#: ../src/ui/application.vala:315
+#: ../src/ui/application.vala:312
 msgid "A video game player for GNOME"
 msgstr "Egy videojáték-lejátszó a GNOME-hoz"
 
-#: ../src/ui/application.vala:319
+#: ../src/ui/application.vala:316
 msgid "Learn more about GNOME Games"
 msgstr "Tudjon meg többet a GNOME Játékokról"
 
-#: ../src/ui/application.vala:326
+#: ../src/ui/application.vala:323
 msgid "translator-credits"
 msgstr ""
 "Úr Balázs <urbalazs@gmail.com>\n"
@@ -772,26 +753,26 @@ msgid "Oops! Unable to run the game"
 msgstr "Hoppá! A játék nem futtatható"
 
 #. translators: testing a gamepad, %s is its name
-#: ../src/ui/gamepad-configurer.vala:79
+#: ../src/ui/gamepad-configurer.vala:78
 #, c-format
 msgid "Testing %s"
 msgstr "%s tesztelése"
 
 #. translators: configuring a gamepad, %s is its name
-#: ../src/ui/gamepad-configurer.vala:93
+#: ../src/ui/gamepad-configurer.vala:92
 #, c-format
 msgid "Configuring %s"
 msgstr "%s beállítása"
 
-#: ../src/ui/gamepad-mapper.vala:134
+#: ../src/ui/gamepad-mapper.vala:129
 msgid "Press suitable button on your gamepad"
 msgstr "Nyomja meg a megfelelő gombot az irányítón"
 
-#: ../src/ui/gamepad-mapper.vala:139
+#: ../src/ui/gamepad-mapper.vala:134
 msgid "Move suitable axis left/right on your gamepad"
 msgstr "Mozgassa a megfelelő tengelyt balra/jobbra az irányítón"
 
-#: ../src/ui/gamepad-mapper.vala:141
+#: ../src/ui/gamepad-mapper.vala:136
 msgid "Move suitable axis up/down on your gamepad"
 msgstr "Mozgassa a megfelelő tengelyt fel/le az irányítón"
 
@@ -808,6 +789,10 @@ msgstr "Sima"
 #: ../src/ui/preferences-page-video.vala:34
 msgid "Sharp"
 msgstr "Éles"
+
+#: ../src/ui/preferences-page-video.vala:34
+msgid "CRT"
+msgstr "CRT"
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
@@ -859,3 +844,4 @@ msgstr "%s:%lu: Váratlan sorvég, egy token várt."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: Váratlan %s token, sorvég várt."
+
