@@ -1,6 +1,9 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public class Games.GriloMedia : Object {
+	private const string SOURCE_NAME = "grl-thegamesdb";
+	private const string SOURCE_TAG = "games";
+
 	private static Grl.Registry registry;
 
 	public signal void resolved ();
@@ -22,7 +25,14 @@ public class Games.GriloMedia : Object {
 			return registry;
 
 		registry = Grl.Registry.get_default ();
-		registry.load_all_plugins(true);
+		registry.load_all_plugins (true);
+
+		var source_list = registry.get_sources (true);
+		source_list.foreach ((entry) => {
+			var tags = entry.get_tags ();
+			if (!(SOURCE_TAG in tags))
+				registry.unregister_source (entry);
+		});
 
 		return registry;
 	}
@@ -47,7 +57,7 @@ public class Games.GriloMedia : Object {
 		resolving = true;
 
 		var registry = get_registry ();
-		var source = registry.lookup_source ("grl-thegamesdb");
+		var source = registry.lookup_source (SOURCE_NAME);
 		if (source == null)
 			return;
 
