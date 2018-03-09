@@ -1,23 +1,22 @@
 # Italian translaion for GNOME Games.
-# Copyright (C) 2016, 2017 The GNOME Games Authors.
+# Copyright (C) 2016, 2017, 2018 The GNOME Games Authors.
 # This file is distributed under the same license as the GNOME Games package.
 # Michael Moroni <michael.moroni@openmailbox.org>, 2016.
-# Milo Casagrande <milo@milo.name>, 2016, 2017.
+# Milo Casagrande <milo@milo.name>, 2016, 2017, 2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-09-18 08:28+0000\n"
-"PO-Revision-Date: 2017-09-19 14:57+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
+"POT-Creation-Date: 2017-11-24 18:28+0000\n"
+"PO-Revision-Date: 2018-03-09 13:33+0100\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Poedit 2.0.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
@@ -99,10 +98,10 @@ msgstr "Filtro video"
 #: ../data/org.gnome.Games.gschema.xml.h:4
 msgid ""
 "Filter for the game video output. Allowed values are: “smooth” (blurry "
-"pixels), “sharp” (blocky pixels)."
+"pixels), “sharp” (blocky pixels), “crt” (CRT emulation)."
 msgstr ""
 "Filtra il tipo di uscita video dei giochi. Valori consentiti sono: \"smooth"
-"\" (morbido), \"sharp\" (dettagliato)."
+"\" (morbido), \"sharp\" (dettagliato), \"crt\" (emulazione CRT)."
 
 #: ../data/org.gnome.Games.gschema.xml.h:5
 msgid "Window maximized"
@@ -476,24 +475,6 @@ msgstr "ID dell'insieme di dischi non trovato per il disco con ID «%s»."
 msgid "No disc found for disc ID “%s”."
 msgstr "Nessun disco trovato per il disco con ID «%s»."
 
-#: ../src/gamepad/gamepad-mapping.c:236
-msgid "The mapping string can’t be null."
-msgstr "La stringa di mappatura non può essere nulla."
-
-#: ../src/gamepad/gamepad-mapping.c:245
-msgid "The mapping string can’t be empty."
-msgstr "La stringa di mappatura non può essere vuota."
-
-#: ../src/gamepad/linux/linux-raw-gamepad.c:291
-#, c-format
-msgid "Unable to open file “%s”: %s"
-msgstr "Impossibile aprire il file «%s»: %s"
-
-#: ../src/gamepad/linux/linux-raw-gamepad.c:304
-#, c-format
-msgid "Evdev is unable to open “%s”: %s"
-msgstr "Evdev non è in grado di aprire «%s»: %s"
-
 #: ../src/retro/retro-core-source.vala:25
 #: ../src/retro/retro-core-source.vala:37
 #, c-format
@@ -708,17 +689,17 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: ../src/retro/retro-runner.vala:246
+#: ../src/retro/retro-runner.vala:239
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nessun modulo trovato per «%s»."
 
-#: ../src/retro/retro-runner.vala:577
+#: ../src/retro/retro-runner.vala:568
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Il sistema «%s» non è ancora supportato, ma presto lo sarà."
 
-#: ../src/retro/retro-runner.vala:580
+#: ../src/retro/retro-runner.vala:571
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Il sistema non è ancora supportato, ma presto lo sarà."
 
@@ -727,29 +708,29 @@ msgid "Select game files"
 msgstr "Seleziona file di gioco"
 
 #: ../src/ui/application.vala:137
-msgid "_Cancel"
-msgstr "A_nnulla"
-
-#: ../src/ui/application.vala:138
 msgid "_Add"
 msgstr "A_ggiungi"
 
-#: ../src/ui/application.vala:313
+#: ../src/ui/application.vala:137
+msgid "_Cancel"
+msgstr "A_nnulla"
+
+#: ../src/ui/application.vala:310
 msgid "GNOME Games"
 msgstr "Giochi GNOME"
 
-#: ../src/ui/application.vala:315
+#: ../src/ui/application.vala:312
 msgid "A video game player for GNOME"
 msgstr "Un riproduttore di videogiochi per GNOME"
 
-#: ../src/ui/application.vala:319
+#: ../src/ui/application.vala:316
 msgid "Learn more about GNOME Games"
 msgstr "Informazioni su Giochi GNOME"
 
-#: ../src/ui/application.vala:326
+#: ../src/ui/application.vala:323
 msgid "translator-credits"
 msgstr ""
-"Milo Casagrande <milo@milo.name>, 2016\n"
+"Milo Casagrande <milo@milo.name>, 2016, 2017, 2018\n"
 "Michael Moroni <michael.moroni@openmailbox.org>, 2016"
 
 #: ../src/ui/application-window.vala:283
@@ -770,26 +751,26 @@ msgid "Oops! Unable to run the game"
 msgstr "Impossibile lanciare il gioco"
 
 #. translators: testing a gamepad, %s is its name
-#: ../src/ui/gamepad-configurer.vala:79
+#: ../src/ui/gamepad-configurer.vala:78
 #, c-format
 msgid "Testing %s"
 msgstr "Verifica di «%s»"
 
 #. translators: configuring a gamepad, %s is its name
-#: ../src/ui/gamepad-configurer.vala:93
+#: ../src/ui/gamepad-configurer.vala:92
 #, c-format
 msgid "Configuring %s"
 msgstr "Configurazione di «%s»"
 
-#: ../src/ui/gamepad-mapper.vala:134
+#: ../src/ui/gamepad-mapper.vala:129
 msgid "Press suitable button on your gamepad"
 msgstr "Premere il pulsante corretto sul gamepad"
 
-#: ../src/ui/gamepad-mapper.vala:139
+#: ../src/ui/gamepad-mapper.vala:134
 msgid "Move suitable axis left/right on your gamepad"
 msgstr "Muovere l'asse corretto del gamepad a destra/sinistra"
 
-#: ../src/ui/gamepad-mapper.vala:141
+#: ../src/ui/gamepad-mapper.vala:136
 msgid "Move suitable axis up/down on your gamepad"
 msgstr "Muovere l'asse corretto del gamepad in su/giù"
 
@@ -806,6 +787,10 @@ msgstr "Morbido"
 #: ../src/ui/preferences-page-video.vala:34
 msgid "Sharp"
 msgstr "Dettagliato"
+
+#: ../src/ui/preferences-page-video.vala:34
+msgid "CRT"
+msgstr "CRT"
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
@@ -858,6 +843,18 @@ msgstr "%s:%lu: fine riga inattesa, atteso un elemento."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: elemento %s inatteso, attesa fine riga."
+
+#~ msgid "The mapping string can’t be null."
+#~ msgstr "La stringa di mappatura non può essere nulla."
+
+#~ msgid "The mapping string can’t be empty."
+#~ msgstr "La stringa di mappatura non può essere vuota."
+
+#~ msgid "Unable to open file “%s”: %s"
+#~ msgstr "Impossibile aprire il file «%s»: %s"
+
+#~ msgid "Evdev is unable to open “%s”: %s"
+#~ msgstr "Evdev non è in grado di aprire «%s»: %s"
 
 #~ msgid "The file doesn’t have a Master System header."
 #~ msgstr "Il file non ha un'intestazione Master System."
