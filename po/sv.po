@@ -1,16 +1,15 @@
 # Swedish translation for gnome-games.
-# Copyright © 2016, 2017 gnome-games's COPYRIGHT HOLDER
+# Copyright © 2016, 2017, 2018 gnome-games's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-games package.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2016, 2017.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2016, 2017, 2018.
 # Josef Andersson <l10nl18nsweja@gmail.com>, 2016, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-09-18 08:28+0000\n"
-"PO-Revision-Date: 2017-09-19 01:08+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
+"POT-Creation-Date: 2017-11-24 18:28+0000\n"
+"PO-Revision-Date: 2018-03-11 17:28+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -18,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.3\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
@@ -98,10 +97,10 @@ msgstr "Videofilter"
 #: ../data/org.gnome.Games.gschema.xml.h:4
 msgid ""
 "Filter for the game video output. Allowed values are: “smooth” (blurry "
-"pixels), “sharp” (blocky pixels)."
+"pixels), “sharp” (blocky pixels), “crt” (CRT emulation)."
 msgstr ""
 "Filter för videoutdata för spel. Tillåtna värden är: ”smooth” (suddiga "
-"bildpunkter), ”sharp” (kantiga bildpunkter)."
+"bildpunkter), ”sharp” (kantiga bildpunkter), ”crt” (CRT-emulering)."
 
 #: ../data/org.gnome.Games.gschema.xml.h:5
 msgid "Window maximized"
@@ -476,24 +475,6 @@ msgstr "Hittade inget skivgrupp-ID för skiv-ID ”%s”."
 msgid "No disc found for disc ID “%s”."
 msgstr "Hittade ingen skiva för skiv-ID ”%s”."
 
-#: ../src/gamepad/gamepad-mapping.c:236
-msgid "The mapping string can’t be null."
-msgstr "Mappningssträngen kan inte vara null."
-
-#: ../src/gamepad/gamepad-mapping.c:245
-msgid "The mapping string can’t be empty."
-msgstr "Mappningssträngen kan inte vara tom."
-
-#: ../src/gamepad/linux/linux-raw-gamepad.c:291
-#, c-format
-msgid "Unable to open file “%s”: %s"
-msgstr "Kunde inte öppna filen ”%s”: %s"
-
-#: ../src/gamepad/linux/linux-raw-gamepad.c:304
-#, c-format
-msgid "Evdev is unable to open “%s”: %s"
-msgstr "Evdev kunde inte öppna ”%s”: %s"
-
 #: ../src/retro/retro-core-source.vala:25
 #: ../src/retro/retro-core-source.vala:37
 #, c-format
@@ -706,17 +687,17 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: ../src/retro/retro-runner.vala:246
+#: ../src/retro/retro-runner.vala:239
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Ingen modul hittades för ”%s”."
 
-#: ../src/retro/retro-runner.vala:577
+#: ../src/retro/retro-runner.vala:568
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Systemet ”%s” stöds inte ännu, men fullständigt stöd planeras."
 
-#: ../src/retro/retro-runner.vala:580
+#: ../src/retro/retro-runner.vala:571
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Systemet stöds inte ännu, men fullständigt stöd planeras."
 
@@ -725,26 +706,26 @@ msgid "Select game files"
 msgstr "Välj spelfiler"
 
 #: ../src/ui/application.vala:137
-msgid "_Cancel"
-msgstr "_Avbryt"
-
-#: ../src/ui/application.vala:138
 msgid "_Add"
 msgstr "_Lägg till"
 
-#: ../src/ui/application.vala:313
+#: ../src/ui/application.vala:137
+msgid "_Cancel"
+msgstr "_Avbryt"
+
+#: ../src/ui/application.vala:310
 msgid "GNOME Games"
 msgstr "GNOME Spel"
 
-#: ../src/ui/application.vala:315
+#: ../src/ui/application.vala:312
 msgid "A video game player for GNOME"
 msgstr "En spelarkad för GNOME"
 
-#: ../src/ui/application.vala:319
+#: ../src/ui/application.vala:316
 msgid "Learn more about GNOME Games"
 msgstr "Lär dig mer om GNOME Spel"
 
-#: ../src/ui/application.vala:326
+#: ../src/ui/application.vala:323
 msgid "translator-credits"
 msgstr ""
 "Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
@@ -769,26 +750,26 @@ msgid "Oops! Unable to run the game"
 msgstr "Ojdå! Kunde inte köra spelet"
 
 #. translators: testing a gamepad, %s is its name
-#: ../src/ui/gamepad-configurer.vala:79
+#: ../src/ui/gamepad-configurer.vala:78
 #, c-format
 msgid "Testing %s"
 msgstr "Testar %s"
 
 #. translators: configuring a gamepad, %s is its name
-#: ../src/ui/gamepad-configurer.vala:93
+#: ../src/ui/gamepad-configurer.vala:92
 #, c-format
 msgid "Configuring %s"
 msgstr "Konfigurerar %s"
 
-#: ../src/ui/gamepad-mapper.vala:134
+#: ../src/ui/gamepad-mapper.vala:129
 msgid "Press suitable button on your gamepad"
 msgstr "Tryck ned passande knapp på din handkontroll"
 
-#: ../src/ui/gamepad-mapper.vala:139
+#: ../src/ui/gamepad-mapper.vala:134
 msgid "Move suitable axis left/right on your gamepad"
 msgstr "Flytta passande axel vänster/höger på din handkontroll"
 
-#: ../src/ui/gamepad-mapper.vala:141
+#: ../src/ui/gamepad-mapper.vala:136
 msgid "Move suitable axis up/down on your gamepad"
 msgstr "Flytta passande axel upp/ned på din handkontroll"
 
@@ -805,6 +786,10 @@ msgstr "Mjuk"
 #: ../src/ui/preferences-page-video.vala:34
 msgid "Sharp"
 msgstr "Skarp"
+
+#: ../src/ui/preferences-page-video.vala:34
+msgid "CRT"
+msgstr "CRT"
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
@@ -856,6 +841,18 @@ msgstr "%s:%lu: Oväntat slut på raden, förväntade ett token."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: Oväntat token %s, förväntade radavslut."
+
+#~ msgid "The mapping string can’t be null."
+#~ msgstr "Mappningssträngen kan inte vara null."
+
+#~ msgid "The mapping string can’t be empty."
+#~ msgstr "Mappningssträngen kan inte vara tom."
+
+#~ msgid "Unable to open file “%s”: %s"
+#~ msgstr "Kunde inte öppna filen ”%s”: %s"
+
+#~ msgid "Evdev is unable to open “%s”: %s"
+#~ msgstr "Evdev kunde inte öppna ”%s”: %s"
 
 #~ msgid "The file doesn’t have a Master System header."
 #~ msgstr "Filen har inte ett Master System-filhuvud."
