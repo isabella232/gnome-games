@@ -16,8 +16,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/gambatte-libretro.git"
+                    "type": "archive",
+                    "url": "https://github.com/libretro/gambatte-libretro/archive/f946c6d8c3649d177962b6e588c4243989ebeca0.zip",
+                    "sha256": "76207f3ccfd849ea1d00b75fc619109a1ec898657c488f9b4d3f97f3b7642c6d"
                 },
                 {
                     "type": "file",
