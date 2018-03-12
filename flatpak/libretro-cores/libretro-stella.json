@@ -16,8 +16,9 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/stella-libretro"
+                    "type": "archive",
+                    "url": "https://github.com/libretro/stella-libretro/archive/b0d525b724fa0a9a313e2ea33a590aba98deaabf.zip",
+                    "sha256": "6561074f73b44e73739b6cfefe052789ba9f5fd2b45b2e672d32fddcd0acf28d"
                 },
                 {
                     "type": "file",
