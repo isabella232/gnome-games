@@ -2,15 +2,14 @@
 # Copyright (C) 2015 gameinfo's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gameinfo package.
 # Alexandre Franke <alexandre.franke@gmail.com>, 2017.
-# Adrien Plazas <kekun.plazas@laposte.net>, 2015-2017, 2017.
+# Adrien Plazas <kekun.plazas@laposte.net>, 2015-2017, 2017, 2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gameinfo master\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2017-08-07 19:52+0000\n"
-"PO-Revision-Date: 2017-08-30 16:31+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
+"POT-Creation-Date: 2017-11-24 18:28+0000\n"
+"PO-Revision-Date: 2018-03-12 12:09+0100\n"
 "Last-Translator: Adrien Plazas <kekun.plazas@laposte.net>\n"
 "Language-Team: français <>\n"
 "Language: fr\n"
@@ -96,12 +95,16 @@ msgid "Video filter"
 msgstr "Filtre vidéo"
 
 #: ../data/org.gnome.Games.gschema.xml.h:4
+#| msgid ""
+#| "Filter for the game video output. Allowed values are: “smooth” (blurry "
+#| "pixels), “sharp” (blocky pixels)."
 msgid ""
 "Filter for the game video output. Allowed values are: “smooth” (blurry "
-"pixels), “sharp” (blocky pixels)."
+"pixels), “sharp” (blocky pixels), “crt” (CRT emulation)."
 msgstr ""
 "Filtre pour la sortie vidéo des jeux. Les valeurs possibles sont : "
-"« lisse » (pixels flous), « net » (pixels visibles)."
+"« lisse » (pixels flous), « net » (pixels visibles), « crt » (émulation de "
+"tube cathodique)."
 
 #: ../data/org.gnome.Games.gschema.xml.h:5
 msgid "Window maximized"
@@ -136,7 +139,6 @@ msgid "Loading"
 msgstr "Chargement"
 
 #: ../data/ui/collection-header-bar.ui.h:2
-#| msgid "Invalid game file: “%s”."
 msgid "Add game files…"
 msgstr "Ajouter des fichiers de jeu…"
 
@@ -176,8 +178,8 @@ msgstr ""
 "de recherche."
 
 #: ../data/ui/gamepad-configurer.ui.h:1
-#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:4
-#: ../data/ui/resume-failed-dialog.ui.h:3
+#| msgid "Reset"
+msgctxt "Gamepad configuration factory reset"
 msgid "Reset"
 msgstr "Réinitialiser"
 
@@ -200,7 +202,6 @@ msgid "Media"
 msgstr "Media"
 
 #: ../data/ui/preferences-page-controllers.ui.h:1
-#| msgid "Games"
 msgid "Gamepads"
 msgstr "Manettes de jeu"
 
@@ -260,9 +261,14 @@ msgid "Factory reset mapping for this gamepad?"
 msgstr "Réinitialiser cette manette de jeu aux paramètres d'usine ?"
 
 #: ../data/ui/reset-gamepad-mapping-dialog.ui.h:2
-#| msgid "All unsaved progress will be lost."
 msgid "Your mapping will be lost."
 msgstr "Votre configuration sera perdue."
+
+#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:4
+#| msgid "Reset"
+msgctxt "Confirm gamepad configuration factory reset"
+msgid "Reset"
+msgstr "Réinitialiser"
 
 #: ../data/ui/resume-dialog.ui.h:1
 msgid "Resume last game?"
@@ -277,9 +283,14 @@ msgid "Resume"
 msgstr "Reprendre"
 
 #: ../data/ui/resume-failed-dialog.ui.h:1
-#| msgid "Resuming failed. Do you want to to restart the game?"
 msgid "Resuming failed. Do you want to restart the game?"
 msgstr "La reprise a échoué. Voulez-vous redémarrer le jeu ?"
+
+#: ../data/ui/resume-failed-dialog.ui.h:3
+#| msgid "Reset"
+msgctxt "Resuming a game failed dialog"
+msgid "Reset"
+msgstr "Réinitialiser"
 
 #: ../plugins/desktop/src/desktop-plugin.vala:48
 #, c-format
@@ -298,13 +309,11 @@ msgstr "Impossible d’analyser « %s »."
 
 #: ../plugins/desktop/src/desktop-plugin.vala:74
 #, c-format
-#| msgid "File “%s” doesn’t exist."
 msgid "“%s” shouldn’t be displayed."
 msgstr "« %s » ne devrait pas être affiché."
 
 #: ../plugins/desktop/src/desktop-plugin.vala:77
 #, c-format
-#| msgid "“%s” is blacklisted."
 msgid "“%s” is hidden."
 msgstr "« %s » est caché."
 
@@ -344,7 +353,6 @@ msgstr "Identifiant de jeu MAME « %s » invalide pour « %s »."
 
 #: ../plugins/playstation/src/playstation-header.vala:27
 #, c-format
-#| msgid "No game title found for disc ID “%s”."
 msgid "Not a PlayStation disc: “%s”."
 msgstr "Ce n'est pas un disque Playstation : « %s »."
 
@@ -478,24 +486,6 @@ msgstr "Aucun ensemble de disques trouvé pour l’identifiant de disque « %s�
 msgid "No disc found for disc ID “%s”."
 msgstr "Aucun disque trouvé pour l’identifiant de disque « %s »."
 
-#: ../src/gamepad/gamepad-mapping.c:236
-msgid "The mapping string can’t be null."
-msgstr "La chaîne de caractère de correspondance ne peut pas être nulle."
-
-#: ../src/gamepad/gamepad-mapping.c:245
-msgid "The mapping string can’t be empty."
-msgstr "La chaîne de caractère de correspondance ne peut pas être vide."
-
-#: ../src/gamepad/linux/linux-raw-gamepad.c:291
-#, c-format
-msgid "Unable to open file “%s”: %s"
-msgstr "Nous n’avons pas pu ouvrir le fichier « %s » : %s"
-
-#: ../src/gamepad/linux/linux-raw-gamepad.c:304
-#, c-format
-msgid "Evdev is unable to open “%s”: %s"
-msgstr "Evdev est incapable d’ouvrir « %s » : %s"
-
 #: ../src/retro/retro-core-source.vala:25
 #: ../src/retro/retro-core-source.vala:37
 #, c-format
@@ -548,7 +538,6 @@ msgid "Atari 7800"
 msgstr "Atari 7800"
 
 #: ../src/retro/retro-platform.vala:15
-#| msgid "Atari 2600"
 msgid "Atari Lynx"
 msgstr "Atari Lynx"
 
@@ -711,20 +700,19 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: ../src/retro/retro-runner.vala:248
+#: ../src/retro/retro-runner.vala:239
 #, c-format
-#| msgid "No disc found for disc ID “%s”."
 msgid "No module found for “%s”."
 msgstr "Aucun module trouvé pour « %s »."
 
-#: ../src/retro/retro-runner.vala:579
+#: ../src/retro/retro-runner.vala:568
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
 "Le système « %s » n’est pas pris en charge pour le moment, son développement "
 "est prévu."
 
-#: ../src/retro/retro-runner.vala:582
+#: ../src/retro/retro-runner.vala:571
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr ""
 "Le système n’est pas pris en charge pour le moment, son développement est "
@@ -735,27 +723,26 @@ msgid "Select game files"
 msgstr "Sélectionnez des fichiers de jeu"
 
 #: ../src/ui/application.vala:137
-#| msgid "Cancel"
-msgid "_Cancel"
-msgstr "A_nnuler"
-
-#: ../src/ui/application.vala:138
 msgid "_Add"
 msgstr "_Ajouter"
 
-#: ../src/ui/application.vala:313
+#: ../src/ui/application.vala:137
+msgid "_Cancel"
+msgstr "A_nnuler"
+
+#: ../src/ui/application.vala:310
 msgid "GNOME Games"
 msgstr "GNOME Jeux"
 
-#: ../src/ui/application.vala:315
+#: ../src/ui/application.vala:312
 msgid "A video game player for GNOME"
 msgstr "Lecteur de jeux vidéo pour GNOME"
 
-#: ../src/ui/application.vala:319
+#: ../src/ui/application.vala:316
 msgid "Learn more about GNOME Games"
 msgstr "En apprendre plus sur GNOME Jeux"
 
-#: ../src/ui/application.vala:326
+#: ../src/ui/application.vala:323
 msgid "translator-credits"
 msgstr "Adrien Plazas <kekun.plazas@laposte.net>, 2016"
 
@@ -777,27 +764,27 @@ msgid "Oops! Unable to run the game"
 msgstr "Oups ! Nous n’avons pas pu lancer le jeu"
 
 #. translators: testing a gamepad, %s is its name
-#: ../src/ui/gamepad-configurer.vala:79
+#: ../src/ui/gamepad-configurer.vala:78
 #, c-format
 msgid "Testing %s"
 msgstr "Essai de %s"
 
 #. translators: configuring a gamepad, %s is its name
-#: ../src/ui/gamepad-configurer.vala:93
+#: ../src/ui/gamepad-configurer.vala:92
 #, c-format
 msgid "Configuring %s"
 msgstr "Configuration de %s"
 
-#: ../src/ui/gamepad-mapper.vala:134
+#: ../src/ui/gamepad-mapper.vala:129
 msgid "Press suitable button on your gamepad"
 msgstr "Pressez le bouton correspondant sur votre manette de jeu"
 
-#: ../src/ui/gamepad-mapper.vala:139
+#: ../src/ui/gamepad-mapper.vala:134
 msgid "Move suitable axis left/right on your gamepad"
 msgstr ""
 "Déplacez l'axe correspondant à gauche ou à droite sur votre manette de jeu"
 
-#: ../src/ui/gamepad-mapper.vala:141
+#: ../src/ui/gamepad-mapper.vala:136
 msgid "Move suitable axis up/down on your gamepad"
 msgstr ""
 "Déplacez l'axe correspondant en haut ou en bas sur votre manette de jeu"
@@ -815,6 +802,10 @@ msgstr "Lisse"
 #: ../src/ui/preferences-page-video.vala:34
 msgid "Sharp"
 msgstr "Net"
+
+#: ../src/ui/preferences-page-video.vala:34
+msgid "CRT"
+msgstr "Tube cathodique"
 
 #: ../src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
@@ -869,6 +860,18 @@ msgstr "%s:%lu : Fin de ligne inattendue, un jeton est attendu."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu : Jeton %s inattendu, une fin de ligne est attendue."
+
+#~ msgid "The mapping string can’t be null."
+#~ msgstr "La chaîne de caractère de correspondance ne peut pas être nulle."
+
+#~ msgid "The mapping string can’t be empty."
+#~ msgstr "La chaîne de caractère de correspondance ne peut pas être vide."
+
+#~ msgid "Unable to open file “%s”: %s"
+#~ msgstr "Nous n’avons pas pu ouvrir le fichier « %s » : %s"
+
+#~ msgid "Evdev is unable to open “%s”: %s"
+#~ msgstr "Evdev est incapable d’ouvrir « %s » : %s"
 
 #~ msgid "The file doesn’t have a Master System header."
 #~ msgstr "Le fichier n’a pas d’en-tête Master System."
