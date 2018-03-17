@@ -49,7 +49,7 @@
            change more rarely than the rest of the modules. */
         "libretro-cores/libretro-blastem.json",
         "libretro-cores/libretro-bsnes.json",
-        "libretro-cores/libretro-desmume.json",
+        "libretro-cores/libretro-desmume2015.json",
         "libretro-cores/libretro-dosbox.json",
         "libretro-cores/libretro-gambatte.json",
         "libretro-cores/libretro-handy.json",

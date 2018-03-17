@@ -1,5 +1,5 @@
         {
-            "name": "libretro-desmume",
+            "name": "libretro-desmume2015",
             "no-autogen": true,
             "subdir": "desmume",
             "make-args": [
@@ -13,18 +13,17 @@
             "post-install": [
                 /* TODO: Send that upstream */
                 "mkdir -p /app/lib/libretro/",
-                "install -m644 -p desmume.libretro /app/lib/libretro/"
+                "install -m644 -p desmume2015.libretro /app/lib/libretro/"
             ],
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/libretro/desmume",
-                    "branch": "09e0f16bf2ab6ffb3267ab27a9135867cf6320f3"
+                    "url": "https://github.com/libretro/desmume2015"
                 },
                 {
                     "type": "file",
-                    "path": "desmume.libretro",
-                    "dest-filename": "desmume/desmume.libretro"
+                    "path": "desmume2015.libretro",
+                    "dest-filename": "desmume/desmume2015.libretro"
                 }
             ]
         }

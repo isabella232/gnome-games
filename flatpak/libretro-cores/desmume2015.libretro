@@ -1,8 +1,8 @@
 [Libretro]
 Type=Emulator
 Version=1.0
-Name=DeSmuME
-Module=desmume_libretro.so
+Name=DeSmuME 2015
+Module=desmume2015_libretro.so
 LibretroVersion=1
 Authors=YopYop156;Zeromus;
 License=GPL-2.0+;
