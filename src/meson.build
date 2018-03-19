@@ -89,11 +89,13 @@ vala_sources = [
 
   'grilo/grilo-cooperative.vala',
   'grilo/grilo-cover.vala',
+  'grilo/grilo-description.vala',
   'grilo/grilo-developer.vala',
   'grilo/grilo-genre.vala',
   'grilo/grilo-media.vala',
   'grilo/grilo-players.vala',
   'grilo/grilo-publisher.vala',
+  'grilo/grilo-rating.vala',
   'grilo/grilo-release-date.vala',
 
   'keyboard/keyboard-mapping-builder.vala',
