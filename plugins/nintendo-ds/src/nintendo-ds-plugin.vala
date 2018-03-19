@@ -28,6 +28,8 @@ private class Games.NintendoDsPlugin : Object, Plugin {
 		var players = new GriloPlayers (media, uid);
 		var developer = new GriloDeveloper (media);
 		var publisher = new GriloPublisher (media);
+		var description = new GriloDescription (media);
+		var rating = new GriloRating (media);
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
@@ -43,6 +45,8 @@ private class Games.NintendoDsPlugin : Object, Plugin {
 		game.set_players (players);
 		game.set_developer (developer);
 		game.set_publisher (publisher);
+		game.set_description (description);
+		game.set_rating (rating);
 
 		return game;
 	}
