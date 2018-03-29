@@ -14,7 +14,10 @@
         "--share=ipc", "--socket=x11",
         /* Wayland access */
         "--socket=wayland",
+        /* OpenGL/DRI access */
+        "--device=dri",
         /* PulseAudio access */
+        "--socket=pulseaudio",
         "--device=dri", "--socket=pulseaudio",
         /* Tracker access */
         "--talk-name=org.freedesktop.Tracker1",
