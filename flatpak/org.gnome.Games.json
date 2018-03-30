@@ -14,7 +14,7 @@
         "--share=ipc", "--socket=x11",
         /* Wayland access */
         "--socket=wayland",
-        /* OpenGL/DRI access */
+        /* OpenGL + DRI access */
         "--device=dri",
         /* PulseAudio access */
         "--socket=pulseaudio",
