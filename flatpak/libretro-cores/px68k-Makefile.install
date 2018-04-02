@@ -1,0 +1,4 @@
+include Makefile.libretro
+
+install: px68k_libretro.so
+	install -Dp -m755 px68k_libretro.so $(DESTDIR)$(prefix)/lib/libretro/px68k_libretro.so

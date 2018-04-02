@@ -86,6 +86,7 @@
         "libretro-cores/libretro-pcsx_rearmed.json",
         "libretro-cores/libretro-prboom.json",
         "libretro-cores/libretro-prosystem.json",
+        "libretro-cores/libretro-px68k.json",
         "libretro-cores/libretro-stella2014.json",
         {
             "name" : "libretro-extra",

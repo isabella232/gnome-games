@@ -1,0 +1,32 @@
+        {
+            "name": "libretro-px68k",
+            "no-autogen": true,
+            "make-args": [
+                "--makefile=Makefile.install",
+                "prefix=/app"
+            ],
+            "make-install-args": [
+                "--makefile=Makefile.install",
+                "prefix=/app"
+            ],
+            "post-install": [
+                /* TODO: Send that upstream */
+                "mkdir -p /app/lib/libretro/",
+                "install -m644 -p px68k.libretro /app/lib/libretro/"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/px68k-libretro"
+                },
+                {
+                    "type": "file",
+                    "path": "px68k-Makefile.install",
+                    "dest-filename": "Makefile.install"
+                },
+                {
+                    "type": "file",
+                    "path": "px68k.libretro"
+                }
+            ]
+        }
