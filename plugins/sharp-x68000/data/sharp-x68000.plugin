@@ -1,0 +1,6 @@
+[Plugin]
+Module=libgames-sharp-x68000-plugin
+Name=Sharp X68000 Plugin
+Description=Provides support for Sharp X68000 games.
+Authors=Alexander Mikhaylenko <exalm7659@gmail.com>
+Copyright=Copyright © 2018 Alexander Mikhaylenko

@@ -11,6 +11,7 @@ plugins = [
   'playstation',
   'sega-cd',
   'sega-saturn',
+  'sharp-x68000',
   'steam',
   'turbografx-cd',
   'virtual-boy',

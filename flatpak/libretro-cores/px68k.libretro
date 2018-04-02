@@ -8,8 +8,8 @@ Authors=hissorii;
 License=???;
 
 [Platform:SharpX68000]
-MimeType=application/x-x68k-rom;
-Firmwares=CGROM;IPLROM;
+MimeType=application/x-x68k-rom;application/x-x68k-xdf-rom;application/x-x68k-hdf-rom;
+Firmwares=CGROM;IPLROM;IPL30ROM;
 
 [Firmware:CGROM]
 Path=keropi/cgrom.dat
@@ -20,3 +20,8 @@ Mandatory=true
 Path=keropi/iplrom.dat
 MD5=7fd4caabac1d9169e289f0f7bbf71d8e
 Mandatory=true
+
+[Firmware:IPL30ROM]
+Path=keropi/iplrom30.dat
+MD5=f373003710ab4322642f527f567e020a
+Mandatory=false

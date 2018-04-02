@@ -63,9 +63,8 @@ public class Games.RetroCoreSource : Object {
 
 		var platforms_dir = Application.get_platforms_dir ();
 		var platform_id = platform.get_id ();
-		var firmware_dir = File.new_for_path (@"$platforms_dir/$platform_id/system");
 		var firmware_path = core_descriptor.get_firmware_path (firmware);
-		var firmware_file = firmware_dir.get_child (firmware_path);
+		var firmware_file = File.new_for_path(@"$platforms_dir/$platform_id/system/" + firmware_path);
 		if (!firmware_file.query_exists ())
 			throw new RetroError.FIRMWARE_NOT_FOUND (_("This game requires the %s firmware file to run."), firmware_file.get_path ());
 
