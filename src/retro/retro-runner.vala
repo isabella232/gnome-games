@@ -245,6 +245,7 @@ public class Games.RetroRunner : Object, Runner {
 		else
 			module_path = core_source.get_module_path ();
 		core = new Retro.Core (module_path);
+		core.runahead = 1;
 
 		var options_path = get_options_path ();
 		core.options_set.connect (() => {
