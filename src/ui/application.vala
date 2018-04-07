@@ -5,6 +5,7 @@ private extern const string VERSION;
 public class Games.Application : Gtk.Application {
 	private Database database;
 
+	private PreferencesWindow preferences_window;
 	private ApplicationWindow window;
 	private bool game_list_loaded;
 
@@ -298,7 +299,15 @@ public class Games.Application : Gtk.Application {
 	}
 
 	private void preferences () {
-		new PreferencesWindow ();
+		if (preferences_window != null) {
+			preferences_window.present ();
+
+			return;
+		}
+		preferences_window = new PreferencesWindow ();
+		preferences_window.destroy.connect (() => {
+			preferences_window = null;
+		});
 	}
 
 	private void about () {
