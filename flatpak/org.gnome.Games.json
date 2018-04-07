@@ -18,7 +18,6 @@
         "--device=dri",
         /* PulseAudio access */
         "--socket=pulseaudio",
-        "--device=dri", "--socket=pulseaudio",
         /* Tracker access */
         "--talk-name=org.freedesktop.Tracker1",
         /* Needed for dconf to work */
