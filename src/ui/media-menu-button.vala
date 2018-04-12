@@ -15,7 +15,7 @@ private class Games.MediaMenuButton : Gtk.MenuButton {
 			return;
 		}
 
-		media_image.set_from_gicon (media_set.icon, Gtk.IconSize.LARGE_TOOLBAR);
+		media_image.set_from_gicon (media_set.icon, Gtk.IconSize.BUTTON);
 
 		show ();
 	}
