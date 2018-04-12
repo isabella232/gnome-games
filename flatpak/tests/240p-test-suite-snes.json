@@ -1,0 +1,15 @@
+        {
+            "name" : "240p-test-suite-snes",
+            "buildsystem" : "simple",
+            "build-commands" : [
+                "mkdir -p /app/tests/",
+                "install -m644 -pD 240pSuite.sfc /app/tests/240pSuite.sfc"
+            ],
+            "sources" : [
+                {
+                    "type": "archive",
+                    "url": "https://downloads.sourceforge.net/testsuite240p/SNES_SFC/240pSuite-SNES-1.03.zip",
+                    "sha256": "e503ae6ae740a217692ff395f3f31a5f89d365615a28c9644455acb1f0c651c0"
+                }
+            ]
+        }

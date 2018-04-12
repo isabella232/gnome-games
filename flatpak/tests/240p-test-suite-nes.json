@@ -1,0 +1,15 @@
+        {
+            "name" : "240p-test-suite-nes",
+            "buildsystem" : "simple",
+            "build-commands" : [
+                "mkdir -p /app/tests/",
+                "install -m644 -pD 240pee.nes /app/tests/240pee.nes"
+            ],
+            "sources" : [
+                {
+                    "type": "archive",
+                    "url": "https://downloads.sourceforge.net/testsuite240p/NES/240pee-0.08.2.zip",
+                    "sha256": "b8ce480d2dc9dea10d5163bffc3dc1d86bbf7e31ac4d90f352e6d968550074ac"
+                }
+            ]
+        }

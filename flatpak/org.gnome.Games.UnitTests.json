@@ -1,0 +1,85 @@
+{
+    "app-id" : "org.gnome.Games.UnitTests",
+    "runtime" : "org.gnome.Platform",
+    "runtime-version" : "master",
+    "sdk" : "org.gnome.Sdk",
+    "command" : "games-unit-tests",
+    "tags" : [
+        "nightly"
+    ],
+    "desktop-file-name-prefix" : "(Nightly) ",
+    "finish-args" : [
+        "--share=network",
+        "--share=ipc",
+        "--socket=x11",
+        "--socket=wayland",
+        "--device=dri",
+        "--socket=pulseaudio"
+    ],
+    "build-options" : {
+        "cflags" : "-O2 -g",
+        "cxxflags" : "-O2 -g",
+        "env" : {
+        }
+    },
+    "cleanup" : [
+        "/include",
+        "/lib/pkgconfig",
+        "/share/pkgconfig",
+        "/share/aclocal",
+        "/man",
+        "/share/man",
+        "/share/gtk-doc",
+        "*.la",
+        "*.a",
+        "/lib/girepository-1.0",
+        "/share/dbus-1",
+        "/share/doc",
+        "/share/gir-1.0"
+    ],
+    "modules" : [
+        "libretro-cores/libretro-bsnes.json",
+        "libretro-cores/libretro-nestopia.json",
+        "libretro-cores/libretro-mednafen_pce_fast.json",
+        "tests/240p-test-suite-nes.json",
+        "tests/240p-test-suite-pce.json",
+        "tests/240p-test-suite-snes.json",
+        "tests/test-data.json",
+        {
+            "name" : "games-unit-tests",
+            "buildsystem" : "simple",
+            "build-commands" : [
+                "mkdir -p /app/bin/",
+                "install -m755 -pD games-unit-tests /app/bin/games-unit-tests",
+                "install -m755 -pD org.gnome.Games.UnitTests.desktop /app/share/applications/org.gnome.Games.UnitTests.desktop"
+            ],
+            "sources" : [
+                {
+                    "type" : "script",
+                    "commands" : [
+                        "retro-reftest /app/lib/libretro/bsnes_balanced_libretro.so /app/tests/240pSuite.sfc -s 120 -v /app/tests/bsnes_balanced.240pSuite.120.png",
+                        "retro-reftest /app/lib/libretro/mednafen_pce_fast_libretro.so /app/tests/240pSuite.pce -s 120 -v /app/tests/mednafen_pce_fast.240pSuite.120.png",
+                        "retro-reftest /app/lib/libretro/nestopia_libretro.so /app/tests/240pee.nes -s 120 -v /app/tests/nestopia.240pee.120.png"
+                    ],
+                    "dest-filename" : "games-unit-tests"
+                },
+                {
+                    "type" : "file",
+                    "path" : "org.gnome.Games.UnitTests.desktop",
+                    "dest-filename" : "org.gnome.Games.UnitTests.desktop"
+                }
+            ]
+        },
+        {
+            "name" : "retro-gtk",
+            "buildsystem" : "meson",
+            "builddir" : true,
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://gitlab.gnome.org/GNOME/retro-gtk.git"
+                }
+            ]
+        }
+    ]
+}

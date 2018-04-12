@@ -1,0 +1,15 @@
+        {
+            "name" : "240p-test-suite-pce",
+            "buildsystem" : "simple",
+            "build-commands" : [
+                "mkdir -p /app/tests/",
+                "install -m644 -pD 240pSuite.pce /app/tests/240pSuite.pce"
+            ],
+            "sources" : [
+                {
+                    "type": "archive",
+                    "url": "https://downloads.sourceforge.net/testsuite240p/PCE-TG16-SCD/240pSuite_1.04_HuCard.zip",
+                    "sha256": "adddb8f29acea3f4ccac4699220babe68e73021a8a272d396277076ba3187f88"
+                }
+            ]
+        }
