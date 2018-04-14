@@ -88,11 +88,13 @@
                 "--disable-optical-media", "--disable-youtube",
                 "--disable-bookmarks", "--disable-metadata-store",
                 "--disable-vimeo", "--disable-tracker",
-                "--disable-localmetadata", "--disable-dleyna",
+                "--disable-local-metadata", "--disable-dleyna",
                 "--disable-thetvdb", "--disable-tmdb",
                 "--disable-freebox", "--disable-opensubtitles",
                 "--disable-gravatar", "--disable-jamendo", "--disable-raitv",
                 "--disable-magnatune", "--disable-shoutcast",
+                "--disable-dmap", "--disable-flickr",
+                "--disable-podcasts", "--disable-chromaprint",
                 "--enable-lua-factory"
             ],
             "sources": [
