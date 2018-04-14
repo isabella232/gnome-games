@@ -2,7 +2,7 @@
 
 private class Games.TurboGrafxCDPlugin : Object, Plugin {
 	private const string FINGERPRINT_PREFIX = "pc-engine";
-	private const string MIME_TYPE = "application/x-pc-engine-rom";
+	private const string PHONY_MIME_TYPE = "application/x-pc-engine-cd-rom";
 	private const string CUE_MIME_TYPE = "application/x-cue";
 	private const string CD_MAGIC_VALUE = "PC Engine CD-ROM SYSTEM";
 	private const string CD_PLATFORM = "TurboGrafxCD";
@@ -26,11 +26,11 @@ private class Games.TurboGrafxCDPlugin : Object, Plugin {
 		var uid = new FingerprintUid (uri, FINGERPRINT_PREFIX);
 		var title = new FilenameTitle (uri);
 		var icon = new DummyIcon ();
-		var media = new GriloMedia (title, MIME_TYPE);
+		var media = new GriloMedia (title, PHONY_MIME_TYPE);
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
-		var core_source = new RetroCoreSource (CD_PLATFORM, { CUE_MIME_TYPE, MIME_TYPE });
+		var core_source = new RetroCoreSource (CD_PLATFORM, { CUE_MIME_TYPE, PHONY_MIME_TYPE });
 		var runner = new RetroRunner (core_source, uri, uid, title);
 
 		return new GenericGame (title, icon, cover, runner);
