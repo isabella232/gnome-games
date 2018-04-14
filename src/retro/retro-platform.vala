@@ -37,6 +37,8 @@ namespace Games.RetroPlatform {
 			return _("MS-DOS");
 		case "NeoGeoPocket":
 			return _("Neo Geo Pocket");
+		case "NeoGeoPocketColor":
+			return _("Neo Geo Pocket Color");
 		case "NintendoEntertainmentSystem":
 			/* translators: known as "Famicom" in eastern Asia */
 			return _("Nintendo Entertainment System");

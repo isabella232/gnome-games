@@ -17,6 +17,7 @@ namespace Games {
 		{ "application/x-genesis-rom", true, "SegaGenesis", "mega-drive" },
 		{ "application/x-ms-dos-executable", false, "MSDOS", "ms-dos" },
 		{ "application/x-n64-rom", true, "Nintendo64", "nintendo-64" },
+		{ "application/x-neo-geo-pocket-color-rom", true, "NeoGeoPocketColor", "neo-geo-pocket" }, // The prefix is the same as the Neo Geo Pocket type for backward compatibility.
 		{ "application/x-neo-geo-pocket-rom", true, "NeoGeoPocket", "neo-geo-pocket" },
 		{ "application/x-nes-rom", true, "NintendoEntertainmentSystem", "nes" },
 		{ "application/x-pc-engine-rom", true, "TurboGrafx16", "pc-engine" },
