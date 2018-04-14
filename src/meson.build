@@ -16,6 +16,7 @@ vala_sources = [
 
   'core/cooperative.vala',
   'core/cover.vala',
+  'core/description.vala',
   'core/developer.vala',
   'core/game.vala',
   'core/game-callback.vala',
@@ -34,6 +35,7 @@ vala_sources = [
   'core/plugin-register-iterator.vala',
   'core/plugin-registrar.vala',
   'core/publisher.vala',
+  'core/rating.vala',
   'core/release-date.vala',
   'core/runner.vala',
   'core/title.vala',
