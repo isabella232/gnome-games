@@ -1,4 +1,25 @@
 ==============
+Version 3.29.1
+==============
+
+* Allow axes to map to buttons in the gamepad mapping wizard.
+
+* Unregister the grilo-plugin sources that are irrelevant to Games.
+
+* UI:
+ - Prevent display of multiple setting windows to the user.
+ - Use the standard size for media button's icon.
+
+* Bugs fixed:
+ https://gitlab.gnome.org/GNOME/gnome-games/issues/2
+ https://gitlab.gnome.org/GNOME/gnome-games/issues/9
+ https://gitlab.gnome.org/GNOME/gnome-games/issues/12
+ https://bugzilla.gnome.org/show_bug.cgi?id=782290
+
+* Translation updates:
+ Dutch
+
+==============
 Version 3.28.0
 ==============
 
