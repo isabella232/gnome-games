@@ -24,4 +24,11 @@
       <gnome:userid>aplazas</gnome:userid>
     </foaf:Person>
   </maintainer>
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Abhinav Singh</foaf:name>
+      <foaf:mbox rdf:resource="mailto:theawless@gmail.com" />
+      <gnome:userid>abhinavsingh</gnome:userid>
+    </foaf:Person>
+  </maintainer>
 </Project>
