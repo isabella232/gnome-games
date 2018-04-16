@@ -23,6 +23,8 @@ public class Games.GenericGame : Object, Game {
 	private Icon game_icon;
 	private Developer game_developer;
 	private Publisher game_publisher;
+	private Description game_description;
+	private Rating game_rating;
 	private Cover game_cover;
 	private ReleaseDate game_release_date;
 	private Cooperative game_cooperative;
@@ -126,6 +128,28 @@ public class Games.GenericGame : Object, Game {
 
 	public void set_publisher (Publisher publisher) {
 		game_publisher = publisher;
+	}
+
+	public Description get_description () {
+		if (game_description == null)
+			game_description = new DummyDescription ();
+
+		return game_description;
+	}
+
+	public void set_description (Description description) {
+		game_description = description;
+	}
+
+	public Rating get_rating () {
+		if (game_rating == null)
+			game_rating = new DummyRating ();
+
+		return game_rating;
+	}
+
+	public void set_rating (Rating rating) {
+		game_rating = rating;
 	}
 
 	public Runner get_runner () throws Error {

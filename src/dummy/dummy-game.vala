@@ -54,6 +54,14 @@ private class Games.DummyGame : Object, Game {
 		return new DummyPublisher ();
 	}
 
+	public Description get_description () {
+		return new DummyDescription ();
+	}
+
+	public Rating get_rating () {
+		return new DummyRating ();
+	}
+
 	public Runner get_runner () throws Error {
 		return new DummyRunner ();
 	}
