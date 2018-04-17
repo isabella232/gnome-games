@@ -4,8 +4,11 @@
             "build-commands" : [
                 "mkdir -p /app/tests/",
                 "install -m644 -pD bsnes_balanced.240pSuite.120.png /app/tests/bsnes_balanced.240pSuite.120.png",
+                "install -m644 -pD bsnes_balanced.240pSuite.test /app/tests/bsnes_balanced.240pSuite.test",
                 "install -m644 -pD mednafen_pce_fast.240pSuite.120.png /app/tests/mednafen_pce_fast.240pSuite.120.png",
-                "install -m644 -pD nestopia.240pee.120.png /app/tests/nestopia.240pee.120.png"
+                "install -m644 -pD mednafen_pce_fast.240pSuite.test /app/tests/mednafen_pce_fast.240pSuite.test",
+                "install -m644 -pD nestopia.240pee.120.png /app/tests/nestopia.240pee.120.png",
+                "install -m644 -pD nestopia.240pee.test /app/tests/nestopia.240pee.test"
             ],
             "sources" : [
                 {
@@ -15,13 +18,28 @@
                 },
                 {
                     "type" : "file",
+                    "path" : "bsnes_balanced.240pSuite.test",
+                    "dest-filename" : "bsnes_balanced.240pSuite.test"
+                },
+                {
+                    "type" : "file",
                     "path" : "mednafen_pce_fast.240pSuite.120.png",
                     "dest-filename" : "mednafen_pce_fast.240pSuite.120.png"
                 },
                 {
                     "type" : "file",
+                    "path" : "mednafen_pce_fast.240pSuite.test",
+                    "dest-filename" : "mednafen_pce_fast.240pSuite.test"
+                },
+                {
+                    "type" : "file",
                     "path" : "nestopia.240pee.120.png",
                     "dest-filename" : "nestopia.240pee.120.png"
+                },
+                {
+                    "type" : "file",
+                    "path" : "nestopia.240pee.test",
+                    "dest-filename" : "nestopia.240pee.test"
                 }
             ]
         }

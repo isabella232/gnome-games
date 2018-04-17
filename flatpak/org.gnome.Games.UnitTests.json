@@ -57,9 +57,9 @@
                 {
                     "type" : "script",
                     "commands" : [
-                        "retro-reftest /app/lib/libretro/bsnes_balanced_libretro.so /app/tests/240pSuite.sfc -s 120 -v /app/tests/bsnes_balanced.240pSuite.120.png",
-                        "retro-reftest /app/lib/libretro/mednafen_pce_fast_libretro.so /app/tests/240pSuite.pce -s 120 -v /app/tests/mednafen_pce_fast.240pSuite.120.png",
-                        "retro-reftest /app/lib/libretro/nestopia_libretro.so /app/tests/240pee.nes -s 120 -v /app/tests/nestopia.240pee.120.png"
+                        "retro-reftest /app/tests/bsnes_balanced.240pSuite.test",
+                        "retro-reftest /app/tests/mednafen_pce_fast.240pSuite.test",
+                        "retro-reftest /app/tests/nestopia.240pee.test"
                     ],
                     "dest-filename" : "games-unit-tests"
                 },

@@ -1,0 +1,8 @@
+[Retro Reftest]
+Path=/mednafen_pce_fast/240pSuite
+Core=/app/lib/libretro/mednafen_pce_fast_libretro.so
+Medias=240pSuite.pce;
+
+[Frame 120]
+Tests=Run;Video;
+Video=mednafen_pce_fast.240pSuite.120.png

@@ -1,0 +1,8 @@
+[Retro Reftest]
+Path=/bsnes_balanced/240pSuite
+Core=/app/lib/libretro/bsnes_balanced_libretro.so
+Medias=240pSuite.sfc;
+
+[Frame 120]
+Tests=Run;Video;
+Video=bsnes_balanced.240pSuite.120.png
