@@ -1,0 +1,8 @@
+[Retro Reftest]
+Path=/pcsx_rearmed/240pTestSuitePS1
+Core=/app/lib/libretro/pcsx_rearmed_libretro.so
+Medias=240pTestSuitePS1.cue;
+
+[Frame 8]
+Tests=Run;Video;
+Video=pcsx_rearmed.240pTestSuitePS1.8.png

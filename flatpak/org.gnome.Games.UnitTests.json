@@ -41,8 +41,10 @@
         "libretro-cores/libretro-bsnes.json",
         "libretro-cores/libretro-nestopia.json",
         "libretro-cores/libretro-mednafen_pce_fast.json",
+        "libretro-cores/libretro-pcsx_rearmed.json",
         "tests/240p-test-suite-nes.json",
         "tests/240p-test-suite-pce.json",
+        "tests/240p-test-suite-ps1.json",
         "tests/240p-test-suite-snes.json",
         "tests/test-data.json",
         {
@@ -59,7 +61,8 @@
                     "commands" : [
                         "retro-reftest /app/tests/bsnes_balanced.240pSuite.test",
                         "retro-reftest /app/tests/mednafen_pce_fast.240pSuite.test",
-                        "retro-reftest /app/tests/nestopia.240pee.test"
+                        "retro-reftest /app/tests/nestopia.240pee.test",
+                        "retro-reftest /app/tests/pcsx_rearmed.240pTestSuitePS1.test"
                     ],
                     "dest-filename" : "games-unit-tests"
                 },

@@ -8,7 +8,9 @@
                 "install -m644 -pD mednafen_pce_fast.240pSuite.120.png /app/tests/mednafen_pce_fast.240pSuite.120.png",
                 "install -m644 -pD mednafen_pce_fast.240pSuite.test /app/tests/mednafen_pce_fast.240pSuite.test",
                 "install -m644 -pD nestopia.240pee.120.png /app/tests/nestopia.240pee.120.png",
-                "install -m644 -pD nestopia.240pee.test /app/tests/nestopia.240pee.test"
+                "install -m644 -pD nestopia.240pee.test /app/tests/nestopia.240pee.test",
+                "install -m644 -pD pcsx_rearmed.240pTestSuitePS1.test /app/tests/pcsx_rearmed.240pTestSuitePS1.test",
+                "install -m644 -pD pcsx_rearmed.240pTestSuitePS1.8.png /app/tests/pcsx_rearmed.240pTestSuitePS1.8.png"
             ],
             "sources" : [
                 {
@@ -40,6 +42,16 @@
                     "type" : "file",
                     "path" : "nestopia.240pee.test",
                     "dest-filename" : "nestopia.240pee.test"
+                },
+                {
+                    "type" : "file",
+                    "path" : "pcsx_rearmed.240pTestSuitePS1.8.png",
+                    "dest-filename" : "pcsx_rearmed.240pTestSuitePS1.8.png"
+                },
+                {
+                    "type" : "file",
+                    "path" : "pcsx_rearmed.240pTestSuitePS1.test",
+                    "dest-filename" : "pcsx_rearmed.240pTestSuitePS1.test"
                 }
             ]
         }
