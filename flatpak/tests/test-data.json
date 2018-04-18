@@ -22,7 +22,10 @@
                 "install -m644 -pD nestopia.240pee.test /app/tests/nestopia.240pee.test",
                 "install -m644 -pD pcsx_rearmed.240pTestSuitePS1.8.png /app/tests/pcsx_rearmed.240pTestSuitePS1.8.png",
                 "install -m644 -pD pcsx_rearmed.240pTestSuitePS1.expected /app/tests/pcsx_rearmed.240pTestSuitePS1.expected",
-                "install -m644 -pD pcsx_rearmed.240pTestSuitePS1.test /app/tests/pcsx_rearmed.240pTestSuitePS1.test"
+                "install -m644 -pD pcsx_rearmed.240pTestSuitePS1.test /app/tests/pcsx_rearmed.240pTestSuitePS1.test",
+                "install -m644 -pD stella.hunchy.1.png /app/tests/stella.hunchy.1.png",
+                "install -m644 -pD stella.hunchy.expected /app/tests/stella.hunchy.expected",
+                "install -m644 -pD stella.hunchy.test /app/tests/stella.hunchy.test"
             ],
             "sources" : [
                 {
@@ -124,6 +127,21 @@
                     "type" : "file",
                     "path" : "pcsx_rearmed.240pTestSuitePS1.test",
                     "dest-filename" : "pcsx_rearmed.240pTestSuitePS1.test"
+                },
+                {
+                    "type" : "file",
+                    "path" : "stella.hunchy.1.png",
+                    "dest-filename" : "stella.hunchy.1.png"
+                },
+                {
+                    "type" : "file",
+                    "path" : "stella.hunchy.expected",
+                    "dest-filename" : "stella.hunchy.expected"
+                },
+                {
+                    "type" : "file",
+                    "path" : "stella.hunchy.test",
+                    "dest-filename" : "stella.hunchy.test"
                 }
             ]
         }

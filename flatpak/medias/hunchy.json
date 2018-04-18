@@ -1,0 +1,18 @@
+        {
+            "name" : "hunchy",
+            "buildsystem" : "simple",
+            "build-commands" : [
+                "mkdir -p /app/tests/",
+                "unzip -j hunchy01.zip hunchy/hunchy.bin -d /app/tests/",
+                "mv /app/tests/hunchy.bin /app/tests/hunchy.a26",
+                "chmod 0644 /app/tests/hunchy.a26"
+            ],
+            "sources" : [
+                {
+                    "type": "file",
+                    "url": "http://atariage.com/forums/index.php?app=core&module=attach&section=attach&attach_id=32071",
+                    "sha256": "3a5ca1ee982c3581a6d2d181a16369347e2d7a9fefee9d3f0a4e9524e3b6f3ba",
+                    "dest-filename": "hunchy01.zip"
+                }
+            ]
+        }
