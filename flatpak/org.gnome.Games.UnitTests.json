@@ -38,10 +38,12 @@
         "/share/gir-1.0"
     ],
     "modules" : [
+        "libretro-cores/libretro-blastem.json",
         "libretro-cores/libretro-bsnes.json",
         "libretro-cores/libretro-mednafen_pce_fast.json",
         "libretro-cores/libretro-nestopia.json",
         "libretro-cores/libretro-pcsx_rearmed.json",
+        "medias/240p-test-suite-md.json",
         "medias/240p-test-suite-nes.json",
         "medias/240p-test-suite-pce.json",
         "medias/240p-test-suite-ps1.json",
@@ -59,6 +61,7 @@
                 {
                     "type" : "script",
                     "commands" : [
+                        "retro-reftest /app/tests/blastem.240pSuite.test 2>&1 | diff /app/tests/blastem.240pSuite.expected -",
                         "retro-reftest /app/tests/bsnes_balanced.240pSuite.test 2>&1 | diff /app/tests/bsnes_balanced.240pSuite.expected -",
                         "retro-reftest /app/tests/mednafen_pce_fast.240pSuite.test 2>&1 | diff /app/tests/mednafen_pce_fast.240pSuite.expected -",
                         "retro-reftest /app/tests/nestopia.240pee.test 2>&1 | diff /app/tests/nestopia.240pee.expected -",

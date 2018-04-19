@@ -3,6 +3,9 @@
             "buildsystem" : "simple",
             "build-commands" : [
                 "mkdir -p /app/tests/",
+                "install -m644 -pD blastem.240pSuite.150.png /app/tests/blastem.240pSuite.150.png",
+                "install -m644 -pD blastem.240pSuite.expected /app/tests/blastem.240pSuite.expected",
+                "install -m644 -pD blastem.240pSuite.test /app/tests/blastem.240pSuite.test",
                 "install -m644 -pD bsnes_balanced.240pSuite.120.png /app/tests/bsnes_balanced.240pSuite.120.png",
                 "install -m644 -pD bsnes_balanced.240pSuite.expected /app/tests/bsnes_balanced.240pSuite.expected",
                 "install -m644 -pD bsnes_balanced.240pSuite.test /app/tests/bsnes_balanced.240pSuite.test",
@@ -17,6 +20,21 @@
                 "install -m644 -pD pcsx_rearmed.240pTestSuitePS1.test /app/tests/pcsx_rearmed.240pTestSuitePS1.test"
             ],
             "sources" : [
+                {
+                    "type" : "file",
+                    "path" : "blastem.240pSuite.150.png",
+                    "dest-filename" : "blastem.240pSuite.150.png"
+                },
+                {
+                    "type" : "file",
+                    "path" : "blastem.240pSuite.expected",
+                    "dest-filename" : "blastem.240pSuite.expected"
+                },
+                {
+                    "type" : "file",
+                    "path" : "blastem.240pSuite.test",
+                    "dest-filename" : "blastem.240pSuite.test"
+                },
                 {
                     "type" : "file",
                     "path" : "bsnes_balanced.240pSuite.120.png",

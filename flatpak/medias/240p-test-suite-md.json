@@ -1,0 +1,15 @@
+        {
+            "name" : "240p-test-suite-md",
+            "buildsystem" : "simple",
+            "build-commands" : [
+                "mkdir -p /app/tests/",
+                "install -m644 -pD 240pTestSuite-v15.bin /app/tests/240pTestSuite-v15.gen"
+            ],
+            "sources" : [
+                {
+                    "type": "archive",
+                    "url": "https://downloads.sourceforge.net/testsuite240p/Sega_Genesis-MegaDrive-SegaCD_MegaCD/240p-MD-Genesis-1.15.zip",
+                    "sha256": "c2b76e8b4b9ef33049089cc68d83454ede86a4106b4264aebc42393c05d83f25"
+                }
+            ]
+        }
