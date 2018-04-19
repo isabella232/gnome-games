@@ -40,6 +40,7 @@
     "modules" : [
         "libretro-cores/libretro-blastem.json",
         "libretro-cores/libretro-bsnes.json",
+        "libretro-cores/libretro-gambatte.json",
         "libretro-cores/libretro-mednafen_pce_fast.json",
         "libretro-cores/libretro-nestopia.json",
         "libretro-cores/libretro-pcsx_rearmed.json",
@@ -48,6 +49,7 @@
         "medias/240p-test-suite-pce.json",
         "medias/240p-test-suite-ps1.json",
         "medias/240p-test-suite-snes.json",
+        "medias/openmaze.json",
         "tests/test-data.json",
         {
             "name" : "games-unit-tests",
@@ -63,6 +65,7 @@
                     "commands" : [
                         "retro-reftest /app/tests/blastem.240pSuite.test 2>&1 | diff /app/tests/blastem.240pSuite.expected -",
                         "retro-reftest /app/tests/bsnes_balanced.240pSuite.test 2>&1 | diff /app/tests/bsnes_balanced.240pSuite.expected -",
+                        "retro-reftest /app/tests/gambatte.OpenMAZE.test 2>&1 | diff /app/tests/gambatte.OpenMAZE.expected -",
                         "retro-reftest /app/tests/mednafen_pce_fast.240pSuite.test 2>&1 | diff /app/tests/mednafen_pce_fast.240pSuite.expected -",
                         "retro-reftest /app/tests/nestopia.240pee.test 2>&1 | diff /app/tests/nestopia.240pee.expected -",
                         "retro-reftest /app/tests/pcsx_rearmed.240pTestSuitePS1.test 2>&1 | diff /app/tests/pcsx_rearmed.240pTestSuitePS1.expected -"

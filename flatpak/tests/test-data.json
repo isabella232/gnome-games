@@ -9,6 +9,8 @@
                 "install -m644 -pD bsnes_balanced.240pSuite.120.png /app/tests/bsnes_balanced.240pSuite.120.png",
                 "install -m644 -pD bsnes_balanced.240pSuite.expected /app/tests/bsnes_balanced.240pSuite.expected",
                 "install -m644 -pD bsnes_balanced.240pSuite.test /app/tests/bsnes_balanced.240pSuite.test",
+                "install -m644 -pD gambatte.OpenMAZE.expected /app/tests/gambatte.OpenMAZE.expected",
+                "install -m644 -pD gambatte.OpenMAZE.test /app/tests/gambatte.OpenMAZE.test",
                 "install -m644 -pD mednafen_pce_fast.240pSuite.120.png /app/tests/mednafen_pce_fast.240pSuite.120.png",
                 "install -m644 -pD mednafen_pce_fast.240pSuite.expected /app/tests/mednafen_pce_fast.240pSuite.expected",
                 "install -m644 -pD mednafen_pce_fast.240pSuite.test /app/tests/mednafen_pce_fast.240pSuite.test",
@@ -49,6 +51,16 @@
                     "type" : "file",
                     "path" : "bsnes_balanced.240pSuite.test",
                     "dest-filename" : "bsnes_balanced.240pSuite.test"
+                },
+                {
+                    "type" : "file",
+                    "path" : "gambatte.OpenMAZE.expected",
+                    "dest-filename" : "gambatte.OpenMAZE.expected"
+                },
+                {
+                    "type" : "file",
+                    "path" : "gambatte.OpenMAZE.test",
+                    "dest-filename" : "gambatte.OpenMAZE.test"
                 },
                 {
                     "type" : "file",
