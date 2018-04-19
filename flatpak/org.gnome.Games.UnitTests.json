@@ -39,8 +39,8 @@
     ],
     "modules" : [
         "libretro-cores/libretro-bsnes.json",
-        "libretro-cores/libretro-nestopia.json",
         "libretro-cores/libretro-mednafen_pce_fast.json",
+        "libretro-cores/libretro-nestopia.json",
         "libretro-cores/libretro-pcsx_rearmed.json",
         "medias/240p-test-suite-nes.json",
         "medias/240p-test-suite-pce.json",
