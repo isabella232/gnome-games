@@ -67,14 +67,14 @@
                 {
                     "type" : "script",
                     "commands" : [
-                        "retro-reftest /app/tests/blastem.240pSuite.test 2>&1 | diff /app/tests/blastem.240pSuite.expected -",
-                        "retro-reftest /app/tests/bsnes_balanced.240pSuite.test 2>&1 | diff /app/tests/bsnes_balanced.240pSuite.expected -",
-                        "retro-reftest /app/tests/gambatte.OpenMAZE.test 2>&1 | diff /app/tests/gambatte.OpenMAZE.expected -",
-                        "retro-reftest /app/tests/mednafen_pce_fast.240pSuite.test 2>&1 | diff /app/tests/mednafen_pce_fast.240pSuite.expected -",
-                        "retro-reftest /app/tests/mgba.nomad2_full.test 2>&1 | diff /app/tests/mgba.nomad2_full.expected -",
-                        "retro-reftest /app/tests/nestopia.240pee.test 2>&1 | diff /app/tests/nestopia.240pee.expected -",
-                        "retro-reftest /app/tests/pcsx_rearmed.240pTestSuitePS1.test 2>&1 | diff /app/tests/pcsx_rearmed.240pTestSuitePS1.expected -",
-                        "retro-reftest /app/tests/stella.hunchy.test 2>&1 | diff /app/tests/stella.hunchy.expected -"
+                        "/app/libexec/installed-tests/retro-gtk-0.14/retro-reftest /app/tests/blastem.240pSuite.test 2>&1 | diff /app/tests/blastem.240pSuite.expected -",
+                        "/app/libexec/installed-tests/retro-gtk-0.14/retro-reftest /app/tests/bsnes_balanced.240pSuite.test 2>&1 | diff /app/tests/bsnes_balanced.240pSuite.expected -",
+                        "/app/libexec/installed-tests/retro-gtk-0.14/retro-reftest /app/tests/gambatte.OpenMAZE.test 2>&1 | diff /app/tests/gambatte.OpenMAZE.expected -",
+                        "/app/libexec/installed-tests/retro-gtk-0.14/retro-reftest /app/tests/mednafen_pce_fast.240pSuite.test 2>&1 | diff /app/tests/mednafen_pce_fast.240pSuite.expected -",
+                        "/app/libexec/installed-tests/retro-gtk-0.14/retro-reftest /app/tests/mgba.nomad2_full.test 2>&1 | diff /app/tests/mgba.nomad2_full.expected -",
+                        "/app/libexec/installed-tests/retro-gtk-0.14/retro-reftest /app/tests/nestopia.240pee.test 2>&1 | diff /app/tests/nestopia.240pee.expected -",
+                        "/app/libexec/installed-tests/retro-gtk-0.14/retro-reftest /app/tests/pcsx_rearmed.240pTestSuitePS1.test 2>&1 | diff /app/tests/pcsx_rearmed.240pTestSuitePS1.expected -",
+                        "/app/libexec/installed-tests/retro-gtk-0.14/retro-reftest /app/tests/stella.hunchy.test 2>&1 | diff /app/tests/stella.hunchy.expected -"
                     ],
                     "dest-filename" : "games-unit-tests"
                 },
@@ -89,6 +89,9 @@
             "name" : "retro-gtk",
             "buildsystem" : "meson",
             "builddir" : true,
+            "config-opts" : [
+                "-Dinstall-tests=true"
+            ],
             "sources" : [
                 {
                     "type" : "git",
