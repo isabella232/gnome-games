@@ -244,6 +244,16 @@ public class Games.RetroRunner : Object, Runner {
 			module_path = core_source.get_module_path ();
 		core = new Retro.Core (module_path);
 
+		var options_path = get_options_path ();
+		core.options_set.connect (() => {
+			try {
+				var options = new RetroOptions (options_path);
+				options.apply (core);
+			} catch (Error e) {
+				critical (e.message);
+			}
+		});
+
 		if (core_source != null) {
 			var platforms_dir = Application.get_platforms_dir ();
 			var platform = core_source.get_platform ();
@@ -356,6 +366,18 @@ public class Games.RetroRunner : Object, Runner {
 		save_screenshot ();
 
 		should_save = false;
+	}
+
+	private string get_options_path () throws Error {
+		assert (core != null);
+
+		var core_filename = core.get_filename ();
+		var file = File.new_for_path (core_filename);
+		var basename = file.get_basename ();
+		var options_name = basename.split (".")[0];
+		options_name = options_name.replace ("_libretro", "");
+
+		return @"$OPTIONS_DIR/$options_name.options";
 	}
 
 	private string get_save_directory_path () throws Error {
