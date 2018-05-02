@@ -96,6 +96,7 @@ gnome_games_SOURCES = \
 	retro/retro-error.vala \
 	retro/retro-gamepad.vala \
 	retro/retro-input-manager.vala \
+	retro/retro-options.vala \
 	retro/retro-platform.vala \
 	retro/retro-runner.vala \
 	retro/retro-simple-game-uri-adapter.vala \
@@ -199,6 +200,7 @@ gnome_games_CFLAGS = \
 	$(GNOME_GAMES_CFLAGS) \
 	-I$(srcdir)/gamepad \
 	-DGNOMELOCALEDIR=\""$(datadir)/locale"\" \
+	-DGAMES_OPTIONS_DIR=\"$(datadir)/gnome-games/options\" \
 	-DGAMES_PLUGINS_DIR=\"$(libdir)/gnome-games/plugins\" \
 	$(NULL)
 
