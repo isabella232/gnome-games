@@ -59,6 +59,7 @@ AC_CONFIG_FILES([
 	Makefile
 	data/Makefile
 	data/icons/Makefile
+	data/options/Makefile
 	plugins/Makefile
 	po/Makefile.in
 	src/Makefile

@@ -1,4 +1,4 @@
-SUBDIRS = icons
+SUBDIRS = icons options
 
 appdatadir = $(datadir)/metainfo
 appdata_in_files = org.gnome.Games.appdata.xml.in
