@@ -28,13 +28,13 @@ public class Games.CueSheet : Object {
 	}
 
 	private string[] tokenize () throws Error {
-		var stream = file.read ();
+		var stream = Unicode.read (file, Unicode.Encoding.UTF_8);
 		var data_stream = new DataInputStream (stream);
 
 		string[] tokens = {};
 
 		string? line;
-		while ((line = data_stream.read_line ()) != null)
+		while ((line = data_stream.read_line_utf8 ()) != null)
 			foreach (var token in tokenize_line (line))
 				tokens += token;
 
