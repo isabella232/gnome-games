@@ -2,7 +2,8 @@ AC_INIT([gnome-games], [3.29.1])
 AM_INIT_AUTOMAKE([foreign subdir-objects tar-ustar no-dist-gzip dist-xz])
 
 # i18 support
-IT_PROG_INTLTOOL(0.40.0)
+AM_GNU_GETTEXT([external])
+AM_GNU_GETTEXT_VERSION([0.19.6])
 GETTEXT_PACKAGE=AC_PACKAGE_NAME
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE",[The name of the gettext domain])

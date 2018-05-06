@@ -3,26 +3,26 @@
   <id>org.gnome.Games.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
-  <_name>Games</_name>
-  <_summary>Simple game launcher for GNOME</_summary>
+  <name>Games</name>
+  <summary>Simple game launcher for GNOME</summary>
 
   <description>
-    <_p>
+    <p>
       Games is a GNOME 3 application to browse your video games library and to
       easily pick and play a game from it. It aims to do for games what Music
       already does for your music library.
-    </_p>
-    <_p>
+    </p>
+    <p>
       You want to install Games if you just want a very simple and comfortable
       way to play your games and you don’t need advanced features such as
       speedrunning tools or video game development tools.
-    </_p>
-    <_p>Features:</_p>
+    </p>
+    <p>Features:</p>
     <ul>
-      <_li>List your installed games, your Steam games, your game ROMs…</_li>
-      <_li>Search in your games collection</_li>
-      <_li>Play your games</_li>
-      <_li>Resume your game to where you left it</_li>
+      <li>List your installed games, your Steam games, your game ROMs…</li>
+      <li>Search in your games collection</li>
+      <li>Play your games</li>
+      <li>Resume your game to where you left it</li>
     </ul>
   </description>
 

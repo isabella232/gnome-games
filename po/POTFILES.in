@@ -3,26 +3,26 @@
 data/org.gnome.Games.appdata.xml.in
 data/org.gnome.Games.desktop.in
 data/org.gnome.Games.gschema.xml
-[type: gettext/glade]data/ui/collection-box.ui
-[type: gettext/glade]data/ui/collection-header-bar.ui
-[type: gettext/glade]data/ui/display-header-bar.ui
-[type: gettext/glade]data/ui/dummy-display.ui
-[type: gettext/glade]data/ui/empty-collection.ui
-[type: gettext/glade]data/ui/gamepad-configurer.ui
-[type: gettext/glade]data/ui/gamepad-mapper.ui
-[type: gettext/glade]data/ui/keyboard-configurer.ui
-[type: gettext/glade]data/ui/keyboard-mapper.ui
-[type: gettext/glade]data/ui/media-menu-button.ui
-[type: gettext/glade]data/ui/preferences-page-controllers.ui
-[type: gettext/glade]data/ui/preferences-page-plugins.ui
-[type: gettext/glade]data/ui/preferences-page-video.ui
-[type: gettext/glade]data/ui/preferences-window.ui
-[type: gettext/glade]data/ui/quit-dialog.ui
-[type: gettext/glade]data/ui/remote-display.ui
-[type: gettext/glade]data/ui/reset-controller-mapping-dialog.ui
-[type: gettext/glade]data/ui/resume-dialog.ui
-[type: gettext/glade]data/ui/resume-failed-dialog.ui
-[type: gettext/glade]data/ui/shortcuts-window.ui
+data/ui/collection-box.ui
+data/ui/collection-header-bar.ui
+data/ui/display-header-bar.ui
+data/ui/dummy-display.ui
+data/ui/empty-collection.ui
+data/ui/gamepad-configurer.ui
+data/ui/gamepad-mapper.ui
+data/ui/keyboard-configurer.ui
+data/ui/keyboard-mapper.ui
+data/ui/media-menu-button.ui
+data/ui/preferences-page-controllers.ui
+data/ui/preferences-page-plugins.ui
+data/ui/preferences-page-video.ui
+data/ui/preferences-window.ui
+data/ui/quit-dialog.ui
+data/ui/remote-display.ui
+data/ui/reset-controller-mapping-dialog.ui
+data/ui/resume-dialog.ui
+data/ui/resume-failed-dialog.ui
+data/ui/shortcuts-window.ui
 plugins/desktop/src/desktop-plugin.vala
 plugins/dreamcast/src/dreamcast-header.vala
 plugins/game-cube/src/game-cube-header.vala

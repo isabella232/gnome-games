@@ -3,12 +3,14 @@ SUBDIRS = icons options
 appdatadir = $(datadir)/metainfo
 appdata_in_files = org.gnome.Games.appdata.xml.in
 appdata_DATA = $(appdata_in_files:.appdata.xml.in=.appdata.xml)
-@INTLTOOL_XML_RULE@
+$(appdata_DATA): $(appdata_in_files)
+	$(AM_V_GEN)$(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
 
 desktopdir = $(datadir)/applications
 desktop_in_files = org.gnome.Games.desktop.in
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
-@INTLTOOL_DESKTOP_RULE@
+$(desktop_DATA): $(desktop_in_files)
+	$(AM_V_GEN)$(MSGFMT) --desktop --template $< -d $(top_srcdir)/po -o $@
 
 gsettings_SCHEMAS = org.gnome.Games.gschema.xml
 @GSETTINGS_RULES@
