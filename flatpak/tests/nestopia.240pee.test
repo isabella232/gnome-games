@@ -4,5 +4,4 @@ Core=/app/lib/libretro/nestopia_libretro.so
 Medias=240pee.nes;
 
 [Frame 120]
-Tests=Run;Video;
 Video=nestopia.240pee.120.png

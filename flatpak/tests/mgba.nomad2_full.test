@@ -4,5 +4,4 @@ Core=/app/lib/libretro/mgba_libretro.so
 Medias=nomad2_full.gba;
 
 [Frame 120]
-Tests=Run;Video;
 Video=mgba.nomad2_full.120.png

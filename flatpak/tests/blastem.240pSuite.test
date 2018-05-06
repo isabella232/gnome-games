@@ -4,5 +4,4 @@ Core=/app/lib/libretro/blastem_libretro.so
 Medias=240pTestSuite-v15.gen;
 
 [Frame 150]
-Tests=Run;Video;
 Video=blastem.240pSuite.150.png
