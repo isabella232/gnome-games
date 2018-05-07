@@ -1,7 +1,5 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-private extern const string VERSION;
-
 public class Games.Application : Gtk.Application {
 	const string HELP_URI = "https://wiki.gnome.org/Apps/Games/Documentation";
 
@@ -356,7 +354,7 @@ public class Games.Application : Gtk.Application {
 		dialog.program_name = _("GNOME Games");
 		dialog.logo_icon_name = "org.gnome.Games";
 		dialog.comments = _("A video game player for GNOME");
-		dialog.version = VERSION;
+		dialog.version = Config.VERSION;
 
 		dialog.website = "https://wiki.gnome.org/Apps/Games";
 		dialog.website_label = _("Learn more about GNOME Games");

@@ -16,7 +16,7 @@ private class Games.PluginRegisterIterator {
 
 	public bool next () {
 		try {
-			var directory = File.new_for_path (PLUGINS_DIR);
+			var directory = File.new_for_path (Config.PLUGINS_DIR);
 			if (enumerator == null) {
 				enumerator = directory.enumerate_children (FileAttribute.STANDARD_NAME, 0);
 			}

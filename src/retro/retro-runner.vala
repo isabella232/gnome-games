@@ -377,7 +377,7 @@ public class Games.RetroRunner : Object, Runner {
 		var options_name = basename.split (".")[0];
 		options_name = options_name.replace ("_libretro", "");
 
-		return @"$OPTIONS_DIR/$options_name.options";
+		return @"$(Config.OPTIONS_DIR)/$options_name.options";
 	}
 
 	private string get_save_directory_path () throws Error {

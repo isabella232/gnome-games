@@ -1,0 +1,192 @@
+vapi_dir = join_paths (datadir, 'vala', 'vapi')
+gamepad_dir = join_paths (srcdir, 'gamepad')
+
+vala_args = [
+  '--vapidir', vapi_dir,
+]
+
+c_args = [
+  '-I' + gamepad_dir,
+  '-DG_LOG_DOMAIN="Games"',
+]
+
+vala_sources = [
+  'command/command-error.vala',
+  'command/command-runner.vala',
+
+  'core/cover.vala',
+  'core/game.vala',
+  'core/game-callback.vala',
+  'core/game-collection.vala',
+  'core/game-uri-adapter.vala',
+  'core/icon.vala',
+  'core/input-capabilities.vala',
+  'core/media.vala',
+  'core/media-info.vala',
+  'core/media-set/media-set.vala',
+  'core/media-set/media-set-error.vala',
+  'core/plugin.vala',
+  'core/plugin-register.vala',
+  'core/plugin-register-iterator.vala',
+  'core/plugin-registrar.vala',
+  'core/runner.vala',
+  'core/title.vala',
+  'core/uid.vala',
+  'core/uri-game-factory.vala',
+  'core/uri-iterator.vala',
+  'core/uri-source.vala',
+
+  'database/database.vala',
+  'database/database-error.vala',
+  'database/database-uri-iterator.vala',
+  'database/database-uri-source.vala',
+
+  'dummy/dummy-cover.vala',
+  'dummy/dummy-game.vala',
+  'dummy/dummy-icon.vala',
+  'dummy/dummy-runner.vala',
+
+  'gameinfo/gameinfo-doc.vala',
+  'gameinfo/gameinfo-error.vala',
+  'gameinfo/gameinfo-disc-id-disc-title.vala',
+  'gameinfo/gameinfo-disc-id-game-title.vala',
+  'gameinfo/gameinfo-disc-id-input-capabilities.vala',
+
+  'gamepad/gamepad-dpad.vala',
+  'gamepad/gamepad-input.vala',
+  'gamepad/gamepad-mapping-builder.vala',
+
+  'generic/generic-game.vala',
+  'generic/generic-game-uri-adapter.vala',
+  'generic/generic-title.vala',
+  'generic/generic-uid.vala',
+  'generic/generic-uri-game-factory.vala',
+
+  'grilo/grilo-cover.vala',
+  'grilo/grilo-media.vala',
+
+  'keyboard/keyboard-mapping-builder.vala',
+  'keyboard/keyboard-mapping-manager.vala',
+
+  'retro/retro-core-source.vala',
+  'retro/retro-error.vala',
+  'retro/retro-gamepad.vala',
+  'retro/retro-input-manager.vala',
+  'retro/retro-options.vala',
+  'retro/retro-platform.vala',
+  'retro/retro-runner.vala',
+  'retro/retro-simple-game-uri-adapter.vala',
+  'retro/retro-simple-type.vala',
+  'retro/retro-simple-types.vala',
+
+  'tracker/mime-type-tracker-uri-query.vala',
+  'tracker/tracker-error.vala',
+  'tracker/tracker-uri-iterator.vala',
+  'tracker/tracker-uri-query.vala',
+  'tracker/tracker-uri-source.vala',
+
+  'ui/application.vala',
+  'ui/application-window.vala',
+  'ui/checkmark-item.vala',
+  'ui/collection-box.vala',
+  'ui/collection-icon-view.vala',
+  'ui/collection-header-bar.vala',
+  'ui/display-box.vala',
+  'ui/display-header-bar.vala',
+  'ui/dummy-display.vala',
+  'ui/empty-collection.vala',
+  'ui/error-display.vala',
+  'ui/error-info-bar.vala',
+  'ui/gamepad-configurer.vala',
+  'ui/gamepad-mapper.vala',
+  'ui/gamepad-tester.vala',
+  'ui/gamepad-view.vala',
+  'ui/game-icon-view.vala',
+  'ui/game-thumbnail.vala',
+  'ui/gamepad-view-configuration.vala',
+  'ui/keyboard-configurer.vala',
+  'ui/keyboard-mapper.vala',
+  'ui/keyboard-tester.vala',
+  'ui/konami-code.vala',
+  'ui/media-selector.vala',
+  'ui/media-menu-button.vala',
+  'ui/preferences-page.vala',
+  'ui/preferences-page-controllers.vala',
+  'ui/preferences-page-plugins.vala',
+  'ui/preferences-page-plugins-item.vala',
+  'ui/preferences-page-video.vala',
+  'ui/preferences-window.vala',
+  'ui/quit-dialog.vala',
+  'ui/remote-display.vala',
+  'ui/reset-controller-mapping-dialog.vala',
+  'ui/resume-dialog.vala',
+  'ui/resume-failed-dialog.vala',
+  'ui/search-bar.vala',
+  'ui/shortcuts-window.vala',
+  'ui/ui-state.vala',
+
+  'utils/composite-cover.vala',
+  'utils/composite-title.vala',
+  'utils/cue-sheet/cue-sheet.vala',
+  'utils/cue-sheet/cue-sheet-error.vala',
+  'utils/cue-sheet/cue-sheet-file-format.vala',
+  'utils/cue-sheet/cue-sheet-file-node.vala',
+  'utils/cue-sheet/cue-sheet-track-mode.vala',
+  'utils/cue-sheet/cue-sheet-track-node.vala',
+  'utils/directory.vala',
+  'utils/filename-title.vala',
+  'utils/fingerprint.vala',
+  'utils/grep.vala',
+  'utils/local-cover.vala',
+  'utils/string-input-stream.vala',
+  'utils/unicode.vala',
+  'utils/uri.vala',
+  'utils/uri-error.vala',
+  'utils/xml-doc.vala',
+
+  'credits.vala',
+  'main.vala',
+]
+
+dependencies = [
+  config_dep,
+  gio_dep,
+  glib_dep,
+  grilo_dep,
+  gtk_dep,
+  manette_dep,
+  retro_gtk_dep,
+  rsvg_dep,
+  soup_dep,
+  sqlite_dep,
+  tracker_sparql_dep,
+  xml_dep,
+  valac.find_library ('linux'),
+  valac.find_library ('posix'),
+  valac.find_library ('event-codes', dirs: gamepad_dir),
+]
+
+gnome_games_exec = executable (
+  'gnome-games',
+  vala_sources + resources,
+  dependencies: dependencies,
+  vala_args: vala_args,
+  c_args: c_args,
+  include_directories: confinc,
+  export_dynamic: true,
+  install: true
+)
+
+plugin_dependencies = [
+  gio_dep,
+  glib_dep,
+  gtk_dep,
+  retro_gtk_dep,
+  tracker_sparql_dep,
+]
+
+gnome_games_dep = declare_dependency (
+  dependencies: plugin_dependencies,
+  link_with: gnome_games_exec,
+  include_directories: srcinc
+)

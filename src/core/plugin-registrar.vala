@@ -19,7 +19,7 @@ private class Games.PluginRegistrar : TypeModule {
 			var keyfile = new KeyFile ();
 			keyfile.load_from_file (plugin_filename, KeyFileFlags.NONE);
 			var module_name = keyfile.get_string ("Plugin", "Module");
-			module_path = Module.build_path (PLUGINS_DIR, module_name);
+			module_path = Module.build_path (Config.PLUGINS_DIR, module_name);
 			name = keyfile.get_string ("Plugin", "Name");
 			description = keyfile.get_string ("Plugin", "Description");
 		}

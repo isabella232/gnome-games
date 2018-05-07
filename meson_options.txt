@@ -1,0 +1,16 @@
+# Plugins
+# This must mirror the list in plugins/meson.build
+option ('desktop-plugin',       description: 'Support for desktop games',       type: 'boolean')
+option ('dreamcast-plugin',     description: 'Support for Dreamcast games',     type: 'boolean')
+option ('game-cube-plugin',     description: 'Support for GameCube games',      type: 'boolean')
+option ('libretro-plugin',      description: 'Support for Libretro games',      type: 'boolean')
+option ('love-plugin',          description: 'Support for LÖVE games',          type: 'boolean')
+option ('mame-plugin',          description: 'Support for MAME games',          type: 'boolean')
+option ('nintendo-ds-plugin',   description: 'Support for Nintendo DS games',   type: 'boolean')
+option ('playstation-plugin',   description: 'Support for PlayStation games',   type: 'boolean')
+option ('sega-cd-plugin',       description: 'Support for Sega CD games',       type: 'boolean')
+option ('sega-saturn-plugin',   description: 'Support for Sega Saturn games',   type: 'boolean')
+option ('steam-plugin',         description: 'Support for Steam games',         type: 'boolean')
+option ('turbografx-cd-plugin', description: 'Support for TurboGrafx-CD games', type: 'boolean')
+option ('virtual-boy-plugin',   description: 'Support for Virtual Boy games',   type: 'boolean')
+option ('wii-plugin',           description: 'Support for Wii games',           type: 'boolean')
