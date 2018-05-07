@@ -38,6 +38,16 @@
                 },
                 {
                     "type" : "file",
+                    "path" : "desmume2015.pong-ds.2.png",
+                    "dest-filename" : "desmume2015.pong-ds.2.png"
+                },
+                {
+                    "type" : "file",
+                    "path" : "desmume2015.pong-ds.test",
+                    "dest-filename" : "desmume2015.pong-ds.test"
+                },
+                {
+                    "type" : "file",
                     "path" : "gambatte.OpenMAZE.expected",
                     "dest-filename" : "gambatte.OpenMAZE.expected"
                 },

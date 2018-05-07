@@ -1,0 +1,16 @@
+        {
+            "name" : "pong-ds",
+            "buildsystem" : "simple",
+            "build-commands" : [
+                "mkdir -p /app/tests/",
+                "install -m644 -p -t /app/tests *"
+            ],
+            "sources" : [
+                {
+                    "type": "file",
+                    "url": "https://github.com/aldatsa/pong-ds/releases/download/v1.1.0/PongDS_v1.1.0.nds",
+                    "sha256": "102f3c58182aa1b9273b2825d67ad6e575a6223e2504b5ffc5370e117b764cd9",
+                    "dest-filename": "PongDS_v1.1.0.nds"
+                }
+            ]
+        }
