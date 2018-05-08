@@ -88,6 +88,8 @@ namespace Games.RetroPlatform {
 		case "TurboGrafxCD":
 			/* translators: known as "CD-ROM²" in eastern Asia and France */
 			return _("TurboGrafx-CD");
+		case "VirtualBoy":
+			return _("Virtual Boy");
 		case "Wii":
 			return _("Wii");
 		case "WiiU":
