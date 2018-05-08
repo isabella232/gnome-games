@@ -48,6 +48,10 @@ if ENABLE_TURBOGRAFX_CD_PLUGIN
 SUBDIRS += turbografx-cd
 endif
 
+if ENABLE_VIRTUAL_BOY_PLUGIN
+SUBDIRS += virtual-boy
+endif
+
 if ENABLE_WII_PLUGIN
 SUBDIRS += wii
 endif

@@ -1,0 +1,6 @@
+[Plugin]
+Module=libgames-virtual-boy-plugin
+Name=Virtual Boy Plugin
+Description=Provides support for Virtual Boy games.
+Authors=Alexander Mikhaylenko <exalm7659@gmail.com>
+Copyright=Copyright © 2018 Alexander Mikhaylenko

@@ -38,6 +38,7 @@ m4_include([plugins/sega-cd/configure.ac])
 m4_include([plugins/sega-saturn/configure.ac])
 m4_include([plugins/steam/configure.ac])
 m4_include([plugins/turbografx-cd/configure.ac])
+m4_include([plugins/virtual-boy/configure.ac])
 m4_include([plugins/wii/configure.ac])
 
 PKG_CHECK_MODULES(GNOME_GAMES, [
