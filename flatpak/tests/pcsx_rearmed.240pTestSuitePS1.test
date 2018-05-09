@@ -3,5 +3,25 @@ Path=/pcsx_rearmed/240pTestSuitePS1
 Core=/app/lib/libretro/pcsx_rearmed_libretro.so
 Medias=240pTestSuitePS1.cue;
 
+[Options]
+pcsx_rearmed_frameskip=0|1|2|3;
+pcsx_rearmed_region=Auto|NTSC|PAL;
+pcsx_rearmed_pad1type=default|none|standard|analog|negcon;
+pcsx_rearmed_pad2type=default|none|standard|analog|negcon;
+pcsx_rearmed_pad3type=default|none|standard|analog|negcon;
+pcsx_rearmed_pad4type=default|none|standard|analog|negcon;
+pcsx_rearmed_pad5type=default|none|standard|analog|negcon;
+pcsx_rearmed_pad6type=default|none|standard|analog|negcon;
+pcsx_rearmed_pad7type=default|none|standard|analog|negcon;
+pcsx_rearmed_pad8type=default|none|standard|analog|negcon;
+pcsx_rearmed_multitap1=auto|disabled|enabled;
+pcsx_rearmed_multitap2=auto|disabled|enabled;
+pcsx_rearmed_duping_enable=enabled|disabled;
+pcsx_rearmed_show_bios_bootlogo=disabled|enabled;
+pcsx_rearmed_spu_reverb=enabled|disabled;
+pcsx_rearmed_spu_interpolation=simple|gaussian|cubic|off;
+pcsx_rearmed_pe2_fix=disabled|enabled;
+pcsx_rearmed_inuyasha_fix=disabled|enabled;
+
 [Frame 8]
 Video=pcsx_rearmed.240pTestSuitePS1.8.png

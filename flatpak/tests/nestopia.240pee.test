@@ -3,5 +3,20 @@ Path=/nestopia/240pSuite
 Core=/app/lib/libretro/nestopia_libretro.so
 Medias=240pee.nes;
 
+[Options]
+nestopia_blargg_ntsc_filter=disabled;composite;svideo;rgb;monochrome;
+nestopia_palette=cxa2025as;consumer;canonical;alternative;rgb;pal;composite-direct-fbx;pvm-style-d93-fbx;ntsc-hardware-fbx;nes-classic-fbx-fs;raw;custom;
+nestopia_nospritelimit=disabled;enabled;
+nestopia_overclock=1x;2x;
+nestopia_select_adapter=auto;ntsc;famicom;
+nestopia_fds_auto_insert=enabled;disabled;
+nestopia_overscan_v=enabled;disabled;
+nestopia_overscan_h=disabled;enabled;
+nestopia_aspect=auto;ntsc;pal;4:3;
+nestopia_genie_distortion=disabled;enabled;
+nestopia_favored_system=auto;ntsc;pal;famicom;dendy;
+nestopia_ram_power_state=0x00;0xFF;random;
+nestopia_turbo_pulse=2;3;4;5;6;7;8;9;
+
 [Frame 120]
 Video=nestopia.240pee.120.png

@@ -3,5 +3,7 @@ Path=/bsnes_balanced/240pSuite
 Core=/app/lib/libretro/bsnes_balanced_libretro.so
 Medias=240pSuite.sfc;
 
+[Options]
+
 [Frame 120]
 Video=bsnes_balanced.240pSuite.120.png
