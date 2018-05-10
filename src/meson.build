@@ -49,10 +49,12 @@ vala_sources = [
 
   'dummy/dummy-cooperative.vala',
   'dummy/dummy-cover.vala',
+  'dummy/dummy-developer.vala',
   'dummy/dummy-game.vala',
   'dummy/dummy-genre.vala',
   'dummy/dummy-icon.vala',
   'dummy/dummy-players.vala',
+  'dummy/dummy-publisher.vala',
   'dummy/dummy-release-date.vala',
   'dummy/dummy-runner.vala',
   'dummy/dummy-uid.vala',
