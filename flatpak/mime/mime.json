@@ -1,0 +1,15 @@
+        {
+            "name": "mime-types",
+            "buildsystem": "simple",
+            "build-commands": [
+                "mkdir -p /app/share/mime/packages/",
+                "install -m644 -p x-virtual-boy-rom.xml /app/share/mime/packages/",
+                "update-mime-database /app/share/mime"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "path": "x-virtual-boy-rom.xml"
+                }
+            ]
+        }

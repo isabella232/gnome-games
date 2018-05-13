@@ -121,6 +121,7 @@
                 }
             ]
         },
+        "mime/mime.json",
         {
             "name": "libevdev",
             "sources": [
