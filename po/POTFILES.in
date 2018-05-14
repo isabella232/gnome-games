@@ -35,6 +35,7 @@ plugins/sega-saturn/src/sega-saturn-plugin.vala
 plugins/steam/src/steam-plugin.vala
 plugins/steam/src/steam-registry.vala
 plugins/steam/src/steam-title.vala
+plugins/virtual-boy/src/virtual-boy-header.vala
 plugins/wii/src/wii-header.vala
 src/command/command-runner.vala
 src/core/media-set/media-set.vala

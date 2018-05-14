@@ -15,6 +15,7 @@ plugins/sega-saturn/src/sega-saturn-plugin.c
 plugins/steam/src/steam-plugin.c
 plugins/steam/src/steam-registry.c
 plugins/steam/src/steam-title.c
+plugins/virtual-boy/src/virtual-boy-header.c
 plugins/wii/src/wii-header.c
 src/command/command-runner.c
 src/core/media-set/media-set.c
