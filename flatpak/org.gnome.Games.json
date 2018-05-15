@@ -51,6 +51,7 @@
         "libretro-cores/libretro-desmume2015.json",
         "libretro-cores/libretro-dosbox.json",
         "libretro-cores/libretro-gambatte.json",
+        "libretro-cores/libretro-gearsystem.json",
         "libretro-cores/libretro-handy.json",
         "libretro-cores/libretro-mednafen_ngp.json",
         "libretro-cores/libretro-mednafen_pce_fast.json",
