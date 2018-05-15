@@ -14,10 +14,6 @@
                 {
                     "type": "file",
                     "path": "x-neo-geo-pocket-rom.xml"
-                },
-                {
-                    "type": "file",
-                    "path": "x-virtual-boy-rom.xml"
                 }
             ]
         }
