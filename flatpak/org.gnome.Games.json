@@ -135,6 +135,10 @@
         {
             "name": "manette",
             "buildsystem": "meson",
+            /* Workaround for an occasional bugs in org.gnome.Sdk installing libraries in /app/lib64. */
+            "config-opts": [
+                "--libdir=lib"
+            ],
             "sources": [
                 {
                     "type": "git",
@@ -145,6 +149,10 @@
         {
             "name": "retro-gtk",
             "buildsystem": "meson",
+            /* Workaround for an occasional bugs in org.gnome.Sdk installing libraries in /app/lib64. */
+            "config-opts": [
+                "--libdir=lib"
+            ],
             "sources": [
                 {
                     "type": "git",
