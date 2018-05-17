@@ -30,6 +30,22 @@ private class Games.DummyGame : Object, Game {
 		return new DummyCover ();
 	}
 
+	public ReleaseDate get_release_date () {
+		return new DummyReleaseDate ();
+	}
+
+	public Cooperative get_cooperative () {
+		return new DummyCooperative ();
+	}
+
+	public Genre get_genre () {
+		return new DummyGenre ();
+	}
+
+	public Players get_players () {
+		return new DummyPlayers ();
+	}
+
 	public Runner get_runner () throws Error {
 		return new DummyRunner ();
 	}

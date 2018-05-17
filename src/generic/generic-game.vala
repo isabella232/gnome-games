@@ -22,6 +22,10 @@ public class Games.GenericGame : Object, Game {
 	private Title game_title;
 	private Icon game_icon;
 	private Cover game_cover;
+	private ReleaseDate game_release_date;
+	private Cooperative game_cooperative;
+	private Genre game_genre;
+	private Players game_players;
 	private Runner game_runner;
 
 	public GenericGame (Uid uid, Title title, Icon icon, Cover cover, Runner runner) {
@@ -42,6 +46,22 @@ public class Games.GenericGame : Object, Game {
 
 	public Cover get_cover () {
 		return game_cover;
+	}
+
+	public ReleaseDate get_release_date () {
+		return game_release_date;
+	}
+
+	public Cooperative get_cooperative () {
+		return game_cooperative;
+	}
+
+	public Genre get_genre () {
+		return game_genre;
+	}
+
+	public Players get_players () {
+		return game_players;
 	}
 
 	public Runner get_runner () throws Error {
