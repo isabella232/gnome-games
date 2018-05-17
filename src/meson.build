@@ -65,8 +65,12 @@ vala_sources = [
   'gamepad/gamepad-input.vala',
   'gamepad/gamepad-mapping-builder.vala',
 
+  'generic/generic-coop.vala',
   'generic/generic-game.vala',
   'generic/generic-game-uri-adapter.vala',
+  'generic/generic-genre.vala',
+  'generic/generic-players.vala',
+  'generic/generic-release-date.vala',
   'generic/generic-title.vala',
   'generic/generic-uid.vala',
   'generic/generic-uri-game-factory.vala',
