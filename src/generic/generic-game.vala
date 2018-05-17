@@ -28,11 +28,15 @@ public class Games.GenericGame : Object, Game {
 	private Players game_players;
 	private Runner game_runner;
 
-	public GenericGame (Uid uid, Title title, Icon icon, Cover cover, Runner runner) {
+	public GenericGame (Uid uid, Title title, Icon icon, Cover cover, ReleaseDate release_date, Cooperative cooperative, Genre genre, Players players, Runner runner) {
 		game_uid = uid;
 		game_title = title;
 		game_icon = icon;
 		game_cover = cover;
+		game_release_date = release_date;
+		game_cooperative = cooperative;
+		game_genre = genre;
+		game_players = players;
 		game_runner = runner;
 	}
 

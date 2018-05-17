@@ -54,10 +54,14 @@ private class Games.SteamPlugin : Object, Plugin {
 		var title = new SteamTitle (registry);
 		var icon = new SteamIcon (game_id);
 		var cover = new SteamCover (game_id);
+		var release_date = new DummyReleaseDate ();
+		var cooperative = new DummyCooperative ();
+		var genre = new DummyGenre ();
+		var players = new DummyPlayers ();
 		string[] args = { "steam", @"steam://rungameid/" + game_id };
 		var runner = new CommandRunner (args, false);
 
-		var game = new GenericGame (uid, title, icon, cover, runner);
+		var game = new GenericGame (uid, title, icon, cover, release_date, cooperative, genre, players, runner);
 		game_for_id[game_id] = game;
 
 		return game;

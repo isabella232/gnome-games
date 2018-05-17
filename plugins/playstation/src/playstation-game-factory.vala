@@ -143,11 +143,15 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
+		var release_date = new GriloReleaseDate (media, uid);
+		var cooperative = new GriloCooperative (media, uid);
+		var genre = new GriloGenre (media, uid);
+		var players = new GriloPlayers (media, uid);
 		var input_capabilities = new GameinfoDiscIdInputCapabilities (gameinfo, disc_set_id);
 		var core_source = new RetroCoreSource (PLATFORM, { CUE_MIME_TYPE, PHONY_MIME_TYPE });
 		var runner = new RetroRunner.for_media_set_and_input_capabilities (core_source, media_set, uid, input_capabilities, title);
 
-		return new GenericGame (uid, title, icon, cover, runner);
+		return new GenericGame (uid, title, icon, cover, release_date, cooperative, genre, players, runner);
 	}
 
 	private static GameinfoDoc get_gameinfo () throws Error {

@@ -32,9 +32,13 @@ private class Games.LibretroPlugin : Object, Plugin {
 		var title = new LibretroTitle (core_descriptor);
 		var icon = new LibretroIcon (core_descriptor);
 		var cover = new DummyCover ();
+		var release_date = new DummyReleaseDate ();
+		var cooperative = new DummyCooperative ();
+		var genre = new DummyGenre ();
+		var players = new DummyPlayers ();
 		var runner = new RetroRunner.for_core_descriptor (core_descriptor, uid, title);
 
-		return new GenericGame (uid, title, icon, cover, runner);
+		return new GenericGame (uid, title, icon, cover, release_date, cooperative, genre, players, runner);
 	}
 }
 

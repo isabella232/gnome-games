@@ -26,12 +26,16 @@ private class Games.MameGameUriAdapter : GameUriAdapter, Object {
 
 		var icon = new DummyIcon ();
 		var cover = new LocalCover (uri);
+		var release_date = new DummyReleaseDate ();
+		var cooperative = new DummyCooperative ();
+		var genre = new DummyGenre ();
+		var players = new DummyPlayers ();
 		var core_source = new RetroCoreSource (PLATFORM, { SEARCHED_MIME_TYPE, SPECIFIC_MIME_TYPE });
 		var runner = new RetroRunner (core_source, uri, uid, title);
 
 		Idle.add (this.game_for_uri.callback);
 		yield;
 
-		return new GenericGame (uid, title, icon, cover, runner);
+		return new GenericGame (uid, title, icon, cover, release_date, cooperative, genre, players, runner);
 	}
 }
