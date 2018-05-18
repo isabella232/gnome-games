@@ -1,0 +1,21 @@
+{
+    "name": "love-0-8",
+    "config-opts": [
+        "--prefix=/app"
+    ],
+    "sources": [
+        {
+            "type": "archive",
+            "url": "https://bitbucket.org/rude/love/downloads/love-0.8.0-linux-src.tar.gz",
+            "sha256": "9167ca1cc7893ff1fdcf3b6fc7e2a88be10d899075a513942420fe8f94668ecc"
+        },
+        {
+            "type": "patch",
+            "path": "love-0.8.0-seach-lua-pcallk.patch"
+        },
+        {
+            "type": "patch",
+            "path": "love-0.8.0-flatpak-sdl.patch"
+        }
+    ]
+}

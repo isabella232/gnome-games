@@ -1,0 +1,31 @@
+From 6f0caa34df57d28c98e14dc3b1243854664942fa Mon Sep 17 00:00:00 2001
+From: Adrien Plazas <kekun.plazas@laposte.net>
+Date: Sat, 4 Aug 2018 22:40:29 +0200
+Subject: [PATCH] Seach lua_pcallk() instead of lua_pcall()
+
+This is needed as lua_pcall() is a macro wrapping lua_pcallk() and hence cannot be found in the ABI.
+---
+ configure | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/configure b/configure
+index 487bb30..519bc03 100755
+--- a/configure
++++ b/configure
+@@ -15892,11 +15892,11 @@ cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+ #ifdef __cplusplus
+ extern "C"
+ #endif
+-char lua_pcall ();
++char lua_pcallk ();
+ int
+ main ()
+ {
+-return lua_pcall ();
++return lua_pcallk ();
+   ;
+   return 0;
+ }
+-- 
+2.17.1
+

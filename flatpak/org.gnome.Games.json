@@ -82,7 +82,44 @@
         "libretro-cores/libretro-prosystem.json",
         "libretro-cores/libretro-stella.json",
         /* End libretro cores */
+        /* Various versions of the LÖVE engine and its dependencies. */
+        "SDL/SDL-1.2.15.json",
         "org.lua.modules.json",
+        {
+            "name" : "devil",
+            "buildsystem" : "cmake",
+            "sources" : [
+                {
+                    "type" : "archive",
+                    "url" : "http://downloads.sourceforge.net/openil/DevIL-1.8.0.tar.gz",
+                    "sha256" : "0075973ee7dd89f0507873e2580ac78336452d29d34a07134b208f44e2feb709",
+                    "strip-components" : 2
+                }
+            ]
+        },
+        {
+            "name" : "physfs",
+            "buildsystem" : "cmake",
+            "sources" : [
+                {
+                    "type" : "archive",
+                    "url" : "https://hg.icculus.org/icculus/physfs/archive/release-3.0.1.tar.gz",
+                    "sha256" : "399ddc6cb8d0172de0411f14ba845782ca7301c278c16e6984b68a86ef124492"
+                }
+            ]
+        },
+        {
+            "name" : "libmodplug",
+            "sources" : [
+                {
+                    "type" : "archive",
+                    "url" : "http://downloads.sourceforge.net/modplug-xmms/libmodplug-0.8.9.0.tar.gz",
+                    "sha256" : "457ca5a6c179656d66c01505c0d95fafaead4329b9dbaa0f997d00a3508ad9de"
+                }
+            ]
+        },
+        "glu-9.0.0.json",
+        "org.love2d.LÖVE.0.8.json",
         {
             "name" : "tracker",
             "config-opts" : [

@@ -1,0 +1,13 @@
+diff --git a/src/Makefile.in b/src/Makefile.in
+index 8b2cc27..861b4b1 100644
+--- a/src/Makefile.in
++++ b/src/Makefile.in
+@@ -429,7 +429,7 @@ target_alias = @target_alias@
+ top_build_prefix = @top_build_prefix@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+-AM_CPPFLAGS = -I. -I./modules -I./libraries -I/usr/include/AL -I/usr/include/freetype2  $(INCLUDE_LUA) -I/usr/include/SDL $(FILE_OFFSET)
++AM_CPPFLAGS = -I. -I./modules -I./libraries -I/usr/include/AL -I/usr/include/freetype2  $(INCLUDE_LUA) -I/app/include/SDL $(FILE_OFFSET)
+ AUTOMAKE_OPTIONS = subdir-objects
+ SUBDIRS = 
+ #love_LDFLAGS =
