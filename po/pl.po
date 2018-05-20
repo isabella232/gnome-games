@@ -1,15 +1,15 @@
 # Polish translation for gnome-games.
-# Copyright © 2016-2017 the gnome-games authors.
+# Copyright © 2016-2018 the gnome-games authors.
 # This file is distributed under the same license as the gnome-games package.
-# Piotr Drąg <piotrdrag@gmail.com>, 2016-2017.
-# Aviary.pl <community-poland@mozilla.org>, 2016-2017.
+# Piotr Drąg <piotrdrag@gmail.com>, 2016-2018.
+# Aviary.pl <community-poland@mozilla.org>, 2016-2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-19 19:38+0100\n"
-"PO-Revision-Date: 2017-11-19 19:39+0100\n"
+"POT-Creation-Date: 2018-05-20 20:42+0200\n"
+"PO-Revision-Date: 2018-05-20 20:44+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
 #: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
-#: ../src/ui/application.vala:20
+#: ../src/ui/application.vala:21
 msgid "Games"
 msgstr "Gry"
 
@@ -419,6 +419,34 @@ msgstr "Nieoczekiwany token „}”."
 msgid "Couldn’t get name from Steam registry."
 msgstr "Nie można uzyskać nazwy z rejestru Steam."
 
+#: ../plugins/virtual-boy/src/virtual-boy-header.vala:20
+msgid "The file is too short."
+msgstr "Plik jest za krótki."
+
+#: ../plugins/virtual-boy/src/virtual-boy-header.vala:26
+#, c-format
+msgid "Invalid Virtual Boy ROM header size: %s"
+msgstr "Nieprawidłowy rozmiar nagłówka pliku ROM konsoli Virtual Boy: %s"
+
+#: ../plugins/virtual-boy/src/virtual-boy-header.vala:38
+msgid "Invalid Virtual Boy ROM header size."
+msgstr "Nieprawidłowy rozmiar nagłówka pliku ROM konsoli Virtual Boy."
+
+#: ../plugins/virtual-boy/src/virtual-boy-header.vala:42
+msgid "The file doesn’t have a Virtual Boy ROM header."
+msgstr "Plik nie ma nagłówka pliku ROM konsoli Virtual Boy."
+
+#: ../plugins/virtual-boy/src/virtual-boy-header.vala:51
+#, c-format
+msgid "Couldn’t get file size: %s"
+msgstr "Nie można uzyskać rozmiaru pliku: %s"
+
+#: ../plugins/virtual-boy/src/virtual-boy-header.vala:60
+#: ../plugins/wii/src/wii-header.vala:55
+#, c-format
+msgid "Couldn’t read file: %s"
+msgstr "Nie można odczytać pliku: %s"
+
 #: ../plugins/wii/src/wii-header.vala:20
 #, c-format
 msgid "Invalid Wii header size: %s"
@@ -427,11 +455,6 @@ msgstr "Nieprawidłowy rozmiar nagłówka konsoli Wii: %s"
 #: ../plugins/wii/src/wii-header.vala:33 ../plugins/wii/src/wii-header.vala:44
 msgid "The file doesn’t have a Wii header."
 msgstr "Plik nie ma nagłówka konsoli Wii."
-
-#: ../plugins/wii/src/wii-header.vala:55
-#, c-format
-msgid "Couldn’t read file: %s"
-msgstr "Nie można odczytać pliku: %s"
 
 #: ../src/command/command-runner.vala:33
 msgid "The game doesn’t have a valid command."
@@ -493,12 +516,12 @@ msgstr "Nie odnaleziono modułu dla platformy „%s” i typów MIME [ „%s”
 msgid "”, “"
 msgstr "”, „"
 
-#: ../src/retro/retro-core-source.vala:76
+#: ../src/retro/retro-core-source.vala:79
 #, c-format
 msgid "This game requires the %s firmware file to run."
 msgstr "Ta gra wymaga oprogramowania sprzętowego %s do działania."
 
-#: ../src/retro/retro-core-source.vala:93
+#: ../src/retro/retro-core-source.vala:96
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a MD5 fingerprint of %s to run."
@@ -506,7 +529,7 @@ msgstr ""
 "Ta gra do działania wymaga pliku oprogramowania sprzętowego %s o sumie "
 "kontrolnej MD5 „%s”."
 
-#: ../src/retro/retro-core-source.vala:99
+#: ../src/retro/retro-core-source.vala:102
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
@@ -581,116 +604,124 @@ msgstr "MS-DOS"
 msgid "Neo Geo Pocket"
 msgstr "Neo Geo Pocket"
 
+#: ../src/retro/retro-platform.vala:41
+msgid "Neo Geo Pocket Color"
+msgstr "Neo Geo Pocket Color"
+
 #. translators: known as "Famicom" in eastern Asia
-#: ../src/retro/retro-platform.vala:42
+#: ../src/retro/retro-platform.vala:44
 msgid "Nintendo Entertainment System"
 msgstr "NES"
 
-#: ../src/retro/retro-platform.vala:44
+#: ../src/retro/retro-platform.vala:46
 msgid "Nintendo 64"
 msgstr "Nintendo 64"
 
-#: ../src/retro/retro-platform.vala:46
+#: ../src/retro/retro-platform.vala:48
 msgid "Nintendo DS"
 msgstr "Nintendo DS"
 
-#: ../src/retro/retro-platform.vala:48
+#: ../src/retro/retro-platform.vala:50
 msgid "Nintendo 3DS"
 msgstr "Nintendo 3DS"
 
-#: ../src/retro/retro-platform.vala:50
+#: ../src/retro/retro-platform.vala:52
 msgid "PlayStation"
 msgstr "PlayStation"
 
-#: ../src/retro/retro-platform.vala:52
+#: ../src/retro/retro-platform.vala:54
 msgid "PlayStation 2"
 msgstr "PlayStation 2"
 
-#: ../src/retro/retro-platform.vala:54
+#: ../src/retro/retro-platform.vala:56
 msgid "PlayStation 3"
 msgstr "PlayStation 3"
 
-#: ../src/retro/retro-platform.vala:56
+#: ../src/retro/retro-platform.vala:58
 msgid "PlayStation 4"
 msgstr "PlayStation 4"
 
-#: ../src/retro/retro-platform.vala:58
+#: ../src/retro/retro-platform.vala:60
 msgid "PlayStation Portable"
 msgstr "PSP"
 
-#: ../src/retro/retro-platform.vala:60
+#: ../src/retro/retro-platform.vala:62
 msgid "PlayStation Vita"
 msgstr "PlayStation Vita"
 
 #. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
-#: ../src/retro/retro-platform.vala:63
+#: ../src/retro/retro-platform.vala:65
 msgid "Genesis 32X"
 msgstr "Mega Drive 32X"
 
 #. translators: known as "Mega-CD" in most of the world
-#: ../src/retro/retro-platform.vala:66
+#: ../src/retro/retro-platform.vala:68
 msgid "Sega CD"
 msgstr "Mega-CD"
 
 #. translators: known as "Mega-CD 32X" in most of the world
-#: ../src/retro/retro-platform.vala:69
+#: ../src/retro/retro-platform.vala:71
 msgid "Sega CD 32X"
 msgstr "Mega-CD 32X"
 
 #. translators: known as "Mega Drive" in most of the world
-#: ../src/retro/retro-platform.vala:72
+#: ../src/retro/retro-platform.vala:74
 msgid "Sega Genesis"
 msgstr "Mega Drive"
 
 #. translators: also known as "Sega Mark III" in eastern asia
-#: ../src/retro/retro-platform.vala:75
+#: ../src/retro/retro-platform.vala:77
 msgid "Sega Master System"
 msgstr "Sega Master System"
 
-#: ../src/retro/retro-platform.vala:77
+#: ../src/retro/retro-platform.vala:79
 msgid "Sega Pico"
 msgstr "Sega Pico"
 
-#: ../src/retro/retro-platform.vala:79
+#: ../src/retro/retro-platform.vala:81
 msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
-#: ../src/retro/retro-platform.vala:81
+#: ../src/retro/retro-platform.vala:83
 msgid "SG-1000"
 msgstr "SG-1000"
 
 #. translators: known as "Super Famicom" in eastern Asia
-#: ../src/retro/retro-platform.vala:84
+#: ../src/retro/retro-platform.vala:86
 msgid "Super Nintendo Entertainment System"
 msgstr "SNES"
 
 #. translators: known as "PC Engine" in eastern Asia and France
-#: ../src/retro/retro-platform.vala:87
+#: ../src/retro/retro-platform.vala:89
 msgid "TurboGrafx-16"
 msgstr "TurboGrafx-16"
 
 #. translators: known as "CD-ROM²" in eastern Asia and France
-#: ../src/retro/retro-platform.vala:90
+#: ../src/retro/retro-platform.vala:92
 msgid "TurboGrafx-CD"
 msgstr "TurboGrafx-CD"
 
-#: ../src/retro/retro-platform.vala:92
+#: ../src/retro/retro-platform.vala:94
+msgid "Virtual Boy"
+msgstr "Virtual Boy"
+
+#: ../src/retro/retro-platform.vala:96
 msgid "Wii"
 msgstr "Wii"
 
-#: ../src/retro/retro-platform.vala:94
+#: ../src/retro/retro-platform.vala:98
 msgid "Wii U"
 msgstr "Wii U"
 
-#: ../src/retro/retro-platform.vala:96
+#: ../src/retro/retro-platform.vala:100
 msgid "WiiWare"
 msgstr "WiiWare"
 
-#: ../src/retro/retro-platform.vala:98
+#: ../src/retro/retro-platform.vala:102
 msgid "WonderSwan"
 msgstr "WonderSwan"
 
-#: ../src/retro/retro-platform.vala:100
+#: ../src/retro/retro-platform.vala:104
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
@@ -708,41 +739,41 @@ msgstr "Konsola „%s” nie jest jeszcze obsługiwana, ale jest w planach."
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Konsola nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: ../src/ui/application.vala:136
+#: ../src/ui/application.vala:137
 msgid "Select game files"
 msgstr "Wybór plików gry"
 
-#: ../src/ui/application.vala:137
+#: ../src/ui/application.vala:138
 msgid "_Add"
 msgstr "_Dodaj"
 
-#: ../src/ui/application.vala:137
+#: ../src/ui/application.vala:138
 msgid "_Cancel"
 msgstr "_Anuluj"
 
-#: ../src/ui/application.vala:310
+#: ../src/ui/application.vala:319
 msgid "GNOME Games"
 msgstr "Gry GNOME"
 
-#: ../src/ui/application.vala:312
+#: ../src/ui/application.vala:321
 msgid "A video game player for GNOME"
 msgstr "Uruchamianie gier w środowisku GNOME"
 
-#: ../src/ui/application.vala:316
+#: ../src/ui/application.vala:325
 msgid "Learn more about GNOME Games"
 msgstr "Więcej informacji o Grach GNOME"
 
-#: ../src/ui/application.vala:323
+#: ../src/ui/application.vala:332
 msgid "translator-credits"
 msgstr ""
-"Piotr Drąg <piotrdrag@gmail.com>, 2016-2017\n"
-"Aviary.pl <community-poland@mozilla.org>, 2016-2017"
+"Piotr Drąg <piotrdrag@gmail.com>, 2016-2018\n"
+"Aviary.pl <community-poland@mozilla.org>, 2016-2018"
 
-#: ../src/ui/application-window.vala:283
+#: ../src/ui/application-window.vala:297
 msgid "An unexpected error occurred."
 msgstr "Wystąpił nieoczekiwany błąd."
 
-#: ../src/ui/application-window.vala:524 ../src/ui/application-window.vala:541
+#: ../src/ui/application-window.vala:546 ../src/ui/application-window.vala:563
 msgid "Playing a game"
 msgstr "W trakcie gry"
 
@@ -767,15 +798,15 @@ msgstr "Testowanie „%s”"
 msgid "Configuring %s"
 msgstr "Konfigurowanie „%s”"
 
-#: ../src/ui/gamepad-mapper.vala:129
+#: ../src/ui/gamepad-mapper.vala:126
 msgid "Press suitable button on your gamepad"
 msgstr "Proszę nacisnąć odpowiedni przycisk na kontrolerze."
 
-#: ../src/ui/gamepad-mapper.vala:134
+#: ../src/ui/gamepad-mapper.vala:131
 msgid "Move suitable axis left/right on your gamepad"
 msgstr "Proszę przesunąć odpowiednią oś w lewo/prawo na kontrolerze."
 
-#: ../src/ui/gamepad-mapper.vala:136
+#: ../src/ui/gamepad-mapper.vala:133
 msgid "Move suitable axis up/down on your gamepad"
 msgstr "Proszę przesunąć odpowiednią oś w górę/dół na kontrolerze."
 
