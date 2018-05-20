@@ -277,6 +277,7 @@ public class Games.Application : Gtk.Application {
 			game_collection.add_source (tracker_uri_source);
 
 		var mime_types = new GenericSet<string> (str_hash, str_equal);
+		var platform_register = PlatformRegister.get_register ();
 
 		/* Register simple Libretro-based game types */
 		foreach (var simple_type in RETRO_SIMPLE_TYPES) {
@@ -288,7 +289,11 @@ public class Games.Application : Gtk.Application {
 				tracker_uri_source.add_query (query);
 			}
 
-			var game_uri_adapter = new RetroSimpleGameUriAdapter (simple_type);
+			var platform_name = simple_type.get_platform_name ();
+			var platform = new RetroPlatform (simple_type.platform, platform_name, { simple_type.mime_type });
+			platform_register.add_platform (platform);
+
+			var game_uri_adapter = new RetroSimpleGameUriAdapter (simple_type, platform);
 			var factory = new GenericUriGameFactory (game_uri_adapter);
 			factory.add_mime_type (simple_type.mime_type);
 

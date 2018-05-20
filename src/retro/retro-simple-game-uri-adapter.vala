@@ -2,13 +2,11 @@
 
 private class Games.RetroSimpleGameUriAdapter : GameUriAdapter, Object {
 	private RetroSimpleType simple_type;
-	private Platform platform;
+	private RetroPlatform platform;
 
-	public RetroSimpleGameUriAdapter (RetroSimpleType simple_type) {
+	public RetroSimpleGameUriAdapter (RetroSimpleType simple_type, RetroPlatform platform) {
 		this.simple_type = simple_type;
-
-		var platform_name = simple_type.get_platform_name ();
-		platform = new GenericPlatform (simple_type.platform, platform_name);
+		this.platform = platform;
 	}
 
 	public async Game game_for_uri (Uri uri) throws Error {
