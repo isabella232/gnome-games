@@ -68,11 +68,13 @@
         "org.lua.modules.json",
         {
             "name": "grilo",
+            "buildsystem": "meson",
             "config-opts": [
-                "--enable-grl-net",
-                "--disable-grl-pls",
-                "--disable-gtk-doc",
-                "--disable-static"
+                "--libdir=lib",
+                "-Denable-grl-net=true",
+                "-Denable-grl-pls=false",
+                "-Denable-gtk-doc=false",
+                "-Denable-static=false"
             ],
             "sources": [
                 {
