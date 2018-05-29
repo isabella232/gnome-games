@@ -26,6 +26,8 @@ private class Games.NintendoDsPlugin : Object, Plugin {
 		var cooperative = new GriloCooperative (media, uid);
 		var genre = new GriloGenre (media, uid);
 		var players = new GriloPlayers (media, uid);
+		var developer = new GriloDeveloper (media);
+		var publisher = new GriloPublisher (media);
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
@@ -39,6 +41,8 @@ private class Games.NintendoDsPlugin : Object, Plugin {
 		game.set_cooperative (cooperative);
 		game.set_genre (genre);
 		game.set_players (players);
+		game.set_developer (developer);
+		game.set_publisher (publisher);
 
 		return game;
 	}

@@ -146,6 +146,8 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		var cooperative = new GriloCooperative (media, uid);
 		var genre = new GriloGenre (media, uid);
 		var players = new GriloPlayers (media, uid);
+		var developer = new GriloDeveloper (media);
+		var publisher = new GriloPublisher (media);
 		var input_capabilities = new GameinfoDiscIdInputCapabilities (gameinfo, disc_set_id);
 		var core_source = new RetroCoreSource (PLATFORM, { CUE_MIME_TYPE, PHONY_MIME_TYPE });
 		var runner = new RetroRunner.for_media_set_and_input_capabilities (core_source, media_set, uid, input_capabilities, title);
@@ -156,6 +158,8 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		game.set_cooperative (cooperative);
 		game.set_genre (genre);
 		game.set_players (players);
+		game.set_developer (developer);
+		game.set_publisher (publisher);
 
 		return game;
 	}

@@ -70,6 +70,8 @@ private class Games.SegaCDPlugin : Object, Plugin {
 		var cooperative = new GriloCooperative (media, uid);
 		var genre = new GriloGenre (media, uid);
 		var players = new GriloPlayers (media, uid);
+		var developer = new GriloDeveloper (media);
+		var publisher = new GriloPublisher (media);
 		var core_source = new RetroCoreSource (platform, mime_types);
 		var runner = new RetroRunner (core_source, uri, uid, title);
 
@@ -79,6 +81,8 @@ private class Games.SegaCDPlugin : Object, Plugin {
 		game.set_cooperative (cooperative);
 		game.set_genre (genre);
 		game.set_players (players);
+		game.set_developer (developer);
+		game.set_publisher (publisher);
 
 		return game;
 	}

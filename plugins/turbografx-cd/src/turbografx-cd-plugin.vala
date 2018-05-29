@@ -33,6 +33,8 @@ private class Games.TurboGrafxCDPlugin : Object, Plugin {
 		var cooperative = new GriloCooperative (media, uid);
 		var genre = new GriloGenre (media, uid);
 		var players = new GriloPlayers (media, uid);
+		var developer = new GriloDeveloper (media);
+		var publisher = new GriloPublisher (media);
 		var core_source = new RetroCoreSource (CD_PLATFORM, { CUE_MIME_TYPE, PHONY_MIME_TYPE });
 		var runner = new RetroRunner (core_source, uri, uid, title);
 
@@ -42,6 +44,8 @@ private class Games.TurboGrafxCDPlugin : Object, Plugin {
 		game.set_cooperative (cooperative);
 		game.set_genre (genre);
 		game.set_players (players);
+		game.set_developer (developer);
+		game.set_publisher (publisher);
 
 		return game;
 	}
