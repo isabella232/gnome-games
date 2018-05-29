@@ -21,6 +21,8 @@ public class Games.GenericGame : Object, Game {
 	private Uid game_uid;
 	private Title game_title;
 	private Icon game_icon;
+	private Developer game_developer;
+	private Publisher game_publisher;
 	private Cover game_cover;
 	private ReleaseDate game_release_date;
 	private Cooperative game_cooperative;
@@ -102,6 +104,28 @@ public class Games.GenericGame : Object, Game {
 
 	public void set_players (Players players) {
 		game_players = players;
+	}
+
+	public Developer get_developer () {
+		if (game_developer == null)
+			game_developer = new DummyDeveloper ();
+
+		return game_developer;
+	}
+
+	public void set_developer (Developer developer) {
+		game_developer = developer;
+	}
+
+	public Publisher get_publisher () {
+		if (game_publisher == null)
+			game_publisher = new DummyPublisher ();
+
+		return game_publisher;
+	}
+
+	public void set_publisher (Publisher publisher) {
+		game_publisher = publisher;
 	}
 
 	public Runner get_runner () throws Error {

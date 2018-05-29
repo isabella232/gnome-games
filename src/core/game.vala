@@ -10,6 +10,8 @@ public interface Games.Game : Object {
 	public abstract Cooperative get_cooperative ();
 	public abstract Genre get_genre ();
 	public abstract Players get_players ();
+	public abstract Developer get_developer ();
+	public abstract Publisher get_publisher ();
 	public abstract Runner get_runner () throws Error;
 
 	public static uint hash (Game key) {
