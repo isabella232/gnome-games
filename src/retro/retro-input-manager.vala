@@ -3,6 +3,7 @@
 private class Games.RetroInputManager : Object {
 	private Retro.Core core;
 	private Retro.Controller core_view_joypad;
+	private KeyboardMappingManager keyboard_mapping_manager;
 	private Manette.Monitor monitor;
 	private Retro.Controller?[] controllers;
 	private int core_view_joypad_port;
@@ -12,6 +13,11 @@ private class Games.RetroInputManager : Object {
 		this.core = core;
 		this.present_analog_sticks = present_analog_sticks;
 
+		keyboard_mapping_manager = new KeyboardMappingManager ();
+		view.set_key_joypad_mapping (keyboard_mapping_manager.mapping);
+		keyboard_mapping_manager.changed.connect (() => {
+			view.set_key_joypad_mapping (keyboard_mapping_manager.mapping);
+		});
 		core_view_joypad = view.as_controller (Retro.ControllerType.JOYPAD);
 		core.set_keyboard (view);
 		view.set_as_default_controller (core);
