@@ -162,7 +162,7 @@ private class Games.GamepadConfigurer : Gtk.Box {
 	}
 
 	private void reset_mapping () {
-		var message_dialog = new ResetGamepadMappingDialog ();
+		var message_dialog = new ResetControllerMappingDialog ();
 		message_dialog.set_transient_for ((Gtk.Window) get_toplevel ());
 		message_dialog.response.connect ((response) => {
 			switch (response) {

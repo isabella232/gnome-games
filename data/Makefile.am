@@ -51,7 +51,7 @@ EXTRA_DIST = \
 	ui/preferences-window.ui \
 	ui/quit-dialog.ui \
 	ui/remote-display.ui \
-	ui/reset-gamepad-mapping-dialog.ui \
+	ui/reset-controller-mapping-dialog.ui \
 	ui/resume-dialog.ui \
 	ui/resume-failed-dialog.ui \
 	ui/search-bar.ui \

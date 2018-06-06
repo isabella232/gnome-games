@@ -139,7 +139,7 @@ gnome_games_SOURCES = \
 	ui/preferences-window.vala \
 	ui/quit-dialog.vala \
 	ui/remote-display.vala \
-	ui/reset-gamepad-mapping-dialog.vala \
+	ui/reset-controller-mapping-dialog.vala \
 	ui/resume-dialog.vala \
 	ui/resume-failed-dialog.vala \
 	ui/search-bar.vala \

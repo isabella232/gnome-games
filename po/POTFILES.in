@@ -18,7 +18,7 @@ data/org.gnome.Games.gschema.xml
 [type: gettext/glade]data/ui/preferences-window.ui
 [type: gettext/glade]data/ui/quit-dialog.ui
 [type: gettext/glade]data/ui/remote-display.ui
-[type: gettext/glade]data/ui/reset-gamepad-mapping-dialog.ui
+[type: gettext/glade]data/ui/reset-controller-mapping-dialog.ui
 [type: gettext/glade]data/ui/resume-dialog.ui
 [type: gettext/glade]data/ui/resume-failed-dialog.ui
 plugins/desktop/src/desktop-plugin.vala
