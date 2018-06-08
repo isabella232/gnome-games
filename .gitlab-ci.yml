@@ -5,11 +5,16 @@
     - ninja -C _build install
 
 stages:
-  - build-flatpak
+  - build
+  - test
+  - review
 
-flatpak:unit-tests:
+variables:
+  BUNDLE: "gnome-games-git.flatpak"
+
+flatpak:tests:
   image: registry.gitlab.gnome.org/gnome/gnome-nightly-oci/nightly:master
-  stage: build-flatpak
+  stage: test
   variables:
     MANIFEST_PATH: "flatpak/org.gnome.Games.UnitTests.json"
   script:
@@ -21,14 +26,13 @@ flatpak:unit-tests:
       - .flatpak-builder/downloads/
       - .flatpak-builder/git/
 
-flatpak:gnome-games:
+flatpak:app:
   image: registry.gitlab.gnome.org/gnome/gnome-nightly-oci/nightly:master
-  stage: build-flatpak
+  stage: build
   variables:
     MANIFEST_PATH: "flatpak/org.gnome.Games.json"
     RUNTIME_REPO: "https://sdk.gnome.org/gnome-nightly.flatpakrepo"
     FLATPAK_MODULE: "gnome-games"
-    BUNDLE: "gnome-games-git.flatpak"
   script:
     - flatpak-builder --stop-at=${FLATPAK_MODULE} app ${MANIFEST_PATH}
     - flatpak build app ./autogen.sh --prefix=/app
@@ -40,12 +44,34 @@ flatpak:gnome-games:
   artifacts:
     paths:
       - ${BUNDLE}
-    expire_in: 2 days
+    expire_in: 30 days
   cache:
     paths:
       - .flatpak-builder/cache/
       - .flatpak-builder/downloads/
       - .flatpak-builder/git/
+
+review:
+  stage: review
+  dependencies:
+    - flatpak:app
+    - flatpak:tests
+  script:
+    - echo "Generating flatpak deployment"
+  artifacts:
+    paths:
+      - ${BUNDLE}
+    expire_in: 30 days
   environment:
     name: review/$CI_COMMIT_REF_NAME
     url: https://gitlab.gnome.org/$CI_PROJECT_PATH/-/jobs/$CI_JOB_ID/artifacts/raw/${BUNDLE}
+    on_stop: stop_review
+
+stop_review:
+  stage: review
+  script:
+    - echo "Stopping flatpak deployment"
+  when: manual
+  environment:
+    name: review/$CI_COMMIT_REF_NAME
+    action: stop
