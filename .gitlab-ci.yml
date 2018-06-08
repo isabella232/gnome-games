@@ -1,9 +1,3 @@
-
-.build_template: &distro_build
-  script:
-    - meson -Dmanpage=false _build
-    - ninja -C _build install
-
 stages:
   - build
   - test
@@ -23,8 +17,6 @@ flatpak:tests:
   cache:
     paths:
       - .flatpak-builder/cache/
-      - .flatpak-builder/downloads/
-      - .flatpak-builder/git/
 
 flatpak:app:
   image: registry.gitlab.gnome.org/gnome/gnome-nightly-oci/nightly:master
@@ -48,8 +40,6 @@ flatpak:app:
   cache:
     paths:
       - .flatpak-builder/cache/
-      - .flatpak-builder/downloads/
-      - .flatpak-builder/git/
 
 review:
   stage: review
