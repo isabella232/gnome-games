@@ -58,7 +58,8 @@ public class Games.LocalCover : Object, Cover {
 
 		string cover_path = null;
 		var directory = new Directory (parent);
-		directory.foreach ("*", (sibbling) => {
+		var attributes = string.join (",", FileAttribute.STANDARD_NAME, FileAttribute.STANDARD_FAST_CONTENT_TYPE);
+		directory.foreach (attributes, (sibbling) => {
 			var sibbling_basename = sibbling.get_name ();
 			if (sibbling_basename == basename)
 				return false;
@@ -66,7 +67,7 @@ public class Games.LocalCover : Object, Cover {
 			if (!sibbling_basename.has_prefix (prefix))
 				return false;
 
-			var type = sibbling.get_content_type ();
+			var type = sibbling.get_attribute_string (FileAttribute.STANDARD_FAST_CONTENT_TYPE);
 			if (!type.has_prefix ("image"))
 				return false;
 
@@ -87,13 +88,14 @@ public class Games.LocalCover : Object, Cover {
 
 		string cover_path = null;
 		var directory = new Directory (parent);
-		directory.foreach ("*", (sibbling) => {
+		var attributes = string.join (",", FileAttribute.STANDARD_NAME, FileAttribute.STANDARD_FAST_CONTENT_TYPE);
+		directory.foreach (attributes, (sibbling) => {
 			var sibbling_basename = sibbling.get_name ();
 			if (!sibbling_basename.has_prefix ("cover.") &&
 			    !sibbling_basename.has_prefix ("folder."))
 				return false;
 
-			var type = sibbling.get_content_type ();
+			var type = sibbling.get_attribute_string (FileAttribute.STANDARD_FAST_CONTENT_TYPE);
 			if (!type.has_prefix ("image"))
 				return false;
 
