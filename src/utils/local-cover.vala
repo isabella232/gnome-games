@@ -2,51 +2,61 @@
 
 public class Games.LocalCover : Object, Cover {
 	private Uri uri;
-	private bool resolved;
 	private GLib.Icon? icon;
+	private bool resolving;
+	private string? cover_path;
 
 	public LocalCover (Uri uri) {
 		this.uri = uri;
+		resolving = false;
 	}
 
 	public GLib.Icon? get_cover () {
-		if (resolved)
+		if (resolving)
 			return icon;
 
-		resolved = true;
+		if (icon != null)
+			return icon;
 
-		string? cover_path;
 		try {
-			cover_path = get_cover_path ();
+			load_cover ();
 		}
 		catch (Error e) {
-			debug (e.message);
-
-			return null;
+			warning (e.message);
+	
+			return icon;
 		}
 
-		if (cover_path == null)
-			return null;
+		if (icon != null)
+			return icon;
 
-		var file = File.new_for_path (cover_path);
-		icon = new FileIcon (file);
+		resolving = true;
+
+		try_resolve_path.begin ();
 
 		return icon;
 	}
 
-	private string? get_cover_path () throws Error {
-		var cover_path = get_sibbling_cover_path ();
-		if (cover_path != null && FileUtils.test (cover_path, FileTest.EXISTS))
-			return cover_path;
+	private async void try_resolve_path () throws Error {
+		cover_path = yield get_sibbling_cover_path ();
+		if (cover_path != null && FileUtils.test (cover_path, FileTest.EXISTS)) {
+			load_cover ();
 
-		cover_path = get_directory_cover_path ();
-		if (cover_path != null && FileUtils.test (cover_path, FileTest.EXISTS))
-			return cover_path;
+			return;
+		}
 
-		return null;
+		cover_path = yield get_directory_cover_path ();
+		if (cover_path != null && FileUtils.test (cover_path, FileTest.EXISTS)) {
+			load_cover ();
+
+			return;
+		}
+
+		cover_path = null;
+		load_cover ();
 	}
 
-	private string? get_sibbling_cover_path () throws Error {
+	private async string? get_sibbling_cover_path () throws Error {
 		var file = uri.to_file ();
 		var parent = file.get_parent ();
 		if (parent == null)
@@ -59,7 +69,7 @@ public class Games.LocalCover : Object, Cover {
 		string cover_path = null;
 		var directory = new Directory (parent);
 		var attributes = string.join (",", FileAttribute.STANDARD_NAME, FileAttribute.STANDARD_FAST_CONTENT_TYPE);
-		directory.foreach (attributes, (sibbling) => {
+		yield directory.foreach_async (attributes, (sibbling) => {
 			var sibbling_basename = sibbling.get_name ();
 			if (sibbling_basename == basename)
 				return false;
@@ -80,7 +90,7 @@ public class Games.LocalCover : Object, Cover {
 		return cover_path;
 	}
 
-	private string? get_directory_cover_path () throws Error {
+	private async string? get_directory_cover_path () throws Error {
 		var file = uri.to_file ();
 		var parent = file.get_parent ();
 		if (parent == null)
@@ -89,7 +99,7 @@ public class Games.LocalCover : Object, Cover {
 		string cover_path = null;
 		var directory = new Directory (parent);
 		var attributes = string.join (",", FileAttribute.STANDARD_NAME, FileAttribute.STANDARD_FAST_CONTENT_TYPE);
-		directory.foreach (attributes, (sibbling) => {
+		yield directory.foreach_async (attributes, (sibbling) => {
 			var sibbling_basename = sibbling.get_name ();
 			if (!sibbling_basename.has_prefix ("cover.") &&
 			    !sibbling_basename.has_prefix ("folder."))
@@ -106,5 +116,15 @@ public class Games.LocalCover : Object, Cover {
 		});
 
 		return cover_path;
+	}
+
+	private void load_cover () throws Error {
+		if (cover_path == null || !FileUtils.test (cover_path, FileTest.EXISTS))
+			return;
+
+		var file = File.new_for_path (cover_path);
+		icon = new FileIcon (file);
+
+		changed ();
 	}
 }
