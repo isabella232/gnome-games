@@ -15,4 +15,17 @@ public class Games.Directory : Object {
 			if (file_info_test (file_info))
 				return;
 	}
+
+	public async void @foreach_async (string attributes, FileInfoTest file_info_test) throws Error {
+		var enumerator = yield file.enumerate_children_async (attributes, FileQueryInfoFlags.NONE);
+		while (true) {
+			var file_infos = yield enumerator.next_files_async (25);
+			if (file_infos == null || file_infos.length () == 0)
+				break;
+
+			foreach (var file_info in file_infos)
+				if (file_info_test (file_info))
+					return;
+		}
+	}
 }
