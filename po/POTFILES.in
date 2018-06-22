@@ -11,6 +11,8 @@ data/org.gnome.Games.gschema.xml
 [type: gettext/glade]data/ui/empty-collection.ui
 [type: gettext/glade]data/ui/gamepad-configurer.ui
 [type: gettext/glade]data/ui/gamepad-mapper.ui
+[type: gettext/glade]data/ui/keyboard-configurer.ui
+[type: gettext/glade]data/ui/keyboard-mapper.ui
 [type: gettext/glade]data/ui/media-menu-button.ui
 [type: gettext/glade]data/ui/preferences-page-controllers.ui
 [type: gettext/glade]data/ui/preferences-page-plugins.ui
@@ -50,7 +52,10 @@ src/ui/application-window.vala
 src/ui/error-display.vala
 src/ui/gamepad-configurer.vala
 src/ui/gamepad-mapper.vala
+src/ui/keyboard-configurer.vala
+src/ui/keyboard-mapper.vala
 src/ui/media-selector.vala
+src/ui/preferences-page-controllers.vala
 src/ui/preferences-page-plugins.vala
 src/ui/preferences-page-video.vala
 src/utils/cue-sheet/cue-sheet.vala
