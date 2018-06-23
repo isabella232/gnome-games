@@ -144,6 +144,7 @@ gnome_games_SOURCES = \
 	ui/resume-dialog.vala \
 	ui/resume-failed-dialog.vala \
 	ui/search-bar.vala \
+	ui/shortcuts-window.vala \
 	ui/ui-state.vala \
 	\
 	utils/composite-cover.vala \

@@ -55,6 +55,7 @@ EXTRA_DIST = \
 	ui/resume-dialog.ui \
 	ui/resume-failed-dialog.ui \
 	ui/search-bar.ui \
+	ui/shortcuts-window.ui \
 	$(NULL)
 
 CLEANFILES = \
