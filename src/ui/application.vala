@@ -3,6 +3,8 @@
 private extern const string VERSION;
 
 public class Games.Application : Gtk.Application {
+	const string HELP_URI = "https://wiki.gnome.org/Apps/Games/Documentation";
+
 	private Database database;
 
 	private PreferencesWindow preferences_window;
@@ -39,6 +41,10 @@ public class Games.Application : Gtk.Application {
 		SimpleAction preferences_action = new SimpleAction ("preferences", null);
 		preferences_action.activate.connect (preferences);
 		add_action (preferences_action);
+
+		SimpleAction help_action = new SimpleAction ("help", null);
+		help_action.activate.connect (help);
+		add_action (help_action);
 
 		SimpleAction about_action = new SimpleAction ("about", null);
 		about_action.activate.connect (about);
@@ -308,6 +314,15 @@ public class Games.Application : Gtk.Application {
 		preferences_window.destroy.connect (() => {
 			preferences_window = null;
 		});
+	}
+
+	private void help () {
+		try {
+			Gtk.show_uri_on_window (active_window, HELP_URI, Gtk.get_current_event_time ());
+		}
+		catch (Error e) {
+			critical (e.message);
+		}
 	}
 
 	private void about () {
