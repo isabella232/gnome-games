@@ -8,6 +8,7 @@ public class Games.Application : Gtk.Application {
 	private Database database;
 
 	private PreferencesWindow preferences_window;
+	private ShortcutsWindow shortcuts_window;
 	private ApplicationWindow window;
 	private bool game_list_loaded;
 
@@ -41,6 +42,10 @@ public class Games.Application : Gtk.Application {
 		SimpleAction preferences_action = new SimpleAction ("preferences", null);
 		preferences_action.activate.connect (preferences);
 		add_action (preferences_action);
+
+		SimpleAction shortcuts_action = new SimpleAction ("shortcuts", null);
+		shortcuts_action.activate.connect (shortcuts);
+		add_action (shortcuts_action);
 
 		SimpleAction help_action = new SimpleAction ("help", null);
 		help_action.activate.connect (help);
@@ -314,6 +319,23 @@ public class Games.Application : Gtk.Application {
 		preferences_window.destroy.connect (() => {
 			preferences_window = null;
 		});
+	}
+
+	private void shortcuts () {
+		if (shortcuts_window != null) {
+			shortcuts_window.present ();
+
+			return;
+		}
+
+		shortcuts_window = new ShortcutsWindow ();
+		shortcuts_window.destroy_with_parent = true;
+		shortcuts_window.transient_for = window;
+		shortcuts_window.destroy.connect (() => {
+			shortcuts_window = null;
+		});
+
+		shortcuts_window.present ();
 	}
 
 	private void help () {
