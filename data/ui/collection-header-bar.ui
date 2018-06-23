@@ -32,6 +32,29 @@
       </packing>
     </child>
     <child>
+      <object class="GtkMenuButton" id="menu">
+        <property name="popover">menu_popover</property>
+        <!-- Translators: tooltip for the application menu button -->
+        <property name="tooltip_text" translatable="yes">Menu</property>
+        <property name="use-underline">True</property>
+        <property name="valign">center</property>
+        <property name="visible">True</property>
+        <style>
+          <class name="image-button"/>
+        </style>
+        <child>
+          <object class="GtkImage" id="menu_image">
+            <property name="visible">True</property>
+            <property name="icon-name">open-menu-symbolic</property>
+            <property name="icon-size">1</property>
+          </object>
+        </child>
+      </object>
+      <packing>
+        <property name="pack-type">end</property>
+      </packing>
+    </child>
+    <child>
       <object class="GtkToggleButton" id="search">
         <property name="visible">True</property>
         <property name="valign">center</property>
@@ -57,4 +80,39 @@
       </packing>
     </child>
   </template>
+  <object class="GtkPopoverMenu" id="menu_popover">
+    <property name="visible">True</property>
+    <child>
+      <object class="GtkBox">
+        <property name="can_focus">False</property>
+        <property name="border_width">12</property>
+        <property name="orientation">vertical</property>
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkModelButton">
+            <property name="can_focus">True</property>
+            <property name="text" translatable="yes">Preferences</property>
+            <property name="action-name">app.preferences</property>
+            <property name="visible">True</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSeparator">
+            <property name="orientation">horizontal</property>
+            <property name="margin-top">6</property>
+            <property name="margin-bottom">6</property>
+            <property name="visible">True</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkModelButton">
+            <property name="can_focus">True</property>
+            <property name="text" translatable="yes">About</property>
+            <property name="action-name">app.about</property>
+            <property name="visible">True</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
 </interface>

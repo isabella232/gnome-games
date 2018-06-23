@@ -22,7 +22,6 @@ EXTRA_DIST = \
 	appdata/resume-game.png \
 	appdata/retro-ingame.png \
 	gamepads/standard-gamepad.svg \
-	gtk/menus.ui \
 	gtk-style.css \
 	ui/application-window.ui \
 	ui/checkmark-item.ui \
