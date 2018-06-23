@@ -3,6 +3,12 @@
   <gresource prefix="/org/gnome/Games">
     <file>gtk-style.css</file>
     <file>gamepads/standard-gamepad.svg</file>
+    <file preprocess="xml-stripblanks">gesture/button-east-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">gesture/button-home-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">gesture/button-south-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">gesture/button-start-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">gesture/dpad-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">gesture/stick-symbolic.svg</file>
     <file preprocess="xml-stripblanks">ui/application-window.ui</file>
     <file preprocess="xml-stripblanks">ui/checkmark-item.ui</file>
     <file preprocess="xml-stripblanks">ui/collection-box.ui</file>

@@ -33,6 +33,38 @@
                 <property name="accelerator">&lt;Primary&gt;F</property>
               </object>
             </child>
+            <child>
+              <object class="GtkShortcutsShortcut" id="collection_shortcut_left_stick">
+                <property name="visible">True</property>
+                <property name="shortcut-type">gesture</property>
+                <property name="title" translatable="yes" context="shortcut window">Navigate</property>
+                <property name="subtitle" translatable="yes" context="shortcut window">Left analog stick</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut" id="collection_shortcut_dpad">
+                <property name="visible">True</property>
+                <property name="shortcut-type">gesture</property>
+                <property name="title" translatable="yes" context="shortcut window">Navigate</property>
+                <property name="subtitle" translatable="yes" context="shortcut window">Directional pad</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut" id="collection_shortcut_start">
+                <property name="visible">True</property>
+                <property name="shortcut-type">gesture</property>
+                <property name="title" translatable="yes" context="shortcut window">Start game</property>
+                <property name="subtitle" translatable="yes" context="shortcut window">Start button</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut" id="collection_shortcut_south">
+                <property name="visible">True</property>
+                <property name="shortcut-type">gesture</property>
+                <property name="title" translatable="yes" context="shortcut window">Start game</property>
+                <property name="subtitle" translatable="yes" context="shortcut window">Bottom action button</property>
+              </object>
+            </child>
           </object>
         </child>
         <child>
@@ -58,6 +90,30 @@
                 <property name="visible">True</property>
                 <property name="title" translatable="yes" context="shortcut window">Go back to the collection</property>
                 <property name="accelerator">&lt;alt&gt;Left &lt;alt&gt;Right</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut" id="ingame_shortcut_home">
+                <property name="visible">True</property>
+                <property name="shortcut-type">gesture</property>
+                <property name="title" translatable="yes" context="shortcut window">Go back to the collection</property>
+                <property name="subtitle" translatable="yes" context="shortcut window">Home button</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut" id="ingame_shortcut_south">
+                <property name="visible">True</property>
+                <property name="shortcut-type">gesture</property>
+                <property name="title" translatable="yes" context="shortcut window">Accept</property>
+                <property name="subtitle" translatable="yes" context="shortcut window">Bottom action button</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut" id="ingame_shortcut_east">
+                <property name="visible">True</property>
+                <property name="shortcut-type">gesture</property>
+                <property name="title" translatable="yes" context="shortcut window">Cancel</property>
+                <property name="subtitle" translatable="yes" context="shortcut window">Right action button</property>
               </object>
             </child>
           </object>
