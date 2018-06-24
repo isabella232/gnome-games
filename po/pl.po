@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-20 20:42+0200\n"
-"PO-Revision-Date: 2018-05-20 20:44+0200\n"
+"POT-Creation-Date: 2018-06-24 19:08+0200\n"
+"PO-Revision-Date: 2018-06-24 19:09+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
 #: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
-#: ../src/ui/application.vala:21
+#: ../src/ui/application.vala:24
 msgid "Games"
 msgstr "Gry"
 
@@ -123,18 +123,6 @@ msgstr "Rozmiar okna"
 msgid "Window size (width and height)."
 msgstr "Rozmiar okna (szerokość i wysokość)."
 
-#: ../data/gtk/menus.ui.h:1
-msgid "_Preferences"
-msgstr "_Preferencje"
-
-#: ../data/gtk/menus.ui.h:2
-msgid "_About"
-msgstr "_O programie"
-
-#: ../data/gtk/menus.ui.h:3
-msgid "_Quit"
-msgstr "Za_kończ"
-
 #: ../data/ui/collection-box.ui.h:1
 msgid "Loading"
 msgstr "Wczytywanie"
@@ -144,10 +132,31 @@ msgid "Add game files…"
 msgstr "Dodaj pliki gry…"
 
 #: ../data/ui/collection-header-bar.ui.h:3
+msgid "Menu"
+msgstr "Menu"
+
+#: ../data/ui/collection-header-bar.ui.h:4
 msgid "Search"
 msgstr "Wyszukaj"
 
+#: ../data/ui/collection-header-bar.ui.h:5 ../data/ui/preferences-window.ui.h:1
+msgid "Preferences"
+msgstr "Preferencje"
+
+#: ../data/ui/collection-header-bar.ui.h:6
+msgid "Shortcuts"
+msgstr "Skróty"
+
+#: ../data/ui/collection-header-bar.ui.h:7
+msgid "Help"
+msgstr "Pomoc"
+
+#: ../data/ui/collection-header-bar.ui.h:8
+msgid "About"
+msgstr "O programie"
+
 #: ../data/ui/display-header-bar.ui.h:2 ../data/ui/gamepad-configurer.ui.h:3
+#: ../data/ui/keyboard-configurer.ui.h:3
 msgid "Back"
 msgstr "Wstecz"
 
@@ -183,19 +192,25 @@ msgctxt "Gamepad configuration factory reset"
 msgid "Reset"
 msgstr "Przywróć"
 
-#: ../data/ui/gamepad-configurer.ui.h:2
+#: ../data/ui/gamepad-configurer.ui.h:2 ../data/ui/keyboard-configurer.ui.h:2
 msgid "Configure"
 msgstr "Skonfiguruj"
 
-#: ../data/ui/gamepad-configurer.ui.h:4 ../data/ui/quit-dialog.ui.h:3
-#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:3
+#: ../data/ui/gamepad-configurer.ui.h:4 ../data/ui/keyboard-configurer.ui.h:4
+#: ../data/ui/quit-dialog.ui.h:3
+#: ../data/ui/reset-controller-mapping-dialog.ui.h:3
 #: ../data/ui/resume-failed-dialog.ui.h:2
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: ../data/ui/gamepad-mapper.ui.h:1
+#: ../data/ui/gamepad-mapper.ui.h:1 ../data/ui/keyboard-mapper.ui.h:1
 msgid "Skip"
 msgstr "Pomiń"
+
+#: ../data/ui/keyboard-configurer.ui.h:1
+msgctxt "Keyboard configuration factory reset"
+msgid "Reset"
+msgstr "Przywróć"
 
 #: ../data/ui/media-menu-button.ui.h:1
 msgid "Media"
@@ -206,6 +221,11 @@ msgid "Gamepads"
 msgstr "Kontrolery"
 
 #: ../data/ui/preferences-page-controllers.ui.h:2
+#: ../src/ui/preferences-page-controllers.vala:89
+msgid "Keyboard"
+msgstr "Klawiatura"
+
+#: ../data/ui/preferences-page-controllers.ui.h:3
 #: ../data/ui/preferences-window.ui.h:3
 msgid "Controllers"
 msgstr "Kontrolery"
@@ -227,10 +247,6 @@ msgstr "Filtr"
 #: ../data/ui/preferences-window.ui.h:2
 msgid "Video"
 msgstr "Obraz"
-
-#: ../data/ui/preferences-window.ui.h:1
-msgid "Preferences"
-msgstr "Preferencje"
 
 #: ../data/ui/quit-dialog.ui.h:1
 msgid "Are you sure you want to quit?"
@@ -256,16 +272,16 @@ msgstr "Ta gra nie jest zintegrowana z Grami GNOME."
 msgid "You have to use its own window to play it."
 msgstr "Należy użyć jej okna."
 
-#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:1
-msgid "Factory reset mapping for this gamepad?"
+#: ../data/ui/reset-controller-mapping-dialog.ui.h:1
+msgid "Factory reset mapping for this controller?"
 msgstr "Przywrócić ten kontroler do ustawień fabrycznych?"
 
-#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:2
+#: ../data/ui/reset-controller-mapping-dialog.ui.h:2
 msgid "Your mapping will be lost."
 msgstr "Ustawienia przycisków zostaną utracone."
 
-#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:4
-msgctxt "Confirm gamepad configuration factory reset"
+#: ../data/ui/reset-controller-mapping-dialog.ui.h:4
+msgctxt "Confirm controller configuration factory reset"
 msgid "Reset"
 msgstr "Przywróć"
 
@@ -289,6 +305,48 @@ msgstr "Wznowienie się nie powiodło. Uruchomić grę ponownie?"
 msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Uruchom ponownie"
+
+#: ../data/ui/shortcuts-window.ui.h:1
+msgid "General"
+msgstr "Ogólne"
+
+#: ../data/ui/shortcuts-window.ui.h:2
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Zakończenie działania"
+
+#: ../data/ui/shortcuts-window.ui.h:3
+msgid "Collection"
+msgstr "Kolekcja"
+
+#: ../data/ui/shortcuts-window.ui.h:4
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Wyszukiwanie"
+
+#: ../data/ui/shortcuts-window.ui.h:5
+msgctxt "shortcut window"
+msgid "Escape search"
+msgstr "Zamknięcie wyszukiwania"
+
+#: ../data/ui/shortcuts-window.ui.h:6
+msgid "In Game"
+msgstr "W grze"
+
+#: ../data/ui/shortcuts-window.ui.h:7
+msgctxt "shortcut window"
+msgid "Toggle fullscreen"
+msgstr "Przełączenie pełnego ekranu"
+
+#: ../data/ui/shortcuts-window.ui.h:8
+msgctxt "shortcut window"
+msgid "Escape fullscreen"
+msgstr "Wyjście z pełnego ekranu"
+
+#: ../data/ui/shortcuts-window.ui.h:9
+msgctxt "shortcut window"
+msgid "Go back to the collection"
+msgstr "Powrót do kolekcji"
 
 #: ../plugins/desktop/src/desktop-plugin.vala:48
 #, c-format
@@ -739,31 +797,31 @@ msgstr "Konsola „%s” nie jest jeszcze obsługiwana, ale jest w planach."
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Konsola nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: ../src/ui/application.vala:137
+#: ../src/ui/application.vala:148
 msgid "Select game files"
 msgstr "Wybór plików gry"
 
-#: ../src/ui/application.vala:138
+#: ../src/ui/application.vala:149
 msgid "_Add"
 msgstr "_Dodaj"
 
-#: ../src/ui/application.vala:138
+#: ../src/ui/application.vala:149
 msgid "_Cancel"
 msgstr "_Anuluj"
 
-#: ../src/ui/application.vala:319
+#: ../src/ui/application.vala:356
 msgid "GNOME Games"
 msgstr "Gry GNOME"
 
-#: ../src/ui/application.vala:321
+#: ../src/ui/application.vala:358
 msgid "A video game player for GNOME"
 msgstr "Uruchamianie gier w środowisku GNOME"
 
-#: ../src/ui/application.vala:325
+#: ../src/ui/application.vala:362
 msgid "Learn more about GNOME Games"
 msgstr "Więcej informacji o Grach GNOME"
 
-#: ../src/ui/application.vala:332
+#: ../src/ui/application.vala:369
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2016-2018\n"
@@ -800,17 +858,29 @@ msgstr "Konfigurowanie „%s”"
 
 #: ../src/ui/gamepad-mapper.vala:126
 msgid "Press suitable button on your gamepad"
-msgstr "Proszę nacisnąć odpowiedni przycisk na kontrolerze."
+msgstr "Proszę nacisnąć odpowiedni przycisk na kontrolerze"
 
 #: ../src/ui/gamepad-mapper.vala:131
 msgid "Move suitable axis left/right on your gamepad"
-msgstr "Proszę przesunąć odpowiednią oś w lewo/prawo na kontrolerze."
+msgstr "Proszę przesunąć odpowiednią oś w lewo/prawo na kontrolerze"
 
 #: ../src/ui/gamepad-mapper.vala:133
 msgid "Move suitable axis up/down on your gamepad"
-msgstr "Proszę przesunąć odpowiednią oś w górę/dół na kontrolerze."
+msgstr "Proszę przesunąć odpowiednią oś w górę/dół na kontrolerze"
 
-#: ../src/ui/media-selector.vala:27
+#: ../src/ui/keyboard-configurer.vala:67
+msgid "Testing Keyboard"
+msgstr "Testowanie klawiatury"
+
+#: ../src/ui/keyboard-configurer.vala:80
+msgid "Configuring Keyboard"
+msgstr "Konfigurowanie klawiatury"
+
+#: ../src/ui/keyboard-mapper.vala:18
+msgid "Press suitable key on your keyboard"
+msgstr "Proszę nacisnąć odpowiedni klawisz na klawiaturze"
+
+#: ../src/ui/media-selector.vala:38
 #, c-format
 msgid "Media %d"
 msgstr "%d. nośnik"
