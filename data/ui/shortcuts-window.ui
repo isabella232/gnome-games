@@ -46,7 +46,7 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
-                <property name="title" translatable="yes" context="shortcut window">Toggle ullscreen</property>
+                <property name="title" translatable="yes" context="shortcut window">Toggle fullscreen</property>
                 <property name="accelerator">&lt;Primary&gt;F F11</property>
               </object>
             </child>
