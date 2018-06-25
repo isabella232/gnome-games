@@ -75,8 +75,12 @@ vala_sources = [
   'generic/generic-uid.vala',
   'generic/generic-uri-game-factory.vala',
 
+  'grilo/grilo-coop.vala',
   'grilo/grilo-cover.vala',
+  'grilo/grilo-genre.vala',
   'grilo/grilo-media.vala',
+  'grilo/grilo-players.vala',
+  'grilo/grilo-release-date.vala',
 
   'keyboard/keyboard-mapping-builder.vala',
   'keyboard/keyboard-mapping-manager.vala',
