@@ -72,7 +72,9 @@ public class Games.GriloMedia : Object {
 		base_media.set_mime (mime_type);
 
 		var keys = Grl.MetadataKey.list_new (Grl.MetadataKey.THUMBNAIL,
-		                                     null);
+		                                     Grl.MetadataKey.PUBLICATION_DATE,
+		                                     Grl.MetadataKey.GENRE,
+		                                     Grl.MetadataKey.INVALID);
 
 		var options = new Grl.OperationOptions (null);
 		options.set_resolution_flags (Grl.ResolutionFlags.FULL);
