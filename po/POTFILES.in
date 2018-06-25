@@ -42,6 +42,7 @@ plugins/wii/src/wii-header.vala
 src/command/command-runner.vala
 src/core/media-set/media-set.vala
 src/core/plugin-registrar.vala
+src/dummy/dummy-players.vala
 src/gameinfo/gameinfo-disc-id-disc-title.vala
 src/gameinfo/gameinfo-doc.vala
 src/retro/retro-core-source.vala

@@ -45,9 +45,13 @@ vala_sources = [
   'database/database-uri-iterator.vala',
   'database/database-uri-source.vala',
 
+  'dummy/dummy-coop.vala',
   'dummy/dummy-cover.vala',
   'dummy/dummy-game.vala',
+  'dummy/dummy-genre.vala',
   'dummy/dummy-icon.vala',
+  'dummy/dummy-players.vala',
+  'dummy/dummy-release-date.vala',
   'dummy/dummy-runner.vala',
   'dummy/dummy-uid.vala',
 
