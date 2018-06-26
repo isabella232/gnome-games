@@ -32,13 +32,6 @@
                 <property name="accelerator">&lt;Primary&gt;F</property>
               </object>
             </child>
-            <child>
-              <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
-                <property name="title" translatable="yes" context="shortcut window">Escape search</property>
-                <property name="accelerator">Escape</property>
-              </object>
-            </child>
           </object>
         </child>
         <child>
