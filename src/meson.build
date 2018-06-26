@@ -57,6 +57,7 @@ vala_sources = [
   'dummy/dummy-game.vala',
   'dummy/dummy-genre.vala',
   'dummy/dummy-icon.vala',
+  'dummy/dummy-platform.vala',
   'dummy/dummy-players.vala',
   'dummy/dummy-publisher.vala',
   'dummy/dummy-rating.vala',
