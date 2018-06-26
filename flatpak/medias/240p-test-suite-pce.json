@@ -8,7 +8,7 @@
             "sources" : [
                 {
                     "type": "archive",
-                    "url": "https://downloads.sourceforge.net/testsuite240p/PCE-TG16-SCD/240pSuite_1.04_HuCard.zip",
+                    "url": "https://gitlab.gnome.org/aplazas/retro-test-data/raw/master/testsuite240p/240pSuite_1.04_HuCard.zip",
                     "sha256": "adddb8f29acea3f4ccac4699220babe68e73021a8a272d396277076ba3187f88"
                 }
             ]

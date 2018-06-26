@@ -8,7 +8,7 @@
             "sources" : [
                 {
                     "type": "archive",
-                    "url": "https://downloads.sourceforge.net/opengbgames/The%20Nomad%20II_%20Trapped/1.0.1%20Full/nomad2_1_0_1_full_noarch.zip",
+                    "url": "https://gitlab.gnome.org/aplazas/retro-test-data/raw/master/opengbgames/nomad2_1_0_1_full_noarch.zip",
                     "sha256": "0e1d1f6693cd7346ddd4ad1b7a539580bf59c12709586d17a6dd63b3754664d7"
                 }
             ]
