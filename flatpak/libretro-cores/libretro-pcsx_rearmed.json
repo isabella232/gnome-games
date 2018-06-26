@@ -18,8 +18,11 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/libretro/pcsx_rearmed",
-                    "branch": "511848c9da1829102e9107ca06e2a06a2f7982eb"
+                    "url": "https://github.com/libretro/pcsx_rearmed"
+                },
+                {
+                    "type": "patch",
+                    "path": "pcsx_rearmed-Remove-reset-in-retro_run-hack.patch"
                 },
                 {
                     "type": "file",
