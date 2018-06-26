@@ -30,6 +30,7 @@ public class Games.GenericGame : Object, Game {
 	private Cooperative game_cooperative;
 	private Genre game_genre;
 	private Players game_players;
+	private Platform game_platform;
 	private Runner game_runner;
 
 	public GenericGame (Uid uid, Title title, Runner runner) {
@@ -150,6 +151,10 @@ public class Games.GenericGame : Object, Game {
 
 	public void set_rating (Rating rating) {
 		game_rating = rating;
+	}
+
+	public Platform get_platform () {
+		return game_platform;
 	}
 
 	public Runner get_runner () throws Error {

@@ -14,6 +14,7 @@ public interface Games.Game : Object {
 	public abstract Publisher get_publisher ();
 	public abstract Description get_description ();
 	public abstract Rating get_rating ();
+	public abstract Platform get_platform ();
 	public abstract Runner get_runner () throws Error;
 
 	public static uint hash (Game key) {
