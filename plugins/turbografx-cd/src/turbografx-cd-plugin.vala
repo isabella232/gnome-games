@@ -6,6 +6,7 @@ private class Games.TurboGrafxCDPlugin : Object, Plugin {
 	private const string CUE_MIME_TYPE = "application/x-cue";
 	private const string CD_MAGIC_VALUE = "PC Engine CD-ROM SYSTEM";
 	private const string CD_PLATFORM = "TurboGrafxCD";
+	private const string PLATFORM_NAME = _("TurboGrafx-CD");
 
 	public string[] get_mime_types () {
 		return { CUE_MIME_TYPE };
@@ -37,10 +38,11 @@ private class Games.TurboGrafxCDPlugin : Object, Plugin {
 		var publisher = new GriloPublisher (media);
 		var description = new GriloDescription (media);
 		var rating = new GriloRating (media);
+		var platform = new GenericPlatform (PLATFORM_NAME);
 		var core_source = new RetroCoreSource (CD_PLATFORM, { CUE_MIME_TYPE, PHONY_MIME_TYPE });
 		var runner = new RetroRunner (core_source, uri, uid, title);
 
-		var game = new GenericGame (uid, title, runner);
+		var game = new GenericGame (uid, title, platform, runner);
 		game.set_cover (cover);
 		game.set_release_date (release_date);
 		game.set_cooperative (cooperative);

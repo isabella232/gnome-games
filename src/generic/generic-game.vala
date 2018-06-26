@@ -33,10 +33,11 @@ public class Games.GenericGame : Object, Game {
 	private Platform game_platform;
 	private Runner game_runner;
 
-	public GenericGame (Uid uid, Title title, Runner runner) {
+	public GenericGame (Uid uid, Title title, Platform platform, Runner runner) {
 		game_uid = uid;
 		game_title = title;
 		game_runner = runner;
+		game_platform = platform;
 	}
 
 	public Uid get_uid () {

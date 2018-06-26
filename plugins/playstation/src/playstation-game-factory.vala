@@ -4,6 +4,7 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 	private const string CUE_MIME_TYPE = "application/x-cue";
 	private const string PHONY_MIME_TYPE = "application/x-playstation-rom";
 	private const string PLATFORM = "PlayStation";
+	private const string PLATFORM_NAME = _("PlayStation");
 	private const string ICON_NAME = "media-optical-symbolic";
 	private const string GAMEINFO = "resource:///org/gnome/Games/plugin/playstation/playstation.gameinfo.xml";
 
@@ -150,11 +151,12 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		var publisher = new GriloPublisher (media);
 		var description = new GriloDescription (media);
 		var rating = new GriloRating (media);
+		var platform = new GenericPlatform (PLATFORM_NAME);
 		var input_capabilities = new GameinfoDiscIdInputCapabilities (gameinfo, disc_set_id);
 		var core_source = new RetroCoreSource (PLATFORM, { CUE_MIME_TYPE, PHONY_MIME_TYPE });
 		var runner = new RetroRunner.for_media_set_and_input_capabilities (core_source, media_set, uid, input_capabilities, title);
 
-		var game = new GenericGame (uid, title, runner);
+		var game = new GenericGame (uid, title, platform, runner);
 		game.set_cover (cover);
 		game.set_release_date (release_date);
 		game.set_cooperative (cooperative);

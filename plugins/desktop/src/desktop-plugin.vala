@@ -2,6 +2,7 @@
 
 private class Games.DesktopPlugin : Object, Plugin {
 	private const string MIME_TYPE = "application/x-desktop";
+	private const string PLATFORM_NAME = _("Desktop");
 
 	public string[] get_mime_types () {
 		return { MIME_TYPE };
@@ -41,6 +42,7 @@ private class Games.DesktopPlugin : Object, Plugin {
 		var uid = new DesktopUid (app_info);
 		var title = new DesktopTitle (app_info);
 		var icon = new DesktopIcon (app_info);
+		var platform = new GenericPlatform (PLATFORM_NAME);
 
 		string[] args;
 		var command = app_info.get_commandline ();
@@ -48,7 +50,7 @@ private class Games.DesktopPlugin : Object, Plugin {
 			throw new CommandError.INVALID_COMMAND (_("Invalid command “%s”."), command);
 		var runner = new CommandRunner (args, true);
 
-		var game = new GenericGame (uid, title, runner);
+		var game = new GenericGame (uid, title, platform, runner);
 		game.set_icon (icon);
 
 		return game;

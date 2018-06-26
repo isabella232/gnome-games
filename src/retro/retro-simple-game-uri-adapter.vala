@@ -25,10 +25,12 @@ private class Games.RetroSimpleGameUriAdapter : GameUriAdapter, Object {
 		var publisher = new GriloPublisher (media);
 		var description = new GriloDescription (media);
 		var rating = new GriloRating (media);
+		var platform_name = RetroPlatform.get_platform_name (simple_type.platform);
+		var platform = new GenericPlatform (platform_name);
 		var core_source = new RetroCoreSource (simple_type.platform, { simple_type.mime_type });
 		var runner = new RetroRunner (core_source, uri, uid, title);
 
-		var game = new GenericGame (uid, title, runner);
+		var game = new GenericGame (uid, title, platform, runner);
 		game.set_cover (cover);
 		game.set_release_date (release_date);
 		game.set_cooperative (cooperative);

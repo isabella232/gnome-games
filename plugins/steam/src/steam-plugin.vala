@@ -2,6 +2,7 @@
 
 private class Games.SteamPlugin : Object, Plugin {
 	private const string STEAM_FILE_SCHEME = "steam+file";
+	private const string PLATFORM_NAME = _("Steam");
 
 	private static HashTable<string, Game> game_for_id;
 
@@ -54,10 +55,11 @@ private class Games.SteamPlugin : Object, Plugin {
 		var title = new SteamTitle (registry);
 		var icon = new SteamIcon (game_id);
 		var cover = new SteamCover (game_id);
+		var platform = new GenericPlatform (PLATFORM_NAME);
 		string[] args = { "steam", @"steam://rungameid/" + game_id };
 		var runner = new CommandRunner (args, false);
 
-		var game = new GenericGame (uid, title, runner);
+		var game = new GenericGame (uid, title, platform, runner);
 		game.set_icon (icon);
 		game.set_cover (cover);
 

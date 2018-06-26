@@ -2,6 +2,7 @@
 
 private class Games.LibretroPlugin : Object, Plugin {
 	private const string LIBRETRO_FILE_SCHEME = "libretro+file";
+	private const string PLATFORM_NAME = _("Libretro");
 
 	public UriSource[] get_uri_sources () {
 		var source = new LibretroUriSource ();
@@ -31,9 +32,10 @@ private class Games.LibretroPlugin : Object, Plugin {
 		var uid = new LibretroUid (core_descriptor);
 		var title = new LibretroTitle (core_descriptor);
 		var icon = new LibretroIcon (core_descriptor);
+		var platform = new GenericPlatform (PLATFORM_NAME);
 		var runner = new RetroRunner.for_core_descriptor (core_descriptor, uid, title);
 
-		var game = new GenericGame (uid, title, runner);
+		var game = new GenericGame (uid, title, platform, runner);
 		game.set_icon (icon);
 
 		return game;

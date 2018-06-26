@@ -3,6 +3,7 @@
 private class Games.GameCubePlugin : Object, Plugin {
 	private const string MIME_TYPE = "application/x-gamecube-rom";
 	private const string PLATFORM = "GameCube";
+	private const string PLATFORM_NAME = _("Nintendo GameCube");
 
 	public string[] get_mime_types () {
 		return { MIME_TYPE };
@@ -35,10 +36,11 @@ private class Games.GameCubePlugin : Object, Plugin {
 		var publisher = new GriloPublisher (media);
 		var description = new GriloDescription (media);
 		var rating = new GriloRating (media);
+		var platform = new GenericPlatform (PLATFORM_NAME);
 		var core_source = new RetroCoreSource (PLATFORM, { MIME_TYPE });
 		var runner = new RetroRunner (core_source, uri, uid, title);
 
-		var game = new GenericGame (uid, title, runner);
+		var game = new GenericGame (uid, title, platform, runner);
 		game.set_cover (cover);
 		game.set_release_date (release_date);
 		game.set_cooperative (cooperative);
