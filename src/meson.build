@@ -81,6 +81,7 @@ vala_sources = [
   'generic/generic-game.vala',
   'generic/generic-game-uri-adapter.vala',
   'generic/generic-genre.vala',
+  'generic/generic-platform.vala',
   'generic/generic-players.vala',
   'generic/generic-publisher.vala',
   'generic/generic-rating.vala',
