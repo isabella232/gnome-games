@@ -11,7 +11,8 @@
         <child>
           <object class="GtkShortcutsGroup">
             <property name="title" translatable="yes">General</property>
-            <property name="visible">True</property>            <child>
+            <property name="visible">True</property>
+            <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
                 <property name="title" translatable="yes" context="shortcut window">Quit</property>
