@@ -48,7 +48,7 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
-                <property name="title" translatable="yes" context="shortcut window">Escape fullscreen</property>
+                <property name="title" translatable="yes" context="shortcut window">Exit fullscreen</property>
                 <property name="accelerator">Escape</property>
               </object>
             </child>
