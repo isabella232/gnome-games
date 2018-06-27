@@ -21,7 +21,7 @@
  *
  */
 
-/* Extracted from https://git.gnome.org/browse/gnome-nds-thumbnailer/. */
+/* Extracted from https://gitlab.gnome.org/Archive/gnome-nds-thumbnailer. */
 
 #include <string.h>
 #include <glib.h>
