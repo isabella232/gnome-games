@@ -14,6 +14,11 @@
                 {
                     "type": "file",
                     "path": "x-neo-geo-pocket-rom.xml"
+                },
+                {
+                    "type": "file",
+                    "url": "https://bitbucket.org/rude/love/raw/2d2afd350c09b9a42f3d537763df3fc3a6423b71/platform/unix/love.xml",
+                    "sha256": "5b72ae3818ada71ec7fd69c2a27126dc5c759257e1ff203639655c389a24ccb1"
                 }
             ]
         }
