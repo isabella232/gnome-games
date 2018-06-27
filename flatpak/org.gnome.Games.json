@@ -1,17 +1,20 @@
 {
-    "app-id": "org.gnome.Games",
-    "runtime": "org.gnome.Platform",
-    "runtime-version": "master",
-    "sdk": "org.gnome.Sdk",
-    "command": "gnome-games",
-    "tags": ["nightly"],
-    "desktop-file-name-prefix": "(Nightly) ",
-    "finish-args": [
         /* Extension point */
+    "app-id" : "org.gnome.Games",
+    "runtime" : "org.gnome.Platform",
+    "runtime-version" : "master",
+    "sdk" : "org.gnome.Sdk",
+    "command" : "gnome-games",
+    "tags" : [
+        "nightly"
+    ],
+    "desktop-file-name-prefix" : "(Nightly) ",
+    "finish-args" : [
         "--extension=org.gnome.Games.LibretroPlugin=directory=lib/libretro/extra.d",
         "--extension=org.gnome.Games.LibretroPlugin=subdirectories",
         /* X11 + XShm access */
-        "--share=ipc", "--socket=x11",
+        "--share=ipc",
+        "--socket=x11",
         /* Wayland access */
         "--socket=wayland",
         /* OpenGL + DRI access */
@@ -21,8 +24,10 @@
         /* Tracker access */
         "--talk-name=org.freedesktop.Tracker1",
         /* Needed for dconf to work */
-        "--filesystem=xdg-run/dconf", "--filesystem=~/.config/dconf:ro",
-        "--talk-name=ca.desrt.dconf", "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
+        "--filesystem=xdg-run/dconf",
+        "--filesystem=~/.config/dconf:ro",
+        "--talk-name=ca.desrt.dconf",
+        "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
         /* Needed to get the games info from The Games DB */
         "--share=network",
         /* Needed for joypads, until we have a proper portal */
@@ -31,17 +36,27 @@
         "--filesystem=home:ro"
     ],
     "build-options" : {
-        "cflags": "-O2 -g",
-        "cxxflags": "-O2 -g"
+        "cflags" : "-O2 -g",
+        "cxxflags" : "-O2 -g",
+        "env" : {
+        }
     },
-    "cleanup": ["/include", "/lib/pkgconfig",
-                "/share/pkgconfig", "/share/aclocal",
-                "/man", "/share/man", "/share/gtk-doc",
-                "*.la", "*.a",
-                "/lib/girepository-1.0",
-                "/share/dbus-1", "/share/doc", "/share/gir-1.0"
+    "cleanup" : [
+        "/include",
+        "/lib/pkgconfig",
+        "/share/pkgconfig",
+        "/share/aclocal",
+        "/man",
+        "/share/man",
+        "/share/gtk-doc",
+        "*.la",
+        "*.a",
+        "/lib/girepository-1.0",
+        "/share/dbus-1",
+        "/share/doc",
+        "/share/gir-1.0"
     ],
-    "modules": [
+    "modules" : [
         /* Emulator cores for libretro
 
            We build them first, because some of them are very big, and they
@@ -67,28 +82,31 @@
         /* End libretro cores */
         "org.lua.modules.json",
         {
-            "name": "grilo",
-            "buildsystem": "meson",
-            "config-opts": [
+            "name" : "grilo",
+            "buildsystem" : "meson",
+            "config-opts" : [
                 "--libdir=lib",
                 "-Denable-grl-net=true",
                 "-Denable-grl-pls=false",
                 "-Denable-gtk-doc=false",
                 "-Denable-static=false"
             ],
-            "sources": [
+            "sources" : [
                 {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/grilo.git"
+                    "type" : "git",
+                    "url" : "https://gitlab.gnome.org/GNOME/grilo.git"
                 }
             ],
-            "cleanup": [ "/include", "/bin" ]
+            "cleanup" : [
+                "/include",
+                "/bin"
+            ]
         },
         /* XXX Remove the Lua sources we won't use */
         {
-            "name": "grilo-plugins",
-            "buildsystem": "meson",
-            "config-opts": [
+            "name" : "grilo-plugins",
+            "buildsystem" : "meson",
+            "config-opts" : [
                 "--libdir=lib",
                 "-Denable-goa=no",
                 "-Denable-filesystem=no",
@@ -115,77 +133,81 @@
                 "-Denable-chromaprint=no",
                 "-Denable-lua-factory=yes"
             ],
-            "sources": [
+            "sources" : [
                 {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/grilo-plugins.git"
+                    "type" : "git",
+                    "url" : "https://gitlab.gnome.org/GNOME/grilo-plugins.git"
                 }
             ],
-            "cleanup": [ "/include" ]
+            "cleanup" : [
+                "/include"
+            ]
         },
         {
-            "name": "tracker",
-            "config-opts": [
-              "--disable-miner-apps",
-              "--disable-static",
-              "--disable-tracker-extract",
-              "--disable-tracker-needle",
-              "--disable-tracker-preferences",
-              "--disable-artwork",
-              "--disable-tracker-writeback",
-              "--disable-miner-user-guides",
-              "--with-bash-completion-dir=no"
+            "name" : "tracker",
+            "config-opts" : [
+                "--disable-miner-apps",
+                "--disable-static",
+                "--disable-tracker-extract",
+                "--disable-tracker-needle",
+                "--disable-tracker-preferences",
+                "--disable-artwork",
+                "--disable-tracker-writeback",
+                "--disable-miner-user-guides",
+                "--with-bash-completion-dir=no"
             ],
-            "sources": [
+            "sources" : [
                 {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/tracker.git"
+                    "type" : "git",
+                    "url" : "https://gitlab.gnome.org/GNOME/tracker.git"
                 }
             ]
         },
         "mime/mime.json",
         {
-            "name": "libevdev",
-            "sources": [
+            "name" : "libevdev",
+            "sources" : [
                 {
-                     "type": "git",
-                     "url": "https://anongit.freedesktop.org/git/libevdev.git"
+                    "type" : "git",
+                    "url" : "https://anongit.freedesktop.org/git/libevdev.git"
                 }
             ]
         },
         {
-            "name": "manette",
-            "buildsystem": "meson",
-            "config-opts": [
+            "name" : "manette",
+            "buildsystem" : "meson",
+            "config-opts" : [
                 "--libdir=lib"
             ],
-            "sources": [
+            "sources" : [
                 {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/aplazas/libmanette.git"
+                    "type" : "git",
+                    "url" : "https://gitlab.gnome.org/aplazas/libmanette.git"
                 }
             ]
         },
         {
-            "name": "retro-gtk",
-            "buildsystem": "meson",
-            "config-opts": [
+            "name" : "retro-gtk",
+            "buildsystem" : "meson",
+            "config-opts" : [
                 "--libdir=lib"
             ],
-            "sources": [
+            "sources" : [
                 {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/retro-gtk.git"
+                    "type" : "git",
+                    "url" : "https://gitlab.gnome.org/GNOME/retro-gtk.git"
                 }
             ]
         },
         {
-            "name": "gnome-games",
-            "post-install": ["mkdir -p /app/lib/libretro/extra.d"],
-            "sources": [
+            "name" : "gnome-games",
+            "post-install" : [
+                "mkdir -p /app/lib/libretro/extra.d"
+            ],
+            "sources" : [
                 {
-                    "type": "git",
-                    "url": "https://gitlab.gnome.org/GNOME/gnome-games.git"
+                    "type" : "git",
+                    "url" : "https://gitlab.gnome.org/GNOME/gnome-games.git"
                 }
             ]
         }
