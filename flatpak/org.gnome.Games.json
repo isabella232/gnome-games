@@ -79,7 +79,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://git.gnome.org/browse/grilo"
+                    "url": "https://gitlab.gnome.org/GNOME/grilo.git"
                 }
             ],
             "cleanup": [ "/include", "/bin" ]
@@ -118,7 +118,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://git.gnome.org/browse/grilo-plugins"
+                    "url": "https://gitlab.gnome.org/GNOME/grilo-plugins.git"
                 }
             ],
             "cleanup": [ "/include" ]
@@ -139,7 +139,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://git.gnome.org/browse/tracker"
+                    "url": "https://gitlab.gnome.org/GNOME/tracker.git"
                 }
             ]
         },
