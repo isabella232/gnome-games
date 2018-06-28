@@ -2,6 +2,7 @@
 <interface>
   <template class="GamesShortcutsWindow" parent="GtkShortcutsWindow">
     <property name="modal">1</property>
+    <signal name="direction-changed" after="yes" handler="update_direction"/>
     <child>
       <object class="GtkShortcutsSection">
         <property name="max-height">12</property>
@@ -53,7 +54,7 @@
               </object>
             </child>
             <child>
-              <object class="GtkShortcutsShortcut">
+              <object class="GtkShortcutsShortcut" id="ingame_shortcut_alt_left">
                 <property name="visible">True</property>
                 <property name="title" translatable="yes" context="shortcut window">Go back to the collection</property>
                 <property name="accelerator">&lt;alt&gt;Left &lt;alt&gt;Right</property>
