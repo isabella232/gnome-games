@@ -201,6 +201,8 @@
         },
         {
             "name" : "gnome-games",
+            "buildsystem" : "meson",
+            "builddir" : true,
             "post-install" : [
                 "mkdir -p /app/lib/libretro/extra.d"
             ],
