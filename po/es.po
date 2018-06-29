@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2018-06-14 09:07+0000\n"
-"PO-Revision-Date: 2018-06-22 09:41+0200\n"
+"POT-Creation-Date: 2018-06-27 12:09+0000\n"
+"PO-Revision-Date: 2018-06-29 11:40+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: es <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -23,7 +23,7 @@ msgstr ""
 #: ../data/org.gnome.Games.appdata.xml.in.h:1
 #: ../data/org.gnome.Games.desktop.in.h:1
 #: ../data/ui/collection-header-bar.ui.h:1
-#: ../data/ui/display-header-bar.ui.h:1 ../src/ui/application.vala:21
+#: ../data/ui/display-header-bar.ui.h:1 ../src/ui/application.vala:24
 msgid "Games"
 msgstr "Juegos"
 
@@ -123,18 +123,6 @@ msgstr "Tamaño de la ventana"
 msgid "Window size (width and height)."
 msgstr "Tamaño de la ventana (anchura y altura)."
 
-#: ../data/gtk/menus.ui.h:1
-msgid "_Preferences"
-msgstr "_Preferencias"
-
-#: ../data/gtk/menus.ui.h:2
-msgid "_About"
-msgstr "_Acerca de"
-
-#: ../data/gtk/menus.ui.h:3
-msgid "_Quit"
-msgstr "_Salir"
-
 #: ../data/ui/collection-box.ui.h:1
 msgid "Loading"
 msgstr "Cargando"
@@ -144,10 +132,34 @@ msgid "Add game files…"
 msgstr "Añadir archivos de juegos…"
 
 #: ../data/ui/collection-header-bar.ui.h:3
+#| msgid "Main Menu"
+msgid "Menu"
+msgstr "Menú"
+
+#: ../data/ui/collection-header-bar.ui.h:4
 msgid "Search"
 msgstr "Buscar"
 
+#: ../data/ui/collection-header-bar.ui.h:5
+#: ../data/ui/preferences-window.ui.h:1
+msgid "Preferences"
+msgstr "Preferencias"
+
+#: ../data/ui/collection-header-bar.ui.h:6 ../data/ui/shortcuts-window.ui.h:1
+msgid "Shortcuts"
+msgstr "Atajos"
+
+#: ../data/ui/collection-header-bar.ui.h:7
+msgid "Help"
+msgstr "Ayuda"
+
+#: ../data/ui/collection-header-bar.ui.h:8
+#| msgid "_About"
+msgid "About"
+msgstr "Acerca de"
+
 #: ../data/ui/display-header-bar.ui.h:2 ../data/ui/gamepad-configurer.ui.h:3
+#: ../data/ui/keyboard-configurer.ui.h:3
 msgid "Back"
 msgstr "Atrás"
 
@@ -183,19 +195,27 @@ msgctxt "Gamepad configuration factory reset"
 msgid "Reset"
 msgstr "Restablecer"
 
-#: ../data/ui/gamepad-configurer.ui.h:2
+#: ../data/ui/gamepad-configurer.ui.h:2 ../data/ui/keyboard-configurer.ui.h:2
 msgid "Configure"
 msgstr "Configurar"
 
-#: ../data/ui/gamepad-configurer.ui.h:4 ../data/ui/quit-dialog.ui.h:3
-#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:3
+#: ../data/ui/gamepad-configurer.ui.h:4 ../data/ui/keyboard-configurer.ui.h:4
+#: ../data/ui/quit-dialog.ui.h:3
+#: ../data/ui/reset-controller-mapping-dialog.ui.h:3
 #: ../data/ui/resume-failed-dialog.ui.h:2
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ../data/ui/gamepad-mapper.ui.h:1
+#: ../data/ui/gamepad-mapper.ui.h:1 ../data/ui/keyboard-mapper.ui.h:1
 msgid "Skip"
 msgstr "Omitir"
+
+#: ../data/ui/keyboard-configurer.ui.h:1
+#| msgctxt "Gamepad configuration factory reset"
+#| msgid "Reset"
+msgctxt "Keyboard configuration factory reset"
+msgid "Reset"
+msgstr "Reiniciar"
 
 #: ../data/ui/media-menu-button.ui.h:1
 msgid "Media"
@@ -206,6 +226,11 @@ msgid "Gamepads"
 msgstr "Mandos"
 
 #: ../data/ui/preferences-page-controllers.ui.h:2
+#: ../src/ui/preferences-page-controllers.vala:89
+msgid "Keyboard"
+msgstr "Teclado"
+
+#: ../data/ui/preferences-page-controllers.ui.h:3
 #: ../data/ui/preferences-window.ui.h:3
 msgid "Controllers"
 msgstr "Controladores"
@@ -227,10 +252,6 @@ msgstr "Filtro"
 #: ../data/ui/preferences-window.ui.h:2
 msgid "Video"
 msgstr "Vídeo"
-
-#: ../data/ui/preferences-window.ui.h:1
-msgid "Preferences"
-msgstr "Preferencias"
 
 #: ../data/ui/quit-dialog.ui.h:1
 msgid "Are you sure you want to quit?"
@@ -256,18 +277,21 @@ msgstr "Este juego no está integrado con Juegos de GNOME."
 msgid "You have to use its own window to play it."
 msgstr "Deberá utilizar su propia ventana para jugar."
 
-#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:1
-msgid "Factory reset mapping for this gamepad?"
+#: ../data/ui/reset-controller-mapping-dialog.ui.h:1
+#| msgid "Factory reset mapping for this gamepad?"
+msgid "Factory reset mapping for this controller?"
 msgstr "¿Restaurar el mapeado de fábrica de este mando?"
 
-#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:2
+#: ../data/ui/reset-controller-mapping-dialog.ui.h:2
 msgid "Your mapping will be lost."
 msgstr "El mapa se perderá."
 
-#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:4
-msgctxt "Confirm gamepad configuration factory reset"
+#: ../data/ui/reset-controller-mapping-dialog.ui.h:4
+#| msgctxt "Gamepad configuration factory reset"
+#| msgid "Reset"
+msgctxt "Confirm controller configuration factory reset"
 msgid "Reset"
-msgstr "Restablecer"
+msgstr "Restaurar"
 
 #: ../data/ui/resume-dialog.ui.h:1
 msgid "Resume last game?"
@@ -289,6 +313,58 @@ msgstr "Falló al reanudar. ¿Quiere reiniciar el juego?"
 msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Reiniciar"
+
+#: ../data/ui/shortcuts-window.ui.h:2
+msgid "General"
+msgstr "General"
+
+#: ../data/ui/shortcuts-window.ui.h:3
+#| msgid "Quit"
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Salir"
+
+#: ../data/ui/shortcuts-window.ui.h:4
+msgid "Collection"
+msgstr "Colección"
+
+#: ../data/ui/shortcuts-window.ui.h:5
+#| msgid "Search"
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Buscar"
+
+#: ../data/ui/shortcuts-window.ui.h:6
+#| msgid "Games"
+msgid "In Game"
+msgstr "En el juego"
+
+#: ../data/ui/shortcuts-window.ui.h:7
+#| msgid "Fullscreen"
+msgctxt "shortcut window"
+msgid "Toggle fullscreen"
+msgstr "Alternar la vista de pantalla completa"
+
+#: ../data/ui/shortcuts-window.ui.h:8
+#| msgid "Fullscreen"
+msgctxt "shortcut window"
+msgid "Exit fullscreen"
+msgstr "Salir del modo a pantalla completa"
+
+#: ../data/ui/shortcuts-window.ui.h:9
+#| msgid "Search in your games collection"
+msgctxt "shortcut window"
+msgid "Go back to the collection"
+msgstr "Volver a la colección"
+
+#: ../data/ui/shortcuts-window.ui.h:10
+msgid "Cheats"
+msgstr "Trucos"
+
+#: ../data/ui/shortcuts-window.ui.h:11
+msgctxt "shortcut window"
+msgid "Contribute"
+msgstr "Contribuir"
 
 #: ../plugins/desktop/src/desktop-plugin.vala:48
 #, c-format
@@ -424,23 +500,19 @@ msgstr "El archivo es demasiado corto."
 
 #: ../plugins/virtual-boy/src/virtual-boy-header.vala:26
 #, c-format
-#| msgid "Invalid Game Boy header size: %s"
 msgid "Invalid Virtual Boy ROM header size: %s"
 msgstr "Tamaño de la cabecera de Virtual Boy no válido: %s"
 
 #: ../plugins/virtual-boy/src/virtual-boy-header.vala:38
-#| msgid "Invalid Game Boy header size: %s"
 msgid "Invalid Virtual Boy ROM header size."
 msgstr "Tamaño de la cabecera de Virtual Boy no válido."
 
 #: ../plugins/virtual-boy/src/virtual-boy-header.vala:42
-#| msgid "The file doesn’t have a Wii header."
 msgid "The file doesn’t have a Virtual Boy ROM header."
 msgstr "El archivo no tiene una cabecera Virtual Boy ROM."
 
 #: ../plugins/virtual-boy/src/virtual-boy-header.vala:51
 #, c-format
-#| msgid "Couldn’t read file: %s"
 msgid "Couldn’t get file size: %s"
 msgstr "No se pudo obtener el tamaño del archivo: %s"
 
@@ -610,7 +682,6 @@ msgid "Neo Geo Pocket"
 msgstr "Neo Geo Pocket"
 
 #: ../src/retro/retro-platform.vala:41
-#| msgid "Neo Geo Pocket"
 msgid "Neo Geo Pocket Color"
 msgstr "Neo Geo Pocket Color"
 
@@ -745,39 +816,39 @@ msgstr "El sistema «%s» todavía no está soportado, pero llegará pronto."
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "El sistema todavía no está soportado, pero llegará pronto."
 
-#: ../src/ui/application.vala:137
+#: ../src/ui/application.vala:148
 msgid "Select game files"
 msgstr "Seleccionar archivos de juegos"
 
-#: ../src/ui/application.vala:138
+#: ../src/ui/application.vala:149
 msgid "_Add"
 msgstr "_Añadir"
 
-#: ../src/ui/application.vala:138
+#: ../src/ui/application.vala:149
 msgid "_Cancel"
 msgstr "_Cancelar"
 
-#: ../src/ui/application.vala:319
+#: ../src/ui/application.vala:356
 msgid "GNOME Games"
 msgstr "Juegos de GNOME"
 
-#: ../src/ui/application.vala:321
+#: ../src/ui/application.vala:358
 msgid "A video game player for GNOME"
 msgstr "Un reproductor de videojuegos para GNOME"
 
-#: ../src/ui/application.vala:325
+#: ../src/ui/application.vala:362
 msgid "Learn more about GNOME Games"
 msgstr "Más información acerca de Juegos de GNOME"
 
-#: ../src/ui/application.vala:332
+#: ../src/ui/application.vala:369
 msgid "translator-credits"
 msgstr "Daniel Mustieles <daniel.mustieles@gmail.com>, 2016"
 
-#: ../src/ui/application-window.vala:297
+#: ../src/ui/application-window.vala:306
 msgid "An unexpected error occurred."
 msgstr "Ha ocurrido un error inesperado."
 
-#: ../src/ui/application-window.vala:546 ../src/ui/application-window.vala:563
+#: ../src/ui/application-window.vala:555 ../src/ui/application-window.vala:572
 msgid "Playing a game"
 msgstr "Jugando a un juego"
 
@@ -813,6 +884,21 @@ msgstr "Mueva el eje derecha/izquierda adecuado en el mando"
 #: ../src/ui/gamepad-mapper.vala:133
 msgid "Move suitable axis up/down on your gamepad"
 msgstr "Mueva el eje arriba/abajo adecuado en el mando"
+
+#: ../src/ui/keyboard-configurer.vala:67
+#| msgid "Testing %s"
+msgid "Testing Keyboard"
+msgstr "Probando el teclado"
+
+#: ../src/ui/keyboard-configurer.vala:80
+#| msgid "Configuring %s"
+msgid "Configuring Keyboard"
+msgstr "Configurando el teclado"
+
+#: ../src/ui/keyboard-mapper.vala:18
+#| msgid "Press suitable button on your gamepad"
+msgid "Press suitable key on your keyboard"
+msgstr "Pulse la tecla adecuada en el teclado"
 
 #: ../src/ui/media-selector.vala:38
 #, c-format
@@ -886,6 +972,16 @@ msgstr "%s:%lu: fin de línea no esperado, se esperaba un testigo."
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: testigo %s no esperado, se esperaba un final de línea."
 
+#~ msgid "_Preferences"
+#~ msgstr "_Preferencias"
+
+#~ msgid "_Quit"
+#~ msgstr "_Salir"
+
+#~ msgctxt "Confirm gamepad configuration factory reset"
+#~ msgid "Reset"
+#~ msgstr "Restablecer"
+
 #~ msgid "The mapping string can’t be null."
 #~ msgstr "La cadena de mapeado no puede ser nula."
 
@@ -935,9 +1031,6 @@ msgstr "%s:%lu: testigo %s no esperado, se esperaba un final de línea."
 
 #~ msgid "Couldn't write snapshot."
 #~ msgstr "No se pudo escribir la captura."
-
-#~ msgid "Main Menu"
-#~ msgstr "Menú principal"
 
 #~ msgid "PlayStation header not found in '%s'."
 #~ msgstr "Cabecera de PlayStation no encontrada en «%s»."
