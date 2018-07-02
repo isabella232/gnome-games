@@ -4,6 +4,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 	private const Gtk.CornerType[] right_corners = { Gtk.CornerType.TOP_RIGHT, Gtk.CornerType.BOTTOM_RIGHT };
 	private const Gtk.CornerType[] bottom_corners = { Gtk.CornerType.BOTTOM_LEFT, Gtk.CornerType.BOTTOM_RIGHT };
 
+	private const double EMBLEM_SCALE = 0.125;
 	private const double ICON_SCALE = 0.75;
 	private const double COVER_MARGIN = 0;
 	private const double FRAME_RADIUS = 2;
@@ -127,18 +128,19 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 
 	public void draw_default (DrawingContext context) {
 		draw_background (context);
-		draw_emblem_icon (context, "applications-games-symbolic", center_emblem_size);
+		draw_emblem_icon (context, "applications-games-symbolic", EMBLEM_SCALE);
 		draw_border (context);
 	}
 
-	private void draw_emblem_icon (DrawingContext context, string icon_name, int size) {
+	private void draw_emblem_icon (DrawingContext context, string icon_name, double scale) {
 		Gdk.Pixbuf? emblem = null;
 
 		var color = context.style.get_color (context.state);
 
 		var theme = Gtk.IconTheme.get_default ();
+		var size = int.min (context.width, context.height) * scale;
 		try {
-			var icon_info = theme.lookup_icon (icon_name, size, Gtk.IconLookupFlags.FORCE_SIZE);
+			var icon_info = theme.lookup_icon (icon_name, (int) size, Gtk.IconLookupFlags.FORCE_SIZE);
 			emblem = icon_info.load_symbolic (color);
 		} catch (GLib.Error error) {
 			warning (@"Unable to get icon “$icon_name”: $(error.message)");
