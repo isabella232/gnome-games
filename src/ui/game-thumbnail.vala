@@ -19,7 +19,6 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 
 			queue_draw ();
 		}
-		default = null;
 	}
 
 	private ulong cover_changed_id;
@@ -40,7 +39,6 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 
 			invalidate_cover ();
 		}
-		default = null;
 	}
 
 	private Gdk.Pixbuf? cover_cache;
