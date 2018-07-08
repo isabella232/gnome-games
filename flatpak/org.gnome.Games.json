@@ -1,5 +1,4 @@
 {
-        /* Extension point */
     "app-id" : "org.gnome.Games",
     "runtime" : "org.gnome.Platform",
     "runtime-version" : "master",
@@ -10,6 +9,7 @@
     ],
     "desktop-file-name-prefix" : "(Nightly) ",
     "finish-args" : [
+        /* Extension point */
         "--extension=org.gnome.Games.LibretroPlugin=directory=lib/libretro/extra.d",
         "--extension=org.gnome.Games.LibretroPlugin=subdirectories",
         /* X11 + XShm access */
