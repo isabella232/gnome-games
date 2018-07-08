@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2018-05-14 19:23+0000\n"
-"PO-Revision-Date: 2018-05-14 21:42+0200\n"
+"POT-Creation-Date: 2018-06-29 15:10+0000\n"
+"PO-Revision-Date: 2018-07-08 12:32+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -18,18 +18,17 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Gtranslator 2.91.7\n"
 
-#: ../data/org.gnome.Games.appdata.xml.in.h:1
-#: ../data/org.gnome.Games.desktop.in.h:1
-#: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
-#: ../src/ui/application.vala:21
+#: data/org.gnome.Games.appdata.xml.in:6 data/org.gnome.Games.desktop.in:3
+#: data/ui/collection-header-bar.ui:7 data/ui/display-header-bar.ui:7
+#: src/ui/application.vala:24
 msgid "Games"
 msgstr "Hry"
 
-#: ../data/org.gnome.Games.appdata.xml.in.h:2
+#: data/org.gnome.Games.appdata.xml.in:7
 msgid "Simple game launcher for GNOME"
 msgstr "Snadné spouštění her v GNOME"
 
-#: ../data/org.gnome.Games.appdata.xml.in.h:3
+#: data/org.gnome.Games.appdata.xml.in:10
 msgid ""
 "Games is a GNOME 3 application to browse your video games library and to "
 "easily pick and play a game from it. It aims to do for games what Music "
@@ -39,7 +38,7 @@ msgstr ""
 "a jednoduše je v ní spouštět a hrát. Funguje to podobně jako aplikace Hudba "
 "pro vaši hudební sbírku nebo Fotky pro vaše fotografie."
 
-#: ../data/org.gnome.Games.appdata.xml.in.h:4
+#: data/org.gnome.Games.appdata.xml.in:15
 msgid ""
 "You want to install Games if you just want a very simple and comfortable way "
 "to play your games and you don’t need advanced features such as speedrunning "
@@ -49,53 +48,59 @@ msgstr ""
 "pohodlně hrát své hry a nepotřebujete při tom žádné pokročilé věci, jako "
 "jsou urychlování běhu her nebo vývojářské nástroje pro hry."
 
-#: ../data/org.gnome.Games.appdata.xml.in.h:5
+#: data/org.gnome.Games.appdata.xml.in:20
 msgid "Features:"
 msgstr "Funkce:"
 
-#: ../data/org.gnome.Games.appdata.xml.in.h:6
+#: data/org.gnome.Games.appdata.xml.in:22
 msgid "List your installed games, your Steam games, your game ROMs…"
 msgstr ""
 "Zobrazuje seznam nainstalovaných her, vaše hry v systému Steam, obrazy ROM "
 "pro hry…"
 
-#: ../data/org.gnome.Games.appdata.xml.in.h:7
+#: data/org.gnome.Games.appdata.xml.in:23
 msgid "Search in your games collection"
 msgstr "Ve své sbírce her můžete vyhledávat"
 
-#: ../data/org.gnome.Games.appdata.xml.in.h:8
+#: data/org.gnome.Games.appdata.xml.in:24
 msgid "Play your games"
 msgstr "Samozřejmě hry můžete hrát"
 
-#: ../data/org.gnome.Games.appdata.xml.in.h:9
+#: data/org.gnome.Games.appdata.xml.in:25
 msgid "Resume your game to where you left it"
 msgstr "Můžete se do her vracet na místo, kde jste je opustili"
 
-#: ../data/org.gnome.Games.desktop.in.h:2
+#: data/org.gnome.Games.desktop.in:4
 msgid "Video game player"
 msgstr "Hraní videoher"
 
-#: ../data/org.gnome.Games.desktop.in.h:3
+#: data/org.gnome.Games.desktop.in:5
 msgid "View and play your video games collection"
 msgstr "Zobrazte si svoji sbírku videoher a zahrajte si je"
 
-#: ../data/org.gnome.Games.desktop.in.h:4
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Games.desktop.in:7
 msgid "game;videogame;video game;player;"
 msgstr "hra;hry;videohra;videohry;hraní;"
 
-#: ../data/org.gnome.Games.gschema.xml.h:1 ../data/ui/display-header-bar.ui.h:3
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.Games.desktop.in:10
+msgid "org.gnome.Games"
+msgstr "org.gnome.Games"
+
+#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:44
 msgid "Fullscreen"
 msgstr "Celá obrazovka"
 
-#: ../data/org.gnome.Games.gschema.xml.h:2
+#: data/org.gnome.Games.gschema.xml:11
 msgid "Whether the games should be displayed in full screen or not."
 msgstr "Zda by se hry měly nebo neměly zobrazovat přes celou obrazovku."
 
-#: ../data/org.gnome.Games.gschema.xml.h:3
+#: data/org.gnome.Games.gschema.xml:15
 msgid "Video filter"
 msgstr "Obrazový filtr"
 
-#: ../data/org.gnome.Games.gschema.xml.h:4
+#: data/org.gnome.Games.gschema.xml:16
 msgid ""
 "Filter for the game video output. Allowed values are: “smooth” (blurry "
 "pixels), “sharp” (blocky pixels), “crt” (CRT emulation)."
@@ -103,420 +108,477 @@ msgstr ""
 "Filtr pro obrazový výstup her. Možné hodnoty jsou: „smooth“ (vyhlazený "
 "rozmazaný obraz), „sharp“ (ostrý čtverečkovaný obraz), „crt“ (emulace CRT)."
 
-#: ../data/org.gnome.Games.gschema.xml.h:5
+#: data/org.gnome.Games.gschema.xml:20
 msgid "Window maximized"
 msgstr "Maximalizované okno"
 
-#: ../data/org.gnome.Games.gschema.xml.h:6
+#: data/org.gnome.Games.gschema.xml:21
 msgid "Window maximized state."
 msgstr "Stav maximalizace okna."
 
-#: ../data/org.gnome.Games.gschema.xml.h:7
+#: data/org.gnome.Games.gschema.xml:25
 msgid "Window size"
 msgstr "Velikost okna"
 
-#: ../data/org.gnome.Games.gschema.xml.h:8
+#: data/org.gnome.Games.gschema.xml:26
 msgid "Window size (width and height)."
 msgstr "Velikost okna (šířka a výška)."
 
-#: ../data/gtk/menus.ui.h:1
-msgid "_Preferences"
-msgstr "_Předvolby"
-
-#: ../data/gtk/menus.ui.h:2
-msgid "_About"
-msgstr "O _aplikaci"
-
-#: ../data/gtk/menus.ui.h:3
-msgid "_Quit"
-msgstr "U_končit"
-
-#: ../data/ui/collection-box.ui.h:1
+#: data/ui/collection-box.ui:59
 msgid "Loading"
 msgstr "Načítá se"
 
-#: ../data/ui/collection-header-bar.ui.h:2
+#: data/ui/collection-header-bar.ui:19
 msgid "Add game files…"
 msgstr "Přidat soubory s hrami…"
 
-#: ../data/ui/collection-header-bar.ui.h:3
+#. Translators: tooltip for the application menu button
+#: data/ui/collection-header-bar.ui:38
+msgid "Menu"
+msgstr "Nabídka"
+
+#: data/ui/collection-header-bar.ui:67
 msgid "Search"
 msgstr "Hledat"
 
-#: ../data/ui/display-header-bar.ui.h:2 ../data/ui/gamepad-configurer.ui.h:3
+#: data/ui/collection-header-bar.ui:94 data/ui/preferences-window.ui:6
+#: data/ui/preferences-window.ui:20
+msgid "Preferences"
+msgstr "Předvolby"
+
+#: data/ui/collection-header-bar.ui:110 data/ui/shortcuts-window.ui:10
+msgid "Shortcuts"
+msgstr "Klávesové zkratky"
+
+#: data/ui/collection-header-bar.ui:118
+msgid "Help"
+msgstr "Nápověda"
+
+#: data/ui/collection-header-bar.ui:126
+msgid "About"
+msgstr "O aplikaci"
+
+#: data/ui/display-header-bar.ui:21 data/ui/gamepad-configurer.ui:77
+#: data/ui/keyboard-configurer.ui:77
 msgid "Back"
 msgstr "Zpět"
 
-#: ../data/ui/display-header-bar.ui.h:4
+#: data/ui/display-header-bar.ui:70
 msgid "Restore"
 msgstr "Obnovit"
 
-#: ../data/ui/dummy-display.ui.h:1
+#: data/ui/dummy-display.ui:36
 msgid "This is a dummy game display"
 msgstr "Toto je falešné zobrazení hry"
 
-#: ../data/ui/dummy-display.ui.h:2
+#: data/ui/dummy-display.ui:51
 msgid "If you see this, this is a bug."
 msgstr "To, že jej vidíte, znamená chybu."
 
-#: ../data/ui/dummy-display.ui.h:3
+#: data/ui/dummy-display.ui:64
 msgid "Please contact the developers."
 msgstr "Kontaktujte prosím vývojáře."
 
-#: ../data/ui/empty-collection.ui.h:1
+#: data/ui/empty-collection.ui:38
 msgid "No games found"
 msgstr "Nebyla nalezena žádná hra"
 
-#: ../data/ui/empty-collection.ui.h:2
+#: data/ui/empty-collection.ui:58
 msgid ""
 "Install games or add directories containing games to your search sources."
 msgstr ""
 "Nainstalujte hry nebo přidejte do prohledávaných zdrojů složky obsahující "
 "hry."
 
-#: ../data/ui/gamepad-configurer.ui.h:1
+#: data/ui/gamepad-configurer.ui:40
 msgctxt "Gamepad configuration factory reset"
 msgid "Reset"
 msgstr "Výrobní nastavení"
 
-#: ../data/ui/gamepad-configurer.ui.h:2
+#: data/ui/gamepad-configurer.ui:53 data/ui/keyboard-configurer.ui:53
 msgid "Configure"
 msgstr "Nastavit"
 
-#: ../data/ui/gamepad-configurer.ui.h:4 ../data/ui/quit-dialog.ui.h:3
-#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:3
-#: ../data/ui/resume-failed-dialog.ui.h:2
+#: data/ui/gamepad-configurer.ui:95 data/ui/keyboard-configurer.ui:95
+#: data/ui/quit-dialog.ui:15 data/ui/reset-controller-mapping-dialog.ui:15
+#: data/ui/resume-failed-dialog.ui:14
 msgid "Cancel"
 msgstr "Zrušit"
 
-#: ../data/ui/gamepad-mapper.ui.h:1
+#: data/ui/gamepad-mapper.ui:22 data/ui/keyboard-mapper.ui:22
 msgid "Skip"
 msgstr "Vynechat"
 
-#: ../data/ui/media-menu-button.ui.h:1
+#: data/ui/keyboard-configurer.ui:40
+msgctxt "Keyboard configuration factory reset"
+msgid "Reset"
+msgstr "Tovární nastavení"
+
+#: data/ui/media-menu-button.ui:11
 msgid "Media"
 msgstr "Médium"
 
-#: ../data/ui/preferences-page-controllers.ui.h:1
+#: data/ui/preferences-page-controllers.ui:57
 msgid "Gamepads"
 msgstr "Herní ovladače"
 
-#: ../data/ui/preferences-page-controllers.ui.h:2
-#: ../data/ui/preferences-window.ui.h:3
+#: data/ui/preferences-page-controllers.ui:92
+#: src/ui/preferences-page-controllers.vala:89
+msgid "Keyboard"
+msgstr "Klávesnice"
+
+#: data/ui/preferences-page-controllers.ui:112 data/ui/preferences-window.ui:85
 msgid "Controllers"
 msgstr "Ovladače"
 
-#: ../data/ui/preferences-page-plugins.ui.h:1
+#: data/ui/preferences-page-plugins.ui:42
 msgid "Plugins"
 msgstr "Zásuvné moduly"
 
-#: ../data/ui/preferences-page-plugins.ui.h:2
-#: ../data/ui/preferences-window.ui.h:4
+#: data/ui/preferences-page-plugins.ui:50 data/ui/preferences-window.ui:94
 msgid "Extensions"
 msgstr "Rozšíření"
 
-#: ../data/ui/preferences-page-video.ui.h:1
+#: data/ui/preferences-page-video.ui:40
 msgid "Filter"
 msgstr "Filtr"
 
-#: ../data/ui/preferences-page-video.ui.h:2
-#: ../data/ui/preferences-window.ui.h:2
+#: data/ui/preferences-page-video.ui:55 data/ui/preferences-window.ui:76
 msgid "Video"
 msgstr "Obraz"
 
-#: ../data/ui/preferences-window.ui.h:1
-msgid "Preferences"
-msgstr "Předvolby"
-
-#: ../data/ui/quit-dialog.ui.h:1
+#: data/ui/quit-dialog.ui:9
 msgid "Are you sure you want to quit?"
 msgstr "Opravdu chcete skončit?"
 
-#: ../data/ui/quit-dialog.ui.h:2
+#: data/ui/quit-dialog.ui:10
 msgid "All unsaved progress will be lost."
 msgstr "Všechny neuložené postupy budou ztraceny."
 
-#: ../data/ui/quit-dialog.ui.h:4
+#: data/ui/quit-dialog.ui:21
 msgid "Quit"
 msgstr "Ukončit"
 
-#: ../data/ui/remote-display.ui.h:1
+#: data/ui/remote-display.ui:36
 msgid "Use the game’s own window to play it"
 msgstr "K hraní hry použijte její vlastní okno"
 
-#: ../data/ui/remote-display.ui.h:2
+#: data/ui/remote-display.ui:51
 msgid "This game isn’t integrated to GNOME Games."
 msgstr "Tato hra není integrovaná do her GNOME."
 
-#: ../data/ui/remote-display.ui.h:3
+#: data/ui/remote-display.ui:64
 msgid "You have to use its own window to play it."
 msgstr "K jejímu hraní se musí použít její vlastní okno."
 
-#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:1
-msgid "Factory reset mapping for this gamepad?"
+#: data/ui/reset-controller-mapping-dialog.ui:9
+msgid "Factory reset mapping for this controller?"
 msgstr "Nastavit u tohoto herního ovladače originální tovární mapování?"
 
-#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:2
+#: data/ui/reset-controller-mapping-dialog.ui:10
 msgid "Your mapping will be lost."
 msgstr "Vaše vlastní mapování bude ztraceno."
 
-#: ../data/ui/reset-gamepad-mapping-dialog.ui.h:4
-msgctxt "Confirm gamepad configuration factory reset"
+#: data/ui/reset-controller-mapping-dialog.ui:21
+msgctxt "Confirm controller configuration factory reset"
 msgid "Reset"
-msgstr "Výrobní nastavení"
+msgstr "Tovární nastavení"
 
-#: ../data/ui/resume-dialog.ui.h:1
+#: data/ui/resume-dialog.ui:9
 msgid "Resume last game?"
 msgstr "Obnovit poslední hru?"
 
-#: ../data/ui/resume-dialog.ui.h:2
+#: data/ui/resume-dialog.ui:13
 msgid "Restart"
 msgstr "Od začátku"
 
-#: ../data/ui/resume-dialog.ui.h:3
+#: data/ui/resume-dialog.ui:20
 msgid "Resume"
 msgstr "Obnovit"
 
-#: ../data/ui/resume-failed-dialog.ui.h:1
+#: data/ui/resume-failed-dialog.ui:9
 msgid "Resuming failed. Do you want to restart the game?"
 msgstr "Obnovení selhalo. Chcete hru spustit od začátku?"
 
-#: ../data/ui/resume-failed-dialog.ui.h:3
+#: data/ui/resume-failed-dialog.ui:20
 msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Od začátku"
 
-#: ../plugins/desktop/src/desktop-plugin.vala:48
+#: data/ui/shortcuts-window.ui:14
+msgid "General"
+msgstr "Obecné"
+
+#: data/ui/shortcuts-window.ui:19
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Ukončit"
+
+#: data/ui/shortcuts-window.ui:27 data/ui/shortcuts-window.ui:75
+msgid "Collection"
+msgstr "Sbírka"
+
+#: data/ui/shortcuts-window.ui:32
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Hledat"
+
+#: data/ui/shortcuts-window.ui:40
+msgid "In Game"
+msgstr "Během hry"
+
+#: data/ui/shortcuts-window.ui:45
+msgctxt "shortcut window"
+msgid "Toggle fullscreen"
+msgstr "Přepnout celou obrazovku"
+
+#: data/ui/shortcuts-window.ui:52
+msgctxt "shortcut window"
+msgid "Exit fullscreen"
+msgstr "Opustit celou obrazovku"
+
+#: data/ui/shortcuts-window.ui:59
+msgctxt "shortcut window"
+msgid "Go back to the collection"
+msgstr "Vrátit se zpět do sbírky"
+
+#: data/ui/shortcuts-window.ui:71
+msgid "Cheats"
+msgstr "Číty"
+
+#: data/ui/shortcuts-window.ui:80
+msgctxt "shortcut window"
+msgid "Contribute"
+msgstr "Přispět"
+
+#: plugins/desktop/src/desktop-plugin.vala:48
 #, c-format
 msgid "Invalid command “%s”."
 msgstr "Neplatný příkaz „%s“."
 
-#: ../plugins/desktop/src/desktop-plugin.vala:58
+#: plugins/desktop/src/desktop-plugin.vala:58
 #, c-format
 msgid "Tracker listed file not found: “%s”."
 msgstr "Soubor, který poskytl Tracker, nebyl nalezen: „%s“"
 
-#: ../plugins/desktop/src/desktop-plugin.vala:64
+#: plugins/desktop/src/desktop-plugin.vala:64
 #, c-format
 msgid "Couldn’t parse desktop entry “%s”."
 msgstr "Nelze zpracovat spouštěcí soubor „%s“."
 
-#: ../plugins/desktop/src/desktop-plugin.vala:74
+#: plugins/desktop/src/desktop-plugin.vala:74
 #, c-format
 msgid "“%s” shouldn’t be displayed."
 msgstr "„%s“ by se neměla zobrazovat."
 
-#: ../plugins/desktop/src/desktop-plugin.vala:77
+#: plugins/desktop/src/desktop-plugin.vala:77
 #, c-format
 msgid "“%s” is hidden."
 msgstr "„%s“ je skrytá."
 
-#: ../plugins/desktop/src/desktop-plugin.vala:86
+#: plugins/desktop/src/desktop-plugin.vala:86
 #, c-format
 msgid "“%s” has blacklisted category “%s”."
 msgstr "„%s“ má na černé listině kategorii „%s“."
 
-#: ../plugins/desktop/src/desktop-plugin.vala:95
+#: plugins/desktop/src/desktop-plugin.vala:95
 #, c-format
 msgid "“%s” has blacklisted executable “%s”."
 msgstr "„%s“ má na černé listině spustitelný soubor „%s“."
 
-#: ../plugins/desktop/src/desktop-plugin.vala:102
+#: plugins/desktop/src/desktop-plugin.vala:102
 #, c-format
 msgid "“%s” is blacklisted."
 msgstr "„%s“ je na černé listině."
 
-#: ../plugins/dreamcast/src/dreamcast-header.vala:54
+#: plugins/dreamcast/src/dreamcast-header.vala:54
 msgid "The file doesn’t have a Dreamcast header."
 msgstr "Soubor nemá hlavičku Dreamcast."
 
-#: ../plugins/game-cube/src/game-cube-header.vala:20
+#: plugins/game-cube/src/game-cube-header.vala:20
 msgid "The file doesn’t have a Game Cube header."
 msgstr "Soubor nemá hlavičku Game Cube."
 
-#: ../plugins/love/src/love-package.vala:13
-#: ../plugins/love/src/love-package.vala:17
+#: plugins/love/src/love-package.vala:13 plugins/love/src/love-package.vala:17
 #, c-format
 msgid "This doesn’t represent a valid LÖVE package: “%s”."
 msgstr "Nejedná se o platný balíček LÖVE: „%s“"
 
-#: ../plugins/mame/src/mame-game-uri-adapter.vala:16
+#: plugins/mame/src/mame-game-uri-adapter.vala:16
 #, c-format
 msgid "Invalid MAME game id “%s” for “%s”."
 msgstr "Neplatné id „%s“ hry MAME pro „%s“."
 
-#: ../plugins/playstation/src/playstation-header.vala:27
+#: plugins/playstation/src/playstation-header.vala:27
 #, c-format
 msgid "Not a PlayStation disc: “%s”."
 msgstr "Nejedná se o disk pro PlayStation: „%s“."
 
-#: ../plugins/playstation/src/playstation-header.vala:37
+#: plugins/playstation/src/playstation-header.vala:37
 #, c-format
 msgid "Invalid PlayStation header: disc ID not found in “%s”."
 msgstr "Neplatná hlavička PlayStation: ID disku nebylo nalezeno v „%s“."
 
-#: ../plugins/sega-cd/src/sega-cd-header.vala:44
-#: ../plugins/sega-cd/src/sega-cd-header.vala:63
+#: plugins/sega-cd/src/sega-cd-header.vala:44
+#: plugins/sega-cd/src/sega-cd-header.vala:63
 msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
 msgstr "Soubor nemá hlavičku Genesis/Sega 32X/Sega CD/Sega Pico."
 
-#: ../plugins/sega-cd/src/sega-cd-plugin.vala:78
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:62
+#: plugins/sega-cd/src/sega-cd-plugin.vala:78
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:62
 #, c-format
 msgid "The file “%s” doesn’t have a track."
 msgstr "Soubor „%s“ neobsahuje žádnou stopu."
 
-#: ../plugins/sega-cd/src/sega-cd-plugin.vala:84
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:68
+#: plugins/sega-cd/src/sega-cd-plugin.vala:84
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:68
 #, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr "Soubor „%s“ nemá platný formát binárního souboru."
 
-#: ../plugins/sega-cd/src/sega-cd-plugin.vala:87
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:71
+#: plugins/sega-cd/src/sega-cd-plugin.vala:87
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:71
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
 msgstr "Soubor „%s“ nemá žádný platný režim stopy pro stopu %d."
 
-#: ../plugins/sega-saturn/src/sega-saturn-header.vala:54
+#: plugins/sega-saturn/src/sega-saturn-header.vala:54
 msgid "The file doesn’t have a Sega Saturn header."
 msgstr "Soubor nemá hlavičku Sega Saturn."
 
 # c-format
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:75
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:75
 #, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "Soubor „%s“ není platný binární soubor Sega Saturn."
 
-#: ../plugins/steam/src/steam-plugin.vala:45
+#: plugins/steam/src/steam-plugin.vala:45
 #, c-format
 msgid "Couldn’t get Steam appid from manifest “%s”."
 msgstr "Z manifestu „%s“ nelze získat Steam appid."
 
-#: ../plugins/steam/src/steam-registry.vala:68
+#: plugins/steam/src/steam-registry.vala:68
 #, c-format
 msgid "File “%s” doesn’t exist."
 msgstr "Soubor „%s“ neexistuje."
 
-#: ../plugins/steam/src/steam-registry.vala:96
+#: plugins/steam/src/steam-registry.vala:96
 msgid "Unexpected token '{'."
 msgstr "Neočekávaný výskyt symbolu „{“."
 
-#: ../plugins/steam/src/steam-registry.vala:110
+#: plugins/steam/src/steam-registry.vala:110
 msgid "Unexpected end of tokens."
 msgstr "Neočekávaný výskyt zavíracího symbolu."
 
-#: ../plugins/steam/src/steam-registry.vala:113
+#: plugins/steam/src/steam-registry.vala:113
 msgid "Unexpected token '}'."
 msgstr "Neočekávaný výskyt symbolu „}“."
 
-#: ../plugins/steam/src/steam-title.vala:17
+#: plugins/steam/src/steam-title.vala:17
 msgid "Couldn’t get name from Steam registry."
 msgstr "Nelze získat název z registru Steam."
 
-#: ../plugins/virtual-boy/src/virtual-boy-header.vala:20
+#: plugins/virtual-boy/src/virtual-boy-header.vala:20
 msgid "The file is too short."
 msgstr "Soubor je příliš krátký."
 
-#: ../plugins/virtual-boy/src/virtual-boy-header.vala:26
+#: plugins/virtual-boy/src/virtual-boy-header.vala:26
 #, c-format
 msgid "Invalid Virtual Boy ROM header size: %s"
 msgstr "Neplatná velikost hlavičky Virtual Boy ROM: %s"
 
-#: ../plugins/virtual-boy/src/virtual-boy-header.vala:38
+#: plugins/virtual-boy/src/virtual-boy-header.vala:38
 msgid "Invalid Virtual Boy ROM header size."
 msgstr "Neplatná velikost hlavičky Virtual Boy ROM"
 
-#: ../plugins/virtual-boy/src/virtual-boy-header.vala:42
+#: plugins/virtual-boy/src/virtual-boy-header.vala:42
 msgid "The file doesn’t have a Virtual Boy ROM header."
 msgstr "Soubor nemá hlavičku Virtual Boy ROM."
 
-#: ../plugins/virtual-boy/src/virtual-boy-header.vala:51
+#: plugins/virtual-boy/src/virtual-boy-header.vala:51
 #, c-format
 msgid "Couldn’t get file size: %s"
 msgstr "Nezdařilo se zjistit velikost souboru: %s"
 
-#: ../plugins/virtual-boy/src/virtual-boy-header.vala:60
-#: ../plugins/wii/src/wii-header.vala:55
+#: plugins/virtual-boy/src/virtual-boy-header.vala:60
+#: plugins/wii/src/wii-header.vala:55
 #, c-format
 msgid "Couldn’t read file: %s"
 msgstr "Nelze číst soubor: %s"
 
-#: ../plugins/wii/src/wii-header.vala:20
+#: plugins/wii/src/wii-header.vala:20
 #, c-format
 msgid "Invalid Wii header size: %s"
 msgstr "Neplatná velikost hlavičky Wii: %s"
 
-#: ../plugins/wii/src/wii-header.vala:33 ../plugins/wii/src/wii-header.vala:44
+#: plugins/wii/src/wii-header.vala:33 plugins/wii/src/wii-header.vala:44
 msgid "The file doesn’t have a Wii header."
 msgstr "Soubor nemá hlavičku Wii."
 
-#: ../src/command/command-runner.vala:33
+#: src/command/command-runner.vala:33
 msgid "The game doesn’t have a valid command."
 msgstr "Hra nemá platný příkaz pro spuštění."
 
-#: ../src/command/command-runner.vala:64
+#: src/command/command-runner.vala:64
 #, c-format
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "Nelze spustit „%s“: spuštění selhalo"
 
-#: ../src/core/media-set/media-set.vala:30
+#: src/core/media-set/media-set.vala:30
 #, c-format
 msgid "Invalid media index %u."
 msgstr "Neplatný index média %u."
 
-#: ../src/core/plugin-registrar.vala:27
+#: src/core/plugin-registrar.vala:27
 #, c-format
 msgid "Invalid plugin descriptor: %s"
 msgstr "Neplatný popisovač zásuvného modulu: %s"
 
-#: ../src/core/plugin-registrar.vala:48 ../src/core/plugin-registrar.vala:52
+#: src/core/plugin-registrar.vala:48 src/core/plugin-registrar.vala:52
 #, c-format
 msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr "Nelze vytvořit novou instanci zásuvného modulu v „%s“."
 
-#: ../src/gameinfo/gameinfo-disc-id-disc-title.vala:24
+#: src/gameinfo/gameinfo-disc-id-disc-title.vala:24
 #, c-format
 msgid "Disc %d"
 msgstr "Disk %d"
 
-#: ../src/gameinfo/gameinfo-doc.vala:15
+#: src/gameinfo/gameinfo-doc.vala:15
 #, c-format
 msgid "No game title found for disc ID “%s”."
 msgstr "Pro ID disku „%s“ nebyl nalezen název hry."
 
-#: ../src/gameinfo/gameinfo-doc.vala:31
+#: src/gameinfo/gameinfo-doc.vala:31
 #, c-format
 msgid "No disc title found for disc ID “%s”."
 msgstr "Pro ID disku „%s“ nebyl nalezen název disku."
 
-#: ../src/gameinfo/gameinfo-doc.vala:41
+#: src/gameinfo/gameinfo-doc.vala:41
 #, c-format
 msgid "No disc set ID found for disc ID “%s”."
 msgstr "Pro ID disku „%s“ nebylo nalezeno žádné ID sady disků."
 
-#: ../src/gameinfo/gameinfo-doc.vala:49 ../src/gameinfo/gameinfo-doc.vala:59
+#: src/gameinfo/gameinfo-doc.vala:49 src/gameinfo/gameinfo-doc.vala:59
 #, c-format
 msgid "No disc found for disc ID “%s”."
 msgstr "Pro ID disku „%s“ nebyl nalezen žádný disk."
 
-#: ../src/retro/retro-core-source.vala:25
-#: ../src/retro/retro-core-source.vala:37
+#: src/retro/retro-core-source.vala:25 src/retro/retro-core-source.vala:37
 #, c-format
 msgid "No module found for platform “%s” and MIME types [ “%s” ]."
 msgstr "Pro platformu „%s“ a typ MIME [„%s“] nebyl nalezen žádný modul."
 
-#: ../src/retro/retro-core-source.vala:25
-#: ../src/retro/retro-core-source.vala:37
+#: src/retro/retro-core-source.vala:25 src/retro/retro-core-source.vala:37
 msgid "”, “"
 msgstr "“, „"
 
-#: ../src/retro/retro-core-source.vala:79
+#: src/retro/retro-core-source.vala:79
 #, c-format
 msgid "This game requires the %s firmware file to run."
 msgstr "Tato hra potřebuje ke spuštění soubor s firmwarem %s."
 
-#: ../src/retro/retro-core-source.vala:96
+#: src/retro/retro-core-source.vala:96
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a MD5 fingerprint of %s to run."
@@ -524,7 +586,7 @@ msgstr ""
 "Tato hra potřebuje ke spuštění soubor s firmwarem %s s kontrolním otiskem "
 "MD5 %s."
 
-#: ../src/retro/retro-core-source.vala:102
+#: src/retro/retro-core-source.vala:102
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
@@ -533,344 +595,356 @@ msgstr ""
 "Tato hra potřebuje ke spuštění soubor s firmwarem %s s kontrolním otiskem "
 "SHA-512 %s."
 
-#: ../src/retro/retro-platform.vala:7
+#: src/retro/retro-platform.vala:7
 msgid "Amiga"
 msgstr "Amiga"
 
-#: ../src/retro/retro-platform.vala:9
+#: src/retro/retro-platform.vala:9
 msgid "Atari 2600"
 msgstr "Atari 2600"
 
-#: ../src/retro/retro-platform.vala:11
+#: src/retro/retro-platform.vala:11
 msgid "Atari 5200"
 msgstr "Atari 5200"
 
-#: ../src/retro/retro-platform.vala:13
+#: src/retro/retro-platform.vala:13
 msgid "Atari 7800"
 msgstr "Atari 7800"
 
-#: ../src/retro/retro-platform.vala:15
+#: src/retro/retro-platform.vala:15
 msgid "Atari Lynx"
 msgstr "Atari Lynx"
 
-#: ../src/retro/retro-platform.vala:17
+#: src/retro/retro-platform.vala:17
 msgid "DOOM"
 msgstr "DOOM"
 
-#: ../src/retro/retro-platform.vala:19
+#: src/retro/retro-platform.vala:19
 msgid "Dreamcast"
 msgstr "Dreamcast"
 
 #. translators: only released in eastern Asia
-#: ../src/retro/retro-platform.vala:22
+#: src/retro/retro-platform.vala:22
 msgid "Famicom Disk System"
 msgstr "Famicom Disk System"
 
-#: ../src/retro/retro-platform.vala:24
+#: src/retro/retro-platform.vala:24
 msgid "Game Boy"
 msgstr "Game Boy"
 
-#: ../src/retro/retro-platform.vala:26
+#: src/retro/retro-platform.vala:26
 msgid "Game Boy Color"
 msgstr "Game Boy Color"
 
-#: ../src/retro/retro-platform.vala:28
+#: src/retro/retro-platform.vala:28
 msgid "Game Boy Advance"
 msgstr "Game Boy Advance"
 
-#: ../src/retro/retro-platform.vala:30
+#: src/retro/retro-platform.vala:30
 msgid "Nintendo GameCube"
 msgstr "Nintendo GameCube"
 
-#: ../src/retro/retro-platform.vala:32
+#: src/retro/retro-platform.vala:32
 msgid "Game Gear"
 msgstr "Game Gear"
 
 #. translators: the "Multiple Arcade Machine Emulator"
-#: ../src/retro/retro-platform.vala:35
+#: src/retro/retro-platform.vala:35
 msgid "MAME"
 msgstr "MAME"
 
-#: ../src/retro/retro-platform.vala:37
+#: src/retro/retro-platform.vala:37
 msgid "MS-DOS"
 msgstr "MS-DOS"
 
-#: ../src/retro/retro-platform.vala:39
+#: src/retro/retro-platform.vala:39
 msgid "Neo Geo Pocket"
 msgstr "Neo Geo Pocket"
 
-#: ../src/retro/retro-platform.vala:41
+#: src/retro/retro-platform.vala:41
 msgid "Neo Geo Pocket Color"
 msgstr "Neo Geo Pocket Color"
 
 #. translators: known as "Famicom" in eastern Asia
-#: ../src/retro/retro-platform.vala:44
+#: src/retro/retro-platform.vala:44
 msgid "Nintendo Entertainment System"
 msgstr "Nintendo Entertainment System"
 
-#: ../src/retro/retro-platform.vala:46
+#: src/retro/retro-platform.vala:46
 msgid "Nintendo 64"
 msgstr "Nintendo 64"
 
-#: ../src/retro/retro-platform.vala:48
+#: src/retro/retro-platform.vala:48
 msgid "Nintendo DS"
 msgstr "Nintendo DS"
 
-#: ../src/retro/retro-platform.vala:50
+#: src/retro/retro-platform.vala:50
 msgid "Nintendo 3DS"
 msgstr "Nintendo 3DS"
 
-#: ../src/retro/retro-platform.vala:52
+#: src/retro/retro-platform.vala:52
 msgid "PlayStation"
 msgstr "PlayStation"
 
-#: ../src/retro/retro-platform.vala:54
+#: src/retro/retro-platform.vala:54
 msgid "PlayStation 2"
 msgstr "PlayStation 2"
 
-#: ../src/retro/retro-platform.vala:56
+#: src/retro/retro-platform.vala:56
 msgid "PlayStation 3"
 msgstr "PlayStation 3"
 
-#: ../src/retro/retro-platform.vala:58
+#: src/retro/retro-platform.vala:58
 msgid "PlayStation 4"
 msgstr "PlayStation 4"
 
-#: ../src/retro/retro-platform.vala:60
+#: src/retro/retro-platform.vala:60
 msgid "PlayStation Portable"
 msgstr "PlayStation Portable"
 
-#: ../src/retro/retro-platform.vala:62
+#: src/retro/retro-platform.vala:62
 msgid "PlayStation Vita"
 msgstr "PlayStation Vita"
 
 #. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
-#: ../src/retro/retro-platform.vala:65
+#: src/retro/retro-platform.vala:65
 msgid "Genesis 32X"
 msgstr "Genesis 32X"
 
 #. translators: known as "Mega-CD" in most of the world
-#: ../src/retro/retro-platform.vala:68
+#: src/retro/retro-platform.vala:68
 msgid "Sega CD"
 msgstr "Sega CD"
 
 #. translators: known as "Mega-CD 32X" in most of the world
-#: ../src/retro/retro-platform.vala:71
+#: src/retro/retro-platform.vala:71
 msgid "Sega CD 32X"
 msgstr "Sega CD 32X"
 
 #. translators: known as "Mega Drive" in most of the world
-#: ../src/retro/retro-platform.vala:74
+#: src/retro/retro-platform.vala:74
 msgid "Sega Genesis"
 msgstr "Sega Genesis"
 
 #. translators: also known as "Sega Mark III" in eastern asia
-#: ../src/retro/retro-platform.vala:77
+#: src/retro/retro-platform.vala:77
 msgid "Sega Master System"
 msgstr "Sega Master System"
 
-#: ../src/retro/retro-platform.vala:79
+#: src/retro/retro-platform.vala:79
 msgid "Sega Pico"
 msgstr "Sega Pico"
 
-#: ../src/retro/retro-platform.vala:81
+#: src/retro/retro-platform.vala:81
 msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
-#: ../src/retro/retro-platform.vala:83
+#: src/retro/retro-platform.vala:83
 msgid "SG-1000"
 msgstr "SG-1000"
 
 #. translators: known as "Super Famicom" in eastern Asia
-#: ../src/retro/retro-platform.vala:86
+#: src/retro/retro-platform.vala:86
 msgid "Super Nintendo Entertainment System"
 msgstr "Super Nintendo Entertainment System"
 
 #. translators: known as "PC Engine" in eastern Asia and France
-#: ../src/retro/retro-platform.vala:89
+#: src/retro/retro-platform.vala:89
 msgid "TurboGrafx-16"
 msgstr "TurboGrafx-16"
 
 #. translators: known as "CD-ROM²" in eastern Asia and France
-#: ../src/retro/retro-platform.vala:92
+#: src/retro/retro-platform.vala:92
 msgid "TurboGrafx-CD"
 msgstr "TurboGrafx-CD"
 
-#: ../src/retro/retro-platform.vala:94
+#: src/retro/retro-platform.vala:94
 msgid "Virtual Boy"
 msgstr "Virtual Boy"
 
-#: ../src/retro/retro-platform.vala:96
+#: src/retro/retro-platform.vala:96
 msgid "Wii"
 msgstr "Wii"
 
-#: ../src/retro/retro-platform.vala:98
+#: src/retro/retro-platform.vala:98
 msgid "Wii U"
 msgstr "Wii U"
 
-#: ../src/retro/retro-platform.vala:100
+#: src/retro/retro-platform.vala:100
 msgid "WiiWare"
 msgstr "WiiWare"
 
-#: ../src/retro/retro-platform.vala:102
+#: src/retro/retro-platform.vala:102
 msgid "WonderSwan"
 msgstr "WonderSwan"
 
-#: ../src/retro/retro-platform.vala:104
+#: src/retro/retro-platform.vala:104
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: ../src/retro/retro-runner.vala:239
+#: src/retro/retro-runner.vala:239
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Pro „%s“ nebyl nalezen žádný modul."
 
-#: ../src/retro/retro-runner.vala:568
+#: src/retro/retro-runner.vala:590
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Systém „%s“ není zatím podporován, ale plná podpora je v plánu."
 
-#: ../src/retro/retro-runner.vala:571
+#: src/retro/retro-runner.vala:593
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Systém není zatím podporován, ale plná podpora je v plánu."
 
-#: ../src/ui/application.vala:137
+#: src/ui/application.vala:148
 msgid "Select game files"
 msgstr "Výběr souborů s hrami"
 
-#: ../src/ui/application.vala:138
+#: src/ui/application.vala:149
 msgid "_Add"
 msgstr "Přid_at"
 
-#: ../src/ui/application.vala:138
+#: src/ui/application.vala:149
 msgid "_Cancel"
 msgstr "_Zrušit"
 
-#: ../src/ui/application.vala:319
+#: src/ui/application.vala:356
 msgid "GNOME Games"
 msgstr "Hry GNOME"
 
-#: ../src/ui/application.vala:321
+#: src/ui/application.vala:358
 msgid "A video game player for GNOME"
 msgstr "Hraní videoher pro GNOME"
 
-#: ../src/ui/application.vala:325
+#: src/ui/application.vala:362
 msgid "Learn more about GNOME Games"
 msgstr "Zjistěte si více o Hrách GNOME"
 
-#: ../src/ui/application.vala:332
+#: src/ui/application.vala:369
 msgid "translator-credits"
 msgstr "Marek Černocký <marek@manet.cz>"
 
-#: ../src/ui/application-window.vala:297
+#: src/ui/application-window.vala:306
 msgid "An unexpected error occurred."
 msgstr "Vyskytla se neočekávaná chyba."
 
-#: ../src/ui/application-window.vala:546 ../src/ui/application-window.vala:563
+#: src/ui/application-window.vala:555 src/ui/application-window.vala:572
 msgid "Playing a game"
 msgstr "Hraje se hra"
 
-#: ../src/ui/error-display.vala:13
+#: src/ui/error-display.vala:13
 #, c-format
 msgid "Oops! Unable to run “%s”"
 msgstr "Problém! Nelze spustit „%s“"
 
-#: ../src/ui/error-display.vala:15
+#: src/ui/error-display.vala:15
 msgid "Oops! Unable to run the game"
 msgstr "Problém! Hru nelze spustit"
 
 #. translators: testing a gamepad, %s is its name
-#: ../src/ui/gamepad-configurer.vala:78
+#: src/ui/gamepad-configurer.vala:78
 #, c-format
 msgid "Testing %s"
 msgstr "Testuje se %s"
 
 #. translators: configuring a gamepad, %s is its name
-#: ../src/ui/gamepad-configurer.vala:92
+#: src/ui/gamepad-configurer.vala:92
 #, c-format
 msgid "Configuring %s"
 msgstr "Nastavuje se %s"
 
-#: ../src/ui/gamepad-mapper.vala:126
+#: src/ui/gamepad-mapper.vala:126
 msgid "Press suitable button on your gamepad"
 msgstr "Zmáčkněte vhodné tlačítko na svém herním ovladači"
 
-#: ../src/ui/gamepad-mapper.vala:131
+#: src/ui/gamepad-mapper.vala:131
 msgid "Move suitable axis left/right on your gamepad"
 msgstr ""
 "Posuňte se pomocí svého herního ovladače vhodným způsobem doleva/doprava"
 
-#: ../src/ui/gamepad-mapper.vala:133
+#: src/ui/gamepad-mapper.vala:133
 msgid "Move suitable axis up/down on your gamepad"
 msgstr "Posuňte se pomocí svého herního ovladače vhodným způsobem nahoru/dolů"
 
-#: ../src/ui/media-selector.vala:27
+#: src/ui/keyboard-configurer.vala:67
+msgid "Testing Keyboard"
+msgstr "Testuje se klávesnice"
+
+#: src/ui/keyboard-configurer.vala:80
+msgid "Configuring Keyboard"
+msgstr "Nastavuje se klávesnice"
+
+#: src/ui/keyboard-mapper.vala:18
+msgid "Press suitable key on your keyboard"
+msgstr "Zmáčkněte vhodné tlačítko na své klávesnici"
+
+#: src/ui/media-selector.vala:38
 #, c-format
 msgid "Media %d"
 msgstr "Médium %d"
 
 #. same as video-filters in gschema
-#: ../src/ui/preferences-page-video.vala:34
+#: src/ui/preferences-page-video.vala:34
 msgid "Smooth"
 msgstr "vyhlazený"
 
-#: ../src/ui/preferences-page-video.vala:34
+#: src/ui/preferences-page-video.vala:34
 msgid "Sharp"
 msgstr "ostrý"
 
-#: ../src/ui/preferences-page-video.vala:34
+#: src/ui/preferences-page-video.vala:34
 msgid "CRT"
 msgstr "CRT"
 
-#: ../src/utils/cue-sheet/cue-sheet.vala:25
+#: src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
 msgid "“%s” doesn’t have a track for index %u."
 msgstr "„%s“ nemá stopu s indexem %u."
 
-#: ../src/utils/cue-sheet/cue-sheet.vala:114
+#: src/utils/cue-sheet/cue-sheet.vala:114
 #, c-format
 msgid "%s:%lu: Invalid file format %s, expected a valid file format or none."
 msgstr ""
 "%s:%lu: Neplatný formát souboru %s, byl očekáván platný formát souboru nebo "
 "nic."
 
-#: ../src/utils/cue-sheet/cue-sheet.vala:121
+#: src/utils/cue-sheet/cue-sheet.vala:121
 #, c-format
 msgid "%s:%lu: Unexpected token TRACK before a FILE token."
 msgstr "%s:%lu: Neočekávaný symbol TRACK před symbolem FILE."
 
-#: ../src/utils/cue-sheet/cue-sheet.vala:130
+#: src/utils/cue-sheet/cue-sheet.vala:130
 #, c-format
 msgid "%s:%lu: Invalid track number %s, expected a number in the 1-99 range."
 msgstr ""
 "%s:%lu: Neočekávané číslo stopy %s, bylo očekáváno číslo v rozsahu 1 až 99."
 
-#: ../src/utils/cue-sheet/cue-sheet.vala:134
+#: src/utils/cue-sheet/cue-sheet.vala:134
 #, c-format
 msgid "%s:%lu: Invalid track mode %s, expected a valid track mode."
 msgstr "%s:%lu: Neplatný režim stopy %s, byl očekáván platný režim stopy."
 
-#: ../src/utils/cue-sheet/cue-sheet.vala:141
+#: src/utils/cue-sheet/cue-sheet.vala:141
 #, c-format
 msgid "%s:%lu: Unexpected end of file, expected %s."
 msgstr "%s:%lu: Neočekávaný konec soubory, byl čekáván symbol %s."
 
-#: ../src/utils/cue-sheet/cue-sheet.vala:144
+#: src/utils/cue-sheet/cue-sheet.vala:144
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected %s."
 msgstr "%s:%lu: Neočekávaný symbol %s, byl očekáván %s."
 
-#: ../src/utils/cue-sheet/cue-sheet.vala:151
+#: src/utils/cue-sheet/cue-sheet.vala:151
 #, c-format
 msgid "%s:%lu: Unexpected end of file, expected a token."
 msgstr "%s:%lu: Neočekávaný konec souboru, byl očekáván symbol."
 
-#: ../src/utils/cue-sheet/cue-sheet.vala:154
+#: src/utils/cue-sheet/cue-sheet.vala:154
 #, c-format
 msgid "%s:%lu: Unexpected end of line, expected a token."
 msgstr "%s:%lu: Neočekávaný konec řádku, byl očekáván symbol."
 
-#: ../src/utils/cue-sheet/cue-sheet.vala:177
+#: src/utils/cue-sheet/cue-sheet.vala:177
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: Neočekávaný symbol %s, byl očekáván konec řádku."
