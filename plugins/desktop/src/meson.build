@@ -4,6 +4,7 @@ vala_sources = [
   'desktop-plugin.vala',
   'desktop-title.vala',
   'desktop-tracker-uri-query.vala',
+  'desktop-uid.vala',
 ]
 
 c_args = [
