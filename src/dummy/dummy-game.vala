@@ -18,6 +18,10 @@ private class Games.DummyGame : Object, Game {
 		_name = name.strip ();
 	}
 
+	public Uid get_uid () {
+		return new DummyUid ();
+	}
+
 	public Icon get_icon () {
 		return new DummyIcon ();
 	}
