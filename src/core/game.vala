@@ -3,6 +3,7 @@
 public interface Games.Game : Object {
 	public abstract string name { get; }
 
+	public abstract Uid get_uid ();
 	public abstract Icon get_icon ();
 	public abstract Cover get_cover ();
 	public abstract Runner get_runner () throws Error;
