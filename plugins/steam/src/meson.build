@@ -7,6 +7,7 @@ vala_sources = [
   'steam-title.vala',
   'steam-uri-iterator.vala',
   'steam-uri-source.vala',
+  'steam-uid.vala',
 ]
 
 c_args = [
