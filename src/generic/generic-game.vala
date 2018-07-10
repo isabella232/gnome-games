@@ -18,16 +18,22 @@ public class Games.GenericGame : Object, Game {
 		}
 	}
 
+	private Uid game_uid;
 	private Title game_title;
 	private Icon game_icon;
 	private Cover game_cover;
 	private Runner game_runner;
 
 	public GenericGame (Uid uid, Title title, Icon icon, Cover cover, Runner runner) {
+		game_uid = uid;
 		game_title = title;
 		game_icon = icon;
 		game_cover = cover;
 		game_runner = runner;
+	}
+
+	public Uid get_uid () {
+		return game_uid;
 	}
 
 	public Icon get_icon () {
