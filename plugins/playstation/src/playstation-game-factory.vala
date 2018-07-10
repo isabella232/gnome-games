@@ -147,7 +147,7 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		var core_source = new RetroCoreSource (PLATFORM, { CUE_MIME_TYPE, PHONY_MIME_TYPE });
 		var runner = new RetroRunner.for_media_set_and_input_capabilities (core_source, media_set, uid, input_capabilities, title);
 
-		return new GenericGame (title, icon, cover, runner);
+		return new GenericGame (uid, title, icon, cover, runner);
 	}
 
 	private static GameinfoDoc get_gameinfo () throws Error {

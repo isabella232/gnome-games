@@ -34,7 +34,7 @@ private class Games.LibretroPlugin : Object, Plugin {
 		var cover = new DummyCover ();
 		var runner = new RetroRunner.for_core_descriptor (core_descriptor, uid, title);
 
-		return new GenericGame (title, icon, cover, runner);
+		return new GenericGame (uid, title, icon, cover, runner);
 	}
 }
 

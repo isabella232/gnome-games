@@ -21,6 +21,6 @@ private class Games.RetroSimpleGameUriAdapter : GameUriAdapter, Object {
 		var core_source = new RetroCoreSource (simple_type.platform, { simple_type.mime_type });
 		var runner = new RetroRunner (core_source, uri, uid, title);
 
-		return new GenericGame (title, icon, cover, runner);
+		return new GenericGame (uid, title, icon, cover, runner);
 	}
 }

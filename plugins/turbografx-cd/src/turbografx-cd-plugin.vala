@@ -33,7 +33,7 @@ private class Games.TurboGrafxCDPlugin : Object, Plugin {
 		var core_source = new RetroCoreSource (CD_PLATFORM, { CUE_MIME_TYPE, PHONY_MIME_TYPE });
 		var runner = new RetroRunner (core_source, uri, uid, title);
 
-		return new GenericGame (title, icon, cover, runner);
+		return new GenericGame (uid, title, icon, cover, runner);
 	}
 
 	private static bool is_valid_disc (Uri uri) throws Error {

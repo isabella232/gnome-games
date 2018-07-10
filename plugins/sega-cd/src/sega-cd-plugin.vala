@@ -70,7 +70,7 @@ private class Games.SegaCDPlugin : Object, Plugin {
 		var core_source = new RetroCoreSource (platform, mime_types);
 		var runner = new RetroRunner (core_source, uri, uid, title);
 
-		return new GenericGame (title, icon, cover, runner);
+		return new GenericGame (uid, title, icon, cover, runner);
 	}
 
 	private static File get_binary_file (CueSheet cue) throws Error {

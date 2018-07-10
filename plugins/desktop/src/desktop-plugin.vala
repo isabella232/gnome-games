@@ -38,6 +38,7 @@ private class Games.DesktopPlugin : Object, Plugin {
 		var path = file.get_path ();
 
 		var app_info = new DesktopAppInfo.from_filename (path);
+		var uid = new DesktopUid (app_info);
 		var title = new DesktopTitle (app_info);
 		var icon = new DesktopIcon (app_info);
 		var cover = new DummyCover ();
@@ -48,7 +49,7 @@ private class Games.DesktopPlugin : Object, Plugin {
 			throw new CommandError.INVALID_COMMAND (_("Invalid command “%s”."), command);
 		var runner = new CommandRunner (args, true);
 
-		return new GenericGame (title, icon, cover, runner);
+		return new GenericGame (uid, title, icon, cover, runner);
 	}
 
 	private static void check_uri (Uri uri) throws Error {

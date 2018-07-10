@@ -54,7 +54,7 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 		var core_source = new RetroCoreSource (PLATFORM, { CUE_MIME_TYPE, SEGA_SATURN_MIME_TYPE });
 		var runner = new RetroRunner (core_source, uri, uid, title);
 
-		return new GenericGame (title, icon, cover, runner);
+		return new GenericGame (uid, title, icon, cover, runner);
 	}
 
 	private static File get_binary_file (CueSheet cue) throws Error {

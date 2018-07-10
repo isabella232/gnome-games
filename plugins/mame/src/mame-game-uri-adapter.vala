@@ -32,6 +32,6 @@ private class Games.MameGameUriAdapter : GameUriAdapter, Object {
 		Idle.add (this.game_for_uri.callback);
 		yield;
 
-		return new GenericGame (title, icon, cover, runner);
+		return new GenericGame (uid, title, icon, cover, runner);
 	}
 }
