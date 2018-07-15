@@ -1,5 +1,5 @@
 {
-    "app-id" : "org.gnome.Games",
+    "app-id" : "org.gnome.GamesDevel",
     "runtime" : "org.gnome.Platform",
     "runtime-version" : "master",
     "sdk" : "org.gnome.Sdk",
@@ -203,6 +203,9 @@
             "name" : "gnome-games",
             "buildsystem" : "meson",
             "builddir" : true,
+            "config-opts" : [
+                "-Dprofile=development"
+            ],
             "post-install" : [
                 "mkdir -p /app/lib/libretro/extra.d"
             ],
