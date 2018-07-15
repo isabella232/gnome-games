@@ -136,6 +136,9 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		inhibit_flags = 0;
 
 		set_show_menubar (false); // Essential, see bug #771683
+
+		if (Config.PROFILE == "Devel")
+			get_style_context ().add_class ("devel");
 	}
 
 	public void run_game (Game game) {

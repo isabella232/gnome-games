@@ -12,3 +12,21 @@ gamesgamethumbnail {
 	border-color: @theme_bg_color;
 	color: @theme_fg_color;
 }
+
+.devel headerbar {
+	background: -gtk-icontheme("system-run-symbolic") right 0/350px 64px no-repeat,
+	            linear-gradient(to left, rgba (165, 177, 189, 0.5) 0,
+	                                     rgba (165, 177, 189, 0.5) 200px,
+	                                     rgba (  0,   0,   0,   0) 400px),
+	            @theme_bg_color;
+	border-color: @borders;
+}
+
+.devel headerbar:backdrop {
+	background: -gtk-icontheme("system-run-symbolic") right 0/350px 64px no-repeat,
+	            linear-gradient(to left, rgba (165, 177, 189, 0.3) 0,
+	                                     rgba (165, 177, 189, 0.3) 200px,
+	                                     rgba (  0,   0,   0,   0) 400px),
+	            @theme_unfocused_bg_color;
+	border-color: @unfocused_borders;
+}
