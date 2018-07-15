@@ -8,9 +8,16 @@ project('gnome-games',
 if get_option('profile') == 'development'
   profile = 'Devel'
   name_suffix = ' (Development)'
+  vcs_tag = run_command('git', 'rev-parse', '--short', 'HEAD').stdout().strip()
+  if vcs_tag == ''
+    version_suffix = '-devel'
+  else
+    version_suffix = '-@0@'.format (vcs_tag)
+  endif
 else
   profile = ''
   name_suffix = ''
+  version_suffix = ''
 endif
 
 application_id = 'org.gnome.Games@0@'.format(profile)
@@ -55,7 +62,7 @@ config_h.set_quoted ('NAME_SUFFIX', name_suffix)
 config_h.set_quoted ('OPTIONS_DIR', options_dir)
 config_h.set_quoted ('PLUGINS_DIR', plugins_dir)
 config_h.set_quoted ('PROFILE', profile)
-config_h.set_quoted ('VERSION', meson.project_version ())
+config_h.set_quoted ('VERSION', '@0@@1@'.format (meson.project_version (), version_suffix))
 
 configure_file (output: 'config.h', configuration: config_h)
 
