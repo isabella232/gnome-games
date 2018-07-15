@@ -5,9 +5,11 @@
     "sdk" : "org.gnome.Sdk",
     "command" : "gnome-games",
     "tags" : [
+        "devel",
+        "development",
         "nightly"
     ],
-    "desktop-file-name-prefix" : "(Nightly) ",
+    "desktop-file-name-suffix" : " (Development)",
     "finish-args" : [
         /* Extension point */
         "--extension=org.gnome.Games.LibretroPlugin=directory=lib/libretro/extra.d",
