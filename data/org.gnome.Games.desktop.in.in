@@ -6,7 +6,7 @@ Comment=View and play your video games collection
 Keywords=game;videogame;video game;player;
 Exec=gnome-games %U
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-Icon=org.gnome.Games
+Icon=@icon@
 Terminal=false
 Type=Application
 StartupNotify=true

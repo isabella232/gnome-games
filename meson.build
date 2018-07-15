@@ -5,6 +5,16 @@ project('gnome-games',
   meson_version: '>= 0.46.1'
 )
 
+if get_option('profile') == 'development'
+  profile = 'Devel'
+  name_suffix = ' (Development)'
+else
+  profile = ''
+  name_suffix = ''
+endif
+
+application_id = 'org.gnome.Games@0@'.format(profile)
+
 gnome = import ('gnome')
 i18n = import('i18n')
 
@@ -38,10 +48,13 @@ options_dir = join_paths (datadir, meson.project_name(), 'options')
 plugins_dir = join_paths (libdir, meson.project_name(), 'plugins')
 
 config_h = configuration_data ()
+config_h.set_quoted ('APPLICATION_ID', application_id)
 config_h.set_quoted ('GETTEXT_PACKAGE', meson.project_name ())
 config_h.set_quoted ('GNOMELOCALEDIR', localedir)
+config_h.set_quoted ('NAME_SUFFIX', name_suffix)
 config_h.set_quoted ('OPTIONS_DIR', options_dir)
 config_h.set_quoted ('PLUGINS_DIR', plugins_dir)
+config_h.set_quoted ('PROFILE', profile)
 config_h.set_quoted ('VERSION', meson.project_version ())
 
 configure_file (output: 'config.h', configuration: config_h)

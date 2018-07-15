@@ -1,3 +1,13 @@
+option (
+  'profile',
+  type: 'combo',
+  choices: [
+    'default',
+    'development'
+  ],
+  value: 'default'
+)
+
 # Plugins
 # This must mirror the list in plugins/meson.build
 option ('desktop-plugin',       description: 'Support for desktop games',       type: 'boolean')

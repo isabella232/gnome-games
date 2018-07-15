@@ -13,16 +13,16 @@ public class Games.Application : Gtk.Application {
 	private GameCollection game_collection;
 
 	internal Application () {
-		Object (application_id: "org.gnome.Games",
+		Object (application_id: Config.APPLICATION_ID,
 		        flags: ApplicationFlags.HANDLES_OPEN);
 	}
 
 	construct {
 		Environment.set_prgname ("gnome-games");
 		Environment.set_application_name (_("Games"));
-		Gtk.Window.set_default_icon_name ("org.gnome.Games");
+		Gtk.Window.set_default_icon_name (Config.APPLICATION_ID);
 		Environment.set_variable ("PULSE_PROP_media.role", "game", true);
-		Environment.set_variable ("PULSE_PROP_application.icon_name", "org.gnome.Games", true);
+		Environment.set_variable ("PULSE_PROP_application.icon_name", Config.APPLICATION_ID, true);
 
 		add_actions ();
 		add_signal_handlers ();
@@ -351,8 +351,8 @@ public class Games.Application : Gtk.Application {
 		dialog.set_transient_for (window);
 		dialog.set_modal (true);
 
-		dialog.program_name = _("GNOME Games");
-		dialog.logo_icon_name = "org.gnome.Games";
+		dialog.program_name = _("GNOME Games") + Config.NAME_SUFFIX;
+		dialog.logo_icon_name = Config.APPLICATION_ID;
 		dialog.comments = _("A video game player for GNOME");
 		dialog.version = Config.VERSION;
 
