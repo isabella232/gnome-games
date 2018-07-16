@@ -19,10 +19,22 @@ private class Games.GameIconView : Gtk.Box {
 		}
 	}
 
+	public int size {
+		set {
+			thumbnail.width_request = value;
+			thumbnail.height_request = value;
+			title.width_request = value;
+			subtitle.width_request = value;
+		}
+		default = 256;
+	}
+
 	[GtkChild]
 	private GameThumbnail thumbnail;
 	[GtkChild]
 	private Gtk.Label title;
+	[GtkChild]
+	private Gtk.Label subtitle;
 
 	public GameIconView (Game game) {
 		this.game = game;
