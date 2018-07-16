@@ -4,6 +4,7 @@
   <template class="GamesCollectionIconView" parent="GtkStack">
     <property name="visible">True</property>
     <property name="can-focus">False</property>
+    <signal name="size-allocate" after="no" handler="on_size_allocate"/>
     <child>
       <object class="GamesEmptyCollection" id="empty_collection">
         <property name="visible">True</property>

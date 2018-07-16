@@ -42,6 +42,9 @@ private class Games.CollectionIconView : Gtk.Stack {
 	[GtkChild]
 	private Gtk.FlowBox flow_box;
 
+	// Current size used by the thumbnails.
+	private int game_view_size;
+
 	static construct {
 		set_css_name ("gamescollectioniconview");
 	}
@@ -80,6 +83,7 @@ private class Games.CollectionIconView : Gtk.Stack {
 		var child = new Gtk.FlowBoxChild ();
 
 		game_view.visible = true;
+		game_view.size = game_view_size;
 		child.visible = true;
 
 		child.add (game_view);
@@ -133,4 +137,34 @@ private class Games.CollectionIconView : Gtk.Stack {
 			set_visible_child (scrolled_window);
 	}
 
+	[GtkCallback]
+	private void on_size_allocate (Gtk.Allocation allocation) {
+		// If the window's width is less than half the width of a 1920×1080
+		// screen, display the game thumbnails at half the size to see more of
+		// them rather than a few huge thumbnails, making Games more usable on
+		// small screens.
+		if (allocation.width < 960)
+			set_size (128);
+		else
+			set_size (256);
+	}
+
+	private void set_size (int size) {
+		if (game_view_size == size)
+			return;
+
+		game_view_size = size;
+
+		flow_box.forall ((child) => {
+			var flow_box_child = child as Gtk.FlowBoxChild;
+
+			assert (flow_box_child != null);
+
+			var game_view = flow_box_child.get_child () as GameIconView;
+
+			assert (game_view != null);
+
+			game_view.size = size;
+		});
+	}
 }
