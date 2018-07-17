@@ -1,7 +1,7 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
-data/org.gnome.Games.appdata.xml.in
-data/org.gnome.Games.desktop.in
+data/org.gnome.Games.appdata.xml.in.in
+data/org.gnome.Games.desktop.in.in
 data/org.gnome.Games.gschema.xml
 data/ui/collection-box.ui
 data/ui/collection-header-bar.ui
