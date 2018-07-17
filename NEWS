@@ -1,4 +1,61 @@
 ==============
+Version 3.29.4
+==============
+
+* Build:
+ - Replace the Autotools by Meson.
+ - Replace intltool for gettext.
+ - Replace the update-gameinfo build target by the update-gameinfo.sh
+   script.
+ - Add a development profile, settable by passing the
+   `-Dprofile=development` parameter to Meson. This profile makes it
+   clear the application is a development version by appending
+   ` (Development)` to the application name, by appending `Devel` to the
+   application ID, by changing the style of the header bar and by
+   appending the commit tag or `-devel` to the version number.
+
+* UI:
+ - Allow to set the keyboard to gamepad mapping from the preferences
+   Controllers page.
+ - Make searching for local covers less greedy and asynchronous,
+   speeding up the loading time of the collection.
+ - Move the application menu to the collection view's header bar.
+ - Add the Help application menu entry, opening Games' documentation on
+   the GNOME wiki.
+ - Add the Shortcuts application menu entry displaying a shortcuts
+   window.
+ - Display small thumbnails if the window is narrow to display more of
+   games.
+ - Correctly update the selected media number on the media selector.
+ - Drop the shadow in the collection view's scrolled window.
+
+* Libretro backend:
+ - Add support for .options keyfiles listing options to be set on a
+   Libretro core at initialization time.
+ - Add predefined options for DeSmuME and DeSmuME 2015.
+
+* Supported games:
+ - Add support for Virtual Boy games.
+ - Use a dedicated MIME type for Neo Geo Pocket Color instead of the Neo
+   Geo Pocket one.
+ - Use a phony TurboGrafx-CD MIME type to fetch information from Grilo.
+
+* Allow to read cue sheets in other formats than UTF-8, avoiding the
+  application to crash when parsing a file in UTF-16 or other encoding.
+
+* Update the authors lists.
+
+* Update the appdata to the latest specifications, OARS metadata and
+  update gitlab links.
+
+* Translation updates:
+ Brazilian Portuguese
+ Catalan
+ Czech
+ Polish
+ Spanish
+
+==============
 Version 3.29.1
 ==============
 
