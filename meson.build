@@ -30,7 +30,7 @@ valac = meson.get_compiler ('vala')
 
 glib_min_version = '2.38'
 manette_min_version = '0.2.0'
-retro_gtk_min_version = '0.13.2'
+retro_gtk_min_version = '0.15.3'
 
 gio_dep = dependency ('gio-2.0', version: '>=' + glib_min_version)
 glib_dep = dependency ('glib-2.0', version: '>=' + glib_min_version)
