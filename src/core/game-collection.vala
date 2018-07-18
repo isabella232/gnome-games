@@ -72,15 +72,6 @@ private class Games.GameCollection : Object {
 				yield add_uri (uri);
 	}
 
-	public async void each_game (GameCallback callback) {
-		foreach (var source in sources)
-			foreach (var uri in source)
-				yield add_uri (uri);
-
-		foreach (var factory in factories)
-			yield factory.foreach_game (callback);
-	}
-
 	private async UriGameFactory[] get_factories_for_uri (Uri uri) {
 		Idle.add (get_factories_for_uri.callback);
 		yield;
