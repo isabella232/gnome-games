@@ -14,8 +14,13 @@ private class Games.KeyboardMappingManager : Object {
 		var config_dir = Application.get_config_dir ();
 		var path = Path.build_filename (config_dir, MAPPING_FILE_NAME);
 		mapping_file = File.new_for_path (path);
-		mapping_monitor = mapping_file.monitor (FileMonitorFlags.NONE, null);
-		mapping_monitor.changed.connect (load_mapping);
+		try {
+			mapping_monitor = mapping_file.monitor (FileMonitorFlags.NONE, null);
+			mapping_monitor.changed.connect (load_mapping);
+		}
+		catch (Error e) {
+			critical (e.message);
+		}
 
 		load_mapping ();
 	}
@@ -31,12 +36,26 @@ private class Games.KeyboardMappingManager : Object {
 
 		mapping = new Retro.KeyJoypadMapping ();
 		var mapping_key_file = new KeyFile ();
-		mapping_key_file.load_from_file (mapping_file.get_path (), KeyFileFlags.NONE);
+		try {
+			mapping_key_file.load_from_file (mapping_file.get_path (), KeyFileFlags.NONE);
+		}
+		catch (Error e) {
+			critical (e.message);
+			changed ();
+
+			return;
+		}
+
 		var enumc = (EnumClass) typeof (Retro.JoypadId).class_ref ();
 		for (int i = 0; enumc.values[i].value < Retro.JoypadId.COUNT; ++i) {
 			var button = enumc.values[i].value_nick;
-			var key = mapping_key_file.get_integer (GROUP_NAME, button);
-			mapping.set_button_key ((Retro.JoypadId) enumc.values[i].value, (uint16) key);
+			try {
+				var key = mapping_key_file.get_integer (GROUP_NAME, button);
+				mapping.set_button_key ((Retro.JoypadId) enumc.values[i].value, (uint16) key);
+			}
+			catch (Error e) {
+				critical (e.message);
+			}
 		}
 
 		changed ();
@@ -58,13 +77,23 @@ private class Games.KeyboardMappingManager : Object {
 			mapping_key_file.set_integer (GROUP_NAME, button, key);
 		}
 
-		mapping_key_file.save_to_file (mapping_file.get_path ());
+		try {
+			mapping_key_file.save_to_file (mapping_file.get_path ());
+		}
+		catch (Error e) {
+			critical (e.message);
+		}
 	}
 
 	public void delete_mapping () {
 		if (!mapping_file.query_exists ())
 			return;
 
-		mapping_file.delete ();
+		try {
+			mapping_file.delete ();
+		}
+		catch (Error e) {
+			critical (e.message);
+		}
 	}
 }
