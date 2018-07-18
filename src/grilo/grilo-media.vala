@@ -31,7 +31,12 @@ public class Games.GriloMedia : Object {
 		source_list.foreach ((entry) => {
 			var tags = entry.get_tags ();
 			if (!(SOURCE_TAG in tags))
-				registry.unregister_source (entry);
+				try {
+					registry.unregister_source (entry);
+				}
+				catch (Error e) {
+					critical (e.message);
+				}
 		});
 
 		return registry;
