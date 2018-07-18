@@ -105,10 +105,10 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 		int width, height;
 		settings.get ("window-size", "(ii)", out width, out height);
-		Gdk.Screen? screen = get_screen ();
-		if (screen != null) {
-			width = int.min (width, screen.get_width ());
-			height = int.min (height, screen.get_height ());
+		var geometry = get_geometry ();
+		if (geometry != null) {
+			width = int.min (width, geometry.width);
+			height = int.min (height, geometry.height);
 		}
 		resize (width, height);
 
@@ -422,9 +422,25 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		update_pause (true);
 	}
 
+	private Gdk.Rectangle? get_geometry () {
+		var display = get_display ();
+		if (display == null)
+			return null;
+
+		var window = get_window ();
+		if (window == null)
+			return null;
+
+		var monitor = display.get_monitor_at_window (window);
+		if (monitor == null)
+			return null;
+
+		return monitor.get_geometry ();
+	}
+
 	private bool store_window_size () {
-		Gdk.Screen? screen = get_screen ();
-		if (screen == null)
+		var geometry = get_geometry();
+		if (geometry == null)
 			return false;
 
 		int width = 0;
@@ -432,8 +448,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 		get_size (out width, out height);
 
-		width = int.min (width, screen.get_width ());
-		height = int.min (height, screen.get_height ());
+		width = int.min (width, geometry.width);
+		height = int.min (height, geometry.height);
 
 		settings.set ("window-size", "(ii)", width, height);
 
