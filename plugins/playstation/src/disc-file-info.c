@@ -19,14 +19,6 @@ games_disc_file_info_is_valid (const GamesDiscFileInfo *file_info)
   return file_info->length >= MAGIC_SIZE + file_info->name_length;
 }
 
-static gchar *
-games_disc_file_info_get_name (GamesDiscFileInfo *file_info)
-{
-  g_return_val_if_fail (file_info != NULL, NULL);
-
-  return g_strndup (games_disc_file_info_access_name (file_info), file_info->name_length);
-}
-
 static GamesDiscFileInfo *
 games_disc_file_info_get_next (const GamesDiscFileInfo *file_info)
 {
@@ -63,7 +55,6 @@ games_disc_file_info_foreach_file (GamesDiscFileInfo                *file_info,
                                    gpointer                          user_data)
 {
   GamesDiscFileInfo *current;
-  GamesDiscFileInfo *next;
 
   g_return_if_fail (file_info != NULL);
 

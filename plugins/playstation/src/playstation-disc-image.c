@@ -24,7 +24,6 @@ games_disc_image_get_playstation_info (GamesDiscImage            *disc,
   GamesDiscImageTime time;
   guchar mdir[4096];
   gchar exe_buffer[256];
-  gint i, len, c;
   gchar *ptr;
   GamesDiscFrame frame;
   gboolean success;
