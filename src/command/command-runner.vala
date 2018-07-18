@@ -26,8 +26,11 @@ public class Games.CommandRunner : Object, Runner {
 	}
 
 	public bool check_is_valid (out string error_message) throws Error {
-		if (args.length > 0)
+		if (args.length > 0) {
+			error_message = "";
+
 			return true;
+		}
 
 		debug ("Invalid command: it doesn’t have any argument.");
 		error_message = _("The game doesn’t have a valid command.");

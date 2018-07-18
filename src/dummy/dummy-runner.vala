@@ -18,6 +18,8 @@ private class Games.DummyRunner : Object, Runner {
 	}
 
 	public bool check_is_valid (out string error_message) throws Error {
+		error_message = "";
+
 		return true;
 	}
 

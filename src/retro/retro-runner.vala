@@ -140,6 +140,8 @@ public class Games.RetroRunner : Object, Runner {
 			return false;
 		}
 
+		error_message = "";
+
 		return true;
 	}
 
