@@ -11,7 +11,7 @@ private class Games.GameCollection : Object {
 	private HashTable<string, Array<UriGameFactory>> factories_for_scheme;
 
 	construct {
-		games = new GenericSet<Game> (direct_hash, direct_equal);
+		games = new GenericSet<Game> (Game.hash, Game.equal);
 		list_store = new ListStore (typeof (Game));
 		factories_for_mime_type = new HashTable<string, Array<UriGameFactory>> (str_hash, str_equal);
 		factories_for_scheme = new HashTable<string, Array<UriGameFactory>> (str_hash, str_equal);
