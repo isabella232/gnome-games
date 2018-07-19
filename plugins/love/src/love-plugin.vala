@@ -22,14 +22,14 @@ private class Games.LovePlugin : Object, Plugin {
 		var title = new LoveTitle (package);
 		var icon = new LoveIcon (package);
 		var cover = new LocalCover (uri);
-		var release_date = new DummyReleaseDate ();
-		var cooperative = new DummyCooperative ();
-		var genre = new DummyGenre ();
-		var players = new DummyPlayers ();
 		string[] args = { "love", uri.to_string () };
 		var runner = new CommandRunner (args, true);
 
-		return new GenericGame (uid, title, icon, cover, release_date, cooperative, genre, players, runner);
+		var game = new GenericGame (uid, title, runner);
+		game.set_icon (icon);
+		game.set_cover (cover);
+
+		return game;
 	}
 }
 

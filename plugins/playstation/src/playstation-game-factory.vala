@@ -138,7 +138,6 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 			new GameinfoDiscIdGameTitle (gameinfo, disc_set_id),
 			new FilenameTitle (uri)
 		});
-		var icon = new DummyIcon ();
 		var media = new GriloMedia (title, PHONY_MIME_TYPE);
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
@@ -151,7 +150,14 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		var core_source = new RetroCoreSource (PLATFORM, { CUE_MIME_TYPE, PHONY_MIME_TYPE });
 		var runner = new RetroRunner.for_media_set_and_input_capabilities (core_source, media_set, uid, input_capabilities, title);
 
-		return new GenericGame (uid, title, icon, cover, release_date, cooperative, genre, players, runner);
+		var game = new GenericGame (uid, title, runner);
+		game.set_cover (cover);
+		game.set_release_date (release_date);
+		game.set_cooperative (cooperative);
+		game.set_genre (genre);
+		game.set_players (players);
+
+		return game;
 	}
 
 	private static GameinfoDoc get_gameinfo () throws Error {

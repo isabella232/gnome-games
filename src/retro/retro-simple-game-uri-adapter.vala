@@ -13,7 +13,6 @@ private class Games.RetroSimpleGameUriAdapter : GameUriAdapter, Object {
 
 		var uid = new FingerprintUid (uri, simple_type.prefix);
 		var title = new FilenameTitle (uri);
-		var icon = new DummyIcon ();
 		var media = new GriloMedia (title, simple_type.mime_type);
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
@@ -25,6 +24,13 @@ private class Games.RetroSimpleGameUriAdapter : GameUriAdapter, Object {
 		var core_source = new RetroCoreSource (simple_type.platform, { simple_type.mime_type });
 		var runner = new RetroRunner (core_source, uri, uid, title);
 
-		return new GenericGame (uid, title, icon, cover, release_date, cooperative, genre, players, runner);
+		var game = new GenericGame (uid, title, runner);
+		game.set_cover (cover);
+		game.set_release_date (release_date);
+		game.set_cooperative (cooperative);
+		game.set_genre (genre);
+		game.set_players (players);
+
+		return game;
 	}
 }

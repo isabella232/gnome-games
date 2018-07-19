@@ -41,11 +41,6 @@ private class Games.DesktopPlugin : Object, Plugin {
 		var uid = new DesktopUid (app_info);
 		var title = new DesktopTitle (app_info);
 		var icon = new DesktopIcon (app_info);
-		var cover = new DummyCover ();
-		var release_date = new DummyReleaseDate ();
-		var cooperative = new DummyCooperative ();
-		var genre = new DummyGenre ();
-		var players = new DummyPlayers ();
 
 		string[] args;
 		var command = app_info.get_commandline ();
@@ -53,7 +48,10 @@ private class Games.DesktopPlugin : Object, Plugin {
 			throw new CommandError.INVALID_COMMAND (_("Invalid command “%s”."), command);
 		var runner = new CommandRunner (args, true);
 
-		return new GenericGame (uid, title, icon, cover, release_date, cooperative, genre, players, runner);
+		var game = new GenericGame (uid, title, runner);
+		game.set_icon (icon);
+
+		return game;
 	}
 
 	private static void check_uri (Uri uri) throws Error {

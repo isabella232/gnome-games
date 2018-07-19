@@ -62,7 +62,6 @@ private class Games.SegaCDPlugin : Object, Plugin {
 		var header_offset = header.get_offset ();
 		var uid = new FingerprintUid.for_chunk (bin_uri, SEGA_CD_PREFIX, header_offset, SegaCDHeader.HEADER_LENGTH);
 		var title = new FilenameTitle (uri);
-		var icon = new DummyIcon ();
 		var media = new GriloMedia (title, SEGA_CD_MIME_TYPE);
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
@@ -74,7 +73,14 @@ private class Games.SegaCDPlugin : Object, Plugin {
 		var core_source = new RetroCoreSource (platform, mime_types);
 		var runner = new RetroRunner (core_source, uri, uid, title);
 
-		return new GenericGame (uid, title, icon, cover, release_date, cooperative, genre, players, runner);
+		var game = new GenericGame (uid, title, runner);
+		game.set_cover (cover);
+		game.set_release_date (release_date);
+		game.set_cooperative (cooperative);
+		game.set_genre (genre);
+		game.set_players (players);
+
+		return game;
 	}
 
 	private static File get_binary_file (CueSheet cue) throws Error {

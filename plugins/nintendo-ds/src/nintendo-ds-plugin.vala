@@ -32,7 +32,15 @@ private class Games.NintendoDsPlugin : Object, Plugin {
 		var core_source = new RetroCoreSource (PLATFORM, { MIME_TYPE });
 		var runner = new RetroRunner (core_source, uri, uid, title);
 
-		return new GenericGame (uid, title, icon, cover, release_date, cooperative, genre, players, runner);
+		var game = new GenericGame (uid, title, runner);
+		game.set_icon (icon);
+		game.set_cover (cover);
+		game.set_release_date (release_date);
+		game.set_cooperative (cooperative);
+		game.set_genre (genre);
+		game.set_players (players);
+
+		return game;
 	}
 }
 
