@@ -14,7 +14,7 @@ vala_sources = [
   'command/command-error.vala',
   'command/command-runner.vala',
 
-  'core/coop.vala',
+  'core/cooperative.vala',
   'core/cover.vala',
   'core/game.vala',
   'core/game-callback.vala',
@@ -45,7 +45,7 @@ vala_sources = [
   'database/database-uri-iterator.vala',
   'database/database-uri-source.vala',
 
-  'dummy/dummy-coop.vala',
+  'dummy/dummy-cooperative.vala',
   'dummy/dummy-cover.vala',
   'dummy/dummy-game.vala',
   'dummy/dummy-genre.vala',
@@ -65,7 +65,7 @@ vala_sources = [
   'gamepad/gamepad-input.vala',
   'gamepad/gamepad-mapping-builder.vala',
 
-  'generic/generic-coop.vala',
+  'generic/generic-cooperative.vala',
   'generic/generic-game.vala',
   'generic/generic-game-uri-adapter.vala',
   'generic/generic-genre.vala',
@@ -75,7 +75,7 @@ vala_sources = [
   'generic/generic-uid.vala',
   'generic/generic-uri-game-factory.vala',
 
-  'grilo/grilo-coop.vala',
+  'grilo/grilo-cooperative.vala',
   'grilo/grilo-cover.vala',
   'grilo/grilo-genre.vala',
   'grilo/grilo-media.vala',
