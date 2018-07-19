@@ -45,27 +45,69 @@ public class Games.GenericGame : Object, Game {
 	}
 
 	public Icon get_icon () {
+		if (game_icon == null)
+			game_icon = new DummyIcon ();
+
 		return game_icon;
 	}
 
+	public void set_icon (Icon icon) {
+		game_icon = icon;
+	}
+
 	public Cover get_cover () {
+		if (game_cover == null)
+			game_cover = new DummyCover ();
+
 		return game_cover;
 	}
 
+	public void set_cover (Cover cover) {
+		game_cover = cover;
+	}
+
 	public ReleaseDate get_release_date () {
+		if (game_release_date == null)
+			game_release_date = new DummyReleaseDate ();
+
 		return game_release_date;
 	}
 
+	public void set_release_date (ReleaseDate release_date) {
+		game_release_date = release_date;
+	}
+
 	public Cooperative get_cooperative () {
+		if (game_cooperative == null)
+			game_cooperative = new DummyCooperative ();
+
 		return game_cooperative;
 	}
 
+	public void set_cooperative (Cooperative cooperative) {
+		game_cooperative = cooperative;
+	}
+
 	public Genre get_genre () {
+		if (game_genre == null)
+			game_genre = new DummyGenre ();
+
 		return game_genre;
 	}
 
+	public void set_genre (Genre genre) {
+		game_genre = genre;
+	}
+
 	public Players get_players () {
+		if (game_players == null)
+			game_players = new DummyPlayers ();
+
 		return game_players;
+	}
+
+	public void set_players (Players players) {
+		game_players = players;
 	}
 
 	public Runner get_runner () throws Error {
