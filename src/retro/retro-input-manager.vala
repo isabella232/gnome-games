@@ -46,6 +46,15 @@ private class Games.RetroInputManager : Object {
 		monitor.device_connected.connect (on_device_connected);
 	}
 
+	~RetroInputManager () {
+		// Break the reference cycle between the core and its view by unsetting
+		// all the references of the view we gave to the core.
+		core.set_keyboard (null);
+		core.set_controller (core_view_joypad_port, null);
+		for (int port = 0; port < controllers.length; port++)
+			core.set_controller (port, null);
+	}
+
 	private void on_keyboard_mapping_manager_changed () {
 		view.set_key_joypad_mapping (keyboard_mapping_manager.mapping);
 	}
