@@ -6,6 +6,8 @@ private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 	public bool immersive_mode { protected set; get; }
 
 	[GtkChild]
+	private Gtk.Frame gamepads_frame;
+	[GtkChild]
 	private Gtk.ListBox gamepads_list_box;
 	[GtkChild]
 	private Gtk.ListBox keyboard_list_box;
@@ -52,6 +54,7 @@ private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 			box.show_all ();
 			gamepads_list_box.add (box);
 		};
+		gamepads_frame.visible = i > 0;
 	}
 
 	private void clear_gamepad_list () {
