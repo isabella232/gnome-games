@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2018-06-29 15:10+0000\n"
-"PO-Revision-Date: 2018-07-01 19:05+0200\n"
+"POT-Creation-Date: 2018-07-22 14:30+0000\n"
+"PO-Revision-Date: 2018-07-22 19:22+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -19,17 +19,17 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: data/org.gnome.Games.appdata.xml.in:6 data/org.gnome.Games.desktop.in:3
-#: data/ui/collection-header-bar.ui:7 data/ui/display-header-bar.ui:7
-#: src/ui/application.vala:24
+#: data/org.gnome.Games.appdata.xml.in.in:6
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-header-bar.ui:7
+#: data/ui/display-header-bar.ui:7 src/ui/application.vala:22
 msgid "Games"
 msgstr "Gry"
 
-#: data/org.gnome.Games.appdata.xml.in:7
+#: data/org.gnome.Games.appdata.xml.in.in:7
 msgid "Simple game launcher for GNOME"
 msgstr "Proste uruchamianie gier w środowisku GNOME"
 
-#: data/org.gnome.Games.appdata.xml.in:10
+#: data/org.gnome.Games.appdata.xml.in.in:10
 msgid ""
 "Games is a GNOME 3 application to browse your video games library and to "
 "easily pick and play a game from it. It aims to do for games what Music "
@@ -39,7 +39,7 @@ msgstr ""
 "i szybkie ich uruchamianie — podobnie jak Odtwarzacz muzyki GNOME umożliwia "
 "przeglądanie i odtwarzanie kolekcji muzyki."
 
-#: data/org.gnome.Games.appdata.xml.in:15
+#: data/org.gnome.Games.appdata.xml.in.in:15
 msgid ""
 "You want to install Games if you just want a very simple and comfortable way "
 "to play your games and you don’t need advanced features such as speedrunning "
@@ -49,36 +49,36 @@ msgstr ""
 "na uruchamianie gier bez specjalnych wodotrysków, takich jak narzędzia "
 "wspomagające speedrunning lub narzędzia dla programistów gier."
 
-#: data/org.gnome.Games.appdata.xml.in:20
+#: data/org.gnome.Games.appdata.xml.in.in:20
 msgid "Features:"
 msgstr "Funkcje:"
 
-#: data/org.gnome.Games.appdata.xml.in:22
+#: data/org.gnome.Games.appdata.xml.in.in:22
 msgid "List your installed games, your Steam games, your game ROMs…"
 msgstr "Lista zainstalowanych gier, gier na platformie Steam, ROM-ów itp."
 
-#: data/org.gnome.Games.appdata.xml.in:23
+#: data/org.gnome.Games.appdata.xml.in.in:23
 msgid "Search in your games collection"
 msgstr "Wyszukiwanie w kolekcji gier"
 
-#: data/org.gnome.Games.appdata.xml.in:24
+#: data/org.gnome.Games.appdata.xml.in.in:24
 msgid "Play your games"
 msgstr "Uruchamianie gier"
 
-#: data/org.gnome.Games.appdata.xml.in:25
+#: data/org.gnome.Games.appdata.xml.in.in:25
 msgid "Resume your game to where you left it"
 msgstr "Wstrzymywanie i wznawianie gier"
 
-#: data/org.gnome.Games.desktop.in:4
+#: data/org.gnome.Games.desktop.in.in:4
 msgid "Video game player"
 msgstr "Przeglądarka gier"
 
-#: data/org.gnome.Games.desktop.in:5
+#: data/org.gnome.Games.desktop.in.in:5
 msgid "View and play your video games collection"
 msgstr "Przeglądanie i uruchamianie gier z kolekcji"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
-#: data/org.gnome.Games.desktop.in:7
+#: data/org.gnome.Games.desktop.in.in:7
 msgid "game;videogame;video game;player;"
 msgstr ""
 "gra;gra komputerowa;gra wideo;konsola;konsole;emulacja;steam;3ds;advance;"
@@ -88,9 +88,9 @@ msgstr ""
 "sega;sg-1000;snes;sony;turbografx;vita;wii;wii u;wiiu;wiiware;"
 
 #. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.Games.desktop.in:10
-msgid "org.gnome.Games"
-msgstr "org.gnome.Games"
+#: data/org.gnome.Games.desktop.in.in:10
+msgid "@icon@"
+msgstr "@icon@"
 
 #: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:44
 msgid "Fullscreen"
@@ -183,11 +183,11 @@ msgstr "Jeśli to jest widoczne, to wystąpił błąd."
 msgid "Please contact the developers."
 msgstr "Prosimy skontaktować się z programistami."
 
-#: data/ui/empty-collection.ui:38
+#: data/ui/empty-collection.ui:37
 msgid "No games found"
 msgstr "Brak gier"
 
-#: data/ui/empty-collection.ui:58
+#: data/ui/empty-collection.ui:57
 msgid ""
 "Install games or add directories containing games to your search sources."
 msgstr ""
@@ -222,16 +222,16 @@ msgstr "Przywróć"
 msgid "Media"
 msgstr "Nośnik"
 
-#: data/ui/preferences-page-controllers.ui:57
+#: data/ui/preferences-page-controllers.ui:52
 msgid "Gamepads"
 msgstr "Kontrolery"
 
-#: data/ui/preferences-page-controllers.ui:92
-#: src/ui/preferences-page-controllers.vala:89
+#: data/ui/preferences-page-controllers.ui:82
+#: src/ui/preferences-page-controllers.vala:92
 msgid "Keyboard"
 msgstr "Klawiatura"
 
-#: data/ui/preferences-page-controllers.ui:112 data/ui/preferences-window.ui:85
+#: data/ui/preferences-page-controllers.ui:102 data/ui/preferences-window.ui:85
 msgid "Controllers"
 msgstr "Kontrolery"
 
@@ -243,11 +243,11 @@ msgstr "Wtyczki"
 msgid "Extensions"
 msgstr "Rozszerzenia"
 
-#: data/ui/preferences-page-video.ui:40
+#: data/ui/preferences-page-video.ui:35
 msgid "Filter"
 msgstr "Filtr"
 
-#: data/ui/preferences-page-video.ui:55 data/ui/preferences-window.ui:76
+#: data/ui/preferences-page-video.ui:50 data/ui/preferences-window.ui:76
 msgid "Video"
 msgstr "Obraz"
 
@@ -360,37 +360,37 @@ msgstr "Dołącz do nas!"
 msgid "Invalid command “%s”."
 msgstr "Nieprawidłowe polecenie „%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:58
+#: plugins/desktop/src/desktop-plugin.vala:61
 #, c-format
 msgid "Tracker listed file not found: “%s”."
 msgstr "Nie odnaleziono pliku: „%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:64
+#: plugins/desktop/src/desktop-plugin.vala:67
 #, c-format
 msgid "Couldn’t parse desktop entry “%s”."
 msgstr "Nie można przetworzyć wpisu .desktop: „%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:74
+#: plugins/desktop/src/desktop-plugin.vala:77
 #, c-format
 msgid "“%s” shouldn’t be displayed."
 msgstr "Gra „%s” nie powinna być wyświetlana."
 
-#: plugins/desktop/src/desktop-plugin.vala:77
+#: plugins/desktop/src/desktop-plugin.vala:80
 #, c-format
 msgid "“%s” is hidden."
 msgstr "Gra „%s” jest ukryta."
 
-#: plugins/desktop/src/desktop-plugin.vala:86
+#: plugins/desktop/src/desktop-plugin.vala:89
 #, c-format
 msgid "“%s” has blacklisted category “%s”."
 msgstr "„%s” umieścił kategorię „%s” na czarnej liście."
 
-#: plugins/desktop/src/desktop-plugin.vala:95
+#: plugins/desktop/src/desktop-plugin.vala:98
 #, c-format
 msgid "“%s” has blacklisted executable “%s”."
 msgstr "„%s” umieścił plik wykonywalny „%s” na czarnej liście."
 
-#: plugins/desktop/src/desktop-plugin.vala:102
+#: plugins/desktop/src/desktop-plugin.vala:105
 #, c-format
 msgid "“%s” is blacklisted."
 msgstr "„%s” jest na czarnej liście."
@@ -430,20 +430,20 @@ msgstr ""
 msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
 msgstr "Plik nie ma nagłówka konsoli Genesis/Sega 32X/Sega CD/Sega Pico."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:78
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:62
+#: plugins/sega-cd/src/sega-cd-plugin.vala:92
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:76
 #, c-format
 msgid "The file “%s” doesn’t have a track."
 msgstr "Plik „%s” nie ma ścieżki."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:84
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:68
+#: plugins/sega-cd/src/sega-cd-plugin.vala:98
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:82
 #, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr "Plik „%s” nie ma prawidłowego formatu pliku binarnego."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:87
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:71
+#: plugins/sega-cd/src/sega-cd-plugin.vala:101
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:85
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
 msgstr "Plik „%s” nie ma prawidłowego trybu ścieżki dla %d. ścieżki."
@@ -452,7 +452,7 @@ msgstr "Plik „%s” nie ma prawidłowego trybu ścieżki dla %d. ścieżki."
 msgid "The file doesn’t have a Sega Saturn header."
 msgstr "Plik nie ma nagłówka konsoli Sega Saturn."
 
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:75
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:89
 #, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "Plik „%s” nie ma prawidłowego pliku binarnego konsoli Sega Saturn."
@@ -520,11 +520,11 @@ msgstr "Nieprawidłowy rozmiar nagłówka konsoli Wii: %s"
 msgid "The file doesn’t have a Wii header."
 msgstr "Plik nie ma nagłówka konsoli Wii."
 
-#: src/command/command-runner.vala:33
+#: src/command/command-runner.vala:36
 msgid "The game doesn’t have a valid command."
 msgstr "Gra nie ma prawidłowego polecenia."
 
-#: src/command/command-runner.vala:64
+#: src/command/command-runner.vala:67
 #, c-format
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "Nie można uruchomić „%s”: wykonanie się nie powiodło."
@@ -543,6 +543,18 @@ msgstr "Nieprawidłowy deskryptor wtyczki: %s"
 #, c-format
 msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr "Nie można utworzyć nowego wystąpienia wtyczki w „%s”."
+
+#: src/dummy/dummy-developer.vala:5
+msgid "Developer not available."
+msgstr "Producent jest nieodstępny."
+
+#: src/dummy/dummy-players.vala:5
+msgid "Not available"
+msgstr "Niedostępne"
+
+#: src/dummy/dummy-publisher.vala:5
+msgid "Publisher not available."
+msgstr "Wydawca jest nieodstępny."
 
 #: src/gameinfo/gameinfo-disc-id-disc-title.vala:24
 #, c-format
@@ -568,6 +580,14 @@ msgstr "Nie odnaleziono identyfikatora zestawu płyt dla identyfikatora „%s”
 #, c-format
 msgid "No disc found for disc ID “%s”."
 msgstr "Nie odnaleziono płyty dla identyfikatora „%s”."
+
+#: src/grilo/grilo-players.vala:46
+msgid "Single-player"
+msgstr "Jednoosobowe"
+
+#: src/grilo/grilo-players.vala:48
+msgid "Multi-player"
+msgstr "Wieloosobowe"
 
 #: src/retro/retro-core-source.vala:25 src/retro/retro-core-source.vala:37
 #, c-format
@@ -658,83 +678,83 @@ msgstr "Game Gear"
 msgid "MAME"
 msgstr "MAME"
 
-#: src/retro/retro-platform.vala:37
+#. translators: also known as "Sega Mark III" in eastern asia
+#: src/retro/retro-platform.vala:38
+msgid "Master System"
+msgstr "Master System"
+
+#: src/retro/retro-platform.vala:40
 msgid "MS-DOS"
 msgstr "MS-DOS"
 
-#: src/retro/retro-platform.vala:39
+#: src/retro/retro-platform.vala:42
 msgid "Neo Geo Pocket"
 msgstr "Neo Geo Pocket"
 
-#: src/retro/retro-platform.vala:41
+#: src/retro/retro-platform.vala:44
 msgid "Neo Geo Pocket Color"
 msgstr "Neo Geo Pocket Color"
 
 #. translators: known as "Famicom" in eastern Asia
-#: src/retro/retro-platform.vala:44
+#: src/retro/retro-platform.vala:47
 msgid "Nintendo Entertainment System"
 msgstr "NES"
 
-#: src/retro/retro-platform.vala:46
+#: src/retro/retro-platform.vala:49
 msgid "Nintendo 64"
 msgstr "Nintendo 64"
 
-#: src/retro/retro-platform.vala:48
+#: src/retro/retro-platform.vala:51
 msgid "Nintendo DS"
 msgstr "Nintendo DS"
 
-#: src/retro/retro-platform.vala:50
+#: src/retro/retro-platform.vala:53
 msgid "Nintendo 3DS"
 msgstr "Nintendo 3DS"
 
-#: src/retro/retro-platform.vala:52
+#: src/retro/retro-platform.vala:55
 msgid "PlayStation"
 msgstr "PlayStation"
 
-#: src/retro/retro-platform.vala:54
+#: src/retro/retro-platform.vala:57
 msgid "PlayStation 2"
 msgstr "PlayStation 2"
 
-#: src/retro/retro-platform.vala:56
+#: src/retro/retro-platform.vala:59
 msgid "PlayStation 3"
 msgstr "PlayStation 3"
 
-#: src/retro/retro-platform.vala:58
+#: src/retro/retro-platform.vala:61
 msgid "PlayStation 4"
 msgstr "PlayStation 4"
 
-#: src/retro/retro-platform.vala:60
+#: src/retro/retro-platform.vala:63
 msgid "PlayStation Portable"
 msgstr "PSP"
 
-#: src/retro/retro-platform.vala:62
+#: src/retro/retro-platform.vala:65
 msgid "PlayStation Vita"
 msgstr "PlayStation Vita"
 
 #. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
-#: src/retro/retro-platform.vala:65
+#: src/retro/retro-platform.vala:68
 msgid "Genesis 32X"
 msgstr "Mega Drive 32X"
 
 #. translators: known as "Mega-CD" in most of the world
-#: src/retro/retro-platform.vala:68
+#: src/retro/retro-platform.vala:71
 msgid "Sega CD"
 msgstr "Mega-CD"
 
 #. translators: known as "Mega-CD 32X" in most of the world
-#: src/retro/retro-platform.vala:71
+#: src/retro/retro-platform.vala:74
 msgid "Sega CD 32X"
 msgstr "Mega-CD 32X"
 
 #. translators: known as "Mega Drive" in most of the world
-#: src/retro/retro-platform.vala:74
+#: src/retro/retro-platform.vala:77
 msgid "Sega Genesis"
 msgstr "Mega Drive"
-
-#. translators: also known as "Sega Mark III" in eastern asia
-#: src/retro/retro-platform.vala:77
-msgid "Sega Master System"
-msgstr "Sega Master System"
 
 #: src/retro/retro-platform.vala:79
 msgid "Sega Pico"
@@ -787,55 +807,59 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/retro/retro-runner.vala:239
+#: src/retro/retro-runner.vala:241
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nie odnaleziono modułu dla „%s”."
 
-#: src/retro/retro-runner.vala:590
+#: src/retro/retro-runner.vala:538
+msgid "Unknown platform"
+msgstr "Nieznana platforma"
+
+#: src/retro/retro-runner.vala:596
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Konsola „%s” nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: src/retro/retro-runner.vala:593
+#: src/retro/retro-runner.vala:599
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Konsola nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: src/ui/application.vala:148
+#: src/ui/application.vala:146
 msgid "Select game files"
 msgstr "Wybór plików gry"
 
-#: src/ui/application.vala:149
+#: src/ui/application.vala:147
 msgid "_Add"
 msgstr "_Dodaj"
 
-#: src/ui/application.vala:149
+#: src/ui/application.vala:147
 msgid "_Cancel"
 msgstr "_Anuluj"
 
-#: src/ui/application.vala:356
+#: src/ui/application.vala:354
 msgid "GNOME Games"
 msgstr "Gry GNOME"
 
-#: src/ui/application.vala:358
+#: src/ui/application.vala:356
 msgid "A video game player for GNOME"
 msgstr "Uruchamianie gier w środowisku GNOME"
 
-#: src/ui/application.vala:362
+#: src/ui/application.vala:360
 msgid "Learn more about GNOME Games"
 msgstr "Więcej informacji o Grach GNOME"
 
-#: src/ui/application.vala:369
+#: src/ui/application.vala:367
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2016-2018\n"
 "Aviary.pl <community-poland@mozilla.org>, 2016-2018"
 
-#: src/ui/application-window.vala:306
+#: src/ui/application-window.vala:309
 msgid "An unexpected error occurred."
 msgstr "Wystąpił nieoczekiwany błąd."
 
-#: src/ui/application-window.vala:555 src/ui/application-window.vala:572
+#: src/ui/application-window.vala:574 src/ui/application-window.vala:591
 msgid "Playing a game"
 msgstr "W trakcie gry"
 
