@@ -533,6 +533,10 @@ public class Games.RetroRunner : Object, Runner {
 		var creation_time = now.to_string ();
 		var platform = core_source.get_platform ();
 		var platform_name = RetroPlatform.get_platform_name (platform);
+		if (platform_name == null) {
+			critical ("Unknown name for platform %s", platform);
+			platform_name = _("Unknown platform");
+		}
 		var title = game_title.get_title ();
 
 		var x_dpi = pixbuf.get_option("x-dpi") ?? "";
