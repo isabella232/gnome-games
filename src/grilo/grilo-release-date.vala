@@ -42,7 +42,6 @@ public class Games.GriloReleaseDate : Object, ReleaseDate {
 	private void load_media_release_date (DateTime release) {
 		release_date = release;
 		resolving = true;
-		get_release_date ();
 
 		changed();
 	}

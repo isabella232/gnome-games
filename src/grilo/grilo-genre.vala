@@ -48,7 +48,6 @@ public class Games.GriloGenre : Object, Genre {
 	private void load_media_genre(List<string> genre_list) {
 		genre = genre_list.copy();
 		resolving = true;
-		get_genre ();
 
 		changed();
 	}
