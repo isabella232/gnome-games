@@ -33,6 +33,9 @@ namespace Games.RetroPlatform {
 		case "MAME":
 			/* translators: the "Multiple Arcade Machine Emulator" */
 			return _("MAME");
+		case "MasterSystem":
+			/* translators: also known as "Sega Mark III" in eastern asia */
+			return _("Master System");
 		case "MSDOS":
 			return _("MS-DOS");
 		case "NeoGeoPocket":
@@ -72,9 +75,6 @@ namespace Games.RetroPlatform {
 		case "SegaGenesis":
 			/* translators: known as "Mega Drive" in most of the world */
 			return _("Sega Genesis");
-		case "SegaMasterSystem":
-			/* translators: also known as "Sega Mark III" in eastern asia */
-			return _("Sega Master System");
 		case "SegaPico":
 			return _("Sega Pico");
 		case "SegaSaturn":
