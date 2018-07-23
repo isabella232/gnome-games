@@ -8,7 +8,7 @@ private class Games.PreferencesPagePlugins: Gtk.Bin, PreferencesPage {
 		protected set {}
 		get { return _header_bar; }
 	}
-	
+
 	public bool immersive_mode {
 		protected set {}
 		get { return false; }

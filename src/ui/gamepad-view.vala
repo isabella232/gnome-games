@@ -67,7 +67,7 @@ private class Games.GamepadView : Gtk.DrawingArea {
 
 	private void highlight_gamepad (Cairo.Context gamepad_context, Cairo.Context highlight_context) {
 		var highlight_suface = highlight_context.get_target ();
-		
+
 		for (var i = 0; i < configuration.input_paths.length; ++i)
 			if (input_highlights[i])
 				handle.render_cairo_sub (highlight_context, "#" + configuration.input_paths[i].path);

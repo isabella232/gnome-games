@@ -23,7 +23,7 @@ public class Games.LocalCover : Object, Cover {
 		}
 		catch (Error e) {
 			warning (e.message);
-	
+
 			return icon;
 		}
 

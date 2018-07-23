@@ -44,7 +44,7 @@ public class Games.GriloPlayers : Object, Players {
 
 		if (int.parse(player) == 1)
 			player = _("Single-player");
-		else 
+		else
 			player = _("Multi-player");
 
 		load_media_players (player);
