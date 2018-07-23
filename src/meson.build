@@ -195,6 +195,7 @@ vala_sources = [
 
 dependencies = [
   config_dep,
+  handy_dep,
   gio_dep,
   glib_dep,
   grilo_dep,
