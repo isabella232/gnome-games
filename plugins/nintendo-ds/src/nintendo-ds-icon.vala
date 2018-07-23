@@ -10,7 +10,7 @@ public class Games.NintendoDsIcon : Object, Icon {
 		extracted = false;
 	}
 
-	private static extern Gdk.Pixbuf extract (Uri uri) throws Error;
+	private static extern Gdk.Pixbuf extract (string uri) throws Error;
 
 	public GLib.Icon? get_icon () {
 		if (extracted)
@@ -19,7 +19,7 @@ public class Games.NintendoDsIcon : Object, Icon {
 		extracted = true;
 
 		try {
-			pixbuf = extract (uri);
+			pixbuf = extract (uri.to_string ());
 		}
 		catch (Error e) {
 			warning (e.message);
