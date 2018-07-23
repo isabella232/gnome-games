@@ -182,6 +182,22 @@
             ]
         },
         {
+            "name" : "libhandy",
+            "buildsystem" : "meson",
+            "config-opts" : [
+                "--libdir=lib",
+                "-Dtests=false",
+                "-Dexamples=false",
+                "-Dglade_catalog=false"
+            ],
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://source.puri.sm/Librem5/libhandy.git"
+                }
+            ]
+        },
+        {
             "name" : "manette",
             "buildsystem" : "meson",
             "config-opts" : [
