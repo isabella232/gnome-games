@@ -6,12 +6,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 
 	private const double EMBLEM_SCALE = 0.125;
 	private const double ICON_SCALE = 0.75;
-	private const double COVER_MARGIN = 0;
-	private const double FRAME_RADIUS = 2;
-	private const int EMBLEM_PADDING = 8;
-
-	public int center_emblem_size { set; get; default = 32; }
-	public int secondary_emblem_size { set; get; default = 8; }
+	private const double FRAME_RADIUS = 2; // Equal to border-radius in style css.
 
 	private Icon _icon;
 	public Icon icon {
@@ -195,7 +190,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 
 		var theme = Gtk.IconTheme.get_default ();
 		var lookup_flags = Gtk.IconLookupFlags.FORCE_SIZE | Gtk.IconLookupFlags.FORCE_REGULAR;
-		var size = int.min (context.width, context.height) - COVER_MARGIN * 2;
+		var size = int.min (context.width, context.height);
 		var icon_info = theme.lookup_by_gicon (g_icon, (int) size, lookup_flags);
 
 		try {
