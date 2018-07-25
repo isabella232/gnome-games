@@ -1,5 +1,8 @@
         {
             "name": "libretro-blastem",
+            "skip-arches": [
+                "arm"
+            ],
             "no-autogen": true,
             "subdir": "libretro",
             "make-args": [
