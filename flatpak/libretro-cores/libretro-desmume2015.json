@@ -1,5 +1,8 @@
         {
             "name": "libretro-desmume2015",
+            "skip-arches": [
+                "arm"
+            ],
             "no-autogen": true,
             "subdir": "desmume",
             "make-args": [
