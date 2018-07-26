@@ -1,9 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.GamepadView : Gtk.DrawingArea {
-	private const Gtk.StateFlags DEFAULT_STATE = Gtk.StateFlags.NORMAL;
-	private const Gtk.StateFlags HIGHLIGHT_STATE = Gtk.StateFlags.LINK;
-
 	private Rsvg.Handle handle;
 	private GamepadViewConfiguration configuration;
 	private bool[] input_highlights;
@@ -60,7 +57,8 @@ private class Games.GamepadView : Gtk.DrawingArea {
 
 		handle.render_cairo (color_context);
 
-		var color = get_style_context ().get_color (DEFAULT_STATE);
+		Gdk.RGBA color;
+		get_style_context ().lookup_color ("theme_fg_color", out color);
 		gamepad_context.set_source_rgba (color.red, color.green, color.blue, color.alpha);
 		gamepad_context.mask_surface (color_suface, 0, 0);
 	}
@@ -72,7 +70,8 @@ private class Games.GamepadView : Gtk.DrawingArea {
 			if (input_highlights[i])
 				handle.render_cairo_sub (highlight_context, "#" + configuration.input_paths[i].path);
 
-		var color = get_style_context ().get_color (HIGHLIGHT_STATE);
+		Gdk.RGBA color;
+		get_style_context ().lookup_color ("theme_selected_bg_color", out color);
 		gamepad_context.set_source_rgba (color.red, color.green, color.blue, color.alpha);
 		gamepad_context.mask_surface (highlight_suface, 0, 0);
 	}
