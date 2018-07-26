@@ -99,7 +99,8 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/tracker.git"
+                    "url" : "https://gitlab.gnome.org/GNOME/tracker.git",
+                    "commit" : "2f7ade534a452153ab9f0faa10e403b30e845c75"
                 }
             ]
         },
