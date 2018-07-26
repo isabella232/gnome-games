@@ -10,10 +10,6 @@
       <object class="GamesGameThumbnail" id="thumbnail">
         <property name="visible">True</property>
       </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">False</property>
-      </packing>
     </child>
     <child>
       <object class="GtkLabel" id="title">
@@ -25,10 +21,6 @@
         <property name="wrap">True</property>
         <property name="wrap-mode">word-char</property>
       </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">False</property>
-      </packing>
     </child>
     <child>
       <object class="GtkLabel" id="subtitle">
@@ -43,10 +35,6 @@
           <class name="dim-label"/>
         </style>
       </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">False</property>
-      </packing>
     </child>
   </template>
 </interface>

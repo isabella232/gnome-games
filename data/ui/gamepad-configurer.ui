@@ -65,6 +65,7 @@
   </template>
   <object class="GtkHeaderBar" id="header_bar">
     <property name="visible">True</property>
+    <property name="expand">True</property>
     <child>
       <object class="GtkButton" id="back_button">
         <property name="visible">True</property>

@@ -20,10 +20,6 @@
           <class name="dim-label"/>
         </style>
       </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
-      </packing>
     </child>
     <child>
       <object class="GtkBox" id="box">
@@ -39,10 +35,6 @@
             <property name="valign">center</property>
             <property name="use-markup">True</property>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-          </packing>
         </child>
         <child>
           <object class="GtkLabel" id="secondary_label">
@@ -53,16 +45,8 @@
             <property name="use-markup">True</property>
             <property name="wrap">True</property>
           </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-          </packing>
         </child>
       </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
-      </packing>
     </child>
   </template>
 </interface>

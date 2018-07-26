@@ -99,6 +99,7 @@
   </template>
   <object class="GtkHeaderBar" id="default_header_bar">
     <property name="visible">True</property>
+    <property name="expand">True</property>
     <property name="title" translatable="yes">Controllers</property>
   </object>
 </interface>
