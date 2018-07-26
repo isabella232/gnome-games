@@ -262,7 +262,7 @@ public class Games.RetroRunner : Object, Runner {
 			core.system_directory = @"$platforms_dir/$platform/system";
 
 			var save_directory = get_save_directory_path ();
-			try_make_dir (save_directory);
+			Application.try_make_dir (save_directory);
 			core.save_directory = save_directory;
 		}
 
@@ -411,7 +411,7 @@ public class Games.RetroRunner : Object, Runner {
 			return;
 
 		var dir = Application.get_saves_dir ();
-		try_make_dir (dir);
+		Application.try_make_dir (dir);
 
 		var save_path = get_save_path ();
 
@@ -454,7 +454,7 @@ public class Games.RetroRunner : Object, Runner {
 		var buffer = bytes.get_data ();
 
 		var dir = Application.get_snapshots_dir ();
-		try_make_dir (dir);
+		Application.try_make_dir (dir);
 
 		var snapshot_path = get_snapshot_path ();
 
@@ -479,7 +479,7 @@ public class Games.RetroRunner : Object, Runner {
 
 	private void save_media_data () throws Error {
 		var dir = Application.get_medias_dir ();
-		try_make_dir (dir);
+		Application.try_make_dir (dir);
 
 		var medias_path = get_medias_path ();
 
@@ -573,19 +573,6 @@ public class Games.RetroRunner : Object, Runner {
 		stop ();
 
 		return true;
-	}
-
-	private static void try_make_dir (string path) {
-		var file = File.new_for_path (path);
-		try {
-			if (!file.query_exists ())
-				file.make_directory_with_parents ();
-		}
-		catch (Error e) {
-			warning (@"$(e.message)\n");
-
-			return;
-		}
 	}
 
 	private string get_unsupported_system_message () {
