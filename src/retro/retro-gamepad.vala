@@ -68,42 +68,9 @@ private class Games.RetroGamepad: Object, Retro.Controller {
 	}
 
 	private bool get_button_pressed (Retro.JoypadId button) {
-		switch (button) {
-		case Retro.JoypadId.B:
-			return buttons[EventCode.BTN_A];
-		case Retro.JoypadId.Y:
-			return buttons[EventCode.BTN_Y];
-		case Retro.JoypadId.SELECT:
-			return buttons[EventCode.BTN_SELECT];
-		case Retro.JoypadId.START:
-			return buttons[EventCode.BTN_START];
-		case Retro.JoypadId.UP:
-			return buttons[EventCode.BTN_DPAD_UP];
-		case Retro.JoypadId.DOWN:
-			return buttons[EventCode.BTN_DPAD_DOWN];
-		case Retro.JoypadId.LEFT:
-			return buttons[EventCode.BTN_DPAD_LEFT];
-		case Retro.JoypadId.RIGHT:
-			return buttons[EventCode.BTN_DPAD_RIGHT];
-		case Retro.JoypadId.A:
-			return buttons[EventCode.BTN_B];
-		case Retro.JoypadId.X:
-			return buttons[EventCode.BTN_X];
-		case Retro.JoypadId.L:
-			return buttons[EventCode.BTN_TL];
-		case Retro.JoypadId.R:
-			return buttons[EventCode.BTN_TR];
-		case Retro.JoypadId.L2:
-			return buttons[EventCode.BTN_TL2];
-		case Retro.JoypadId.R2:
-			return buttons[EventCode.BTN_TR2];
-		case Retro.JoypadId.L3:
-			return buttons[EventCode.BTN_THUMBL];
-		case Retro.JoypadId.R3:
-			return buttons[EventCode.BTN_THUMBR];
-		default:
-			return false;
-		}
+		var button_code = button.to_button_code ();
+
+		return button_code != EventCode.EV_MAX && buttons[button_code];
 	}
 
 	private int16 get_analog_value (Retro.AnalogIndex index, Retro.AnalogId id) {
