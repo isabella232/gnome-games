@@ -53,18 +53,18 @@ private class Games.GamepadView : Gtk.DrawingArea {
 	}
 
 	private void color_gamepad (Cairo.Context gamepad_context, Cairo.Context color_context) {
-		var color_suface = color_context.get_target ();
+		var color_surface = color_context.get_target ();
 
 		handle.render_cairo (color_context);
 
 		Gdk.RGBA color;
 		get_style_context ().lookup_color ("theme_fg_color", out color);
 		gamepad_context.set_source_rgba (color.red, color.green, color.blue, color.alpha);
-		gamepad_context.mask_surface (color_suface, 0, 0);
+		gamepad_context.mask_surface (color_surface, 0, 0);
 	}
 
 	private void highlight_gamepad (Cairo.Context gamepad_context, Cairo.Context highlight_context) {
-		var highlight_suface = highlight_context.get_target ();
+		var highlight_surface = highlight_context.get_target ();
 
 		for (var i = 0; i < configuration.input_paths.length; ++i)
 			if (input_highlights[i])
@@ -73,15 +73,15 @@ private class Games.GamepadView : Gtk.DrawingArea {
 		Gdk.RGBA color;
 		get_style_context ().lookup_color ("theme_selected_bg_color", out color);
 		gamepad_context.set_source_rgba (color.red, color.green, color.blue, color.alpha);
-		gamepad_context.mask_surface (highlight_suface, 0, 0);
+		gamepad_context.mask_surface (highlight_surface, 0, 0);
 	}
 
 	private Cairo.Context create_similar_context (Cairo.Context context, double x, double y, double scale) {
 		var w = get_allocated_width ();
 		var h = get_allocated_height ();
 		var surface = context.get_target ();
-		var similar_suface = new Cairo.Surface.similar (surface, Cairo.Content.COLOR_ALPHA, w, h);
-		var similar_context = new Cairo.Context (similar_suface);
+		var similar_surface = new Cairo.Surface.similar (surface, Cairo.Content.COLOR_ALPHA, w, h);
+		var similar_context = new Cairo.Context (similar_surface);
 		similar_context.translate (x, y);
 		similar_context.scale (scale, scale);
 
