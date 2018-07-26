@@ -37,7 +37,7 @@
             <property name="homogeneous">True</property>
             <property name="column-spacing">14</property>
             <property name="row-spacing">14</property>
-            <property name="selection-mode">none</property>
+            <property name="selection-mode">single</property>
             <signal name="child-activated" handler="on_child_activated"/>
           </object>
         </child>
