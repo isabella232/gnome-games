@@ -195,7 +195,8 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/retro-gtk.git"
+                    "url" : "https://gitlab.gnome.org/exalm/retro-gtk.git",
+                    "branch" : "gtk4"
                 }
             ]
         },
