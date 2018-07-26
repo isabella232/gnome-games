@@ -4,12 +4,8 @@
   <template class="GamesCollectionBox" parent="GtkBox">
     <property name="visible">True</property>
     <property name="orientation">vertical</property>
-    <property name="spacing">0</property>
-    <property name="halign">fill</property>
-    <property name="valign">fill</property>
     <property name="hexpand">True</property>
     <property name="vexpand">True</property>
-    <property name="can-focus">False</property>
     <child>
       <object class="GamesSearchBar" id="search_bar">
         <property name="visible">True</property>
@@ -19,12 +15,10 @@
     <child>
       <object class="GtkOverlay">
         <property name="visible">True</property>
-        <property name="can_focus">False</property>
         <property name="vexpand">True</property>
         <child>
           <object class="GtkStack" id="viewstack">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <property name="visible-child">collection_view</property>
             <property name="transition-type">GTK_STACK_TRANSITION_TYPE_CROSSFADE</property>
             <signal name="notify::visible-child" handler="on_visible_child_changed"/>
@@ -63,25 +57,21 @@
         <child type="overlay">
           <object class="GtkRevealer" id="loading_notification_revealer">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
             <property name="halign">center</property>
             <property name="valign">start</property>
             <child>
               <object class="GtkBox">
                 <property name="visible">True</property>
-                <property name="can_focus">False</property>
                 <property name="spacing">18</property>
                 <child>
                   <object class="GtkSpinner">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="active">True</property>
                   </object>
                 </child>
                 <child>
                   <object class="GtkLabel">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
                     <property name="label" translatable="yes">Loading</property>
                   </object>
                 </child>
@@ -89,7 +79,6 @@
                   <object class="GtkButton">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="receives_default">False</property>
                     <property name="image">close_icon</property>
                     <property name="always_show_image">True</property>
                     <signal name="clicked" handler="on_loading_notification_closed"/>
@@ -110,7 +99,6 @@
   </template>
   <object class="GtkImage" id="close_icon">
     <property name="visible">True</property>
-    <property name="can_focus">False</property>
     <property name="icon_name">window-close-symbolic</property>
   </object>
 </interface>

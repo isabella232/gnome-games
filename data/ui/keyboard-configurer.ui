@@ -7,14 +7,11 @@
     <child>
       <object class="GtkStack" id="stack">
         <property name="visible">True</property>
-        <property name="halign">fill</property>
-        <property name="valign">fill</property>
         <property name="hexpand">True</property>
         <property name="vexpand">True</property>
         <child>
           <object class="GtkBox" id="keyboard_mapper_holder">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
           </object>
           <packing>
             <property name="name">keyboard_mapper</property>
@@ -23,7 +20,6 @@
         <child>
           <object class="GtkBox" id="keyboard_tester_holder">
             <property name="visible">True</property>
-            <property name="can_focus">False</property>
           </object>
           <packing>
             <property name="name">keyboard_tester</property>
