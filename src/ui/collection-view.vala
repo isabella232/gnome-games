@@ -95,10 +95,6 @@ private class Games.CollectionView : Object, UiView {
 		box.show_error (error_message);
 	}
 
-	public bool on_button_pressed (Gdk.EventButton event) {
-		return false;
-	}
-
 	public bool on_key_pressed (Gdk.EventKey event) {
 		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
 

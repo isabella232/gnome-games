@@ -7,9 +7,15 @@
     <property name="show-menubar">False</property>
     <signal name="delete-event" after="yes" handler="on_delete_event"/>
     <signal name="key-press-event" after="yes" handler="on_key_pressed"/>
-    <signal name="button-press-event" after="yes" handler="on_button_pressed"/>
     <signal name="window-state-event" after="yes" handler="on_window_state_event"/>
     <signal name="notify::is-active" after="yes" handler="on_active_changed"/>
+    <child>
+      <object class="GtkGestureClick">
+        <!-- Mouse button 8 is the navigation previous button -->
+        <property name="button">8</property>
+        <signal name="pressed" handler="on_back_mouse_button_pressed"/>
+      </object>
+    </child>
     <child>
       <object class="GtkStack" id="content_box">
         <property name="visible">True</property>

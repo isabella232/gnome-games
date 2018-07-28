@@ -81,16 +81,6 @@ private class Games.DisplayView : Object, UiView {
 		focus_out_timeout_id = -1;
 	}
 
-	public bool on_button_pressed (Gdk.EventButton event) {
-		// Mouse button 8 is the navigation previous button
-		if (event.button == 8) {
-			back ();
-			return true;
-		}
-
-		return false;
-	}
-
 	public bool on_key_pressed (Gdk.EventKey event) {
 		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
 

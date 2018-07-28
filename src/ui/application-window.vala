@@ -180,8 +180,9 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	[GtkCallback]
-	public bool on_button_pressed (Gdk.EventButton event) {
-		return current_view.on_button_pressed (event);
+	public void on_back_mouse_button_pressed () {
+		if (current_view == display_view)
+			display_view.back ();
 	}
 
 	[GtkCallback]

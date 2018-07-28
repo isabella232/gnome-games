@@ -7,8 +7,6 @@ private interface Games.UiView : Object {
 
 	public abstract bool is_view_active { get; set; }
 
-	public abstract bool on_button_pressed (Gdk.EventButton event);
-
 	public abstract bool on_key_pressed (Gdk.EventKey event);
 
 	public abstract bool gamepad_button_press_event (Manette.Event event);
