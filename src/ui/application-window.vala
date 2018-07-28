@@ -249,11 +249,11 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (display == null)
 			return null;
 
-		var window = get_window ();
-		if (window == null)
+		var surface = get_surface ();
+		if (surface == null)
 			return null;
 
-		var monitor = display.get_monitor_at_window (window);
+		var monitor = display.get_monitor_at_surface (surface);
 		if (monitor == null)
 			return null;
 
