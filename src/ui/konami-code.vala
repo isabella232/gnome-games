@@ -40,11 +40,15 @@ private class Games.KonamiCode : Object {
 	public signal void code_performed ();
 
 	private uint current_index;
+	private Gtk.EventControllerKey controller;
 
-	public Gtk.Widget widget {
-		construct {
-			value.key_press_event.connect (on_key_pressed);
-		}
+	public Gtk.Widget widget { get; construct; }
+
+	construct {
+		controller = new Gtk.EventControllerKey ();
+		controller.key_pressed.connect (on_key_pressed);
+
+		widget.add_controller (controller);
 	}
 
 	public KonamiCode (Gtk.Widget widget) {
@@ -55,9 +59,9 @@ private class Games.KonamiCode : Object {
 		current_index = 0;
 	}
 
-	private bool on_key_pressed (Gdk.EventKey event) {
-		if (event.keyval != CODE_LOWER_KEYS[current_index] &&
-		    event.keyval != CODE_UPPER_KEYS[current_index]) {
+	private bool on_key_pressed (Gtk.EventControllerKey self, uint keyval, uint keycode, Gdk.ModifierType state) {
+		if (keyval != CODE_LOWER_KEYS[current_index] &&
+		    keyval != CODE_UPPER_KEYS[current_index]) {
 			current_index = 0;
 
 			return false;

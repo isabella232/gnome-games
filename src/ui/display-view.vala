@@ -81,16 +81,12 @@ private class Games.DisplayView : Object, UiView {
 		focus_out_timeout_id = -1;
 	}
 
-	public bool on_key_pressed (Gdk.EventKey event) {
+	public bool on_key_pressed (uint keyval, Gdk.ModifierType state) {
 		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
 
-		uint keyval;
-		var keymap = Gdk.Keymap.get_for_display (window.get_display ());
-		keymap.translate_keyboard_state (event.hardware_keycode, event.state,
-		                                 event.group, out keyval, null, null, null);
-		var ctrl_pressed = (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK;
+		var ctrl_pressed = (state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK;
 
-		if (box.on_key_press_event (keyval, event.state & default_modifiers))
+		if (box.on_key_press_event (keyval, state & default_modifiers))
 			return true;
 
 		if ((keyval == Gdk.Key.f || keyval == Gdk.Key.F) && ctrl_pressed &&
@@ -115,7 +111,7 @@ private class Games.DisplayView : Object, UiView {
 			return true;
 		}
 
-		if (((event.state & default_modifiers) == Gdk.ModifierType.MOD1_MASK) &&
+		if (((state & default_modifiers) == Gdk.ModifierType.MOD1_MASK) &&
 		    (((window.get_direction () == Gtk.TextDirection.LTR) && keyval == Gdk.Key.Left) ||
 		     ((window.get_direction () == Gtk.TextDirection.RTL) && keyval == Gdk.Key.Right))) {
 			on_display_back ();

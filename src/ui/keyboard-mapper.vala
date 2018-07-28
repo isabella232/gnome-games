@@ -7,6 +7,8 @@ private class Games.KeyboardMapper : Gtk.Bin {
 	[GtkChild]
 	private GamepadView gamepad_view;
 
+	private Gtk.EventControllerKey controller;
+
 	private KeyboardMappingBuilder mapping_builder;
 	private GamepadInput[] mapping_inputs;
 	private GamepadInput input;
@@ -25,6 +27,9 @@ private class Games.KeyboardMapper : Gtk.Bin {
 
 	construct {
 		info_message = _("Press suitable key on your keyboard");
+
+		controller = new Gtk.EventControllerKey ();
+		controller.key_released.connect (on_keyboard_event);
 	}
 
 	public KeyboardMapper (GamepadViewConfiguration configuration, GamepadInput[] mapping_inputs) {
@@ -49,18 +54,16 @@ private class Games.KeyboardMapper : Gtk.Bin {
 	}
 
 	private void connect_to_keyboard () {
-		get_toplevel ().key_release_event.connect (on_keyboard_event);
+		get_toplevel ().add_controller (controller);
 	}
 
 	private void disconnect_from_keyboard () {
-		get_toplevel ().key_release_event.disconnect (on_keyboard_event);
+		get_toplevel ().remove_controller (controller);
 	}
 
-	private bool on_keyboard_event (Gdk.EventKey key) {
-		if (mapping_builder.set_input_mapping (input, key.hardware_keycode))
+	private void on_keyboard_event (Gtk.EventControllerKey controller, uint keyval, uint keycode, Gdk.ModifierType state) {
+		if (mapping_builder.set_input_mapping (input, keycode))
 			next_input ();
-
-		return true;
 	}
 
 	private void next_input () {

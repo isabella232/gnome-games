@@ -5,6 +5,8 @@ private class Games.KeyboardTester : Gtk.Bin {
 	[GtkChild]
 	private GamepadView gamepad_view;
 
+	private Gtk.EventControllerKey controller;
+
 	public Retro.KeyJoypadMapping mapping { get; set; }
 
 	private GamepadViewConfiguration _configuration;
@@ -14,6 +16,12 @@ private class Games.KeyboardTester : Gtk.Bin {
 			_configuration = value;
 			gamepad_view.configuration = value;
 		}
+	}
+
+	construct {
+		controller = new Gtk.EventControllerKey ();
+		controller.key_pressed.connect (on_key_press_event);
+		controller.key_released.connect (on_key_release_event);
 	}
 
 	public KeyboardTester (GamepadViewConfiguration configuration) {
@@ -30,32 +38,26 @@ private class Games.KeyboardTester : Gtk.Bin {
 	}
 
 	private void connect_to_keyboard () {
-		var window = get_toplevel ();
-		window.key_press_event.connect (on_key_press_event);
-		window.key_release_event.connect (on_key_release_event);
+		get_toplevel ().add_controller (controller);
 	}
 
 	private void disconnect_from_keyboard () {
-		var window = get_toplevel ();
-		window.key_press_event.disconnect (on_key_press_event);
-		window.key_release_event.disconnect (on_key_release_event);
+		get_toplevel ().remove_controller (controller);
 	}
 
-	private bool on_key_press_event (Gdk.EventKey key) {
-		update_gamepad_view (key, true);
+	private bool on_key_press_event (Gtk.EventControllerKey controller, uint keyval, uint keycode, Gdk.ModifierType state) {
+		update_gamepad_view (keycode, true);
 
 		return true;
 	}
 
-	private bool on_key_release_event (Gdk.EventKey key) {
-		update_gamepad_view (key, false);
-
-		return true;
+	private void on_key_release_event (Gtk.EventControllerKey controller, uint keyval, uint keycode, Gdk.ModifierType state) {
+		update_gamepad_view (keycode, false);
 	}
 
-	private void update_gamepad_view (Gdk.EventKey key, bool highlight) {
+	private void update_gamepad_view (uint keycode, bool highlight) {
 		for (Retro.JoypadId joypad_id = 0; joypad_id < Retro.JoypadId.COUNT; joypad_id += 1) {
-			if (mapping.get_button_key (joypad_id) == key.hardware_keycode) {
+			if (mapping.get_button_key (joypad_id) == keycode) {
 				var code = joypad_id.to_button_code ();
 				gamepad_view.highlight ({ EventCode.EV_KEY, code }, highlight);
 			}

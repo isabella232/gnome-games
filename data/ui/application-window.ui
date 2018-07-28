@@ -6,9 +6,13 @@
     <property name="default-height">600</property>
     <property name="show-menubar">False</property>
     <signal name="delete-event" after="yes" handler="on_delete_event"/>
-    <signal name="key-press-event" after="yes" handler="on_key_pressed"/>
     <signal name="window-state-event" after="yes" handler="on_window_state_event"/>
     <signal name="notify::is-active" after="yes" handler="on_active_changed"/>
+    <child>
+      <object class="GtkEventControllerKey">
+        <signal name="key-pressed" handler="on_key_pressed" swapped="no"/>
+      </object>
+    </child>
     <child>
       <object class="GtkGestureClick">
         <!-- Mouse button 8 is the navigation previous button -->

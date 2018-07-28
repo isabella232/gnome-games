@@ -163,11 +163,11 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	[GtkCallback]
-	public bool on_key_pressed (Gdk.EventKey event) {
+	public bool on_key_pressed (Gtk.EventControllerKey controller, uint keyval, uint keycode, Gdk.ModifierType state) {
 		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
 
-		if ((event.keyval == Gdk.Key.q || event.keyval == Gdk.Key.Q) &&
-		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK) {
+		if ((keyval == Gdk.Key.q || keyval == Gdk.Key.Q) &&
+		    (state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK) {
 			if (!quit_game ())
 				return false;
 
@@ -176,7 +176,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return true;
 		}
 
-		return current_view.on_key_pressed (event);
+		return current_view.on_key_pressed (keyval, state);
 	}
 
 	[GtkCallback]

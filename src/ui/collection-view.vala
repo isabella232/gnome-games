@@ -95,15 +95,10 @@ private class Games.CollectionView : Object, UiView {
 		box.show_error (error_message);
 	}
 
-	public bool on_key_pressed (Gdk.EventKey event) {
+	public bool on_key_pressed (uint keyval, Gdk.ModifierType state) {
 		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
 
-		uint keyval;
-		var keymap = Gdk.Keymap.get_for_display (window.get_display ());
-		keymap.translate_keyboard_state (event.hardware_keycode, event.state,
-		                                 event.group, out keyval, null, null, null);
-
-		if (((event.state & default_modifiers) == Gdk.ModifierType.MOD1_MASK) &&
+		if (((state & default_modifiers) == Gdk.ModifierType.MOD1_MASK) &&
 		    (((window.get_direction () == Gtk.TextDirection.LTR) && keyval == Gdk.Key.Left) ||
 		     ((window.get_direction () == Gtk.TextDirection.RTL) && keyval == Gdk.Key.Right)) &&
 		     adaptive_state.is_subview_open) {
@@ -113,13 +108,15 @@ private class Games.CollectionView : Object, UiView {
 		}
 
 		if ((keyval == Gdk.Key.f || keyval == Gdk.Key.F) &&
-		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK) {
+		    (state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK) {
 			if (!search_mode)
 				search_mode = true;
 
 			return true;
 		}
 
+		// TODO: Replace with gtk_search_bar_set_key_capture_widget()
+		var event = Gtk.get_current_event ();
 		return box.search_bar_handle_event (event);
 	}
 
