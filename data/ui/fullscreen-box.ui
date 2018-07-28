@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk+" version="3.24"/>
-  <template class="GamesFullscreenBox" parent="GtkEventBox">
+  <template class="GamesFullscreenBox" parent="GtkBin">
     <property name="visible">True</property>
-    <property name="events">pointer-motion-mask</property>
     <child>
       <object class="GtkEventControllerMotion">
         <signal name="motion" handler="on_motion_event"/>
@@ -19,7 +18,6 @@
             <property name="hexpand">True</property>
             <property name="transition-type">slide-down</property>
             <property name="transition-duration">500</property>
-            <property name="events">pointer-motion-mask</property>
             <child>
               <object class="GtkEventControllerMotion">
                 <signal name="motion" handler="on_motion_event"/>
