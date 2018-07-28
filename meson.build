@@ -29,6 +29,7 @@ cc = meson.get_compiler ('c')
 valac = meson.get_compiler ('vala')
 
 glib_min_version = '2.38'
+gtk_min_version = '3.94'
 manette_min_version = '0.2.0'
 retro_gtk_min_version = '0.15.3'
 
@@ -36,7 +37,7 @@ archive_dep = dependency ('libarchive')
 gio_dep = dependency ('gio-2.0', version: '>=' + glib_min_version)
 glib_dep = dependency ('glib-2.0', version: '>=' + glib_min_version)
 grilo_dep = dependency ('grilo-0.3')
-gtk_dep = dependency ('gtk+-3.0')
+gtk_dep = dependency ('gtk4', version: '>=' + gtk_min_version)
 m_dep = cc.find_library('m', required : false)
 manette_dep = dependency ('manette-0.2', version: '>=' + manette_min_version)
 retro_gtk_dep = dependency ('retro-gtk-0.14', version: '>=' + retro_gtk_min_version)
