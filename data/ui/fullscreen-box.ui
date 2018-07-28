@@ -4,7 +4,11 @@
   <template class="GamesFullscreenBox" parent="GtkEventBox">
     <property name="visible">True</property>
     <property name="events">pointer-motion-mask</property>
-    <signal name="motion-notify-event" handler="on_motion_event"/>
+    <child>
+      <object class="GtkEventControllerMotion">
+        <signal name="motion" handler="on_motion_event"/>
+      </object>
+    </child>
     <child>
       <object class="GtkOverlay" id="overlay">
         <property name="visible">True</property>
@@ -16,7 +20,11 @@
             <property name="transition-type">slide-down</property>
             <property name="transition-duration">500</property>
             <property name="events">pointer-motion-mask</property>
-            <signal name="motion-notify-event" handler="on_motion_event"/>
+            <child>
+              <object class="GtkEventControllerMotion">
+                <signal name="motion" handler="on_motion_event"/>
+              </object>
+            </child>
           </object>
         </child>
       </object>

@@ -106,16 +106,14 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 	}
 
 	[GtkCallback]
-	private bool on_motion_event (Gdk.EventMotion event) {
+	private void on_motion_event (Gtk.EventControllerMotion controller, double x, double y) {
 		if (!autohide)
-			return false;
+			return;
 
 		if (event.y_root <= SHOW_HEADERBAR_DISTANCE)
 			show_ui ();
 
 		on_cursor_moved ();
-
-		return false;
 	}
 
 	private void show_ui () {
