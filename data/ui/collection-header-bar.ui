@@ -87,7 +87,7 @@
     <property name="visible">False</property>
     <child>
       <object class="GtkBox">
-        <property name="border_width">12</property>
+        <property name="margin">12</property>
         <property name="orientation">vertical</property>
         <property name="visible">True</property>
         <child>
