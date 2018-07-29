@@ -398,10 +398,7 @@ public class Games.Application : Gtk.Application {
 		dialog.documenters = Credits.DOCUMENTERS;
 		dialog.translator_credits = _("translator-credits");
 
-		dialog.response.connect ((response_id) => {
-			if (response_id == Gtk.ResponseType.CANCEL || response_id == Gtk.ResponseType.DELETE_EVENT)
-				dialog.hide_on_delete ();
-		});
+		dialog.hide_on_close = true;
 
 		dialog.present_with_time (Gtk.get_current_event_time ());
 	}
