@@ -491,7 +491,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	[GtkCallback]
-	private void on_toplevel_focus () {
+	private void on_active_changed () {
 		update_pause (true);
 	}
 
@@ -541,7 +541,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (!can_update_pause ())
 			return;
 
-		if (has_toplevel_focus)
+		if (is_active)
 			try {
 				display_box.runner.resume ();
 			}
@@ -560,7 +560,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (!can_update_pause ())
 			return false;
 
-		if (!has_toplevel_focus)
+		if (!is_active)
 			display_box.runner.pause ();
 
 		return false;
