@@ -13,6 +13,7 @@
     </child>
     <child>
       <object class="GtkImage" id="checkmark_image">
+        <property name="visible">False</property>
         <property name="icon-name">object-select-symbolic</property>
         <property name="valign">center</property>
       </object>

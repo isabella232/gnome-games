@@ -84,7 +84,7 @@
     </child>
   </template>
   <object class="GtkPopover" id="menu_popover">
-    <property name="visible">True</property>
+    <property name="visible">False</property>
     <child>
       <object class="GtkBox">
         <property name="border_width">12</property>
