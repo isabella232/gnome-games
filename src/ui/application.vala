@@ -229,7 +229,7 @@ public class Games.Application : Gtk.Application {
 		window.destroy.connect (() => {
 			quit_application ();
 		});
-		window.show ();
+		window.present ();
 
 		GLib.Timeout.add (500, show_loading_notification);
 	}

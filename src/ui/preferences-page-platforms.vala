@@ -13,7 +13,6 @@ private class Games.PreferencesPagePlatforms : PreferencesPage {
 
 		foreach (var platform in platforms) {
 			var row = platform.get_row ();
-			row.show ();
 
 			list_box.add (row);
 		}

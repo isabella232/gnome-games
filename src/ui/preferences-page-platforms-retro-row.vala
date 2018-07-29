@@ -70,11 +70,9 @@ private class Games.PreferencesPagePlatformsRetroRow : PreferencesPagePlatformsR
 				var label = new Gtk.Label (core.get_name ());
 				label.halign = Gtk.Align.START;
 				label.margin = 12;
-				label.show ();
 
 				var row = new Gtk.ListBoxRow ();
 				row.add (label);
-				row.show ();
 				row_cores[row] = core;
 
 				list_box.add (row);
