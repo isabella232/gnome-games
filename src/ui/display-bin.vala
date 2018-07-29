@@ -25,22 +25,16 @@ public class Games.DisplayBin : Gtk.Bin {
 		}
 	}
 
-	public override void size_allocate (Gtk.Allocation allocation) {
-		set_allocation (allocation);
-
+	public override void size_allocate (int width, int height, int baseline) {
 		var child = get_child ();
 		if (child != null && child.visible) {
-			Gtk.Allocation child_allocation = {};
+			Graphene.Point point = { horizontal_offset, vertical_offset };
 
 			if (get_direction () == Gtk.TextDirection.RTL)
-				child_allocation.x = allocation.x - horizontal_offset;
-			else
-				child_allocation.x = allocation.x + horizontal_offset;
-			child_allocation.y = allocation.y + vertical_offset;
-			child_allocation.width = allocation.width;
-			child_allocation.height = allocation.height;
+				point.x = -horizontal_offset;
 
-			child.size_allocate (child_allocation);
+			var transform = ((Gsk.Transform) null).translate (point);
+			child.allocate (width, height, baseline, transform);
 		}
 	}
 }

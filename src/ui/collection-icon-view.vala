@@ -247,12 +247,12 @@ private class Games.CollectionIconView : Gtk.Bin {
 	}
 
 	[GtkCallback]
-	private void on_size_allocate (Gtk.Allocation allocation) {
+	private void on_size_allocate (Gtk.Widget widget, int width, int height, int baseline) {
 		// If the window's width is less than half the width of a 1920×1080
 		// screen, display the game thumbnails at half the size to see more of
 		// them rather than a few huge thumbnails, making Games more usable on
 		// small screens.
-		if (allocation.width < 960)
+		if (width < 960)
 			get_style_context ().remove_class ("large");
 		else
 			get_style_context ().add_class ("large");

@@ -132,23 +132,21 @@ private class Games.DisplayBox : Gtk.Bin {
 	}
 
 	[GtkCallback]
-	private void on_fullscreen_header_bar_size_allocated (Gtk.Allocation allocation) {
-		fullscreen_header_bar_height = allocation.height;
+	private void on_fullscreen_header_bar_size_allocated (Gtk.Widget widget, int width, int height, int baseline) {
+		fullscreen_header_bar_height = height;
 	}
 
 	[GtkCallback]
-	private void on_savestates_list_size_allocate (Gtk.Allocation allocation) {
-		update_margin ();
+	private void on_savestates_list_size_allocate (Gtk.Widget widget, int width, int height, int baseline) {
+		update_margin (width);
 	}
 
-	public override void size_allocate (Gtk.Allocation allocation) {
-		update_margin ();
-		base.size_allocate (allocation);
+	public override void size_allocate (int width, int height, int baseline) {
+		update_margin (savestates_list.get_allocated_width ());
+		base.size_allocate (width, height, baseline);
 	}
 
-	private void update_margin () {
-		var width = savestates_list.get_allocated_width ();
-
+	private void update_margin (int width) {
 		display_bin.horizontal_offset = -width / 2;
 	}
 }
