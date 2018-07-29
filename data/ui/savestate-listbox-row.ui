@@ -22,7 +22,6 @@
                 <property name="width-request">66</property>
                 <property name="height-request">66</property>
                 <property name="margin">6</property>
-                <signal name="draw" handler="on_draw_image"/>
                 <style>
                   <class name="savestate-thumbnail"/>
                 </style>

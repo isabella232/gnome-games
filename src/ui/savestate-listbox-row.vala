@@ -38,6 +38,10 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 
 	private Gdk.Pixbuf pixbuf;
 
+	construct {
+		image.set_draw_func (draw_image);
+	}
+
 	public SavestateListBoxRow (Savestate savestate) {
 		Object (savestate: savestate);
 	}
@@ -106,11 +110,7 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 		revealer.reveal_child = false;
 	}
 
-	[GtkCallback]
-	private bool on_draw_image (Cairo.Context cr) {
-		var width = image.get_allocated_width ();
-		var height = image.get_allocated_height ();
-
+	public void draw_image (Gtk.DrawingArea area, Cairo.Context cr, int width, int height) {
 		var style = image.get_style_context ();
 		style.render_background (cr, 0.0, 0.0, width, height);
 		style.render_frame (cr, 0.0, 0.0, width, height);
@@ -118,7 +118,7 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 		cr.save ();
 		cr.scale (1.0 / scale_factor, 1.0 / scale_factor);
 
-		var mask = get_mask ();
+		var mask = get_mask (width, height);
 
 		var x_offset = (width * scale_factor - pixbuf.width) / 2;
 		var y_offset = (height * scale_factor - pixbuf.height) / 2;
@@ -128,15 +128,10 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 		cr.mask_surface (mask, 0, 0);
 
 		cr.restore ();
-
-		return Gdk.EVENT_PROPAGATE;
 	}
 
 	// TODO: Share this with GameThumbnail
-	private Cairo.Surface get_mask () {
-		var width = image.get_allocated_width ();
-		var height = image.get_allocated_height ();
-
+	private Cairo.Surface get_mask (int width, int height) {
 		var mask = new Cairo.ImageSurface (Cairo.Format.A8, width * scale_factor, height * scale_factor);
 
 		var style = image.get_style_context ();

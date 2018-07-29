@@ -37,6 +37,7 @@ private class Games.GamepadView : Gtk.DrawingArea {
 		handle = new Rsvg.Handle ();
 		configuration = { "", new GamepadInputPath[0] };
 		input_highlights = {};
+		set_draw_func (draw);
 	}
 
 	public void reset () {
@@ -59,17 +60,15 @@ private class Games.GamepadView : Gtk.DrawingArea {
 		return false;
 	}
 
-	public override bool draw (Cairo.Context context) {
+	public void draw (Gtk.DrawingArea area, Cairo.Context context, int width, int height) {
 		double x, y, scale;
-		calculate_image_dimensions (out x, out y, out scale);
+		calculate_image_dimensions (width, height, out x, out y, out scale);
 
 		context.translate (x, y);
 		context.scale (scale, scale);
 
 		color_gamepad (context);
 		highlight_gamepad (context);
-
-		return false;
 	}
 
 	private void color_gamepad (Cairo.Context context) {
@@ -97,10 +96,7 @@ private class Games.GamepadView : Gtk.DrawingArea {
 			}
 	}
 
-	private void calculate_image_dimensions (out double x, out double y, out double scale) {
-		double w = get_allocated_width ();
-		double h = get_allocated_height ();
-
+	private void calculate_image_dimensions (double w, double h, out double x, out double y, out double scale) {
 		scale = double.min (h / handle.height, w / handle.width);
 
 		x = (w - handle.width * scale) / 2;
