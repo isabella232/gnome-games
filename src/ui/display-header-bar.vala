@@ -27,7 +27,7 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 	}
 
 	public bool show_title_buttons {
-		set { ingame_header_bar.show_close_button = value; }
+		set { ingame_header_bar.show_title_buttons = value; }
 	}
 
 	public bool can_fullscreen { get; set; }

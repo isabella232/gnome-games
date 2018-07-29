@@ -22,7 +22,7 @@
                     <property name="name">left_header_bar</property>
                     <property name="visible">True</property>
                     <property name="title" translatable="yes">Preferences</property>
-                    <property name="show-close-button">False</property>
+                    <property name="show-title-buttons">False</property>
                     <child>
                       <object class="GtkButton" id="window_back_button">
                         <property name="visible">False</property>
@@ -63,7 +63,7 @@
                     <property name="name">right_header_bar</property>
                     <property name="visible">True</property>
                     <property name="hexpand">True</property>
-                    <property name="show-close-button">True</property>
+                    <property name="show-title-buttons">True</property>
                     <child>
                       <object class="GtkButton" id="page_back_button">
                         <property name="visible">False</property>

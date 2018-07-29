@@ -10,7 +10,7 @@
         <child>
           <object class="GtkHeaderBar" id="header_bar">
             <property name="visible">True</property>
-            <property name="show-close-button">True</property>
+            <property name="show-title-buttons">True</property>
             <child>
               <object class="GtkButton" id="add_game">
                 <property name="visible">True</property>
@@ -110,7 +110,7 @@
         <child>
           <object class="GtkHeaderBar" id="subview_header_bar">
             <property name="visible">True</property>
-            <property name="show_close_button">True</property>
+            <property name="show-title-buttons">True</property>
             <child>
               <object class="GtkButton">
                 <property name="visible">True</property>

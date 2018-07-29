@@ -58,7 +58,7 @@ private class Games.PreferencesSubpageKeyboard : Gtk.Box, PreferencesSubpage {
 			_state = value;
 			back_button.visible = (state == State.TEST);
 			cancel_button.visible = (state == State.CONFIGURE);
-			header_bar.show_close_button = (state == State.TEST);
+			header_bar.show_title_buttons = (state == State.TEST);
 			request_selection_mode = (state == State.CONFIGURE);
 
 			switch (value) {

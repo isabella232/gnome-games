@@ -14,7 +14,7 @@
           <object class="GtkHeaderBar" id="ingame_header_bar">
             <property name="visible">True</property>
             <property name="title" translatable="yes">Games</property>
-            <property name="show_close_button">True</property>
+            <property name="show-title-buttons">True</property>
             <child>
               <object class="GtkButton" id="back">
                 <property name="visible">True</property>
