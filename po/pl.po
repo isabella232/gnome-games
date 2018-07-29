@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2018-07-22 14:30+0000\n"
-"PO-Revision-Date: 2018-07-22 19:22+0200\n"
+"POT-Creation-Date: 2018-07-24 06:47+0000\n"
+"PO-Revision-Date: 2018-07-29 19:52+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -430,20 +430,20 @@ msgstr ""
 msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
 msgstr "Plik nie ma nagłówka konsoli Genesis/Sega 32X/Sega CD/Sega Pico."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:92
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:76
+#: plugins/sega-cd/src/sega-cd-plugin.vala:96
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:80
 #, c-format
 msgid "The file “%s” doesn’t have a track."
 msgstr "Plik „%s” nie ma ścieżki."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:98
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:82
+#: plugins/sega-cd/src/sega-cd-plugin.vala:102
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:86
 #, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr "Plik „%s” nie ma prawidłowego formatu pliku binarnego."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:101
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:85
+#: plugins/sega-cd/src/sega-cd-plugin.vala:105
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:89
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
 msgstr "Plik „%s” nie ma prawidłowego trybu ścieżki dla %d. ścieżki."
@@ -452,7 +452,7 @@ msgstr "Plik „%s” nie ma prawidłowego trybu ścieżki dla %d. ścieżki."
 msgid "The file doesn’t have a Sega Saturn header."
 msgstr "Plik nie ma nagłówka konsoli Sega Saturn."
 
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:89
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:93
 #, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "Plik „%s” nie ma prawidłowego pliku binarnego konsoli Sega Saturn."
@@ -543,6 +543,10 @@ msgstr "Nieprawidłowy deskryptor wtyczki: %s"
 #, c-format
 msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr "Nie można utworzyć nowego wystąpienia wtyczki w „%s”."
+
+#: src/dummy/dummy-description.vala:5
+msgid "No description available."
+msgstr "Opis jest nieodstępny."
 
 #: src/dummy/dummy-developer.vala:5
 msgid "Developer not available."
