@@ -56,16 +56,11 @@
                             <property name="visible">True</property>
                             <property name="can-focus">True</property>
                             <property name="valign">center</property>
+                            <property name="icon-name">window-close-symbolic</property>
                             <signal name="clicked" handler="on_error_notification_closed"/>
                             <style>
                               <class name="flat"/>
                             </style>
-                            <child>
-                              <object class="GtkImage">
-                                <property name="visible">True</property>
-                                <property name="icon-name">window-close-symbolic</property>
-                              </object>
-                            </child>
                           </object>
                         </child>
                       </object>

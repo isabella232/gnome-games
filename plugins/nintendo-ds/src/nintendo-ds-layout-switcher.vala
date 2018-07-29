@@ -5,7 +5,7 @@ private class Games.NintendoDsLayoutSwitcher : Gtk.Box {
 	[GtkChild]
 	private Gtk.Revealer change_screen_revealer;
 	[GtkChild]
-	private Gtk.Image change_screen_image;
+	private Gtk.Button change_screen_button;
 	[GtkChild]
 	private Gtk.Image layout_image;
 	[GtkChild]
@@ -54,7 +54,7 @@ private class Games.NintendoDsLayoutSwitcher : Gtk.Box {
 		list_box.select_row (item);
 
 		change_screen_revealer.reveal_child = (layout == NintendoDsLayout.QUICK_SWITCH);
-		change_screen_image.icon_name = view_bottom ?
+		change_screen_button.icon_name = view_bottom ?
 		                                "view-top-screen-symbolic" :
 		                                "view-bottom-screen-symbolic";
 	}

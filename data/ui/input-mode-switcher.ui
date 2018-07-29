@@ -10,16 +10,11 @@
         <property name="visible">True</property>
         <property name="draw-indicator">False</property>
         <property name="can-focus">False</property>
+        <property name="icon-name">input-gaming-symbolic</property>
         <signal name="toggled" handler="on_gamepad_button_toggled"/>
         <child internal-child="accessible">
           <object class="AtkObject" id="a11y-gamepad-input">
             <property name="accessible-name" translatable="yes">Gamepad Input</property>
-          </object>
-        </child>
-        <child>
-          <object class="GtkImage" id="gamepad_image">
-            <property name="visible">True</property>
-            <property name="icon-name">input-gaming-symbolic</property>
           </object>
         </child>
       </object>
@@ -30,16 +25,11 @@
         <property name="draw-indicator">False</property>
         <property name="can-focus">False</property>
         <property name="group">gamepad_mode</property>
+        <property name="icon-name">input-keyboard-symbolic</property>
         <signal name="toggled" handler="on_keyboard_button_toggled"/>
         <child internal-child="accessible">
           <object class="AtkObject" id="a11y-keyboard-input">
             <property name="accessible-name" translatable="yes">Keyboard Input</property>
-          </object>
-        </child>
-        <child>
-          <object class="GtkImage" id="keyboard_image">
-            <property name="visible">True</property>
-            <property name="icon-name">input-keyboard-symbolic</property>
           </object>
         </child>
       </object>

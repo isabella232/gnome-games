@@ -26,20 +26,11 @@
                     <child>
                       <object class="GtkButton" id="window_back_button">
                         <property name="visible">False</property>
+                        <property name="icon-name">go-previous-symbolic</property>
                         <signal name="clicked" handler="on_back_clicked"/>
-                        <style>
-                          <class name="image-button"/>
-                        </style>
                         <child internal-child="accessible">
                           <object class="AtkObject">
                             <property name="accessible-name" translatable="yes">Back</property>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkImage">
-                            <property name="visible">True</property>
-                            <property name="icon-name">go-previous-symbolic</property>
-                            <property name="icon-size">1</property>
                           </object>
                         </child>
                       </object>
@@ -67,20 +58,11 @@
                     <child>
                       <object class="GtkButton" id="page_back_button">
                         <property name="visible">False</property>
+                        <property name="icon-name">go-previous-symbolic</property>
                         <signal name="clicked" handler="on_back_clicked"/>
-                        <style>
-                          <class name="image-button"/>
-                        </style>
                         <child internal-child="accessible">
                           <object class="AtkObject">
                             <property name="accessible-name" translatable="yes">Back</property>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkImage">
-                            <property name="visible">True</property>
-                            <property name="icon-name">go-previous-symbolic</property>
-                            <property name="icon-size">1</property>
                           </object>
                         </child>
                       </object>
