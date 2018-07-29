@@ -34,7 +34,7 @@ private class Games.PreferencesPageControllers : PreferencesPage {
 		while (iterator.next (out device)) {
 			i += 1;
 			var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-			box.pack_start (new Gtk.Label (device.get_name ()), false, false);
+			box.add (new Gtk.Label (device.get_name ()));
 			box.margin = 6;
 			box.show_all ();
 			gamepads_list_box.add (box);
@@ -70,7 +70,7 @@ private class Games.PreferencesPageControllers : PreferencesPage {
 
 	private void build_keyboard_list () {
 		var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-		box.pack_start (new Gtk.Label (_("Keyboard")), false, false);
+		box.add (new Gtk.Label (_("Keyboard")));
 		box.margin = 6;
 		box.show_all ();
 		keyboard_list_box.add (box);
