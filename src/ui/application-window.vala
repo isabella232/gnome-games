@@ -158,7 +158,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	[GtkCallback]
-	public bool on_delete_event () {
+	public bool on_close_request (Gtk.Window window) {
 		return !quit_game ();
 	}
 
