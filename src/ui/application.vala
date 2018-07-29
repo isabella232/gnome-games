@@ -206,9 +206,9 @@ public class Games.Application : Gtk.Application {
 
 		Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
 
-		var screen = Gdk.Screen.get_default ();
+		var display = Gdk.Display.get_default ();
 		var provider = load_css ("gtk-style.css");
-		Gtk.StyleContext.add_provider_for_screen (screen, provider, 600);
+		Gtk.StyleContext.add_provider_for_display (display, provider, 600);
 
 		init_game_sources ();
 		load_game_list.begin ();
