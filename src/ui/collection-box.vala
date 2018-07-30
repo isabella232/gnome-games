@@ -32,6 +32,18 @@ private class Games.CollectionBox : Gtk.Box {
 		                                              BindingFlags.DEFAULT);
 	}
 
+	public bool gamepad_button_press_event (Manette.Event event) {
+		return icon_view.gamepad_button_press_event (event);
+	}
+
+	public bool gamepad_button_release_event (Manette.Event event) {
+		return icon_view.gamepad_button_release_event (event);
+	}
+
+	public bool gamepad_absolute_axis_event (Manette.Event event) {
+		return icon_view.gamepad_absolute_axis_event (event);
+	}
+
 	[GtkCallback]
 	private void on_loading_notification_closed () {
 		loading_notification_revealer.set_reveal_child (false);
