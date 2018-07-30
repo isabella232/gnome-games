@@ -1,3 +1,27 @@
+===============
+Version 3.29.90
+===============
+
+* UI:
+ - Don't display the list of gamepads if none is available.
+ - Add borders around all lists in preferences.
+ - Scale the default emblem to the thumbnail's size.
+
+* Ensure games in the collection are added only once.
+
+* Add many more information about games and make Grilo fetch some of it, thought
+  this information is mostly unused.
+
+* Fixes:
+ - Fix a reference leak leading to Libretro cores not being uninitialized.
+ - Fix many potential crashers.
+ - Various code cleanups.
+
+* Translation updates:
+ French
+ German
+ Polish
+
 ==============
 Version 3.29.4
 ==============
