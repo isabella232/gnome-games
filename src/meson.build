@@ -143,6 +143,7 @@ vala_sources = [
   'ui/konami-code.vala',
   'ui/media-selector.vala',
   'ui/media-menu-button.vala',
+  'ui/message-dialog.vala',
   'ui/preferences-page.vala',
   'ui/preferences-page-controllers.vala',
   'ui/preferences-page-plugins.vala',
