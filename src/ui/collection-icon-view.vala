@@ -11,6 +11,7 @@ private class Games.CollectionIconView : Gtk.Stack {
 	private const double DEAD_ZONE = 0.3;
 
 	public signal void game_activated (Game game);
+	public signal void game_changed (Game game);
 
 	private string[] filtering_terms;
 	public string filtering_text {
@@ -18,6 +19,24 @@ private class Games.CollectionIconView : Gtk.Stack {
 			filtering_terms = value.split (" ");
 			flow_box.invalidate_filter ();
 		}
+	}
+
+	private Developer? _filtering_developer;
+	public Developer? filtering_developer {
+		set {
+			_filtering_developer = value;
+			flow_box.invalidate_filter ();
+		}
+		get { return _filtering_developer; }
+	}
+
+	private Platform? _filtering_platform;
+	public Platform? filtering_platform {
+		set {
+			_filtering_platform = value;
+			flow_box.invalidate_filter ();
+		}
+		get { return _filtering_platform; }
 	}
 
 	private ulong model_changed_id;
@@ -315,12 +334,18 @@ private class Games.CollectionIconView : Gtk.Stack {
 	}
 
 	private bool filter_game (Game game) {
-		if (filtering_terms.length == 0)
-			return true;
+		if (filtering_developer != null &&
+		    filtering_developer.get_developer() != game.get_developer().get_developer())
+			return false;
 
-		foreach (var term in filtering_terms)
-			if (!(term.casefold () in game.name.casefold ()))
-				return false;
+		if (filtering_platform != null &&
+		    filtering_platform.get_name() != game.get_platform().get_name())
+			return false;
+
+		if (filtering_terms.length != 0)
+			foreach (var term in filtering_terms)
+				if (!(term.casefold () in game.name.casefold ()))
+					return false;
 
 		return true;
 	}

@@ -134,6 +134,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		konami_code = new KonamiCode (this);
 		konami_code.code_performed.connect (on_konami_code_performed);
 
+		collection_header_bar.viewstack = collection_box.viewstack;
+
 		window_size_update_timeout = -1;
 		focus_out_timeout_id = -1;
 		inhibit_cookie = 0;
