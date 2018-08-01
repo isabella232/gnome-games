@@ -30,6 +30,7 @@
     <file preprocess="xml-stripblanks">ui/keyboard-tester.ui</file>
     <file preprocess="xml-stripblanks">ui/media-menu-button.ui</file>
     <file preprocess="xml-stripblanks">ui/media-selector.ui</file>
+    <file preprocess="xml-stripblanks">ui/platform-list-item.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page-controllers.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page-plugins.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page-plugins-item.ui</file>
