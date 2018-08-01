@@ -1,6 +1,6 @@
 /* This file is part of GNOME Games. License: GPL-3.0+. */
 
-gamescollectioniconview .frame {
+.content-view {
 	background-color: @theme_base_color;
 }
 
