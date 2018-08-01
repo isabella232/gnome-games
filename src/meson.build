@@ -127,6 +127,7 @@ vala_sources = [
   'ui/collection-box.vala',
   'ui/collection-icon-view.vala',
   'ui/collection-header-bar.vala',
+  'ui/developer-list-item.vala',
   'ui/display-box.vala',
   'ui/display-header-bar.vala',
   'ui/dummy-display.vala',
