@@ -150,6 +150,7 @@ vala_sources = [
   'ui/media-menu-button.vala',
   'ui/message-dialog.vala',
   'ui/platform-list-item.vala',
+  'ui/platforms-view.vala',
   'ui/preferences-page.vala',
   'ui/preferences-page-controllers.vala',
   'ui/preferences-page-plugins.vala',
