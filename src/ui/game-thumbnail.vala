@@ -61,7 +61,6 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 	public struct DrawingContext {
 		Cairo.Context cr;
 		Gtk.StyleContext style;
-		Gtk.StateFlags state;
 		int width;
 		int height;
 	}
@@ -84,10 +83,9 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 
 	public void draw (Gtk.DrawingArea area, Cairo.Context cr, int width, int height) {
 		var style = get_style_context ();
-		var state = get_state_flags ();
 
 		DrawingContext context = {
-			cr, style, state, width, height
+			cr, style, width, height
 		};
 
 		if (icon == null)
@@ -129,7 +127,7 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 		if (pixbuf == null)
 			return false;
 
-		var border_radius = (int) context.style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS, context.state);
+		var border_radius = (int) context.style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS);
 		border_radius = border_radius.clamp (0, int.max (context.width / 2, context.height / 2));
 
 		context.cr.set_source_rgb (0, 0, 0);
@@ -150,7 +148,7 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 	private void draw_emblem_icon (DrawingContext context, string icon_name, double scale) {
 		Gdk.Pixbuf? emblem = null;
 
-		var color = context.style.get_color (context.state);
+		var color = context.style.get_color ();
 
 		var theme = Gtk.IconTheme.get_default ();
 		var size = int.min (context.width, context.height) * scale * scale_factor;
@@ -320,7 +318,7 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 	private Cairo.Surface get_mask (DrawingContext context) {
 		var mask = new Cairo.ImageSurface (Cairo.Format.A8, context.width * scale_factor, context.height * scale_factor);
 
-		var border_radius = (int) context.style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS, context.state);
+		var border_radius = (int) context.style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS);
 		border_radius = border_radius.clamp (0, int.max (context.width / 2, context.height / 2));
 
 		var cr = new Cairo.Context (mask);

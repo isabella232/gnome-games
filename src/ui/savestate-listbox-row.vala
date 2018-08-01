@@ -135,8 +135,7 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 		var mask = new Cairo.ImageSurface (Cairo.Format.A8, width * scale_factor, height * scale_factor);
 
 		var style = image.get_style_context ();
-		var flags = image.get_state_flags ();
-		var border_radius = (int) style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS, flags);
+		var border_radius = (int) style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS);
 		border_radius = border_radius.clamp (0, int.max (width / 2, height / 2));
 
 		var cr = new Cairo.Context (mask);
