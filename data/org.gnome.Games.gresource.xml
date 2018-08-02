@@ -41,5 +41,6 @@
     <file preprocess="xml-stripblanks">ui/resume-failed-dialog.ui</file>
     <file preprocess="xml-stripblanks">ui/search-bar.ui</file>
     <file preprocess="xml-stripblanks">ui/shortcuts-window.ui</file>
+    <file preprocess="xml-stripblanks">ui/sidebar-view.ui</file>
   </gresource>
 </gresources>
