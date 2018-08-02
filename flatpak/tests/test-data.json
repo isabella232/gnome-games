@@ -23,18 +23,18 @@
                 },
                 {
                     "type" : "file",
-                    "path" : "bsnes_balanced.240pSuite.120.png",
-                    "dest-filename" : "bsnes_balanced.240pSuite.120.png"
+                    "path" : "bsnes_mercury_balanced.240pSuite.120.png",
+                    "dest-filename" : "bsnes_mercury_balanced.240pSuite.120.png"
                 },
                 {
                     "type" : "file",
-                    "path" : "bsnes_balanced.240pSuite.expected",
-                    "dest-filename" : "bsnes_balanced.240pSuite.expected"
+                    "path" : "bsnes_mercury_balanced.240pSuite.expected",
+                    "dest-filename" : "bsnes_mercury_balanced.240pSuite.expected"
                 },
                 {
                     "type" : "file",
-                    "path" : "bsnes_balanced.240pSuite.test",
-                    "dest-filename" : "bsnes_balanced.240pSuite.test"
+                    "path" : "bsnes_mercury_balanced.240pSuite.test",
+                    "dest-filename" : "bsnes_mercury_balanced.240pSuite.test"
                 },
                 {
                     "type" : "file",

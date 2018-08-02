@@ -1,0 +1,9 @@
+[Retro Reftest]
+Path=/bsnes_mercury_balanced/240pSuite
+Core=/app/lib/libretro/bsnes_mercury_balanced_libretro.so
+Medias=240pSuite.sfc;
+
+[Options]
+
+[Frame 120]
+Video=bsnes_mercury_balanced.240pSuite.120.png
