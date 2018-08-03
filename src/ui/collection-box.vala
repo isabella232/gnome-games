@@ -51,7 +51,37 @@ private class Games.CollectionBox : Gtk.Box {
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {
-		return collection_view.gamepad_button_press_event (event);
+		if (!visible)
+			return false;
+
+		uint16 button;
+		if (!event.get_button (out button))
+			return false;
+
+		switch (button) {
+		case EventCode.BTN_TL:
+			var views = viewstack.get_children ();
+			unowned List<Gtk.Widget> current_view = views.find (viewstack.visible_child);
+
+			assert (current_view != null);
+
+			if (current_view.prev != null)
+				viewstack.visible_child = current_view.prev.data;
+
+			return true;
+		case EventCode.BTN_TR:
+			var views = viewstack.get_children ();
+			unowned List<Gtk.Widget> current_view = views.find (viewstack.visible_child);
+
+			assert (current_view != null);
+
+			if (current_view.next != null)
+				viewstack.visible_child = current_view.next.data;
+
+			return true;
+		default:
+			return collection_view.gamepad_button_press_event (event);
+		}
 	}
 
 	public bool gamepad_button_release_event (Manette.Event event) {
