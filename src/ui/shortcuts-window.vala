@@ -7,6 +7,8 @@ private class Games.ShortcutsWindow : Gtk.ShortcutsWindow {
 	[GtkChild]
 	private Gtk.ShortcutsShortcut collection_shortcut_dpad;
 	[GtkChild]
+	private Gtk.ShortcutsShortcut collection_shortcut_shoulders_front;
+	[GtkChild]
 	private Gtk.ShortcutsShortcut collection_shortcut_start;
 	[GtkChild]
 	private Gtk.ShortcutsShortcut collection_shortcut_south;
@@ -24,6 +26,7 @@ private class Games.ShortcutsWindow : Gtk.ShortcutsWindow {
 
 		collection_shortcut_left_stick.icon = icon_for_uri ("resource:///org/gnome/Games/gesture/stick-symbolic.svg");
 		collection_shortcut_dpad.icon = icon_for_uri ("resource:///org/gnome/Games/gesture/dpad-symbolic.svg");
+		collection_shortcut_shoulders_front.icon = icon_for_uri ("resource:///org/gnome/Games/gesture/shoulders-front-symbolic.svg");
 		collection_shortcut_start.icon = icon_for_uri ("resource:///org/gnome/Games/gesture/button-start-symbolic.svg");
 		collection_shortcut_south.icon = icon_for_uri ("resource:///org/gnome/Games/gesture/button-south-symbolic.svg");
 		ingame_shortcut_home.icon = icon_for_uri ("resource:///org/gnome/Games/gesture/button-home-symbolic.svg");

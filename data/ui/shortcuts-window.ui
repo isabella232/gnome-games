@@ -50,6 +50,14 @@
               </object>
             </child>
             <child>
+              <object class="GtkShortcutsShortcut" id="collection_shortcut_shoulders_front">
+                <property name="visible">True</property>
+                <property name="shortcut-type">gesture</property>
+                <property name="title" translatable="yes" context="shortcut window">Select view</property>
+                <property name="subtitle" translatable="yes" context="shortcut window">Front shoulder buttons</property>
+              </object>
+            </child>
+            <child>
               <object class="GtkShortcutsShortcut" id="collection_shortcut_start">
                 <property name="visible">True</property>
                 <property name="shortcut-type">gesture</property>
