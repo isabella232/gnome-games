@@ -11,7 +11,6 @@ private class Games.CollectionIconView : Gtk.Stack {
 	private const double DEAD_ZONE = 0.3;
 
 	public signal void game_activated (Game game);
-	public signal void game_changed (Game game);
 
 	private string[] filtering_terms;
 	public string filtering_text {
