@@ -2,9 +2,14 @@
 # Please keep this file sorted alphabetically.
 plugins/desktop/src/desktop-plugin.c
 plugins/dreamcast/src/dreamcast-header.c
+plugins/dreamcast/src/dreamcast-plugin.c
 plugins/game-cube/src/game-cube-header.c
+plugins/game-cube/src/game-cube-plugin.c
+plugins/libretro/src/libretro-plugin.c
 plugins/love/src/love-package.c
+plugins/love/src/love-plugin.c
 plugins/mame/src/mame-game-uri-adapter.c
+plugins/nintendo-ds/src/nintendo-ds-plugin.c
 plugins/playstation/data/playstation.gameinfo.xml.in
 plugins/playstation/src/playstation-game-factory.c
 plugins/playstation/src/playstation-header.c
@@ -15,11 +20,15 @@ plugins/sega-saturn/src/sega-saturn-plugin.c
 plugins/steam/src/steam-plugin.c
 plugins/steam/src/steam-registry.c
 plugins/steam/src/steam-title.c
+plugins/turbografx-cd/src/turbografx-cd-plugin.c
 plugins/virtual-boy/src/virtual-boy-header.c
+plugins/virtual-boy/src/virtual-boy-plugin.c
 plugins/wii/src/wii-header.c
+plugins/wii/src/wii-plugin.c
 src/command/command-runner.c
 src/core/media-set/media-set.c
 src/core/plugin-registrar.c
+src/dummy/dummy-platform.c
 src/gameinfo/gameinfo-disc-id-disc-title.c
 src/gameinfo/gameinfo-doc.c
 src/retro/retro-core-source.c
