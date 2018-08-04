@@ -2,13 +2,11 @@
 <interface>
   <requires lib="gtk+" version="3.24"/>
   <template class="GamesCollectionIconView" parent="GtkBin">
-    <property name="visible">True</property>
     <signal name="map" after="yes" handler="on_map"/>
     <signal name="unmap" after="no" handler="on_unmap"/>
     <signal name="size-allocate" after="no" handler="on_size_allocate"/>
     <child>
       <object class="GtkScrolledWindow" id="scrolled_window">
-        <property name="visible">True</property>
         <property name="can-focus">True</property>
         <property name="hscrollbar-policy">never</property>
         <style>
@@ -16,7 +14,6 @@
         </style>
         <child>
           <object class="GtkFlowBox" id="flow_box">
-            <property name="visible">True</property>
             <property name="can-focus">True</property>
             <property name="halign">center</property>
             <property name="valign">start</property>

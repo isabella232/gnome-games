@@ -203,9 +203,6 @@ private class Games.CollectionIconView : Gtk.Bin {
 		var game_view = new GameIconView (game);
 		var child = new Gtk.FlowBoxChild ();
 
-		game_view.visible = true;
-		child.visible = true;
-
 		child.add (game_view);
 		flow_box.add (child);
 	}

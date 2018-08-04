@@ -2,15 +2,12 @@
 <interface>
   <requires lib="gtk+" version="3.24"/>
   <template class="GamesCheckmarkItem" parent="GtkListBoxRow">
-    <property name="visible">true</property>
     <child>
       <object class="GtkBox">
         <property name="margin">6</property>
         <property name="spacing">12</property>
-        <property name="visible">true</property>
         <child>
           <object class="GtkLabel">
-            <property name="visible">true</property>
             <property name="vexpand">true</property>
             <property name="wrap">true</property>
             <property name="label" bind-source="GamesCheckmarkItem" bind-property="label" bind-flags="default"/>

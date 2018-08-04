@@ -2,13 +2,11 @@
 <interface>
   <requires lib="gtk+" version="3.24"/>
   <template class="GamesErrorDisplay" parent="GtkBox">
-    <property name="visible">True</property>
     <property name="orientation">vertical</property>
     <property name="halign">center</property>
     <property name="valign">center</property>
     <child>
       <object class="GtkImage" id="icon">
-        <property name="visible">True</property>
         <property name="valign">center</property>
         <property name="pixel-size">128</property>
         <property name="icon-name">face-uncertain-symbolic</property>
@@ -21,12 +19,10 @@
     </child>
     <child>
       <object class="GtkBox" id="box">
-        <property name="visible">True</property>
         <property name="orientation">vertical</property>
         <property name="spacing">12</property>
         <child>
           <object class="GtkLabel" id="primary_label">
-            <property name="visible">True</property>
             <property name="opacity">0.5</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
@@ -36,7 +32,6 @@
         </child>
         <child>
           <object class="GtkLabel" id="secondary_label">
-            <property name="visible">True</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
             <property name="use-markup">True</property>

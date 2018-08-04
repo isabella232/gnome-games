@@ -8,14 +8,11 @@
         <property name="max-height">12</property>
         <property name="section-name">shortcuts</property>
         <property name="title" translatable="yes">Shortcuts</property>
-        <property name="visible">True</property>
         <child>
           <object class="GtkShortcutsGroup">
             <property name="title" translatable="yes">General</property>
-            <property name="visible">True</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="title" translatable="yes" context="shortcut window">Quit</property>
                 <property name="accelerator">&lt;Primary&gt;Q</property>
               </object>
@@ -25,17 +22,14 @@
         <child>
           <object class="GtkShortcutsGroup">
             <property name="title" translatable="yes">Collection</property>
-            <property name="visible">True</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="title" translatable="yes" context="shortcut window">Search</property>
                 <property name="accelerator">&lt;Primary&gt;F</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="shortcut-type">gesture</property>
                 <property name="icon">stick_icon</property>
                 <property name="title" translatable="yes" context="shortcut window">Navigate</property>
@@ -44,7 +38,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="shortcut-type">gesture</property>
                 <property name="icon">dpad_icon</property>
                 <property name="title" translatable="yes" context="shortcut window">Navigate</property>
@@ -53,7 +46,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="shortcut-type">gesture</property>
                 <property name="icon">shoulders_front_icon</property>
                 <property name="title" translatable="yes" context="shortcut window">Select view</property>
@@ -62,7 +54,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="shortcut-type">gesture</property>
                 <property name="icon">button_start_icon</property>
                 <property name="title" translatable="yes" context="shortcut window">Start game</property>
@@ -71,7 +62,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="shortcut-type">gesture</property>
                 <property name="icon">button_south_icon</property>
                 <property name="title" translatable="yes" context="shortcut window">Start game</property>
@@ -83,31 +73,26 @@
         <child>
           <object class="GtkShortcutsGroup">
             <property name="title" translatable="yes">In Game</property>
-            <property name="visible">True</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="title" translatable="yes" context="shortcut window">Toggle fullscreen</property>
                 <property name="accelerator">&lt;Primary&gt;F F11</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="title" translatable="yes" context="shortcut window">Exit fullscreen</property>
                 <property name="accelerator">Escape</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut" id="ingame_shortcut_alt_left">
-                <property name="visible">True</property>
                 <property name="title" translatable="yes" context="shortcut window">Go back to the collection</property>
                 <property name="accelerator">&lt;alt&gt;Left &lt;alt&gt;Right</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="shortcut-type">gesture</property>
                 <property name="icon">button_home_icon</property>
                 <property name="title" translatable="yes" context="shortcut window">Go back to the collection</property>
@@ -116,7 +101,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="shortcut-type">gesture</property>
                 <property name="icon">button_south_icon</property>
                 <property name="title" translatable="yes" context="shortcut window">Accept</property>
@@ -125,7 +109,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="shortcut-type">gesture</property>
                 <property name="icon">button_east_icon</property>
                 <property name="title" translatable="yes" context="shortcut window">Cancel</property>
@@ -141,21 +124,17 @@
         <property name="max-height">12</property>
         <property name="section-name">nintendo_ds</property>
         <property name="title" translatable="yes">Nintendo DS</property>
-        <property name="visible">True</property>
         <child>
           <object class="GtkShortcutsGroup">
             <property name="title" translatable="yes">Screen Layout</property>
-            <property name="visible">True</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="title" translatable="yes" context="shortcut window">Vertical</property>
                 <property name="accelerator">&lt;alt&gt;1</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="title" translatable="yes" context="shortcut window">Side by side</property>
                 <property name="subtitle" translatable="yes" context="shortcut window">Bottom to the right</property>
                 <property name="accelerator">&lt;alt&gt;2</property>
@@ -163,7 +142,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="title" translatable="yes" context="shortcut window">Side by side</property>
                 <property name="subtitle" translatable="yes" context="shortcut window">Bottom to the left</property>
                 <property name="accelerator">&lt;alt&gt;3</property>
@@ -171,7 +149,6 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="title" translatable="yes" context="shortcut window">Single screen</property>
                 <property name="accelerator">&lt;alt&gt;4</property>
               </object>
@@ -181,24 +158,20 @@
         <child>
           <object class="GtkShortcutsGroup">
             <property name="title" translatable="yes">Screen Switching</property>
-            <property name="visible">True</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="title" translatable="yes" context="shortcut window">Show top screen</property>
                 <property name="accelerator">Page_Up</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="title" translatable="yes" context="shortcut window">Show bottom screen</property>
                 <property name="accelerator">Page_Down</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="shortcut-type">gesture</property>
                 <property name="icon">stick_icon</property>
                 <property name="title" translatable="yes" context="shortcut window">Toggle screen</property>
@@ -214,14 +187,11 @@
         <property name="max-height">12</property>
         <property name="section-name">cheats</property>
         <property name="title" translatable="yes">Cheats</property>
-        <property name="visible">True</property>
         <child>
           <object class="GtkShortcutsGroup">
             <property name="title" translatable="yes">Collection</property>
-            <property name="visible">True</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="visible">True</property>
                 <property name="title" translatable="yes" context="shortcut window">Contribute</property>
                 <property name="accelerator">Up+Up+Down+Down+Left+Right+Left+Right+B+A</property>
               </object>

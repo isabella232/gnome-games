@@ -2,11 +2,9 @@
 <interface>
   <requires lib="gtk+" version="3.24"/>
   <template class="GamesPreferencesPagePlatforms" parent="GamesPreferencesPage">
-    <property name="visible">True</property>
     <child>
       <object class="GtkListBox" id="list_box">
         <property name="selection-mode">none</property>
-        <property name="visible">true</property>
         <signal name="row-activated" handler="on_row_activated"/>
         <style>
           <class name="frame"/>

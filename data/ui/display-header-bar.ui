@@ -2,22 +2,18 @@
 <interface>
   <requires lib="gtk+" version="3.24"/>
   <template class="GamesDisplayHeaderBar" parent="GtkBin">
-    <property name="visible">True</property>
     <signal name="notify::is-fullscreen" handler="on_fullscreen_changed"/>
     <signal name="notify::can-fullscreen" handler="on_fullscreen_changed"/>
     <child>
       <object class="GtkStack" id="stack">
-        <property name="visible">True</property>
         <property name="transition-type">crossfade</property>
         <property name="transition-duration">250</property>
         <child>
           <object class="GtkHeaderBar" id="ingame_header_bar">
-            <property name="visible">True</property>
             <property name="title" translatable="yes">Games</property>
             <property name="show-title-buttons">True</property>
             <child>
               <object class="GtkButton" id="back">
-                <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="valign">center</property>
                 <property name="icon-name">go-previous-symbolic</property>
@@ -50,7 +46,6 @@
             <child type="end">
               <object class="GtkMenuButton" id="secondary_menu_button">
                 <property name="popover">secondary_menu</property>
-                <property name="visible">True</property>
                 <property name="valign">center</property>
                 <property name="can-focus">False</property>
                 <property name="icon-name">view-more-symbolic</property>
@@ -74,19 +69,15 @@
               <object class="GamesMediaMenuButton" id="media_button"/>
             </child>
             <child type="end">
-              <object class="GamesInputModeSwitcher" id="input_mode_switcher">
-                <property name="visible">True</property>
-              </object>
+              <object class="GamesInputModeSwitcher" id="input_mode_switcher"/>
             </child>
           </object>
         </child>
         <child>
           <object class="GtkHeaderBar" id="savestates_header_bar">
-            <property name="visible">True</property>
             <child type="end">
               <object class="GtkButton" id="savestates_load_btn">
                 <property name="sensitive">False</property>
-                <property name="visible">True</property>
                 <property name="valign">center</property>
                 <property name="use-underline">True</property>
                 <property name="label" translatable="yes">_Load</property>
@@ -98,7 +89,6 @@
             </child>
             <child type="start">
               <object class="GtkButton" id="savestates_back">
-                <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="valign">center</property>
                 <property name="icon-name">go-previous-symbolic</property>
@@ -118,11 +108,9 @@
   <object class="GtkPopoverMenu" id="secondary_menu">
     <child>
       <object class="GtkBox" id="secondary_menu_box">
-        <property name="visible">True</property>
         <property name="margin">6</property>
         <child>
           <object class="GtkModelButton" id="savestates_menu_button">
-            <property name="visible">True</property>
             <property name="text" translatable="yes">_Savestates</property>
             <signal name="clicked" handler="on_secondary_menu_savestates_clicked"/>
           </object>

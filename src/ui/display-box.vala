@@ -91,7 +91,6 @@ private class Games.DisplayBox : Gtk.Bin {
 	private void set_display (Gtk.Widget display) {
 		remove_display ();
 		display_bin.add (display);
-		display.visible = true;
 	}
 
 	private void remove_display () {

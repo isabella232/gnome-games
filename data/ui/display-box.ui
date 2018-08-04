@@ -2,14 +2,11 @@
 <interface>
   <requires lib="gtk+" version="3.24"/>
   <template class="GamesDisplayBox" parent="GtkBin">
-    <property name="visible">True</property>
     <child>
       <object class="GamesFullscreenBox" id="fullscreen_box">
-        <property name="visible">True</property>
         <property name="is-fullscreen" bind-source="GamesDisplayBox" bind-property="is-fullscreen" bind-flags="bidirectional"/>
         <child type="titlebar">
           <object class="GamesDisplayHeaderBar" id="fullscreen_header_bar">
-            <property name="visible">True</property>
             <property name="show-title-buttons">False</property>
             <signal name="back" handler="on_fullscreen_header_bar_back"/>
             <signal name="size-allocate" handler="on_fullscreen_header_bar_size_allocated"/>
@@ -17,29 +14,21 @@
         </child>
         <child>
           <object class="GtkStack" id="stack">
-            <property name="visible">True</property>
             <child>
-              <object class="GamesErrorDisplay" id="error_display">
-                <property name="visible">True</property>
-              </object>
+              <object class="GamesErrorDisplay" id="error_display"/>
             </child>
             <child>
               <object class="GtkOverlay" id="display_overlay">
-                <property name="visible">True</property>
                 <child>
                   <object class="GamesDisplayBin" id="display_bin">
-                    <property name="visible">True</property>
                     <property name="hexpand">True</property>
                   </object>
                 </child>
                 <child type="overlay">
-                  <object class="GamesFlashBox" id="flash_box">
-                    <property name="visible">True</property>
-                  </object>
+                  <object class="GamesFlashBox" id="flash_box"/>
                 </child>
                 <child type="overlay">
                   <object class="GamesSavestatesList" id="savestates_list">
-                    <property name="visible">True</property>
                     <property name="halign">end</property>
                     <signal name="size-allocate" handler="on_savestates_list_size_allocate"/>
                   </object>

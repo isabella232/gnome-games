@@ -20,14 +20,10 @@
       </object>
     </child>
     <child>
-      <object class="GtkStack" id="content_box">
-        <property name="visible">True</property>
-      </object>
+      <object class="GtkStack" id="content_box"/>
     </child>
     <child type="titlebar">
-          <object class="GtkStack" id="header_bar">
-            <property name="visible">True</property>
-          </object>
+          <object class="GtkStack" id="header_bar"/>
     </child>
   </template>
 </interface>

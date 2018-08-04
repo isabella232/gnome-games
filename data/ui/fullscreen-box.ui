@@ -2,7 +2,6 @@
 <interface>
   <requires lib="gtk+" version="3.24"/>
   <template class="GamesFullscreenBox" parent="GtkBin">
-    <property name="visible">True</property>
     <child>
       <object class="GtkEventControllerMotion">
         <signal name="motion" handler="on_motion_event"/>
@@ -10,10 +9,9 @@
     </child>
     <child>
       <object class="GtkOverlay" id="overlay">
-        <property name="visible">True</property>
         <child type="overlay">
           <object class="GtkRevealer" id="header_bar_revealer">
-            <property name="visible" bind-source="GamesFullscreenBox" bind-property="is-fullscreen" bind-flags="bidirectional">True</property>
+            <property name="visible" bind-source="GamesFullscreenBox" bind-property="is-fullscreen" bind-flags="bidirectional"/>
             <property name="valign">start</property>
             <property name="hexpand">True</property>
             <property name="transition-type">slide-down</property>
