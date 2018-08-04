@@ -110,6 +110,9 @@ private class Games.CollectionBox : Gtk.Box {
 		else if (viewstack.visible_child == developer_view) {
 			developer_view.select_default_row ();
 		}
+		else {
+			collection_view.reset_scroll_position ();
+		}
 	}
 
 	[GtkCallback]
