@@ -129,6 +129,12 @@ public class Games.Application : Gtk.Application {
 		return @"$cache_dir/covers";
 	}
 
+	public static string get_covers_cache_dir (int size) {
+		var covers_dir = get_covers_dir ();
+
+		return @"$covers_dir/$size";
+	}
+
 	public static void try_make_dir (string path) {
 		var file = File.new_for_path (path);
 		try {
