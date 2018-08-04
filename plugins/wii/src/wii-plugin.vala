@@ -37,7 +37,7 @@ private class Games.WiiPlugin : Object, Plugin {
 		var description = new GriloDescription (media);
 		var rating = new GriloRating (media);
 		var platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
-		var core_source = new RetroCoreSource (PLATFORM_ID, { MIME_TYPE });
+		var core_source = new RetroCoreSource (platform, { MIME_TYPE });
 		var runner = new RetroRunner (core_source, uri, uid, title);
 
 		var game = new GenericGame (uid, title, platform, runner);

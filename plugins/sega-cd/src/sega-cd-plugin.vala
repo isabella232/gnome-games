@@ -82,7 +82,7 @@ private class Games.SegaCDPlugin : Object, Plugin {
 		var description = new GriloDescription (media);
 		var rating = new GriloRating (media);
 		var platform = new GenericPlatform (platform_id, platform_name);
-		var core_source = new RetroCoreSource (platform_id, mime_types);
+		var core_source = new RetroCoreSource (platform, mime_types);
 		var runner = new RetroRunner (core_source, uri, uid, title);
 
 		var game = new GenericGame (uid, title, platform, runner);

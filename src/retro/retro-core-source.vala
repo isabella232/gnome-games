@@ -1,19 +1,19 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public class Games.RetroCoreSource : Object {
-	private string platform;
+	private Platform platform;
 	private string[] mime_types;
 
 	private Retro.CoreDescriptor core_descriptor;
 	private bool searched;
 
-	public RetroCoreSource (string platform, string[] mime_types) {
+	public RetroCoreSource (Platform platform, string[] mime_types) {
 		this.platform = platform;
 		this.mime_types = mime_types;
 		searched = false;
 	}
 
-	public string get_platform () {
+	public Platform get_platform () {
 		return platform;
 	}
 
@@ -22,7 +22,7 @@ public class Games.RetroCoreSource : Object {
 
 		var module_file = core_descriptor.get_module_file ();
 		if (module_file == null)
-			throw new RetroError.MODULE_NOT_FOUND (_("No module found for platform “%s” and MIME types [ “%s” ]."), platform, string.joinv (_("”, “"), mime_types));
+			throw new RetroError.MODULE_NOT_FOUND (_("No module found for platform “%s” and MIME types [ “%s” ]."), platform.get_id (), string.joinv (_("”, “"), mime_types));
 
 		return module_file.get_path ();
 	}
@@ -33,11 +33,13 @@ public class Games.RetroCoreSource : Object {
 			search_module ();
 		}
 
-		if (core_descriptor == null)
-			throw new RetroError.MODULE_NOT_FOUND (_("No module found for platform “%s” and MIME types [ “%s” ]."), platform, string.joinv (_("”, “"), mime_types));
+		var platform_id = platform.get_id ();
 
-		if (core_descriptor.has_firmwares (platform))
-			foreach (var firmware in core_descriptor_get_firmwares (core_descriptor, platform))
+		if (core_descriptor == null)
+			throw new RetroError.MODULE_NOT_FOUND (_("No module found for platform “%s” and MIME types [ “%s” ]."), platform_id, string.joinv (_("”, “"), mime_types));
+
+		if (core_descriptor.has_firmwares (platform_id))
+			foreach (var firmware in core_descriptor_get_firmwares (core_descriptor, platform_id))
 				check_firmware_is_valid (firmware);
 	}
 
@@ -45,13 +47,15 @@ public class Games.RetroCoreSource : Object {
 		var modules = new Retro.ModuleQuery (true);
 		foreach (var core_descriptor in modules) {
 			try {
+				var platform_id = platform.get_id ();
+
 				if (!core_descriptor.get_is_emulator ())
 					continue;
 
-				if (!core_descriptor.has_platform (platform))
+				if (!core_descriptor.has_platform (platform_id))
 					continue;
 
-				if (!core_descriptor.get_platform_supports_mime_types (platform, mime_types))
+				if (!core_descriptor.get_platform_supports_mime_types (platform_id, mime_types))
 					continue;
 
 				if (core_descriptor.get_module_file () == null)
@@ -72,7 +76,8 @@ public class Games.RetroCoreSource : Object {
 			return;
 
 		var platforms_dir = Application.get_platforms_dir ();
-		var firmware_dir = File.new_for_path (@"$platforms_dir/$platform/system");
+		var platform_id = platform.get_id ();
+		var firmware_dir = File.new_for_path (@"$platforms_dir/$platform_id/system");
 		var firmware_path = core_descriptor.get_firmware_path (firmware);
 		var firmware_file = firmware_dir.get_child (firmware_path);
 		if (!firmware_file.query_exists ())

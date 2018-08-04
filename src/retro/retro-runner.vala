@@ -259,7 +259,8 @@ public class Games.RetroRunner : Object, Runner {
 		if (core_source != null) {
 			var platforms_dir = Application.get_platforms_dir ();
 			var platform = core_source.get_platform ();
-			core.system_directory = @"$platforms_dir/$platform/system";
+			var platform_id = platform.get_id ();
+			core.system_directory = @"$platforms_dir/$platform_id/system";
 
 			var save_directory = get_save_directory_path ();
 			Application.try_make_dir (save_directory);
@@ -532,9 +533,10 @@ public class Games.RetroRunner : Object, Runner {
 		var now = new GLib.DateTime.now_local ();
 		var creation_time = now.to_string ();
 		var platform = core_source.get_platform ();
-		var platform_name = RetroPlatform.get_platform_name (platform);
+		var platform_name = platform.get_name ();
+		var platform_id = platform.get_id ();
 		if (platform_name == null) {
-			critical ("Unknown name for platform %s", platform);
+			critical ("Unknown name for platform %s", platform_id);
 			platform_name = _("Unknown platform");
 		}
 		var title = game_title.get_title ();
@@ -578,7 +580,7 @@ public class Games.RetroRunner : Object, Runner {
 	private string get_unsupported_system_message () {
 		if (core_source != null) {
 			var platform = core_source.get_platform ();
-			var platform_name = RetroPlatform.get_platform_name (platform);
+			var platform_name = platform.get_name ();
 			if (platform_name != null)
 				return _("The system “%s” isn’t supported yet, but full support is planned.").printf (platform_name);
 		}

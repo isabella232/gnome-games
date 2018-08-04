@@ -153,7 +153,7 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		var rating = new GriloRating (media);
 		var platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
 		var input_capabilities = new GameinfoDiscIdInputCapabilities (gameinfo, disc_set_id);
-		var core_source = new RetroCoreSource (PLATFORM_ID, { CUE_MIME_TYPE, PHONY_MIME_TYPE });
+		var core_source = new RetroCoreSource (platform, { CUE_MIME_TYPE, PHONY_MIME_TYPE });
 		var runner = new RetroRunner.for_media_set_and_input_capabilities (core_source, media_set, uid, input_capabilities, title);
 
 		var game = new GenericGame (uid, title, platform, runner);
