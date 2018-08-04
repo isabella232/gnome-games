@@ -109,7 +109,6 @@ vala_sources = [
   'retro/retro-gamepad.vala',
   'retro/retro-input-manager.vala',
   'retro/retro-options.vala',
-  'retro/retro-platform.vala',
   'retro/retro-runner.vala',
   'retro/retro-simple-game-uri-adapter.vala',
   'retro/retro-simple-type.vala',
