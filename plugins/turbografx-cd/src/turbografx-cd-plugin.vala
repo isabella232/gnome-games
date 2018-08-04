@@ -6,6 +6,7 @@ private class Games.TurboGrafxCDPlugin : Object, Plugin {
 	private const string CUE_MIME_TYPE = "application/x-cue";
 	private const string CD_MAGIC_VALUE = "PC Engine CD-ROM SYSTEM";
 	private const string PLATFORM_ID = "TurboGrafxCD";
+	/* translators: known as "CD-ROM²" in eastern Asia and France */
 	private const string PLATFORM_NAME = _("TurboGrafx-CD");
 
 	public string[] get_mime_types () {

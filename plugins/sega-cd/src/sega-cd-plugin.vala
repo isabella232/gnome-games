@@ -8,7 +8,9 @@ private class Games.SegaCDPlugin : Object, Plugin {
 	private const string SEGA_CD_MIME_TYPE = "application/x-sega-cd-rom";
 	private const string SEGA_CD_PLATFORM_ID = "SegaCD";
 	private const string SEGA_CD_32X_PLATFORM_ID = "SegaCD32X";
+	/* translators: known as "Mega-CD" in most of the world */
 	private const string SEGA_CD_PLATFORM_NAME = _("Sega CD");
+	/* translators: known as "Mega-CD 32X" in most of the world */
 	private const string SEGA_CD_32X_PLATFORM_NAME = _("Sega CD 32X");
 
 	public string[] get_mime_types () {
