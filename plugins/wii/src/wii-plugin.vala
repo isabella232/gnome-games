@@ -2,7 +2,7 @@
 
 private class Games.WiiPlugin : Object, Plugin {
 	private const string MIME_TYPE = "application/x-wii-rom";
-	private const string PLATFORM = "Wii";
+	private const string PLATFORM_ID = "Wii";
 	private const string PLATFORM_NAME = _("Wii");
 
 	public string[] get_mime_types () {
@@ -36,8 +36,8 @@ private class Games.WiiPlugin : Object, Plugin {
 		var publisher = new GriloPublisher (media);
 		var description = new GriloDescription (media);
 		var rating = new GriloRating (media);
-		var platform = new GenericPlatform (PLATFORM_NAME);
-		var core_source = new RetroCoreSource (PLATFORM, { MIME_TYPE });
+		var platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
+		var core_source = new RetroCoreSource (PLATFORM_ID, { MIME_TYPE });
 		var runner = new RetroRunner (core_source, uri, uid, title);
 
 		var game = new GenericGame (uid, title, platform, runner);

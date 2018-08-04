@@ -26,7 +26,7 @@ private class Games.RetroSimpleGameUriAdapter : GameUriAdapter, Object {
 		var description = new GriloDescription (media);
 		var rating = new GriloRating (media);
 		var platform_name = RetroPlatform.get_platform_name (simple_type.platform);
-		var platform = new GenericPlatform (platform_name);
+		var platform = new GenericPlatform (simple_type.platform, platform_name);
 		var core_source = new RetroCoreSource (simple_type.platform, { simple_type.mime_type });
 		var runner = new RetroRunner (core_source, uri, uid, title);
 

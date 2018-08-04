@@ -2,9 +2,15 @@
 
 public class Games.GenericPlatform : Object, Platform {
 	private string name;
+	private string id;
 
-	public GenericPlatform (string name) {
+	public GenericPlatform (string id, string name) {
+		this.id = id;
 		this.name = name;
+	}
+
+	public string get_id () {
+		return id;
 	}
 
 	public string get_name () {

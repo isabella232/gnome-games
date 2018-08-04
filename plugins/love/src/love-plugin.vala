@@ -3,6 +3,7 @@
 private class Games.LovePlugin : Object, Plugin {
 	private const string FINGERPRINT_PREFIX = "love";
 	private const string MIME_TYPE = "application/x-love-game";
+	private const string PLATFORM_ID = "LOVE";
 	private const string PLATFORM_NAME = _("LÖVE");
 
 	public string[] get_mime_types () {
@@ -23,7 +24,7 @@ private class Games.LovePlugin : Object, Plugin {
 		var title = new LoveTitle (package);
 		var icon = new LoveIcon (package);
 		var cover = new LocalCover (uri);
-		var platform = new GenericPlatform (PLATFORM_NAME);
+		var platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
 		string[] args = { "love", uri.to_string () };
 		var runner = new CommandRunner (args, true);
 

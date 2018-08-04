@@ -3,7 +3,7 @@
 private class Games.NintendoDsPlugin : Object, Plugin {
 	private const string FINGERPRINT_PREFIX = "nintendo-ds";
 	private const string MIME_TYPE = "application/x-nintendo-ds-rom";
-	private const string PLATFORM = "NintendoDS";
+	private const string PLATFORM_ID = "NintendoDS";
 	private const string PLATFORM_NAME = _("Nintendo DS");
 
 	public string[] get_mime_types () {
@@ -34,8 +34,8 @@ private class Games.NintendoDsPlugin : Object, Plugin {
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
-		var platform = new GenericPlatform (PLATFORM_NAME);
-		var core_source = new RetroCoreSource (PLATFORM, { MIME_TYPE });
+		var platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
+		var core_source = new RetroCoreSource (PLATFORM_ID, { MIME_TYPE });
 		var runner = new RetroRunner (core_source, uri, uid, title);
 
 		var game = new GenericGame (uid, title, platform, runner);
