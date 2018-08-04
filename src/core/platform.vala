@@ -1,6 +1,8 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public interface Games.Platform : Object {
+	public abstract string get_id ();
+
 	public abstract string get_name ();
 
 	public static uint hash (Platform platform) {
