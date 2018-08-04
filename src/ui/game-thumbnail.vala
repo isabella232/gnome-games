@@ -8,6 +8,19 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 	private const double ICON_SCALE = 0.75;
 	private const double FRAME_RADIUS = 2; // Equal to border-radius in style css.
 
+	private Uid _uid;
+	public Uid uid {
+		get { return _uid; }
+		set {
+			if (_uid == value)
+				return;
+
+			_uid = value;
+
+			queue_draw ();
+		}
+	}
+
 	private Icon _icon;
 	public Icon icon {
 		get { return _icon; }
@@ -182,13 +195,32 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		if (cover_cache != null)
 			return cover_cache;
 
+		var size = int.min (context.width, context.height);
+
+		string cover_cache_path;
+		try {
+			cover_cache_path = get_cover_cache_path (size);
+		}
+		catch (Error e) {
+			critical (e.message);
+
+			return null;
+		}
+
+		try {
+			cover_cache = new Gdk.Pixbuf.from_file_at_scale (cover_cache_path, context.width, context.height, true);
+
+			return cover_cache;
+		}
+		catch (Error e) {
+		}
+
 		var g_icon = cover.get_cover ();
 		if (g_icon == null)
 			return null;
 
 		var theme = Gtk.IconTheme.get_default ();
 		var lookup_flags = Gtk.IconLookupFlags.FORCE_SIZE | Gtk.IconLookupFlags.FORCE_REGULAR;
-		var size = int.min (context.width, context.height);
 		var icon_info = theme.lookup_by_gicon (g_icon, (int) size, lookup_flags);
 
 		try {
@@ -198,7 +230,32 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 			warning (@"Couldn’t load the icon: $(e.message)\n");
 		}
 
+		Application.try_make_dir (Application.get_covers_cache_dir (size));
+		var now = new GLib.DateTime.now_local ();
+		var creation_time = now.to_string ();
+
+		try {
+			cover_cache.save (cover_cache_path, "png",
+			                  "tEXt::Software", "GNOME Games",
+			                  "tEXt::Creation Time", creation_time.to_string (),
+			                  null);
+		}
+		catch (Error e) {
+			critical (e.message);
+		}
+
+
 		return cover_cache;
+	}
+
+	private string get_cover_cache_path (int size) throws Error {
+		var dir = Application.get_covers_cache_dir (size);
+
+		assert (uid != null);
+
+		var uid = uid.get_uid ();
+
+		return @"$dir/$uid.png";
 	}
 
 	private void invalidate_cover () {
