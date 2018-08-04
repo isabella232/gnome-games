@@ -41,6 +41,7 @@ private abstract class Games.SidebarView : Gtk.Box {
 	private void on_list_box_row_selected (Gtk.ListBoxRow row_item) {
 		list_box.select_row (row_item);
 		invalidate (row_item);
+		collection_view.reset_scroll_position ();
 	}
 
 	private void on_model_changed (uint position, uint removed, uint added) {

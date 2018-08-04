@@ -198,6 +198,11 @@ private class Games.CollectionIconView : Gtk.Stack {
 		}
 	}
 
+	public void reset_scroll_position () {
+		var adjustment = scrolled_window.get_vadjustment ();
+		adjustment.set_value (0);
+	}
+
 	private bool apply_cursor_movement () {
 		if (flow_box.get_selected_children ().length () == 0) {
 			var first_child = flow_box.get_child_at_index (0);
