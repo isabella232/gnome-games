@@ -6,6 +6,7 @@ namespace Games.Credits {
 		"Abhinav Singh <theawless@gmail.com>",
 		"Alexander Mikhaylenko <exalm7659@gmail.com>",
 		"Megh Parikh <meghprkh@gmail.com>",
+		"Saurabh Singh <saurabhsingh412@gmail.com>",
 		"Sebastien Nicouleaud <sebn@users.noreply.github.com>",
 		"Ricard Gascons <gascons1995@gmail.com>",
 		null
