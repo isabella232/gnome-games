@@ -6,7 +6,7 @@ public interface Games.Platform : Object {
 	public abstract string get_name ();
 
 	public static uint hash (Platform platform) {
-		return str_hash (platform.get_name ());
+		return str_hash (platform.get_id ());
 	}
 
 	public static bool equal (Platform a, Platform b) {
