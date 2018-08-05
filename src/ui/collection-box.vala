@@ -51,7 +51,7 @@ private class Games.CollectionBox : Gtk.Box {
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {
-		if (!visible)
+		if (!get_mapped ())
 			return false;
 
 		uint16 button;
@@ -80,16 +80,37 @@ private class Games.CollectionBox : Gtk.Box {
 
 			return true;
 		default:
-			return collection_view.gamepad_button_press_event (event);
+			if (viewstack.visible_child == platform_view)
+				return platform_view.gamepad_button_press_event (event);
+			else if (viewstack.visible_child == developer_view)
+				return developer_view.gamepad_button_press_event (event);
+			else
+				return collection_view.gamepad_button_press_event (event);
 		}
 	}
 
 	public bool gamepad_button_release_event (Manette.Event event) {
-		return collection_view.gamepad_button_release_event (event);
+		if (!get_mapped ())
+			return false;
+
+		if (viewstack.visible_child == platform_view)
+			return platform_view.gamepad_button_release_event (event);
+		else if (viewstack.visible_child == developer_view)
+			return developer_view.gamepad_button_release_event (event);
+		else
+			return collection_view.gamepad_button_release_event (event);
 	}
 
 	public bool gamepad_absolute_axis_event (Manette.Event event) {
-		return collection_view.gamepad_absolute_axis_event (event);
+		if (!get_mapped ())
+			return false;
+
+		if (viewstack.visible_child == platform_view)
+			return platform_view.gamepad_absolute_axis_event (event);
+		else if (viewstack.visible_child == developer_view)
+			return developer_view.gamepad_absolute_axis_event (event);
+		else
+			return collection_view.gamepad_absolute_axis_event (event);
 	}
 
 	[GtkCallback]
