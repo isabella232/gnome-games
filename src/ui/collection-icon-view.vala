@@ -85,10 +85,11 @@ private class Games.CollectionIconView : Gtk.Stack {
 		flow_box.max_children_per_line = uint.MAX;
 		flow_box.set_filter_func (filter_box);
 		flow_box.set_sort_func (sort_boxes);
+		unmap.connect (cancel_cursor_movement);
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {
-		if (!visible)
+		if (!get_mapped ())
 			return false;
 
 		uint16 button;
@@ -118,7 +119,7 @@ private class Games.CollectionIconView : Gtk.Stack {
 	}
 
 	public bool gamepad_button_release_event (Manette.Event event) {
-		if (!visible)
+		if (!get_mapped ())
 			return false;
 
 		uint16 button;
@@ -156,7 +157,7 @@ private class Games.CollectionIconView : Gtk.Stack {
 	}
 
 	public bool gamepad_absolute_axis_event (Manette.Event event) {
-		if (!visible)
+		if (!get_mapped ())
 			return false;
 
 		uint16 axis;
