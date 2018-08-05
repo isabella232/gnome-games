@@ -3,8 +3,6 @@
 public class Games.PlayStationGameFactory : Object, UriGameFactory {
 	private const string CUE_MIME_TYPE = "application/x-cue";
 	private const string PHONY_MIME_TYPE = "application/x-playstation-rom";
-	private const string PLATFORM_ID = "PlayStation";
-	private const string PLATFORM_NAME = _("PlayStation");
 	private const string ICON_NAME = "media-optical-symbolic";
 	private const string GAMEINFO = "resource:///org/gnome/Games/plugin/playstation/playstation.gameinfo.xml";
 
@@ -14,13 +12,14 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 	private HashTable<Uri, Game> game_for_uri;
 	private HashTable<string, Game> game_for_disc_set_id;
 	private GenericSet<Game> games;
+	private Platform platform;
 
-
-	public PlayStationGameFactory () {
+	public PlayStationGameFactory (Platform platform) {
 		media_for_disc_id = new HashTable<string, Media> (str_hash, str_equal);
 		game_for_uri = new HashTable<Uri, Game> (Uri.hash, Uri.equal);
 		game_for_disc_set_id = new HashTable<string, Game> (GLib.str_hash, GLib.str_equal);
 		games = new GenericSet<Game> (direct_hash, direct_equal);
+		this.platform = platform;
 	}
 
 	public string[] get_mime_types () {
@@ -151,7 +150,6 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		var publisher = new GriloPublisher (media);
 		var description = new GriloDescription (media);
 		var rating = new GriloRating (media);
-		var platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
 		var input_capabilities = new GameinfoDiscIdInputCapabilities (gameinfo, disc_set_id);
 		var core_source = new RetroCoreSource (platform, { CUE_MIME_TYPE, PHONY_MIME_TYPE });
 		var runner = new RetroRunner.for_media_set_and_input_capabilities (core_source, media_set, uid, input_capabilities, title);

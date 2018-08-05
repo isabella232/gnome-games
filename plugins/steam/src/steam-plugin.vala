@@ -6,9 +6,11 @@ private class Games.SteamPlugin : Object, Plugin {
 	private const string PLATFORM_NAME = _("Steam");
 
 	private static HashTable<string, Game> game_for_id;
+	private static Platform platform;
 
 	static construct {
 		game_for_id = new HashTable<string, Game> (str_hash, str_equal);
+		platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
 	}
 
 	public UriSource[] get_uri_sources () {
@@ -56,7 +58,6 @@ private class Games.SteamPlugin : Object, Plugin {
 		var title = new SteamTitle (registry);
 		var icon = new SteamIcon (game_id);
 		var cover = new SteamCover (game_id);
-		var platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
 		string[] args = { "steam", @"steam://rungameid/" + game_id };
 		var runner = new CommandRunner (args, false);
 

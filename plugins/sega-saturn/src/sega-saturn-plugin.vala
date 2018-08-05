@@ -6,6 +6,12 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 	private const string PLATFORM_ID = "SegaSaturn";
 	private const string PLATFORM_NAME = _("Sega Saturn");
 
+	private static Platform platform;
+
+	static construct {
+		platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
+	}
+
 	public string[] get_mime_types () {
 		return {
 			CUE_MIME_TYPE,
@@ -59,7 +65,6 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 		var publisher = new GriloPublisher (media);
 		var description = new GriloDescription (media);
 		var rating = new GriloRating (media);
-		var platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
 		var core_source = new RetroCoreSource (platform, { CUE_MIME_TYPE, SEGA_SATURN_MIME_TYPE });
 		var runner = new RetroRunner (core_source, uri, uid, title);
 

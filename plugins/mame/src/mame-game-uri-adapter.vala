@@ -3,8 +3,12 @@
 private class Games.MameGameUriAdapter : GameUriAdapter, Object {
 	private const string SEARCHED_MIME_TYPE = "application/zip";
 	private const string SPECIFIC_MIME_TYPE = "application/x-mame-rom";
-	private const string PLATFORM_ID = "MAME";
-	private const string PLATFORM_NAME = _("Arcade");
+
+	private Platform platform;
+
+	public MameGameUriAdapter (Platform platform) {
+		this.platform = platform;
+	}
 
 	public async Game game_for_uri (Uri uri) throws Error {
 		var supported_games = yield MameGameInfo.get_supported_games ();
@@ -27,7 +31,6 @@ private class Games.MameGameUriAdapter : GameUriAdapter, Object {
 
 		var cover = new LocalCover (uri);
 		var developer = new GenericDeveloper (info.company);
-		var platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
 		var core_source = new RetroCoreSource (platform, { SEARCHED_MIME_TYPE, SPECIFIC_MIME_TYPE });
 		var runner = new RetroRunner (core_source, uri, uid, title);
 

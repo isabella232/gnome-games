@@ -13,6 +13,14 @@ private class Games.SegaCDPlugin : Object, Plugin {
 	/* translators: known as "Mega-CD 32X" in most of the world */
 	private const string SEGA_CD_32X_PLATFORM_NAME = _("Sega CD 32X");
 
+	private static Platform platform_sega_cd;
+	private static Platform platform_sega_cd_32x;
+
+	static construct {
+		platform_sega_cd = new GenericPlatform (SEGA_CD_PLATFORM_ID, SEGA_CD_PLATFORM_NAME);
+		platform_sega_cd_32x = new GenericPlatform (SEGA_CD_32X_PLATFORM_ID, SEGA_CD_32X_PLATFORM_NAME);
+	}
+
 	public string[] get_mime_types () {
 		return { CUE_MIME_TYPE, SEGA_CD_MIME_TYPE };
 	}
@@ -50,17 +58,14 @@ private class Games.SegaCDPlugin : Object, Plugin {
 		header.check_validity ();
 
 		string[] mime_types;
-		string platform_id;
-		string platform_name;
+		Platform platform;
 		if (header.is_sega_cd ()) {
 			mime_types = { CUE_MIME_TYPE, SEGA_CD_MIME_TYPE };
-			platform_id = SEGA_CD_PLATFORM_ID;
-			platform_name = SEGA_CD_PLATFORM_NAME;
+			platform = platform_sega_cd;
 		}
 		else if (header.is_sega_cd_32x ()) {
 			mime_types = { CUE_MIME_TYPE, SEGA_CD_MIME_TYPE, 32X_MIME_TYPE };
-			platform_id = SEGA_CD_32X_PLATFORM_ID;
-			platform_name = SEGA_CD_32X_PLATFORM_NAME;
+			platform = platform_sega_cd_32x;
 		}
 		else
 			assert_not_reached ();
@@ -81,7 +86,6 @@ private class Games.SegaCDPlugin : Object, Plugin {
 		var publisher = new GriloPublisher (media);
 		var description = new GriloDescription (media);
 		var rating = new GriloRating (media);
-		var platform = new GenericPlatform (platform_id, platform_name);
 		var core_source = new RetroCoreSource (platform, mime_types);
 		var runner = new RetroRunner (core_source, uri, uid, title);
 

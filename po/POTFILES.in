@@ -32,9 +32,10 @@ plugins/libretro/src/libretro-plugin.vala
 plugins/love/src/love-package.vala
 plugins/love/src/love-plugin.vala
 plugins/mame/src/mame-game-uri-adapter.vala
+plugins/mame/src/mame-plugin.vala
 plugins/nintendo-ds/src/nintendo-ds-plugin.vala
-plugins/playstation/src/playstation-game-factory.vala
 plugins/playstation/src/playstation-header.vala
+plugins/playstation/src/playstation-plugin.vala
 plugins/sega-cd/src/sega-cd-header.vala
 plugins/sega-cd/src/sega-cd-plugin.vala
 plugins/sega-saturn/src/sega-saturn-header.vala
