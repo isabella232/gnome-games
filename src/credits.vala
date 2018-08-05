@@ -8,10 +8,12 @@ namespace Games.Credits {
 		"Megh Parikh <meghprkh@gmail.com>",
 		"Sebastien Nicouleaud <sebn@users.noreply.github.com>",
 		"Ricard Gascons <gascons1995@gmail.com>",
+		null
 	};
 
 	private const string[] ARTISTS = {
 		"Adrien Plazas <kekun.plazas@laposte.net>",
+		null
 	};
 
 	private const string[] DOCUMENTERS = null;
