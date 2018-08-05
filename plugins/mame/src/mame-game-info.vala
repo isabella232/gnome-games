@@ -5,6 +5,7 @@ private struct Games.MameGameInfo {
 	private static Regex game_regex;
 
 	public string id;
+	public string company;
 	public string name;
 
 	public static async HashTable<string, MameGameInfo?> get_supported_games () throws Error {
@@ -34,6 +35,7 @@ private struct Games.MameGameInfo {
 
 			var game_info = MameGameInfo() {
 				id = cleanup_string (match_info.fetch (2)), // NAME
+				company = cleanup_string (match_info.fetch (9)), // COMPANY
 				name = cleanup_string (match_info.fetch (10)) // FULLNAME
 			};
 			supported_games[game_info.id] = game_info;
