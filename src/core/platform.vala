@@ -10,6 +10,6 @@ public interface Games.Platform : Object {
 	}
 
 	public static bool equal (Platform a, Platform b) {
-		return str_equal (a.get_name (), b.get_name ());
+		return a == b || str_equal (a.get_id (), b.get_id ());
 	}
 }
