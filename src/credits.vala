@@ -17,5 +17,9 @@ namespace Games.Credits {
 		null
 	};
 
-	private const string[] DOCUMENTERS = null;
+	private const string[] DOCUMENTERS = {
+		"Adrien Plazas <kekun.plazas@laposte.net>",
+		"Laurent Pointecouteau <laurent.pointecouteau@gmail.com>",
+		null
+	};
 }
