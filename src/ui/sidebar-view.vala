@@ -25,6 +25,9 @@ private abstract class Games.SidebarView : Gtk.Box {
 	[GtkChild]
 	protected Gtk.ListBox list_box;
 
+	[GtkChild]
+	private GamepadBrowse gamepad_browse;
+
 	construct {
 		list_box.set_sort_func (sort_rows);
 
@@ -33,15 +36,104 @@ private abstract class Games.SidebarView : Gtk.Box {
 		 });
 	}
 
+	public bool gamepad_button_press_event (Manette.Event event) {
+		if (!get_mapped ())
+			return false;
+
+		if (collection_view.has_game_selected ())
+			if (collection_view.gamepad_button_press_event (event))
+				return true;
+
+		return gamepad_browse.gamepad_button_press_event (event);
+	}
+
+	public bool gamepad_button_release_event (Manette.Event event) {
+		if (!get_mapped ())
+			return false;
+
+		if (collection_view.has_game_selected ())
+			if (collection_view.gamepad_button_release_event (event))
+				return true;
+
+		return gamepad_browse.gamepad_button_release_event (event);
+	}
+
+	public bool gamepad_absolute_axis_event (Manette.Event event) {
+		if (!get_mapped ())
+			return false;
+
+		if (collection_view.has_game_selected ())
+			if (collection_view.gamepad_absolute_axis_event (event))
+				return true;
+
+		return gamepad_browse.gamepad_absolute_axis_event (event);
+	}
+
+	[GtkCallback]
+	private bool on_gamepad_browse (Gtk.DirectionType direction) {
+		if (list_box.get_selected_rows ().length () == 0) {
+			var first_row = list_box.get_row_at_index (0);
+			if (first_row == null)
+				return false;
+
+			list_box.select_row (first_row);
+			// This is needed to start moving the cursor with the gamepad only.
+			first_row.focus (direction);
+
+			return true;
+		}
+
+		switch (direction) {
+		case Gtk.DirectionType.UP:
+			list_box.move_cursor (Gtk.MovementStep.DISPLAY_LINES, -1);
+
+			return true;
+		case Gtk.DirectionType.DOWN:
+			list_box.move_cursor (Gtk.MovementStep.DISPLAY_LINES, 1);
+
+			return true;
+		case Gtk.DirectionType.RIGHT:
+			list_box.activate_cursor_row ();
+
+			return true;
+		default:
+			return false;
+		}
+	}
+
+	[GtkCallback]
+	private bool on_gamepad_accept () {
+		list_box.activate_cursor_row ();
+
+		return true;
+	}
+
+	[GtkCallback]
+	private bool on_gamepad_cancel () {
+		collection_view.unselect_game ();
+
+		return true;
+	}
+
 	protected abstract void game_added (Game game);
 	protected abstract void invalidate (Gtk.ListBoxRow row_item);
 	protected abstract int sort_rows (Gtk.ListBoxRow row1, Gtk.ListBoxRow row2);
 
 	[GtkCallback]
-	private void on_list_box_row_selected (Gtk.ListBoxRow row_item) {
+	private void on_list_box_row_selected (Gtk.ListBoxRow? row_item) {
+		if (row_item == null)
+			return;
+
 		list_box.select_row (row_item);
+		row_item.focus (Gtk.DirectionType.LEFT);
 		invalidate (row_item);
 		collection_view.reset_scroll_position ();
+		collection_view.unselect_game ();
+	}
+
+	[GtkCallback]
+	private void on_list_box_row_activated (Gtk.ListBoxRow row_item) {
+		collection_view.select_default_game (Gtk.DirectionType.RIGHT);
 	}
 
 	private void on_model_changed (uint position, uint removed, uint added) {

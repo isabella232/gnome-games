@@ -12,7 +12,8 @@
         <child>
           <object class="GtkListBox" id="list_box">
             <property name="visible">True</property>
-            <signal name="row-activated" handler="on_list_box_row_selected"/>
+            <signal name="row-activated" handler="on_list_box_row_activated"/>
+            <signal name="row-selected" handler="on_list_box_row_selected"/>
             <style>
               <class name="sidebar"/>
             </style>
@@ -27,4 +28,9 @@
       </object>
     </child>
   </template>
+  <object class="GamesGamepadBrowse" id="gamepad_browse">
+    <signal name="browse" handler="on_gamepad_browse"/>
+    <signal name="accept" handler="on_gamepad_accept"/>
+    <signal name="cancel" handler="on_gamepad_cancel"/>
+  </object>
 </interface>
