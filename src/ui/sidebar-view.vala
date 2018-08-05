@@ -33,7 +33,7 @@ private abstract class Games.SidebarView : Gtk.Box {
 
 		collection_view.game_activated.connect ((game) => {
 			game_activated (game);
-		 });
+		});
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {
