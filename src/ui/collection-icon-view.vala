@@ -103,19 +103,38 @@ private class Games.CollectionIconView : Gtk.Stack {
 		adjustment.set_value (0);
 	}
 
+	public bool has_game_selected () {
+		foreach (var child in flow_box.get_selected_children ())
+			if (child.get_mapped ())
+				return true;
+
+		return false;
+	}
+
+	public bool select_default_game (Gtk.DirectionType direction) {
+		Gtk.FlowBoxChild? child;
+		for (int i = 0; (child = flow_box.get_child_at_index (i)) != null; i++) {
+			if (child.get_mapped ()) {
+				flow_box.select_child (child);
+				// This is needed to start moving the cursor with the gamepad only.
+				child.focus (direction);
+
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	public void unselect_game () {
+		flow_box.unselect_all ();
+	}
+
 	[GtkCallback]
 	private bool on_gamepad_browse (Gtk.DirectionType direction) {
-		if (flow_box.get_selected_children ().length () == 0) {
-			var first_child = flow_box.get_child_at_index (0);
-			if (first_child == null)
-				return false;
-
-			flow_box.select_child (first_child);
+		if (!has_game_selected ())
 			// This is needed to start moving the cursor with the gamepad only.
-			first_child.focus (direction);
-
-			return true;
-		}
+			return select_default_game (direction);
 
 		switch (direction) {
 		case Gtk.DirectionType.UP:
