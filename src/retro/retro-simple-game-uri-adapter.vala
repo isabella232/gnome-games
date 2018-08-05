@@ -2,9 +2,13 @@
 
 private class Games.RetroSimpleGameUriAdapter : GameUriAdapter, Object {
 	private RetroSimpleType simple_type;
+	private Platform platform;
 
 	public RetroSimpleGameUriAdapter (RetroSimpleType simple_type) {
 		this.simple_type = simple_type;
+
+		var platform_name = simple_type.get_platform_name ();
+		platform = new GenericPlatform (simple_type.platform, platform_name);
 	}
 
 	public async Game game_for_uri (Uri uri) throws Error {
@@ -25,8 +29,6 @@ private class Games.RetroSimpleGameUriAdapter : GameUriAdapter, Object {
 		var publisher = new GriloPublisher (media);
 		var description = new GriloDescription (media);
 		var rating = new GriloRating (media);
-		var platform_name = simple_type.get_platform_name ();
-		var platform = new GenericPlatform (simple_type.platform, platform_name);
 		var core_source = new RetroCoreSource (platform, { simple_type.mime_type });
 		var runner = new RetroRunner (core_source, uri, uid, title);
 
