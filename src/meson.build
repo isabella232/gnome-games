@@ -135,6 +135,7 @@ vala_sources = [
   'ui/empty-collection.vala',
   'ui/error-display.vala',
   'ui/error-info-bar.vala',
+  'ui/gamepad-browse.vala',
   'ui/gamepad-configurer.vala',
   'ui/gamepad-mapper.vala',
   'ui/gamepad-tester.vala',
