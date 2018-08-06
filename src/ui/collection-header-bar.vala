@@ -12,6 +12,23 @@ private class Games.CollectionHeaderBar : Gtk.HeaderBar {
 		get { return _viewstack; }
 	}
 
+	private bool _is_collection_empty;
+	public bool is_collection_empty {
+		set {
+			_is_collection_empty = value;
+			if (_is_collection_empty)
+				title_stack.visible_child = empty_title;
+			else
+				title_stack.visible_child = view_switcher;
+			search.sensitive = !_is_collection_empty;
+		}
+		get { return _is_collection_empty; }
+	}
+
+	[GtkChild]
+	private Gtk.Stack title_stack;
+	[GtkChild]
+	private Gtk.Label empty_title;
 	[GtkChild]
 	private Gtk.StackSwitcher view_switcher;
 	[GtkChild]

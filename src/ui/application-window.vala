@@ -61,6 +61,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		get { return _search_mode; }
 	}
 
+	public bool is_collection_empty { set; get; }
+
 	public bool loading_notification { set; get; }
 
 	[GtkChild]
@@ -81,8 +83,10 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	private Binding box_search_binding;
 	private Binding box_fullscreen_binding;
+	private Binding box_empty_collection_binding;
 	private Binding header_bar_search_binding;
 	private Binding header_bar_fullscreen_binding;
+	private Binding header_bar_empty_collection_binding;
 	private Binding loading_notification_binding;
 
 	private Cancellable run_game_cancellable;
@@ -102,6 +106,10 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	public ApplicationWindow (ListModel collection) {
 		collection_box.collection = collection;
+		collection.items_changed.connect (() => {
+			is_collection_empty = collection.get_n_items () == 0;
+		});
+		is_collection_empty = collection.get_n_items () == 0;
 	}
 
 	construct {
@@ -130,6 +138,11 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		                                        BindingFlags.BIDIRECTIONAL);
 		header_bar_fullscreen_binding = bind_property ("is-fullscreen", display_header_bar, "is-fullscreen",
 		                                               BindingFlags.BIDIRECTIONAL);
+
+		box_empty_collection_binding = bind_property ("is-collection-empty", collection_box, "is-collection-empty",
+		                                              BindingFlags.BIDIRECTIONAL);
+		header_bar_empty_collection_binding = bind_property ("is-collection-empty", collection_header_bar, "is-collection-empty",
+		                                                     BindingFlags.BIDIRECTIONAL);
 
 		konami_code = new KonamiCode (this);
 		konami_code.code_performed.connect (on_konami_code_performed);

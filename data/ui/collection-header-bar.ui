@@ -53,8 +53,23 @@
       </packing>
     </child>
     <child type="title">
-      <object class="GtkStackSwitcher" id="view_switcher">
+      <object class="GtkStack" id="title_stack">
         <property name="visible">True</property>
+        <property name="transition-type">GTK_STACK_TRANSITION_TYPE_CROSSFADE</property>
+        <child>
+          <object class="GtkStackSwitcher" id="view_switcher">
+            <property name="visible">True</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="empty_title">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">Games</property>
+            <style>
+              <class name="title"/>
+            </style>
+          </object>
+        </child>
       </object>
     </child>
     <child>

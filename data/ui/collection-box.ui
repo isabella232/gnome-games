@@ -23,6 +23,14 @@
             <property name="transition-type">GTK_STACK_TRANSITION_TYPE_CROSSFADE</property>
             <signal name="notify::visible-child" handler="on_visible_child_changed"/>
             <child>
+              <object class="GamesEmptyCollection" id="empty_collection">
+                <property name="visible">True</property>
+              </object>
+              <packing>
+                <property name="name">empty</property>
+              </packing>
+            </child>
+            <child>
               <object class="GamesCollectionIconView" id="collection_view">
                 <property name="visible">True</property>
                 <signal name="game-activated" handler="on_game_activated"/>

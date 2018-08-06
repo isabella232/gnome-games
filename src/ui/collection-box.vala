@@ -13,6 +13,8 @@ private class Games.CollectionBox : Gtk.Box {
 	[GtkChild]
 	private Gtk.Revealer loading_notification_revealer;
 	[GtkChild]
+	private EmptyCollection empty_collection;
+	[GtkChild]
 	private CollectionIconView collection_view;
 	[GtkChild]
 	private DevelopersView developer_view;
@@ -22,6 +24,18 @@ private class Games.CollectionBox : Gtk.Box {
 	private Gtk.Stack _viewstack;
 	public Gtk.Stack viewstack {
 		get { return _viewstack; }
+	}
+
+	private bool _is_collection_empty;
+	public bool is_collection_empty {
+		set {
+			_is_collection_empty = value;
+			if (_is_collection_empty)
+				viewstack.visible_child = empty_collection;
+			else
+				viewstack.visible_child = collection_view;
+		}
+		get { return _is_collection_empty; }
 	}
 
 	private Binding collection_binding;
@@ -58,6 +72,9 @@ private class Games.CollectionBox : Gtk.Box {
 		if (!event.get_button (out button))
 			return false;
 
+		if (is_collection_empty)
+			return false;
+
 		switch (button) {
 		case EventCode.BTN_TL:
 			var views = viewstack.get_children ();
@@ -65,7 +82,7 @@ private class Games.CollectionBox : Gtk.Box {
 
 			assert (current_view != null);
 
-			if (current_view.prev != null)
+			if (current_view.prev != null && current_view.prev.data != empty_collection)
 				viewstack.visible_child = current_view.prev.data;
 
 			return true;
@@ -75,7 +92,7 @@ private class Games.CollectionBox : Gtk.Box {
 
 			assert (current_view != null);
 
-			if (current_view.next != null)
+			if (current_view.next != null && current_view.next.data != empty_collection)
 				viewstack.visible_child = current_view.next.data;
 
 			return true;
