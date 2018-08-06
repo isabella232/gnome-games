@@ -2,7 +2,7 @@
 Title=Games (Nightly)
 Comment=Nightly version of GNOME Games
 Description=Games is a GNOME application to browse your video games library and to easily pick and play a game from it.
-Name=org.gnome.Games
+Name=org.gnome.GamesDevel
 Branch=master
 Url=https://sdk.gnome.org/nightly/repo-apps/
 IsRuntime=False
