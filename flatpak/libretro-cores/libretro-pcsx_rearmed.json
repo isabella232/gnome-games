@@ -1,5 +1,8 @@
         {
             "name": "libretro-pcsx_rearmed",
+            "skip-arches": [
+                "arm"
+            ],
             "no-autogen": true,
             "rm-configure": true,
             "make-args": [
