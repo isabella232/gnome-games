@@ -6,10 +6,14 @@ private class Games.VirtualBoyPlugin : Object, Plugin {
 	private const string PLATFORM_ID = "VirtualBoy";
 	private const string PLATFORM_NAME = _("Virtual Boy");
 
-	private static Platform platform;
+	private static RetroPlatform platform;
 
 	static construct {
-		platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
+		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, { MIME_TYPE });
+	}
+
+	public Platform[] get_platforms () {
+		return { platform };
 	}
 
 	public string[] get_mime_types () {

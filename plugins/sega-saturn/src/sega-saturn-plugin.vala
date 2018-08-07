@@ -6,10 +6,15 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 	private const string PLATFORM_ID = "SegaSaturn";
 	private const string PLATFORM_NAME = _("Sega Saturn");
 
-	private static Platform platform;
+	private static RetroPlatform platform;
 
 	static construct {
-		platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
+		string[] mime_types = { CUE_MIME_TYPE, SEGA_SATURN_MIME_TYPE };
+		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, mime_types);
+	}
+
+	public Platform[] get_platforms () {
+		return { platform };
 	}
 
 	public string[] get_mime_types () {

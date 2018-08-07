@@ -1,18 +1,24 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.PlayStation : Object, Plugin {
-	private const string MIME_TYPE = "application/x-cue";
+	private const string CUE_MIME_TYPE = "application/x-cue";
+	private const string PHONY_MIME_TYPE = "application/x-playstation-rom";
 	private const string PLATFORM_ID = "PlayStation";
 	private const string PLATFORM_NAME = _("PlayStation");
 
-	private static Platform platform;
+	private static RetroPlatform platform;
 
 	static construct {
-		platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
+		string[] mime_types = { CUE_MIME_TYPE, PHONY_MIME_TYPE };
+		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, mime_types);
+	}
+
+	public Platform[] get_platforms () {
+		return { platform };
 	}
 
 	public string[] get_mime_types () {
-		return { MIME_TYPE };
+		return { CUE_MIME_TYPE };
 	}
 
 	public UriGameFactory[] get_uri_game_factories () {

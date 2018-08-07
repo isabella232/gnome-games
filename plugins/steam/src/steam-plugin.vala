@@ -22,6 +22,10 @@ private class Games.SteamPlugin : Object, Plugin {
 		icon_theme.append_search_path (home + STEAM_FLATPAK_DIR + "/data/icons");
 	}
 
+	public Platform[] get_platforms () {
+		return { platform };
+	}
+
 	public UriSource[] get_uri_sources () {
 		// Steam's installation path can be found in its registry.
 		var home = Environment.get_home_dir ();

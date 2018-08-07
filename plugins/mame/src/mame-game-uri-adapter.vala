@@ -4,9 +4,9 @@ private class Games.MameGameUriAdapter : GameUriAdapter, Object {
 	private const string SEARCHED_MIME_TYPE = "application/zip";
 	private const string SPECIFIC_MIME_TYPE = "application/x-mame-rom";
 
-	private Platform platform;
+	private RetroPlatform platform;
 
-	public MameGameUriAdapter (Platform platform) {
+	public MameGameUriAdapter (RetroPlatform platform) {
 		this.platform = platform;
 	}
 

@@ -12,6 +12,10 @@ private class Games.LovePlugin : Object, Plugin {
 		platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
 	}
 
+	public Platform[] get_platforms () {
+		return { platform };
+	}
+
 	public string[] get_mime_types () {
 		return { MIME_TYPE };
 	}

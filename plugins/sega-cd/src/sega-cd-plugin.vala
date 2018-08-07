@@ -13,12 +13,18 @@ private class Games.SegaCDPlugin : Object, Plugin {
 	/* translators: known as "Mega-CD 32X" in most of the world */
 	private const string SEGA_CD_32X_PLATFORM_NAME = _("Sega CD 32X");
 
-	private static Platform platform_sega_cd;
-	private static Platform platform_sega_cd_32x;
+	private static RetroPlatform platform_sega_cd;
+	private static RetroPlatform platform_sega_cd_32x;
 
 	static construct {
-		platform_sega_cd = new GenericPlatform (SEGA_CD_PLATFORM_ID, SEGA_CD_PLATFORM_NAME);
-		platform_sega_cd_32x = new GenericPlatform (SEGA_CD_32X_PLATFORM_ID, SEGA_CD_32X_PLATFORM_NAME);
+		string[] mime_types = { CUE_MIME_TYPE, SEGA_CD_MIME_TYPE };
+		string[] mime_types_32x = { CUE_MIME_TYPE, SEGA_CD_MIME_TYPE, 32X_MIME_TYPE };
+		platform_sega_cd = new RetroPlatform (SEGA_CD_PLATFORM_ID, SEGA_CD_PLATFORM_NAME, mime_types);
+		platform_sega_cd_32x = new RetroPlatform (SEGA_CD_32X_PLATFORM_ID, SEGA_CD_32X_PLATFORM_NAME, mime_types_32x);
+	}
+
+	public Platform[] get_platforms () {
+		return { platform_sega_cd, platform_sega_cd_32x };
 	}
 
 	public string[] get_mime_types () {
@@ -58,7 +64,7 @@ private class Games.SegaCDPlugin : Object, Plugin {
 		header.check_validity ();
 
 		string[] mime_types;
-		Platform platform;
+		RetroPlatform platform;
 		if (header.is_sega_cd ()) {
 			mime_types = { CUE_MIME_TYPE, SEGA_CD_MIME_TYPE };
 			platform = platform_sega_cd;

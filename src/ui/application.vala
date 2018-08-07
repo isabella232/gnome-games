@@ -316,6 +316,9 @@ public class Games.Application : Gtk.Application {
 						tracker_uri_source.add_query (query);
 					}
 
+				foreach (var platform in plugin.get_platforms ())
+					platform_register.add_platform (platform);
+
 				foreach (var uri_source in plugin.get_uri_sources ())
 					game_collection.add_source (uri_source);
 

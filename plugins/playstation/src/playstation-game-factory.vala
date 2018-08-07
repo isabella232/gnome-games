@@ -12,9 +12,9 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 	private HashTable<Uri, Game> game_for_uri;
 	private HashTable<string, Game> game_for_disc_set_id;
 	private GenericSet<Game> games;
-	private Platform platform;
+	private RetroPlatform platform;
 
-	public PlayStationGameFactory (Platform platform) {
+	public PlayStationGameFactory (RetroPlatform platform) {
 		media_for_disc_id = new HashTable<string, Media> (str_hash, str_equal);
 		game_for_uri = new HashTable<Uri, Game> (Uri.hash, Uri.equal);
 		game_for_disc_set_id = new HashTable<string, Game> (GLib.str_hash, GLib.str_equal);

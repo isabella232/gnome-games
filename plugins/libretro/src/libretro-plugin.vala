@@ -11,6 +11,10 @@ private class Games.LibretroPlugin : Object, Plugin {
 		platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
 	}
 
+	public Platform[] get_platforms () {
+		return { platform };
+	}
+
 	public UriSource[] get_uri_sources () {
 		var source = new LibretroUriSource ();
 

@@ -5,10 +5,14 @@ private class Games.DreamcastPlugin : Object, Plugin {
 	private const string PLATFORM_ID = "Dreamcast";
 	private const string PLATFORM_NAME = _("Dreamcast");
 
-	private static Platform platform;
+	private static RetroPlatform platform;
 
 	static construct {
-		platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
+		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, { MIME_TYPE });
+	}
+
+	public Platform[] get_platforms () {
+		return { platform };
 	}
 
 	public string[] get_mime_types () {

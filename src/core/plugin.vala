@@ -5,6 +5,10 @@ public interface Games.Plugin : Object {
 		return {};
 	}
 
+	public virtual Platform[] get_platforms () {
+		return {};
+	}
+
 	public virtual UriSource[] get_uri_sources () {
 		return {};
 	}
