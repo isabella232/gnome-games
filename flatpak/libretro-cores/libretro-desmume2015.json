@@ -1,6 +1,7 @@
         {
             "name": "libretro-desmume2015",
             "skip-arches": [
+                "aarch64",
                 "arm"
             ],
             "no-autogen": true,

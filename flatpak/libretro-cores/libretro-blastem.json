@@ -1,6 +1,7 @@
         {
             "name": "libretro-blastem",
             "skip-arches": [
+                "aarch64",
                 "arm"
             ],
             "no-autogen": true,
