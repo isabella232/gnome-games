@@ -12,4 +12,8 @@ public interface Games.Platform : Object {
 	public static bool equal (Platform a, Platform b) {
 		return a == b || str_equal (a.get_id (), b.get_id ());
 	}
+
+	public static int compare (Platform a, Platform b) {
+		return a.get_name ().collate (b.get_name ());
+	}
 }
