@@ -119,6 +119,7 @@ vala_sources = [
 
   'tracker/mime-type-tracker-uri-query.vala',
   'tracker/tracker-error.vala',
+  'tracker/tracker-metadata.vala',
   'tracker/tracker-uri-iterator.vala',
   'tracker/tracker-uri-query.vala',
   'tracker/tracker-uri-source.vala',
