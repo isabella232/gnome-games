@@ -14,17 +14,18 @@ private class Games.SteamUriSource : Object, UriSource {
 		{ "Registry", "HKLM", "Software", "Valve", "Steam", "InstallPath" };
 
 	private string[] directories;
+	private string uri_scheme;
 
-	public SteamUriSource () throws Error {
+	public SteamUriSource (string base_dir, string uri_scheme) throws Error {
 		directories = {};
 
-		// Steam's installation path can be found in its registry.
-		var home = Environment.get_home_dir ();
-		var registry_path = home + REGISTRY_PATH;
+		this.uri_scheme = uri_scheme;
+
+		var registry_path = base_dir + REGISTRY_PATH;
 		var registry = new SteamRegistry (registry_path);
 		var install_path = registry.get_data (INSTALL_PATH_REGISTRY_PATH);
 
-		add_library (home + DEFAULT_INSTALL_DIR_SYMLINK);
+		add_library (base_dir + DEFAULT_INSTALL_DIR_SYMLINK);
 		add_library (install_path);
 
 		// `/LibraryFolders/$NUMBER` entries in the libraryfolders.vdf registry
@@ -44,7 +45,7 @@ private class Games.SteamUriSource : Object, UriSource {
 	}
 
 	public UriIterator iterator () {
-		return new SteamUriIterator (directories);
+		return new SteamUriIterator (directories, uri_scheme);
 	}
 
 	private void add_library (string library) {

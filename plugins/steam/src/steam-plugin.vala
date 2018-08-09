@@ -12,8 +12,11 @@ private class Games.SteamPlugin : Object, Plugin {
 	}
 
 	public UriSource[] get_uri_sources () {
+		// Steam's installation path can be found in its registry.
+		var home = Environment.get_home_dir ();
+
 		try {
-			var source = new SteamUriSource ();
+			var source = new SteamUriSource (home, STEAM_FILE_SCHEME);
 
 			return { source };
 		}
@@ -25,14 +28,18 @@ private class Games.SteamPlugin : Object, Plugin {
 	}
 
 	public UriGameFactory[] get_uri_game_factories () {
-		var game_uri_adapter = new GenericGameUriAdapter (game_for_uri);
+		var game_uri_adapter = new GenericGameUriAdapter (game_for_steam_uri);
 		var factory = new GenericUriGameFactory (game_uri_adapter);
 		factory.add_scheme (STEAM_FILE_SCHEME);
 
 		return { factory };
 	}
 
-	private static Game game_for_uri (Uri uri) throws Error {
+	private static Game game_for_steam_uri (Uri uri) throws Error {
+		return create_game (uri, "steam", "", { "steam" });
+	}
+
+	private static Game create_game (Uri uri, string app_id, string prefix, string[] command) throws Error {
 		var file_uri = new Uri.from_uri_and_scheme (uri, "file");
 		var file = file_uri.to_file ();
 		var appmanifest_path = file.get_path ();
@@ -46,11 +53,15 @@ private class Games.SteamPlugin : Object, Plugin {
 		if (game_id == null)
 			throw new SteamError.NO_APPID (_("Couldn’t get Steam appid from manifest “%s”."), appmanifest_path);
 
-		var uid = new SteamUid (game_id);
+		var uid = new SteamUid (prefix, game_id);
 		var title = new SteamTitle (registry);
-		var icon = new SteamIcon (game_id);
+		var icon = new SteamIcon (app_id, game_id);
 		var cover = new SteamCover (game_id);
-		string[] args = { "steam", @"steam://rungameid/" + game_id };
+
+		string[] args = {};
+		foreach (var part in command)
+			args += part;
+		args += @"steam://rungameid/$game_id";
 		var runner = new CommandRunner (args, false);
 
 		var game = new GenericGame (uid, title, platform, runner);

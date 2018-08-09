@@ -2,17 +2,19 @@
 
 private class Games.SteamUid: Object, Uid {
 	private string uid;
-	private string app_id;
+	private string prefix;
+	private string game_id;
 
-	public SteamUid (string app_id) {
-		this.app_id = app_id;
+	public SteamUid (string prefix, string game_id) {
+		this.prefix = prefix;
+		this.game_id = game_id;
 	}
 
 	public string get_uid () throws Error {
 		if (uid != null)
 			return uid;
 
-		uid = @"steam-$app_id".down ();
+		uid = @"steam-$prefix$game_id".down ();
 
 		return uid;
 	}

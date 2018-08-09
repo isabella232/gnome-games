@@ -1,25 +1,23 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.SteamIcon : Object, Icon {
-	private static GLib.Icon? steam_icon;
+	private GLib.Icon? steam_icon;
 
 	private string game_id;
 	private GLib.Icon? icon;
 	private bool searched;
 
-	static construct {
+	public SteamIcon (string app_id, string game_id) {
+		this.game_id = game_id;
+
+		searched = false;
+
 		try {
-			steam_icon = GLib.Icon.new_for_string ("steam");
+			steam_icon = GLib.Icon.new_for_string (app_id);
 		}
 		catch (Error e) {
 			warning ("%s\n", e.message);
 		}
-	}
-
-	public SteamIcon (string game_id) {
-		this.game_id = game_id;
-
-		searched = false;
 	}
 
 	public GLib.Icon? get_icon () {

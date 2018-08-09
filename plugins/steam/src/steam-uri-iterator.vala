@@ -4,10 +4,12 @@ private class Games.SteamUriIterator : Object, UriIterator {
 	private string[] directories;
 	private int directory_index;
 	private FileEnumerator? enumerator;
+	private string uri_scheme;
 	private Uri? uri;
 
-	internal SteamUriIterator (string[] directories) {
+	internal SteamUriIterator (string[] directories, string uri_scheme) {
 		this.directories = directories;
+		this.uri_scheme = uri_scheme;
 		directory_index = 0;
 		uri = null;
 		enumerator = null;
@@ -58,8 +60,8 @@ private class Games.SteamUriIterator : Object, UriIterator {
 			return false;
 
 		var filename = Path.build_filename (directory, info.get_name ());
-		var file_uri = Filename.to_uri (filename);
-		uri = new Uri (@"steam+$file_uri");
+		var file_uri = new Uri (Filename.to_uri (filename));
+		uri = new Uri.from_uri_and_scheme (file_uri, uri_scheme);
 
 		return true;
 	}
