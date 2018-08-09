@@ -1,7 +1,11 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.SteamPlugin : Object, Plugin {
+	private const string STEAM_APPID = "com.valvesoftware.Steam";
+	private const string STEAM_FLATPAK_DIR = "/.var/app/" + STEAM_APPID;
+
 	private const string STEAM_FILE_SCHEME = "steam+file";
+	private const string FLATPAK_STEAM_FILE_SCHEME = "flatpak+steam+file";
 	private const string PLATFORM_ID = "Steam";
 	private const string PLATFORM_NAME = _("Steam");
 
@@ -15,16 +19,23 @@ private class Games.SteamPlugin : Object, Plugin {
 		// Steam's installation path can be found in its registry.
 		var home = Environment.get_home_dir ();
 
-		try {
-			var source = new SteamUriSource (home, STEAM_FILE_SCHEME);
+		UriSource[] sources = {};
 
-			return { source };
+		try {
+			sources += new SteamUriSource (home, STEAM_FILE_SCHEME);
 		}
 		catch (Error e) {
 			debug (e.message);
 		}
 
-		return {};
+		try {
+			sources += new SteamUriSource (home + STEAM_FLATPAK_DIR, FLATPAK_STEAM_FILE_SCHEME);
+		}
+		catch (Error e) {
+			debug (e.message);
+		}
+
+		return sources;
 	}
 
 	public UriGameFactory[] get_uri_game_factories () {
@@ -32,11 +43,19 @@ private class Games.SteamPlugin : Object, Plugin {
 		var factory = new GenericUriGameFactory (game_uri_adapter);
 		factory.add_scheme (STEAM_FILE_SCHEME);
 
-		return { factory };
+		var game_uri_adapter_flatpak = new GenericGameUriAdapter (game_for_flatpak_steam_uri);
+		var factory_flatpak = new GenericUriGameFactory (game_uri_adapter_flatpak);
+		factory_flatpak.add_scheme (FLATPAK_STEAM_FILE_SCHEME);
+
+		return { factory, factory_flatpak };
 	}
 
 	private static Game game_for_steam_uri (Uri uri) throws Error {
 		return create_game (uri, "steam", "", { "steam" });
+	}
+
+	private static Game game_for_flatpak_steam_uri (Uri uri) throws Error {
+		return create_game (uri, STEAM_APPID, "flatpak", { "flatpak", "run", STEAM_APPID });
 	}
 
 	private static Game create_game (Uri uri, string app_id, string prefix, string[] command) throws Error {
