@@ -3,6 +3,7 @@ vala_sources = [
   'desktop-icon.vala',
   'desktop-plugin.vala',
   'desktop-title.vala',
+  'desktop-tracker-app-info.vala',
   'desktop-tracker-uri-query.vala',
   'desktop-uid.vala',
 ]
