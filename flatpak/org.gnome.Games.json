@@ -35,7 +35,9 @@
         /* Needed for joypads, until we have a proper portal */
         "--device=all",
         /* Needed to find the ROMs */
-        "--filesystem=home:ro"
+        "--filesystem=home:ro",
+        /* Needed to find flatpaked Steam games */
+        "--filesystem=~/.var/app/com.valvesoftware.Steam:ro"
     ],
     "build-options" : {
         "cflags" : "-O2 -g",
