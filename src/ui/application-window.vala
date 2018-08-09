@@ -271,18 +271,18 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	public bool gamepad_button_press_event (Manette.Event event) {
 		switch (ui_state) {
 		case UiState.COLLECTION:
-			return collection_box.gamepad_button_press_event (event);
+			return is_active && collection_box.gamepad_button_press_event (event);
 		case UiState.DISPLAY:
 			if (resume_dialog != null)
-				return resume_dialog.gamepad_button_press_event (event);
+				return resume_dialog.is_active && resume_dialog.gamepad_button_press_event (event);
 
 			if (resume_failed_dialog != null)
-				return resume_failed_dialog.gamepad_button_press_event (event);
+				return resume_failed_dialog.is_active && resume_failed_dialog.gamepad_button_press_event (event);
 
 			if (quit_dialog != null)
-				return quit_dialog.gamepad_button_press_event (event);
+				return quit_dialog.is_active && quit_dialog.gamepad_button_press_event (event);
 
-			if (!visible)
+			if (!is_active || !get_mapped ())
 				return false;
 
 			uint16 button;
@@ -305,7 +305,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	public bool gamepad_button_release_event (Manette.Event event) {
 		switch (ui_state) {
 		case UiState.COLLECTION:
-			return collection_box.gamepad_button_release_event (event);
+			return is_active && collection_box.gamepad_button_release_event (event);
 		default:
 			return false;
 		}
@@ -314,7 +314,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	public bool gamepad_absolute_axis_event (Manette.Event event) {
 		switch (ui_state) {
 		case UiState.COLLECTION:
-			return collection_box.gamepad_absolute_axis_event (event);
+			return is_active && collection_box.gamepad_absolute_axis_event (event);
 		default:
 			return false;
 		}
