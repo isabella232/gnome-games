@@ -2,18 +2,17 @@
 
 private class Games.DesktopUid: Object, Uid {
 	private string uid;
-	private DesktopAppInfo app_info;
+	private string base_name;
 
-	public DesktopUid (DesktopAppInfo app_info) {
-		this.app_info = app_info;
+	public DesktopUid (string base_name) {
+		this.base_name = base_name;
 	}
 
 	public string get_uid () throws Error {
 		if (uid != null)
 			return uid;
 
-		var appid = app_info.get_id ();
-		var hash = Checksum.compute_for_string (ChecksumType.SHA256, appid);
+		var hash = Checksum.compute_for_string (ChecksumType.SHA256, base_name);
 
 		uid = @"desktop-$hash";
 

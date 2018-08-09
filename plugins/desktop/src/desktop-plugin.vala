@@ -1,7 +1,9 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.DesktopPlugin : Object, Plugin {
-	private const string MIME_TYPE = "application/x-desktop";
+	private const string DESKTOP_URI_PREFIX = "desktop+";
+	private const string DESKTOP_FILE_URI_SCHEME = "desktop+file";
+
 	private const string PLATFORM_ID = "Desktop";
 	private const string PLATFORM_NAME = _("Desktop");
 
@@ -11,16 +13,13 @@ private class Games.DesktopPlugin : Object, Plugin {
 		platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
 	}
 
-	public string[] get_mime_types () {
-		return { MIME_TYPE };
-	}
-
 	public UriSource[] get_uri_sources () {
 		var query = new DesktopTrackerUriQuery ();
 		try {
 			var connection = Tracker.Sparql.Connection.@get ();
 			var uri_source = new TrackerUriSource (connection);
 			uri_source.add_query (query);
+			uri_source.set_prefix (DESKTOP_URI_PREFIX);
 
 			return { uri_source };
 		}
@@ -34,24 +33,29 @@ private class Games.DesktopPlugin : Object, Plugin {
 	public UriGameFactory[] get_uri_game_factories () {
 		var game_uri_adapter = new GenericGameUriAdapter (game_for_uri);
 		var factory = new GenericUriGameFactory (game_uri_adapter);
-		factory.add_mime_type (MIME_TYPE);
+		factory.add_scheme (DESKTOP_FILE_URI_SCHEME);
 
 		return { factory };
 	}
 
 	private static Game game_for_uri (Uri uri) throws Error {
-		check_uri (uri);
+		var file_uri = new Uri.from_uri_and_scheme (uri, "file");
 
-		var file = uri.to_file ();
-		var path = file.get_path ();
+		var info = new DesktopTrackerAppInfo (file_uri);
 
-		var app_info = new DesktopAppInfo.from_filename (path);
-		var uid = new DesktopUid (app_info);
-		var title = new DesktopTitle (app_info);
-		var icon = new DesktopIcon (app_info);
+		var filename = info.get_filename ();
+		var command = info.get_command ();
+
+//		check_displayability (app_info);
+		check_categories (file_uri, info.get_categories ());
+		check_executable (file_uri, info.get_executable ());
+		check_base_name (file_uri, filename);
+
+		var uid = new DesktopUid (filename);
+		var title = new GenericTitle (info.get_title ());
+		var icon = new DesktopIcon (info.get_icon ());
 
 		string[] args;
-		var command = app_info.get_commandline ();
 		if (!Shell.parse_argv (command, out args))
 			throw new CommandError.INVALID_COMMAND (_("Invalid command “%s”."), command);
 		var runner = new CommandRunner (args);
@@ -61,25 +65,7 @@ private class Games.DesktopPlugin : Object, Plugin {
 
 		return game;
 	}
-
-	private static void check_uri (Uri uri) throws Error {
-		var file = uri.to_file ();
-
-		if (!file.query_exists ())
-			throw new IOError.NOT_FOUND (_("Tracker listed file not found: “%s”."), uri.to_string ());
-
-		var path = file.get_path ();
-		var app_info = new DesktopAppInfo.from_filename (path);
-
-		if (app_info == null)
-			throw new DesktopError.INVALID_APPINFO (_("Couldn’t parse desktop entry “%s”."), path);
-
-		check_displayability (app_info);
-		check_categories (app_info);
-		check_executable (app_info);
-		check_base_name (file);
-	}
-
+/*
 	private static void check_displayability (DesktopAppInfo app_info) throws Error {
 		if (app_info.get_nodisplay ())
 			throw new DesktopError.BLACKLISTED_GAME (_("“%s” shouldn’t be displayed."), app_info.filename);
@@ -87,30 +73,23 @@ private class Games.DesktopPlugin : Object, Plugin {
 		if (app_info.get_is_hidden ())
 			throw new DesktopError.BLACKLISTED_GAME (_("“%s” is hidden."), app_info.filename);
 	}
-
-	private static void check_categories (DesktopAppInfo app_info) throws Error {
-		var categories_string = app_info.get_categories ();
-		var categories = categories_string.split (";");
-
+*/
+	private static void check_categories (Uri uri, string[] categories) throws Error {
 		foreach (var category in get_categories_black_list ())
 			if (category in categories)
-				throw new DesktopError.BLACKLISTED_GAME (_("“%s” has blacklisted category “%s”."), app_info.filename, category);
+				throw new DesktopError.BLACKLISTED_GAME (_("“%s” has blacklisted category “%s”."), uri.to_string (), category);
 	}
 
-	private static void check_executable (DesktopAppInfo app_info) throws Error {
-		var app_executable = app_info.get_executable ();
-
+	private static void check_executable (Uri uri, string app_executable) throws Error {
 		foreach (var executable in get_executable_black_list ())
 			if (app_executable == executable ||
 			    app_executable.has_suffix ("/" + executable))
-				throw new DesktopError.BLACKLISTED_GAME (_("“%s” has blacklisted executable “%s”."), app_info.filename, executable);
+				throw new DesktopError.BLACKLISTED_GAME (_("“%s” has blacklisted executable “%s”."), uri.to_string (), executable);
 	}
 
-	private static void check_base_name (File file) throws Error {
-		var base_name = file.get_basename ();
-
+	private static void check_base_name (Uri uri, string base_name) throws Error {
 		if (base_name in get_base_name_black_list ())
-			throw new DesktopError.BLACKLISTED_GAME (_("“%s” is blacklisted."), file.get_path ());
+			throw new DesktopError.BLACKLISTED_GAME (_("“%s” is blacklisted."), uri.to_string ());
 	}
 
 	private static string[] categories_black_list;
