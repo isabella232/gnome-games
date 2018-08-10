@@ -13,6 +13,13 @@ private class Games.SteamPlugin : Object, Plugin {
 
 	static construct {
 		platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
+
+		// Add directories where Steam installs icons
+		var home = Environment.get_home_dir ();
+		var icon_theme = Gtk.IconTheme.get_default ();
+		icon_theme.append_search_path (home + "/.local/share/icons");
+		icon_theme.append_search_path (home + STEAM_FLATPAK_DIR + "/.local/share/icons");
+		icon_theme.append_search_path (home + STEAM_FLATPAK_DIR + "/data/icons");
 	}
 
 	public UriSource[] get_uri_sources () {
