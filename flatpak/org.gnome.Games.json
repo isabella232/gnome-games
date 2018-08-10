@@ -34,6 +34,8 @@
         "--share=network",
         /* Needed for joypads, until we have a proper portal */
         "--device=all",
+        /* Needed to be able to run desktop and Steam games */
+        "--talk-name=org.freedesktop.Flatpak",
         /* Needed to find the ROMs */
         "--filesystem=home:ro",
         /* Needed to find flatpaked Steam games */
