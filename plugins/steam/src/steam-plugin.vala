@@ -5,11 +5,9 @@ private class Games.SteamPlugin : Object, Plugin {
 	private const string PLATFORM_ID = "Steam";
 	private const string PLATFORM_NAME = _("Steam");
 
-	private static HashTable<string, Game> game_for_id;
 	private static Platform platform;
 
 	static construct {
-		game_for_id = new HashTable<string, Game> (str_hash, str_equal);
 		platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
 	}
 
@@ -48,12 +46,6 @@ private class Games.SteamPlugin : Object, Plugin {
 		if (game_id == null)
 			throw new SteamError.NO_APPID (_("Couldn’t get Steam appid from manifest “%s”."), appmanifest_path);
 
-		if (game_id in game_for_id) {
-			var game = game_for_id[game_id];
-
-			return game;
-		}
-
 		var uid = new SteamUid (game_id);
 		var title = new SteamTitle (registry);
 		var icon = new SteamIcon (game_id);
@@ -64,8 +56,6 @@ private class Games.SteamPlugin : Object, Plugin {
 		var game = new GenericGame (uid, title, platform, runner);
 		game.set_icon (icon);
 		game.set_cover (cover);
-
-		game_for_id[game_id] = game;
 
 		return game;
 	}
