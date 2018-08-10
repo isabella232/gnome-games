@@ -11,6 +11,11 @@ private class Games.DesktopPlugin : Object, Plugin {
 
 	static construct {
 		platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
+
+		var home = Environment.get_home_dir ();
+		var icon_theme = Gtk.IconTheme.get_default ();
+		icon_theme.prepend_search_path (home + "/.local/share/flatpak/exports/share/icons");
+		icon_theme.prepend_search_path ("/var/lib/flatpak/exports/share/icons");
 	}
 
 	public UriSource[] get_uri_sources () {
