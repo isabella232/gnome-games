@@ -38,6 +38,9 @@
         "--talk-name=org.freedesktop.Flatpak",
         /* Needed to find the ROMs */
         "--filesystem=home:ro",
+        /* Needed to find icons for flatpaked Steam and desktop games */
+        "--filesystem=~/.local/share/flatpak:ro",
+        "--filesystem=/var/lib/flatpak:ro",
         /* Needed to find flatpaked Steam games */
         "--filesystem=~/.var/app/com.valvesoftware.Steam:ro"
     ],
