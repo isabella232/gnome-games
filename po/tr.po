@@ -1,0 +1,1021 @@
+# Turkish translation for gnome-games.
+# Copyright (C) 2018 gnome-games's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-games package.
+# Ertan Kurt <ertank@gmail.com>, 2016.
+# Emin Tufan Çetin <etcetin@gmail.com>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-games master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
+"POT-Creation-Date: 2018-08-11 01:06+0000\n"
+"PO-Revision-Date: 2018-08-11 10:30+0300\n"
+"Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
+"Language-Team: Türkçe <gnome-turk@gnome.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Gtranslator 2.91.7\n"
+
+#: data/org.gnome.Games.appdata.xml.in.in:6
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:40
+#: data/ui/collection-header-bar.ui:67 data/ui/display-header-bar.ui:6
+#: src/ui/application.vala:24
+msgid "Games"
+msgstr "Oyunlar"
+
+#: data/org.gnome.Games.appdata.xml.in.in:7
+msgid "Simple game launcher for GNOME"
+msgstr "GNOME için basit oyun başlatıcısı"
+
+#: data/org.gnome.Games.appdata.xml.in.in:10
+msgid ""
+"Games is a GNOME 3 application to browse your video games library and to "
+"easily pick and play a game from it. It aims to do for games what Music "
+"already does for your music library."
+msgstr ""
+"Oyunlar, video oyun kitaplığınıza göz atabileceğiniz ve kolayca oyun seçip "
+"oynayabileceğiniz bir GNOME 3 uygulamasıdır. Müzik, müzik kitaplığınız için "
+"ne yapıyorsa aynısını oyunlar için yapmayı hedefliyor."
+
+#: data/org.gnome.Games.appdata.xml.in.in:15
+msgid ""
+"You want to install Games if you just want a very simple and comfortable way "
+"to play your games and you don’t need advanced features such as speedrunning "
+"tools or video game development tools."
+msgstr ""
+"Eğer oyunlarınızı oynamak için basit ve rahat bir yol arıyorsanız, hızlı "
+"bitirme veya video oyun geliştirme araçları gibi gelişmiş özelliklere "
+"gereksinmiyorsanız Oyunlarʼı kurmak isteyebilirsiniz."
+
+#: data/org.gnome.Games.appdata.xml.in.in:20
+msgid "Features:"
+msgstr "Özellikler:"
+
+#: data/org.gnome.Games.appdata.xml.in.in:22
+msgid "List your installed games, your Steam games, your game ROMs…"
+msgstr "Kurulu oyunlarınızı, Steam oyunlarınızı, oyun ROMʼlarınızı listeleyin…"
+
+#: data/org.gnome.Games.appdata.xml.in.in:23
+msgid "Search in your games collection"
+msgstr "Oyun derleminizde arayın"
+
+#: data/org.gnome.Games.appdata.xml.in.in:24
+msgid "Play your games"
+msgstr "Oyunlarınızı oynayın"
+
+#: data/org.gnome.Games.appdata.xml.in.in:25
+msgid "Resume your game to where you left it"
+msgstr "Oyunu bıraktığınız yerden sürdürün"
+
+#: data/org.gnome.Games.desktop.in.in:4
+msgid "Video game player"
+msgstr "Video oyun oynatıcı"
+
+#: data/org.gnome.Games.desktop.in.in:5
+msgid "View and play your video games collection"
+msgstr "Video oyun derleminizi görün ve oynayın"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Games.desktop.in.in:7
+msgid "game;videogame;video game;player;"
+msgstr "oyun;videooyun;video oyun;oynatıcı;videogame;video game;"
+
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.Games.desktop.in.in:10
+msgid "@icon@"
+msgstr "@icon@"
+
+#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:43
+msgid "Fullscreen"
+msgstr "Tam ekran"
+
+#: data/org.gnome.Games.gschema.xml:11
+msgid "Whether the games should be displayed in full screen or not."
+msgstr "Oyunların tam ekranda gösterilip gösterilmeyeceği."
+
+#: data/org.gnome.Games.gschema.xml:15
+msgid "Video filter"
+msgstr "Video süzgeci"
+
+#: data/org.gnome.Games.gschema.xml:16
+msgid ""
+"Filter for the game video output. Allowed values are: “smooth” (blurry "
+"pixels), “sharp” (blocky pixels), “crt” (CRT emulation)."
+msgstr ""
+"Oyun video çıktısı için süzgeç. İzin verilen değerler: “smooth” (bulanık "
+"pikseller), “sharp” (bodur pikseller), “crt” (CRT öykünümü)."
+
+#: data/org.gnome.Games.gschema.xml:20
+msgid "Window maximized"
+msgstr "Pencere büyültüldü"
+
+#: data/org.gnome.Games.gschema.xml:21
+msgid "Window maximized state."
+msgstr "Pencere büyültülme durumu."
+
+#: data/org.gnome.Games.gschema.xml:25
+msgid "Window size"
+msgstr "Pencere boyutu"
+
+#: data/org.gnome.Games.gschema.xml:26
+msgid "Window size (width and height)."
+msgstr "Pencere boyutu (genişlik ve yükseklik)."
+
+#: data/ui/collection-box.ui:50
+msgid "Developers"
+msgstr "Geliştiriciler"
+
+#: data/ui/collection-box.ui:60
+msgid "Platforms"
+msgstr "Platformlar"
+
+#: data/ui/collection-box.ui:83
+msgid "Loading"
+msgstr "Yükleniyor"
+
+#: data/ui/collection-header-bar.ui:17
+msgid "Add game files…"
+msgstr "Oyun dosyaları ekle…"
+
+#. Translators: tooltip for the application menu button
+#: data/ui/collection-header-bar.ui:36
+msgid "Menu"
+msgstr "Menü"
+
+#: data/ui/collection-header-bar.ui:85
+msgid "Search"
+msgstr "Ara"
+
+#: data/ui/collection-header-bar.ui:111 data/ui/preferences-window.ui:6
+#: data/ui/preferences-window.ui:18
+msgid "Preferences"
+msgstr "Seçenekler"
+
+#: data/ui/collection-header-bar.ui:126 data/ui/shortcuts-window.ui:10
+msgid "Shortcuts"
+msgstr "Kısayollar"
+
+#: data/ui/collection-header-bar.ui:134
+msgid "Help"
+msgstr "Yardım"
+
+#: data/ui/collection-header-bar.ui:142
+msgid "About"
+msgstr "Hakkında"
+
+#: data/ui/display-header-bar.ui:20 data/ui/gamepad-configurer.ui:73
+#: data/ui/keyboard-configurer.ui:74
+msgid "Back"
+msgstr "Geri"
+
+#: data/ui/display-header-bar.ui:69
+msgid "Restore"
+msgstr "Geri Yükle"
+
+#: data/ui/dummy-display.ui:36
+msgid "This is a dummy game display"
+msgstr "Bu bir sahte oyun görüntüsüdür"
+
+#: data/ui/dummy-display.ui:51
+msgid "If you see this, this is a bug."
+msgstr "Eğer bunu görüyorsanız bu bir hatadır."
+
+#: data/ui/dummy-display.ui:64
+msgid "Please contact the developers."
+msgstr "Lütfen geliştiricilerle iletişim kurun."
+
+#: data/ui/empty-collection.ui:29
+msgid "No games found"
+msgstr "Oyun bulunamadı"
+
+#: data/ui/empty-collection.ui:43
+msgid ""
+"Install games or add directories containing games to your search sources."
+msgstr ""
+"Oyun kurun veya arama kaynaklarınız için oyunları içeren dizinleri ekleyin."
+
+#: data/ui/gamepad-configurer.ui:35
+msgctxt "Gamepad configuration factory reset"
+msgid "Reset"
+msgstr "Sıfırla"
+
+#: data/ui/gamepad-configurer.ui:48 data/ui/keyboard-configurer.ui:49
+msgid "Configure"
+msgstr "Yapılandır"
+
+#: data/ui/gamepad-configurer.ui:91 data/ui/keyboard-configurer.ui:92
+#: data/ui/quit-dialog.ui:15 data/ui/reset-controller-mapping-dialog.ui:15
+#: data/ui/resume-failed-dialog.ui:14
+msgid "Cancel"
+msgstr "İptal"
+
+#: data/ui/gamepad-mapper.ui:19 data/ui/keyboard-mapper.ui:19
+msgid "Skip"
+msgstr "Atla"
+
+#: data/ui/keyboard-configurer.ui:36
+msgctxt "Keyboard configuration factory reset"
+msgid "Reset"
+msgstr "Sıfırla"
+
+#: data/ui/media-menu-button.ui:11
+msgid "Media"
+msgstr "Ortam"
+
+#: data/ui/preferences-page-controllers.ui:31
+msgid "Gamepads"
+msgstr "Oyun Çubukları"
+
+#: data/ui/preferences-page-controllers.ui:54
+#: src/ui/preferences-page-controllers.vala:95
+msgid "Keyboard"
+msgstr "Klavye"
+
+#: data/ui/preferences-page-controllers.ui:86 data/ui/preferences-window.ui:79
+msgid "Controllers"
+msgstr "Denetleyiciler"
+
+#: data/ui/preferences-page-plugins.ui:40 data/ui/preferences-window.ui:88
+msgid "Extensions"
+msgstr "Uzantılar"
+
+#: data/ui/preferences-page-video.ui:21
+msgid "Filter"
+msgstr "Süzgeç"
+
+#: data/ui/preferences-page-video.ui:50 data/ui/preferences-window.ui:70
+msgid "Video"
+msgstr "Video"
+
+#: data/ui/quit-dialog.ui:9
+msgid "Are you sure you want to quit?"
+msgstr "Çıkmak istediğinize emin misiniz?"
+
+#: data/ui/quit-dialog.ui:10
+msgid "All unsaved progress will be lost."
+msgstr "Tüm kaydedilmemiş ilerleme kaybolacak."
+
+#: data/ui/quit-dialog.ui:21
+msgid "Quit"
+msgstr "Çık"
+
+#: data/ui/remote-display.ui:36
+msgid "Use the game’s own window to play it"
+msgstr "Oynamak için oyunun kendi penceresini kullan"
+
+#: data/ui/remote-display.ui:51
+msgid "This game isn’t integrated to GNOME Games."
+msgstr "Bu oyun GNOME Oyunlarʼa tümleşmemiş."
+
+#: data/ui/remote-display.ui:64
+msgid "You have to use its own window to play it."
+msgstr "Oynamak için kendi penceresini kullanmalısınız."
+
+#: data/ui/reset-controller-mapping-dialog.ui:9
+msgid "Factory reset mapping for this controller?"
+msgstr "Bu denetleyici için eşleşmeleri fabrika ayarına getir?"
+
+#: data/ui/reset-controller-mapping-dialog.ui:10
+msgid "Your mapping will be lost."
+msgstr "Eşleşmeniz kaybolacak."
+
+#: data/ui/reset-controller-mapping-dialog.ui:21
+msgctxt "Confirm controller configuration factory reset"
+msgid "Reset"
+msgstr "Sıfırla"
+
+#: data/ui/resume-dialog.ui:9
+msgid "Resume last game?"
+msgstr "Son oyunu sürdür?"
+
+#: data/ui/resume-dialog.ui:13
+msgid "Restart"
+msgstr "Yeniden Başlat"
+
+#: data/ui/resume-dialog.ui:20
+msgid "Resume"
+msgstr "Sürdür"
+
+#: data/ui/resume-failed-dialog.ui:9
+msgid "Resuming failed. Do you want to restart the game?"
+msgstr "Sürdürme başarısız. Oyunu yeniden başlatmak ister misiniz?"
+
+#: data/ui/resume-failed-dialog.ui:20
+msgctxt "Resuming a game failed dialog"
+msgid "Reset"
+msgstr "Sıfırla"
+
+#: data/ui/shortcuts-window.ui:14
+msgid "General"
+msgstr "Genel"
+
+#: data/ui/shortcuts-window.ui:19
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Çık"
+
+#: data/ui/shortcuts-window.ui:27 data/ui/shortcuts-window.ui:139
+msgid "Collection"
+msgstr "Derlem"
+
+#: data/ui/shortcuts-window.ui:32
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Ara"
+
+#: data/ui/shortcuts-window.ui:40 data/ui/shortcuts-window.ui:48
+msgctxt "shortcut window"
+msgid "Navigate"
+msgstr "Dolaş"
+
+#: data/ui/shortcuts-window.ui:41
+msgctxt "shortcut window"
+msgid "Left analog stick"
+msgstr "Sol analog çubuk"
+
+#: data/ui/shortcuts-window.ui:49
+msgctxt "shortcut window"
+msgid "Directional pad"
+msgstr "Yön yüzeyi"
+
+#: data/ui/shortcuts-window.ui:56
+msgctxt "shortcut window"
+msgid "Select view"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:57
+msgctxt "shortcut window"
+msgid "Front shoulder buttons"
+msgstr "Ön omuz düğmeleri"
+
+#: data/ui/shortcuts-window.ui:64 data/ui/shortcuts-window.ui:72
+msgctxt "shortcut window"
+msgid "Start game"
+msgstr "Oyunu başlat"
+
+#: data/ui/shortcuts-window.ui:65
+msgctxt "shortcut window"
+msgid "Start button"
+msgstr "Başlat düğmesi"
+
+#: data/ui/shortcuts-window.ui:73 data/ui/shortcuts-window.ui:116
+msgctxt "shortcut window"
+msgid "Bottom action button"
+msgstr "Orta eylem düğmesi"
+
+#: data/ui/shortcuts-window.ui:80
+msgid "In Game"
+msgstr "Oyun İçi"
+
+#: data/ui/shortcuts-window.ui:85
+msgctxt "shortcut window"
+msgid "Toggle fullscreen"
+msgstr "Tam ekranı aç/kapat"
+
+#: data/ui/shortcuts-window.ui:92
+msgctxt "shortcut window"
+msgid "Exit fullscreen"
+msgstr "Tam ekrandan çık"
+
+#: data/ui/shortcuts-window.ui:99 data/ui/shortcuts-window.ui:107
+msgctxt "shortcut window"
+msgid "Go back to the collection"
+msgstr "Derleme geri git"
+
+#: data/ui/shortcuts-window.ui:108
+msgctxt "shortcut window"
+msgid "Home button"
+msgstr "Ev düğmesi"
+
+#: data/ui/shortcuts-window.ui:115
+msgctxt "shortcut window"
+msgid "Accept"
+msgstr "Kabul et"
+
+#: data/ui/shortcuts-window.ui:123
+msgctxt "shortcut window"
+msgid "Cancel"
+msgstr "İptal"
+
+#: data/ui/shortcuts-window.ui:124
+msgctxt "shortcut window"
+msgid "Right action button"
+msgstr "Sağ eylem düğmesi"
+
+#: data/ui/shortcuts-window.ui:135
+msgid "Cheats"
+msgstr "Hileler"
+
+#: data/ui/shortcuts-window.ui:144
+msgctxt "shortcut window"
+msgid "Contribute"
+msgstr ""
+
+#: plugins/desktop/src/desktop-plugin.vala:6
+msgid "Desktop"
+msgstr "Masaüstü"
+
+#: plugins/desktop/src/desktop-plugin.vala:56
+#, c-format
+msgid "Invalid command “%s”."
+msgstr "Geçersiz komut “%s”."
+
+#: plugins/desktop/src/desktop-plugin.vala:69
+#, c-format
+msgid "Tracker listed file not found: “%s”."
+msgstr ""
+
+#: plugins/desktop/src/desktop-plugin.vala:75
+#, c-format
+msgid "Couldn’t parse desktop entry “%s”."
+msgstr "“%s” masaüstü girdisi ayrıştırılamadı."
+
+#: plugins/desktop/src/desktop-plugin.vala:85
+#, c-format
+msgid "“%s” shouldn’t be displayed."
+msgstr "“%s” görüntülenmemeli."
+
+#: plugins/desktop/src/desktop-plugin.vala:88
+#, c-format
+msgid "“%s” is hidden."
+msgstr "“%s” gizli."
+
+#: plugins/desktop/src/desktop-plugin.vala:97
+#, c-format
+msgid "“%s” has blacklisted category “%s”."
+msgstr "“%s”, karalisteli “%s” kategorisinde."
+
+#: plugins/desktop/src/desktop-plugin.vala:106
+#, c-format
+msgid "“%s” has blacklisted executable “%s”."
+msgstr "“%s”, karalisteli “%s” çalıştırılabilir listesinde."
+
+#: plugins/desktop/src/desktop-plugin.vala:113
+#, c-format
+msgid "“%s” is blacklisted."
+msgstr "“%s” karalistede."
+
+#: plugins/dreamcast/src/dreamcast-header.vala:54
+msgid "The file doesn’t have a Dreamcast header."
+msgstr "Dosyanın Dreamcast başlığı yok."
+
+#: plugins/dreamcast/src/dreamcast-plugin.vala:6
+msgid "Dreamcast"
+msgstr "Dreamcast"
+
+#: plugins/game-cube/src/game-cube-header.vala:20
+msgid "The file doesn’t have a Game Cube header."
+msgstr "Dosyanın Game Cube başlığı yok."
+
+#: plugins/game-cube/src/game-cube-plugin.vala:6
+msgid "Nintendo GameCube"
+msgstr "Nintendo GameCube"
+
+#: plugins/libretro/src/libretro-plugin.vala:6
+msgid "Libretro"
+msgstr "Libretro"
+
+#: plugins/love/src/love-package.vala:13 plugins/love/src/love-package.vala:17
+#, c-format
+msgid "This doesn’t represent a valid LÖVE package: “%s”."
+msgstr "Bu geçerli bir LÖVE paketini temsil etmiyor: “%s”."
+
+#: plugins/love/src/love-plugin.vala:7
+msgid "LÖVE"
+msgstr "LÖVE"
+
+#: plugins/mame/src/mame-game-uri-adapter.vala:21
+#, c-format
+msgid "Invalid MAME game id “%s” for “%s”."
+msgstr "“%2$s” için geçersiz MAME oyun kimliği “%1$s”."
+
+#: plugins/mame/src/mame-plugin.vala:6
+msgid "Arcade"
+msgstr "Arcade"
+
+#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:7
+msgid "Nintendo DS"
+msgstr "Nintendo DS"
+
+#: plugins/playstation/src/playstation-header.vala:27
+#, c-format
+msgid "Not a PlayStation disc: “%s”."
+msgstr "PlayStation diski değil: “%s”."
+
+#: plugins/playstation/src/playstation-header.vala:37
+#, c-format
+msgid "Invalid PlayStation header: disc ID not found in “%s”."
+msgstr "Geçersiz PlayStation başlığı: “%s” içinde disk kimliği bulunamadı."
+
+#: plugins/playstation/src/playstation-plugin.vala:6
+msgid "PlayStation"
+msgstr "PlayStation"
+
+#: plugins/sega-cd/src/sega-cd-header.vala:44
+#: plugins/sega-cd/src/sega-cd-header.vala:63
+msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
+msgstr "Dosyanın Genesis/Sega 32X/Sega CD/Sega Pico başlığı yok."
+
+#. translators: known as "Mega-CD" in most of the world
+#: plugins/sega-cd/src/sega-cd-plugin.vala:12
+msgid "Sega CD"
+msgstr "Sega CD"
+
+#. translators: known as "Mega-CD 32X" in most of the world
+#: plugins/sega-cd/src/sega-cd-plugin.vala:14
+msgid "Sega CD 32X"
+msgstr "Sega CD 32X"
+
+#: plugins/sega-cd/src/sega-cd-plugin.vala:108
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:87
+#, c-format
+msgid "The file “%s” doesn’t have a track."
+msgstr "“%s” dosyasının izi yok."
+
+#: plugins/sega-cd/src/sega-cd-plugin.vala:114
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:93
+#, c-format
+msgid "The file “%s” doesn’t have a valid binary file format."
+msgstr "“%s” dosyasının geçerli ikili dosya biçimi yok."
+
+#: plugins/sega-cd/src/sega-cd-plugin.vala:117
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:96
+#, c-format
+msgid "The file “%s” doesn’t have a valid track mode for track %d."
+msgstr "“%s” dosyasının %d izi için geçerli iz kipi yok."
+
+#: plugins/sega-saturn/src/sega-saturn-header.vala:54
+msgid "The file doesn’t have a Sega Saturn header."
+msgstr "Dosyanın Sega Saturn başlığı yok."
+
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:7
+msgid "Sega Saturn"
+msgstr "Sega Saturn"
+
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:100
+#, c-format
+msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
+msgstr "“%s” dosyasının geçerli Sega Saturn ikili dosyası yok."
+
+#: plugins/steam/src/steam-plugin.vala:10
+msgid "Steam"
+msgstr "Steam"
+
+#: plugins/steam/src/steam-plugin.vala:80
+#, c-format
+msgid "Couldn’t get Steam appid from manifest “%s”."
+msgstr "Steam appid, “%s” manifestʼinden alınamıyor."
+
+#: plugins/steam/src/steam-registry.vala:68
+#, c-format
+msgid "File “%s” doesn’t exist."
+msgstr "“%s” dosyası yok."
+
+#: plugins/steam/src/steam-registry.vala:96
+msgid "Unexpected token '{'."
+msgstr "Beklenmeyen işaret '{'."
+
+#: plugins/steam/src/steam-registry.vala:110
+msgid "Unexpected end of tokens."
+msgstr "Beklenmeyen işaret sonu."
+
+#: plugins/steam/src/steam-registry.vala:113
+msgid "Unexpected token '}'."
+msgstr "Beklenmeyen işaret '{'."
+
+#: plugins/steam/src/steam-title.vala:17
+msgid "Couldn’t get name from Steam registry."
+msgstr "Steam defterinden ad alınamıyor."
+
+#. translators: known as "CD-ROM²" in eastern Asia and France
+#: plugins/turbografx-cd/src/turbografx-cd-plugin.vala:10
+msgid "TurboGrafx-CD"
+msgstr "TurboGrafx-CD"
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:20
+msgid "The file is too short."
+msgstr "Dosya çok kısa."
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:26
+#, c-format
+msgid "Invalid Virtual Boy ROM header size: %s"
+msgstr "Geçersiz Virtual Boy ROM başlık boyutu: %s"
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:38
+msgid "Invalid Virtual Boy ROM header size."
+msgstr "Geçersiz Virtual Boy ROM başlık boyutu."
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:42
+msgid "The file doesn’t have a Virtual Boy ROM header."
+msgstr "Dosyanın Virtual Boy ROM başlığı yok."
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:51
+#, c-format
+msgid "Couldn’t get file size: %s"
+msgstr "Dosya boyutu alınamadı: %s"
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:60
+#: plugins/wii/src/wii-header.vala:55
+#, c-format
+msgid "Couldn’t read file: %s"
+msgstr "Dosya okunamadı: %s"
+
+#: plugins/virtual-boy/src/virtual-boy-plugin.vala:7
+msgid "Virtual Boy"
+msgstr "Virtual Boy"
+
+#: plugins/wii/src/wii-header.vala:20
+#, c-format
+msgid "Invalid Wii header size: %s"
+msgstr "Geçersiz Wii başlık boyutu: %s"
+
+#: plugins/wii/src/wii-header.vala:33 plugins/wii/src/wii-header.vala:44
+msgid "The file doesn’t have a Wii header."
+msgstr "Dosyanın Wii başlığı yok."
+
+#: plugins/wii/src/wii-plugin.vala:6
+msgid "Wii"
+msgstr "Wii"
+
+#: src/command/command-runner.vala:36
+msgid "The game doesn’t have a valid command."
+msgstr "Oyunun geçerli komutu yok."
+
+#: src/command/command-runner.vala:67
+#, c-format
+msgid "Couldn’t run “%s”: execution failed."
+msgstr "“%s” çalıştırılamadı: çalıştırma başarısız."
+
+#: src/core/media-set/media-set.vala:30
+#, c-format
+msgid "Invalid media index %u."
+msgstr "Geçersiz ortam indeksi %u."
+
+#: src/core/plugin-registrar.vala:27
+#, c-format
+msgid "Invalid plugin descriptor: %s"
+msgstr "Geçersiz eklenti açıklayıcı: %s"
+
+#: src/core/plugin-registrar.vala:48 src/core/plugin-registrar.vala:52
+#, c-format
+msgid "Couldn’t create a new instance of plugin in “%s”."
+msgstr "“%s” içinde eklentinin yeni örneği oluşturulamadı."
+
+#: src/dummy/dummy-description.vala:5
+msgid "No description available."
+msgstr "Uygun açıklama yok."
+
+#: src/dummy/dummy-developer.vala:5 src/dummy/dummy-platform.vala:9
+msgid "Unknown"
+msgstr "Bilinmeyen"
+
+#: src/dummy/dummy-players.vala:5
+msgid "Not available"
+msgstr "Kullanılamaz"
+
+#: src/dummy/dummy-publisher.vala:5
+msgid "Publisher not available."
+msgstr "Yayımcı yok."
+
+#: src/gameinfo/gameinfo-disc-id-disc-title.vala:24
+#, c-format
+msgid "Disc %d"
+msgstr "Disk %d"
+
+#: src/gameinfo/gameinfo-doc.vala:15
+#, c-format
+msgid "No game title found for disc ID “%s”."
+msgstr "“%s” disk kimliği için oyun başlığı bulunamadı."
+
+#: src/gameinfo/gameinfo-doc.vala:31
+#, c-format
+msgid "No disc title found for disc ID “%s”."
+msgstr "“%s” disk kimliği için disk başlığı bulunamadı."
+
+#: src/gameinfo/gameinfo-doc.vala:41
+#, c-format
+msgid "No disc set ID found for disc ID “%s”."
+msgstr "“%s” disk kimliği için takım kimliği bulunamadı."
+
+#: src/gameinfo/gameinfo-doc.vala:49 src/gameinfo/gameinfo-doc.vala:59
+#, c-format
+msgid "No disc found for disc ID “%s”."
+msgstr "“%s” disk kimliği için disk bulunamadı."
+
+#: src/grilo/grilo-players.vala:46
+msgid "Single-player"
+msgstr "Tekli oyuncu"
+
+#: src/grilo/grilo-players.vala:48
+msgid "Multi-player"
+msgstr "Çoklu oyuncu"
+
+#: src/retro/retro-core-source.vala:25 src/retro/retro-core-source.vala:39
+#, c-format
+msgid "No module found for platform “%s” and MIME types [ “%s” ]."
+msgstr "“%s” platformu ve [ “%s” ] MIME türleri için modül bulunamadı."
+
+#: src/retro/retro-core-source.vala:25 src/retro/retro-core-source.vala:39
+msgid "”, “"
+msgstr "”, “"
+
+#: src/retro/retro-core-source.vala:84
+#, c-format
+msgid "This game requires the %s firmware file to run."
+msgstr "Bu oyun çalışmak için %s donanım yazılımı dosyası gerektiriyor."
+
+#: src/retro/retro-core-source.vala:101
+#, c-format
+msgid ""
+"This game requires the %s firmware file with a MD5 fingerprint of %s to run."
+msgstr ""
+"Bu oyun çalışmak için %2$s MD5 parmak izli %1$s donanım yazılımı dosyası "
+"gerektiriyor."
+
+#: src/retro/retro-core-source.vala:107
+#, c-format
+msgid ""
+"This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
+"run."
+msgstr ""
+"Bu oyun çalışmak için %2$s SHA-512 parmak izli %1$s donanım yazılımı dosyası "
+"gerektiriyor."
+
+#: src/retro/retro-runner.vala:241
+#, c-format
+msgid "No module found for “%s”."
+msgstr "“%s” için modül bulunamadı."
+
+#: src/retro/retro-runner.vala:540
+msgid "Unknown platform"
+msgstr "Bilinmeyen platform"
+
+#: src/retro/retro-runner.vala:585
+#, c-format
+msgid "The system “%s” isn’t supported yet, but full support is planned."
+msgstr "“%s” sistemi henüz desteklenmiyor ancak tam destek planlanmaktadır."
+
+#: src/retro/retro-runner.vala:588
+msgid "The system isn’t supported yet, but full support is planned."
+msgstr "Sistem henüz desteklenmiyor ancak tam destek planlanmaktadır."
+
+#: src/retro/retro-simple-type.vala:13
+msgid "Amiga"
+msgstr "Amiga"
+
+#: src/retro/retro-simple-type.vala:15
+msgid "Atari 2600"
+msgstr "Atari 2600"
+
+#: src/retro/retro-simple-type.vala:17
+msgid "Atari 7800"
+msgstr "Atari 7800"
+
+#: src/retro/retro-simple-type.vala:19
+msgid "Atari Lynx"
+msgstr "Atari Lynx"
+
+#: src/retro/retro-simple-type.vala:21
+msgid "DOOM"
+msgstr "DOOM"
+
+#. translators: only released in eastern Asia
+#: src/retro/retro-simple-type.vala:24
+msgid "Famicom Disk System"
+msgstr "Famicom Disk Sistemi"
+
+#: src/retro/retro-simple-type.vala:26
+msgid "Game Boy"
+msgstr "Game Boy"
+
+#: src/retro/retro-simple-type.vala:28
+msgid "Game Boy Color"
+msgstr "Game Boy Color"
+
+#: src/retro/retro-simple-type.vala:30
+msgid "Game Boy Advance"
+msgstr "Game Boy Advance"
+
+#: src/retro/retro-simple-type.vala:32
+msgid "Game Gear"
+msgstr "Game Gear"
+
+#. translators: also known as "Sega Mark III" in eastern asia
+#: src/retro/retro-simple-type.vala:35
+msgid "Master System"
+msgstr "Master System"
+
+#: src/retro/retro-simple-type.vala:37
+msgid "MS-DOS"
+msgstr "MS-DOS"
+
+#: src/retro/retro-simple-type.vala:39
+msgid "Neo Geo Pocket"
+msgstr "Neo Geo Pocket"
+
+#: src/retro/retro-simple-type.vala:41
+msgid "Neo Geo Pocket Color"
+msgstr "Neo Geo Pocket Color"
+
+#. translators: known as "Famicom" in eastern Asia
+#: src/retro/retro-simple-type.vala:44
+msgid "Nintendo Entertainment System"
+msgstr "Nintendo Entertainment System"
+
+#: src/retro/retro-simple-type.vala:46
+msgid "Nintendo 64"
+msgstr "Nintendo 64"
+
+#. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
+#: src/retro/retro-simple-type.vala:49
+msgid "Genesis 32X"
+msgstr "Genesis 32X"
+
+#. translators: known as "Mega Drive" in most of the world
+#: src/retro/retro-simple-type.vala:52
+msgid "Sega Genesis"
+msgstr "Sega Genesis"
+
+#: src/retro/retro-simple-type.vala:54
+msgid "Sega Pico"
+msgstr "Sega Pico"
+
+#: src/retro/retro-simple-type.vala:56
+msgid "SG-1000"
+msgstr "SG-1000"
+
+#. translators: known as "Super Famicom" in eastern Asia
+#: src/retro/retro-simple-type.vala:59
+msgid "Super Nintendo Entertainment System"
+msgstr "Super Nintendo Entertainment System"
+
+#. translators: known as "PC Engine" in eastern Asia and France
+#: src/retro/retro-simple-type.vala:62
+msgid "TurboGrafx-16"
+msgstr "TurboGrafx-16"
+
+#: src/retro/retro-simple-type.vala:64
+msgid "WiiWare"
+msgstr "WiiWare"
+
+#: src/retro/retro-simple-type.vala:66
+msgid "WonderSwan"
+msgstr "WonderSwan"
+
+#: src/retro/retro-simple-type.vala:68
+msgid "WonderSwan Color"
+msgstr "WonderSwan Color"
+
+#: src/ui/application.vala:161
+msgid "Select game files"
+msgstr "Oyun dosyaları seç"
+
+#: src/ui/application.vala:162
+msgid "_Add"
+msgstr "_Ekle"
+
+#: src/ui/application.vala:162
+msgid "_Cancel"
+msgstr "_İptal"
+
+#: src/ui/application.vala:369
+msgid "GNOME Games"
+msgstr "GNOME Oyunlar"
+
+#: src/ui/application.vala:371
+msgid "A video game player for GNOME"
+msgstr "GNOME için video oyun oynatıcı"
+
+#: src/ui/application.vala:375
+msgid "Learn more about GNOME Games"
+msgstr "GNOME Oyunlar hakkında daha çok öğren"
+
+#: src/ui/application.vala:382
+msgid "translator-credits"
+msgstr "Emin Tufan Çetin <etcetin@gmail.com>"
+
+#: src/ui/application-window.vala:380
+msgid "An unexpected error occurred."
+msgstr "Beklenmedik bir hata oluştu."
+
+#: src/ui/application-window.vala:660 src/ui/application-window.vala:677
+msgid "Playing a game"
+msgstr "Oyun oynama"
+
+#: src/ui/error-display.vala:13
+#, c-format
+msgid "Oops! Unable to run “%s”"
+msgstr "Hayda! “%s” çalıştırılamıyor"
+
+#: src/ui/error-display.vala:15
+msgid "Oops! Unable to run the game"
+msgstr "Hayda! Oyun çalıştırılamıyor"
+
+#. translators: testing a gamepad, %s is its name
+#: src/ui/gamepad-configurer.vala:78
+#, c-format
+msgid "Testing %s"
+msgstr "%s Sınama"
+
+#. translators: configuring a gamepad, %s is its name
+#: src/ui/gamepad-configurer.vala:92
+#, c-format
+msgid "Configuring %s"
+msgstr "%s Yapılandırma"
+
+#: src/ui/gamepad-mapper.vala:126
+msgid "Press suitable button on your gamepad"
+msgstr "Oyun çubuğunuzdaki uygun düğmeye basın"
+
+#: src/ui/gamepad-mapper.vala:131
+msgid "Move suitable axis left/right on your gamepad"
+msgstr "Oyun çubuğunuzdaki uygun sağ/sol ekseni oynatın"
+
+#: src/ui/gamepad-mapper.vala:133
+msgid "Move suitable axis up/down on your gamepad"
+msgstr "Oyun çubuğunuzdaki uygun yukarı/aşağı ekseni oynatın"
+
+#: src/ui/keyboard-configurer.vala:67
+msgid "Testing Keyboard"
+msgstr "Klavye Sınama"
+
+#: src/ui/keyboard-configurer.vala:80
+msgid "Configuring Keyboard"
+msgstr "Klavye Yapılandırma"
+
+#: src/ui/keyboard-mapper.vala:18
+msgid "Press suitable key on your keyboard"
+msgstr "Klavyenizdeki uygun tuşa basın"
+
+#: src/ui/media-selector.vala:38
+#, c-format
+msgid "Media %d"
+msgstr "%d Ortamı"
+
+#. same as video-filters in gschema
+#: src/ui/preferences-page-video.vala:34
+msgid "Smooth"
+msgstr "Pürüzsüz"
+
+#: src/ui/preferences-page-video.vala:34
+msgid "Sharp"
+msgstr "Keskin"
+
+#: src/ui/preferences-page-video.vala:34
+msgid "CRT"
+msgstr "CRT"
+
+#: src/utils/cue-sheet/cue-sheet.vala:25
+#, c-format
+msgid "“%s” doesn’t have a track for index %u."
+msgstr "“%s”, %u indeksi için ize sahip değil."
+
+#: src/utils/cue-sheet/cue-sheet.vala:114
+#, c-format
+msgid "%s:%lu: Invalid file format %s, expected a valid file format or none."
+msgstr ""
+"%s:%lu: Geçersiz dosya biçimi %s, geçerli bir dosya biçimi veya hiçbir şey "
+"beklendi."
+
+#: src/utils/cue-sheet/cue-sheet.vala:121
+#, c-format
+msgid "%s:%lu: Unexpected token TRACK before a FILE token."
+msgstr "%s:%lu: FILE jetonundan önce beklenmedik TRACK jetonu."
+
+#: src/utils/cue-sheet/cue-sheet.vala:130
+#, c-format
+msgid "%s:%lu: Invalid track number %s, expected a number in the 1-99 range."
+msgstr "%s:%lu: Geçersiz iz sayısı %s, 1-99 arası sayı beklendi."
+
+#: src/utils/cue-sheet/cue-sheet.vala:134
+#, c-format
+msgid "%s:%lu: Invalid track mode %s, expected a valid track mode."
+msgstr "%s:%lu: Geçersiz iz kipi %s, geçerli bir iz kipi beklendi."
+
+#: src/utils/cue-sheet/cue-sheet.vala:141
+#, c-format
+msgid "%s:%lu: Unexpected end of file, expected %s."
+msgstr "%s:%lu: Beklenmedik dosya sonu, %s beklendi."
+
+#: src/utils/cue-sheet/cue-sheet.vala:144
+#, c-format
+msgid "%s:%lu: Unexpected token %s, expected %s."
+msgstr "%s:%lu: Beklenmedik jeton %s, %s beklendi."
+
+#: src/utils/cue-sheet/cue-sheet.vala:151
+#, c-format
+msgid "%s:%lu: Unexpected end of file, expected a token."
+msgstr "%s:%lu: Beklenmedik dosya sonu, jeton beklendi."
+
+#: src/utils/cue-sheet/cue-sheet.vala:154
+#, c-format
+msgid "%s:%lu: Unexpected end of line, expected a token."
+msgstr "%s:%lu: Beklenmedik satır sonu, jeton beklendi."
+
+#: src/utils/cue-sheet/cue-sheet.vala:177
+#, c-format
+msgid "%s:%lu: Unexpected token %s, expected end of line."
+msgstr "%s:%lu: Beklenmedik jeton %s, satır sonu beklendi."
