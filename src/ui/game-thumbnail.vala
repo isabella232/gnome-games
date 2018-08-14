@@ -173,6 +173,9 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		var size = int.min (context.width, context.height) * scale;
 		var icon_info = theme.lookup_by_gicon (icon, (int) size, lookup_flags);
 
+		if (icon_info == null)
+			return null;
+
 		try {
 			return icon_info.load_icon ();
 		}
