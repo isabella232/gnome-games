@@ -9,7 +9,6 @@ private class Games.PlatformsView : SidebarView {
 		if (!platforms.contains (platform)) {
 			platforms.add (platform);
 			var platform_list_item = new PlatformListItem (platform);
-			platform_list_item.visible = true;
 			list_box.add (platform_list_item);
 		}
 	}
