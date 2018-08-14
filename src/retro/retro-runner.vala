@@ -247,14 +247,15 @@ public class Games.RetroRunner : Object, Runner {
 		core = new Retro.Core (module_path);
 
 		var options_path = get_options_path ();
-		core.options_set.connect (() => {
-			try {
-				var options = new RetroOptions (options_path);
-				options.apply (core);
-			} catch (Error e) {
-				critical (e.message);
-			}
-		});
+		if (FileUtils.test (options_path, FileTest.EXISTS))
+			core.options_set.connect (() => {
+				try {
+					var options = new RetroOptions (options_path);
+					options.apply (core);
+				} catch (Error e) {
+					critical (e.message);
+				}
+			});
 
 		if (core_source != null) {
 			var platforms_dir = Application.get_platforms_dir ();
