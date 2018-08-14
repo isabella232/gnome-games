@@ -8,14 +8,21 @@ private abstract class Games.SidebarView : Gtk.Box {
 		set { collection_view.filtering_text = value; }
 	}
 
+	private ulong model_items_changed_id;
+
 	private ListModel _model;
 	public ListModel model {
 		set {
+			if (model_items_changed_id != 0) {
+				_model.disconnect (model_items_changed_id);
+				model_items_changed_id = 0;
+			}
+
 			_model = value;
 			collection_view.model = _model;
 
 			if (model != null)
-				model.items_changed.connect (on_model_changed);
+				model_items_changed_id = model.items_changed.connect (on_model_changed);
 		}
 		get { return _model; }
 	}
