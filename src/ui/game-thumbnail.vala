@@ -6,7 +6,6 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 
 	private const double EMBLEM_SCALE = 0.125;
 	private const double ICON_SCALE = 0.75;
-	private const double FRAME_RADIUS = 2; // Equal to border-radius in style css.
 
 	private Uid _uid;
 	public Uid uid {
@@ -123,8 +122,10 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		if (pixbuf == null)
 			return false;
 
+		var border_radius = (int) context.style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS, context.state);
+
 		context.cr.set_source_rgb (0, 0, 0);
-		rounded_rectangle (context.cr, 0.5, 0.5, context.width - 1, context.height - 1, FRAME_RADIUS);
+		rounded_rectangle (context.cr, 0.5, 0.5, context.width - 1, context.height - 1, border_radius);
 		context.cr.fill ();
 		draw_pixbuf (context, pixbuf);
 		draw_border (context);
@@ -278,9 +279,11 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 	private Cairo.Surface get_mask (DrawingContext context) {
 		Cairo.ImageSurface mask = new Cairo.ImageSurface (Cairo.Format.A8, context.width, context.height);
 
+		var border_radius = (int) context.style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS, context.state);
+
 		Cairo.Context cr = new Cairo.Context (mask);
 		cr.set_source_rgba (0, 0, 0, 0.9);
-		rounded_rectangle (cr, 0.5, 0.5, context.width - 1, context.height - 1, FRAME_RADIUS);
+		rounded_rectangle (cr, 0.5, 0.5, context.width - 1, context.height - 1, border_radius);
 		cr.fill ();
 
 		return mask;
