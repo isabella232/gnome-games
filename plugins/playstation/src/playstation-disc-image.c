@@ -25,6 +25,7 @@ games_disc_image_get_playstation_info (GamesDiscImage            *disc,
   guchar mdir[4096];
   gchar exe_buffer[256];
   gchar *ptr;
+  gint items_read;
   GamesDiscFrame frame;
   gboolean success;
   GError *tmp_error = NULL;
@@ -81,40 +82,47 @@ games_disc_image_get_playstation_info (GamesDiscImage            *disc,
 
     // Look of "BOOT = cdrom:\\"
 
-    sscanf ((char *) frame.mode1.content, "BOOT = cdrom:\\%255s", exe_buffer);
-    success = games_disc_image_get_file (disc, (GamesDiscFileInfo *) mdir, exe_buffer, &time, cancellable, &tmp_error);
-    if (tmp_error != NULL) {
-      g_propagate_error (error, tmp_error);
+    items_read = sscanf ((char *) frame.mode1.content, "BOOT = cdrom:\\%255s", exe_buffer);
 
-      return FALSE;
-    }
+    if (items_read > 0) {
+      success = games_disc_image_get_file (disc, (GamesDiscFileInfo *) mdir, exe_buffer, &time, cancellable, &tmp_error);
 
-    if (success) {
-      if (games_disc_image_info != NULL) {
-        games_disc_image_info->label = strndup (label_buffer, sizeof (label_buffer));
-        games_disc_image_info->exe = strndup (exe_buffer, sizeof (exe_buffer));
+      if (tmp_error != NULL) {
+        g_propagate_error (error, tmp_error);
+
+        return FALSE;
       }
 
-      return TRUE;
+      if (success) {
+        if (games_disc_image_info != NULL) {
+          games_disc_image_info->label = strndup (label_buffer, sizeof (label_buffer));
+          games_disc_image_info->exe = strndup (exe_buffer, sizeof (exe_buffer));
+        }
+
+        return TRUE;
+      }
     }
 
     // Look of "BOOT = cdrom:"
 
-    sscanf ((char *) frame.mode1.content, "BOOT = cdrom:%255s", exe_buffer);
-    success = games_disc_image_get_file (disc, (GamesDiscFileInfo *) mdir, exe_buffer, &time, cancellable, &tmp_error);
-    if (tmp_error != NULL) {
-      g_propagate_error (error, tmp_error);
+    items_read = sscanf ((char *) frame.mode1.content, "BOOT = cdrom:%255s", exe_buffer);
 
-      return FALSE;
-    }
+    if (items_read > 0) {
+      success = games_disc_image_get_file (disc, (GamesDiscFileInfo *) mdir, exe_buffer, &time, cancellable, &tmp_error);
+      if (tmp_error != NULL) {
+        g_propagate_error (error, tmp_error);
 
-    if (success) {
-      if (games_disc_image_info != NULL) {
-        games_disc_image_info->label = strndup (label_buffer, sizeof (label_buffer));
-        games_disc_image_info->exe = strndup (exe_buffer, sizeof (exe_buffer));
+        return FALSE;
       }
 
-      return TRUE;
+      if (success) {
+        if (games_disc_image_info != NULL) {
+          games_disc_image_info->label = strndup (label_buffer, sizeof (label_buffer));
+          games_disc_image_info->exe = strndup (exe_buffer, sizeof (exe_buffer));
+        }
+
+        return TRUE;
+      }
     }
 
     // Look of "cdrom:"
