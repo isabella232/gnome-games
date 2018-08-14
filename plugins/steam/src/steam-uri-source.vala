@@ -26,6 +26,10 @@ private class Games.SteamUriSource : Object, UriSource {
 		var install_path = registry.get_data (INSTALL_PATH_REGISTRY_PATH);
 
 		add_library (base_dir + DEFAULT_INSTALL_DIR_SYMLINK);
+
+		if (install_path == null)
+			return;
+
 		add_library (install_path);
 
 		// `/LibraryFolders/$NUMBER` entries in the libraryfolders.vdf registry
