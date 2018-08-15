@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application>
   <id type="desktop">org.gnome.Games.desktop</id>
-  <licence>CC0</licence>
+  <licence>CC0-1.0</licence>
   <project_license>GPL-3.0+</project_license>
   <_name>Games</_name>
   <_summary>Simple game launcher for GNOME</_summary>
