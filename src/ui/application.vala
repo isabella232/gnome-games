@@ -3,6 +3,8 @@
 public class Games.Application : Gtk.Application {
 	const string HELP_URI = "https://wiki.gnome.org/Apps/Games/Documentation";
 
+	private static bool? is_flatpak;
+
 	private Database database;
 
 	private PreferencesWindow preferences_window;
@@ -150,6 +152,17 @@ public class Games.Application : Gtk.Application {
 		var data_dir = get_data_dir ();
 
 		return @"$data_dir/medias";
+	}
+
+	public static bool is_running_in_flatpak () {
+		if (is_flatpak != null)
+			return is_flatpak;
+
+		var file = File.new_for_path ("/.flatpak-info");
+
+		is_flatpak = file.query_exists ();
+
+		return is_flatpak;
 	}
 
 	public void add_game_files () {
