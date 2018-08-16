@@ -47,9 +47,15 @@ public class Games.CommandRunner : Object, Runner {
 		SpawnChildSetupFunc? child_setup = null;
 		Pid pid;
 
+		string[] command = {};
+		if (Application.is_running_in_flatpak ())
+			command = { "flatpak-spawn", "--host" };
+		foreach (var arg in args)
+			command += arg;
+
 		try {
 			var result = Process.spawn_async (
-				working_directory, args, envp, flags, child_setup, out pid);
+				working_directory, command, envp, flags, child_setup, out pid);
 			if (!result)
 				throw new CommandError.EXECUTION_FAILED (_("Couldn’t run “%s”: execution failed."), args[0]);
 		}
