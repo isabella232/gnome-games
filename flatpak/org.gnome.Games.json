@@ -1,15 +1,9 @@
 {
-    "app-id" : "org.gnome.GamesDevel",
+    "app-id" : "org.gnome.Games",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "master",
+    "runtime-version" : "3.30",
     "sdk" : "org.gnome.Sdk",
     "command" : "gnome-games",
-    "tags" : [
-        "devel",
-        "development",
-        "nightly"
-    ],
-    "desktop-file-name-suffix" : " (Development)",
     "finish-args" : [
         /* Extension point */
         "--extension=org.gnome.Games.LibretroPlugin=directory=lib/libretro/extra.d",
@@ -98,9 +92,9 @@
             ],
             "sources" : [
                 {
-                    "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/tracker.git",
-                    "branch" : "tracker-2.1"
+                    "type" : "archive",
+                    "url" : "https://download.gnome.org/sources/tracker/2.1/tracker-2.1.5.tar.xz",
+                    "sha256" : "b234b7573773b904dc3e885ff5ec44e86b035767cde783bc50d65d12cd72861e"
                 }
             ]
         },
@@ -116,8 +110,9 @@
             ],
             "sources" : [
                 {
-                    "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/grilo.git"
+                    "type" : "archive",
+                    "url" : "https://download.gnome.org/sources/grilo/0.3/grilo-0.3.6.tar.xz",
+                    "sha256" : "1e65ca82dd58020451417fde79310d4b940adc3f63ab59997419c52ed3bc9c91"
                 }
             ],
             "cleanup" : [
@@ -158,8 +153,9 @@
             ],
             "sources" : [
                 {
-                    "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/grilo-plugins.git"
+                    "type" : "archive",
+                    "url" : "https://download.gnome.org/sources/grilo-plugins/0.3/grilo-plugins-0.3.8.tar.xz",
+                    "sha256" : "4cdd770b1554ee49cf77705401a35daa3ebff81badc05bd69d7240f50e60d65b"
                 }
             ],
             "cleanup" : [
@@ -171,8 +167,9 @@
             "name" : "libevdev",
             "sources" : [
                 {
-                    "type" : "git",
-                    "url" : "https://gitlab.freedesktop.org/libevdev/libevdev.git"
+                    "type" : "archive",
+                    "url" : "https://www.freedesktop.org/software/libevdev/libevdev-1.5.9.tar.xz",
+                    "sha256" : "e1663751443bed9d3e76a4fe2caf6fa866a79705d91cacad815c04e706198a75"
                 }
             ]
         },
@@ -184,8 +181,9 @@
             ],
             "sources" : [
                 {
-                    "type" : "git",
-                    "url" : "https://gitlab.gnome.org/aplazas/libmanette.git"
+                    "type" : "archive",
+                    "url" : "https://download.gnome.org/sources/libmanette/0.2/libmanette-0.2.1.tar.xz",
+                    "sha256" : "023508e8cbae3c24697a6145aea6a0ba888e0a920fe8ee87f7231972c1f87893"
                 }
             ]
         },
@@ -197,8 +195,9 @@
             ],
             "sources" : [
                 {
-                    "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/retro-gtk.git"
+                    "type" : "archive",
+                    "url" : "https://download.gnome.org/sources/retro-gtk/0.16/retro-gtk-0.16.0.tar.xz",
+                    "sha256" : "8c9b4ec9d6aa6b9db088a09706c0dd3de41437ff3a46f46566a47911efa7a627"
                 }
             ]
         },
@@ -206,16 +205,14 @@
             "name" : "gnome-games",
             "buildsystem" : "meson",
             "builddir" : true,
-            "config-opts" : [
-                "-Dprofile=development"
-            ],
             "post-install" : [
                 "mkdir -p /app/lib/libretro/extra.d"
             ],
             "sources" : [
                 {
-                    "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/gnome-games.git"
+                    "type" : "archive",
+                    "url" : "https://download.gnome.org/sources/gnome-games/3.30/gnome-games-3.30.1.tar.xz",
+                    "sha256" : "169615316c785e1f3d7e3c513e70819d596aae0551967df4dfdbb22c7cbfc476"
                 }
             ]
         }
