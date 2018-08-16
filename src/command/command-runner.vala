@@ -18,11 +18,9 @@ public class Games.CommandRunner : Object, Runner {
 	}
 
 	private string[] args;
-	private bool watch_child;
 
-	public CommandRunner (string[] args, bool watch_child) {
+	public CommandRunner (string[] args) {
 		this.args = args;
-		this.watch_child = watch_child;
 	}
 
 	public bool check_is_valid (out string error_message) throws Error {
@@ -42,43 +40,22 @@ public class Games.CommandRunner : Object, Runner {
 		return new RemoteDisplay ();
 	}
 
-	private bool running;
-
 	public void start () throws Error {
-		if (running && watch_child)
-			return;
-
 		string? working_directory = null;
 		string[]? envp = null;
 		var flags = SpawnFlags.SEARCH_PATH;
-		if (watch_child)
-			flags |= SpawnFlags.DO_NOT_REAP_CHILD; // Necessary to watch the child ourselves.
 		SpawnChildSetupFunc? child_setup = null;
 		Pid pid;
-		int? standard_input = null;
-		int? standard_output = null;
-		int? standard_error = null;
 
 		try {
-			var result = Process.spawn_async_with_pipes (
-				working_directory, args, envp, flags, child_setup, out pid,
-				out standard_input, out standard_output, out standard_error);
+			var result = Process.spawn_async (
+				working_directory, args, envp, flags, child_setup, out pid);
 			if (!result)
 				throw new CommandError.EXECUTION_FAILED (_("Couldn’t run “%s”: execution failed."), args[0]);
 		}
 		catch (SpawnError e) {
 			warning ("%s\n", e.message);
-
-			if (watch_child)
-				return;
 		}
-
-		if (!watch_child)
-			return;
-
-		ChildWatch.add (pid, (() => { on_process_stopped (); }));
-
-		running = true;
 	}
 
 	public void resume () throws Error {
@@ -88,10 +65,5 @@ public class Games.CommandRunner : Object, Runner {
 	}
 
 	public void stop () {
-	}
-
-	private void on_process_stopped () {
-		running = false;
-		stopped ();
 	}
 }

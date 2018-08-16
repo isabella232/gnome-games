@@ -31,7 +31,7 @@ private class Games.LovePlugin : Object, Plugin {
 		var icon = new LoveIcon (package);
 		var cover = new LocalCover (uri);
 		string[] args = { "love", uri.to_string () };
-		var runner = new CommandRunner (args, true);
+		var runner = new CommandRunner (args);
 
 		var game = new GenericGame (uid, title, platform, runner);
 		game.set_icon (icon);

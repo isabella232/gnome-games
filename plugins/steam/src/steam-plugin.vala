@@ -88,7 +88,7 @@ private class Games.SteamPlugin : Object, Plugin {
 		foreach (var part in command)
 			args += part;
 		args += @"steam://rungameid/$game_id";
-		var runner = new CommandRunner (args, false);
+		var runner = new CommandRunner (args);
 
 		var game = new GenericGame (uid, title, platform, runner);
 		game.set_icon (icon);
