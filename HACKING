@@ -78,16 +78,16 @@ the master version of retro-gtk and libmanette.
 
 ### Prepare compilation
 ```shell
-./autogen.sh && ./configure
+meson _build
 ```
 
 ### Compilation
 ```shell
-make
+ninja -C _build
 ```
 
 ### Install the application
 ```shell
-sudo make install
+sudo ninja -C _build install
 ```
 
