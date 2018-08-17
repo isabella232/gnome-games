@@ -13,7 +13,9 @@ private class Games.DesktopUid: Object, Uid {
 			return uid;
 
 		var appid = app_info.get_id ();
-		uid = @"desktop-$appid";
+		var hash = Checksum.compute_for_string (ChecksumType.SHA256, appid);
+
+		uid = @"desktop-$hash";
 
 		return uid;
 	}
