@@ -1,7 +1,11 @@
 // This file is part of GNOME Games. License: GPLv3
 
 private class Games.KonamiCode : Object {
+#if VALA_0_42
+	private const uint[] CODE_LOWER_KEYS = {
+#else
 	private const int[] CODE_LOWER_KEYS = {
+#endif
 		Gdk.Key.Up,
 		Gdk.Key.Up,
 		Gdk.Key.Down,
@@ -14,7 +18,11 @@ private class Games.KonamiCode : Object {
 		Gdk.Key.a,
 	};
 
+#if VALA_0_42
+	private const uint[] CODE_UPPER_KEYS = {
+#else
 	private const int[] CODE_UPPER_KEYS = {
+#endif
 		Gdk.Key.Up,
 		Gdk.Key.Up,
 		Gdk.Key.Down,

@@ -120,7 +120,11 @@ private class Games.LovePackage : Object {
 
 	private InputStream read_file_to_input_stream (Archive.Read archive, int64 size) {
 		uint8[] content = new uint8[size];
-		archive.read_data (content, (size_t) size);
+#if VALA_0_42
+		archive.read_data (content);
+#else
+		archive.read_data (content, content.length);
+#endif
 
 		return new MemoryInputStream.from_data (content);
 	}
@@ -128,8 +132,12 @@ private class Games.LovePackage : Object {
 	private string read_file_to_string (Archive.Read archive) {
 		string content = "";
 
-		char buffer[BLOCK_SIZE];
-		while (archive.read_data (buffer, BLOCK_SIZE) != 0)
+		uint8[] buffer = new uint8[BLOCK_SIZE];
+#if VALA_0_42
+		while (archive.read_data (buffer) != 0)
+#else
+		while (archive.read_data (buffer, buffer.length) != 0)
+#endif
 			content += (string) buffer;
 
 		return content;
