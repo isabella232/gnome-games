@@ -53,6 +53,23 @@ private class Games.CollectionIconView : Gtk.Bin {
 		}
 	}
 
+	private Binding window_active_binding;
+	private bool _is_active;
+	public bool is_active {
+		set {
+			if (_is_active == value)
+				return;
+
+			_is_active = value;
+
+			if (!_is_active)
+				gamepad_browse.cancel_cursor_movement ();
+		}
+		get {
+			return _is_active;
+		}
+	}
+
 	[GtkChild]
 	private Gtk.ScrolledWindow scrolled_window;
 	[GtkChild]
@@ -72,7 +89,24 @@ private class Games.CollectionIconView : Gtk.Bin {
 		flow_box.max_children_per_line = uint.MAX;
 		flow_box.set_filter_func (filter_box);
 		flow_box.set_sort_func (sort_boxes);
-		unmap.connect (() => gamepad_browse.cancel_cursor_movement);
+	}
+
+	[GtkCallback]
+	public void on_map () {
+		window_active_binding = null;
+		is_active = false;
+
+		var window = get_ancestor (typeof (Gtk.Window));
+		if (window == null)
+			return;
+
+		window_active_binding = window.bind_property ("is-active", this, "is-active", BindingFlags.SYNC_CREATE);
+	}
+
+	[GtkCallback]
+	public void on_unmap () {
+		window_active_binding = null;
+		is_active = false;
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {
