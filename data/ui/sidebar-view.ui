@@ -4,6 +4,8 @@
   <template class="GamesSidebarView" parent="GtkBox">
     <property name="visible">True</property>
     <property name="expand">True</property>
+    <signal name="map" after="yes" handler="on_map"/>
+    <signal name="unmap" after="no" handler="on_unmap"/>
     <child>
       <object class="GtkScrolledWindow">
         <property name="visible">True</property>
