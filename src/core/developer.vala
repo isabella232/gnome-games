@@ -12,4 +12,8 @@ public interface Games.Developer : Object {
 	public static bool equal (Developer a, Developer b) {
 		return str_equal (a.get_developer (), b.get_developer ());
 	}
+
+	public static int compare (Developer a, Developer b) {
+		return strcmp (a.get_developer (), b.get_developer ());
+	}
 }
