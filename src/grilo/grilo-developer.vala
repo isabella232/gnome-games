@@ -4,18 +4,16 @@ public class Games.GriloDeveloper : Object, Developer {
 	private GriloMedia media;
 	private string developer;
 	private bool resolving;
+	private bool resolved;
 
 	public GriloDeveloper (GriloMedia media) {
 		this.media = media;
 		media.resolved.connect (on_media_resolved);
-		resolving = false;
+		developer = "";
 	}
 
 	public string get_developer () {
-		if (resolving)
-			return developer;
-
-		if (developer != null)
+		if (resolving || resolved)
 			return developer;
 
 		resolving = true;
@@ -42,8 +40,8 @@ public class Games.GriloDeveloper : Object, Developer {
 
 	private void load_media_developer (string developer_string) {
 		developer = developer_string;
-		resolving = true;
+		resolved = true;
 
-		changed();
+		changed ();
 	}
 }
