@@ -1,4 +1,44 @@
 ===============
+Version 3.29.92
+===============
+
+* UI:
+ - Add navigation with gamepads.
+ - Add the shortcuts for the gamepad controls in the shortcuts window.
+ - Add Developers view that allows browsing games by developer.
+ - Add Platforms view that allows browsing game by platform.
+ - Use theme colors for GamepadView.
+ - Use symbolic icon for loading notification close button.
+
+* Supported games:
+ - Add support for Flatpak-ed Steam games.
+
+* Flatpak:
+ - Use `flatpak-spawn` to run Steam games.
+ - Fix displaying icons for Steam games.
+ - Fix downloading covers for Steam games.
+
+* Cache covers on disk, significantly speeding up application UI.
+
+* Fixes:
+ - Fix building with Vala 0.42.x.
+ - Fix many runtime warnings.
+ - Blacklist Flatpak-ed Steam desktop file.
+ - Various code cleanups.
+
+* Update the authors and documenters lists.
+
+* Translation updates
+ Brazilian Portuguese
+ Czech
+ Finnish
+ French
+ German
+ Indonesian
+ Polish
+ Turkish
+
+===============
 Version 3.29.90
 ===============
 
