@@ -2,6 +2,6 @@
 
 public class Games.DummyDeveloper : Object, Developer {
 	public string get_developer () {
-		return _("Unknown");
+		return "";
 	}
 }
