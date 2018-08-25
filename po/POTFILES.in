@@ -64,6 +64,7 @@ src/retro/retro-runner.vala
 src/retro/retro-simple-type.vala
 src/ui/application.vala
 src/ui/application-window.vala
+src/ui/developer-list-item.vala
 src/ui/error-display.vala
 src/ui/gamepad-configurer.vala
 src/ui/gamepad-mapper.vala

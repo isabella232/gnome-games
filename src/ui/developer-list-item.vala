@@ -5,11 +5,17 @@ private class Games.DeveloperListItem: Gtk.Label {
 		get { return _developer; }
 		set {
 			_developer = value;
-			label = value.get_developer ();
+			update_label ();
+			value.changed.connect (update_label);
 		}
 	}
 
 	public DeveloperListItem (Developer developer) {
 		Object (developer: developer);
+	}
+
+	private void update_label () {
+		var val = developer.get_developer ();
+		label = val == "" ? _("Unknown") : val;
 	}
 }
