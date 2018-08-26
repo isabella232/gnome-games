@@ -221,7 +221,10 @@ public class Games.Application : Gtk.Application {
 		load_game_list.begin ();
 		ListStore list_store = new ListStore (typeof (Game));
 		game_collection.game_added.connect ((game) => {
-			list_store.append (game);
+			if (database != null)
+				list_store.append (new DatabaseGame (database, game));
+			else
+				list_store.append (game);
 		});
 
 		window = new ApplicationWindow (list_store);
