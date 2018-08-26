@@ -46,6 +46,7 @@ vala_sources = [
   'core/uri-source.vala',
 
   'database/database.vala',
+  'database/database-developer.vala',
   'database/database-error.vala',
   'database/database-uid.vala',
   'database/database-uri-iterator.vala',
