@@ -18,4 +18,8 @@ private class Games.DeveloperListItem: Gtk.Label {
 		var val = developer.get_developer ();
 		label = val == "" ? _("Unknown") : val;
 	}
+
+	public static int compare (DeveloperListItem a, DeveloperListItem b) {
+		return a.developer.get_developer ().collate (b.developer.get_developer ());
+	}
 }
