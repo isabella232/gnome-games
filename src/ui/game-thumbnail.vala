@@ -53,6 +53,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		}
 	}
 
+	private bool tried_loading_cover;
 	private Gdk.Pixbuf? cover_cache;
 	private int previous_cover_width;
 	private int previous_cover_height;
@@ -189,11 +190,13 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		if (previous_cover_width != context.width) {
 			previous_cover_width = context.width;
 			cover_cache = null;
+			tried_loading_cover = false;
 		}
 
 		if (previous_cover_height != context.height) {
 			previous_cover_height = context.height;
 			cover_cache = null;
+			tried_loading_cover = false;
 		}
 
 		if (cover_cache != null)
@@ -225,6 +228,11 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 	}
 
 	private void load_cover_cache_from_disk (DrawingContext context, int size) {
+		if (tried_loading_cover)
+			return;
+
+		tried_loading_cover = true;
+
 		string cover_cache_path;
 		try {
 			cover_cache_path = get_cover_cache_path (size);
@@ -276,6 +284,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 
 	private void invalidate_cover () {
 		cover_cache = null;
+		tried_loading_cover = false;
 		queue_draw ();
 	}
 
