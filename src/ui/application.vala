@@ -219,8 +219,12 @@ public class Games.Application : Gtk.Application {
 		Gtk.StyleContext.add_provider_for_screen (screen, provider, 600);
 
 		load_game_list.begin ();
+		ListStore list_store = new ListStore (typeof (Game));
+		game_collection.game_added.connect ((game) => {
+			list_store.append (game);
+		});
 
-		window = new ApplicationWindow (game_collection.get_list_store ());
+		window = new ApplicationWindow (list_store);
 		this.add_window (window);
 		window.destroy.connect (() => {
 			quit_application ();

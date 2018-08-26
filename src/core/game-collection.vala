@@ -1,9 +1,9 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.GameCollection : Object {
-	private GenericSet<Game> games;
-	private ListStore list_store;
+	public signal void game_added (Game game);
 
+	private GenericSet<Game> games;
 	private UriSource[] sources;
 	private UriGameFactory[] factories;
 
@@ -12,13 +12,8 @@ private class Games.GameCollection : Object {
 
 	construct {
 		games = new GenericSet<Game> (Game.hash, Game.equal);
-		list_store = new ListStore (typeof (Game));
 		factories_for_mime_type = new HashTable<string, Array<UriGameFactory>> (str_hash, str_equal);
 		factories_for_scheme = new HashTable<string, Array<UriGameFactory>> (str_hash, str_equal);
-	}
-
-	public ListStore get_list_store () {
-		return list_store;
 	}
 
 	public void add_source (UriSource source) {
@@ -122,7 +117,7 @@ private class Games.GameCollection : Object {
 		if (games.contains (game))
 			return;
 
-		list_store.append (game);
 		games.add (game);
+		game_added (game);
 	}
 }
