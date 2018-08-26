@@ -201,23 +201,9 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 
 		var size = int.min (context.width, context.height);
 
-		string cover_cache_path;
-		try {
-			cover_cache_path = get_cover_cache_path (size);
-		}
-		catch (Error e) {
-			critical (e.message);
-
-			return null;
-		}
-
-		try {
-			cover_cache = new Gdk.Pixbuf.from_file_at_scale (cover_cache_path, context.width, context.height, true);
-
+		load_cover_cache_from_disk (context, size);
+		if (cover_cache != null)
 			return cover_cache;
-		}
-		catch (Error e) {
-		}
 
 		var g_icon = cover.get_cover ();
 		if (g_icon == null)
@@ -229,16 +215,45 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 
 		try {
 			cover_cache = icon_info.load_icon ();
+			save_cover_cache_to_disk (size);
 		}
 		catch (Error e) {
 			warning (@"Couldn’t load the icon: $(e.message)\n");
 		}
+
+		return cover_cache;
+	}
+
+	private void load_cover_cache_from_disk (DrawingContext context, int size) {
+		string cover_cache_path;
+		try {
+			cover_cache_path = get_cover_cache_path (size);
+		}
+		catch (Error e) {
+			critical (e.message);
+
+			return;
+		}
+
+		try {
+			cover_cache = new Gdk.Pixbuf.from_file_at_scale (cover_cache_path, context.width,
+			                                                 context.height, true);
+		}
+		catch (Error e) {
+			debug (e.message);
+		}
+	}
+
+	private void save_cover_cache_to_disk (int size) {
+		if (cover_cache == null)
+			return;
 
 		Application.try_make_dir (Application.get_covers_cache_dir (size));
 		var now = new GLib.DateTime.now_local ();
 		var creation_time = now.to_string ();
 
 		try {
+			var cover_cache_path = get_cover_cache_path (size);
 			cover_cache.save (cover_cache_path, "png",
 			                  "tEXt::Software", "GNOME Games",
 			                  "tEXt::Creation Time", creation_time.to_string (),
@@ -247,9 +262,6 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		catch (Error e) {
 			critical (e.message);
 		}
-
-
-		return cover_cache;
 	}
 
 	private string get_cover_cache_path (int size) throws Error {
