@@ -3,7 +3,7 @@
 private class Games.Database : Object {
 	private Sqlite.Database database;
 
-	private const string CREATE_TABLE_QUERY = """
+	private const string CREATE_RESOURCES_TABLE_QUERY = """
 		CREATE TABLE IF NOT EXISTS game_resources (
 			id INTEGER PRIMARY KEY NOT NULL,
 			uri TEXT NOT NULL
@@ -16,6 +16,13 @@ private class Games.Database : Object {
 
 	private const string HAS_URI_QUERY = """
 		SELECT EXISTS (SELECT 1 FROM game_resources WHERE uri=$URI LIMIT 1);
+	""";
+
+	private const string CREATE_METADATA_TABLE_QUERY = """
+		CREATE TABLE IF NOT EXISTS game_metadata (
+			uid TEXT PRIMARY KEY NOT NULL,
+			developer TEXT
+		) WITHOUT ROWID;
 	""";
 
 	public Database (string path) throws Error {
@@ -56,8 +63,17 @@ private class Games.Database : Object {
 		return new DatabaseUriSource (database);
 	}
 
+	public DatabaseUid get_uid (Uid uid) {
+		return new DatabaseUid (database, uid);
+	}
+
+	public DatabaseDeveloper get_developer (Developer developer, Uid uid) {
+		return new DatabaseDeveloper (database, developer, uid);
+	}
+
 	private void create_tables () throws Error {
-		exec (CREATE_TABLE_QUERY, null);
+		exec (CREATE_RESOURCES_TABLE_QUERY, null);
+		exec (CREATE_METADATA_TABLE_QUERY, null);
 	}
 
 	private void exec (string query, Sqlite.Callback? callback) throws Error {
