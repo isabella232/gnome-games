@@ -31,4 +31,11 @@
       <gnome:userid>abhinavsingh</gnome:userid>
     </foaf:Person>
   </maintainer>
+  <maintainer>
+    <foaf:Person>
+      <foaf:name>Alexander Mikhaylenko</foaf:name>
+      <foaf:mbox rdf:resource="mailto:exalm7659@gmail.com" />
+      <gnome:userid>alexm</gnome:userid>
+    </foaf:Person>
+  </maintainer>
 </Project>
