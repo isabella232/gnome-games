@@ -22,7 +22,7 @@ public class Games.Application : Gtk.Application {
 	}
 
 	construct {
-		Environment.set_prgname ("gnome-games");
+		Environment.set_prgname (Config.APPLICATION_ID);
 		Environment.set_application_name (_("Games"));
 		Gtk.Window.set_default_icon_name (Config.APPLICATION_ID);
 		Environment.set_variable ("PULSE_PROP_media.role", "game", true);
