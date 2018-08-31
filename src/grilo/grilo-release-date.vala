@@ -41,6 +41,6 @@ public class Games.GriloReleaseDate : Object, ReleaseDate {
 		release_date = release;
 		resolving = true;
 
-		changed();
+		changed ();
 	}
 }

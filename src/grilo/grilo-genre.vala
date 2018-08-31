@@ -37,16 +37,16 @@ public class Games.GriloGenre : Object, Genre {
 
 		var genre_list = new List<string> ();
 
-		for(uint index = 0; index < genre_count; index++)
-			genre_list.append(grl_media.get_genre_nth (index));
+		for (uint index = 0; index < genre_count; index++)
+			genre_list.append (grl_media.get_genre_nth (index));
 
 		load_media_genre (genre_list);
 	}
 
-	private void load_media_genre(List<string> genre_list) {
-		genre = genre_list.copy();
+	private void load_media_genre (List<string> genre_list) {
+		genre = genre_list.copy ();
 		resolving = true;
 
-		changed();
+		changed ();
 	}
 }

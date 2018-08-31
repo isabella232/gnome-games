@@ -30,7 +30,7 @@ public class Games.GriloPublisher : Object, Publisher {
 		if (grl_media == null)
 			return;
 
-		var registry = Grl.Registry.get_default();
+		var registry = Grl.Registry.get_default ();
 		var grl_metadata_key_publisher = registry.lookup_metadata_key ("publisher");
 
 		if (grl_media.length (grl_metadata_key_publisher) == 0)
@@ -44,6 +44,6 @@ public class Games.GriloPublisher : Object, Publisher {
 		publisher = publisher_string;
 		resolving = true;
 
-		changed();
+		changed ();
 	}
 }

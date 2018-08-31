@@ -40,7 +40,7 @@ public class Games.GriloPlayers : Object, Players {
 
 		var player = grl_media.get_string (GRL_METADATA_KEY_PLAYERS);
 
-		if (int.parse(player) == 1)
+		if (int.parse (player) == 1)
 			player = _("Single-player");
 		else
 			player = _("Multi-player");
@@ -52,6 +52,6 @@ public class Games.GriloPlayers : Object, Players {
 		players = player;
 		resolving = true;
 
-		changed();
+		changed ();
 	}
 }
