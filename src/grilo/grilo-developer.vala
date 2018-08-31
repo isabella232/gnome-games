@@ -29,12 +29,12 @@ public class Games.GriloDeveloper : Object, Developer {
 			return;
 
 		var registry = Grl.Registry.get_default ();
-		var grl_metadata_key_developer = registry.lookup_metadata_key ("developer");
+		var metadata_key = registry.lookup_metadata_key ("developer");
 
-		if (grl_media.length (grl_metadata_key_developer) == 0)
+		if (grl_media.length (metadata_key) == 0)
 			return;
 
-		var developer_string = grl_media.get_string (grl_metadata_key_developer);
+		var developer_string = grl_media.get_string (metadata_key);
 		load_media_developer (developer_string);
 	}
 

@@ -2,7 +2,7 @@
 
 public class Games.GriloCooperative : Object, Cooperative {
 	private GriloMedia media;
-	private Grl.KeyID GRL_METADATA_KEY_COOP;
+	private Grl.KeyID metadata_key;
 	private Grl.Registry registry;
 	private bool cooperative;
 	private bool resolving;
@@ -30,12 +30,12 @@ public class Games.GriloCooperative : Object, Cooperative {
 			return;
 
 		registry = Grl.Registry.get_default ();
-		GRL_METADATA_KEY_COOP = registry.lookup_metadata_key ("coop");
+		metadata_key = registry.lookup_metadata_key ("coop");
 
-		if (grl_media.length (GRL_METADATA_KEY_COOP) == 0)
+		if (grl_media.length (metadata_key) == 0)
 			return;
 
-		var coop = grl_media.get_boolean (GRL_METADATA_KEY_COOP);
+		var coop = grl_media.get_boolean (metadata_key);
 		load_media_cooperative (coop);
 	}
 

@@ -3,7 +3,7 @@
 public class Games.GriloPlayers : Object, Players {
 	private GriloMedia media;
 	private Grl.Registry registry;
-	private Grl.KeyID GRL_METADATA_KEY_PLAYERS;
+	private Grl.KeyID metadata_key;
 	private string players;
 	private bool resolving;
 
@@ -33,12 +33,12 @@ public class Games.GriloPlayers : Object, Players {
 			return;
 
 		registry = Grl.Registry.get_default ();
-		GRL_METADATA_KEY_PLAYERS = registry.lookup_metadata_key ("players");
+		metadata_key = registry.lookup_metadata_key ("players");
 
-		if (grl_media.length (GRL_METADATA_KEY_PLAYERS) == 0)
+		if (grl_media.length (metadata_key) == 0)
 			return;
 
-		var player = grl_media.get_string (GRL_METADATA_KEY_PLAYERS);
+		var player = grl_media.get_string (metadata_key);
 
 		if (int.parse (player) == 1)
 			player = _("Single-player");

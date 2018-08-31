@@ -31,12 +31,12 @@ public class Games.GriloPublisher : Object, Publisher {
 			return;
 
 		var registry = Grl.Registry.get_default ();
-		var grl_metadata_key_publisher = registry.lookup_metadata_key ("publisher");
+		var metadata_key = registry.lookup_metadata_key ("publisher");
 
-		if (grl_media.length (grl_metadata_key_publisher) == 0)
+		if (grl_media.length (metadata_key) == 0)
 			return;
 
-		var publisher_string = grl_media.get_string (grl_metadata_key_publisher);
+		var publisher_string = grl_media.get_string (metadata_key);
 		load_media_publisher (publisher_string);
 	}
 
