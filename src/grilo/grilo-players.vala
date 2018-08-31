@@ -2,15 +2,13 @@
 
 public class Games.GriloPlayers : Object, Players {
 	private GriloMedia media;
-	private Uid uid;
 	private Grl.Registry registry;
 	private Grl.KeyID GRL_METADATA_KEY_PLAYERS;
 	private string players;
 	private bool resolving;
 
-	public GriloPlayers (GriloMedia media, Uid uid) {
+	public GriloPlayers (GriloMedia media) {
 		this.media = media;
-		this.uid = uid;
 		media.resolved.connect (on_media_resolved);
 		resolving = false;
 	}

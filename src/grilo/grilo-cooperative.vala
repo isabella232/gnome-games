@@ -2,15 +2,13 @@
 
 public class Games.GriloCooperative : Object, Cooperative {
 	private GriloMedia media;
-	private Uid uid;
 	private Grl.KeyID GRL_METADATA_KEY_COOP;
 	private Grl.Registry registry;
 	private bool cooperative;
 	private bool resolving;
 
-	public GriloCooperative (GriloMedia media, Uid uid) {
+	public GriloCooperative (GriloMedia media) {
 		this.media = media;
-		this.uid = uid;
 		media.resolved.connect (on_media_resolved);
 		resolving = false;
 	}

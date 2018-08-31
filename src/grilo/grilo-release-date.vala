@@ -2,13 +2,11 @@
 
 public class Games.GriloReleaseDate : Object, ReleaseDate {
 	private GriloMedia media;
-	private Uid uid;
 	private DateTime release_date;
 	private bool resolving;
 
-	public GriloReleaseDate (GriloMedia media, Uid uid) {
+	public GriloReleaseDate (GriloMedia media) {
 		this.media = media;
-		this.uid = uid;
 		media.resolved.connect (on_media_resolved);
 		resolving = false;
 	}

@@ -2,13 +2,11 @@
 
 public class Games.GriloGenre : Object, Genre {
 	private GriloMedia media;
-	private Uid uid;
 	private List<string> genre;
 	private bool resolving;
 
-	public GriloGenre (GriloMedia media, Uid uid) {
+	public GriloGenre (GriloMedia media) {
 		this.media = media;
-		this.uid = uid;
 		media.resolved.connect (on_media_resolved);
 		resolving = false;
 	}

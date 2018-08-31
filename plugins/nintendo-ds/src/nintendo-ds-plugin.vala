@@ -29,10 +29,10 @@ private class Games.NintendoDsPlugin : Object, Plugin {
 		var title = new FilenameTitle (uri);
 		var icon = new NintendoDsIcon (uri);
 		var media = new GriloMedia (title, MIME_TYPE);
-		var release_date = new GriloReleaseDate (media, uid);
-		var cooperative = new GriloCooperative (media, uid);
-		var genre = new GriloGenre (media, uid);
-		var players = new GriloPlayers (media, uid);
+		var release_date = new GriloReleaseDate (media);
+		var cooperative = new GriloCooperative (media);
+		var genre = new GriloGenre (media);
+		var players = new GriloPlayers (media);
 		var developer = new GriloDeveloper (media);
 		var publisher = new GriloPublisher (media);
 		var description = new GriloDescription (media);
