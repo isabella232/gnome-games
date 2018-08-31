@@ -2,8 +2,6 @@
 
 public class Games.GriloCooperative : Object, Cooperative {
 	private GriloMedia media;
-	private Grl.KeyID metadata_key;
-	private Grl.Registry registry;
 	private bool cooperative;
 	private bool resolving;
 
@@ -29,8 +27,8 @@ public class Games.GriloCooperative : Object, Cooperative {
 		if (grl_media == null)
 			return;
 
-		registry = Grl.Registry.get_default ();
-		metadata_key = registry.lookup_metadata_key ("coop");
+		var registry = Grl.Registry.get_default ();
+		var metadata_key = registry.lookup_metadata_key ("coop");
 
 		if (grl_media.length (metadata_key) == 0)
 			return;
