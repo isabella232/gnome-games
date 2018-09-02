@@ -39,7 +39,6 @@ public class Games.GriloDescription : Object, Description {
 
 	private void load_media_description (string description_string) {
 		description = description_string;
-		resolving = true;
 
 		changed ();
 	}

@@ -48,7 +48,6 @@ public class Games.GriloPlayers : Object, Players {
 
 	private void load_media_players (string player) {
 		players = player;
-		resolving = true;
 
 		changed ();
 	}

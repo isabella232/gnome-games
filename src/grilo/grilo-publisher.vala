@@ -42,7 +42,6 @@ public class Games.GriloPublisher : Object, Publisher {
 
 	private void load_media_publisher (string publisher_string) {
 		publisher = publisher_string;
-		resolving = true;
 
 		changed ();
 	}

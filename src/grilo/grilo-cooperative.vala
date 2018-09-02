@@ -39,7 +39,6 @@ public class Games.GriloCooperative : Object, Cooperative {
 
 	private void load_media_cooperative (bool coop) {
 		cooperative = coop;
-		resolving = true;
 
 		changed ();
 	}

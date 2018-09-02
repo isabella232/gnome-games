@@ -35,7 +35,6 @@ public class Games.GriloRating : Object, Rating {
 
 	private void load_media_rating (float media_rating) {
 		rating = media_rating;
-		resolving = true;
 
 		changed ();
 	}
