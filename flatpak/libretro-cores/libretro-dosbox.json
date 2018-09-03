@@ -19,7 +19,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/libretro/dosbox-libretro.git"
+                    "url": "https://github.com/libretro/dosbox-libretro.git",
+                    "commit": "51b0deba703f1283420103f217d63edf8f5a6f5b"
                 },
                 {
                     "type": "file",
