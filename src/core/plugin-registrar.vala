@@ -1,8 +1,8 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.PluginRegistrar : TypeModule {
-	public string name { private set; get; }
-	public string description { private set; get; }
+	public string name { get; private set; }
+	public string description { get; private set; }
 
 	private Plugin plugin;
 	private string module_path;

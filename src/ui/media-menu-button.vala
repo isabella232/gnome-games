@@ -2,7 +2,7 @@
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/media-menu-button.ui")]
 private class Games.MediaMenuButton : Gtk.MenuButton {
-	public MediaSet media_set { set; get; }
+	public MediaSet media_set { get; set; }
 
 	[GtkChild]
 	private Gtk.Image media_image;

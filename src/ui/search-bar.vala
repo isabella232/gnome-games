@@ -2,7 +2,7 @@
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/search-bar.ui")]
 private class Games.SearchBar : Gtk.SearchBar {
-	public string text { private set; get; }
+	public string text { get; private set; }
 
 	[GtkChild]
 	private Gtk.SearchEntry entry;

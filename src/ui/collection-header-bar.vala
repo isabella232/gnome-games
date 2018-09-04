@@ -2,18 +2,19 @@
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/collection-header-bar.ui")]
 private class Games.CollectionHeaderBar : Gtk.HeaderBar {
-	public bool search_mode { set; get; }
+	public bool search_mode { get; set; }
 	private Gtk.Stack _viewstack;
 	public Gtk.Stack viewstack {
+		get { return _viewstack; }
 		set {
 			_viewstack = value;
 			view_switcher.set_stack (_viewstack);
 		}
-		get { return _viewstack; }
 	}
 
 	private bool _is_collection_empty;
 	public bool is_collection_empty {
+		get { return _is_collection_empty; }
 		set {
 			_is_collection_empty = value;
 			if (_is_collection_empty)
@@ -22,7 +23,6 @@ private class Games.CollectionHeaderBar : Gtk.HeaderBar {
 				title_stack.visible_child = view_switcher;
 			search.sensitive = !_is_collection_empty;
 		}
-		get { return _is_collection_empty; }
 	}
 
 	[GtkChild]

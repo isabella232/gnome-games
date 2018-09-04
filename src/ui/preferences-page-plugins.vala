@@ -5,13 +5,13 @@ private class Games.PreferencesPagePlugins: Gtk.Bin, PreferencesPage {
 	[GtkChild (name = "header_bar")]
 	private Gtk.HeaderBar _header_bar;
 	public Gtk.HeaderBar header_bar {
-		protected set {}
 		get { return _header_bar; }
+		protected set {}
 	}
 
 	public bool immersive_mode {
-		protected set {}
 		get { return false; }
+		protected set {}
 	}
 
 	[GtkChild]

@@ -4,9 +4,9 @@
 private class Games.CollectionBox : Gtk.Box {
 	public signal void game_activated (Game game);
 
-	public ListModel collection { construct set; get; }
-	public bool search_mode { set; get; }
-	public bool loading_notification { set; get; }
+	public ListModel collection { get; construct set; }
+	public bool search_mode { get; set; }
+	public bool loading_notification { get; set; }
 
 	[GtkChild]
 	private SearchBar search_bar;
@@ -28,6 +28,7 @@ private class Games.CollectionBox : Gtk.Box {
 
 	private bool _is_collection_empty;
 	public bool is_collection_empty {
+		get { return _is_collection_empty; }
 		set {
 			_is_collection_empty = value;
 			if (_is_collection_empty)
@@ -35,7 +36,6 @@ private class Games.CollectionBox : Gtk.Box {
 			else
 				viewstack.visible_child = collection_view;
 		}
-		get { return _is_collection_empty; }
 	}
 
 	private Binding collection_binding;

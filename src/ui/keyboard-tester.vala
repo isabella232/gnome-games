@@ -5,7 +5,7 @@ private class Games.KeyboardTester : Gtk.Box {
 	[GtkChild]
 	private GamepadView gamepad_view;
 
-	public Retro.KeyJoypadMapping mapping { set; get; }
+	public Retro.KeyJoypadMapping mapping { get; set; }
 
 	public KeyboardTester (GamepadViewConfiguration configuration) {
 		try {

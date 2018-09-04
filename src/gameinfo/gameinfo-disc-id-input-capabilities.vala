@@ -1,8 +1,8 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public class Games.GameinfoDiscIdInputCapabilities : Object, InputCapabilities {
-	public bool default_allow_classic_gamepads { set; get; }
-	public bool default_allow_analog_gamepads { set; get; }
+	public bool default_allow_classic_gamepads { get; set; }
+	public bool default_allow_analog_gamepads { get; set; }
 
 	private GameinfoDoc gameinfo;
 	private string disc_id;

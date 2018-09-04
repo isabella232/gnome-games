@@ -12,6 +12,7 @@ private abstract class Games.SidebarView : Gtk.Box {
 
 	private ListModel _model;
 	public ListModel model {
+		get { return _model; }
 		set {
 			if (model_items_changed_id != 0) {
 				_model.disconnect (model_items_changed_id);
@@ -24,12 +25,14 @@ private abstract class Games.SidebarView : Gtk.Box {
 			if (model != null)
 				model_items_changed_id = model.items_changed.connect (on_model_changed);
 		}
-		get { return _model; }
 	}
 
 	private Binding window_active_binding;
 	private bool _is_active;
 	public bool is_active {
+		get {
+			return _is_active;
+		}
 		set {
 			if (_is_active == value)
 				return;
@@ -38,9 +41,6 @@ private abstract class Games.SidebarView : Gtk.Box {
 
 			if (!_is_active)
 				gamepad_browse.cancel_cursor_movement ();
-		}
-		get {
-			return _is_active;
 		}
 	}
 

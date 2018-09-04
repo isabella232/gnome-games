@@ -3,8 +3,8 @@
 public class Games.MediaSet : Object {
 	public delegate void MediaCallback (Media media);
 
-	public int selected_media_number { set; get; default = 0; }
-	public GLib.Icon? icon { set; get; }
+	public int selected_media_number { get; set; default = 0; }
+	public GLib.Icon? icon { get; set; }
 
 	private Media[] medias;
 

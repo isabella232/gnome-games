@@ -17,6 +17,7 @@ private class Games.PreferencesWindow : Gtk.Window {
 
 	private Gtk.HeaderBar _right_header_bar;
 	public Gtk.HeaderBar right_header_bar {
+		get { return _right_header_bar; }
 		set {
 			if (_right_header_bar != null)
 				titlebar_box.remove (_right_header_bar);
@@ -26,11 +27,11 @@ private class Games.PreferencesWindow : Gtk.Window {
 			}
 			_right_header_bar = value;
 		}
-		get { return _right_header_bar; }
 	}
 
 	private bool _immersive_mode;
 	public bool immersive_mode {
+		get { return _immersive_mode; }
 		set {
 			header_separator.visible = !value;
 			left_header_bar.visible = !value;
@@ -41,7 +42,6 @@ private class Games.PreferencesWindow : Gtk.Window {
 
 			_immersive_mode = value;
 		}
-		get { return _immersive_mode; }
 	}
 
 	private Binding right_header_bar_binding;

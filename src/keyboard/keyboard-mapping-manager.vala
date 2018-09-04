@@ -5,7 +5,7 @@ private class Games.KeyboardMappingManager : Object {
 	private const string GROUP_NAME = "KeyboardMapping";
 
 	public signal void changed ();
-	public Retro.KeyJoypadMapping mapping { private set; get; }
+	public Retro.KeyJoypadMapping mapping { get; private set; }
 
 	private File mapping_file;
 	private FileMonitor mapping_monitor;

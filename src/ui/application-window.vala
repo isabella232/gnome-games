@@ -9,6 +9,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	private UiState _ui_state;
 	public UiState ui_state {
+		get { return _ui_state; }
 		set {
 			if (value == ui_state)
 				return;
@@ -39,11 +40,11 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 			konami_code.reset ();
 		}
-		get { return _ui_state; }
 	}
 
 	private bool _is_fullscreen;
 	public bool is_fullscreen {
+		get { return _is_fullscreen; }
 		set {
 			_is_fullscreen = value && (ui_state == UiState.DISPLAY);
 
@@ -52,18 +53,17 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			else
 				unfullscreen ();
 		}
-		get { return _is_fullscreen; }
 	}
 
 	private bool _search_mode;
 	public bool search_mode {
-		set { _search_mode = value && (ui_state == UiState.COLLECTION); }
 		get { return _search_mode; }
+		set { _search_mode = value && (ui_state == UiState.COLLECTION); }
 	}
 
-	public bool is_collection_empty { set; get; }
+	public bool is_collection_empty { get; set; }
 
-	public bool loading_notification { set; get; }
+	public bool loading_notification { get; set; }
 
 	[GtkChild]
 	private Gtk.Stack content_box;

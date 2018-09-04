@@ -53,6 +53,7 @@ public class Games.RetroRunner : Object, Runner {
 
 	private bool _running;
 	private bool running {
+		get { return _running; }
 		set {
 			_running = value;
 
@@ -61,7 +62,6 @@ public class Games.RetroRunner : Object, Runner {
 
 			view.sensitive = running;
 		}
-		get { return _running; }
 	}
 
 	private bool is_initialized;

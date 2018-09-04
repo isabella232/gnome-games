@@ -6,7 +6,7 @@ private class Games.DisplayBox : Gtk.EventBox {
 
 	public signal void back ();
 
-	public bool is_fullscreen { set; get; }
+	public bool is_fullscreen { get; set; }
 
 	public DisplayHeaderBar header_bar {
 		get { return fullscreen_header_bar; }
@@ -14,6 +14,7 @@ private class Games.DisplayBox : Gtk.EventBox {
 
 	private Runner _runner;
 	public Runner runner {
+		get { return _runner; }
 		set {
 			stack.visible_child = display_bin;
 
@@ -26,7 +27,6 @@ private class Games.DisplayBox : Gtk.EventBox {
 			var display = runner.get_display ();
 			set_display (display);
 		}
-		get { return _runner; }
 	}
 
 	[GtkChild]

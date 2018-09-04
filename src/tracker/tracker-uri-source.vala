@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public class Games.TrackerUriSource : Object, UriSource {
-	private Tracker.Sparql.Connection connection { private set; get; }
+	private Tracker.Sparql.Connection connection { get; private set; }
 	private TrackerUriQuery[] queries;
 
 	public TrackerUriSource (Tracker.Sparql.Connection connection) {

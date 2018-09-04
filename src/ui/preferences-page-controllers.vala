@@ -2,8 +2,8 @@
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-page-controllers.ui")]
 private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
-	public Gtk.HeaderBar header_bar { protected set; get; }
-	public bool immersive_mode { protected set; get; }
+	public Gtk.HeaderBar header_bar { get; protected set; }
+	public bool immersive_mode { get; protected set; }
 
 	[GtkChild]
 	private Gtk.Label gamepads_label;

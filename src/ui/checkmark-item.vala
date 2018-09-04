@@ -7,7 +7,7 @@ private class Games.CheckmarkItem: Gtk.Box {
 	[GtkChild]
 	private Gtk.Image checkmark_image;
 
-	public bool checkmark_visible { set; get; }
+	public bool checkmark_visible { get; set; }
 	private Binding checkmark_visible_binding;
 
 	public CheckmarkItem (string name) {

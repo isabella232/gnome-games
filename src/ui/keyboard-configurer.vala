@@ -53,6 +53,7 @@ private class Games.KeyboardConfigurer : Gtk.Box {
 
 	private State _state;
 	private State state {
+		get { return _state; }
 		set {
 			_state = value;
 			immersive_mode = (state == State.CONFIGURE);
@@ -88,17 +89,16 @@ private class Games.KeyboardConfigurer : Gtk.Box {
 				break;
 			}
 		}
-		get { return _state; }
 	}
 
 	[GtkChild (name = "header_bar")]
 	private Gtk.HeaderBar _header_bar;
 	public Gtk.HeaderBar header_bar {
-		private set {}
 		get { return _header_bar; }
+		private set {}
 	}
 
-	public bool immersive_mode { private set; get; }
+	public bool immersive_mode { get; private set; }
 
 	[GtkChild]
 	private Gtk.Stack stack;

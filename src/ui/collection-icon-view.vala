@@ -14,20 +14,20 @@ private class Games.CollectionIconView : Gtk.Bin {
 
 	private Developer? _filtering_developer;
 	public Developer? filtering_developer {
+		get { return _filtering_developer; }
 		set {
 			_filtering_developer = value;
 			flow_box.invalidate_filter ();
 		}
-		get { return _filtering_developer; }
 	}
 
 	private Platform? _filtering_platform;
 	public Platform? filtering_platform {
+		get { return _filtering_platform; }
 		set {
 			_filtering_platform = value;
 			flow_box.invalidate_filter ();
 		}
-		get { return _filtering_platform; }
 	}
 
 	private ulong model_changed_id;
@@ -56,6 +56,9 @@ private class Games.CollectionIconView : Gtk.Bin {
 	private Binding window_active_binding;
 	private bool _is_active;
 	public bool is_active {
+		get {
+			return _is_active;
+		}
 		set {
 			if (_is_active == value)
 				return;
@@ -64,9 +67,6 @@ private class Games.CollectionIconView : Gtk.Bin {
 
 			if (!_is_active)
 				gamepad_browse.cancel_cursor_movement ();
-		}
-		get {
-			return _is_active;
 		}
 	}
 

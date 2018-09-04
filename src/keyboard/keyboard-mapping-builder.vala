@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.KeyboardMappingBuilder : Object {
-	public Retro.KeyJoypadMapping mapping { private set; get; }
+	public Retro.KeyJoypadMapping mapping { get; private set; }
 
 	construct {
 		mapping = new Retro.KeyJoypadMapping ();

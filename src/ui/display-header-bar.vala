@@ -11,8 +11,8 @@ private class Games.DisplayHeaderBar : Gtk.HeaderBar {
 		set { title = value; }
 	}
 
-	public bool can_fullscreen { set; get; }
-	public bool is_fullscreen { set; get; }
+	public bool can_fullscreen { get; set; }
+	public bool is_fullscreen { get; set; }
 
 	public MediaSet? media_set {
 		set {
