@@ -711,7 +711,12 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	public void on_collection_loaded () {
-		if (ui_state == UiState.LOADING)
+		if (ui_state == UiState.LOADING) {
+			content_box.transition_type = Gtk.StackTransitionType.CROSSFADE;
+			header_bar.transition_type = Gtk.StackTransitionType.CROSSFADE;
 			ui_state = UiState.COLLECTION;
+			content_box.transition_type = Gtk.StackTransitionType.NONE;
+			header_bar.transition_type = Gtk.StackTransitionType.NONE;
+		}
 	}
 }
