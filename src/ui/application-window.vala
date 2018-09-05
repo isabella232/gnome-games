@@ -116,6 +116,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	private KonamiCode konami_code;
 
+	private Game game_to_run;
+
 	public ApplicationWindow (ListModel collection) {
 		collection_box.collection = collection;
 		collection.items_changed.connect (() => {
@@ -175,6 +177,11 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	public void run_game (Game game) {
+		if (ui_state == UiState.LOADING) {
+			game_to_run = game;
+			return;
+		}
+
 		// If there is a game already running we have to quit it first
 		if (display_box.runner != null && !quit_game())
 			return;
@@ -735,5 +742,14 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		catch (Error e) {
 			critical (e.message);
 		}
+	}
+
+	public void on_collection_loaded () {
+		if (game_to_run != null) {
+			ui_state = UiState.DISPLAY;
+			run_game (game_to_run);
+			game_to_run = null;
+		} else
+			ui_state = UiState.COLLECTION;
 	}
 }
