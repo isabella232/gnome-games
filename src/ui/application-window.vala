@@ -71,8 +71,6 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	public bool is_collection_empty { get; set; }
 
-	public bool loading_notification { get; set; }
-
 	[GtkChild]
 	private Gtk.Stack content_box;
 	[GtkChild]
@@ -99,7 +97,6 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private Binding header_bar_search_binding;
 	private Binding header_bar_fullscreen_binding;
 	private Binding header_bar_empty_collection_binding;
-	private Binding loading_notification_binding;
 
 	private Cancellable run_game_cancellable;
 	private Cancellable quit_game_cancellable;
@@ -141,8 +138,6 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 		box_search_binding = bind_property ("search-mode", collection_box, "search-mode",
 		                                    BindingFlags.BIDIRECTIONAL);
-		loading_notification_binding = bind_property ("loading-notification", collection_box, "loading-notification",
-		                                              BindingFlags.DEFAULT);
 		header_bar_search_binding = bind_property ("search-mode", collection_header_bar, "search-mode",
 		                                           BindingFlags.BIDIRECTIONAL);
 
