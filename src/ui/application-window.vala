@@ -714,4 +714,9 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			critical (e.message);
 		}
 	}
+
+	public void on_collection_loaded () {
+		if (ui_state == UiState.LOADING)
+			ui_state = UiState.COLLECTION;
+	}
 }

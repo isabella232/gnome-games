@@ -233,15 +233,6 @@ public class Games.Application : Gtk.Application {
 			quit_application ();
 		});
 		window.show ();
-
-		GLib.Timeout.add (500, show_loading_notification);
-	}
-
-	private bool show_loading_notification () {
-		if (!game_list_loaded)
-			window.loading_notification = true;
-
-		return false;
 	}
 
 	private void init_game_sources () {
@@ -339,7 +330,7 @@ public class Games.Application : Gtk.Application {
 
 		game_list_loaded = true;
 		if (window != null)
-			window.loading_notification = false;
+			window.on_collection_loaded ();
 	}
 
 	private void preferences () {
