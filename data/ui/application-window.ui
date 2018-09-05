@@ -15,6 +15,14 @@
       <object class="GtkStack" id="content_box">
         <property name="visible">True</property>
         <child>
+          <object class="GamesLoadingBox" id="loading_box">
+            <property name="visible">True</property>
+          </object>
+          <packing>
+            <property name="name">loading</property>
+          </packing>
+        </child>
+        <child>
           <object class="GamesCollectionBox" id="collection_box">
             <property name="visible">True</property>
             <signal name="game-activated" handler="on_game_activated"/>
@@ -40,6 +48,15 @@
         <child>
           <object class="GtkStack" id="header_bar">
             <property name="visible">True</property>
+            <child>
+              <object class="GamesLoadingHeaderBar" id="loading_header_bar">
+                <property name="visible">True</property>
+                <property name="show_close_button">True</property>
+              </object>
+              <packing>
+                <property name="name">loading</property>
+              </packing>
+            </child>
             <child>
               <object class="GamesCollectionHeaderBar" id="collection_header_bar">
                 <property name="visible">True</property>

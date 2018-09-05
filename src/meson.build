@@ -150,6 +150,8 @@ vala_sources = [
   'ui/input-mode-switcher.vala',
   'ui/keyboard-mapper.vala',
   'ui/keyboard-tester.vala',
+  'ui/loading-box.vala',
+  'ui/loading-header-bar.vala',
   'ui/konami-code.vala',
   'ui/media-selector.vala',
   'ui/media-menu-button.vala',
