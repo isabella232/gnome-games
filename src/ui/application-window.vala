@@ -17,25 +17,33 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			_ui_state = value;
 
 			switch (ui_state) {
+			case UiState.LOADING:
+				content_box.visible_child = loading_box;
+				header_bar.visible_child = loading_header_bar;
+
+				break;
 			case UiState.COLLECTION:
 				content_box.visible_child = collection_box;
 				header_bar.visible_child = collection_header_bar;
-
-				is_fullscreen = false;
-
-				if (display_box.runner != null) {
-					display_box.runner.stop ();
-					display_box.runner = null;
-				}
 
 				break;
 			case UiState.DISPLAY:
 				content_box.visible_child = display_box;
 				header_bar.visible_child = display_header_bar;
 
+				break;
+			}
+
+			if (ui_state != UiState.COLLECTION)
 				search_mode = false;
 
-				break;
+			if (ui_state != UiState.DISPLAY) {
+				is_fullscreen = false;
+
+				if (display_box.runner != null) {
+					display_box.runner.stop ();
+					display_box.runner = null;
+				}
 			}
 
 			konami_code.reset ();
@@ -68,12 +76,16 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	[GtkChild]
 	private Gtk.Stack content_box;
 	[GtkChild]
+	private LoadingBox loading_box;
+	[GtkChild]
 	private CollectionBox collection_box;
 	[GtkChild]
 	private DisplayBox display_box;
 
 	[GtkChild]
 	private Gtk.Stack header_bar;
+	[GtkChild]
+	private LoadingHeaderBar loading_header_bar;
 	[GtkChild]
 	private CollectionHeaderBar collection_header_bar;
 	[GtkChild]
