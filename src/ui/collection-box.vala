@@ -6,12 +6,9 @@ private class Games.CollectionBox : Gtk.Box {
 
 	public ListModel collection { get; construct set; }
 	public bool search_mode { get; set; }
-	public bool loading_notification { get; set; }
 
 	[GtkChild]
 	private SearchBar search_bar;
-	[GtkChild]
-	private Gtk.Revealer loading_notification_revealer;
 	[GtkChild]
 	private EmptyCollection empty_collection;
 	[GtkChild]
@@ -42,7 +39,6 @@ private class Games.CollectionBox : Gtk.Box {
 	private Binding developer_collection_binding;
 	private Binding platform_collection_binding;
 	private Binding search_binding;
-	private Binding loading_notification_binding;
 
 	public CollectionBox (ListStore collection) {
 		Object (collection: collection);
@@ -60,8 +56,6 @@ private class Games.CollectionBox : Gtk.Box {
 
 		search_binding = bind_property ("search-mode", search_bar, "search-mode-enabled",
 		                                BindingFlags.BIDIRECTIONAL);
-		loading_notification_binding = bind_property ("loading-notification", loading_notification_revealer, "reveal-child",
-		                                              BindingFlags.DEFAULT);
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {
@@ -128,11 +122,6 @@ private class Games.CollectionBox : Gtk.Box {
 			return developer_view.gamepad_absolute_axis_event (event);
 		else
 			return collection_view.gamepad_absolute_axis_event (event);
-	}
-
-	[GtkCallback]
-	private void on_loading_notification_closed () {
-		loading_notification_revealer.set_reveal_child (false);
 	}
 
 	[GtkCallback]

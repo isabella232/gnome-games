@@ -13,94 +13,48 @@
       </object>
     </child>
     <child>
-      <object class="GtkOverlay">
+      <object class="GtkStack" id="viewstack">
         <property name="visible">True</property>
-        <property name="vexpand">True</property>
+        <property name="visible-child">collection_view</property>
+        <property name="transition-type">crossfade</property>
+        <signal name="notify::visible-child" handler="on_visible_child_changed"/>
         <child>
-          <object class="GtkStack" id="viewstack">
+          <object class="GamesEmptyCollection" id="empty_collection">
             <property name="visible">True</property>
-            <property name="visible-child">collection_view</property>
-            <property name="transition-type">crossfade</property>
-            <signal name="notify::visible-child" handler="on_visible_child_changed"/>
-            <child>
-              <object class="GamesEmptyCollection" id="empty_collection">
-                <property name="visible">True</property>
-              </object>
-              <packing>
-                <property name="name">empty</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GamesCollectionIconView" id="collection_view">
-                <property name="visible">True</property>
-                <signal name="game-activated" handler="on_game_activated"/>
-              </object>
-              <packing>
-                <property name="name">games</property>
-                <property name="title" translatable="yes">Games</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GamesDevelopersView" id="developer_view">
-                <property name="visible">True</property>
-                <signal name="game-activated" handler="on_game_activated"/>
-              </object>
-              <packing>
-                <property name="name">developer</property>
-                <property name="title" translatable="yes">Developers</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GamesPlatformsView" id="platform_view">
-                <property name="visible">True</property>
-                <signal name="game-activated" handler="on_game_activated"/>
-              </object>
-              <packing>
-                <property name="name">platform</property>
-                <property name="title" translatable="yes">Platforms</property>
-              </packing>
-            </child>
           </object>
+          <packing>
+            <property name="name">empty</property>
+          </packing>
         </child>
-        <child type="overlay">
-          <object class="GtkRevealer" id="loading_notification_revealer">
+        <child>
+          <object class="GamesCollectionIconView" id="collection_view">
             <property name="visible">True</property>
-            <property name="halign">center</property>
-            <property name="valign">start</property>
-            <child>
-              <object class="GtkBox">
-                <property name="visible">True</property>
-                <property name="spacing">18</property>
-                <child>
-                  <object class="GtkSpinner">
-                    <property name="visible">True</property>
-                    <property name="active">True</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="visible">True</property>
-                    <property name="label" translatable="yes">Loading</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkButton">
-                    <property name="visible">True</property>
-                    <property name="can-focus">True</property>
-                    <property name="image">close_icon</property>
-                    <property name="always-show-image">True</property>
-                    <signal name="clicked" handler="on_loading_notification_closed"/>
-                    <style>
-                      <class name="flat"/>
-                    </style>
-                  </object>
-                </child>
-                <style>
-                  <class name="app-notification"/>
-                </style>
-              </object>
-            </child>
+            <signal name="game-activated" handler="on_game_activated"/>
           </object>
+          <packing>
+            <property name="name">games</property>
+            <property name="title" translatable="yes">Games</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GamesDevelopersView" id="developer_view">
+            <property name="visible">True</property>
+            <signal name="game-activated" handler="on_game_activated"/>
+          </object>
+          <packing>
+            <property name="name">developer</property>
+            <property name="title" translatable="yes">Developers</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GamesPlatformsView" id="platform_view">
+            <property name="visible">True</property>
+            <signal name="game-activated" handler="on_game_activated"/>
+          </object>
+          <packing>
+            <property name="name">platform</property>
+            <property name="title" translatable="yes">Platforms</property>
+          </packing>
         </child>
       </object>
     </child>
