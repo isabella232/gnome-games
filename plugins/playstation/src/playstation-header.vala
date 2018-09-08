@@ -23,7 +23,7 @@ private class Games.PlayStationHeader : Object {
 
 		string label;
 		string exe;
-		if (!get_playstation_info (file.get_path (), out label, out exe))
+		if (!get_playstation_info (file.get_path (), out label, out exe, null))
 			throw new PlayStationError.INVALID_HEADER (_("Not a PlayStation disc: “%s”."), file.get_uri ());
 
 		_disc_id = parse_id_from_exe (exe);
@@ -73,5 +73,5 @@ private class Games.PlayStationHeader : Object {
 	}
 
 	[CCode (cname = "get_playstation_info")]
-	private static extern bool get_playstation_info (string filename, out string label, out string exe) throws Error;
+	private static extern bool get_playstation_info (string filename, out string label, out string exe, Cancellable? cancellable) throws Error;
 }
