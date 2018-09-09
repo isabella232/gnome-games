@@ -28,7 +28,8 @@ private struct Games.MameGameInfo {
 			yield;
 		}
 
-		foreach (var line in text.split ("\n")) {
+		var lines = text.split ("\n");
+		foreach (var line in lines) {
 			MatchInfo match_info;
 			if (!game_regex.match (line, 0, out match_info))
 				continue;
