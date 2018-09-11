@@ -9,25 +9,13 @@ private class Games.PreferencesWindow : Gtk.Window {
 	[GtkChild]
 	private Gtk.Box titlebar_box;
 	[GtkChild]
+	private Gtk.HeaderBar right_header_bar;
+	[GtkChild]
 	private Gtk.Stack main_stack;
 	[GtkChild]
 	private Gtk.Box content_box;
 	[GtkChild]
 	private Gtk.Stack stack;
-
-	private Gtk.HeaderBar _right_header_bar;
-	public Gtk.HeaderBar right_header_bar {
-		get { return _right_header_bar; }
-		set {
-			if (_right_header_bar != null)
-				titlebar_box.remove (_right_header_bar);
-			if (value != null) {
-				titlebar_box.pack_end (value);
-				value.show_close_button = true;
-			}
-			_right_header_bar = value;
-		}
-	}
 
 	private PreferencesSubpage _subpage;
 	public PreferencesSubpage subpage {
@@ -64,7 +52,6 @@ private class Games.PreferencesWindow : Gtk.Window {
 	// The previous subpage instance must be kept around during the transition
 	private PreferencesSubpage previous_subpage;
 
-	private Binding right_header_bar_binding;
 	private Binding subpage_binding;
 	private Binding selection_mode_binding;
 
@@ -76,13 +63,16 @@ private class Games.PreferencesWindow : Gtk.Window {
 	private void visible_child_changed () {
 		var page = stack.visible_child as PreferencesPage;
 		if (page == null) {
-			right_header_bar = null;
+			right_header_bar.title = "";
 			subpage = null;
 
 			return;
 		}
-		right_header_bar_binding = page.bind_property ("header-bar", this, "right_header_bar",
-		                                               BindingFlags.SYNC_CREATE);
+
+		var title = "";
+		stack.child_get (page, "title", out title, null);
+		right_header_bar.title = title;
+
 		subpage_binding = page.bind_property ("subpage", this, "subpage",
 		                                      BindingFlags.SYNC_CREATE);
 	}

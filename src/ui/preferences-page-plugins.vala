@@ -2,13 +2,6 @@
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-page-plugins.ui")]
 private class Games.PreferencesPagePlugins: Gtk.Bin, PreferencesPage {
-	[GtkChild (name = "header_bar")]
-	private Gtk.HeaderBar _header_bar;
-	public Gtk.HeaderBar header_bar {
-		get { return _header_bar; }
-		protected set {}
-	}
-
 	public PreferencesSubpage subpage { get; protected set; }
 
 	[GtkChild]

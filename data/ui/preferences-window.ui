@@ -36,6 +36,14 @@
                     </style>
                   </object>
                 </child>
+                <child>
+                  <object class="GtkHeaderBar" id="right_header_bar">
+                    <property name="name">right_header_bar</property>
+                    <property name="visible">True</property>
+                    <property name="hexpand">True</property>
+                    <property name="show-close-button">True</property>
+                  </object>
+                </child>
               </object>
             </child>
           </object>
