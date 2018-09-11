@@ -14,6 +14,8 @@ private class Games.PreferencesPageVideo: Gtk.Bin, PreferencesPage {
 		get { return false; }
 	}
 
+	public PreferencesSubpage subpage { get; protected set; }
+
 	private string _filter_active;
 	public string filter_active {
 		set {

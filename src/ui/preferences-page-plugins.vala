@@ -14,6 +14,8 @@ private class Games.PreferencesPagePlugins: Gtk.Bin, PreferencesPage {
 		protected set {}
 	}
 
+	public PreferencesSubpage subpage { get; protected set; }
+
 	[GtkChild]
 	private Gtk.ListBox list_box;
 

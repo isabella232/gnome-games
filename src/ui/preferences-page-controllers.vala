@@ -4,6 +4,7 @@
 private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 	public Gtk.HeaderBar header_bar { get; protected set; }
 	public bool immersive_mode { get; protected set; }
+	public PreferencesSubpage subpage { get; protected set; }
 
 	[GtkChild]
 	private Gtk.Label gamepads_label;
