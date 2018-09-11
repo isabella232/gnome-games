@@ -69,10 +69,6 @@ private class Games.PreferencesWindow : Gtk.Window {
 	private Binding selection_mode_binding;
 
 	public PreferencesWindow () {
-		stack.foreach ((child) => {
-			var page = child as PreferencesPage;
-			stack.notify["visible-child-name"].connect (page.visible_page_changed);
-		});
 		stack.notify["visible-child-name"].connect (visible_child_changed);
 		visible_child_changed ();
 	}
