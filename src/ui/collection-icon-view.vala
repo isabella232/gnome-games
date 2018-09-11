@@ -43,7 +43,7 @@ private class Games.CollectionIconView : Gtk.Bin {
 			if (model == null)
 				return;
 
-			for (int i = 0 ; i < model.get_n_items () ; i++) {
+			for (int i = 0; i < model.get_n_items (); i++) {
 				var game = model.get_item (i) as Game;
 				add_game (game);
 			}
@@ -204,7 +204,7 @@ private class Games.CollectionIconView : Gtk.Bin {
 		// necessary.
 		assert (removed == 0);
 
-		for (uint i = position ; i < position + added ; i++) {
+		for (uint i = position; i < position + added; i++) {
 			var game = model.get_item (i) as Game;
 			add_game (game);
 		}

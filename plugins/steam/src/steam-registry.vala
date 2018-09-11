@@ -11,7 +11,7 @@ private class Games.SteamRegistry {
 
 	public string[] get_children (string[] path) {
 		SteamRegistryValue? current_value = tree;
-		for (int i = 0 ; i < path.length ; i++) {
+		for (int i = 0; i < path.length; i++) {
 			if (current_value == null)
 				return {};
 
@@ -35,7 +35,7 @@ private class Games.SteamRegistry {
 
 	public string? get_data (string[] path) {
 		SteamRegistryValue? current_value = tree;
-		for (int i = 0 ; i < path.length ; i++) {
+		for (int i = 0; i < path.length; i++) {
 			if (current_value == null)
 				return null;
 

@@ -184,7 +184,7 @@ private abstract class Games.SidebarView : Gtk.Box {
 		// necessary.
 		assert (removed == 0);
 
-		for (uint i = position ; i < position + added ; i++) {
+		for (uint i = position; i < position + added; i++) {
 			var game = model.get_item (i) as Game;
 			game_added (game);
 		}
