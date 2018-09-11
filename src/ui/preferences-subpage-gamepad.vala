@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-[GtkTemplate (ui = "/org/gnome/Games/ui/gamepad-configurer.ui")]
-private class Games.GamepadConfigurer : Gtk.Box {
+[GtkTemplate (ui = "/org/gnome/Games/ui/preferences-subpage-gamepad.ui")]
+private class Games.PreferencesSubpageGamepad: Gtk.Box, PreferencesSubpage {
 	private const GamepadInput[] STANDARD_GAMEPAD_INPUTS = {
 		{ EventCode.EV_KEY, EventCode.BTN_A },
 		{ EventCode.EV_KEY, EventCode.BTN_B },
@@ -65,9 +65,10 @@ private class Games.GamepadConfigurer : Gtk.Box {
 	private State state {
 		set {
 			_state = value;
-			immersive_mode = (state == State.CONFIGURE);
 			back_button.visible = (state == State.TEST);
 			cancel_button.visible = (state == State.CONFIGURE);
+			header_bar.show_close_button = (state == State.TEST);
+			request_selection_mode = (state == State.CONFIGURE);
 
 			switch (value) {
 			case State.TEST:
@@ -102,11 +103,10 @@ private class Games.GamepadConfigurer : Gtk.Box {
 	[GtkChild (name = "header_bar")]
 	private Gtk.HeaderBar _header_bar;
 	public Gtk.HeaderBar header_bar {
-		private set {}
 		get { return _header_bar; }
 	}
 
-	public bool immersive_mode { private set; get; }
+	public bool request_selection_mode { get; set; }
 
 	[GtkChild]
 	private Gtk.Stack gamepad_view_stack;
@@ -131,7 +131,7 @@ private class Games.GamepadConfigurer : Gtk.Box {
 
 	private Binding info_message_binding;
 
-	public GamepadConfigurer (Manette.Device device) {
+	public PreferencesSubpageGamepad (Manette.Device device) {
 		this.device = device;
 		mapper = new GamepadMapper (device, STANDARD_GAMEPAD_VIEW_CONFIGURATION, STANDARD_GAMEPAD_INPUTS);
 		gamepad_view_stack.add (mapper);

@@ -81,14 +81,9 @@ private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 		if (device == null)
 			return;
 
-		var configurer = new GamepadConfigurer (device);
-		back_handler_id = configurer.back.connect (on_back_clicked);
-		header_bar_binding = configurer.bind_property ("header-bar", this, "header-bar",
-		                                               BindingFlags.SYNC_CREATE);
-		immersive_mode_binding = configurer.bind_property ("immersive-mode", this, "immersive-mode",
-		                                                   BindingFlags.SYNC_CREATE);
-		extra_stack_child_holder.pack_start (configurer);
-		set_visible_child_name ("extra_stack_child");
+		var subpage_gamepad = new PreferencesSubpageGamepad (device);
+		back_handler_id = subpage_gamepad.back.connect (on_back);
+		subpage = subpage_gamepad;
 	}
 
 	private void build_keyboard_list () {
@@ -109,6 +104,11 @@ private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 		                                                   BindingFlags.SYNC_CREATE);
 		extra_stack_child_holder.pack_start (configurer);
 		visible_child_name = "extra_stack_child";
+	}
+
+	private void on_back () {
+		subpage.disconnect (back_handler_id);
+		subpage = null;
 	}
 
 	private void on_back_clicked (Object? emitter) {
