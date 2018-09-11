@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/gamepad-tester.ui")]
-private class Games.GamepadTester : Gtk.Box {
+private class Games.GamepadTester : Gtk.Bin {
 	[GtkChild]
 	private GamepadView gamepad_view;
 
