@@ -132,7 +132,7 @@ private class Games.CollectionIconView : Gtk.Bin {
 
 	public void reset_scroll_position () {
 		var adjustment = scrolled_window.get_vadjustment ();
-		adjustment.set_value (0);
+		adjustment.value = 0;
 	}
 
 	public bool has_game_selected () {

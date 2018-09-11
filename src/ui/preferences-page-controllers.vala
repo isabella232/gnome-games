@@ -107,7 +107,7 @@ private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 		immersive_mode_binding = configurer.bind_property ("immersive-mode", this, "immersive-mode",
 		                                                   BindingFlags.SYNC_CREATE);
 		extra_stack_child_holder.pack_start (configurer);
-		set_visible_child_name ("extra_stack_child");
+		visible_child_name = "extra_stack_child";
 	}
 
 	private void on_back (Object? emitter) {
@@ -121,7 +121,7 @@ private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 
 		header_bar = default_header_bar;
 		immersive_mode = false;
-		set_visible_child_name ("main_stack_child");
+		visible_child_name = "main_stack_child";
 		extra_stack_child_holder.foreach ((child) => child.destroy ());
 	}
 }

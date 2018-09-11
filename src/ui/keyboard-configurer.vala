@@ -57,17 +57,17 @@ private class Games.KeyboardConfigurer : Gtk.Box {
 		set {
 			_state = value;
 			immersive_mode = (state == State.CONFIGURE);
+			back_button.visible = (state == State.TEST);
+			cancel_button.visible = (state == State.CONFIGURE);
+			action_bar.visible = (state == State.TEST);
 
 			switch (value) {
 			case State.TEST:
 				reset_button.set_sensitive (!mapping_manager.is_default ());
 
-				back_button.show ();
-				cancel_button.hide ();
-				action_bar.show ();
 				header_bar.title = _("Testing Keyboard");
 				header_bar.get_style_context ().remove_class ("selection-mode");
-				stack.set_visible_child_name ("keyboard_tester");
+				stack.visible_child = keyboard_tester_holder;
 
 				tester.start ();
 				mapper.stop ();
@@ -75,12 +75,9 @@ private class Games.KeyboardConfigurer : Gtk.Box {
 
 				break;
 			case State.CONFIGURE:
-				back_button.hide ();
-				cancel_button.show ();
-				action_bar.hide ();
 				header_bar.title = _("Configuring Keyboard");
 				header_bar.get_style_context ().add_class ("selection-mode");
-				stack.set_visible_child_name ("keyboard_mapper");
+				stack.visible_child = keyboard_mapper_holder;
 
 				tester.stop ();
 				mapper.start ();
@@ -156,12 +153,12 @@ private class Games.KeyboardConfigurer : Gtk.Box {
 
 	private void reset_mapping () {
 		var message_dialog = new ResetControllerMappingDialog ();
-		message_dialog.set_transient_for ((Gtk.Window) get_toplevel ());
+		message_dialog.transient_for = (Gtk.Window) get_toplevel ();
 		message_dialog.response.connect ((response) => {
 			switch (response) {
 				case Gtk.ResponseType.ACCEPT:
 					mapping_manager.delete_mapping ();
-					reset_button.set_sensitive (false);
+					reset_button.sensitive = false;
 
 					break;
 				default:

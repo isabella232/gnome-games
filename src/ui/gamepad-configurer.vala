@@ -66,18 +66,18 @@ private class Games.GamepadConfigurer : Gtk.Box {
 		set {
 			_state = value;
 			immersive_mode = (state == State.CONFIGURE);
+			back_button.visible = (state == State.TEST);
+			cancel_button.visible = (state == State.CONFIGURE);
+			action_bar.visible = (state == State.TEST);
 
 			switch (value) {
 			case State.TEST:
 				reset_button.set_sensitive (device.has_user_mapping ());
 
-				back_button.show ();
-				cancel_button.hide ();
-				action_bar.show ();
 				/* translators: testing a gamepad, %s is its name */
 				header_bar.title = _("Testing %s").printf (device.get_name ());
 				header_bar.get_style_context ().remove_class ("selection-mode");
-				stack.set_visible_child_name ("gamepad_tester");
+				stack.visible_child = gamepad_tester_holder;
 
 				tester.start ();
 				mapper.stop ();
@@ -85,13 +85,10 @@ private class Games.GamepadConfigurer : Gtk.Box {
 
 				break;
 			case State.CONFIGURE:
-				back_button.hide ();
-				cancel_button.show ();
-				action_bar.hide ();
 				/* translators: configuring a gamepad, %s is its name */
 				header_bar.title = _("Configuring %s").printf (device.get_name ());
 				header_bar.get_style_context ().add_class ("selection-mode");
-				stack.set_visible_child_name ("gamepad_mapper");
+				stack.visible_child = gamepad_mapper_holder;
 
 				tester.stop ();
 				mapper.start ();
@@ -163,12 +160,12 @@ private class Games.GamepadConfigurer : Gtk.Box {
 
 	private void reset_mapping () {
 		var message_dialog = new ResetControllerMappingDialog ();
-		message_dialog.set_transient_for ((Gtk.Window) get_toplevel ());
+		message_dialog.transient_for = (Gtk.Window) get_toplevel ();
 		message_dialog.response.connect ((response) => {
 			switch (response) {
 				case Gtk.ResponseType.ACCEPT:
 					device.remove_user_mapping ();
-					reset_button.set_sensitive (false);
+					reset_button.sensitive = false;
 
 					break;
 				default:

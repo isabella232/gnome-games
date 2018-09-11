@@ -57,7 +57,7 @@ private class Games.PreferencesWindow : Gtk.Window {
 	}
 
 	private void visible_child_changed () {
-		var page = (PreferencesPage) stack.get_visible_child ();
+		var page = (PreferencesPage) stack.visible_child;
 		if (page == null) {
 			right_header_bar = null;
 

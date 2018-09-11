@@ -35,8 +35,8 @@ private class Games.DisplayHeaderBar : Gtk.HeaderBar {
 		settings = new Settings ("org.gnome.Games");
 
 		media_selector = new MediaSelector ();
-		media_selector.set_relative_to (media_button);
-		media_button.set_popover (media_selector);
+		media_selector.relative_to = media_button;
+		media_button.popover = media_selector;
 	}
 
 	[GtkCallback]

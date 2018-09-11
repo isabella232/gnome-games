@@ -177,7 +177,7 @@ public class Games.Application : Gtk.Application {
 		chooser.select_multiple = true;
 
 		var filter = new Gtk.FileFilter ();
-		chooser.set_filter (filter);
+		chooser.filter = filter;
 		foreach (var mime_type in game_collection.get_accepted_mime_types ())
 			filter.add_mime_type (mime_type);
 
@@ -382,9 +382,9 @@ public class Games.Application : Gtk.Application {
 
 	private void about () {
 		Gtk.AboutDialog dialog = new Gtk.AboutDialog ();
-		dialog.set_destroy_with_parent (true);
-		dialog.set_transient_for (window);
-		dialog.set_modal (true);
+		dialog.destroy_with_parent = true;
+		dialog.transient_for = window;
+		dialog.modal = true;
 
 		dialog.program_name = _("GNOME Games") + Config.NAME_SUFFIX;
 		dialog.logo_icon_name = Config.APPLICATION_ID;

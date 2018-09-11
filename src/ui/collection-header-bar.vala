@@ -8,7 +8,7 @@ private class Games.CollectionHeaderBar : Gtk.HeaderBar {
 		get { return _viewstack; }
 		set {
 			_viewstack = value;
-			view_switcher.set_stack (_viewstack);
+			view_switcher.stack = _viewstack;
 		}
 	}
 

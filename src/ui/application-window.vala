@@ -18,8 +18,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 			switch (ui_state) {
 			case UiState.COLLECTION:
-				content_box.set_visible_child (collection_box);
-				header_bar.set_visible_child (collection_header_bar);
+				content_box.visible_child = collection_box;
+				header_bar.visible_child = collection_header_bar;
 
 				is_fullscreen = false;
 
@@ -30,8 +30,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 				break;
 			case UiState.DISPLAY:
-				content_box.set_visible_child (display_box);
-				header_bar.set_visible_child (display_header_bar);
+				content_box.visible_child = display_box;
+				header_bar.visible_child = display_header_bar;
 
 				search_mode = false;
 
@@ -154,7 +154,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		inhibit_cookie = 0;
 		inhibit_flags = 0;
 
-		set_show_menubar (false); // Essential, see bug #771683
+		show_menubar = false; // Essential, see bug #771683
 
 		if (Config.PROFILE == "Devel")
 			get_style_context ().add_class ("devel");
@@ -388,7 +388,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return false;
 
 		resume_dialog = new ResumeDialog ();
-		resume_dialog.set_transient_for (this);
+		resume_dialog.transient_for = this;
 
 		cancellable.cancelled.connect (() => {
 			resume_dialog.destroy ();
@@ -429,7 +429,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return;
 
 		resume_failed_dialog = new ResumeFailedDialog ();
-		resume_failed_dialog.set_transient_for (this);
+		resume_failed_dialog.transient_for = this;
 
 		cancellable.cancelled.connect (() => {
 			resume_failed_dialog.destroy ();
@@ -471,7 +471,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return false;
 
 		quit_dialog = new QuitDialog ();
-		quit_dialog.set_transient_for (this);
+		quit_dialog.transient_for = this;
 
 		cancellable.cancelled.connect (() => {
 			quit_dialog.destroy ();
@@ -521,7 +521,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (monitor == null)
 			return null;
 
-		return monitor.get_geometry ();
+		return monitor.geometry;
 	}
 
 	private bool store_window_size () {
