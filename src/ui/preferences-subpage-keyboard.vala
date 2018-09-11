@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-[GtkTemplate (ui = "/org/gnome/Games/ui/keyboard-configurer.ui")]
-private class Games.KeyboardConfigurer : Gtk.Box {
+[GtkTemplate (ui = "/org/gnome/Games/ui/preferences-subpage-keyboard.ui")]
+private class Games.PreferencesSubpageKeyboard: Gtk.Box, PreferencesSubpage {
 	private const GamepadInput[] KEYBOARD_GAMEPAD_INPUTS = {
 		{ EventCode.EV_KEY, EventCode.BTN_A },
 		{ EventCode.EV_KEY, EventCode.BTN_B },
@@ -56,9 +56,10 @@ private class Games.KeyboardConfigurer : Gtk.Box {
 		get { return _state; }
 		set {
 			_state = value;
-			immersive_mode = (state == State.CONFIGURE);
 			back_button.visible = (state == State.TEST);
 			cancel_button.visible = (state == State.CONFIGURE);
+			header_bar.show_close_button = (state == State.TEST);
+			request_selection_mode = (state == State.CONFIGURE);
 
 			switch (value) {
 			case State.TEST:
@@ -91,10 +92,9 @@ private class Games.KeyboardConfigurer : Gtk.Box {
 	private Gtk.HeaderBar _header_bar;
 	public Gtk.HeaderBar header_bar {
 		get { return _header_bar; }
-		private set {}
 	}
 
-	public bool immersive_mode { get; private set; }
+	public bool request_selection_mode { get; set; }
 
 	[GtkChild]
 	private Gtk.Stack gamepad_view_stack;
@@ -119,7 +119,7 @@ private class Games.KeyboardConfigurer : Gtk.Box {
 
 	private Binding info_message_binding;
 
-	public KeyboardConfigurer () {
+	public PreferencesSubpageKeyboard () {
 		mapper = new KeyboardMapper (KEYBOARD_GAMEPAD_VIEW_CONFIGURATION, KEYBOARD_GAMEPAD_INPUTS);
 		gamepad_view_stack.add (mapper);
 		tester = new KeyboardTester (KEYBOARD_GAMEPAD_VIEW_CONFIGURATION);

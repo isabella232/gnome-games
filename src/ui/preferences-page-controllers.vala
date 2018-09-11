@@ -96,14 +96,9 @@ private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 
 	[GtkCallback]
 	private void keyboard_list_box_row_activated (Gtk.ListBoxRow row_item) {
-		var configurer = new KeyboardConfigurer ();
-		back_handler_id = configurer.back.connect (on_back_clicked);
-		header_bar_binding = configurer.bind_property ("header-bar", this, "header-bar",
-		                                               BindingFlags.SYNC_CREATE);
-		immersive_mode_binding = configurer.bind_property ("immersive-mode", this, "immersive-mode",
-		                                                   BindingFlags.SYNC_CREATE);
-		extra_stack_child_holder.pack_start (configurer);
-		visible_child_name = "extra_stack_child";
+		var subpage_keyboard = new PreferencesSubpageKeyboard ();
+		back_handler_id = subpage_keyboard.back.connect (on_back);
+		subpage = subpage_keyboard;
 	}
 
 	private void on_back () {

@@ -25,7 +25,6 @@
     <file preprocess="xml-stripblanks">ui/gamepad-mapper.ui</file>
     <file preprocess="xml-stripblanks">ui/gamepad-tester.ui</file>
     <file preprocess="xml-stripblanks">ui/game-icon-view.ui</file>
-    <file preprocess="xml-stripblanks">ui/keyboard-configurer.ui</file>
     <file preprocess="xml-stripblanks">ui/keyboard-mapper.ui</file>
     <file preprocess="xml-stripblanks">ui/keyboard-tester.ui</file>
     <file preprocess="xml-stripblanks">ui/media-menu-button.ui</file>
@@ -36,6 +35,7 @@
     <file preprocess="xml-stripblanks">ui/preferences-page-plugins-item.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page-video.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-subpage-gamepad.ui</file>
+    <file preprocess="xml-stripblanks">ui/preferences-subpage-keyboard.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-window.ui</file>
     <file preprocess="xml-stripblanks">ui/quit-dialog.ui</file>
     <file preprocess="xml-stripblanks">ui/remote-display.ui</file>
