@@ -91,9 +91,6 @@
         <property name="visible">True</property>
         <property name="label" translatable="yes">Cancel</property>
         <signal name="clicked" handler="on_cancel_clicked"/>
-        <style>
-          <class name="destructive-action"/>
-        </style>
       </object>
       <packing>
         <property name="pack-type">end</property>
