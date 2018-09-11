@@ -9,11 +9,6 @@ private class Games.PreferencesPagePlugins: Gtk.Bin, PreferencesPage {
 		protected set {}
 	}
 
-	public bool immersive_mode {
-		get { return false; }
-		protected set {}
-	}
-
 	public PreferencesSubpage subpage { get; protected set; }
 
 	[GtkChild]

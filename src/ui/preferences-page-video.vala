@@ -9,11 +9,6 @@ private class Games.PreferencesPageVideo: Gtk.Bin, PreferencesPage {
 		get { return _header_bar; }
 	}
 
-	public bool immersive_mode {
-		protected set {}
-		get { return false; }
-	}
-
 	public PreferencesSubpage subpage { get; protected set; }
 
 	private string _filter_active;

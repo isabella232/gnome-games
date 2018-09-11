@@ -9,17 +9,9 @@ private class Games.PreferencesWindow : Gtk.Window {
 	[GtkChild]
 	private Gtk.Box titlebar_box;
 	[GtkChild]
-	private Gtk.HeaderBar left_header_bar;
-	[GtkChild]
-	private Gtk.Separator header_separator;
-	[GtkChild]
 	private Gtk.Stack main_stack;
 	[GtkChild]
 	private Gtk.Box content_box;
-	[GtkChild]
-	private Gtk.StackSidebar sidebar;
-	[GtkChild]
-	private Gtk.Separator separator;
 	[GtkChild]
 	private Gtk.Stack stack;
 
@@ -31,25 +23,9 @@ private class Games.PreferencesWindow : Gtk.Window {
 				titlebar_box.remove (_right_header_bar);
 			if (value != null) {
 				titlebar_box.pack_end (value);
-				value.show_close_button = !immersive_mode;
+				value.show_close_button = true;
 			}
 			_right_header_bar = value;
-		}
-	}
-
-	private bool _immersive_mode;
-	public bool immersive_mode {
-		get { return _immersive_mode; }
-		set {
-			titlebar.selection_mode = value;
-			header_separator.visible = !value;
-			left_header_bar.visible = !value;
-			separator.visible = !value;
-			sidebar.visible = !value;
-			if (right_header_bar != null)
-				right_header_bar.show_close_button = !value;
-
-			_immersive_mode = value;
 		}
 	}
 
@@ -89,7 +65,6 @@ private class Games.PreferencesWindow : Gtk.Window {
 	private PreferencesSubpage previous_subpage;
 
 	private Binding right_header_bar_binding;
-	private Binding immersive_mode_binding;
 	private Binding subpage_binding;
 	private Binding selection_mode_binding;
 
@@ -112,8 +87,6 @@ private class Games.PreferencesWindow : Gtk.Window {
 		}
 		right_header_bar_binding = page.bind_property ("header-bar", this, "right_header_bar",
 		                                               BindingFlags.SYNC_CREATE);
-		immersive_mode_binding = page.bind_property ("immersive-mode", this, "immersive-mode",
-		                                             BindingFlags.SYNC_CREATE);
 		subpage_binding = page.bind_property ("subpage", this, "subpage",
 		                                      BindingFlags.SYNC_CREATE);
 	}
