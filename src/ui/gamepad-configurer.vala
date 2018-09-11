@@ -68,7 +68,6 @@ private class Games.GamepadConfigurer : Gtk.Box {
 			immersive_mode = (state == State.CONFIGURE);
 			back_button.visible = (state == State.TEST);
 			cancel_button.visible = (state == State.CONFIGURE);
-			action_bar.visible = (state == State.TEST);
 
 			switch (value) {
 			case State.TEST:
@@ -77,7 +76,8 @@ private class Games.GamepadConfigurer : Gtk.Box {
 				/* translators: testing a gamepad, %s is its name */
 				header_bar.title = _("Testing %s").printf (device.get_name ());
 				header_bar.get_style_context ().remove_class ("selection-mode");
-				stack.visible_child = gamepad_tester_holder;
+				gamepad_view_stack.visible_child = gamepad_tester_holder;
+				action_bar_stack.visible_child = tester_action_bar;
 
 				tester.start ();
 				mapper.stop ();
@@ -88,7 +88,8 @@ private class Games.GamepadConfigurer : Gtk.Box {
 				/* translators: configuring a gamepad, %s is its name */
 				header_bar.title = _("Configuring %s").printf (device.get_name ());
 				header_bar.get_style_context ().add_class ("selection-mode");
-				stack.visible_child = gamepad_mapper_holder;
+				gamepad_view_stack.visible_child = gamepad_mapper_holder;
+				action_bar_stack.visible_child = mapper_action_bar;
 
 				tester.stop ();
 				mapper.start ();
@@ -110,23 +111,31 @@ private class Games.GamepadConfigurer : Gtk.Box {
 	public bool immersive_mode { private set; get; }
 
 	[GtkChild]
-	private Gtk.Stack stack;
+	private Gtk.Stack gamepad_view_stack;
 	[GtkChild]
 	private Gtk.Box gamepad_mapper_holder;
 	[GtkChild]
 	private Gtk.Box gamepad_tester_holder;
 	[GtkChild]
-	private Gtk.ActionBar action_bar;
+	private Gtk.Stack action_bar_stack;
+	[GtkChild]
+	private Gtk.ActionBar tester_action_bar;
+	[GtkChild]
+	private Gtk.ActionBar mapper_action_bar;
 	[GtkChild]
 	private Gtk.Button reset_button;
 	[GtkChild]
 	private Gtk.Button back_button;
 	[GtkChild]
 	private Gtk.Button cancel_button;
+	[GtkChild]
+	private Gtk.Label info_message;
 
 	private Manette.Device device;
 	private GamepadMapper mapper;
 	private GamepadTester tester;
+
+	private Binding info_message_binding;
 
 	public GamepadConfigurer (Manette.Device device) {
 		this.device = device;
@@ -134,6 +143,8 @@ private class Games.GamepadConfigurer : Gtk.Box {
 		gamepad_mapper_holder.pack_start (mapper);
 		tester = new GamepadTester (device, STANDARD_GAMEPAD_VIEW_CONFIGURATION);
 		gamepad_tester_holder.pack_start (tester);
+
+		info_message_binding = mapper.bind_property ("info-message", info_message, "label", BindingFlags.SYNC_CREATE);
 
 		state = State.TEST;
 	}
@@ -146,6 +157,11 @@ private class Games.GamepadConfigurer : Gtk.Box {
 	[GtkCallback]
 	private void on_configure_clicked () {
 		state = State.CONFIGURE;
+	}
+
+	[GtkCallback]
+	private void on_skip_clicked () {
+		mapper.skip ();
 	}
 
 	[GtkCallback]

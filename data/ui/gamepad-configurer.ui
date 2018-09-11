@@ -4,7 +4,7 @@
     <property name="visible">True</property>
     <property name="orientation">vertical</property>
     <child>
-      <object class="GtkStack" id="stack">
+      <object class="GtkStack" id="gamepad_view_stack">
         <property name="visible">True</property>
         <property name="hexpand">True</property>
         <property name="vexpand">True</property>
@@ -27,33 +27,58 @@
       </object>
     </child>
     <child>
-      <object class="GtkActionBar" id="action_bar">
+      <object class="GtkStack" id="action_bar_stack">
         <property name="visible">True</property>
         <child>
-          <object class="GtkButton" id="reset_button">
+          <object class="GtkActionBar" id="tester_action_bar">
             <property name="visible">True</property>
-            <property name="label" translatable="yes" context="Gamepad configuration factory reset">Reset</property>
-            <signal name="clicked" handler="on_reset_clicked"/>
-            <style>
-              <class name="destructive-action"/>
-            </style>
+            <child>
+              <object class="GtkButton" id="reset_button">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes" context="Keyboard configuration factory reset">Reset</property>
+                <signal name="clicked" handler="on_reset_clicked"/>
+                <style>
+                  <class name="destructive-action"/>
+                </style>
+              </object>
+              <packing>
+                <property name="pack-type">end</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="configure_button">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Configure</property>
+                <signal name="clicked" handler="on_configure_clicked"/>
+                <style>
+                  <class name="suggested-action"/>
+                </style>
+              </object>
+              <packing>
+                <property name="pack-type">start</property>
+              </packing>
+            </child>
           </object>
-          <packing>
-            <property name="pack-type">end</property>
-          </packing>
         </child>
         <child>
-          <object class="GtkButton" id="configure_button">
+          <object class="GtkActionBar" id="mapper_action_bar">
             <property name="visible">True</property>
-            <property name="label" translatable="yes">Configure</property>
-            <signal name="clicked" handler="on_configure_clicked"/>
-            <style>
-              <class name="suggested-action"/>
-            </style>
+            <child>
+              <object class="GtkButton" id="skip_button">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Skip</property>
+                <signal name="clicked" handler="on_skip_clicked"/>
+              </object>
+              <packing>
+                <property name="pack-type">start</property>
+              </packing>
+            </child>
+            <child type="center">
+              <object class="GtkLabel" id="info_message">
+                <property name="visible">True</property>
+              </object>
+            </child>
           </object>
-          <packing>
-            <property name="pack-type">start</property>
-          </packing>
         </child>
       </object>
     </child>

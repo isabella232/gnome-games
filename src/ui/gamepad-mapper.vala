@@ -6,14 +6,14 @@ private class Games.GamepadMapper : Gtk.Box {
 
 	[GtkChild]
 	private GamepadView gamepad_view;
-	[GtkChild]
-	private Gtk.Label info_message;
 
 	private Manette.Device device;
 	private GamepadMappingBuilder mapping_builder;
 	private GamepadInput[] mapping_inputs;
 	private GamepadInput input;
 	private uint current_input_index;
+
+	public string info_message { get; private set; }
 
 	private ulong gamepad_event_handler_id;
 
@@ -40,8 +40,7 @@ private class Games.GamepadMapper : Gtk.Box {
 		disconnect_from_gamepad ();
 	}
 
-	[GtkCallback]
-	private void on_skip_clicked () {
+	public void skip () {
 		next_input ();
 	}
 
@@ -123,14 +122,14 @@ private class Games.GamepadMapper : Gtk.Box {
 	private void update_info_message () {
 		switch (input.type) {
 		case EventCode.EV_KEY:
-			info_message.label = _("Press suitable button on your gamepad");
+			info_message = _("Press suitable button on your gamepad");
 
 			break;
 		case EventCode.EV_ABS:
 			if (input.code == EventCode.ABS_X || input.code == EventCode.ABS_RX)
-				info_message.label = _("Move suitable axis left/right on your gamepad");
+				info_message = _("Move suitable axis left/right on your gamepad");
 			else if (input.code == EventCode.ABS_Y || input.code == EventCode.ABS_RY)
-				info_message.label = _("Move suitable axis up/down on your gamepad");
+				info_message = _("Move suitable axis up/down on your gamepad");
 
 			break;
 		default:

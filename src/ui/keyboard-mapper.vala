@@ -6,16 +6,16 @@ private class Games.KeyboardMapper : Gtk.Box {
 
 	[GtkChild]
 	private GamepadView gamepad_view;
-	[GtkChild]
-	private Gtk.Label info_message;
 
 	private KeyboardMappingBuilder mapping_builder;
 	private GamepadInput[] mapping_inputs;
 	private GamepadInput input;
 	private uint current_input_index;
 
+	public string info_message { get; private set; }
+
 	construct {
-		info_message.label = _("Press suitable key on your keyboard");
+		info_message = _("Press suitable key on your keyboard");
 	}
 
 	public KeyboardMapper (GamepadViewConfiguration configuration, GamepadInput[] mapping_inputs) {
@@ -40,8 +40,7 @@ private class Games.KeyboardMapper : Gtk.Box {
 		disconnect_from_keyboard ();
 	}
 
-	[GtkCallback]
-	private void on_skip_clicked () {
+	public void skip () {
 		next_input ();
 	}
 

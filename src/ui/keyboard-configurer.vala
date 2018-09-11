@@ -59,7 +59,6 @@ private class Games.KeyboardConfigurer : Gtk.Box {
 			immersive_mode = (state == State.CONFIGURE);
 			back_button.visible = (state == State.TEST);
 			cancel_button.visible = (state == State.CONFIGURE);
-			action_bar.visible = (state == State.TEST);
 
 			switch (value) {
 			case State.TEST:
@@ -67,7 +66,8 @@ private class Games.KeyboardConfigurer : Gtk.Box {
 
 				header_bar.title = _("Testing Keyboard");
 				header_bar.get_style_context ().remove_class ("selection-mode");
-				stack.visible_child = keyboard_tester_holder;
+				gamepad_view_stack.visible_child = keyboard_tester_holder;
+				action_bar_stack.visible_child = tester_action_bar;
 
 				tester.start ();
 				mapper.stop ();
@@ -77,7 +77,8 @@ private class Games.KeyboardConfigurer : Gtk.Box {
 			case State.CONFIGURE:
 				header_bar.title = _("Configuring Keyboard");
 				header_bar.get_style_context ().add_class ("selection-mode");
-				stack.visible_child = keyboard_mapper_holder;
+				gamepad_view_stack.visible_child = keyboard_mapper_holder;
+				action_bar_stack.visible_child = mapper_action_bar;
 
 				tester.stop ();
 				mapper.start ();
@@ -98,23 +99,31 @@ private class Games.KeyboardConfigurer : Gtk.Box {
 	public bool immersive_mode { get; private set; }
 
 	[GtkChild]
-	private Gtk.Stack stack;
+	private Gtk.Stack gamepad_view_stack;
 	[GtkChild]
 	private Gtk.Box keyboard_mapper_holder;
 	[GtkChild]
 	private Gtk.Box keyboard_tester_holder;
 	[GtkChild]
-	private Gtk.ActionBar action_bar;
+	private Gtk.Stack action_bar_stack;
+	[GtkChild]
+	private Gtk.ActionBar tester_action_bar;
+	[GtkChild]
+	private Gtk.ActionBar mapper_action_bar;
 	[GtkChild]
 	private Gtk.Button reset_button;
 	[GtkChild]
 	private Gtk.Button back_button;
 	[GtkChild]
 	private Gtk.Button cancel_button;
+	[GtkChild]
+	private Gtk.Label info_message;
 
 	private KeyboardMapper mapper;
 	private KeyboardTester tester;
 	private KeyboardMappingManager mapping_manager;
+
+	private Binding info_message_binding;
 
 	public KeyboardConfigurer () {
 		mapper = new KeyboardMapper (KEYBOARD_GAMEPAD_VIEW_CONFIGURATION, KEYBOARD_GAMEPAD_INPUTS);
@@ -128,6 +137,8 @@ private class Games.KeyboardConfigurer : Gtk.Box {
 			tester.mapping = mapping_manager.mapping;
 		});
 
+		info_message_binding = mapper.bind_property ("info-message", info_message, "label", BindingFlags.SYNC_CREATE);
+
 		state = State.TEST;
 	}
 
@@ -139,6 +150,11 @@ private class Games.KeyboardConfigurer : Gtk.Box {
 	[GtkCallback]
 	private void on_configure_clicked () {
 		state = State.CONFIGURE;
+	}
+
+	[GtkCallback]
+	private void on_skip_clicked () {
+		mapper.skip ();
 	}
 
 	[GtkCallback]
