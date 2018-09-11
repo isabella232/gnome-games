@@ -55,7 +55,7 @@ private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 			box.margin = 6;
 			box.show_all ();
 			gamepads_list_box.add (box);
-		};
+		}
 		gamepads_label.visible = i > 0;
 		gamepads_frame.visible = i > 0;
 	}
@@ -75,7 +75,7 @@ private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 		while (iterator.next (out other_device)) {
 			if (i++ == row_index)
 				device = other_device;
-		};
+		}
 
 		if (device == null)
 			return;

@@ -37,7 +37,7 @@ private class Games.RetroInputManager : Object {
 			controllers += retro_gamepad;
 			core.set_controller (port, retro_gamepad);
 			device.disconnected.connect (on_device_disconnected);
-		};
+		}
 
 		core_view_joypad_port = controllers.length;
 		devices += null;
