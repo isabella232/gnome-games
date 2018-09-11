@@ -7,24 +7,7 @@
     <child>
       <object class="GtkStack" id="gamepad_view_stack">
         <property name="visible">True</property>
-        <property name="hexpand">True</property>
         <property name="vexpand">True</property>
-        <child>
-          <object class="GtkBox" id="keyboard_mapper_holder">
-            <property name="visible">True</property>
-          </object>
-          <packing>
-            <property name="name">keyboard_mapper</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkBox" id="keyboard_tester_holder">
-            <property name="visible">True</property>
-          </object>
-          <packing>
-            <property name="name">keyboard_tester</property>
-          </packing>
-        </child>
       </object>
     </child>
     <child>

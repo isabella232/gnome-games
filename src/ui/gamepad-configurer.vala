@@ -76,7 +76,7 @@ private class Games.GamepadConfigurer : Gtk.Box {
 				/* translators: testing a gamepad, %s is its name */
 				header_bar.title = _("Testing %s").printf (device.get_name ());
 				header_bar.get_style_context ().remove_class ("selection-mode");
-				gamepad_view_stack.visible_child = gamepad_tester_holder;
+				gamepad_view_stack.visible_child = tester;
 				action_bar_stack.visible_child = tester_action_bar;
 
 				tester.start ();
@@ -88,7 +88,7 @@ private class Games.GamepadConfigurer : Gtk.Box {
 				/* translators: configuring a gamepad, %s is its name */
 				header_bar.title = _("Configuring %s").printf (device.get_name ());
 				header_bar.get_style_context ().add_class ("selection-mode");
-				gamepad_view_stack.visible_child = gamepad_mapper_holder;
+				gamepad_view_stack.visible_child = mapper;
 				action_bar_stack.visible_child = mapper_action_bar;
 
 				tester.stop ();
@@ -113,10 +113,6 @@ private class Games.GamepadConfigurer : Gtk.Box {
 	[GtkChild]
 	private Gtk.Stack gamepad_view_stack;
 	[GtkChild]
-	private Gtk.Box gamepad_mapper_holder;
-	[GtkChild]
-	private Gtk.Box gamepad_tester_holder;
-	[GtkChild]
 	private Gtk.Stack action_bar_stack;
 	[GtkChild]
 	private Gtk.ActionBar tester_action_bar;
@@ -140,9 +136,9 @@ private class Games.GamepadConfigurer : Gtk.Box {
 	public GamepadConfigurer (Manette.Device device) {
 		this.device = device;
 		mapper = new GamepadMapper (device, STANDARD_GAMEPAD_VIEW_CONFIGURATION, STANDARD_GAMEPAD_INPUTS);
-		gamepad_mapper_holder.pack_start (mapper);
+		gamepad_view_stack.add (mapper);
 		tester = new GamepadTester (device, STANDARD_GAMEPAD_VIEW_CONFIGURATION);
-		gamepad_tester_holder.pack_start (tester);
+		gamepad_view_stack.add (tester);
 
 		info_message_binding = mapper.bind_property ("info-message", info_message, "label", BindingFlags.SYNC_CREATE);
 

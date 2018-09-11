@@ -66,7 +66,7 @@ private class Games.KeyboardConfigurer : Gtk.Box {
 
 				header_bar.title = _("Testing Keyboard");
 				header_bar.get_style_context ().remove_class ("selection-mode");
-				gamepad_view_stack.visible_child = keyboard_tester_holder;
+				gamepad_view_stack.visible_child = tester;
 				action_bar_stack.visible_child = tester_action_bar;
 
 				tester.start ();
@@ -77,7 +77,7 @@ private class Games.KeyboardConfigurer : Gtk.Box {
 			case State.CONFIGURE:
 				header_bar.title = _("Configuring Keyboard");
 				header_bar.get_style_context ().add_class ("selection-mode");
-				gamepad_view_stack.visible_child = keyboard_mapper_holder;
+				gamepad_view_stack.visible_child = mapper;
 				action_bar_stack.visible_child = mapper_action_bar;
 
 				tester.stop ();
@@ -101,10 +101,6 @@ private class Games.KeyboardConfigurer : Gtk.Box {
 	[GtkChild]
 	private Gtk.Stack gamepad_view_stack;
 	[GtkChild]
-	private Gtk.Box keyboard_mapper_holder;
-	[GtkChild]
-	private Gtk.Box keyboard_tester_holder;
-	[GtkChild]
 	private Gtk.Stack action_bar_stack;
 	[GtkChild]
 	private Gtk.ActionBar tester_action_bar;
@@ -127,9 +123,9 @@ private class Games.KeyboardConfigurer : Gtk.Box {
 
 	public KeyboardConfigurer () {
 		mapper = new KeyboardMapper (KEYBOARD_GAMEPAD_VIEW_CONFIGURATION, KEYBOARD_GAMEPAD_INPUTS);
-		keyboard_mapper_holder.pack_start (mapper);
+		gamepad_view_stack.add (mapper);
 		tester = new KeyboardTester (KEYBOARD_GAMEPAD_VIEW_CONFIGURATION);
-		keyboard_tester_holder.pack_start (tester);
+		gamepad_view_stack.add (tester);
 		mapping_manager = new KeyboardMappingManager ();
 
 		tester.mapping = mapping_manager.mapping;
