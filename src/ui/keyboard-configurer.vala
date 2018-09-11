@@ -153,7 +153,7 @@ private class Games.KeyboardConfigurer : Gtk.Box {
 
 	private void reset_mapping () {
 		var message_dialog = new ResetControllerMappingDialog ();
-		message_dialog.transient_for = (Gtk.Window) get_toplevel ();
+		message_dialog.transient_for = get_toplevel () as Gtk.Window;
 		message_dialog.response.connect ((response) => {
 			switch (response) {
 				case Gtk.ResponseType.ACCEPT:

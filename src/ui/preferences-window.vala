@@ -49,7 +49,7 @@ private class Games.PreferencesWindow : Gtk.Window {
 
 	public PreferencesWindow () {
 		stack.foreach ((child) => {
-			var page = (PreferencesPage) child;
+			var page = child as PreferencesPage;
 			stack.notify["visible-child-name"].connect (page.visible_page_changed);
 		});
 		stack.notify["visible-child-name"].connect (visible_child_changed);
@@ -57,7 +57,7 @@ private class Games.PreferencesWindow : Gtk.Window {
 	}
 
 	private void visible_child_changed () {
-		var page = (PreferencesPage) stack.visible_child;
+		var page = stack.visible_child as PreferencesPage;
 		if (page == null) {
 			right_header_bar = null;
 

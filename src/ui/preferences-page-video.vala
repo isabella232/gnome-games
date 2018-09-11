@@ -19,7 +19,7 @@ private class Games.PreferencesPageVideo: Gtk.Bin, PreferencesPage {
 		set {
 			for (var i = 0; i < filter_names.length; i++) {
 				var row_item = filter_list_box.get_row_at_index (i);
-				var checkmark_item = (CheckmarkItem) row_item.get_child ();
+				var checkmark_item = row_item.get_child () as CheckmarkItem;
 				checkmark_item.checkmark_visible = (value == filter_names[i]);
 			}
 			_filter_active = value;
