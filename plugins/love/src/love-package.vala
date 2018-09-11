@@ -50,12 +50,12 @@ private class Games.LovePackage : Object {
 		archive.support_filter_all ();
 		archive.support_format_all ();
 
-		var result = archive.open_filename(path, BLOCK_SIZE);
+		var result = archive.open_filename (path, BLOCK_SIZE);
 		if (result != Archive.Result.OK)
 			return false;
 
 		weak Archive.Entry entry;
-		while(archive.next_header(out entry) == Archive.Result.OK) {
+		while (archive.next_header (out entry) == Archive.Result.OK) {
 			var file_path = entry.pathname ();
 			if (file_path != path_in_archive)
 				continue;
@@ -75,12 +75,12 @@ private class Games.LovePackage : Object {
 		archive.support_filter_all ();
 		archive.support_format_all ();
 
-		var result = archive.open_filename(path, BLOCK_SIZE);
+		var result = archive.open_filename (path, BLOCK_SIZE);
 		if (result != Archive.Result.OK)
 			return null;
 
 		weak Archive.Entry entry;
-		while(archive.next_header(out entry) == Archive.Result.OK) {
+		while (archive.next_header (out entry) == Archive.Result.OK) {
 			var file_path = entry.pathname ();
 			if (file_path != path_in_archive)
 				continue;
@@ -102,12 +102,12 @@ private class Games.LovePackage : Object {
 		archive.support_filter_all ();
 		archive.support_format_all ();
 
-		var result = archive.open_filename(path, BLOCK_SIZE);
+		var result = archive.open_filename (path, BLOCK_SIZE);
 		if (result != Archive.Result.OK)
 			return null;
 
 		weak Archive.Entry entry;
-		while(archive.next_header(out entry) == Archive.Result.OK) {
+		while (archive.next_header (out entry) == Archive.Result.OK) {
 			var file_path = entry.pathname ();
 			if (file_path != path_in_archive)
 				continue;

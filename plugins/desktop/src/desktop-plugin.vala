@@ -153,5 +153,5 @@ private class Games.DesktopPlugin : Object, Plugin {
 
 [ModuleInit]
 public Type register_games_plugin (TypeModule module) {
-	return typeof(Games.DesktopPlugin);
+	return typeof (Games.DesktopPlugin);
 }

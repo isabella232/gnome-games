@@ -80,7 +80,7 @@ private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 		if (device == null)
 			return;
 
-		var configurer = new GamepadConfigurer(device);
+		var configurer = new GamepadConfigurer (device);
 		back_handler_id = configurer.back.connect (on_back);
 		header_bar_binding = configurer.bind_property ("header-bar", this, "header-bar",
 		                                               BindingFlags.SYNC_CREATE);

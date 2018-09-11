@@ -62,5 +62,5 @@ private class Games.WiiPlugin : Object, Plugin {
 
 [ModuleInit]
 public Type register_games_plugin (TypeModule module) {
-	return typeof(Games.WiiPlugin);
+	return typeof (Games.WiiPlugin);
 }

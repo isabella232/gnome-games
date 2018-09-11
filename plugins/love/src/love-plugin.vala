@@ -43,5 +43,5 @@ private class Games.LovePlugin : Object, Plugin {
 
 [ModuleInit]
 public Type register_games_plugin (TypeModule module) {
-	return typeof(Games.LovePlugin);
+	return typeof (Games.LovePlugin);
 }

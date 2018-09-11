@@ -100,5 +100,5 @@ private class Games.SteamPlugin : Object, Plugin {
 
 [ModuleInit]
 public Type register_games_plugin (TypeModule module) {
-	return typeof(Games.SteamPlugin);
+	return typeof (Games.SteamPlugin);
 }

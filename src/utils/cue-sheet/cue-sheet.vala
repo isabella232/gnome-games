@@ -102,7 +102,7 @@ public class Games.CueSheet : Object {
 		is_token ("FILE", ref tokens, ref i, line);
 		var file_name = get_token (ref tokens, ref i, line);
 		var file_format_string = get_optional_token (ref tokens, ref i, line);
-		is_end_of_line 	(ref tokens, ref i, line);
+		is_end_of_line (ref tokens, ref i, line);
 
 		if (file_name.has_prefix ("\"") && file_name.has_suffix ("\"") && file_name.length > 1)
 			file_name = file_name[1: file_name.length - 1];
@@ -123,7 +123,7 @@ public class Games.CueSheet : Object {
 		is_token ("TRACK", ref tokens, ref i, line);
 		var track_number_string = get_token (ref tokens, ref i, line);
 		var track_mode_string = get_token (ref tokens, ref i, line);
-		is_end_of_line 	(ref tokens, ref i, line);
+		is_end_of_line (ref tokens, ref i, line);
 
 		var track_number = int.parse (track_number_string);
 		if (track_number < 1 || track_number > 99)

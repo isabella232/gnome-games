@@ -4,7 +4,7 @@ public class Games.GenericGenre : Object, Genre {
 	private List<string> genre;
 
 	public GenericGenre (List<string> genre) {
-		this.genre = genre.copy();
+		this.genre = genre.copy ();
 	}
 
 	public unowned List<string> get_genre () {

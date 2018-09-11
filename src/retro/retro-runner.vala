@@ -153,7 +153,7 @@ public class Games.RetroRunner : Object, Runner {
 		load_media_data ();
 
 		if (!is_initialized)
-			init();
+			init ();
 
 		loop.stop ();
 
@@ -169,7 +169,7 @@ public class Games.RetroRunner : Object, Runner {
 
 	public void resume () throws Error {
 		if (!is_initialized)
-			init();
+			init ();
 
 		loop.stop ();
 
@@ -485,7 +485,7 @@ public class Games.RetroRunner : Object, Runner {
 
 		var medias_path = get_medias_path ();
 
-		string contents = media_set.selected_media_number.to_string();
+		string contents = media_set.selected_media_number.to_string ();
 
 		FileUtils.set_contents (medias_path, contents, contents.length);
 	}
@@ -499,7 +499,7 @@ public class Games.RetroRunner : Object, Runner {
 		string contents;
 		FileUtils.get_contents (medias_path, out contents);
 
-		int disc_num = int.parse(contents);
+		int disc_num = int.parse (contents);
 		media_set.selected_media_number = disc_num;
 	}
 
@@ -542,8 +542,8 @@ public class Games.RetroRunner : Object, Runner {
 		}
 		var title = game_title.get_title ();
 
-		var x_dpi = pixbuf.get_option("x-dpi") ?? "";
-		var y_dpi = pixbuf.get_option("y-dpi") ?? "";
+		var x_dpi = pixbuf.get_option ("x-dpi") ?? "";
+		var y_dpi = pixbuf.get_option ("y-dpi") ?? "";
 
 		// See http://www.libpng.org/pub/png/spec/iso/index-object.html#11textinfo
 		// for description of used keys. "Game Title" and "Platform" are

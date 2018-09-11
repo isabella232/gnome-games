@@ -165,7 +165,7 @@ private class Games.KeyboardConfigurer : Gtk.Box {
 					break;
 			}
 
-			message_dialog.destroy();
+			message_dialog.destroy ();
 		});
 		message_dialog.show ();
 	}

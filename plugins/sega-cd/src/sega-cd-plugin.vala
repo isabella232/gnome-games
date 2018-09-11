@@ -125,5 +125,5 @@ private class Games.SegaCDPlugin : Object, Plugin {
 
 [ModuleInit]
 public Type register_games_plugin (TypeModule module) {
-	return typeof(Games.SegaCDPlugin);
+	return typeof (Games.SegaCDPlugin);
 }

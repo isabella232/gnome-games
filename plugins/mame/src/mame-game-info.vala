@@ -33,7 +33,7 @@ private struct Games.MameGameInfo {
 			if (!game_regex.match (line, 0, out match_info))
 				continue;
 
-			var game_info = MameGameInfo() {
+			var game_info = MameGameInfo () {
 				id = cleanup_string (match_info.fetch (2)), // NAME
 				company = cleanup_string (match_info.fetch (9)), // COMPANY
 				name = cleanup_string (match_info.fetch (10)) // FULLNAME

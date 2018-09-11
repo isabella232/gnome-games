@@ -62,5 +62,5 @@ private class Games.GameCubePlugin : Object, Plugin {
 
 [ModuleInit]
 public Type register_games_plugin (TypeModule module) {
-	return typeof(Games.GameCubePlugin);
+	return typeof (Games.GameCubePlugin);
 }

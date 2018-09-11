@@ -525,7 +525,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	private bool store_window_size () {
-		var geometry = get_geometry();
+		var geometry = get_geometry ();
 		if (geometry == null)
 			return false;
 

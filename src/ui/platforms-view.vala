@@ -4,7 +4,7 @@ private class Games.PlatformsView : SidebarView {
 	private GenericSet<Platform> platforms = new GenericSet<Platform> (Platform.hash, Platform.equal);
 
 	protected override void game_added (Game game) {
-		var platform = game.get_platform();
+		var platform = game.get_platform ();
 
 		if (!platforms.contains (platform)) {
 			platforms.add (platform);

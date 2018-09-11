@@ -105,5 +105,5 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 
 [ModuleInit]
 public Type register_games_plugin (TypeModule module) {
-	return typeof(Games.SegaSaturnPlugin);
+	return typeof (Games.SegaSaturnPlugin);
 }

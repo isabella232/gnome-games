@@ -61,5 +61,5 @@ private class Games.NintendoDsPlugin : Object, Plugin {
 
 [ModuleInit]
 public Type register_games_plugin (TypeModule module) {
-	return typeof(Games.NintendoDsPlugin);
+	return typeof (Games.NintendoDsPlugin);
 }

@@ -50,5 +50,5 @@ private class Games.LibretroPlugin : Object, Plugin {
 
 [ModuleInit]
 public Type register_games_plugin (TypeModule module) {
-	return typeof(Games.LibretroPlugin);
+	return typeof (Games.LibretroPlugin);
 }
