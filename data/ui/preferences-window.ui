@@ -28,7 +28,7 @@
       </object>
     </child>
     <child>
-      <object class="GtkBox" id="hbox1">
+      <object class="GtkBox" id="content_box">
         <property name="visible">True</property>
         <child>
           <object class="GtkBox" id="sidebar_vbox">
