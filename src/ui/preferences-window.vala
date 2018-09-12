@@ -9,7 +9,7 @@ private class Games.PreferencesWindow : Gtk.Window {
 	[GtkChild]
 	private Gtk.Separator header_separator;
 	[GtkChild]
-	private Gtk.Box sidebar_vbox;
+	private Gtk.StackSidebar sidebar;
 	[GtkChild]
 	private Gtk.Separator separator;
 	[GtkChild]
@@ -36,7 +36,7 @@ private class Games.PreferencesWindow : Gtk.Window {
 			header_separator.visible = !value;
 			left_header_bar.visible = !value;
 			separator.visible = !value;
-			sidebar_vbox.visible = !value;
+			sidebar.visible = !value;
 			if (right_header_bar != null)
 				right_header_bar.show_close_button = !value;
 

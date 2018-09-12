@@ -31,21 +31,15 @@
       <object class="GtkBox" id="content_box">
         <property name="visible">True</property>
         <child>
-          <object class="GtkBox" id="sidebar_vbox">
-            <property name="orientation">vertical</property>
+          <object class="GtkStackSidebar" id="sidebar">
+            <property name="margin-top">4</property>
+            <property name="stack">stack</property>
+            <property name="vexpand">True</property>
             <property name="visible">True</property>
-            <child>
-              <object class="GtkStackSidebar" id="sidebar">
-                <property name="margin-top">4</property>
-                <property name="stack">stack</property>
-                <property name="vexpand">True</property>
-                <property name="visible">True</property>
-                <property name="width-request">150</property>
-                <style>
-                  <class name="preferences" />
-                </style>
-              </object>
-            </child>
+            <property name="width-request">150</property>
+            <style>
+              <class name="preferences" />
+            </style>
           </object>
         </child>
         <child>
