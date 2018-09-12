@@ -1,19 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <template class="GamesPreferencesPageControllers" parent="GtkStack">
+  <template class="GamesPreferencesPageControllers" parent="GtkBin">
     <property name="visible">True</property>
-    <property name="visible-child">main_stack_child_holder</property>
-    <property name="transition-type">GTK_STACK_TRANSITION_TYPE_SLIDE_LEFT_RIGHT</property>
     <child>
-      <object class="GtkBox" id="extra_stack_child_holder">
-        <property name="visible">True</property>
-      </object>
-      <packing>
-        <property name="name">extra_stack_child</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkScrolledWindow" id="main_stack_child_holder">
+      <object class="GtkScrolledWindow">
         <property name="visible">True</property>
         <property name="hscrollbar-policy">never</property>
         <child>
@@ -76,12 +66,9 @@
           </object>
         </child>
       </object>
-      <packing>
-        <property name="name">main_stack_child</property>
-      </packing>
     </child>
   </template>
-  <object class="GtkHeaderBar" id="default_header_bar">
+  <object class="GtkHeaderBar" id="header_bar">
     <property name="visible">True</property>
     <property name="expand">True</property>
     <property name="title" translatable="yes">Controllers</property>

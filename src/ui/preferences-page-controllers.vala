@@ -1,9 +1,19 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-page-controllers.ui")]
-private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
-	public Gtk.HeaderBar header_bar { get; protected set; }
-	public bool immersive_mode { get; protected set; }
+private class Games.PreferencesPageControllers: Gtk.Bin, PreferencesPage {
+	[GtkChild (name = "header_bar")]
+	private Gtk.HeaderBar _header_bar;
+	public Gtk.HeaderBar header_bar {
+		protected set {}
+		get { return _header_bar; }
+	}
+
+	public bool immersive_mode {
+		protected set {}
+		get { return false; }
+	}
+
 	public PreferencesSubpage subpage { get; protected set; }
 
 	[GtkChild]
@@ -14,30 +24,17 @@ private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 	private Gtk.ListBox gamepads_list_box;
 	[GtkChild]
 	private Gtk.ListBox keyboard_list_box;
-	[GtkChild]
-	private Gtk.Box extra_stack_child_holder;
-	[GtkChild]
-	private Gtk.HeaderBar default_header_bar;
 
 	private Manette.Monitor monitor;
 
-	private Binding header_bar_binding;
-	private Binding immersive_mode_binding;
 	private ulong back_handler_id;
 
 	construct {
-		header_bar = default_header_bar;
-		immersive_mode = false;
-
 		monitor = new Manette.Monitor ();
 		monitor.device_connected.connect (rebuild_gamepad_list);
 		monitor.device_disconnected.connect (rebuild_gamepad_list);
 		build_gamepad_list ();
 		build_keyboard_list ();
-	}
-
-	public void visible_page_changed () {
-		on_back_clicked (null);
 	}
 
 	private void rebuild_gamepad_list () {
@@ -104,20 +101,5 @@ private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 	private void on_back () {
 		subpage.disconnect (back_handler_id);
 		subpage = null;
-	}
-
-	private void on_back_clicked (Object? emitter) {
-		header_bar_binding = null;
-		immersive_mode_binding = null;
-		if (back_handler_id != 0) {
-			if (emitter != null)
-				emitter.disconnect (back_handler_id);
-			back_handler_id = 0;
-		}
-
-		header_bar = default_header_bar;
-		immersive_mode = false;
-		visible_child_name = "main_stack_child";
-		extra_stack_child_holder.foreach ((child) => child.destroy ());
 	}
 }
