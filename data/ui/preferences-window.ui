@@ -16,8 +16,10 @@
             <property name="transition-type">slide-left-right</property>
             <property name="transition-duration">250</property>
             <child>
-              <object class="GtkBox" id="titlebar_box">
+              <object class="HdyLeaflet" id="titlebar_box">
                 <property name="visible">True</property>
+                <property name="mode-transition-type">slide</property>
+                <property name="child-transition-type">slide</property>
                 <child>
                   <object class="GtkHeaderBar" id="left_header_bar">
                     <property name="name">left_header_bar</property>
@@ -80,8 +82,11 @@
         <property name="transition-duration">250</property>
         <signal name="notify::transition-running" handler="subpage_transition_finished"/>
         <child>
-          <object class="GtkBox" id="content_box">
+          <object class="HdyLeaflet" id="content_box">
             <property name="visible">True</property>
+            <property name="mode-transition-type">slide</property>
+            <property name="child-transition-type">slide</property>
+            <signal name="notify::folded" handler="on_folded_changed" after="yes"/>
             <child>
               <object class="GamesPreferencesSidebar" id="sidebar">
                 <property name="stack">stack</property>
@@ -106,6 +111,7 @@
                 <property name="expand">True</property>
                 <property name="visible-child">video_page</property>
                 <property name="transition-type">crossfade</property>
+                <property name="width-request">300</property>
                 <child>
                   <object class="GamesPreferencesPageVideo" id="video_page">
                     <property name="visible">True</property>
@@ -133,6 +139,13 @@
     <widgets>
       <widget name="left_header_bar"/>
       <widget name="sidebar"/>
+    </widgets>
+  </object>
+  <object class="GtkSizeGroup">
+    <property name="mode">horizontal</property>
+    <widgets>
+      <widget name="right_header_bar"/>
+      <widget name="stack"/>
     </widgets>
   </object>
 </interface>

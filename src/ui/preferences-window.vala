@@ -7,15 +7,22 @@ private class Games.PreferencesWindow : Gtk.Window {
 	[GtkChild]
 	private Gtk.Stack titlebar_stack;
 	[GtkChild]
-	private Gtk.Box titlebar_box;
+	private Hdy.Leaflet titlebar_box;
+	[GtkChild]
+	private Gtk.HeaderBar left_header_bar;
 	[GtkChild]
 	private Gtk.HeaderBar right_header_bar;
 	[GtkChild]
 	private Gtk.Stack main_stack;
 	[GtkChild]
-	private Gtk.Box content_box;
+	private Hdy.Leaflet content_box;
+	[GtkChild]
+	private PreferencesSidebar sidebar;
 	[GtkChild]
 	private Gtk.Stack stack;
+
+	[GtkChild]
+	private Gtk.Button back_button;
 
 	private PreferencesSubpage _subpage;
 	public PreferencesSubpage subpage {
@@ -43,6 +50,9 @@ private class Games.PreferencesWindow : Gtk.Window {
 
 				titlebar_stack.add (header_bar);
 				titlebar_stack.visible_child = header_bar;
+
+				content_box.visible_child = stack;
+				titlebar_box.visible_child = right_header_bar;
 			}
 
 			_subpage = value;
@@ -56,11 +66,18 @@ private class Games.PreferencesWindow : Gtk.Window {
 	private Binding selection_mode_binding;
 
 	public PreferencesWindow () {
-		sidebar_row_selected ();
+		update_ui ();
 	}
 
 	[GtkCallback]
 	private void sidebar_row_selected () {
+		content_box.visible_child = stack;
+		titlebar_box.visible_child = right_header_bar;
+
+		update_ui ();
+	}
+
+	private void update_ui () {
 		var page = stack.visible_child as PreferencesPage;
 		if (page == null) {
 			right_header_bar.title = "";
@@ -87,5 +104,21 @@ private class Games.PreferencesWindow : Gtk.Window {
 
 	[GtkCallback]
 	private void on_back_clicked () {
+		content_box.visible_child = sidebar;
+		titlebar_box.visible_child = left_header_bar;
+	}
+
+	[GtkCallback]
+	private void on_folded_changed (Object object, ParamSpec paramSpec) {
+		var folded = content_box.folded;
+
+		left_header_bar.show_close_button = folded;
+		back_button.visible = folded;
+		sidebar.show_selection = !folded;
+
+		if (folded)
+			stack.transition_type = Gtk.StackTransitionType.NONE;
+		else
+			stack.transition_type = Gtk.StackTransitionType.CROSSFADE;
 	}
 }
