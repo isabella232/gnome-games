@@ -5,12 +5,6 @@ foreach icon_size: icon_sizes
   highcontrast_dir = join_paths('HighContrast', icon_size, 'apps')
 
   install_data(
-    join_paths(hicolor_dir, 'org.gnome.Games.png'),
-    install_dir: join_paths(datadir, 'icons', hicolor_dir),
-    rename: '@0@.png'.format(application_id)
-  )
-
-  install_data(
     join_paths(highcontrast_dir, 'org.gnome.Games.png'),
     install_dir: join_paths(datadir, 'icons', highcontrast_dir),
     rename: '@0@.png'.format(application_id)
@@ -18,6 +12,12 @@ foreach icon_size: icon_sizes
 endforeach
 
 hicolor_dir = join_paths('hicolor', 'scalable', 'apps')
+
+install_data(
+  join_paths(hicolor_dir, 'org.gnome.Games.svg'),
+  install_dir: join_paths(datadir, 'icons', hicolor_dir),
+  rename: '@0@.svg'.format(application_id)
+)
 
 install_data(
   join_paths(hicolor_dir, 'org.gnome.Games-symbolic.svg'),
