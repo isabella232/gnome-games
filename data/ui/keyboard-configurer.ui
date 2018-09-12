@@ -60,6 +60,7 @@
             <child type="center">
               <object class="GtkLabel" id="info_message">
                 <property name="visible">True</property>
+                <property name="ellipsize">end</property>
               </object>
             </child>
           </object>
