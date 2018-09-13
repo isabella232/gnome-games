@@ -44,62 +44,45 @@ private class Games.GamepadView : Gtk.DrawingArea {
 		double x, y, scale;
 		calculate_image_dimensions (out x, out y, out scale);
 
-		var color_context = create_similar_context (context, x, y, scale);
-		color_gamepad (context, color_context);
-		var highlight_context = create_similar_context (context, x, y, scale);
-		highlight_gamepad (context, highlight_context);
+		context.translate (x, y);
+		context.scale (scale, scale);
+
+		color_gamepad (context);
+		highlight_gamepad (context);
 
 		return false;
 	}
 
-	private void color_gamepad (Cairo.Context gamepad_context, Cairo.Context color_context) {
-		var color_surface = color_context.get_target ();
-
-		handle.render_cairo (color_context);
+	private void color_gamepad (Cairo.Context context) {
+		context.push_group ();
+		handle.render_cairo (context);
+		var group = context.pop_group ();
 
 		Gdk.RGBA color;
 		get_style_context ().lookup_color ("theme_fg_color", out color);
-		gamepad_context.set_source_rgba (color.red, color.green, color.blue, color.alpha);
-		gamepad_context.mask_surface (color_surface, 0, 0);
+		context.set_source_rgba (color.red, color.green, color.blue, color.alpha);
+		context.mask (group);
 	}
 
-	private void highlight_gamepad (Cairo.Context gamepad_context, Cairo.Context highlight_context) {
-		var highlight_surface = highlight_context.get_target ();
-
+	private void highlight_gamepad (Cairo.Context context) {
+		context.push_group ();
 		for (var i = 0; i < configuration.input_paths.length; ++i)
 			if (input_highlights[i])
-				handle.render_cairo_sub (highlight_context, "#" + configuration.input_paths[i].path);
+				handle.render_cairo_sub (context, "#" + configuration.input_paths[i].path);
+		var group = context.pop_group ();
 
 		Gdk.RGBA color;
 		get_style_context ().lookup_color ("theme_selected_bg_color", out color);
-		gamepad_context.set_source_rgba (color.red, color.green, color.blue, color.alpha);
-		gamepad_context.mask_surface (highlight_surface, 0, 0);
-	}
-
-	private Cairo.Context create_similar_context (Cairo.Context context, double x, double y, double scale) {
-		var w = get_allocated_width ();
-		var h = get_allocated_height ();
-		var surface = context.get_target ();
-		var similar_surface = new Cairo.Surface.similar (surface, Cairo.Content.COLOR_ALPHA, w, h);
-		var similar_context = new Cairo.Context (similar_surface);
-		similar_context.translate (x, y);
-		similar_context.scale (scale, scale);
-
-		return similar_context;
+		context.set_source_rgba (color.red, color.green, color.blue, color.alpha);
+		context.mask (group);
 	}
 
 	private void calculate_image_dimensions (out double x, out double y, out double scale) {
 		double w = get_allocated_width ();
 		double h = get_allocated_height ();
-		double allocation_ratio = w / h;
-		double image_ratio = (double) handle.width / handle.height;
 
-		if (allocation_ratio > image_ratio) {
-			scale = h / handle.height;
-		}
-		else {
-			scale = w / handle.width;
-		}
+		scale = double.min (h / handle.height, w / handle.width);
+
 		x = (w - handle.width * scale) / 2;
 		y = (h - handle.height * scale) / 2;
 	}
