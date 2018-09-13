@@ -65,16 +65,17 @@ private class Games.GamepadView : Gtk.DrawingArea {
 	}
 
 	private void highlight_gamepad (Cairo.Context context) {
-		context.push_group ();
 		for (var i = 0; i < configuration.input_paths.length; ++i)
-			if (input_highlights[i])
+			if (input_highlights[i]) {
+				context.push_group ();
 				handle.render_cairo_sub (context, "#" + configuration.input_paths[i].path);
-		var group = context.pop_group ();
+				var group = context.pop_group ();
 
-		Gdk.RGBA color;
-		get_style_context ().lookup_color ("theme_selected_bg_color", out color);
-		context.set_source_rgba (color.red, color.green, color.blue, color.alpha);
-		context.mask (group);
+				Gdk.RGBA color;
+				get_style_context ().lookup_color ("theme_selected_bg_color", out color);
+				context.set_source_rgba (color.red, color.green, color.blue, color.alpha);
+				context.mask (group);
+			}
 	}
 
 	private void calculate_image_dimensions (out double x, out double y, out double scale) {
