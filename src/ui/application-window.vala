@@ -65,6 +65,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	public bool loading_notification { get; set; }
 
+	public bool is_narrow { get; set; }
+
 	[GtkChild]
 	private Gtk.Stack content_box;
 	[GtkChild]
@@ -84,9 +86,11 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private Binding box_search_binding;
 	private Binding box_fullscreen_binding;
 	private Binding box_empty_collection_binding;
+	private Binding box_narrow_binding;
 	private Binding header_bar_search_binding;
 	private Binding header_bar_fullscreen_binding;
 	private Binding header_bar_empty_collection_binding;
+	private Binding header_bar_narrow_binding;
 	private Binding loading_notification_binding;
 
 	private Cancellable run_game_cancellable;
@@ -110,10 +114,15 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			is_collection_empty = collection.get_n_items () == 0;
 		});
 		is_collection_empty = collection.get_n_items () == 0;
+		is_narrow = false;
 	}
 
 	construct {
 		settings = new Settings ("org.gnome.Games");
+
+		var window = get_window ();
+		var events = window.get_events ();
+		window.set_events (events | Gdk.EventMask.STRUCTURE_MASK);
 
 		int width, height;
 		settings.get ("window-size", "(ii)", out width, out height);
@@ -143,6 +152,11 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		                                              BindingFlags.BIDIRECTIONAL);
 		header_bar_empty_collection_binding = bind_property ("is-collection-empty", collection_header_bar, "is-collection-empty",
 		                                                     BindingFlags.BIDIRECTIONAL);
+
+		box_narrow_binding = bind_property ("is-narrow", collection_box, "is-narrow",
+		                                    BindingFlags.DEFAULT);
+		header_bar_narrow_binding = bind_property ("is-narrow", collection_header_bar, "is-narrow",
+		                                           BindingFlags.DEFAULT);
 
 		konami_code = new KonamiCode (this);
 		konami_code.code_performed.connect (on_konami_code_performed);
@@ -209,6 +223,12 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 		if (window_size_update_timeout == -1 && !is_maximized)
 			window_size_update_timeout = Timeout.add (WINDOW_SIZE_UPDATE_DELAY_MILLISECONDS, store_window_size);
+	}
+
+	[GtkCallback]
+	public bool on_configure_event (Gtk.Widget widget, Gdk.EventConfigure event) {
+		is_narrow = event.width < 700;
+		return false;
 	}
 
 	[GtkCallback]

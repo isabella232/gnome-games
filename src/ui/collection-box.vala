@@ -25,6 +25,10 @@ private class Games.CollectionBox : Gtk.Box {
 	public Gtk.Stack viewstack {
 		get { return _viewstack; }
 	}
+	[GtkChild]
+	private Gtk.ActionBar narrow_action_bar;
+
+	public bool is_narrow { get; set; }
 
 	private bool _is_collection_empty;
 	public bool is_collection_empty {
@@ -43,6 +47,7 @@ private class Games.CollectionBox : Gtk.Box {
 	private Binding platform_collection_binding;
 	private Binding search_binding;
 	private Binding loading_notification_binding;
+	private Binding narrow_action_bar_binding;
 
 	public CollectionBox (ListStore collection) {
 		Object (collection: collection);
@@ -62,6 +67,9 @@ private class Games.CollectionBox : Gtk.Box {
 		                                BindingFlags.BIDIRECTIONAL);
 		loading_notification_binding = bind_property ("loading-notification", loading_notification_revealer, "reveal-child",
 		                                              BindingFlags.DEFAULT);
+
+		narrow_action_bar_binding = bind_property ("is-narrow", narrow_action_bar, "visible",
+		                                           BindingFlags.DEFAULT);
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {

@@ -6,6 +6,7 @@
     <property name="default-width">768</property>
     <property name="default-height">600</property>
     <property name="show-menubar">False</property>
+    <signal name="configure-event" handler="on_configure_event"/>
     <signal name="delete-event" after="yes" handler="on_delete_event"/>
     <signal name="key-press-event" after="yes" handler="on_key_pressed"/>
     <signal name="button-press-event" after="yes" handler="on_button_pressed"/>

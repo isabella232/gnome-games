@@ -51,6 +51,9 @@ private abstract class Games.SidebarView : Gtk.Box {
 	protected Gtk.ListBox list_box;
 
 	[GtkChild]
+	private Hdy.Leaflet leaflet;
+
+	[GtkChild]
 	private GamepadBrowse gamepad_browse;
 
 	construct {
@@ -177,6 +180,7 @@ private abstract class Games.SidebarView : Gtk.Box {
 	[GtkCallback]
 	private void on_list_box_row_activated (Gtk.ListBoxRow row_item) {
 		collection_view.select_default_game (Gtk.DirectionType.RIGHT);
+		leaflet.visible_child = collection_view;
 	}
 
 	private void on_model_changed (uint position, uint removed, uint added) {
@@ -197,5 +201,16 @@ private abstract class Games.SidebarView : Gtk.Box {
 			return;
 
 		on_list_box_row_selected (row);
+	}
+
+	[GtkCallback]
+	private void on_fold_changed (Object object, ParamSpec paramSpec) {
+		var folded = (leaflet.fold == Hdy.Fold.FOLDED);
+
+		if (folded)
+			list_box.selection_mode = Gtk.SelectionMode.NONE;
+		else {
+			list_box.selection_mode = Gtk.SelectionMode.SINGLE;
+		}
 	}
 }

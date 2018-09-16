@@ -56,19 +56,26 @@
       <object class="GtkStack" id="title_stack">
         <property name="visible">True</property>
         <property name="transition-type">crossfade</property>
+        <property name="hhomogeneous">False</property>
         <child>
           <object class="GtkStackSwitcher" id="view_switcher">
             <property name="visible">True</property>
           </object>
+          <packing>
+            <property name="name">view_switcher</property>
+          </packing>
         </child>
         <child>
-          <object class="GtkLabel" id="empty_title">
+          <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="label" translatable="yes">Games</property>
             <style>
               <class name="title"/>
             </style>
           </object>
+          <packing>
+            <property name="name">title</property>
+          </packing>
         </child>
       </object>
     </child>
