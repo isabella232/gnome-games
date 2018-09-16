@@ -14,19 +14,14 @@ gamesgamethumbnail {
 }
 
 .devel headerbar {
-	background: -gtk-icontheme("system-run-symbolic") right 0/350px 64px no-repeat,
-	            linear-gradient(to left, rgba (165, 177, 189, 0.5) 0,
-	                                     rgba (165, 177, 189, 0.5) 200px,
-	                                     rgba (  0,   0,   0,   0) 400px),
-	            @theme_bg_color;
-	border-color: @borders;
+	background: transparent
+	            -gtk-icontheme("system-run-symbolic") 80% 0/128px 128px no-repeat,
+	            linear-gradient(to left,
+	                            mix(@theme_selected_bg_color, @theme_bg_color, 0.5) 8%,
+	                            @theme_bg_color 25%);
+	color: alpha(@theme_fg_color, 0.1);
 }
 
-.devel headerbar:backdrop {
-	background: -gtk-icontheme("system-run-symbolic") right 0/350px 64px no-repeat,
-	            linear-gradient(to left, rgba (165, 177, 189, 0.3) 0,
-	                                     rgba (165, 177, 189, 0.3) 200px,
-	                                     rgba (  0,   0,   0,   0) 400px),
-	            @theme_unfocused_bg_color;
-	border-color: @unfocused_borders;
+.devel headerbar label {
+	color: @theme_fg_color;
 }
