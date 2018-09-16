@@ -15,6 +15,7 @@
     <child>
       <object class="GtkScrolledWindow" id="main_stack_child_holder">
         <property name="visible">True</property>
+        <property name="hscrollbar-policy">never</property>
         <child>
           <object class="GtkViewport">
             <property name="visible">True</property>
