@@ -11,19 +11,27 @@
           <object class="GtkViewport">
             <property name="visible">true</property>
             <child>
-              <object class="GtkBox">
+              <object class="HdyColumn">
                 <property name="visible">True</property>
-                <property name="orientation">vertical</property>
-                <property name="margin">12</property>
-                <property name="spacing">12</property>
+                <property name="expand">True</property>
+                <property name="maximum_width">600</property>
+                <property name="linear-growth-width">300</property>
                 <child>
-                  <object class="GtkFrame">
-                    <property name="visible">true</property>
-                    <property name="shadow-type">in</property>
+                  <object class="GtkBox">
+                    <property name="visible">True</property>
+                    <property name="orientation">vertical</property>
+                    <property name="margin">12</property>
+                    <property name="spacing">12</property>
                     <child>
-                      <object class="GtkListBox" id="list_box">
-                        <property name="selection-mode">none</property>
+                      <object class="GtkFrame">
                         <property name="visible">true</property>
+                        <property name="shadow-type">in</property>
+                        <child>
+                          <object class="GtkListBox" id="list_box">
+                            <property name="selection-mode">none</property>
+                            <property name="visible">true</property>
+                          </object>
+                        </child>
                       </object>
                     </child>
                   </object>
