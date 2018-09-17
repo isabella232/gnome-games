@@ -10,53 +10,61 @@
           <object class="GtkViewport">
             <property name="visible">True</property>
             <child>
-              <object class="GtkBox">
+              <object class="HdyColumn">
                 <property name="visible">True</property>
-                <property name="orientation">vertical</property>
-                <property name="margin">12</property>
-                <property name="spacing">12</property>
+                <property name="expand">True</property>
+                <property name="maximum_width">600</property>
+                <property name="linear-growth-width">300</property>
                 <child>
-                  <object class="GtkLabel" id="gamepads_label">
+                  <object class="GtkBox">
                     <property name="visible">True</property>
-                    <property name="halign">start</property>
-                    <property name="label" translatable="yes">Gamepads</property>
-                    <attributes>
-                      <attribute name="weight" value="bold"/>
-                    </attributes>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkFrame" id="gamepads_frame">
-                    <property name="visible">True</property>
-                    <property name="shadow_type">in</property>
+                    <property name="orientation">vertical</property>
+                    <property name="margin">12</property>
+                    <property name="spacing">12</property>
                     <child>
-                      <object class="GtkListBox" id="gamepads_list_box">
+                      <object class="GtkLabel" id="gamepads_label">
                         <property name="visible">True</property>
-                        <property name="selection_mode">none</property>
-                        <signal name="row-activated" handler="gamepads_list_box_row_activated"/>
+                        <property name="halign">start</property>
+                        <property name="label" translatable="yes">Gamepads</property>
+                        <attributes>
+                          <attribute name="weight" value="bold"/>
+                        </attributes>
                       </object>
                     </child>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="visible">True</property>
-                    <property name="halign">start</property>
-                    <property name="label" translatable="yes">Keyboard</property>
-                    <attributes>
-                      <attribute name="weight" value="bold"/>
-                    </attributes>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkFrame">
-                    <property name="visible">True</property>
-                    <property name="shadow_type">in</property>
                     <child>
-                      <object class="GtkListBox" id="keyboard_list_box">
+                      <object class="GtkFrame" id="gamepads_frame">
                         <property name="visible">True</property>
-                        <property name="selection_mode">none</property>
-                        <signal name="row-activated" handler="keyboard_list_box_row_activated"/>
+                        <property name="shadow_type">in</property>
+                        <child>
+                          <object class="GtkListBox" id="gamepads_list_box">
+                            <property name="visible">True</property>
+                            <property name="selection_mode">none</property>
+                            <signal name="row-activated" handler="gamepads_list_box_row_activated"/>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="visible">True</property>
+                        <property name="halign">start</property>
+                        <property name="label" translatable="yes">Keyboard</property>
+                        <attributes>
+                          <attribute name="weight" value="bold"/>
+                        </attributes>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkFrame">
+                        <property name="visible">True</property>
+                        <property name="shadow_type">in</property>
+                        <child>
+                          <object class="GtkListBox" id="keyboard_list_box">
+                            <property name="visible">True</property>
+                            <property name="selection_mode">none</property>
+                            <signal name="row-activated" handler="keyboard_list_box_row_activated"/>
+                          </object>
+                        </child>
                       </object>
                     </child>
                   </object>

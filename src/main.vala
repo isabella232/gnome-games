@@ -7,6 +7,7 @@ int main (string[] args) {
 
 	Grl.init (ref args);
 
+	typeof (Hdy.Column).ensure ();
 	typeof (Hdy.TitleBar).ensure ();
 
 	var app = new Games.Application ();
