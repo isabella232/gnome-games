@@ -43,12 +43,12 @@ src/retro/retro-simple-type.c
 src/ui/application.c
 src/ui/application-window.c
 src/ui/error-display.c
-src/ui/gamepad-configurer.c
 src/ui/gamepad-mapper.c
-src/ui/keyboard-configurer.c
 src/ui/keyboard-mapper.c
 src/ui/media-selector.c
 src/ui/preferences-page-controllers.c
 src/ui/preferences-page-plugins.c
 src/ui/preferences-page-video.c
+src/ui/preferences-subpage-gamepad.c
+src/ui/preferences-subpage-keyboard.c
 src/utils/cue-sheet/cue-sheet.c
