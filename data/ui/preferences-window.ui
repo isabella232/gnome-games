@@ -11,24 +11,31 @@
       <object class="HdyTitleBar" id="titlebar">
         <property name="visible">True</property>
         <child>
-          <object class="GtkBox" id="titlebar_box">
+          <object class="GtkStack" id="titlebar_stack">
             <property name="visible">True</property>
+            <property name="transition-type">slide-left-right</property>
+            <property name="transition-duration">250</property>
             <child>
-              <object class="GtkHeaderBar" id="left_header_bar">
-                <property name="name">left_header_bar</property>
+              <object class="GtkBox" id="titlebar_box">
                 <property name="visible">True</property>
-                <property name="title" translatable="yes">Preferences</property>
-                <property name="show-close-button">True</property>
-                <property name="decoration_layout">menu</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkSeparator" id="header_separator">
-                <property name="orientation">vertical</property>
-                <property name="visible">True</property>
-                <style>
-                  <class name="sidebar"/>
-                </style>
+                <child>
+                  <object class="GtkHeaderBar" id="left_header_bar">
+                    <property name="name">left_header_bar</property>
+                    <property name="visible">True</property>
+                    <property name="title" translatable="yes">Preferences</property>
+                    <property name="show-close-button">True</property>
+                    <property name="decoration_layout">menu</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkSeparator" id="header_separator">
+                    <property name="orientation">vertical</property>
+                    <property name="visible">True</property>
+                    <style>
+                      <class name="sidebar"/>
+                    </style>
+                  </object>
+                </child>
               </object>
             </child>
           </object>
@@ -36,61 +43,69 @@
       </object>
     </child>
     <child>
-      <object class="GtkBox" id="content_box">
+      <object class="GtkStack" id="main_stack">
         <property name="visible">True</property>
+        <property name="transition-type">slide-left-right</property>
+        <property name="transition-duration">250</property>
+        <signal name="notify::transition-running" handler="subpage_transition_finished"/>
         <child>
-          <object class="GtkStackSidebar" id="sidebar">
-            <property name="margin-top">4</property>
-            <property name="stack">stack</property>
-            <property name="vexpand">True</property>
+          <object class="GtkBox" id="content_box">
             <property name="visible">True</property>
-            <property name="width-request">150</property>
-            <style>
-              <class name="preferences" />
-            </style>
-          </object>
-        </child>
-        <child>
-          <object class="GtkSeparator" id="separator">
-            <property name="orientation">vertical</property>
-            <property name="visible">True</property>
-            <style>
-              <class name="sidebar"/>
-            </style>
-          </object>
-        </child>
-        <child>
-          <object class="GtkStack" id="stack">
-            <property name="visible">True</property>
-            <property name="expand">True</property>
-            <property name="visible-child">video_page</property>
-            <property name="transition-type">GTK_STACK_TRANSITION_TYPE_CROSSFADE</property>
             <child>
-              <object class="GamesPreferencesPageVideo" id="video_page">
+              <object class="GtkStackSidebar" id="sidebar">
+                <property name="margin-top">4</property>
+                <property name="stack">stack</property>
+                <property name="vexpand">True</property>
                 <property name="visible">True</property>
+                <property name="width-request">150</property>
+                <style>
+                  <class name="preferences" />
+                </style>
               </object>
-              <packing>
-                <property name="name">video</property>
-                <property name="title" translatable="yes">Video</property>
-              </packing>
             </child>
             <child>
-              <object class="GamesPreferencesPageControllers" id="controllers_page">
+              <object class="GtkSeparator" id="separator">
+                <property name="orientation">vertical</property>
                 <property name="visible">True</property>
+                <style>
+                  <class name="sidebar"/>
+                </style>
               </object>
-              <packing>
-                <property name="name">controllers</property>
-                <property name="title" translatable="yes">Controllers</property>
-              </packing>
             </child>
             <child>
-              <object class="GamesPreferencesPagePlugins" id="plugins_page">
+              <object class="GtkStack" id="stack">
                 <property name="visible">True</property>
+                <property name="expand">True</property>
+                <property name="visible-child">video_page</property>
+                <property name="transition-type">GTK_STACK_TRANSITION_TYPE_CROSSFADE</property>
+                <child>
+                  <object class="GamesPreferencesPageVideo" id="video_page">
+                    <property name="visible">True</property>
+                  </object>
+                  <packing>
+                    <property name="name">video</property>
+                    <property name="title" translatable="yes">Video</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GamesPreferencesPageControllers" id="controllers_page">
+                    <property name="visible">True</property>
+                  </object>
+                  <packing>
+                    <property name="name">controllers</property>
+                    <property name="title" translatable="yes">Controllers</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GamesPreferencesPagePlugins" id="plugins_page">
+                    <property name="visible">True</property>
+                  </object>
+                  <packing>
+                    <property name="name">plugins</property>
+                    <property name="title" translatable="yes">Extensions</property>
+                  </packing>
+                </child>
               </object>
-              <packing>
-                <property name="name">plugins</property>
-                <property name="title" translatable="yes">Extensions</property>
-              </packing>
             </child>
           </object>
         </child>
