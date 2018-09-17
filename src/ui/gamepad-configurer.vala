@@ -75,7 +75,6 @@ private class Games.GamepadConfigurer : Gtk.Box {
 
 				/* translators: testing a gamepad, %s is its name */
 				header_bar.title = _("Testing %s").printf (device.get_name ());
-				header_bar.get_style_context ().remove_class ("selection-mode");
 				gamepad_view_stack.visible_child = tester;
 				action_bar_stack.visible_child = tester_action_bar;
 
@@ -87,7 +86,6 @@ private class Games.GamepadConfigurer : Gtk.Box {
 			case State.CONFIGURE:
 				/* translators: configuring a gamepad, %s is its name */
 				header_bar.title = _("Configuring %s").printf (device.get_name ());
-				header_bar.get_style_context ().add_class ("selection-mode");
 				gamepad_view_stack.visible_child = mapper;
 				action_bar_stack.visible_child = mapper_action_bar;
 

@@ -3,6 +3,8 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-window.ui")]
 private class Games.PreferencesWindow : Gtk.Window {
 	[GtkChild]
+	private Hdy.TitleBar titlebar;
+	[GtkChild]
 	private Gtk.Box titlebar_box;
 	[GtkChild]
 	private Gtk.HeaderBar left_header_bar;
@@ -33,6 +35,7 @@ private class Games.PreferencesWindow : Gtk.Window {
 	public bool immersive_mode {
 		get { return _immersive_mode; }
 		set {
+			titlebar.selection_mode = value;
 			header_separator.visible = !value;
 			left_header_bar.visible = !value;
 			separator.visible = !value;

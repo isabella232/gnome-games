@@ -8,24 +8,29 @@
     <property name="default-height">500</property>
     <property name="window-position">GTK_WIN_POS_CENTER_ON_PARENT</property>
     <child type="titlebar">
-      <object class="GtkBox" id="titlebar_box">
+      <object class="HdyTitleBar" id="titlebar">
         <property name="visible">True</property>
         <child>
-          <object class="GtkHeaderBar" id="left_header_bar">
-            <property name="name">left_header_bar</property>
+          <object class="GtkBox" id="titlebar_box">
             <property name="visible">True</property>
-            <property name="title" translatable="yes">Preferences</property>
-            <property name="show-close-button">True</property>
-            <property name="decoration_layout">menu</property>
-          </object>
-        </child>
-        <child>
-          <object class="GtkSeparator" id="header_separator">
-            <property name="orientation">vertical</property>
-            <property name="visible">True</property>
-            <style>
-              <class name="sidebar"/>
-            </style>
+            <child>
+              <object class="GtkHeaderBar" id="left_header_bar">
+                <property name="name">left_header_bar</property>
+                <property name="visible">True</property>
+                <property name="title" translatable="yes">Preferences</property>
+                <property name="show-close-button">True</property>
+                <property name="decoration_layout">menu</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkSeparator" id="header_separator">
+                <property name="orientation">vertical</property>
+                <property name="visible">True</property>
+                <style>
+                  <class name="sidebar"/>
+                </style>
+              </object>
+            </child>
           </object>
         </child>
       </object>

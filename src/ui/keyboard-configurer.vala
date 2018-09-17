@@ -65,7 +65,6 @@ private class Games.KeyboardConfigurer : Gtk.Box {
 				reset_button.set_sensitive (!mapping_manager.is_default ());
 
 				header_bar.title = _("Testing Keyboard");
-				header_bar.get_style_context ().remove_class ("selection-mode");
 				gamepad_view_stack.visible_child = tester;
 				action_bar_stack.visible_child = tester_action_bar;
 
@@ -76,7 +75,6 @@ private class Games.KeyboardConfigurer : Gtk.Box {
 				break;
 			case State.CONFIGURE:
 				header_bar.title = _("Configuring Keyboard");
-				header_bar.get_style_context ().add_class ("selection-mode");
 				gamepad_view_stack.visible_child = mapper;
 				action_bar_stack.visible_child = mapper_action_bar;
 
