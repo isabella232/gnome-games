@@ -23,6 +23,9 @@
           <object class="GtkSeparator" id="header_separator">
             <property name="orientation">vertical</property>
             <property name="visible">True</property>
+            <style>
+              <class name="sidebar"/>
+            </style>
           </object>
         </child>
       </object>
@@ -46,6 +49,9 @@
           <object class="GtkSeparator" id="separator">
             <property name="orientation">vertical</property>
             <property name="visible">True</property>
+            <style>
+              <class name="sidebar"/>
+            </style>
           </object>
         </child>
         <child>
