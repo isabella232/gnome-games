@@ -37,7 +37,7 @@ private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 	}
 
 	public void visible_page_changed () {
-		on_back (null);
+		on_back_clicked (null);
 	}
 
 	private void rebuild_gamepad_list () {
@@ -82,7 +82,7 @@ private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 			return;
 
 		var configurer = new GamepadConfigurer (device);
-		back_handler_id = configurer.back.connect (on_back);
+		back_handler_id = configurer.back.connect (on_back_clicked);
 		header_bar_binding = configurer.bind_property ("header-bar", this, "header-bar",
 		                                               BindingFlags.SYNC_CREATE);
 		immersive_mode_binding = configurer.bind_property ("immersive-mode", this, "immersive-mode",
@@ -102,7 +102,7 @@ private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 	[GtkCallback]
 	private void keyboard_list_box_row_activated (Gtk.ListBoxRow row_item) {
 		var configurer = new KeyboardConfigurer ();
-		back_handler_id = configurer.back.connect (on_back);
+		back_handler_id = configurer.back.connect (on_back_clicked);
 		header_bar_binding = configurer.bind_property ("header-bar", this, "header-bar",
 		                                               BindingFlags.SYNC_CREATE);
 		immersive_mode_binding = configurer.bind_property ("immersive-mode", this, "immersive-mode",
@@ -111,7 +111,7 @@ private class Games.PreferencesPageControllers: Gtk.Stack, PreferencesPage {
 		visible_child_name = "extra_stack_child";
 	}
 
-	private void on_back (Object? emitter) {
+	private void on_back_clicked (Object? emitter) {
 		header_bar_binding = null;
 		immersive_mode_binding = null;
 		if (back_handler_id != 0) {
