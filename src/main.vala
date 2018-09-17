@@ -6,7 +6,6 @@ int main (string[] args) {
 	Intl.textdomain (Config.GETTEXT_PACKAGE);
 
 	Grl.init (ref args);
-	Hdy.init (ref args);
 
 	// Needed for shortcuts window
 	typeof (GLib.ThemedIcon).ensure ();

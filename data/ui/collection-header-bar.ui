@@ -8,10 +8,9 @@
         <property name="visible">True</property>
         <property name="transition-type">slide-left-right</property>
         <child>
-          <object class="HdyHeaderBar" id="header_bar">
+          <object class="GtkHeaderBar" id="header_bar">
             <property name="visible">True</property>
             <property name="show-close-button">True</property>
-            <property name="centering-policy">strict</property>
             <child>
               <object class="GtkButton" id="add_game">
                 <property name="visible">True</property>
@@ -60,18 +59,17 @@
               </packing>
             </child>
             <child type="title">
-              <object class="HdySqueezer" id="title_squeezer">
+              <object class="GtkStack" id="title_squeezer">
                 <property name="visible">True</property>
                 <property name="transition-type">crossfade</property>
                 <signal name="notify::visible-child" handler="on_squeezer_visible_child_changed"/>
                 <child>
-                  <object class="HdyViewSwitcher" id="view_switcher">
+                  <object class="GtkStackSwitcher" id="view_switcher">
                     <property name="visible">True</property>
-                    <property name="policy">wide</property>
                   </object>
                 </child>
                 <child>
-                  <object class="GtkLabel">
+                  <object class="GtkLabel" id="empty_label">
                     <property name="visible">True</property>
                     <property name="label" translatable="yes">Games</property>
                     <style>

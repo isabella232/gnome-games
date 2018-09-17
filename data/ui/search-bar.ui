@@ -4,17 +4,17 @@
   <template class="GamesSearchBar" parent="GtkBin">
     <property name="visible">True</property>
     <child>
-      <object class="HdySearchBar" id="search_bar">
+      <object class="GtkSearchBar" id="search_bar">
         <property name="visible">True</property>
         <property name="search-mode-enabled" bind-source="GamesSearchBar" bind-property="search-mode-enabled" bind-flags="sync-create|bidirectional"/>
         <child>
-          <object class="HdyColumn">
+          <object class="GtkBox">
             <property name="visible">True</property>
-            <property name="maximum-width">400</property>
-            <property name="linear-growth-width">300</property>
+            <property name="width-request">400</property>
             <child>
               <object class="GtkSearchEntry" id="entry">
                 <property name="visible">True</property>
+                <property name="hexpand">True</property>
                 <signal name="search-changed" handler="on_search_changed"/>
                 <signal name="activate" handler="on_search_activated"/>
               </object>

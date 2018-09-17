@@ -7,11 +7,8 @@
     <signal name="map" after="yes" handler="on_map"/>
     <signal name="unmap" after="no" handler="on_unmap"/>
     <child>
-      <object class="HdyLeaflet" id="leaflet">
+      <object class="GtkBox" id="leaflet">
         <property name="visible">True</property>
-        <property name="mode-transition-type">slide</property>
-        <property name="child-transition-type">slide</property>
-        <signal name="notify::folded" handler="on_leaflet_folded_changed"/>
         <child>
           <object class="GtkScrolledWindow" id="scrolled_window">
             <property name="visible">True</property>

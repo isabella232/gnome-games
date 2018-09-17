@@ -22,7 +22,10 @@ private class Games.CollectionHeaderBar : Gtk.Bin {
 		get { return _is_collection_empty; }
 		set {
 			_is_collection_empty = value;
-			title_squeezer.set_child_enabled (view_switcher, !value);
+			if (value)
+				title_squeezer.visible_child = empty_label;
+			else
+				title_squeezer.visible_child = view_switcher;
 			update_adaptive_state ();
 		}
 	}
@@ -32,13 +35,15 @@ private class Games.CollectionHeaderBar : Gtk.Bin {
 	[GtkChild]
 	private Gtk.Stack stack;
 	[GtkChild]
-	private Hdy.HeaderBar header_bar;
+	private Gtk.HeaderBar header_bar;
 	[GtkChild]
 	private Gtk.HeaderBar subview_header_bar;
 	[GtkChild]
-	private Hdy.Squeezer title_squeezer;
+	private Gtk.Stack title_squeezer;
 	[GtkChild]
-	private Hdy.ViewSwitcher view_switcher;
+	private Gtk.StackSwitcher view_switcher;
+	[GtkChild]
+	private Gtk.Label empty_label;
 
 	private ulong viewstack_child_changed_id;
 

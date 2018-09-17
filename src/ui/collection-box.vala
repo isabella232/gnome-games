@@ -20,8 +20,6 @@ private class Games.CollectionBox : Gtk.Box {
 	private PlatformsView platform_view;
 	[GtkChild (name = "viewstack")]
 	private Gtk.Stack _viewstack;
-	[GtkChild]
-	private Hdy.ViewSwitcherBar view_switcher_bar;
 
 	public Gtk.Stack viewstack {
 		get { return _viewstack; }
@@ -42,15 +40,9 @@ private class Games.CollectionBox : Gtk.Box {
 	public AdaptiveState adaptive_state { get; construct; }
 
 	construct {
-		var icon_name = Config.APPLICATION_ID + "-symbolic";
-		viewstack.child_set (collection_view, "icon-name", icon_name);
-
 		collection_view.model = collection;
 		platform_view.model = collection;
 		platform_view.adaptive_state = adaptive_state;
-
-		adaptive_state.notify["is-showing-bottom-bar"].connect (update_bottom_bar);
-		adaptive_state.notify["is-subview-open"].connect (update_bottom_bar);
 	}
 
 	public CollectionBox (ListModel collection, AdaptiveState adaptive_state) {
@@ -159,10 +151,5 @@ private class Games.CollectionBox : Gtk.Box {
 
 	public bool search_bar_handle_event (Gdk.Event event) {
 		return search_bar.handle_event (event);
-	}
-
-	private void update_bottom_bar () {
-		view_switcher_bar.reveal = adaptive_state.is_showing_bottom_bar &&
-			(!adaptive_state.is_folded || !adaptive_state.is_subview_open);
 	}
 }

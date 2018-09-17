@@ -6,7 +6,7 @@ private class Games.SearchBar : Gtk.Bin {
 	public bool search_mode_enabled { get; set; }
 
 	[GtkChild]
-	private Hdy.SearchBar search_bar;
+	private Gtk.SearchBar search_bar;
 	[GtkChild]
 	private Gtk.SearchEntry entry;
 

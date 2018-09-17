@@ -7,7 +7,7 @@
     <property name="default-height">500</property>
     <property name="window-position">center-on-parent</property>
     <child type="titlebar">
-      <object class="HdyTitleBar" id="titlebar">
+      <object class="GtkBox" id="titlebar">
         <property name="visible">True</property>
         <child>
           <object class="GtkStack" id="titlebar_stack">
@@ -15,16 +15,14 @@
             <property name="transition-type">slide-left-right</property>
             <property name="transition-duration">250</property>
             <child>
-              <object class="HdyLeaflet" id="titlebar_box">
+              <object class="GtkBox" id="titlebar_box">
                 <property name="visible">True</property>
-                <property name="mode-transition-type">slide</property>
-                <property name="child-transition-type">slide</property>
                 <child>
                   <object class="GtkHeaderBar" id="left_header_bar">
                     <property name="name">left_header_bar</property>
                     <property name="visible">True</property>
                     <property name="title" translatable="yes">Preferences</property>
-                    <property name="show-close-button">True</property>
+                    <property name="show-close-button">False</property>
                     <child>
                       <object class="GtkButton" id="window_back_button">
                         <property name="visible">False</property>
@@ -105,11 +103,8 @@
         <property name="transition-duration">250</property>
         <signal name="notify::transition-running" handler="subpage_transition_finished"/>
         <child>
-          <object class="HdyLeaflet" id="content_box">
+          <object class="GtkBox" id="content_box">
             <property name="visible">True</property>
-            <property name="mode-transition-type">slide</property>
-            <property name="child-transition-type">slide</property>
-            <signal name="notify::folded" handler="on_folded_changed" after="yes"/>
             <child>
               <object class="GamesPreferencesSidebar" id="sidebar">
                 <property name="stack">stack</property>
@@ -175,11 +170,5 @@
       <widget name="right_header_bar"/>
       <widget name="stack"/>
     </widgets>
-  </object>
-  <object class="HdyHeaderGroup" id="header_group">
-    <headerbars>
-      <headerbar name="left_header_bar"/>
-      <headerbar name="right_header_bar"/>
-    </headerbars>
   </object>
 </interface>

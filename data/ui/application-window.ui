@@ -16,14 +16,9 @@
       </object>
     </child>
     <child type="titlebar">
-      <object class="HdyTitleBar">
-        <property name="visible">True</property>
-        <child>
           <object class="GtkStack" id="header_bar">
             <property name="visible">True</property>
           </object>
-        </child>
-      </object>
     </child>
   </template>
 </interface>

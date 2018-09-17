@@ -3,29 +3,17 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-window.ui")]
 private class Games.PreferencesWindow : Gtk.Window {
 	[GtkChild]
-	private Hdy.TitleBar titlebar;
-	[GtkChild]
 	private Gtk.Stack titlebar_stack;
 	[GtkChild]
-	private Hdy.Leaflet titlebar_box;
-	[GtkChild]
-	private Gtk.HeaderBar left_header_bar;
+	private Gtk.Box titlebar_box;
 	[GtkChild]
 	private Gtk.HeaderBar right_header_bar;
 	[GtkChild]
 	private Gtk.Stack main_stack;
 	[GtkChild]
-	private Hdy.Leaflet content_box;
-	[GtkChild]
-	private PreferencesSidebar sidebar;
+	private Gtk.Box content_box;
 	[GtkChild]
 	private Gtk.Stack stack;
-	[GtkChild]
-	private Hdy.HeaderGroup header_group;
-	[GtkChild]
-	private Gtk.Button page_back_button;
-	[GtkChild]
-	private Gtk.Button window_back_button;
 
 	private PreferencesSubpage _subpage;
 	public PreferencesSubpage subpage {
@@ -38,7 +26,6 @@ private class Games.PreferencesWindow : Gtk.Window {
 				previous_subpage = subpage;
 				main_stack.visible_child = content_box;
 				titlebar_stack.visible_child = titlebar_box;
-				selection_mode_binding.unbind ();
 			}
 
 			if (value != null) {
@@ -47,15 +34,8 @@ private class Games.PreferencesWindow : Gtk.Window {
 				main_stack.add (value);
 				main_stack.visible_child = value;
 
-				selection_mode_binding = value.bind_property ("request-selection-mode",
-				                                              titlebar, "selection-mode",
-				                                              BindingFlags.SYNC_CREATE);
-
 				titlebar_stack.add (header_bar);
 				titlebar_stack.visible_child = header_bar;
-
-				content_box.visible_child = stack;
-				titlebar_box.visible_child = right_header_bar;
 			}
 
 			_subpage = value;
@@ -66,7 +46,6 @@ private class Games.PreferencesWindow : Gtk.Window {
 	private PreferencesSubpage previous_subpage;
 
 	private Binding subpage_binding;
-	private Binding selection_mode_binding;
 
 	construct {
 		update_ui ();
@@ -74,10 +53,6 @@ private class Games.PreferencesWindow : Gtk.Window {
 
 	[GtkCallback]
 	private void sidebar_row_selected () {
-		content_box.visible_child = stack;
-		titlebar_box.visible_child = right_header_bar;
-		update_header_group ();
-
 		update_ui ();
 	}
 
@@ -108,38 +83,5 @@ private class Games.PreferencesWindow : Gtk.Window {
 
 	[GtkCallback]
 	private void on_back_clicked () {
-		if (content_box.visible_child == sidebar) {
-			close ();
-			return;
-		}
-
-		content_box.visible_child = sidebar;
-		titlebar_box.visible_child = left_header_bar;
-		update_header_group ();
-	}
-
-	[GtkCallback]
-	private void on_folded_changed (Object object, ParamSpec paramSpec) {
-		var folded = content_box.folded;
-
-		update_header_group ();
-		page_back_button.visible = folded;
-		window_back_button.visible = folded;
-		sidebar.show_selection = !folded;
-
-		if (folded)
-			stack.transition_type = Gtk.StackTransitionType.NONE;
-		else
-			stack.transition_type = Gtk.StackTransitionType.CROSSFADE;
-	}
-
-	private void update_header_group () {
-		var folded = content_box.folded;
-		var visible_header_bar = titlebar_box.visible_child as Gtk.HeaderBar;
-
-		if (folded)
-			header_group.focus = visible_header_bar;
-		else
-			header_group.focus = null;
 	}
 }
