@@ -99,12 +99,9 @@ private class Games.CollectionBox : Gtk.Box {
 
 			return true;
 		default:
-			if (viewstack.visible_child == platform_view)
-				return platform_view.gamepad_button_press_event (event);
-			else if (viewstack.visible_child == developer_view)
-				return developer_view.gamepad_button_press_event (event);
-			else
-				return games_view.gamepad_button_press_event (event);
+			var view = viewstack.visible_child as SidebarView;
+
+			return view.gamepad_button_press_event (event);
 		}
 	}
 
@@ -112,24 +109,18 @@ private class Games.CollectionBox : Gtk.Box {
 		if (!get_mapped ())
 			return false;
 
-		if (viewstack.visible_child == platform_view)
-			return platform_view.gamepad_button_release_event (event);
-		else if (viewstack.visible_child == developer_view)
-			return developer_view.gamepad_button_release_event (event);
-		else
-			return games_view.gamepad_button_release_event (event);
+		var view = viewstack.visible_child as SidebarView;
+
+		return view.gamepad_button_release_event (event);
 	}
 
 	public bool gamepad_absolute_axis_event (Manette.Event event) {
 		if (!get_mapped ())
 			return false;
 
-		if (viewstack.visible_child == platform_view)
-			return platform_view.gamepad_absolute_axis_event (event);
-		else if (viewstack.visible_child == developer_view)
-			return developer_view.gamepad_absolute_axis_event (event);
-		else
-			return games_view.gamepad_absolute_axis_event (event);
+		var view = viewstack.visible_child as SidebarView;
+
+		return view.gamepad_absolute_axis_event (event);
 	}
 
 	[GtkCallback]
@@ -144,27 +135,16 @@ private class Games.CollectionBox : Gtk.Box {
 
 	[GtkCallback]
 	private void on_visible_child_changed () {
-		if (viewstack.visible_child == platform_view) {
-			platform_view.select_default_row ();
-		}
-		else if (viewstack.visible_child == developer_view) {
-			developer_view.select_default_row ();
-		}
-		else {
-			games_view.select_default_row ();
-		}
+		var view = viewstack.visible_child as SidebarView;
+
+		view.select_default_row ();
 	}
 
 	[GtkCallback]
 	private void on_search_text_notify () {
-		if (viewstack.visible_child == platform_view) {
-			platform_view.filtering_text = search_bar.text;
-		}
-		else if (viewstack.visible_child == developer_view) {
-			developer_view.filtering_text = search_bar.text;
-		}
-		else
-			games_view.filtering_text = search_bar.text;
+		var view = viewstack.visible_child as SidebarView;
+
+		view.filtering_text = search_bar.text;
 	}
 
 	public bool search_bar_handle_event (Gdk.Event event) {
