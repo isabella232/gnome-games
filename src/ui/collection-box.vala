@@ -25,6 +25,8 @@ private class Games.CollectionBox : Gtk.Box {
 	public Gtk.Stack viewstack {
 		get { return _viewstack; }
 	}
+	[GtkChild]
+	private Gtk.Stack empty_stack;
 
 	private bool _is_collection_empty;
 	public bool is_collection_empty {
@@ -32,9 +34,9 @@ private class Games.CollectionBox : Gtk.Box {
 		set {
 			_is_collection_empty = value;
 			if (_is_collection_empty)
-				viewstack.visible_child = empty_collection;
+				empty_stack.visible_child = empty_collection;
 			else
-				viewstack.visible_child = collection_view;
+				empty_stack.visible_child = viewstack;
 		}
 	}
 
@@ -82,7 +84,7 @@ private class Games.CollectionBox : Gtk.Box {
 
 			assert (current_view != null);
 
-			if (current_view.prev != null && current_view.prev.data != empty_collection)
+			if (current_view.prev != null)
 				viewstack.visible_child = current_view.prev.data;
 
 			return true;
@@ -92,7 +94,7 @@ private class Games.CollectionBox : Gtk.Box {
 
 			assert (current_view != null);
 
-			if (current_view.next != null && current_view.next.data != empty_collection)
+			if (current_view.next != null)
 				viewstack.visible_child = current_view.next.data;
 
 			return true;
