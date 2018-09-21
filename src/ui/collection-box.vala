@@ -13,7 +13,11 @@ private class Games.CollectionBox : Gtk.Box {
 	[GtkChild]
 	private Gtk.Revealer loading_notification_revealer;
 	[GtkChild]
+	private Gtk.Box sidebar_box;
+	[GtkChild]
 	private EmptyCollection empty_collection;
+	[GtkChild]
+	private CollectionIconView collection_view;
 	[GtkChild]
 	private GamesView games_view;
 	[GtkChild]
@@ -36,13 +40,11 @@ private class Games.CollectionBox : Gtk.Box {
 			if (_is_collection_empty)
 				empty_stack.visible_child = empty_collection;
 			else
-				empty_stack.visible_child = viewstack;
+				empty_stack.visible_child = sidebar_box;
 		}
 	}
 
 	private Binding collection_binding;
-	private Binding developer_collection_binding;
-	private Binding platform_collection_binding;
 	private Binding search_binding;
 	private Binding loading_notification_binding;
 
@@ -51,15 +53,8 @@ private class Games.CollectionBox : Gtk.Box {
 	}
 
 	construct {
-		collection_binding = bind_property ("collection", games_view, "model",
+		collection_binding = bind_property ("collection", collection_view, "model",
 		                                    BindingFlags.BIDIRECTIONAL);
-
-		developer_collection_binding = bind_property ("collection", developer_view,
-		                                              "model", BindingFlags.BIDIRECTIONAL);
-
-		platform_collection_binding = bind_property ("collection", platform_view,
-		                                             "model", BindingFlags.BIDIRECTIONAL);
-
 		search_binding = bind_property ("search-mode", search_bar, "search-mode-enabled",
 		                                BindingFlags.BIDIRECTIONAL);
 		loading_notification_binding = bind_property ("loading-notification", loading_notification_revealer, "reveal-child",
@@ -135,6 +130,9 @@ private class Games.CollectionBox : Gtk.Box {
 
 	[GtkCallback]
 	private void on_visible_child_changed () {
+		collection_view.filtering_developer = null;
+		collection_view.filtering_platform = null;
+
 		var view = viewstack.visible_child as SidebarView;
 
 		view.select_default_row ();
@@ -142,9 +140,7 @@ private class Games.CollectionBox : Gtk.Box {
 
 	[GtkCallback]
 	private void on_search_text_notify () {
-		var view = viewstack.visible_child as SidebarView;
-
-		view.filtering_text = search_bar.text;
+		collection_view.filtering_text = search_bar.text;
 	}
 
 	public bool search_bar_handle_event (Gdk.Event event) {

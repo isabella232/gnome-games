@@ -1,14 +1,25 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/sidebar-view.ui")]
-private abstract class Games.SidebarView : Gtk.Box {
-	public signal void game_activated (Game game);
-
-	public string filtering_text {
-		set { collection_view.filtering_text = value; }
-	}
-
+private abstract class Games.SidebarView : Gtk.Bin {
 	private ulong model_items_changed_id;
+
+	private Binding model_binding;
+
+	private CollectionIconView _collection_view;
+	public CollectionIconView collection_view {
+		get { return _collection_view; }
+		set {
+			if (_collection_view != null)
+				model_binding.unbind ();
+
+			_collection_view = value;
+
+			if (_collection_view != null)
+				model_binding = bind_property ("model", collection_view, "model",
+				                               BindingFlags.BIDIRECTIONAL);
+		}
+	}
 
 	private ListModel _model;
 	public ListModel model {
@@ -20,7 +31,6 @@ private abstract class Games.SidebarView : Gtk.Box {
 			}
 
 			_model = value;
-			collection_view.model = _model;
 
 			if (model != null)
 				model_items_changed_id = model.items_changed.connect (on_model_changed);
@@ -45,9 +55,6 @@ private abstract class Games.SidebarView : Gtk.Box {
 	}
 
 	[GtkChild]
-	protected CollectionIconView collection_view;
-
-	[GtkChild]
 	protected Gtk.ListBox list_box;
 
 	[GtkChild]
@@ -55,10 +62,6 @@ private abstract class Games.SidebarView : Gtk.Box {
 
 	construct {
 		list_box.set_sort_func (sort_rows);
-
-		collection_view.game_activated.connect ((game) => {
-			game_activated (game);
-		});
 	}
 
 	[GtkCallback]

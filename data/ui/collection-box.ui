@@ -19,7 +19,7 @@
         <child>
           <object class="GtkStack" id="empty_stack">
             <property name="visible">True</property>
-            <property name="visible-child">viewstack</property>
+            <property name="visible-child">sidebar_box</property>
             <property name="transition-type">GTK_STACK_TRANSITION_TYPE_CROSSFADE</property>
             <child>
               <object class="GamesEmptyCollection" id="empty_collection">
@@ -30,40 +30,51 @@
               </packing>
             </child>
             <child>
-              <object class="GtkStack" id="viewstack">
+              <object class="GtkBox" id="sidebar_box">
                 <property name="visible">True</property>
-                <property name="visible-child">games_view</property>
-                <property name="transition-type">GTK_STACK_TRANSITION_TYPE_CROSSFADE</property>
-                <signal name="notify::visible-child" handler="on_visible_child_changed"/>
                 <child>
-                  <object class="GamesGamesView" id="games_view">
+                  <object class="GtkStack" id="viewstack">
                     <property name="visible">True</property>
-                    <signal name="game-activated" handler="on_game_activated"/>
+                    <property name="visible-child">games_view</property>
+                    <property name="transition-type">GTK_STACK_TRANSITION_TYPE_CROSSFADE</property>
+                    <signal name="notify::visible-child" handler="on_visible_child_changed"/>
+                    <child>
+                      <object class="GamesGamesView" id="games_view">
+                        <property name="visible">True</property>
+                      </object>
+                      <packing>
+                        <property name="name">games</property>
+                        <property name="title" translatable="yes">Games</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GamesDevelopersView" id="developer_view">
+                        <property name="visible">True</property>
+                        <property name="collection-view">collection_view</property>
+                      </object>
+                      <packing>
+                        <property name="name">developer</property>
+                        <property name="title" translatable="yes">Developers</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GamesPlatformsView" id="platform_view">
+                        <property name="visible">True</property>
+                        <property name="collection-view">collection_view</property>
+                      </object>
+                      <packing>
+                        <property name="name">platform</property>
+                        <property name="title" translatable="yes">Platforms</property>
+                      </packing>
+                    </child>
                   </object>
-                  <packing>
-                    <property name="name">games</property>
-                    <property name="title" translatable="yes">Games</property>
-                  </packing>
                 </child>
                 <child>
-                  <object class="GamesDevelopersView" id="developer_view">
+                  <object class="GamesCollectionIconView" id="collection_view">
                     <property name="visible">True</property>
+                    <property name="expand">True</property>
                     <signal name="game-activated" handler="on_game_activated"/>
                   </object>
-                  <packing>
-                    <property name="name">developer</property>
-                    <property name="title" translatable="yes">Developers</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GamesPlatformsView" id="platform_view">
-                    <property name="visible">True</property>
-                    <signal name="game-activated" handler="on_game_activated"/>
-                  </object>
-                  <packing>
-                    <property name="name">platform</property>
-                    <property name="title" translatable="yes">Platforms</property>
-                  </packing>
                 </child>
               </object>
             </child>
