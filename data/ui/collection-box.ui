@@ -36,7 +36,7 @@
                   <object class="GtkStack" id="viewstack">
                     <property name="visible">True</property>
                     <property name="visible-child">games_view</property>
-                    <property name="transition-type">GTK_STACK_TRANSITION_TYPE_CROSSFADE</property>
+                    <property name="transition-type">none</property>
                     <signal name="notify::visible-child" handler="on_visible_child_changed"/>
                     <child>
                       <object class="GamesGamesView" id="games_view">
