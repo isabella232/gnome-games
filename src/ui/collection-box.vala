@@ -15,7 +15,7 @@ private class Games.CollectionBox : Gtk.Box {
 	[GtkChild]
 	private EmptyCollection empty_collection;
 	[GtkChild]
-	private CollectionIconView collection_view;
+	private GamesView games_view;
 	[GtkChild]
 	private DevelopersView developer_view;
 	[GtkChild]
@@ -51,7 +51,7 @@ private class Games.CollectionBox : Gtk.Box {
 	}
 
 	construct {
-		collection_binding = bind_property ("collection", collection_view, "model",
+		collection_binding = bind_property ("collection", games_view, "model",
 		                                    BindingFlags.BIDIRECTIONAL);
 
 		developer_collection_binding = bind_property ("collection", developer_view,
@@ -104,7 +104,7 @@ private class Games.CollectionBox : Gtk.Box {
 			else if (viewstack.visible_child == developer_view)
 				return developer_view.gamepad_button_press_event (event);
 			else
-				return collection_view.gamepad_button_press_event (event);
+				return games_view.gamepad_button_press_event (event);
 		}
 	}
 
@@ -117,7 +117,7 @@ private class Games.CollectionBox : Gtk.Box {
 		else if (viewstack.visible_child == developer_view)
 			return developer_view.gamepad_button_release_event (event);
 		else
-			return collection_view.gamepad_button_release_event (event);
+			return games_view.gamepad_button_release_event (event);
 	}
 
 	public bool gamepad_absolute_axis_event (Manette.Event event) {
@@ -129,7 +129,7 @@ private class Games.CollectionBox : Gtk.Box {
 		else if (viewstack.visible_child == developer_view)
 			return developer_view.gamepad_absolute_axis_event (event);
 		else
-			return collection_view.gamepad_absolute_axis_event (event);
+			return games_view.gamepad_absolute_axis_event (event);
 	}
 
 	[GtkCallback]
@@ -151,7 +151,7 @@ private class Games.CollectionBox : Gtk.Box {
 			developer_view.select_default_row ();
 		}
 		else {
-			collection_view.reset_scroll_position ();
+			games_view.select_default_row ();
 		}
 	}
 
@@ -164,7 +164,7 @@ private class Games.CollectionBox : Gtk.Box {
 			developer_view.filtering_text = search_bar.text;
 		}
 		else
-			collection_view.filtering_text = search_bar.text;
+			games_view.filtering_text = search_bar.text;
 	}
 
 	public bool search_bar_handle_event (Gdk.Event event) {
