@@ -37,6 +37,8 @@ private abstract class Games.SidebarView : Gtk.Bin {
 		}
 	}
 
+	public bool is_collapsed { get; set; }
+
 	private Binding window_active_binding;
 	private bool _is_active;
 	public bool is_active {
@@ -62,6 +64,7 @@ private abstract class Games.SidebarView : Gtk.Bin {
 
 	construct {
 		list_box.set_sort_func (sort_rows);
+		is_collapsed = false;
 	}
 
 	[GtkCallback]

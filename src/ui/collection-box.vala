@@ -135,6 +135,8 @@ private class Games.CollectionBox : Gtk.Box {
 
 		var view = viewstack.visible_child as SidebarView;
 
+		viewstack.visible = !view.is_collapsed;
+
 		view.select_default_row ();
 	}
 
