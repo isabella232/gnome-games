@@ -41,7 +41,7 @@ private class Games.PreferencesSubpageKeyboard: Gtk.Box, PreferencesSubpage {
 	};
 
 	private const GamepadViewConfiguration KEYBOARD_GAMEPAD_VIEW_CONFIGURATION = {
-		"resource:///org/gnome/Games/gamepads/standard-gamepad.svg", KEYBOARD_GAMEPAD_INPUT_PATHS
+		"/org/gnome/Games/gamepads/standard-gamepad.svg", KEYBOARD_GAMEPAD_INPUT_PATHS
 	};
 
 	private enum State {
