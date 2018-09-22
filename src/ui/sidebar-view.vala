@@ -32,6 +32,12 @@ private abstract class Games.SidebarView : Gtk.Bin {
 
 			_model = value;
 
+			uint n_items = model.get_n_items ();
+			for (uint i = 0; i < n_items; i++) {
+				var game = model.get_item (i) as Game;
+				game_added (game);
+			}
+
 			if (model != null)
 				model_items_changed_id = model.items_changed.connect (on_model_changed);
 		}
