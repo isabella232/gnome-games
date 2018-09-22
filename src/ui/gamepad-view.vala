@@ -12,7 +12,10 @@ private class Games.GamepadView : Gtk.DrawingArea {
 	}
 
 	public void set_configuration (GamepadViewConfiguration configuration) throws Error {
-		handle = new Rsvg.Handle.from_file (configuration.svg_path);
+		var bytes = resources_lookup_data (configuration.svg_path, ResourceLookupFlags.NONE);
+		var data = bytes.get_data ();
+
+		handle = new Rsvg.Handle.from_data (data);
 		set_size_request (handle.width, handle.height);
 		this.configuration = configuration;
 		input_highlights = new bool[configuration.input_paths.length];
