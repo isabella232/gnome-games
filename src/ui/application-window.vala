@@ -113,8 +113,10 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	private KonamiCode konami_code;
 
+	private ListModel collection;
+
 	public ApplicationWindow (ListModel collection) {
-		collection_box.collection = collection;
+		this.collection = collection;
 		collection.items_changed.connect (() => {
 			is_collection_empty = collection.get_n_items () == 0;
 		});
@@ -712,6 +714,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	public void on_collection_loaded () {
 		if (ui_state == UiState.LOADING) {
+			collection_box.collection = collection;
+
 			content_box.transition_type = Gtk.StackTransitionType.CROSSFADE;
 			header_bar.transition_type = Gtk.StackTransitionType.CROSSFADE;
 			ui_state = UiState.COLLECTION;
