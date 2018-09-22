@@ -1,4 +1,21 @@
 ==============
+Version 3.30.1
+==============
+
+* MAME plugin loading is now slightly faster.
+
+* Fixes
+ - Fix crash in PlayStation plugin.
+ - Pressed buttons in controller preferences are now positioned correctly.
+ - Fix drawing failure in controller preferences.
+ - Fix occasional tiny thumbnails in Developers and Platforms views.
+ - Fix GTK+ warnings when browsing collection.
+
+* Translation updates
+ Hungarian
+ Swedish
+
+==============
 Version 3.30.0
 ==============
 
