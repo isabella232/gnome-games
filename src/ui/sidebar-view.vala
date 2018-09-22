@@ -59,8 +59,15 @@ private abstract class Games.SidebarView : Gtk.Box {
 			_model = value;
 			collection_view.model = _model;
 
-			if (model != null)
+			if (model != null) {
+				uint n_items = model.get_n_items ();
+				for (uint i = 0; i < n_items; i++) {
+					var game = model.get_item (i) as Game;
+					game_added (game);
+				}
+
 				model_items_changed_id = model.items_changed.connect (on_model_changed);
+			}
 		}
 	}
 
