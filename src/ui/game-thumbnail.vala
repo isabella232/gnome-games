@@ -71,6 +71,14 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		set_css_name ("gamesgamethumbnail");
 	}
 
+	public override Gtk.SizeRequestMode get_request_mode () {
+		return Gtk.SizeRequestMode.HEIGHT_FOR_WIDTH;
+	}
+
+	public override void get_preferred_height_for_width (int width, out int minimum_height, out int natural_height) {
+		minimum_height = natural_height = width;
+	}
+
 	public override bool draw (Cairo.Context cr) {
 		var window = get_window ();
 		var style = get_style_context ();
