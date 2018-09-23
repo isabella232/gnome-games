@@ -4,7 +4,6 @@
   <template class="GamesGameIconView" parent="GtkBox">
     <property name="visible">True</property>
     <property name="orientation">vertical</property>
-    <property name="halign">center</property>
     <child>
       <object class="GamesGameThumbnail" id="thumbnail">
         <property name="visible">True</property>
