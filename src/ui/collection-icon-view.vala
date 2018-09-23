@@ -78,9 +78,6 @@ private class Games.CollectionIconView : Gtk.Bin {
 	[GtkChild]
 	private GamepadBrowse gamepad_browse;
 
-	// Current size used by the thumbnails.
-	private int game_view_size;
-
 	static construct {
 		set_css_name ("gamescollectioniconview");
 	}
@@ -215,7 +212,6 @@ private class Games.CollectionIconView : Gtk.Bin {
 		var child = new Gtk.FlowBoxChild ();
 
 		game_view.visible = true;
-		game_view.width_request = game_view_size;
 		child.visible = true;
 
 		child.add (game_view);
@@ -275,27 +271,8 @@ private class Games.CollectionIconView : Gtk.Bin {
 		// them rather than a few huge thumbnails, making Games more usable on
 		// small screens.
 		if (allocation.width < 960)
-			set_size (128);
+			get_style_context ().remove_class ("large");
 		else
-			set_size (256);
-	}
-
-	private void set_size (int size) {
-		if (game_view_size == size)
-			return;
-
-		game_view_size = size;
-
-		flow_box.forall ((child) => {
-			var flow_box_child = child as Gtk.FlowBoxChild;
-
-			assert (flow_box_child != null);
-
-			var game_view = flow_box_child.get_child () as GameIconView;
-
-			assert (game_view != null);
-
-			game_view.width_request = size;
-		});
+			get_style_context ().add_class ("large");
 	}
 }

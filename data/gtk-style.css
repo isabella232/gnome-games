@@ -30,3 +30,11 @@ gamesgamethumbnail {
 	            @theme_unfocused_bg_color;
 	border-color: @unfocused_borders;
 }
+
+gamescollectioniconview flowboxchild {
+	min-width: 128px;
+}
+
+gamescollectioniconview.large flowboxchild {
+	min-width: 256px;
+}
