@@ -215,7 +215,7 @@ private class Games.CollectionIconView : Gtk.Bin {
 		var child = new Gtk.FlowBoxChild ();
 
 		game_view.visible = true;
-		game_view.size = game_view_size;
+		game_view.width_request = game_view_size;
 		child.visible = true;
 
 		child.add (game_view);
@@ -295,7 +295,7 @@ private class Games.CollectionIconView : Gtk.Bin {
 
 			assert (game_view != null);
 
-			game_view.size = size;
+			game_view.width_request = size;
 		});
 	}
 }
