@@ -26,6 +26,14 @@ gamesgamethumbnail {
 	color: @theme_fg_color;
 }
 
+gamescollectioniconview flowboxchild {
+	min-width: 128px;
+}
+
+gamescollectioniconview.large flowboxchild {
+	min-width: 256px;
+}
+
 /* Styles from libhandy example, this should be kept in sync with this:
  * https://source.puri.sm/Librem5/libhandy/blob/master/examples/style.css
  */
