@@ -73,8 +73,9 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 		return Gtk.SizeRequestMode.HEIGHT_FOR_WIDTH;
 	}
 
-	public override void get_preferred_height_for_width (int width, out int minimum_height, out int natural_height) {
-		minimum_height = natural_height = width;
+	public override void measure (Gtk.Orientation orientation, int for_size, out int minimum, out int natural, out int minimum_baseline, out int natural_baseline) {
+		minimum = natural = for_size;
+		minimum_baseline = natural_baseline = -1;
 	}
 
 	construct {
