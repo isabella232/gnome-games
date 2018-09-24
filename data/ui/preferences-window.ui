@@ -23,8 +23,7 @@
                     <property name="name">left_header_bar</property>
                     <property name="visible">True</property>
                     <property name="title" translatable="yes">Preferences</property>
-                    <property name="show-close-button">True</property>
-                    <property name="decoration-layout">menu</property>
+                    <property name="show-close-button">False</property>
                   </object>
                 </child>
                 <child>
