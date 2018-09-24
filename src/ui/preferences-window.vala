@@ -84,4 +84,8 @@ private class Games.PreferencesWindow : Gtk.Window {
 		titlebar_stack.remove (previous_subpage.header_bar);
 		previous_subpage = null;
 	}
+
+	[GtkCallback]
+	private void on_back_clicked () {
+	}
 }
