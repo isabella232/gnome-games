@@ -13,7 +13,7 @@ gamesgamethumbnail {
 	color: @theme_fg_color;
 }
 
-.devel headerbar {
+.devel headerbar.titlebar:not(.selection-mode) {
 	background: transparent
 	            -gtk-icontheme("system-run-symbolic") 80% 0/128px 128px no-repeat,
 	            linear-gradient(to left,
