@@ -56,11 +56,11 @@ private class Games.PreferencesWindow : Gtk.Window {
 	private Binding selection_mode_binding;
 
 	public PreferencesWindow () {
-		stack.notify["visible-child-name"].connect (visible_child_changed);
-		visible_child_changed ();
+		sidebar_row_selected ();
 	}
 
-	private void visible_child_changed () {
+	[GtkCallback]
+	private void sidebar_row_selected () {
 		var page = stack.visible_child as PreferencesPage;
 		if (page == null) {
 			right_header_bar.title = "";
