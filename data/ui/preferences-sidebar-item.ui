@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="GamesPreferencesSidebarItem" parent="GtkListBoxRow">
+    <property name="visible">true</property>
+    <child>
+      <object class="GtkLabel" id="label">
+        <property name="visible">true</property>
+        <property name="wrap">true</property>
+        <property name="xalign">0</property>
+      </object>
+    </child>
+  </template>
+</interface>
