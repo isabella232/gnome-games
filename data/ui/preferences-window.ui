@@ -87,28 +87,16 @@
                   <object class="GamesPreferencesPageVideo" id="video_page">
                     <property name="visible">True</property>
                   </object>
-                  <packing>
-                    <property name="name">video</property>
-                    <property name="title" translatable="yes">Video</property>
-                  </packing>
                 </child>
                 <child>
                   <object class="GamesPreferencesPageControllers" id="controllers_page">
                     <property name="visible">True</property>
                   </object>
-                  <packing>
-                    <property name="name">controllers</property>
-                    <property name="title" translatable="yes">Controllers</property>
-                  </packing>
                 </child>
                 <child>
                   <object class="GamesPreferencesPagePlugins" id="plugins_page">
                     <property name="visible">True</property>
                   </object>
-                  <packing>
-                    <property name="name">plugins</property>
-                    <property name="title" translatable="yes">Extensions</property>
-                  </packing>
                 </child>
               </object>
             </child>
