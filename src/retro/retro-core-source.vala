@@ -1,13 +1,13 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public class Games.RetroCoreSource : Object {
-	private Platform platform;
+	private RetroPlatform platform;
 	private string[] mime_types;
 
 	private Retro.CoreDescriptor core_descriptor;
 	private bool searched;
 
-	public RetroCoreSource (Platform platform, string[] mime_types) {
+	public RetroCoreSource (RetroPlatform platform, string[] mime_types) {
 		this.platform = platform;
 		this.mime_types = mime_types;
 		searched = false;
