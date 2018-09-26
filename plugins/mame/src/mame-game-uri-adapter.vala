@@ -1,9 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.MameGameUriAdapter : GameUriAdapter, Object {
-	private const string SEARCHED_MIME_TYPE = "application/zip";
-	private const string SPECIFIC_MIME_TYPE = "application/x-mame-rom";
-
 	private RetroPlatform platform;
 
 	public MameGameUriAdapter (RetroPlatform platform) {
@@ -31,7 +28,7 @@ private class Games.MameGameUriAdapter : GameUriAdapter, Object {
 
 		var cover = new LocalCover (uri);
 		var developer = new GenericDeveloper (info.company);
-		var core_source = new RetroCoreSource (platform, { SEARCHED_MIME_TYPE, SPECIFIC_MIME_TYPE });
+		var core_source = new RetroCoreSource (platform);
 
 		var builder = new RetroRunnerBuilder ();
 		builder.core_source = core_source;

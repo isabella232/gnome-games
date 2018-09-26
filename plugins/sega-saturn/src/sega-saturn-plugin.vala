@@ -70,7 +70,7 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 		var publisher = new GriloPublisher (media);
 		var description = new GriloDescription (media);
 		var rating = new GriloRating (media);
-		var core_source = new RetroCoreSource (platform, { CUE_MIME_TYPE, SEGA_SATURN_MIME_TYPE });
+		var core_source = new RetroCoreSource (platform);
 
 		var builder = new RetroRunnerBuilder ();
 		builder.core_source = core_source;

@@ -27,7 +27,7 @@ private class Games.RetroSimpleGameUriAdapter : GameUriAdapter, Object {
 		var publisher = new GriloPublisher (media);
 		var description = new GriloDescription (media);
 		var rating = new GriloRating (media);
-		var core_source = new RetroCoreSource (platform, { simple_type.mime_type });
+		var core_source = new RetroCoreSource (platform);
 
 		var builder = new RetroRunnerBuilder ();
 		builder.core_source = core_source;

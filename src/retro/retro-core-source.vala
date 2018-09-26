@@ -2,14 +2,12 @@
 
 public class Games.RetroCoreSource : Object {
 	private RetroPlatform platform;
-	private string[] mime_types;
 
 	private Retro.CoreDescriptor core_descriptor;
 	private bool searched;
 
-	public RetroCoreSource (RetroPlatform platform, string[] mime_types) {
+	public RetroCoreSource (RetroPlatform platform) {
 		this.platform = platform;
-		this.mime_types = mime_types;
 		searched = false;
 	}
 
@@ -21,8 +19,11 @@ public class Games.RetroCoreSource : Object {
 		ensure_module_is_found ();
 
 		var module_file = core_descriptor.get_module_file ();
-		if (module_file == null)
+		if (module_file == null) {
+			var mime_types = platform.get_mime_types ();
+
 			throw new RetroError.MODULE_NOT_FOUND (_("No module found for platform “%s” and MIME types [ “%s” ]."), platform.get_id (), string.joinv (_("”, “"), mime_types));
+		}
 
 		return module_file.get_path ();
 	}
@@ -35,8 +36,11 @@ public class Games.RetroCoreSource : Object {
 
 		var platform_id = platform.get_id ();
 
-		if (core_descriptor == null)
+		if (core_descriptor == null) {
+			var mime_types = platform.get_mime_types ();
+
 			throw new RetroError.MODULE_NOT_FOUND (_("No module found for platform “%s” and MIME types [ “%s” ]."), platform_id, string.joinv (_("”, “"), mime_types));
+		}
 
 		if (core_descriptor.has_firmwares (platform_id))
 			foreach (var firmware in core_descriptor_get_firmwares (core_descriptor, platform_id))
@@ -48,6 +52,7 @@ public class Games.RetroCoreSource : Object {
 		foreach (var core_descriptor in modules) {
 			try {
 				var platform_id = platform.get_id ();
+				var mime_types = platform.get_mime_types ();
 
 				if (!core_descriptor.get_is_emulator ())
 					continue;

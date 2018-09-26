@@ -44,7 +44,7 @@ private class Games.NintendoDsPlugin : Object, Plugin {
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
-		var core_source = new RetroCoreSource (platform, { MIME_TYPE });
+		var core_source = new RetroCoreSource (platform);
 
 		var builder = new RetroRunnerBuilder ();
 		builder.core_source = core_source;

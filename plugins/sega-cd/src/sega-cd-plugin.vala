@@ -63,16 +63,11 @@ private class Games.SegaCDPlugin : Object, Plugin {
 		var header = new SegaCDHeader (bin_file);
 		header.check_validity ();
 
-		string[] mime_types;
 		RetroPlatform platform;
-		if (header.is_sega_cd ()) {
-			mime_types = { CUE_MIME_TYPE, SEGA_CD_MIME_TYPE };
+		if (header.is_sega_cd ())
 			platform = platform_sega_cd;
-		}
-		else if (header.is_sega_cd_32x ()) {
-			mime_types = { CUE_MIME_TYPE, SEGA_CD_MIME_TYPE, 32X_MIME_TYPE };
+		else if (header.is_sega_cd_32x ())
 			platform = platform_sega_cd_32x;
-		}
 		else
 			assert_not_reached ();
 
@@ -92,7 +87,7 @@ private class Games.SegaCDPlugin : Object, Plugin {
 		var publisher = new GriloPublisher (media);
 		var description = new GriloDescription (media);
 		var rating = new GriloRating (media);
-		var core_source = new RetroCoreSource (platform, mime_types);
+		var core_source = new RetroCoreSource (platform);
 
 		var builder = new RetroRunnerBuilder ();
 		builder.core_source = core_source;

@@ -40,7 +40,7 @@ private class Games.MsDosPlugin : Object, Plugin {
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
 
-		var core_source = new RetroCoreSource (platform, { MIME_TYPE });
+		var core_source = new RetroCoreSource (platform);
 		var input_capabilities = new MsDosInputCapabilities ();
 
 		var builder = new RetroRunnerBuilder ();
