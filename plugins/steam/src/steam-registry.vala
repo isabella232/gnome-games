@@ -98,7 +98,7 @@ private class Games.SteamRegistry {
 			if (tokens[index] == "}") {
 				index++;
 
-				continue;
+				break;
 			}
 
 			var tag = tokens[index];
