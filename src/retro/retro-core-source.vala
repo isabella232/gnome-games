@@ -48,32 +48,12 @@ public class Games.RetroCoreSource : Object {
 	}
 
 	private void search_module () throws Error {
-		var modules = new Retro.ModuleQuery (true);
-		foreach (var core_descriptor in modules) {
-			try {
-				var platform_id = platform.get_id ();
-				var mime_types = platform.get_mime_types ();
+		var core_manager = RetroCoreManager.get_instance ();
 
-				if (!core_descriptor.get_is_emulator ())
-					continue;
+		var core_descriptors = core_manager.get_cores_for_platform (platform);
 
-				if (!core_descriptor.has_platform (platform_id))
-					continue;
-
-				if (!core_descriptor.get_platform_supports_mime_types (platform_id, mime_types))
-					continue;
-
-				if (core_descriptor.get_module_file () == null)
-					continue;
-
-				this.core_descriptor = core_descriptor;
-
-				break;
-			}
-			catch (Error e) {
-				debug (e.message);
-			}
-		}
+		if (core_descriptors.length > 0)
+			core_descriptor = core_descriptors[0];
 	}
 
 	private void check_firmware_is_valid (string firmware) throws Error {
