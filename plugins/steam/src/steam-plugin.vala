@@ -1,6 +1,8 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.SteamPlugin : Object, Plugin {
+	private const string STEAM_MIME_TYPE = "PC";
+
 	private const string STEAM_APPID = "com.valvesoftware.Steam";
 	private const string STEAM_FLATPAK_DIR = "/.var/app/" + STEAM_APPID;
 
@@ -93,6 +95,26 @@ private class Games.SteamPlugin : Object, Plugin {
 		var game = new GenericGame (uid, title, platform, runner);
 		game.set_icon (icon);
 		game.set_cover (cover);
+
+		var media = new GriloMedia (title, STEAM_MIME_TYPE);
+
+		var release_date = new GriloReleaseDate (media);
+		var cooperative = new GriloCooperative (media);
+		var genre = new GriloGenre (media);
+		var players = new GriloPlayers (media);
+		var developer = new GriloDeveloper (media);
+		var publisher = new GriloPublisher (media);
+		var description = new GriloDescription (media);
+		var rating = new GriloRating (media);
+
+		game.set_release_date (release_date);
+		game.set_cooperative (cooperative);
+		game.set_genre (genre);
+		game.set_players (players);
+		game.set_developer (developer);
+		game.set_publisher (publisher);
+		game.set_description (description);
+		game.set_rating (rating);
 
 		return game;
 	}
