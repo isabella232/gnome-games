@@ -9,7 +9,6 @@ private class Games.DeveloperListItem: Gtk.ListBoxRow {
 		set {
 			_developer = value;
 			update_label ();
-			value.changed.connect (update_label);
 		}
 	}
 
