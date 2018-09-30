@@ -33,7 +33,8 @@ private class Games.CollectionIconView : Gtk.Bin {
 			if (model == null)
 				return;
 
-			for (int i = 0; i < model.get_n_items (); i++) {
+			uint n_items = model.get_n_items ();
+			for (uint i = 0; i < n_items; i++) {
 				var game = model.get_item (i) as Game;
 				add_game (game);
 			}
