@@ -1,5 +1,8 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/developer-list-item.ui")]
-private class Games.DeveloperListItem: Gtk.Label {
+private class Games.DeveloperListItem: Gtk.ListBoxRow {
+	[GtkChild]
+	private Gtk.Label label;
+
 	private Developer _developer;
 	public Developer developer {
 		get { return _developer; }
@@ -16,7 +19,7 @@ private class Games.DeveloperListItem: Gtk.Label {
 
 	private void update_label () {
 		var val = developer.get_developer ();
-		label = val == "" ? _("Unknown") : val;
+		label.label = val == "" ? _("Unknown") : val;
 	}
 
 	public static int compare (DeveloperListItem a, DeveloperListItem b) {

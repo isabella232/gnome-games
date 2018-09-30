@@ -36,9 +36,8 @@ private class Games.DevelopersView : SidebarView {
 	private void hide_developer (Developer developer) {
 		Gtk.ListBoxRow? first_occurence = null;
 
-		foreach (var item in list_box.get_children ()) {
-			var row = item as Gtk.ListBoxRow;
-			var list_item = row.get_child () as DeveloperListItem;
+		foreach (var row in list_box.get_children ()) {
+			var list_item = row as DeveloperListItem;
 
 			if (Developer.equal (list_item.developer, developer)) {
 				if (first_occurence != null) {
@@ -50,7 +49,7 @@ private class Games.DevelopersView : SidebarView {
 					break;
 				}
 				else {
-					first_occurence = row;
+					first_occurence = list_item;
 					first_occurence.changed ();
 				}
 			}
@@ -68,14 +67,14 @@ private class Games.DevelopersView : SidebarView {
 	}
 
 	protected override void invalidate (Gtk.ListBoxRow row_item) {
-		var row = row_item.get_child () as DeveloperListItem;
+		var row = row_item as DeveloperListItem;
 		var developer = row.developer;
 		collection_view.filtering_developer = developer;
 	}
 
 	protected override int sort_rows (Gtk.ListBoxRow row1, Gtk.ListBoxRow row2) {
-		var item1 = row1.get_child () as DeveloperListItem;
-		var item2 = row2.get_child () as DeveloperListItem;
+		var item1 = row1 as DeveloperListItem;
+		var item2 = row2 as DeveloperListItem;
 
 		return DeveloperListItem.compare (item1, item2);
 	}
