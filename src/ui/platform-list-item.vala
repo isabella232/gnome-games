@@ -1,11 +1,14 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/platform-list-item.ui")]
-private class Games.PlatformListItem: Gtk.Label {
+private class Games.PlatformListItem: Gtk.ListBoxRow {
+	[GtkChild]
+	private Gtk.Label label;
+
 	private Platform _platform;
 	public Platform platform {
 		get { return _platform; }
 		set {
 			_platform = value;
-			label = value.get_name ();
+			label.label = value.get_name ();
 		}
 	}
 

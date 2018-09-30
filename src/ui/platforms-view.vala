@@ -14,14 +14,14 @@ private class Games.PlatformsView : SidebarView {
 	}
 
 	protected override void invalidate (Gtk.ListBoxRow row_item) {
-		var row = row_item.get_child () as PlatformListItem;
+		var row = row_item as PlatformListItem;
 		var platform = row.platform;
 		collection_view.filtering_platform = platform;
 	}
 
 	protected override int sort_rows (Gtk.ListBoxRow row1, Gtk.ListBoxRow row2) {
-		var item1 = row1.get_child () as PlatformListItem;
-		var item2 = row2.get_child () as PlatformListItem;
+		var item1 = row1 as PlatformListItem;
+		var item2 = row2 as PlatformListItem;
 
 		return PlatformListItem.compare (item1, item2);
 	}
