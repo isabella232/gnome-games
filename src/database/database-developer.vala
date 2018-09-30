@@ -15,6 +15,8 @@ private class Games.DatabaseDeveloper : Object, Developer {
 	private Sqlite.Statement save_statement;
 	private string loaded;
 
+	public bool has_loaded { get; protected set; }
+
 	public DatabaseDeveloper (Sqlite.Database database, Developer developer, Uid uid) {
 		this.developer = developer;
 		this.uid = uid;
@@ -30,14 +32,31 @@ private class Games.DatabaseDeveloper : Object, Developer {
 		}
 	}
 
+	private void on_developer_loaded () {
+		if (!developer.has_loaded)
+			return;
+
+		has_loaded = true;
+
+		try {
+			save_developer ();
+		}
+		catch (Error e) {
+			warning (e.message);
+		}
+	}
+
 	public string get_developer () {
+		if (!has_loaded) {
+			on_developer_loaded ();
+			developer.notify["has-loaded"].connect (on_developer_loaded);
+		}
+
 		try {
 			if (loaded == null)
 				load_developer ();
-			if (loaded != "")
+			if (loaded != "" && loaded != null)
 				return loaded;
-			else
-				save_developer ();
 		}
 		catch (Error e) {
 			warning (e.message);
@@ -56,6 +75,9 @@ private class Games.DatabaseDeveloper : Object, Developer {
 			loaded = load_statement.column_text (0) ?? "";
 		else
 			warning ("Execution failed.");
+
+		if (loaded != "" && loaded != null)
+			has_loaded = true;
 	}
 
 	private void save_developer () throws Error {

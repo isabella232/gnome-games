@@ -3,6 +3,8 @@
 public interface Games.Developer : Object {
 	public signal void changed ();
 
+	public abstract bool has_loaded { get; protected set; }
+
 	public abstract string get_developer ();
 
 	public static uint hash (Developer developer) {

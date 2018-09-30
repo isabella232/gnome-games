@@ -4,7 +4,8 @@ public class Games.GriloDeveloper : Object, Developer {
 	private GriloMedia media;
 	private string developer;
 	private bool resolving;
-	private bool resolved;
+
+	public bool has_loaded { get; protected set; }
 
 	public GriloDeveloper (GriloMedia media) {
 		this.media = media;
@@ -13,7 +14,7 @@ public class Games.GriloDeveloper : Object, Developer {
 	}
 
 	public string get_developer () {
-		if (resolving || resolved)
+		if (resolving || has_loaded)
 			return developer;
 
 		resolving = true;
@@ -36,7 +37,7 @@ public class Games.GriloDeveloper : Object, Developer {
 
 		developer = grl_media.get_string (metadata_key);
 
-		resolved = true;
+		has_loaded = true;
 
 		changed ();
 	}
