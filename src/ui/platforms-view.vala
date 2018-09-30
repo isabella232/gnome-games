@@ -23,9 +23,6 @@ private class Games.PlatformsView : SidebarView {
 		var item1 = row1.get_child () as PlatformListItem;
 		var item2 = row2.get_child () as PlatformListItem;
 
-		assert (item1 != null);
-		assert (item2 != null);
-
-		return item1.label.collate (item2.label);
+		return PlatformListItem.compare (item1, item2);
 	}
 }
