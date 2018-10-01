@@ -21,8 +21,6 @@ private class Games.DatabaseDeveloper : Object, Developer {
 		this.developer = developer;
 		this.uid = uid;
 
-		developer.changed.connect (() => changed ());
-
 		try {
 			load_statement = Database.prepare (database, LOAD_DEVELOPER_QUERY);
 			save_statement = Database.prepare (database, SAVE_DEVELOPER_QUERY);

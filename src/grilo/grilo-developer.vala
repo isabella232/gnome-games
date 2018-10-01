@@ -38,7 +38,5 @@ public class Games.GriloDeveloper : Object, Developer {
 		developer = grl_media.get_string (metadata_key);
 
 		has_loaded = true;
-
-		changed ();
 	}
 }
