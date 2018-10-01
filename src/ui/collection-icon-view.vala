@@ -10,7 +10,7 @@ private class Games.CollectionIconView : Gtk.Bin {
 			if (value != null)
 				filtering_terms = value.split (" ");
 
-			flow_box.invalidate_filter ();
+			invalidate_filter ();
 		}
 	}
 
@@ -19,7 +19,7 @@ private class Games.CollectionIconView : Gtk.Bin {
 		get { return _filtering_developer; }
 		set {
 			_filtering_developer = value;
-			flow_box.invalidate_filter ();
+			invalidate_filter ();
 		}
 	}
 
@@ -28,7 +28,7 @@ private class Games.CollectionIconView : Gtk.Bin {
 		get { return _filtering_platform; }
 		set {
 			_filtering_platform = value;
-			flow_box.invalidate_filter ();
+			invalidate_filter ();
 		}
 	}
 
@@ -106,6 +106,10 @@ private class Games.CollectionIconView : Gtk.Bin {
 	public void on_unmap () {
 		window_active_binding = null;
 		is_active = false;
+	}
+
+	public void invalidate_filter () {
+		flow_box.invalidate_filter ();
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {
