@@ -20,7 +20,7 @@ private class Games.DatabaseGame : Object, Game {
 	}
 
 	public Uid get_uid () {
-		return database.get_uid (game.get_uid ());
+		return game.get_uid ();
 	}
 
 	public Icon get_icon () {
