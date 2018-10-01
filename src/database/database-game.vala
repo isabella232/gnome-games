@@ -14,7 +14,9 @@ private class Games.DatabaseGame : Object, Game {
 		this.database = database;
 		this.game = game;
 
-		developer = database.get_developer (game.get_developer (), get_uid ());
+		var metadata = database.get_metadata (game);
+
+		developer = new DatabaseDeveloper (metadata);
 	}
 
 	public Uid get_uid () {

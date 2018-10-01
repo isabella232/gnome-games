@@ -67,10 +67,6 @@ private class Games.Database : Object {
 		return new DatabaseUid (database, uid);
 	}
 
-	public DatabaseDeveloper get_developer (Developer developer, Uid uid) {
-		return new DatabaseDeveloper (database, developer, uid);
-	}
-
 	public DatabaseMetadata get_metadata (Game game) {
 		return new DatabaseMetadata (database, game);
 	}
