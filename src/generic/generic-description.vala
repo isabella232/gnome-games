@@ -3,6 +3,12 @@
 public class Games.GenericDescription : Object, Description {
 	private string description;
 
+	public bool has_loaded { get; protected set; }
+
+	construct {
+		has_loaded = true;
+	}
+
 	public GenericDescription (string description) {
 		this.description = description;
 	}

@@ -4,7 +4,8 @@ public class Games.GriloDescription : Object, Description {
 	private GriloMedia media;
 	private string description;
 	private bool resolving;
-	private bool resolved;
+
+	public bool has_loaded { get; protected set; }
 
 	public GriloDescription (GriloMedia media) {
 		this.media = media;
@@ -13,7 +14,7 @@ public class Games.GriloDescription : Object, Description {
 	}
 
 	public string get_description () {
-		if (resolving || resolved)
+		if (resolving || has_loaded)
 			return description;
 
 		resolving = true;
@@ -33,8 +34,6 @@ public class Games.GriloDescription : Object, Description {
 
 		description = grl_media.get_description ();
 
-		resolved = true;
-
-		changed ();
+		has_loaded = true;
 	}
 }
