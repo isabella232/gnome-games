@@ -9,6 +9,7 @@ private class Games.DatabaseGame : Object, Game {
 	private Game game;
 
 	private Cooperative cooperative;
+	private Description description;
 	private Developer developer;
 
 	public DatabaseGame (Database database, Game game) {
@@ -18,6 +19,7 @@ private class Games.DatabaseGame : Object, Game {
 		var metadata = database.get_metadata (game);
 
 		cooperative = new DatabaseCooperative (metadata);
+		description = new DatabaseDescription (metadata);
 		developer = new DatabaseDeveloper (metadata);
 	}
 
@@ -58,7 +60,7 @@ private class Games.DatabaseGame : Object, Game {
 	}
 
 	public Description get_description () {
-		return game.get_description ();
+		return description;
 	}
 
 	public Rating get_rating () {

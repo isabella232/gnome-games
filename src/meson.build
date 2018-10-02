@@ -47,6 +47,7 @@ vala_sources = [
 
   'database/database.vala',
   'database/database-cooperative.vala',
+  'database/database-description.vala',
   'database/database-developer.vala',
   'database/database-error.vala',
   'database/database-game.vala',

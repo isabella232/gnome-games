@@ -2,7 +2,11 @@
 
 private class Games.DatabaseMetadata : Object {
 	private const string LOAD_QUERY = """
-		SELECT cooperative, developer FROM game_metadata WHERE uid=$UID;
+		SELECT
+			cooperative,
+			description,
+			developer
+		FROM game_metadata WHERE uid=$UID;
 	""";
 
 	private const string ADD_GAME_QUERY = """
@@ -13,6 +17,10 @@ private class Games.DatabaseMetadata : Object {
 		UPDATE game_metadata SET cooperative=$COOPERATIVE WHERE uid=$UID;
 	""";
 
+	private const string SAVE_DESCRIPTION_QUERY = """
+		UPDATE game_metadata SET description=$DESCRIPTION WHERE uid=$UID;
+	""";
+
 	private const string SAVE_DEVELOPER_QUERY = """
 		UPDATE game_metadata SET developer=$DEVELOPER WHERE uid=$UID;
 	""";
@@ -20,18 +28,22 @@ private class Games.DatabaseMetadata : Object {
 	private Game game;
 	private Uid uid;
 	private Cooperative cooperative;
+	private Description description;
 	private Developer developer;
 
 	private string uid_value;
 	private bool cooperative_value;
+	private string description_value;
 	private string developer_value;
 
 	private Sqlite.Statement add_game_statement;
 	private Sqlite.Statement load_statement;
 	private Sqlite.Statement save_cooperative_statement;
+	private Sqlite.Statement save_description_statement;
 	private Sqlite.Statement save_developer_statement;
 
 	public bool cooperative_loaded { get; set; }
+	public bool description_loaded { get; set; }
 	public bool developer_loaded { get; set; }
 
 	private bool game_added;
@@ -41,6 +53,7 @@ private class Games.DatabaseMetadata : Object {
 
 		uid = game.get_uid ();
 		cooperative = game.get_cooperative ();
+		description = game.get_description ();
 		developer = game.get_developer ();
 
 		try {
@@ -49,6 +62,7 @@ private class Games.DatabaseMetadata : Object {
 			add_game_statement = Database.prepare (database, ADD_GAME_QUERY);
 			load_statement = Database.prepare (database, LOAD_QUERY);
 			save_cooperative_statement = Database.prepare (database, SAVE_COOPERATIVE_QUERY);
+			save_description_statement = Database.prepare (database, SAVE_DESCRIPTION_QUERY);
 			save_developer_statement = Database.prepare (database, SAVE_DEVELOPER_QUERY);
 
 			load_metadata ();
@@ -66,6 +80,16 @@ private class Games.DatabaseMetadata : Object {
 		}
 
 		return cooperative_value;
+	}
+
+	public string get_description () {
+		if (!description_loaded) {
+			on_description_loaded ();
+			description.notify.connect (on_description_loaded);
+			return description.get_description ();
+		}
+
+		return description_value;
 	}
 
 	public string get_developer () {
@@ -89,6 +113,17 @@ private class Games.DatabaseMetadata : Object {
 		save_cooperative ();
 	}
 
+	private void on_description_loaded () {
+		if (!description.has_loaded)
+			return;
+
+		description_value = description.get_description ();
+		description_loaded = true;
+
+		add_game ();
+		save_description ();
+	}
+
 	private void on_developer_loaded () {
 		if (!developer.has_loaded)
 			return;
@@ -107,6 +142,20 @@ private class Games.DatabaseMetadata : Object {
 			Database.bind_int (save_cooperative_statement, "$COOPERATIVE", cooperative_value ? 1 : 0);
 
 			if (save_cooperative_statement.step () != Sqlite.DONE)
+				warning ("Execution failed.");
+		}
+		catch (Error e) {
+			warning (e.message);
+		}
+	}
+
+	private void save_description () {
+		try {
+			save_description_statement.reset ();
+			Database.bind_text (save_description_statement, "$UID", uid_value);
+			Database.bind_text (save_description_statement, "$DESCRIPTION", description_value);
+
+			if (save_description_statement.step () != Sqlite.DONE)
 				warning ("Execution failed.");
 		}
 		catch (Error e) {
@@ -159,7 +208,12 @@ private class Games.DatabaseMetadata : Object {
 			}
 
 			if (load_statement.column_type (1) != Sqlite.NULL) {
-				developer_value = load_statement.column_text (1);
+				description_value = load_statement.column_text (1);
+				description_loaded = true;
+			}
+
+			if (load_statement.column_type (2) != Sqlite.NULL) {
+				developer_value = load_statement.column_text (2);
 				developer_loaded = true;
 			}
 		}

@@ -22,6 +22,7 @@ private class Games.Database : Object {
 		CREATE TABLE IF NOT EXISTS game_metadata (
 			uid TEXT PRIMARY KEY NOT NULL,
 			cooperative INTEGER,
+			description TEXT,
 			developer TEXT
 		) WITHOUT ROWID;
 	""";
