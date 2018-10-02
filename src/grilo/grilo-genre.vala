@@ -4,7 +4,8 @@ public class Games.GriloGenre : Object, Genre {
 	private GriloMedia media;
 	private string[] genre;
 	private bool resolving;
-	private bool resolved;
+
+	public bool has_loaded { get; protected set; }
 
 	public GriloGenre (GriloMedia media) {
 		this.media = media;
@@ -13,7 +14,7 @@ public class Games.GriloGenre : Object, Genre {
 	}
 
 	public unowned string[] get_genre () {
-		if (resolving || resolved)
+		if (resolving || has_loaded)
 			return genre;
 
 		resolving = true;
@@ -36,8 +37,6 @@ public class Games.GriloGenre : Object, Genre {
 		for (uint index = 0; index < genre_count; index++)
 			genre += grl_media.get_genre_nth (index);
 
-		resolved = true;
-
-		changed ();
+		has_loaded = true;
 	}
 }
