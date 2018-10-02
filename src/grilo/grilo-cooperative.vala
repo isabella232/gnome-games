@@ -4,7 +4,8 @@ public class Games.GriloCooperative : Object, Cooperative {
 	private GriloMedia media;
 	private bool cooperative;
 	private bool resolving;
-	private bool resolved;
+
+	public bool has_loaded { get; protected set; }
 
 	public GriloCooperative (GriloMedia media) {
 		this.media = media;
@@ -13,7 +14,7 @@ public class Games.GriloCooperative : Object, Cooperative {
 	}
 
 	public bool get_cooperative () {
-		if (resolving || resolved)
+		if (resolving || has_loaded)
 			return cooperative;
 
 		resolving = true;
@@ -36,8 +37,6 @@ public class Games.GriloCooperative : Object, Cooperative {
 
 		cooperative = grl_media.get_boolean (metadata_key);
 
-		resolved = true;
-
-		changed ();
+		has_loaded = true;
 	}
 }

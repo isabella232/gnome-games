@@ -3,6 +3,12 @@
 public class Games.GenericCooperative : Object, Cooperative {
 	private bool cooperative;
 
+	public bool has_loaded { get; protected set; }
+
+	construct {
+		has_loaded = true;
+	}
+
 	public GenericCooperative (bool cooperative) {
 		this.cooperative = cooperative;
 	}
