@@ -8,7 +8,7 @@ variables:
   BUNDLE: "gnome-games-git.flatpak"
 
 flatpak:tests:
-  image: registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:master
+  image: registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:3.30
   stage: test
   variables:
     MANIFEST_PATH: "flatpak/org.gnome.Games.UnitTests.json"
@@ -21,19 +21,19 @@ flatpak:tests:
       - .flatpak-builder/git
 
 flatpak:app:
-  image: registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:master
+  image: registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:3.30
   stage: build
   variables:
     MANIFEST_PATH: "flatpak/org.gnome.Games.json"
-    RUNTIME_REPO: "https://sdk.gnome.org/gnome-nightly.flatpakrepo"
+    RUNTIME_REPO: "https://flathub.org/repo/flathub.flatpakrepo"
     FLATPAK_MODULE: "gnome-games"
   script:
     - flatpak-builder --stop-at=${FLATPAK_MODULE} app ${MANIFEST_PATH}
-    - flatpak build app meson --prefix=/app -Dprofile=development ${MESON_ARGS} _build
+    - flatpak build app meson --prefix=/app ${MESON_ARGS} _build
     - flatpak build app ninja -C _build install
     - flatpak build app mkdir -p /app/lib/libretro/extra.d
     - flatpak-builder --finish-only --repo=repo app ${MANIFEST_PATH}
-    - flatpak build-bundle repo ${BUNDLE} --runtime-repo=${RUNTIME_REPO} org.gnome.GamesDevel
+    - flatpak build-bundle repo ${BUNDLE} --runtime-repo=${RUNTIME_REPO} org.gnome.Games
 
   artifacts:
     paths:
@@ -91,7 +91,7 @@ fedora:29:
     - bash -x ./.gitlab-ci/build.sh
 
 ubuntu:devel:
-  image: ubuntu:devel
+  image: ubuntu:18.10
   stage: cross_distro
   before_script:
     - apt-get update
