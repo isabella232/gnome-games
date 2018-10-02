@@ -152,11 +152,16 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 
 		var theme = Gtk.IconTheme.get_default ();
 		var size = int.min (context.width, context.height) * scale;
+		var icon_info = theme.lookup_icon (icon_name, (int) size, Gtk.IconLookupFlags.FORCE_SIZE);
+
+		if (icon_info == null) {
+			warning ("Couldn't find the emblem");
+			return;
+		}
 		try {
-			var icon_info = theme.lookup_icon (icon_name, (int) size, Gtk.IconLookupFlags.FORCE_SIZE);
 			emblem = icon_info.load_symbolic (color);
-		} catch (Error error) {
-			warning (@"Unable to get icon “$icon_name”: $(error.message)");
+		} catch (Error e) {
+			warning (@"Couldn’t load the emblem: $(e.message)");
 			return;
 		}
 
@@ -179,14 +184,15 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		var size = int.min (context.width, context.height) * scale;
 		var icon_info = theme.lookup_by_gicon (icon, (int) size, lookup_flags);
 
-		if (icon_info == null)
+		if (icon_info == null) {
+			warning ("Couldn't find the icon");
 			return null;
-
+		}
 		try {
 			return icon_info.load_icon ();
 		}
 		catch (Error e) {
-			warning (@"Couldn’t load the icon: $(e.message)\n");
+			warning (@"Couldn’t load the icon: $(e.message)");
 			return null;
 		}
 	}
@@ -221,12 +227,16 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		var lookup_flags = Gtk.IconLookupFlags.FORCE_SIZE | Gtk.IconLookupFlags.FORCE_REGULAR;
 		var icon_info = theme.lookup_by_gicon (g_icon, (int) size, lookup_flags);
 
+		if (icon_info == null) {
+			warning ("Couldn't find the cover");
+			return null;
+		}
 		try {
 			cover_cache = icon_info.load_icon ();
 			save_cover_cache_to_disk (size);
 		}
 		catch (Error e) {
-			warning (@"Couldn’t load the icon: $(e.message)\n");
+			warning (@"Couldn’t load the cover: $(e.message)");
 		}
 
 		return cover_cache;
