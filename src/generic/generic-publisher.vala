@@ -3,6 +3,12 @@
 public class Games.GenericPublisher : Object, Publisher {
 	private string publisher;
 
+	public bool has_loaded { get; protected set; }
+
+	construct {
+		has_loaded = true;
+	}
+
 	public GenericPublisher (string publisher) {
 		this.publisher = publisher;
 	}

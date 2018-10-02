@@ -4,7 +4,8 @@ public class Games.GriloPublisher : Object, Publisher {
 	private GriloMedia media;
 	private string publisher;
 	private bool resolving;
-	private bool resolved;
+
+	public bool has_loaded { get; protected set; }
 
 	public GriloPublisher (GriloMedia media) {
 		this.media = media;
@@ -13,7 +14,7 @@ public class Games.GriloPublisher : Object, Publisher {
 	}
 
 	public string get_publisher () {
-		if (resolving || resolved)
+		if (resolving || has_loaded)
 			return publisher;
 
 		resolving = true;
@@ -36,8 +37,6 @@ public class Games.GriloPublisher : Object, Publisher {
 
 		publisher = grl_media.get_string (metadata_key);
 
-		resolved = true;
-
-		changed ();
+		has_loaded = true;
 	}
 }
