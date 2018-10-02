@@ -1,9 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.GameThumbnail: Gtk.DrawingArea {
-	private const Gtk.CornerType[] right_corners = { Gtk.CornerType.TOP_RIGHT, Gtk.CornerType.BOTTOM_RIGHT };
-	private const Gtk.CornerType[] bottom_corners = { Gtk.CornerType.BOTTOM_LEFT, Gtk.CornerType.BOTTOM_RIGHT };
-
 	private const double EMBLEM_SCALE = 0.125;
 	private const double ICON_SCALE = 0.75;
 
@@ -158,7 +155,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		try {
 			var icon_info = theme.lookup_icon (icon_name, (int) size, Gtk.IconLookupFlags.FORCE_SIZE);
 			emblem = icon_info.load_symbolic (color);
-		} catch (GLib.Error error) {
+		} catch (Error error) {
 			warning (@"Unable to get icon “$icon_name”: $(error.message)");
 			return;
 		}
@@ -265,14 +262,13 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 			return;
 
 		Application.try_make_dir (Application.get_covers_cache_dir (size));
-		var now = new GLib.DateTime.now_local ();
-		var creation_time = now.to_string ();
+		var now = new DateTime.now_local ();
 
 		try {
 			var cover_cache_path = get_cover_cache_path (size);
 			cover_cache.save (cover_cache_path, "png",
 			                  "tEXt::Software", "GNOME Games",
-			                  "tEXt::Creation Time", creation_time.to_string (),
+			                  "tEXt::Creation Time", now.to_string (),
 			                  null);
 		}
 		catch (Error e) {
@@ -282,9 +278,6 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 
 	private string get_cover_cache_path (int size) throws Error {
 		var dir = Application.get_covers_cache_dir (size);
-
-		assert (uid != null);
-
 		var uid = uid.get_uid ();
 
 		return @"$dir/$uid.png";
