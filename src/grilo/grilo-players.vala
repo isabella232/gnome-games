@@ -4,7 +4,8 @@ public class Games.GriloPlayers : Object, Players {
 	private GriloMedia media;
 	private string players;
 	private bool resolving;
-	private bool resolved;
+
+	public bool has_loaded { get; protected set; }
 
 	public GriloPlayers (GriloMedia media) {
 		this.media = media;
@@ -13,7 +14,7 @@ public class Games.GriloPlayers : Object, Players {
 	}
 
 	public string get_players () {
-		if (resolving || resolved)
+		if (resolving || has_loaded)
 			return players;
 
 		resolving = true;
@@ -41,8 +42,6 @@ public class Games.GriloPlayers : Object, Players {
 		else
 			players = _("Multi-player");
 
-		resolved = true;
-
-		changed ();
+		has_loaded = true;
 	}
 }

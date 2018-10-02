@@ -3,6 +3,12 @@
 public class Games.GenericPlayers : Object, Players {
 	private string players;
 
+	public bool has_loaded { get; protected set; }
+
+	construct {
+		has_loaded = true;
+	}
+
 	public GenericPlayers (string players) {
 		this.players = players;
 	}
