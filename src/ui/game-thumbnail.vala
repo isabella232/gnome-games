@@ -107,7 +107,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 
 		// Draw the default thumbnail if no thumbnail have been drawn
 		if (!drawn)
-			draw_default (context);
+			draw_emblem (context);
 
 		return true;
 	}
@@ -140,40 +140,33 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		return true;
 	}
 
-	public void draw_default (DrawingContext context) {
+	public void draw_emblem (DrawingContext context) {
+		var pixbuf = get_emblem (context);
+		if (pixbuf == null)
+			return;
+
 		draw_background (context);
-		draw_emblem_icon (context, "applications-games-symbolic", EMBLEM_SCALE);
+		draw_pixbuf (context, pixbuf);
 		draw_border (context);
 	}
 
-	private void draw_emblem_icon (DrawingContext context, string icon_name, double scale) {
-		Gdk.Pixbuf? emblem = null;
-
+	private Gdk.Pixbuf? get_emblem (DrawingContext context) {
 		var color = context.style.get_color (context.state);
-
 		var theme = Gtk.IconTheme.get_default ();
-		var size = int.min (context.width, context.height) * scale;
-		var icon_info = theme.lookup_icon (icon_name, (int) size, Gtk.IconLookupFlags.FORCE_SIZE);
+		var size = int.min (context.width, context.height) * EMBLEM_SCALE;
+		var icon_info = theme.lookup_icon ("applications-games-symbolic", (int) size,
+		                                   Gtk.IconLookupFlags.FORCE_SIZE);
 
 		if (icon_info == null) {
 			warning ("Couldn't find the emblem");
-			return;
+			return null;
 		}
 		try {
-			emblem = icon_info.load_symbolic (color);
+			return icon_info.load_symbolic (color);
 		} catch (Error e) {
 			warning (@"Couldn’t load the emblem: $(e.message)");
-			return;
+			return null;
 		}
-
-		if (emblem == null)
-			return;
-
-		double offset_x = context.width / 2.0 - emblem.width / 2.0;
-		double offset_y = context.height / 2.0 - emblem.height / 2.0;
-
-		Gdk.cairo_set_source_pixbuf (context.cr, emblem, offset_x, offset_y);
-		context.cr.paint ();
 	}
 
 	private Gdk.Pixbuf? get_icon_cache (int width, int height) {
