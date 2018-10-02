@@ -98,56 +98,26 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 			tried_loading_cover = false;
 		}
 
-		var drawn = false;
+		load_cache (context.width, context.height);
 
-		drawn = draw_cover (context);
+		draw_border (context);
+		if (cover_cache != null)
+			draw_black_background (context);
+		else
+			draw_background (context);
 
-		if (!drawn)
-			drawn = draw_icon (context);
-
-		// Draw the default thumbnail if no thumbnail have been drawn
-		if (!drawn)
-			draw_emblem (context);
+		var thumbnail = cover_cache ?? icon_cache ?? get_emblem (context);
+		if (thumbnail != null)
+			draw_pixbuf (context, thumbnail);
 
 		return true;
 	}
 
-	public bool draw_icon (DrawingContext context) {
-		var pixbuf = get_icon_cache (context.width, context.height);
-		if (pixbuf == null)
-			return false;
-
-		draw_background (context);
-		draw_pixbuf (context, pixbuf);
-		draw_border (context);
-
-		return true;
-	}
-
-	public bool draw_cover (DrawingContext context) {
-		var pixbuf = get_cover_cache (context.width, context.height);
-		if (pixbuf == null)
-			return false;
-
-		var border_radius = (int) context.style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS, context.state);
-
-		context.cr.set_source_rgb (0, 0, 0);
-		rounded_rectangle (context.cr, 0.5, 0.5, context.width - 1, context.height - 1, border_radius);
-		context.cr.fill ();
-		draw_pixbuf (context, pixbuf);
-		draw_border (context);
-
-		return true;
-	}
-
-	public void draw_emblem (DrawingContext context) {
-		var pixbuf = get_emblem (context);
-		if (pixbuf == null)
-			return;
-
-		draw_background (context);
-		draw_pixbuf (context, pixbuf);
-		draw_border (context);
+	private void load_cache (int width, int height) {
+		if (cover_cache == null && icon_cache == null)
+			cover_cache = get_cover_cache (width, height);
+		if (cover_cache == null && icon_cache == null)
+			icon_cache = get_icon_cache (width, height);
 	}
 
 	private Gdk.Pixbuf? get_emblem (DrawingContext context) {
@@ -307,6 +277,13 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		cr.fill ();
 
 		return mask;
+	}
+
+	private void draw_black_background (DrawingContext context) {
+		var border_radius = (int) context.style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS, context.state);
+		context.cr.set_source_rgb (0, 0, 0);
+		rounded_rectangle (context.cr, 0.5, 0.5, context.width - 1, context.height - 1, border_radius);
+		context.cr.fill ();
 	}
 
 	private void draw_background (DrawingContext context) {
