@@ -1,15 +1,9 @@
 {
     "app-id" : "org.gnome.Games.UnitTests",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "master",
+    "runtime-version" : "3.30",
     "sdk" : "org.gnome.Sdk",
     "command" : "games-unit-tests",
-    "tags" : [
-        "devel",
-        "development",
-        "nightly"
-    ],
-    "desktop-file-name-suffix" : " (Development)",
     "finish-args" : [
         "--share=network",
         "--share=ipc",
@@ -97,8 +91,9 @@
             ],
             "sources" : [
                 {
-                    "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/retro-gtk.git"
+                    "type" : "archive",
+                    "url" : "https://download.gnome.org/sources/retro-gtk/0.16/retro-gtk-0.16.0.tar.xz",
+                    "sha256" : "8c9b4ec9d6aa6b9db088a09706c0dd3de41437ff3a46f46566a47911efa7a627"
                 }
             ]
         }
