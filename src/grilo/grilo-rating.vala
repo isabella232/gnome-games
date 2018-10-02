@@ -4,7 +4,8 @@ public class Games.GriloRating : Object, Rating {
 	private GriloMedia media;
 	private float rating;
 	private bool resolving;
-	private bool resolved;
+
+	public bool has_loaded { get; protected set; }
 
 	public GriloRating (GriloMedia media) {
 		this.media = media;
@@ -13,7 +14,7 @@ public class Games.GriloRating : Object, Rating {
 	}
 
 	public float get_rating () {
-		if (resolving || resolved)
+		if (resolving || has_loaded)
 			return rating;
 
 		resolving = true;
@@ -33,8 +34,6 @@ public class Games.GriloRating : Object, Rating {
 
 		rating = grl_media.get_rating ();
 
-		resolved = true;
-
-		changed ();
+		has_loaded = true;
 	}
 }
