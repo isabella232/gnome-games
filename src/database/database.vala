@@ -21,6 +21,7 @@ private class Games.Database : Object {
 	private const string CREATE_METADATA_TABLE_QUERY = """
 		CREATE TABLE IF NOT EXISTS game_metadata (
 			uid TEXT PRIMARY KEY NOT NULL,
+			cooperative INTEGER,
 			developer TEXT
 		) WITHOUT ROWID;
 	""";
@@ -85,6 +86,14 @@ private class Games.Database : Object {
 			throw new DatabaseError.PREPARATION_FAILED ("Preparation failed: %s", database.errmsg ());
 
 		return statement;
+	}
+
+	internal static void bind_int (Sqlite.Statement statement, string parameter, int val) throws Error {
+		var position = statement.bind_parameter_index (parameter);
+		if (position <= 0)
+			throw new DatabaseError.BINDING_FAILED ("Couldn't bind int to the parameter “%s”, unexpected position: %d.", parameter, position);
+
+		statement.bind_int (position, val);
 	}
 
 	internal static void bind_text (Sqlite.Statement statement, string parameter, string text) throws Error {
