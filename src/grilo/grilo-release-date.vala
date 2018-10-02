@@ -4,7 +4,8 @@ public class Games.GriloReleaseDate : Object, ReleaseDate {
 	private GriloMedia media;
 	private DateTime release_date;
 	private bool resolving;
-	private bool resolved;
+
+	public bool has_loaded { get; protected set; }
 
 	public GriloReleaseDate (GriloMedia media) {
 		this.media = media;
@@ -13,7 +14,7 @@ public class Games.GriloReleaseDate : Object, ReleaseDate {
 	}
 
 	public DateTime get_release_date () {
-		if (resolving || resolved)
+		if (resolving || has_loaded)
 			return release_date;
 
 		resolving = true;
@@ -33,8 +34,6 @@ public class Games.GriloReleaseDate : Object, ReleaseDate {
 
 		release_date = grl_media.get_publication_date ();
 
-		resolved = true;
-
-		changed ();
+		has_loaded = true;
 	}
 }

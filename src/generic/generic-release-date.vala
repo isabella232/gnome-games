@@ -3,6 +3,12 @@
 public class Games.GenericReleaseDate : Object, ReleaseDate {
 	private DateTime release_date;
 
+	public bool has_loaded { get; protected set; }
+
+	construct {
+		has_loaded = true;
+	}
+
 	public GenericReleaseDate (DateTime release_date) {
 		this.release_date = release_date;
 	}
