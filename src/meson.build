@@ -124,6 +124,7 @@ vala_sources = [
   'tracker/tracker-uri-source.vala',
 
   'ui/application.vala',
+  'ui/application-view.vala',
   'ui/application-window.vala',
   'ui/checkmark-item.vala',
   'ui/collection-box.vala',
