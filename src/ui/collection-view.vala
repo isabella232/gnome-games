@@ -99,15 +99,15 @@ private class Games.CollectionView: Gtk.Bin, ApplicationView {
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {
-		return false;
+		return window.is_active && box.gamepad_button_press_event (event);
 	}
 
 	public bool gamepad_button_release_event (Manette.Event event) {
-		return false;
+		return window.is_active && box.gamepad_button_release_event (event);
 	}
 
 	public bool gamepad_absolute_axis_event (Manette.Event event) {
-		return false;
+		return window.is_active && box.gamepad_absolute_axis_event (event);
 	}
 
 	[GtkCallback]

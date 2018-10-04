@@ -235,7 +235,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	public bool gamepad_button_press_event (Manette.Event event) {
 		if (current_view == collection_view)
-			return is_active && collection_view.box.gamepad_button_press_event (event);
+			return collection_view.gamepad_button_press_event (event);
 		else if (current_view == display_view) {
 			if (resume_dialog != null)
 				return resume_dialog.is_active && resume_dialog.gamepad_button_press_event (event);
@@ -268,14 +268,14 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	public bool gamepad_button_release_event (Manette.Event event) {
 		if (current_view == collection_view)
-			return is_active && collection_view.box.gamepad_button_release_event (event);
+			return collection_view.gamepad_button_release_event (event);
 
 		return false;
 	}
 
 	public bool gamepad_absolute_axis_event (Manette.Event event) {
 		if (current_view == collection_view)
-			return is_active && collection_view.box.gamepad_absolute_axis_event (event);
+			return collection_view.gamepad_absolute_axis_event (event);
 
 		return false;
 	}
