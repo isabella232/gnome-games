@@ -32,11 +32,30 @@ private class Games.CollectionView: Gtk.Bin, ApplicationView {
 		construct set {
 			_collection = value;
 			box.collection = _collection;
+
+			collection.items_changed.connect (() => {
+				is_collection_empty = collection.get_n_items () == 0;
+			});
+			is_collection_empty = collection.get_n_items () == 0;
 		}
 	}
 
+	public bool is_collection_empty { get; set; }
+
+	private Binding box_empty_collection_binding;
+	private Binding header_bar_empty_collection_binding;
+
 	construct {
 		header_bar.viewstack = box.viewstack;
+		is_collection_empty = true;
+
+		box_empty_collection_binding = bind_property ("is-collection-empty", box,
+		                                              "is-collection-empty",
+		                                              BindingFlags.BIDIRECTIONAL);
+		header_bar_empty_collection_binding = bind_property ("is-collection-empty",
+		                                                     header_bar,
+		                                                     "is-collection-empty",
+		                                                     BindingFlags.BIDIRECTIONAL);
 	}
 
 	public CollectionView (ListModel collection) {
