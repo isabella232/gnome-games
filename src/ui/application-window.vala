@@ -39,8 +39,6 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 				collection_view.is_view_active = false;
 				display_view.is_view_active = true;
 
-				search_mode = false;
-
 				break;
 			}
 
@@ -61,12 +59,6 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		}
 	}
 
-	private bool _search_mode;
-	public bool search_mode {
-		get { return _search_mode; }
-		set { _search_mode = value && (ui_state == UiState.COLLECTION); }
-	}
-
 	public bool loading_notification { get; set; }
 
 	[GtkChild]
@@ -81,9 +73,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	private Settings settings;
 
-	private Binding box_search_binding;
 	private Binding box_fullscreen_binding;
-	private Binding header_bar_search_binding;
 	private Binding header_bar_fullscreen_binding;
 	private Binding loading_notification_binding;
 
@@ -127,12 +117,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (settings.get_boolean ("window-maximized"))
 			maximize ();
 
-		box_search_binding = bind_property ("search-mode", collection_view.box, "search-mode",
-		                                    BindingFlags.BIDIRECTIONAL);
 		loading_notification_binding = bind_property ("loading-notification", collection_view.box, "loading-notification",
 		                                              BindingFlags.DEFAULT);
-		header_bar_search_binding = bind_property ("search-mode", collection_view.header_bar, "search-mode",
-		                                           BindingFlags.BIDIRECTIONAL);
 
 		box_fullscreen_binding = bind_property ("is-fullscreen", display_view.box, "is-fullscreen",
 		                                        BindingFlags.BIDIRECTIONAL);
@@ -221,7 +207,10 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return true;
 		}
 
-		return handle_collection_key_event (event) || handle_display_key_event (event);
+		if (ui_state == UiState.COLLECTION)
+			return collection_view.on_key_pressed (event);
+
+		return handle_display_key_event (event);
 	}
 
 	[GtkCallback]
@@ -586,23 +575,6 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return false;
 
 		return true;
-	}
-
-	private bool handle_collection_key_event (Gdk.EventKey event) {
-		if (ui_state != UiState.COLLECTION)
-			return false;
-
-		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
-
-		if ((event.keyval == Gdk.Key.f || event.keyval == Gdk.Key.F) &&
-		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK) {
-			if (!search_mode)
-				search_mode = true;
-
-			return true;
-		}
-
-		return collection_view.box.search_bar_handle_event (event);
 	}
 
 	private bool handle_display_key_event (Gdk.EventKey event) {

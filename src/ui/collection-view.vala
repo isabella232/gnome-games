@@ -21,6 +21,9 @@ private class Games.CollectionView: Gtk.Bin, ApplicationView {
 				return;
 
 			_is_view_active = value;
+
+			if (!is_view_active)
+				search_mode = false;
 		}
 	}
 
@@ -40,14 +43,23 @@ private class Games.CollectionView: Gtk.Bin, ApplicationView {
 		}
 	}
 
+	public bool search_mode { get; set; }
 	public bool is_collection_empty { get; set; }
 
+	private Binding box_search_binding;
 	private Binding box_empty_collection_binding;
+	private Binding header_bar_search_binding;
 	private Binding header_bar_empty_collection_binding;
 
 	construct {
 		header_bar.viewstack = box.viewstack;
 		is_collection_empty = true;
+
+		box_search_binding = bind_property ("search-mode", box, "search-mode",
+		                                    BindingFlags.BIDIRECTIONAL);
+		header_bar_search_binding = bind_property ("search-mode", header_bar,
+		                                           "search-mode",
+		                                           BindingFlags.BIDIRECTIONAL);
 
 		box_empty_collection_binding = bind_property ("is-collection-empty", box,
 		                                              "is-collection-empty",
@@ -67,7 +79,17 @@ private class Games.CollectionView: Gtk.Bin, ApplicationView {
 	}
 
 	public bool on_key_pressed (Gdk.EventKey event) {
-		return false;
+		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
+
+		if ((event.keyval == Gdk.Key.f || event.keyval == Gdk.Key.F) &&
+		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK) {
+			if (!search_mode)
+				search_mode = true;
+
+			return true;
+		}
+
+		return box.search_bar_handle_event (event);
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {
