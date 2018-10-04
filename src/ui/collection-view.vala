@@ -5,9 +5,9 @@ private class Games.CollectionView: Gtk.Bin, ApplicationView {
 	public signal void game_activated (Game game);
 
 	[GtkChild]
-	public CollectionBox box;
+	private CollectionBox box;
 	[GtkChild]
-	public CollectionHeaderBar header_bar;
+	private CollectionHeaderBar header_bar;
 
 	public Gtk.Widget titlebar {
 		get { return header_bar; }
