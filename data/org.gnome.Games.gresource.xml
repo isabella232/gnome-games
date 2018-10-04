@@ -15,6 +15,7 @@
     <file preprocess="xml-stripblanks">ui/collection-box.ui</file>
     <file preprocess="xml-stripblanks">ui/collection-header-bar.ui</file>
     <file preprocess="xml-stripblanks">ui/collection-icon-view.ui</file>
+    <file preprocess="xml-stripblanks">ui/collection-view.ui</file>
     <file preprocess="xml-stripblanks">ui/developer-list-item.ui</file>
     <file preprocess="xml-stripblanks">ui/display-box.ui</file>
     <file preprocess="xml-stripblanks">ui/display-header-bar.ui</file>
