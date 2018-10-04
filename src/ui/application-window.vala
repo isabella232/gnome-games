@@ -198,16 +198,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	[GtkCallback]
 	public bool on_button_pressed (Gdk.EventButton event) {
-		// Mouse button 8 is the navigation previous button
-		if (event.button == 8) {
-			if (current_view != display_view)
-				return false;
-
-			on_display_back ();
-			return true;
-		}
-
-		return false;
+		return current_view.on_button_pressed (event);
 	}
 
 	[GtkCallback]

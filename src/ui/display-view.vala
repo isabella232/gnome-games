@@ -49,6 +49,12 @@ private class Games.DisplayView: Gtk.Bin, ApplicationView {
 	}
 
 	public bool on_button_pressed (Gdk.EventButton event) {
+		// Mouse button 8 is the navigation previous button
+		if (event.button == 8) {
+			back ();
+			return true;
+		}
+
 		return false;
 	}
 
