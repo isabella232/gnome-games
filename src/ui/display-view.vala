@@ -22,8 +22,14 @@ private class Games.DisplayView: Gtk.Bin, ApplicationView {
 
 			_is_view_active = value;
 
-			if (!is_view_active)
+			if (!is_view_active) {
 				is_fullscreen = false;
+
+				if (box.runner != null) {
+					box.runner.stop ();
+					box.runner = null;
+				}
+			}
 		}
 	}
 

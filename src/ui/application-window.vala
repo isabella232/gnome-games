@@ -7,38 +7,23 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	private const string CONTRIBUTE_URI = "https://wiki.gnome.org/Apps/Games/Contribute";
 
-	private UiState _ui_state;
-	public UiState ui_state {
-		get { return _ui_state; }
+	private ApplicationView _current_view;
+	public ApplicationView current_view {
+		get { return _current_view; }
 		set {
-			if (value == ui_state)
+			if (value == current_view)
 				return;
 
-			_ui_state = value;
+			if (current_view != null)
+				current_view.is_view_active = false;
 
-			switch (ui_state) {
-			case UiState.COLLECTION:
-				content_box.visible_child = collection_view;
-				header_bar.visible_child = collection_view.titlebar;
+			_current_view = value;
 
-				display_view.is_view_active = false;
-				collection_view.is_view_active = true;
+			content_box.visible_child = current_view;
+			header_bar.visible_child = current_view.titlebar;
 
-				if (display_view.box.runner != null) {
-					display_view.box.runner.stop ();
-					display_view.box.runner = null;
-				}
-
-				break;
-			case UiState.DISPLAY:
-				content_box.visible_child = display_view;
-				header_bar.visible_child = display_view.titlebar;
-
-				collection_view.is_view_active = false;
-				display_view.is_view_active = true;
-
-				break;
-			}
+			if (current_view != null)
+				current_view.is_view_active = true;
 
 			konami_code.reset ();
 		}
@@ -48,7 +33,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	public bool is_fullscreen {
 		get { return _is_fullscreen; }
 		set {
-			_is_fullscreen = value && (ui_state == UiState.DISPLAY);
+			_is_fullscreen = value && (current_view == display_view);
 
 			if (_is_fullscreen)
 				fullscreen ();
@@ -98,7 +83,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	construct {
 		header_bar.add (collection_view.titlebar);
 		header_bar.add (display_view.titlebar);
-		ui_state = UiState.COLLECTION;
+		current_view = collection_view;
 
 		settings = new Settings ("org.gnome.Games");
 
@@ -205,8 +190,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return true;
 		}
 
-		if (ui_state == UiState.COLLECTION)
-			return collection_view.on_key_pressed (event);
+		if (current_view == collection_view)
+			return current_view.on_key_pressed (event);
 
 		return handle_display_key_event (event);
 	}
@@ -215,7 +200,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	public bool on_button_pressed (Gdk.EventButton event) {
 		// Mouse button 8 is the navigation previous button
 		if (event.button == 8) {
-			if (ui_state != UiState.DISPLAY)
+			if (current_view != display_view)
 				return false;
 
 			on_display_back ();
@@ -237,7 +222,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return false;
 
 		var focused = (bool) (event.new_window_state & Gdk.WindowState.FOCUSED);
-		var playing = (ui_state == UiState.DISPLAY);
+		var playing = (current_view == display_view);
 
 		if (focused && playing)
 			inhibit (Gtk.ApplicationInhibitFlags.IDLE);
@@ -249,10 +234,9 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {
-		switch (ui_state) {
-		case UiState.COLLECTION:
+		if (current_view == collection_view)
 			return is_active && collection_view.box.gamepad_button_press_event (event);
-		case UiState.DISPLAY:
+		else if (current_view == display_view) {
 			if (resume_dialog != null)
 				return resume_dialog.is_active && resume_dialog.gamepad_button_press_event (event);
 
@@ -271,33 +255,29 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 			switch (button) {
 			case EventCode.BTN_MODE:
-				ui_state = UiState.COLLECTION;
+				current_view = collection_view;
 
 				return true;
 			default:
 				return false;
 			}
-		default:
-			return false;
 		}
+
+		return false;
 	}
 
 	public bool gamepad_button_release_event (Manette.Event event) {
-		switch (ui_state) {
-		case UiState.COLLECTION:
+		if (current_view == collection_view)
 			return is_active && collection_view.box.gamepad_button_release_event (event);
-		default:
-			return false;
-		}
+
+		return false;
 	}
 
 	public bool gamepad_absolute_axis_event (Manette.Event event) {
-		switch (ui_state) {
-		case UiState.COLLECTION:
+		if (current_view == collection_view)
 			return is_active && collection_view.box.gamepad_absolute_axis_event (event);
-		default:
-			return false;
-		}
+
+		return false;
 	}
 
 	[GtkCallback]
@@ -308,7 +288,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	[GtkCallback]
 	private void on_display_back () {
 		if (quit_game ())
-			ui_state = UiState.COLLECTION;
+			current_view = collection_view;
 
 		uninhibit (Gtk.ApplicationInhibitFlags.IDLE | Gtk.ApplicationInhibitFlags.LOGOUT);
 	}
@@ -316,7 +296,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private void run_game_with_cancellable (Game game, Cancellable cancellable) {
 		display_view.header_bar.game_title = game.name;
 		display_view.box.header_bar.game_title = game.name;
-		ui_state = UiState.DISPLAY;
+		current_view = display_view;
 
 		// Reset the UI parts depending on the runner to avoid an
 		// inconsistent state is case we couldn't retrieve it.
@@ -425,7 +405,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 		if (response == Gtk.ResponseType.CANCEL) {
 			display_view.box.runner = null;
-			ui_state = UiState.COLLECTION;
+			current_view = collection_view;
 
 			return;
 		}
@@ -560,7 +540,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	private bool can_update_pause () {
-		if (ui_state != UiState.DISPLAY)
+		if (current_view != display_view)
 			return false;
 
 		if (display_view.box.runner == null)
@@ -576,7 +556,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	private bool handle_display_key_event (Gdk.EventKey event) {
-		if (ui_state != UiState.DISPLAY)
+		if (current_view != display_view)
 			return false;
 
 		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
@@ -655,7 +635,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	private void on_konami_code_performed () {
-		if (ui_state != UiState.COLLECTION)
+		if (current_view != collection_view)
 			return;
 
 		try {
