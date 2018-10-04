@@ -21,21 +21,23 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 				content_box.visible_child = collection_view;
 				header_bar.visible_child = collection_view.titlebar;
 
+				display_view.is_view_active = false;
 				collection_view.is_view_active = true;
 
 				is_fullscreen = false;
 
-				if (display_box.runner != null) {
-					display_box.runner.stop ();
-					display_box.runner = null;
+				if (display_view.box.runner != null) {
+					display_view.box.runner.stop ();
+					display_view.box.runner = null;
 				}
 
 				break;
 			case UiState.DISPLAY:
-				content_box.visible_child = display_box;
-				header_bar.visible_child = display_header_bar;
+				content_box.visible_child = display_view;
+				header_bar.visible_child = display_view.titlebar;
 
 				collection_view.is_view_active = false;
+				display_view.is_view_active = true;
 
 				search_mode = false;
 
@@ -74,12 +76,10 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	[GtkChild]
 	private CollectionView collection_view;
 	[GtkChild]
-	private DisplayBox display_box;
+	private DisplayView display_view;
 
 	[GtkChild]
 	private Gtk.Stack header_bar;
-	[GtkChild]
-	private DisplayHeaderBar display_header_bar;
 
 	private Settings settings;
 
@@ -108,6 +108,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	public ApplicationWindow (ListModel collection) {
 		collection_view.window = this;
+		display_view.window = this;
 		collection_view.collection = collection;
 		collection.items_changed.connect (() => {
 			is_collection_empty = collection.get_n_items () == 0;
@@ -117,7 +118,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	construct {
 		header_bar.add (collection_view.titlebar);
-		header_bar.visible_child = collection_view.titlebar;
+		header_bar.add (display_view.titlebar);
 		ui_state = UiState.COLLECTION;
 
 		settings = new Settings ("org.gnome.Games");
@@ -141,9 +142,9 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		header_bar_search_binding = bind_property ("search-mode", collection_view.header_bar, "search-mode",
 		                                           BindingFlags.BIDIRECTIONAL);
 
-		box_fullscreen_binding = bind_property ("is-fullscreen", display_box, "is-fullscreen",
+		box_fullscreen_binding = bind_property ("is-fullscreen", display_view.box, "is-fullscreen",
 		                                        BindingFlags.BIDIRECTIONAL);
-		header_bar_fullscreen_binding = bind_property ("is-fullscreen", display_header_bar, "is-fullscreen",
+		header_bar_fullscreen_binding = bind_property ("is-fullscreen", display_view.header_bar, "is-fullscreen",
 		                                               BindingFlags.BIDIRECTIONAL);
 
 		box_empty_collection_binding = bind_property ("is-collection-empty", collection_view.box, "is-collection-empty",
@@ -339,8 +340,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	private void run_game_with_cancellable (Game game, Cancellable cancellable) {
-		display_header_bar.game_title = game.name;
-		display_box.header_bar.game_title = game.name;
+		display_view.header_bar.game_title = game.name;
+		display_view.box.header_bar.game_title = game.name;
 		ui_state = UiState.DISPLAY;
 
 		// Reset the UI parts depending on the runner to avoid an
@@ -351,11 +352,11 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (runner == null)
 			return;
 
-		display_header_bar.can_fullscreen = runner.can_fullscreen;
-		display_box.header_bar.can_fullscreen = runner.can_fullscreen;
-		display_box.runner = runner;
-		display_header_bar.media_set = runner.media_set;
-		display_box.header_bar.media_set = runner.media_set;
+		display_view.header_bar.can_fullscreen = runner.can_fullscreen;
+		display_view.box.header_bar.can_fullscreen = runner.can_fullscreen;
+		display_view.box.runner = runner;
+		display_view.header_bar.media_set = runner.media_set;
+		display_view.box.header_bar.media_set = runner.media_set;
 
 		is_fullscreen = settings.get_boolean ("fullscreen") && runner.can_fullscreen;
 
@@ -375,14 +376,14 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 				return runner;
 
 			reset_display_page ();
-			display_box.display_running_game_failed (game, error_message);
+			display_view.box.display_running_game_failed (game, error_message);
 
 			return null;
 		}
 		catch (Error e) {
 			warning (e.message);
 			reset_display_page ();
-			display_box.display_running_game_failed (game, _("An unexpected error occurred."));
+			display_view.box.display_running_game_failed (game, _("An unexpected error occurred."));
 
 			return null;
 		}
@@ -416,7 +417,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private bool try_run_with_cancellable (Runner runner, bool resume, Cancellable cancellable) {
 		try {
 			if (resume)
-				display_box.runner.resume ();
+				display_view.box.runner.resume ();
 			else
 				runner.start ();
 
@@ -449,7 +450,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			response = Gtk.ResponseType.CANCEL;
 
 		if (response == Gtk.ResponseType.CANCEL) {
-			display_box.runner = null;
+			display_view.box.runner = null;
 			ui_state = UiState.COLLECTION;
 
 			return;
@@ -464,12 +465,12 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	public bool quit_game_with_cancellable (Cancellable cancellable) {
-		if (display_box.runner == null)
+		if (display_view.box.runner == null)
 			return true;
 
-		display_box.runner.stop ();
+		display_view.box.runner.stop ();
 
-		if (display_box.runner.can_quit_safely)
+		if (display_view.box.runner.can_quit_safely)
 			return true;
 
 		if (quit_dialog != null)
@@ -497,9 +498,9 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	private bool cancel_quitting_game () {
-		if (display_box.runner != null)
+		if (display_view.box.runner != null)
 			try {
-				display_box.runner.resume ();
+				display_view.box.runner.resume ();
 			}
 			catch (Error e) {
 				warning (e.message);
@@ -561,7 +562,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 		if (is_active)
 			try {
-				display_box.runner.resume ();
+				display_view.box.runner.resume ();
 			}
 			catch (Error e) {
 				warning (e.message);
@@ -569,7 +570,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		else if (with_delay)
 			focus_out_timeout_id = Timeout.add (FOCUS_OUT_DELAY_MILLISECONDS, on_focus_out_delay_elapsed);
 		else
-			display_box.runner.pause ();
+			display_view.box.runner.pause ();
 	}
 
 	private bool on_focus_out_delay_elapsed () {
@@ -579,7 +580,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return false;
 
 		if (!is_active)
-			display_box.runner.pause ();
+			display_view.box.runner.pause ();
 
 		return false;
 	}
@@ -588,7 +589,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (ui_state != UiState.DISPLAY)
 			return false;
 
-		if (display_box.runner == null)
+		if (display_view.box.runner == null)
 			return false;
 
 		if (run_game_cancellable != null)
@@ -625,21 +626,21 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 		if ((event.keyval == Gdk.Key.f || event.keyval == Gdk.Key.F) &&
 		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK &&
-		    display_header_bar.can_fullscreen) {
+		    display_view.header_bar.can_fullscreen) {
 			is_fullscreen = !is_fullscreen;
 			settings.set_boolean ("fullscreen", is_fullscreen);
 
 			return true;
 		}
 
-		if (event.keyval == Gdk.Key.F11 && display_header_bar.can_fullscreen) {
+		if (event.keyval == Gdk.Key.F11 && display_view.header_bar.can_fullscreen) {
 			is_fullscreen = !is_fullscreen;
 			settings.set_boolean ("fullscreen", is_fullscreen);
 
 			return true;
 		}
 
-		if (event.keyval == Gdk.Key.Escape && display_header_bar.can_fullscreen) {
+		if (event.keyval == Gdk.Key.Escape && display_view.header_bar.can_fullscreen) {
 			is_fullscreen = false;
 			settings.set_boolean ("fullscreen", false);
 
@@ -689,11 +690,11 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	private void reset_display_page () {
-		display_header_bar.can_fullscreen = false;
-		display_box.header_bar.can_fullscreen = false;
-		display_box.runner = null;
-		display_header_bar.media_set = null;
-		display_box.header_bar.media_set = null;
+		display_view.header_bar.can_fullscreen = false;
+		display_view.box.header_bar.can_fullscreen = false;
+		display_view.box.runner = null;
+		display_view.header_bar.media_set = null;
+		display_view.box.header_bar.media_set = null;
 	}
 
 	private void on_konami_code_performed () {
