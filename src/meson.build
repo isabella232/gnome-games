@@ -127,7 +127,6 @@ vala_sources = [
   'ui/application-view.vala',
   'ui/application-window.vala',
   'ui/checkmark-item.vala',
-  'ui/collection-box.vala',
   'ui/collection-icon-view.vala',
   'ui/collection-view.vala',
   'ui/developer-list-item.vala',
