@@ -43,9 +43,11 @@ private class Games.CollectionView: Gtk.Bin, ApplicationView {
 		}
 	}
 
+	public bool loading_notification { get; set; }
 	public bool search_mode { get; set; }
 	public bool is_collection_empty { get; set; }
 
+	private Binding loading_notification_binding;
 	private Binding box_search_binding;
 	private Binding box_empty_collection_binding;
 	private Binding header_bar_search_binding;
@@ -54,6 +56,10 @@ private class Games.CollectionView: Gtk.Bin, ApplicationView {
 	construct {
 		header_bar.viewstack = box.viewstack;
 		is_collection_empty = true;
+
+		loading_notification_binding = bind_property ("loading-notification", box,
+		                                              "loading-notification",
+		                                              BindingFlags.DEFAULT);
 
 		box_search_binding = bind_property ("search-mode", box, "search-mode",
 		                                    BindingFlags.BIDIRECTIONAL);

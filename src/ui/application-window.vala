@@ -117,7 +117,9 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (settings.get_boolean ("window-maximized"))
 			maximize ();
 
-		loading_notification_binding = bind_property ("loading-notification", collection_view.box, "loading-notification",
+		loading_notification_binding = bind_property ("loading-notification",
+		                                              collection_view,
+		                                              "loading-notification",
 		                                              BindingFlags.DEFAULT);
 
 		box_fullscreen_binding = bind_property ("is-fullscreen", display_view.box, "is-fullscreen",
