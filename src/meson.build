@@ -178,7 +178,6 @@ vala_sources = [
   'ui/shortcuts-window.vala',
   'ui/sidebar-list-item.vala',
   'ui/sidebar-view.vala',
-  'ui/ui-state.vala',
   'ui/ui-view.vala',
 
   'utils/composite-cover.vala',
