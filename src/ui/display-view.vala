@@ -21,10 +21,26 @@ private class Games.DisplayView: Gtk.Bin, ApplicationView {
 				return;
 
 			_is_view_active = value;
+
+			if (!is_view_active)
+				is_fullscreen = false;
 		}
 	}
 
 	public ApplicationWindow window { get; construct set; }
+
+	public bool is_fullscreen { get; set; }
+
+	private Binding box_fullscreen_binding;
+	private Binding header_bar_fullscreen_binding;
+
+	construct {
+		box_fullscreen_binding = bind_property ("is-fullscreen", box, "is-fullscreen",
+		                                        BindingFlags.BIDIRECTIONAL);
+		header_bar_fullscreen_binding = bind_property ("is-fullscreen", header_bar,
+		                                               "is-fullscreen",
+		                                               BindingFlags.BIDIRECTIONAL);
+	}
 
 	public bool on_button_pressed (Gdk.EventButton event) {
 		return false;

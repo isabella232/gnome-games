@@ -24,8 +24,6 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 				display_view.is_view_active = false;
 				collection_view.is_view_active = true;
 
-				is_fullscreen = false;
-
 				if (display_view.box.runner != null) {
 					display_view.box.runner.stop ();
 					display_view.box.runner = null;
@@ -73,8 +71,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	private Settings settings;
 
-	private Binding box_fullscreen_binding;
-	private Binding header_bar_fullscreen_binding;
+	private Binding fullscreen_binding;
 	private Binding loading_notification_binding;
 
 	private Cancellable run_game_cancellable;
@@ -122,10 +119,9 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		                                              "loading-notification",
 		                                              BindingFlags.DEFAULT);
 
-		box_fullscreen_binding = bind_property ("is-fullscreen", display_view.box, "is-fullscreen",
-		                                        BindingFlags.BIDIRECTIONAL);
-		header_bar_fullscreen_binding = bind_property ("is-fullscreen", display_view.header_bar, "is-fullscreen",
-		                                               BindingFlags.BIDIRECTIONAL);
+		fullscreen_binding = bind_property ("is-fullscreen", display_view,
+		                                    "is-fullscreen",
+		                                    BindingFlags.BIDIRECTIONAL);
 
 		konami_code = new KonamiCode (this);
 		konami_code.code_performed.connect (on_konami_code_performed);
