@@ -3,7 +3,6 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/application-window.ui")]
 private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private const uint WINDOW_SIZE_UPDATE_DELAY_MILLISECONDS = 500;
-	private const uint FOCUS_OUT_DELAY_MILLISECONDS = 500;
 
 	private const string CONTRIBUTE_URI = "https://wiki.gnome.org/Apps/Games/Contribute";
 
@@ -59,15 +58,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private Binding fullscreen_binding;
 	private Binding loading_notification_binding;
 
-	private Cancellable run_game_cancellable;
-	private Cancellable quit_game_cancellable;
-
-	private ResumeDialog resume_dialog;
-	private ResumeFailedDialog resume_failed_dialog;
-	private QuitDialog quit_dialog;
-
 	private long window_size_update_timeout;
-	private long focus_out_timeout_id;
 
 	private uint inhibit_cookie;
 	private Gtk.ApplicationInhibitFlags inhibit_flags;
@@ -112,7 +103,6 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		konami_code.code_performed.connect (on_konami_code_performed);
 
 		window_size_update_timeout = -1;
-		focus_out_timeout_id = -1;
 		inhibit_cookie = 0;
 		inhibit_flags = 0;
 
@@ -123,19 +113,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	public void run_game (Game game) {
-		if (run_game_cancellable != null)
-			run_game_cancellable.cancel ();
-
-		run_game_cancellable = new Cancellable ();
-
-		var cancellable = new Cancellable ();
-		run_game_cancellable = cancellable;
-
-		run_game_with_cancellable (game, cancellable);
-
-		// Only reset the cancellable if another one didn't replace it.
-		if (run_game_cancellable == cancellable)
-			run_game_cancellable = null;
+		current_view = display_view;
+		display_view.run_game (game);
 
 		inhibit (Gtk.ApplicationInhibitFlags.IDLE | Gtk.ApplicationInhibitFlags.LOGOUT);
 	}
@@ -146,22 +125,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (!visible)
 			return true;
 
-		if (run_game_cancellable != null)
-			run_game_cancellable.cancel ();
-
-		if (quit_game_cancellable != null)
-			quit_game_cancellable.cancel ();
-
-		var cancellable = new Cancellable ();
-		quit_game_cancellable = cancellable;
-
-		var result = quit_game_with_cancellable (cancellable);
-
-		// Only reset the cancellable if another one didn't replace it.
-		if (quit_game_cancellable == cancellable)
-			quit_game_cancellable = null;
-
-		return result;
+		return display_view.quit_game ();
 	}
 
 	public override void size_allocate (Gtk.Allocation allocation) {
@@ -204,7 +168,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		settings.set_boolean ("window-maximized", is_maximized);
 
 		is_fullscreen = (bool) (event.new_window_state & Gdk.WindowState.FULLSCREEN);
-		update_pause (false);
+		if (current_view == display_view)
+			display_view.update_pause (false);
 
 		if (!(bool) (event.changed_mask & Gdk.WindowState.FOCUSED))
 			return false;
@@ -222,36 +187,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {
-		if (current_view == collection_view)
-			return collection_view.gamepad_button_press_event (event);
-		else if (current_view == display_view) {
-			if (resume_dialog != null)
-				return resume_dialog.is_active && resume_dialog.gamepad_button_press_event (event);
-
-			if (resume_failed_dialog != null)
-				return resume_failed_dialog.is_active && resume_failed_dialog.gamepad_button_press_event (event);
-
-			if (quit_dialog != null)
-				return quit_dialog.is_active && quit_dialog.gamepad_button_press_event (event);
-
-			if (!is_active || !get_mapped ())
-				return false;
-
-			uint16 button;
-			if (!event.get_button (out button))
-				return false;
-
-			switch (button) {
-			case EventCode.BTN_MODE:
-				current_view = collection_view;
-
-				return true;
-			default:
-				return false;
-			}
-		}
-
-		return false;
+		return current_view.gamepad_button_press_event (event);
 	}
 
 	public bool gamepad_button_release_event (Manette.Event event) {
@@ -281,179 +217,10 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		uninhibit (Gtk.ApplicationInhibitFlags.IDLE | Gtk.ApplicationInhibitFlags.LOGOUT);
 	}
 
-	private void run_game_with_cancellable (Game game, Cancellable cancellable) {
-		display_view.header_bar.game_title = game.name;
-		display_view.box.header_bar.game_title = game.name;
-		current_view = display_view;
-
-		// Reset the UI parts depending on the runner to avoid an
-		// inconsistent state is case we couldn't retrieve it.
-		reset_display_page ();
-
-		var runner = try_get_runner (game);
-		if (runner == null)
-			return;
-
-		display_view.header_bar.can_fullscreen = runner.can_fullscreen;
-		display_view.box.header_bar.can_fullscreen = runner.can_fullscreen;
-		display_view.box.runner = runner;
-		display_view.header_bar.media_set = runner.media_set;
-		display_view.box.header_bar.media_set = runner.media_set;
-
-		is_fullscreen = settings.get_boolean ("fullscreen") && runner.can_fullscreen;
-
-		bool resume = false;
-		if (runner.can_resume)
-			resume = prompt_resume_with_cancellable (cancellable);
-
-		if (!try_run_with_cancellable (runner, resume, cancellable))
-			prompt_resume_fail_with_cancellable (runner, cancellable);
-	}
-
-	private Runner? try_get_runner (Game game) {
-		try {
-			var runner = game.get_runner ();
-			string error_message;
-			if (runner.check_is_valid (out error_message))
-				return runner;
-
-			reset_display_page ();
-			display_view.box.display_running_game_failed (game, error_message);
-
-			return null;
-		}
-		catch (Error e) {
-			warning (e.message);
-			reset_display_page ();
-			display_view.box.display_running_game_failed (game, _("An unexpected error occurred."));
-
-			return null;
-		}
-	}
-
-	private bool prompt_resume_with_cancellable (Cancellable cancellable) {
-		if (resume_dialog != null)
-			return false;
-
-		resume_dialog = new ResumeDialog ();
-		resume_dialog.transient_for = this;
-
-		cancellable.cancelled.connect (() => {
-			resume_dialog.destroy ();
-			resume_dialog = null;
-		});
-
-		var response = resume_dialog.run ();
-		resume_dialog.destroy ();
-		resume_dialog = null;
-
-		if (cancellable.is_cancelled ())
-			response = Gtk.ResponseType.CANCEL;
-
-		if (response == Gtk.ResponseType.CANCEL)
-			return false;
-
-		return true;
-	}
-
-	private bool try_run_with_cancellable (Runner runner, bool resume, Cancellable cancellable) {
-		try {
-			if (resume)
-				display_view.box.runner.resume ();
-			else
-				runner.start ();
-
-			return true;
-		}
-		catch (Error e) {
-			warning (e.message);
-
-			return false;
-		}
-	}
-
-	private void prompt_resume_fail_with_cancellable (Runner runner, Cancellable cancellable) {
-		if (resume_failed_dialog != null)
-			return;
-
-		resume_failed_dialog = new ResumeFailedDialog ();
-		resume_failed_dialog.transient_for = this;
-
-		cancellable.cancelled.connect (() => {
-			resume_failed_dialog.destroy ();
-			resume_failed_dialog = null;
-		});
-
-		var response = resume_failed_dialog.run ();
-		resume_failed_dialog.destroy ();
-		resume_failed_dialog = null;
-
-		if (cancellable.is_cancelled ())
-			response = Gtk.ResponseType.CANCEL;
-
-		if (response == Gtk.ResponseType.CANCEL) {
-			display_view.box.runner = null;
-			current_view = collection_view;
-
-			return;
-		}
-
-		try {
-			runner.start ();
-		}
-		catch (Error e) {
-			warning (e.message);
-		}
-	}
-
-	public bool quit_game_with_cancellable (Cancellable cancellable) {
-		if (display_view.box.runner == null)
-			return true;
-
-		display_view.box.runner.stop ();
-
-		if (display_view.box.runner.can_quit_safely)
-			return true;
-
-		if (quit_dialog != null)
-			return false;
-
-		quit_dialog = new QuitDialog ();
-		quit_dialog.transient_for = this;
-
-		cancellable.cancelled.connect (() => {
-			quit_dialog.destroy ();
-			quit_dialog = null;
-		});
-
-		var response = quit_dialog.run ();
-		quit_dialog.destroy ();
-		quit_dialog = null;
-
-		if (cancellable.is_cancelled ())
-			return cancel_quitting_game ();
-
-		if (response == Gtk.ResponseType.ACCEPT)
-			return true;
-
-		return cancel_quitting_game ();
-	}
-
-	private bool cancel_quitting_game () {
-		if (display_view.box.runner != null)
-			try {
-				display_view.box.runner.resume ();
-			}
-			catch (Error e) {
-				warning (e.message);
-			}
-
-		return false;
-	}
-
 	[GtkCallback]
 	private void on_active_changed () {
-		update_pause (true);
+		if (current_view == display_view)
+			display_view.update_pause (true);
 	}
 
 	private Gdk.Rectangle? get_geometry () {
@@ -493,56 +260,6 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		return false;
 	}
 
-	private void update_pause (bool with_delay) {
-		if (focus_out_timeout_id != -1) {
-			Source.remove ((uint) focus_out_timeout_id);
-			focus_out_timeout_id = -1;
-		}
-
-		if (!can_update_pause ())
-			return;
-
-		if (is_active)
-			try {
-				display_view.box.runner.resume ();
-			}
-			catch (Error e) {
-				warning (e.message);
-			}
-		else if (with_delay)
-			focus_out_timeout_id = Timeout.add (FOCUS_OUT_DELAY_MILLISECONDS, on_focus_out_delay_elapsed);
-		else
-			display_view.box.runner.pause ();
-	}
-
-	private bool on_focus_out_delay_elapsed () {
-		focus_out_timeout_id = -1;
-
-		if (!can_update_pause ())
-			return false;
-
-		if (!is_active)
-			display_view.box.runner.pause ();
-
-		return false;
-	}
-
-	private bool can_update_pause () {
-		if (current_view != display_view)
-			return false;
-
-		if (display_view.box.runner == null)
-			return false;
-
-		if (run_game_cancellable != null)
-			return false;
-
-		if (quit_game_cancellable != null)
-			return false;
-
-		return true;
-	}
-
 	private void inhibit (Gtk.ApplicationInhibitFlags flags) {
 		if ((inhibit_flags & flags) == flags)
 			return;
@@ -572,14 +289,6 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 		inhibit_cookie = new_cookie;
 		inhibit_flags = new_flags;
-	}
-
-	private void reset_display_page () {
-		display_view.header_bar.can_fullscreen = false;
-		display_view.box.header_bar.can_fullscreen = false;
-		display_view.box.runner = null;
-		display_view.header_bar.media_set = null;
-		display_view.box.header_bar.media_set = null;
 	}
 
 	private void on_konami_code_performed () {
