@@ -190,10 +190,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return true;
 		}
 
-		if (current_view == collection_view)
-			return current_view.on_key_pressed (event);
-
-		return handle_display_key_event (event);
+		return current_view.on_key_pressed (event);
 	}
 
 	[GtkCallback]
@@ -544,46 +541,6 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return false;
 
 		return true;
-	}
-
-	private bool handle_display_key_event (Gdk.EventKey event) {
-		if (current_view != display_view)
-			return false;
-
-		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
-
-		if ((event.keyval == Gdk.Key.f || event.keyval == Gdk.Key.F) &&
-		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK &&
-		    display_view.header_bar.can_fullscreen) {
-			is_fullscreen = !is_fullscreen;
-			settings.set_boolean ("fullscreen", is_fullscreen);
-
-			return true;
-		}
-
-		if (event.keyval == Gdk.Key.F11 && display_view.header_bar.can_fullscreen) {
-			is_fullscreen = !is_fullscreen;
-			settings.set_boolean ("fullscreen", is_fullscreen);
-
-			return true;
-		}
-
-		if (event.keyval == Gdk.Key.Escape && display_view.header_bar.can_fullscreen) {
-			is_fullscreen = false;
-			settings.set_boolean ("fullscreen", false);
-
-			return true;
-		}
-
-		if (((event.state & default_modifiers) == Gdk.ModifierType.MOD1_MASK) &&
-		    (((get_direction () == Gtk.TextDirection.LTR) && event.keyval == Gdk.Key.Left) ||
-		     ((get_direction () == Gtk.TextDirection.RTL) && event.keyval == Gdk.Key.Right))) {
-			on_display_back ();
-
-			return true;
-		}
-
-		return false;
 	}
 
 	private void inhibit (Gtk.ApplicationInhibitFlags flags) {

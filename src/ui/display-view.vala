@@ -37,10 +37,14 @@ private class Games.DisplayView: Gtk.Bin, ApplicationView {
 
 	public bool is_fullscreen { get; set; }
 
+	private Settings settings;
+
 	private Binding box_fullscreen_binding;
 	private Binding header_bar_fullscreen_binding;
 
 	construct {
+		settings = new Settings ("org.gnome.Games");
+
 		box_fullscreen_binding = bind_property ("is-fullscreen", box, "is-fullscreen",
 		                                        BindingFlags.BIDIRECTIONAL);
 		header_bar_fullscreen_binding = bind_property ("is-fullscreen", header_bar,
@@ -59,6 +63,39 @@ private class Games.DisplayView: Gtk.Bin, ApplicationView {
 	}
 
 	public bool on_key_pressed (Gdk.EventKey event) {
+		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
+
+		if ((event.keyval == Gdk.Key.f || event.keyval == Gdk.Key.F) &&
+		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK &&
+		    header_bar.can_fullscreen) {
+			is_fullscreen = !is_fullscreen;
+			settings.set_boolean ("fullscreen", is_fullscreen);
+
+			return true;
+		}
+
+		if (event.keyval == Gdk.Key.F11 && header_bar.can_fullscreen) {
+			is_fullscreen = !is_fullscreen;
+			settings.set_boolean ("fullscreen", is_fullscreen);
+
+			return true;
+		}
+
+		if (event.keyval == Gdk.Key.Escape && header_bar.can_fullscreen) {
+			is_fullscreen = false;
+			settings.set_boolean ("fullscreen", false);
+
+			return true;
+		}
+
+		if (((event.state & default_modifiers) == Gdk.ModifierType.MOD1_MASK) &&
+		    (((get_direction () == Gtk.TextDirection.LTR) && event.keyval == Gdk.Key.Left) ||
+		     ((get_direction () == Gtk.TextDirection.RTL) && event.keyval == Gdk.Key.Right))) {
+			on_display_back ();
+
+			return true;
+		}
+
 		return false;
 	}
 
