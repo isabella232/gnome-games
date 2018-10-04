@@ -7,7 +7,15 @@ private class Games.CollectionView: Gtk.Bin, ApplicationView {
 	[GtkChild]
 	private CollectionBox box;
 	[GtkChild]
-	private CollectionHeaderBar header_bar;
+	private Gtk.Stack title_stack;
+	[GtkChild]
+	private Gtk.Label empty_title;
+	[GtkChild]
+	private Gtk.StackSwitcher view_switcher;
+	[GtkChild]
+	private Gtk.ToggleButton search;
+	[GtkChild]
+	private Gtk.HeaderBar header_bar;
 
 	public Gtk.Widget titlebar {
 		get { return header_bar; }
@@ -45,16 +53,27 @@ private class Games.CollectionView: Gtk.Bin, ApplicationView {
 
 	public bool loading_notification { get; set; }
 	public bool search_mode { get; set; }
-	public bool is_collection_empty { get; set; }
+
+	private bool _is_collection_empty;
+	public bool is_collection_empty {
+		get { return _is_collection_empty; }
+		set {
+			_is_collection_empty = value;
+			if (_is_collection_empty)
+				title_stack.visible_child = empty_title;
+			else
+				title_stack.visible_child = view_switcher;
+			search.sensitive = !_is_collection_empty;
+		}
+	}
 
 	private Binding loading_notification_binding;
 	private Binding box_search_binding;
 	private Binding box_empty_collection_binding;
 	private Binding header_bar_search_binding;
-	private Binding header_bar_empty_collection_binding;
 
 	construct {
-		header_bar.viewstack = box.viewstack;
+		view_switcher.stack = box.viewstack;
 		is_collection_empty = true;
 
 		loading_notification_binding = bind_property ("loading-notification", box,
@@ -63,17 +82,12 @@ private class Games.CollectionView: Gtk.Bin, ApplicationView {
 
 		box_search_binding = bind_property ("search-mode", box, "search-mode",
 		                                    BindingFlags.BIDIRECTIONAL);
-		header_bar_search_binding = bind_property ("search-mode", header_bar,
-		                                           "search-mode",
+		header_bar_search_binding = bind_property ("search-mode", search, "active",
 		                                           BindingFlags.BIDIRECTIONAL);
 
 		box_empty_collection_binding = bind_property ("is-collection-empty", box,
 		                                              "is-collection-empty",
 		                                              BindingFlags.BIDIRECTIONAL);
-		header_bar_empty_collection_binding = bind_property ("is-collection-empty",
-		                                                     header_bar,
-		                                                     "is-collection-empty",
-		                                                     BindingFlags.BIDIRECTIONAL);
 	}
 
 	public CollectionView (ListModel collection) {
