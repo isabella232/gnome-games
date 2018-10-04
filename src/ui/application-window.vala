@@ -18,8 +18,10 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 			switch (ui_state) {
 			case UiState.COLLECTION:
-				content_box.visible_child = collection_box;
-				header_bar.visible_child = collection_header_bar;
+				content_box.visible_child = collection_view;
+				header_bar.visible_child = collection_view.titlebar;
+
+				collection_view.is_view_active = true;
 
 				is_fullscreen = false;
 
@@ -32,6 +34,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			case UiState.DISPLAY:
 				content_box.visible_child = display_box;
 				header_bar.visible_child = display_header_bar;
+
+				collection_view.is_view_active = false;
 
 				search_mode = false;
 
@@ -68,14 +72,12 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	[GtkChild]
 	private Gtk.Stack content_box;
 	[GtkChild]
-	private CollectionBox collection_box;
+	private CollectionView collection_view;
 	[GtkChild]
 	private DisplayBox display_box;
 
 	[GtkChild]
 	private Gtk.Stack header_bar;
-	[GtkChild]
-	private CollectionHeaderBar collection_header_bar;
 	[GtkChild]
 	private DisplayHeaderBar display_header_bar;
 
@@ -105,7 +107,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private KonamiCode konami_code;
 
 	public ApplicationWindow (ListModel collection) {
-		collection_box.collection = collection;
+		collection_view.window = this;
+		collection_view.collection = collection;
 		collection.items_changed.connect (() => {
 			is_collection_empty = collection.get_n_items () == 0;
 		});
@@ -113,6 +116,10 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	construct {
+		header_bar.add (collection_view.titlebar);
+		header_bar.visible_child = collection_view.titlebar;
+		ui_state = UiState.COLLECTION;
+
 		settings = new Settings ("org.gnome.Games");
 
 		int width, height;
@@ -127,11 +134,11 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (settings.get_boolean ("window-maximized"))
 			maximize ();
 
-		box_search_binding = bind_property ("search-mode", collection_box, "search-mode",
+		box_search_binding = bind_property ("search-mode", collection_view.box, "search-mode",
 		                                    BindingFlags.BIDIRECTIONAL);
-		loading_notification_binding = bind_property ("loading-notification", collection_box, "loading-notification",
+		loading_notification_binding = bind_property ("loading-notification", collection_view.box, "loading-notification",
 		                                              BindingFlags.DEFAULT);
-		header_bar_search_binding = bind_property ("search-mode", collection_header_bar, "search-mode",
+		header_bar_search_binding = bind_property ("search-mode", collection_view.header_bar, "search-mode",
 		                                           BindingFlags.BIDIRECTIONAL);
 
 		box_fullscreen_binding = bind_property ("is-fullscreen", display_box, "is-fullscreen",
@@ -139,15 +146,13 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		header_bar_fullscreen_binding = bind_property ("is-fullscreen", display_header_bar, "is-fullscreen",
 		                                               BindingFlags.BIDIRECTIONAL);
 
-		box_empty_collection_binding = bind_property ("is-collection-empty", collection_box, "is-collection-empty",
+		box_empty_collection_binding = bind_property ("is-collection-empty", collection_view.box, "is-collection-empty",
 		                                              BindingFlags.BIDIRECTIONAL);
-		header_bar_empty_collection_binding = bind_property ("is-collection-empty", collection_header_bar, "is-collection-empty",
+		header_bar_empty_collection_binding = bind_property ("is-collection-empty", collection_view.header_bar, "is-collection-empty",
 		                                                     BindingFlags.BIDIRECTIONAL);
 
 		konami_code = new KonamiCode (this);
 		konami_code.code_performed.connect (on_konami_code_performed);
-
-		collection_header_bar.viewstack = collection_box.viewstack;
 
 		window_size_update_timeout = -1;
 		focus_out_timeout_id = -1;
@@ -271,7 +276,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	public bool gamepad_button_press_event (Manette.Event event) {
 		switch (ui_state) {
 		case UiState.COLLECTION:
-			return is_active && collection_box.gamepad_button_press_event (event);
+			return is_active && collection_view.box.gamepad_button_press_event (event);
 		case UiState.DISPLAY:
 			if (resume_dialog != null)
 				return resume_dialog.is_active && resume_dialog.gamepad_button_press_event (event);
@@ -305,7 +310,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	public bool gamepad_button_release_event (Manette.Event event) {
 		switch (ui_state) {
 		case UiState.COLLECTION:
-			return is_active && collection_box.gamepad_button_release_event (event);
+			return is_active && collection_view.box.gamepad_button_release_event (event);
 		default:
 			return false;
 		}
@@ -314,7 +319,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	public bool gamepad_absolute_axis_event (Manette.Event event) {
 		switch (ui_state) {
 		case UiState.COLLECTION:
-			return is_active && collection_box.gamepad_absolute_axis_event (event);
+			return is_active && collection_view.box.gamepad_absolute_axis_event (event);
 		default:
 			return false;
 		}
@@ -609,7 +614,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return true;
 		}
 
-		return collection_box.search_bar_handle_event (event);
+		return collection_view.box.search_bar_handle_event (event);
 	}
 
 	private bool handle_display_key_event (Gdk.EventKey event) {
