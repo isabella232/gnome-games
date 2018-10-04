@@ -143,12 +143,15 @@ private class Games.CollectionBox : Gtk.Box {
 	[GtkCallback]
 	private void on_visible_child_changed () {
 		if (viewstack.visible_child == platform_view) {
+			platform_view.filtering_text = search_bar.text;
 			platform_view.select_default_row ();
 		}
 		else if (viewstack.visible_child == developer_view) {
+			developer_view.filtering_text = search_bar.text;
 			developer_view.select_default_row ();
 		}
 		else {
+			collection_view.filtering_text = search_bar.text;
 			collection_view.reset_scroll_position ();
 		}
 	}
