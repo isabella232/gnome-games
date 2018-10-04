@@ -7,9 +7,9 @@ private class Games.DisplayView: Gtk.Bin, ApplicationView {
 	public signal void back ();
 
 	[GtkChild]
-	public DisplayBox box;
+	private DisplayBox box;
 	[GtkChild]
-	public DisplayHeaderBar header_bar;
+	private DisplayHeaderBar header_bar;
 
 	public Gtk.Widget titlebar {
 		get { return header_bar; }
