@@ -32,7 +32,6 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		}
 	}
 
-	private ulong cover_changed_id;
 	private Cover _cover;
 	public Cover cover {
 		get { return _cover; }
@@ -40,13 +39,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 			if (_cover == value)
 				return;
 
-			if (_cover != null)
-				_cover.disconnect (cover_changed_id);
-
 			_cover = value;
-
-			if (_cover != null)
-				cover_changed_id = _cover.changed.connect (invalidate_cover);
 
 			invalidate_cover ();
 		}
@@ -98,7 +91,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 			tried_loading_cover = false;
 		}
 
-		load_cache (context.width, context.height);
+		load_cache.begin (context.width, context.height);
 
 		draw_border (context);
 		if (cover_cache != null)
@@ -113,11 +106,19 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		return true;
 	}
 
-	private void load_cache (int width, int height) {
-		if (cover_cache == null && icon_cache == null)
-			cover_cache = get_cover_cache (width, height);
-		if (cover_cache == null && icon_cache == null)
-			icon_cache = get_icon_cache (width, height);
+	private async void load_cache (int width, int height) {
+		if (cover_cache == null && icon_cache == null) {
+			var cache = yield get_cover_cache (width, height);
+			if (width == cache_width && height == cache_height)
+				cover_cache = cache;
+		}
+		if (cover_cache == null && icon_cache == null) {
+			var cache = yield get_icon_cache (width, height);
+			if (width == cache_width && height == cache_height)
+				icon_cache = cache;
+		}
+
+		queue_draw ();
 	}
 
 	private Gdk.Pixbuf? get_emblem (DrawingContext context) {
@@ -139,7 +140,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		}
 	}
 
-	private Gdk.Pixbuf? get_icon_cache (int width, int height) {
+	private async Gdk.Pixbuf? get_icon_cache (int width, int height) {
 		if (icon == null)
 			return null;
 
@@ -157,7 +158,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 			return null;
 		}
 		try {
-			return icon_info.load_icon ();
+			return yield icon_info.load_icon_async ();
 		}
 		catch (Error e) {
 			warning (@"Couldn’t load the icon: $(e.message)");
@@ -165,7 +166,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		}
 	}
 
-	private Gdk.Pixbuf? get_cover_cache (int width, int height) {
+	private async Gdk.Pixbuf? get_cover_cache (int width, int height) {
 		var cover_cache = load_cover_cache_from_disk (width, height);
 		if (cover_cache != null)
 			return cover_cache;
@@ -173,7 +174,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		if (cover == null)
 			return null;
 
-		var g_icon = cover.get_cover ();
+		var g_icon = yield cover.get_cover ();
 		if (g_icon == null)
 			return null;
 
@@ -187,7 +188,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 			return null;
 		}
 		try {
-			cover_cache = icon_info.load_icon ();
+			cover_cache = yield icon_info.load_icon_async ();
 			save_cover_cache_to_disk (cover_cache, size);
 		}
 		catch (Error e) {

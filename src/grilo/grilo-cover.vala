@@ -4,20 +4,14 @@ public class Games.GriloCover : Object, Cover {
 	private GriloMedia media;
 	private Uid uid;
 	private GLib.Icon icon;
-	private bool resolving;
 	private string cover_path;
 
 	public GriloCover (GriloMedia media, Uid uid) {
 		this.media = media;
 		this.uid = uid;
-		media.resolved.connect (on_media_resolved);
-		resolving = false;
 	}
 
-	public GLib.Icon? get_cover () {
-		if (resolving)
-			return icon;
-
+	public async GLib.Icon? get_cover () {
 		if (icon != null)
 			return icon;
 
@@ -26,31 +20,37 @@ public class Games.GriloCover : Object, Cover {
 		}
 		catch (Error e) {
 			warning (e.message);
-
-			return icon;
 		}
 
 		if (icon != null)
 			return icon;
 
-		resolving = true;
+		yield media.resolve_media_async ();
+		var uri = get_cover_uri ();
+		if (uri == null)
+			return icon;
 
-		media.try_resolve_media ();
+		try {
+			yield fetch_cover (uri);
+			load_cover ();
+		}
+		catch (Error e) {
+			warning (e.message);
+		}
 
 		return icon;
 	}
 
-	private void on_media_resolved () {
+	private string? get_cover_uri () {
 		var grl_media = media.get_media ();
 
 		if (grl_media == null)
-			return;
+			return null;
 
 		if (grl_media.length (Grl.MetadataKey.THUMBNAIL) == 0)
-			return;
+			return null;
 
-		var uri = grl_media.get_thumbnail_nth (0);
-		try_fetch_cover.begin (uri);
+		return grl_media.get_thumbnail_nth (0);
 	}
 
 	private string get_cover_path () throws Error {
@@ -64,18 +64,7 @@ public class Games.GriloCover : Object, Cover {
 		return cover_path;
 	}
 
-	private async void try_fetch_cover (string uri) {
-		try {
-			yield fetch_cover (uri);
-		}
-		catch (Error e) {
-			warning (e.message);
-
-			return;
-		}
-	}
-
-	private async void fetch_cover (string uri) throws Error{
+	private async void fetch_cover (string uri) throws Error {
 		var dir = Application.get_covers_dir ();
 		Application.try_make_dir (dir);
 
@@ -97,7 +86,10 @@ public class Games.GriloCover : Object, Cover {
 			} catch (Error e) {
 				warning (e.message);
 			}
+			Idle.add (fetch_cover.callback);
 		});
+
+		yield;
 	}
 
 	private void load_cover () throws Error {
@@ -108,7 +100,5 @@ public class Games.GriloCover : Object, Cover {
 
 		var file = File.new_for_path (cover_path);
 		icon = new FileIcon (file);
-
-		changed ();
 	}
 }

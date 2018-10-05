@@ -3,17 +3,12 @@
 public class Games.SteamCover : Object, Cover {
 	private string game_id;
 	private GLib.Icon icon;
-	private bool resolving;
 
 	public SteamCover (string game_id) {
 		this.game_id = game_id;
-		resolving = false;
 	}
 
-	public GLib.Icon? get_cover () {
-		if (resolving)
-			return icon;
-
+	public async GLib.Icon? get_cover () {
 		if (icon != null)
 			return icon;
 
@@ -21,12 +16,11 @@ public class Games.SteamCover : Object, Cover {
 		if (icon != null)
 			return icon;
 
-		resolving = true;
-
 		var uri = @"http://cdn.akamai.steamstatic.com/steam/apps/$game_id/header.jpg";
-		fetch_cover.begin (uri);
+		yield fetch_cover (uri);
+		load_cover ();
 
-		return null;
+		return icon;
 	}
 
 	private string get_cover_path () {
@@ -57,7 +51,10 @@ public class Games.SteamCover : Object, Cover {
 			} catch (Error e) {
 				warning (e.message);
 			}
+			Idle.add (fetch_cover.callback);
 		});
+
+		yield;
 	}
 
 	private void load_cover () {
@@ -68,7 +65,5 @@ public class Games.SteamCover : Object, Cover {
 
 		var file = File.new_for_path (cover_path);
 		icon = new FileIcon (file);
-
-		changed ();
 	}
 }
