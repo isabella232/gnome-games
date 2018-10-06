@@ -161,6 +161,7 @@ vala_sources = [
   'ui/preferences-subpage.vala',
   'ui/preferences-subpage-gamepad.vala',
   'ui/preferences-subpage-keyboard.vala',
+  'ui/preferences-view.vala',
   'ui/preferences-window.vala',
   'ui/quit-dialog.vala',
   'ui/remote-display.vala',

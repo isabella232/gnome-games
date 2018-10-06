@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <!-- interface-requires gtk+ 3.8 -->
+  <template class="GamesPreferencesView" parent="GtkStack">
+    <property name="visible">True</property>
+    <property name="transition-type">slide-left-right</property>
+    <property name="transition-duration">250</property>
+    <signal name="notify::transition-running" handler="subpage_transition_finished"/>
+    <child>
+      <object class="GtkBox" id="content_box">
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkStackSidebar" id="sidebar">
+            <property name="margin-top">4</property>
+            <property name="stack">stack</property>
+            <property name="vexpand">True</property>
+            <property name="visible">True</property>
+            <property name="width-request">150</property>
+            <style>
+              <class name="preferences" />
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSeparator" id="separator">
+            <property name="orientation">vertical</property>
+            <property name="visible">True</property>
+            <style>
+              <class name="sidebar"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkStack" id="stack">
+            <property name="visible">True</property>
+            <property name="expand">True</property>
+            <property name="visible-child">video_page</property>
+            <property name="transition-type">GTK_STACK_TRANSITION_TYPE_CROSSFADE</property>
+            <child>
+              <object class="GamesPreferencesPageVideo" id="video_page">
+                <property name="visible">True</property>
+              </object>
+              <packing>
+                <property name="name">video</property>
+                <property name="title" translatable="yes">Video</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GamesPreferencesPageControllers" id="controllers_page">
+                <property name="visible">True</property>
+              </object>
+              <packing>
+                <property name="name">controllers</property>
+                <property name="title" translatable="yes">Controllers</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GamesPreferencesPagePlugins" id="plugins_page">
+                <property name="visible">True</property>
+              </object>
+              <packing>
+                <property name="name">plugins</property>
+                <property name="title" translatable="yes">Extensions</property>
+              </packing>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+  <object class="GtkSizeGroup">
+    <property name="mode">GTK_SIZE_GROUP_HORIZONTAL</property>
+    <widgets>
+      <widget name="left_header_bar"/>
+      <widget name="sidebar"/>
+    </widgets>
+  </object>
+  <object class="GtkStack" id="titlebar_stack">
+    <property name="visible">True</property>
+    <property name="transition-type">slide-left-right</property>
+    <property name="transition-duration">250</property>
+    <child>
+      <object class="GtkBox" id="titlebar_box">
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkHeaderBar" id="left_header_bar">
+            <property name="name">left_header_bar</property>
+            <property name="visible">True</property>
+            <property name="title" translatable="yes">Preferences</property>
+            <property name="show-close-button">True</property>
+            <property name="decoration_layout">menu</property>
+            <child>
+              <object class="GtkButton" id="back_button">
+                <property name="visible">True</property>
+                <signal name="clicked" handler="on_back_clicked"/>
+                <style>
+                  <class name="image-button"/>
+                </style>
+                <child internal-child="accessible">
+                  <object class="AtkObject" id="a11y-back">
+                    <property name="accessible-name" translatable="yes">Back</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkImage" id="back_image">
+                    <property name="visible">True</property>
+                    <property name="icon-name">go-previous-symbolic</property>
+                    <property name="icon-size">1</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="pack-type">start</property>
+              </packing>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSeparator" id="header_separator">
+            <property name="orientation">vertical</property>
+            <property name="visible">True</property>
+            <style>
+              <class name="sidebar"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkHeaderBar" id="right_header_bar">
+            <property name="name">right_header_bar</property>
+            <property name="visible">True</property>
+            <property name="hexpand">True</property>
+            <property name="show-close-button">True</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

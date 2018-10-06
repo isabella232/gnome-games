@@ -343,6 +343,8 @@ public class Games.Application : Gtk.Application {
 	}
 
 	private void preferences () {
+		window.show_preferences ();
+		return;
 		if (preferences_window != null) {
 			preferences_window.present ();
 

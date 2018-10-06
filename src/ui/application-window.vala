@@ -302,4 +302,17 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			critical (e.message);
 		}
 	}
+
+	public void show_preferences () {
+		var view = new PreferencesView ();
+		view.back.connect (() => {
+			current_view = collection_view;
+			content_box.remove (view);
+			header_bar.remove (view.titlebar);
+		});
+		view.show_back_button = true;
+		content_box.add (view);
+		header_bar.add (view.titlebar);
+		current_view = view;
+	}
 }
