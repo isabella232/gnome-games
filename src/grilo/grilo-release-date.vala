@@ -18,7 +18,7 @@ public class Games.GriloReleaseDate : Object, ReleaseDate {
 			return release_date;
 
 		resolving = true;
-		media.try_resolve_media ();
+		media.try_resolve_media_queued ();
 
 		return release_date;
 	}

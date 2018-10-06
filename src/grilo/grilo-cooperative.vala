@@ -18,7 +18,7 @@ public class Games.GriloCooperative : Object, Cooperative {
 			return cooperative;
 
 		resolving = true;
-		media.try_resolve_media ();
+		media.try_resolve_media_queued ();
 
 		return cooperative;
 	}

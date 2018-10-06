@@ -14,6 +14,8 @@ public class Games.GriloMedia : Object {
 
 	private Grl.Media? media;
 
+	private bool queued;
+
 	public GriloMedia (Title title, string mime_type) {
 		this.title = title;
 		this.mime_type = mime_type;
@@ -49,6 +51,14 @@ public class Games.GriloMedia : Object {
 		catch (Error e) {
 			warning (e.message);
 		}
+	}
+
+	public void try_resolve_media_queued () {
+		if (queued)
+			return;
+
+		GriloMediaQueue.get_instance ().append (this);
+		queued = true;
 	}
 
 	internal Grl.Media? get_media () {

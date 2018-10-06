@@ -106,6 +106,7 @@ vala_sources = [
   'grilo/grilo-developer.vala',
   'grilo/grilo-genre.vala',
   'grilo/grilo-media.vala',
+  'grilo/grilo-media-queue.vala',
   'grilo/grilo-players.vala',
   'grilo/grilo-publisher.vala',
   'grilo/grilo-rating.vala',

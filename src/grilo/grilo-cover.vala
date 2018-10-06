@@ -35,7 +35,7 @@ public class Games.GriloCover : Object, Cover {
 
 		resolving = true;
 
-		media.try_resolve_media ();
+		media.try_resolve_media_queued ();
 
 		return icon;
 	}

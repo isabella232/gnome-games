@@ -18,7 +18,7 @@ public class Games.GriloPlayers : Object, Players {
 			return players;
 
 		resolving = true;
-		media.try_resolve_media ();
+		media.try_resolve_media_queued ();
 
 		return players;
 	}

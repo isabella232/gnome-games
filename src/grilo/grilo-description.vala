@@ -18,7 +18,7 @@ public class Games.GriloDescription : Object, Description {
 			return description;
 
 		resolving = true;
-		media.try_resolve_media ();
+		media.try_resolve_media_queued ();
 
 		return description;
 	}

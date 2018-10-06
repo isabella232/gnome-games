@@ -18,7 +18,7 @@ public class Games.GriloPublisher : Object, Publisher {
 			return publisher;
 
 		resolving = true;
-		media.try_resolve_media ();
+		media.try_resolve_media_queued ();
 
 		return publisher;
 	}

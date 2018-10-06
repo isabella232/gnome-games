@@ -18,7 +18,7 @@ public class Games.GriloRating : Object, Rating {
 			return rating;
 
 		resolving = true;
-		media.try_resolve_media ();
+		media.try_resolve_media_queued ();
 
 		return rating;
 	}

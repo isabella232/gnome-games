@@ -18,7 +18,7 @@ public class Games.GriloGenre : Object, Genre {
 			return genre;
 
 		resolving = true;
-		media.try_resolve_media ();
+		media.try_resolve_media_queued ();
 
 		return genre;
 	}

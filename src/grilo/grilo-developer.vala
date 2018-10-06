@@ -18,7 +18,7 @@ public class Games.GriloDeveloper : Object, Developer {
 			return developer;
 
 		resolving = true;
-		media.try_resolve_media ();
+		media.try_resolve_media_queued ();
 
 		return developer;
 	}
