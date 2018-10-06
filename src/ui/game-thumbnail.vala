@@ -13,8 +13,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 
 			_uid = value;
 
-			icon_cache = null;
-			invalidate_cover ();
+			load_cache.begin (cache_width, cache_height);
 		}
 	}
 
@@ -27,8 +26,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 
 			_icon = value;
 
-			icon_cache = null;
-			queue_draw ();
+			load_cache.begin (cache_width, cache_height);
 		}
 	}
 
@@ -41,15 +39,15 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 
 			_cover = value;
 
-			invalidate_cover ();
+			load_cache.begin (cache_width, cache_height);
 		}
 	}
 
-	private bool tried_loading_cover;
 	private Gdk.Pixbuf? icon_cache;
 	private Gdk.Pixbuf? cover_cache;
 	private int cache_width;
 	private int cache_height;
+	private GenericSet<Gtk.Allocation?> allocations;
 
 	public struct DrawingContext {
 		Cairo.Context cr;
@@ -62,6 +60,12 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 
 	static construct {
 		set_css_name ("gamesgamethumbnail");
+	}
+
+	construct {
+		// Use a custom equal function because we do not need to check the other members of the allocation.
+		allocations = new GenericSet<Gtk.Allocation?> ((a) => a.width,
+		                                               (a, b) => a.width == b.width && a.height == b.height);
 	}
 
 	public override Gtk.SizeRequestMode get_request_mode () {
@@ -83,16 +87,6 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 			cr, window, style, state, width, height
 		};
 
-		if (cache_height != context.height || cache_width != context.width) {
-			cache_height = context.height;
-			cache_width = context.width;
-			icon_cache = null;
-			cover_cache = null;
-			tried_loading_cover = false;
-		}
-
-		load_cache.begin (context.width, context.height);
-
 		draw_border (context);
 		if (cover_cache != null)
 			draw_black_background (context);
@@ -106,14 +100,33 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		return true;
 	}
 
-	private async void load_cache (int width, int height) {
-		if (cover_cache == null && icon_cache == null) {
-			var cache = yield get_cover_cache (width, height);
-			if (width == cache_width && height == cache_height)
-				cover_cache = cache;
+	public override void size_allocate (Gtk.Allocation allocation) {
+		base.size_allocate (allocation);
+
+		if (cache_height != allocation.height || cache_width != allocation.width) {
+			cache_height = allocation.height;
+			cache_width = allocation.width;
+			icon_cache = null;
+			cover_cache = null;
+
+			if (!allocations.contains (allocation)) {
+				allocations.add (allocation);
+				load_cache.begin (cache_width, cache_height, () => {
+					allocations.remove (allocation);
+				});
+			}
 		}
-		if (cover_cache == null && icon_cache == null) {
-			var cache = yield get_icon_cache (width, height);
+	}
+
+	private async void load_cache (int width, int height) {
+		if (width == 0 || height == 0)
+			return;
+
+		var cache = yield get_cover_cache (width, height);
+		if (width == cache_width && height == cache_height)
+			cover_cache = cache;
+		if (cover_cache == null) {
+			cache = yield get_icon_cache (width, height);
 			if (width == cache_width && height == cache_height)
 				icon_cache = cache;
 		}
@@ -199,11 +212,6 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 	}
 
 	private Gdk.Pixbuf? load_cover_cache_from_disk (int width, int height) {
-		if (tried_loading_cover)
-			return null;
-
-		tried_loading_cover = true;
-
 		var size = int.min (width, height);
 		string cover_cache_path;
 		try {
@@ -247,12 +255,6 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		var uid = uid.get_uid ();
 
 		return @"$dir/$uid.png";
-	}
-
-	private void invalidate_cover () {
-		cover_cache = null;
-		tried_loading_cover = false;
-		queue_draw ();
 	}
 
 	private void draw_pixbuf (DrawingContext context, Gdk.Pixbuf pixbuf) {
