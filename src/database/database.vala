@@ -24,7 +24,8 @@ private class Games.Database : Object {
 			cooperative INTEGER,
 			description TEXT,
 			developer TEXT,
-			genre TEXT
+			genre TEXT,
+			players TEXT
 		) WITHOUT ROWID;
 	""";
 
