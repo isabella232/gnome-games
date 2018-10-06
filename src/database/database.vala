@@ -26,7 +26,8 @@ private class Games.Database : Object {
 			developer TEXT,
 			genre TEXT,
 			players TEXT,
-			publisher TEXT
+			publisher TEXT,
+			rating REAL
 		) WITHOUT ROWID;
 	""";
 
@@ -90,6 +91,14 @@ private class Games.Database : Object {
 			throw new DatabaseError.PREPARATION_FAILED ("Preparation failed: %s", database.errmsg ());
 
 		return statement;
+	}
+
+	internal static void bind_double (Sqlite.Statement statement, string parameter, double val) throws Error {
+		var position = statement.bind_parameter_index (parameter);
+		if (position <= 0)
+			throw new DatabaseError.BINDING_FAILED ("Couldn't bind double to the parameter “%s”, unexpected position: %d.", parameter, position);
+
+		statement.bind_double (position, val);
 	}
 
 	internal static void bind_int (Sqlite.Statement statement, string parameter, int val) throws Error {

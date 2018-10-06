@@ -8,7 +8,8 @@ private class Games.DatabaseMetadata : Object {
 			developer,
 			genre,
 			players,
-			publisher
+			publisher,
+			rating
 		FROM game_metadata WHERE uid=$UID;
 	""";
 
@@ -40,6 +41,10 @@ private class Games.DatabaseMetadata : Object {
 		UPDATE game_metadata SET publisher=$PUBLISHER WHERE uid=$UID;
 	""";
 
+	private const string SAVE_RATING_QUERY = """
+		UPDATE game_metadata SET rating=$RATING WHERE uid=$UID;
+	""";
+
 	private Game game;
 	private Uid uid;
 	private Cooperative cooperative;
@@ -48,6 +53,7 @@ private class Games.DatabaseMetadata : Object {
 	private Genre genre;
 	private Players players;
 	private Publisher publisher;
+	private Rating rating;
 
 	private string uid_value;
 	private bool cooperative_value;
@@ -56,6 +62,7 @@ private class Games.DatabaseMetadata : Object {
 	private string[] genre_value;
 	private string players_value;
 	private string publisher_value;
+	private float rating_value;
 
 	private Sqlite.Statement add_game_statement;
 	private Sqlite.Statement load_statement;
@@ -65,6 +72,7 @@ private class Games.DatabaseMetadata : Object {
 	private Sqlite.Statement save_genre_statement;
 	private Sqlite.Statement save_players_statement;
 	private Sqlite.Statement save_publisher_statement;
+	private Sqlite.Statement save_rating_statement;
 
 	public bool cooperative_loaded { get; set; }
 	public bool description_loaded { get; set; }
@@ -72,6 +80,7 @@ private class Games.DatabaseMetadata : Object {
 	public bool genre_loaded { get; set; }
 	public bool players_loaded { get; set; }
 	public bool publisher_loaded { get; set; }
+	public bool rating_loaded { get; set; }
 
 	private bool game_added;
 
@@ -85,6 +94,7 @@ private class Games.DatabaseMetadata : Object {
 		genre = game.get_genre ();
 		players = game.get_players ();
 		publisher = game.get_publisher ();
+		rating = game.get_rating ();
 
 		try {
 			uid_value = game.get_uid ().get_uid ();
@@ -97,6 +107,7 @@ private class Games.DatabaseMetadata : Object {
 			save_genre_statement = Database.prepare (database, SAVE_GENRE_QUERY);
 			save_players_statement = Database.prepare (database, SAVE_PLAYERS_QUERY);
 			save_publisher_statement = Database.prepare (database, SAVE_PUBLISHER_QUERY);
+			save_rating_statement = Database.prepare (database, SAVE_RATING_QUERY);
 
 			load_metadata ();
 		}
@@ -165,6 +176,16 @@ private class Games.DatabaseMetadata : Object {
 		return publisher_value;
 	}
 
+	public float get_rating () {
+		if (!rating_loaded) {
+			on_rating_loaded ();
+			rating.notify.connect (on_rating_loaded);
+			return rating.get_rating ();
+		}
+
+		return rating_value;
+	}
+
 	private void on_cooperative_loaded () {
 		if (!cooperative.has_loaded)
 			return;
@@ -229,6 +250,17 @@ private class Games.DatabaseMetadata : Object {
 
 		add_game ();
 		save_publisher ();
+	}
+
+	private void on_rating_loaded () {
+		if (!rating.has_loaded)
+			return;
+
+		rating_value = rating.get_rating ();
+		rating_loaded = true;
+
+		add_game ();
+		save_rating ();
 	}
 
 	private void save_cooperative () {
@@ -318,6 +350,20 @@ private class Games.DatabaseMetadata : Object {
 		}
 	}
 
+	private void save_rating () {
+		try {
+			save_rating_statement.reset ();
+			Database.bind_text (save_rating_statement, "$UID", uid_value);
+			Database.bind_double (save_rating_statement, "$RATING", rating_value);
+
+			if (save_rating_statement.step () != Sqlite.DONE)
+				warning ("Execution failed.");
+		}
+		catch (Error e) {
+			warning (e.message);
+		}
+	}
+
 	private void add_game () {
 		if (game_added)
 			return;
@@ -374,6 +420,11 @@ private class Games.DatabaseMetadata : Object {
 			if (load_statement.column_type (5) != Sqlite.NULL) {
 				publisher_value = load_statement.column_text (5);
 				publisher_loaded = true;
+			}
+
+			if (load_statement.column_type (6) != Sqlite.NULL) {
+				rating_value = (float) load_statement.column_double (6);
+				rating_loaded = true;
 			}
 		}
 	}
