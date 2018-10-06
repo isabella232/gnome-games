@@ -27,7 +27,8 @@ private class Games.Database : Object {
 			genre TEXT,
 			players TEXT,
 			publisher TEXT,
-			rating REAL
+			rating REAL,
+			release_date TEXT
 		) WITHOUT ROWID;
 	""";
 

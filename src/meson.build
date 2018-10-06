@@ -56,6 +56,7 @@ vala_sources = [
   'database/database-players.vala',
   'database/database-publisher.vala',
   'database/database-rating.vala',
+  'database/database-release-date.vala',
   'database/database-uri-iterator.vala',
   'database/database-uri-source.vala',
 

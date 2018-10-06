@@ -15,6 +15,7 @@ private class Games.DatabaseGame : Object, Game {
 	private Players players;
 	private Publisher publisher;
 	private Rating rating;
+	private ReleaseDate release_date;
 
 	public DatabaseGame (Database database, Game game) {
 		this.database = database;
@@ -29,6 +30,7 @@ private class Games.DatabaseGame : Object, Game {
 		players = new DatabasePlayers (metadata);
 		publisher = new DatabasePublisher (metadata);
 		rating = new DatabaseRating (metadata);
+		release_date = new DatabaseReleaseDate (metadata);
 	}
 
 	public Uid get_uid () {
@@ -44,7 +46,7 @@ private class Games.DatabaseGame : Object, Game {
 	}
 
 	public ReleaseDate get_release_date () {
-		return game.get_release_date ();
+		return release_date;
 	}
 
 	public Cooperative get_cooperative () {

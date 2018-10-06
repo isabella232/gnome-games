@@ -9,7 +9,8 @@ private class Games.DatabaseMetadata : Object {
 			genre,
 			players,
 			publisher,
-			rating
+			rating,
+			release_date
 		FROM game_metadata WHERE uid=$UID;
 	""";
 
@@ -45,6 +46,10 @@ private class Games.DatabaseMetadata : Object {
 		UPDATE game_metadata SET rating=$RATING WHERE uid=$UID;
 	""";
 
+	private const string SAVE_RELEASE_DATE_QUERY = """
+		UPDATE game_metadata SET release_date=$RELEASE_DATE WHERE uid=$UID;
+	""";
+
 	private Game game;
 	private Uid uid;
 	private Cooperative cooperative;
@@ -54,6 +59,7 @@ private class Games.DatabaseMetadata : Object {
 	private Players players;
 	private Publisher publisher;
 	private Rating rating;
+	private ReleaseDate release_date;
 
 	private string uid_value;
 	private bool cooperative_value;
@@ -63,6 +69,7 @@ private class Games.DatabaseMetadata : Object {
 	private string players_value;
 	private string publisher_value;
 	private float rating_value;
+	private DateTime release_date_value;
 
 	private Sqlite.Statement add_game_statement;
 	private Sqlite.Statement load_statement;
@@ -73,6 +80,7 @@ private class Games.DatabaseMetadata : Object {
 	private Sqlite.Statement save_players_statement;
 	private Sqlite.Statement save_publisher_statement;
 	private Sqlite.Statement save_rating_statement;
+	private Sqlite.Statement save_release_date_statement;
 
 	public bool cooperative_loaded { get; set; }
 	public bool description_loaded { get; set; }
@@ -81,6 +89,7 @@ private class Games.DatabaseMetadata : Object {
 	public bool players_loaded { get; set; }
 	public bool publisher_loaded { get; set; }
 	public bool rating_loaded { get; set; }
+	public bool release_date_loaded { get; set; }
 
 	private bool game_added;
 
@@ -95,6 +104,7 @@ private class Games.DatabaseMetadata : Object {
 		players = game.get_players ();
 		publisher = game.get_publisher ();
 		rating = game.get_rating ();
+		release_date = game.get_release_date ();
 
 		try {
 			uid_value = game.get_uid ().get_uid ();
@@ -108,6 +118,7 @@ private class Games.DatabaseMetadata : Object {
 			save_players_statement = Database.prepare (database, SAVE_PLAYERS_QUERY);
 			save_publisher_statement = Database.prepare (database, SAVE_PUBLISHER_QUERY);
 			save_rating_statement = Database.prepare (database, SAVE_RATING_QUERY);
+			save_release_date_statement = Database.prepare (database, SAVE_RELEASE_DATE_QUERY);
 
 			load_metadata ();
 		}
@@ -186,6 +197,16 @@ private class Games.DatabaseMetadata : Object {
 		return rating_value;
 	}
 
+	public DateTime get_release_date () {
+		if (!release_date_loaded) {
+			on_release_date_loaded ();
+			release_date.notify.connect (on_release_date_loaded);
+			return release_date.get_release_date ();
+		}
+
+		return release_date_value;
+	}
+
 	private void on_cooperative_loaded () {
 		if (!cooperative.has_loaded)
 			return;
@@ -261,6 +282,17 @@ private class Games.DatabaseMetadata : Object {
 
 		add_game ();
 		save_rating ();
+	}
+
+	private void on_release_date_loaded () {
+		if (!release_date.has_loaded)
+			return;
+
+		release_date_value = release_date.get_release_date ();
+		release_date_loaded = true;
+
+		add_game ();
+		save_release_date ();
 	}
 
 	private void save_cooperative () {
@@ -364,6 +396,24 @@ private class Games.DatabaseMetadata : Object {
 		}
 	}
 
+	private void save_release_date () {
+		try {
+			var string_value = "";
+			if (release_date_value != null)
+				string_value = release_date_value.format ("%F");
+
+			save_release_date_statement.reset ();
+			Database.bind_text (save_release_date_statement, "$UID", uid_value);
+			Database.bind_text (save_release_date_statement, "$RELEASE_DATE", string_value);
+
+			if (save_release_date_statement.step () != Sqlite.DONE)
+				warning ("Execution failed.");
+		}
+		catch (Error e) {
+			warning (e.message);
+		}
+	}
+
 	private void add_game () {
 		if (game_added)
 			return;
@@ -425,6 +475,18 @@ private class Games.DatabaseMetadata : Object {
 			if (load_statement.column_type (6) != Sqlite.NULL) {
 				rating_value = (float) load_statement.column_double (6);
 				rating_loaded = true;
+			}
+
+			if (load_statement.column_type (7) != Sqlite.NULL) {
+				var string_value = load_statement.column_text (7);
+
+				if (string_value != "") {
+					var timezone = new TimeZone.utc ();
+
+					release_date_value = new DateTime.from_iso8601 (string_value, timezone);
+				}
+
+				release_date_loaded = true;
 			}
 		}
 	}
