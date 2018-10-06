@@ -158,12 +158,10 @@ private class Games.CollectionBox : Gtk.Box {
 
 	[GtkCallback]
 	private void on_search_text_notify () {
-		if (viewstack.visible_child == platform_view) {
+		if (viewstack.visible_child == platform_view)
 			platform_view.filtering_text = search_bar.text;
-		}
-		else if (viewstack.visible_child == developer_view) {
+		else if (viewstack.visible_child == developer_view)
 			developer_view.filtering_text = search_bar.text;
-		}
 		else
 			collection_view.filtering_text = search_bar.text;
 	}
