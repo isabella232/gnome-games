@@ -87,12 +87,6 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 			cr, window, style, state, width, height
 		};
 
-		if (icon == null)
-			return false;
-
-		if (cover == null)
-			return false;
-
 		var drawn = false;
 
 		drawn = draw_cover (context);
@@ -108,11 +102,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 	}
 
 	public bool draw_icon (DrawingContext context) {
-		var g_icon = icon.get_icon ();
-		if (g_icon == null)
-			return false;
-
-		var pixbuf = get_scaled_icon (context, g_icon, ICON_SCALE);
+		var pixbuf = get_icon_cache (context.width, context.height);
 		if (pixbuf == null)
 			return false;
 
@@ -124,7 +114,19 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 	}
 
 	public bool draw_cover (DrawingContext context) {
-		var pixbuf = get_scaled_cover (context);
+		if (previous_cover_width != context.width) {
+			previous_cover_width = context.width;
+			cover_cache = null;
+			tried_loading_cover = false;
+		}
+
+		if (previous_cover_height != context.height) {
+			previous_cover_height = context.height;
+			cover_cache = null;
+			tried_loading_cover = false;
+		}
+
+		var pixbuf = get_cover_cache (context.width, context.height);
 		if (pixbuf == null)
 			return false;
 
@@ -175,14 +177,18 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		context.cr.paint ();
 	}
 
-	private Gdk.Pixbuf? get_scaled_icon (DrawingContext context, GLib.Icon? icon, double scale) {
+	private Gdk.Pixbuf? get_icon_cache (int width, int height) {
 		if (icon == null)
+			return null;
+
+		var g_icon = icon.get_icon ();
+		if (g_icon == null)
 			return null;
 
 		var theme = Gtk.IconTheme.get_default ();
 		var lookup_flags = Gtk.IconLookupFlags.FORCE_SIZE | Gtk.IconLookupFlags.FORCE_REGULAR;
-		var size = int.min (context.width, context.height) * scale;
-		var icon_info = theme.lookup_by_gicon (icon, (int) size, lookup_flags);
+		var size = int.min (width, height) * ICON_SCALE;
+		var icon_info = theme.lookup_by_gicon (g_icon, (int) size, lookup_flags);
 
 		if (icon_info == null) {
 			warning ("Couldn't find the icon");
@@ -197,27 +203,13 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		}
 	}
 
-	private Gdk.Pixbuf? get_scaled_cover (DrawingContext context) {
-		if (previous_cover_width != context.width) {
-			previous_cover_width = context.width;
-			cover_cache = null;
-			tried_loading_cover = false;
-		}
-
-		if (previous_cover_height != context.height) {
-			previous_cover_height = context.height;
-			cover_cache = null;
-			tried_loading_cover = false;
-		}
-
+	private Gdk.Pixbuf? get_cover_cache (int width, int height) {
+		var cover_cache = load_cover_cache_from_disk (width, height);
 		if (cover_cache != null)
 			return cover_cache;
 
-		var size = int.min (context.width, context.height);
-
-		load_cover_cache_from_disk (context, size);
-		if (cover_cache != null)
-			return cover_cache;
+		if (cover == null)
+			return null;
 
 		var g_icon = cover.get_cover ();
 		if (g_icon == null)
@@ -225,6 +217,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 
 		var theme = Gtk.IconTheme.get_default ();
 		var lookup_flags = Gtk.IconLookupFlags.FORCE_SIZE | Gtk.IconLookupFlags.FORCE_REGULAR;
+		var size = int.min (width, height);
 		var icon_info = theme.lookup_by_gicon (g_icon, (int) size, lookup_flags);
 
 		if (icon_info == null) {
@@ -233,7 +226,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		}
 		try {
 			cover_cache = icon_info.load_icon ();
-			save_cover_cache_to_disk (size);
+			save_cover_cache_to_disk (cover_cache, size);
 		}
 		catch (Error e) {
 			warning (@"Couldn’t load the cover: $(e.message)");
@@ -242,32 +235,32 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 		return cover_cache;
 	}
 
-	private void load_cover_cache_from_disk (DrawingContext context, int size) {
+	private Gdk.Pixbuf? load_cover_cache_from_disk (int width, int height) {
 		if (tried_loading_cover)
-			return;
+			return null;
 
 		tried_loading_cover = true;
 
+		var size = int.min (width, height);
 		string cover_cache_path;
 		try {
 			cover_cache_path = get_cover_cache_path (size);
 		}
 		catch (Error e) {
 			critical (e.message);
-
-			return;
+			return null;
 		}
 
 		try {
-			cover_cache = new Gdk.Pixbuf.from_file_at_scale (cover_cache_path, context.width,
-			                                                 context.height, true);
+			return new Gdk.Pixbuf.from_file_at_scale (cover_cache_path, width, height, true);
 		}
 		catch (Error e) {
 			debug (e.message);
+			return null;
 		}
 	}
 
-	private void save_cover_cache_to_disk (int size) {
+	private void save_cover_cache_to_disk (Gdk.Pixbuf? cover_cache, int size) {
 		if (cover_cache == null)
 			return;
 
