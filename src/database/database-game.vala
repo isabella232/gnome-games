@@ -13,6 +13,7 @@ private class Games.DatabaseGame : Object, Game {
 	private Developer developer;
 	private Genre genre;
 	private Players players;
+	private Publisher publisher;
 
 	public DatabaseGame (Database database, Game game) {
 		this.database = database;
@@ -25,6 +26,7 @@ private class Games.DatabaseGame : Object, Game {
 		developer = new DatabaseDeveloper (metadata);
 		genre = new DatabaseGenre (metadata);
 		players = new DatabasePlayers (metadata);
+		publisher = new DatabasePublisher (metadata);
 	}
 
 	public Uid get_uid () {
@@ -60,7 +62,7 @@ private class Games.DatabaseGame : Object, Game {
 	}
 
 	public Publisher get_publisher () {
-		return game.get_publisher ();
+		return publisher;
 	}
 
 	public Description get_description () {

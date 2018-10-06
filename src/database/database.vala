@@ -25,7 +25,8 @@ private class Games.Database : Object {
 			description TEXT,
 			developer TEXT,
 			genre TEXT,
-			players TEXT
+			players TEXT,
+			publisher TEXT
 		) WITHOUT ROWID;
 	""";
 
