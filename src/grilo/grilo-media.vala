@@ -8,16 +8,25 @@ public class Games.GriloMedia : Object {
 
 	public signal void resolved ();
 
+	private class ResolveCallback {
+		public SourceFunc func;
+
+		public ResolveCallback (owned SourceFunc func) {
+			this.func = (owned) func;
+		}
+	}
+
 	private Title title;
 	private string mime_type;
 	private bool resolving;
-
+	private GenericSet<ResolveCallback> resolve_cbs;
 	private Grl.Media? media;
 
 	public GriloMedia (Title title, string mime_type) {
 		this.title = title;
 		this.mime_type = mime_type;
 		resolving = false;
+		resolve_cbs = new GenericSet<ResolveCallback> (direct_hash, direct_equal);
 	}
 
 	private static Grl.Registry get_registry () throws Error {
@@ -40,6 +49,16 @@ public class Games.GriloMedia : Object {
 		});
 
 		return registry;
+	}
+
+	public async void resolve_media_async () {
+		if (media != null)
+			return;
+
+		resolve_cbs.add (new ResolveCallback (resolve_media_async.callback));
+		try_resolve_media ();
+
+		yield;
 	}
 
 	public void try_resolve_media () {
@@ -87,5 +106,10 @@ public class Games.GriloMedia : Object {
 	private void on_media_resolved (Grl.Source source, uint operation_id, owned Grl.Media media, GLib.Error? error) {
 		this.media = media;
 		resolved ();
+
+		resolve_cbs.foreach ((resolve_cb) => {
+			Idle.add ((owned) resolve_cb.func);
+		});
+		resolve_cbs.remove_all ();
 	}
 }
