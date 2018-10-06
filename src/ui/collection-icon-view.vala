@@ -7,7 +7,9 @@ private class Games.CollectionIconView : Gtk.Bin {
 	private string[] filtering_terms;
 	public string filtering_text {
 		set {
-			filtering_terms = value.split (" ");
+			if (value != null)
+				filtering_terms = value.split (" ");
+
 			flow_box.invalidate_filter ();
 		}
 	}
