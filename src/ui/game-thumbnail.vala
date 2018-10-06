@@ -13,7 +13,8 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 
 			_uid = value;
 
-			queue_draw ();
+			icon_cache = null;
+			invalidate_cover ();
 		}
 	}
 
@@ -26,6 +27,7 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 
 			_icon = value;
 
+			icon_cache = null;
 			queue_draw ();
 		}
 	}
@@ -51,9 +53,10 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 	}
 
 	private bool tried_loading_cover;
+	private Gdk.Pixbuf? icon_cache;
 	private Gdk.Pixbuf? cover_cache;
-	private int previous_cover_width;
-	private int previous_cover_height;
+	private int cache_width;
+	private int cache_height;
 
 	public struct DrawingContext {
 		Cairo.Context cr;
@@ -87,6 +90,14 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 			cr, window, style, state, width, height
 		};
 
+		if (cache_height != context.height || cache_width != context.width) {
+			cache_height = context.height;
+			cache_width = context.width;
+			icon_cache = null;
+			cover_cache = null;
+			tried_loading_cover = false;
+		}
+
 		var drawn = false;
 
 		drawn = draw_cover (context);
@@ -114,18 +125,6 @@ private class Games.GameThumbnail: Gtk.DrawingArea {
 	}
 
 	public bool draw_cover (DrawingContext context) {
-		if (previous_cover_width != context.width) {
-			previous_cover_width = context.width;
-			cover_cache = null;
-			tried_loading_cover = false;
-		}
-
-		if (previous_cover_height != context.height) {
-			previous_cover_height = context.height;
-			cover_cache = null;
-			tried_loading_cover = false;
-		}
-
 		var pixbuf = get_cover_cache (context.width, context.height);
 		if (pixbuf == null)
 			return false;
