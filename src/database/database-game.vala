@@ -11,6 +11,7 @@ private class Games.DatabaseGame : Object, Game {
 	private Cooperative cooperative;
 	private Description description;
 	private Developer developer;
+	private Genre genre;
 
 	public DatabaseGame (Database database, Game game) {
 		this.database = database;
@@ -21,6 +22,7 @@ private class Games.DatabaseGame : Object, Game {
 		cooperative = new DatabaseCooperative (metadata);
 		description = new DatabaseDescription (metadata);
 		developer = new DatabaseDeveloper (metadata);
+		genre = new DatabaseGenre (metadata);
 	}
 
 	public Uid get_uid () {
@@ -44,7 +46,7 @@ private class Games.DatabaseGame : Object, Game {
 	}
 
 	public Genre get_genre () {
-		return game.get_genre ();
+		return genre;
 	}
 
 	public Players get_players () {

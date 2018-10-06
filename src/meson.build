@@ -51,6 +51,7 @@ vala_sources = [
   'database/database-developer.vala',
   'database/database-error.vala',
   'database/database-game.vala',
+  'database/database-genre.vala',
   'database/database-metadata.vala',
   'database/database-uri-iterator.vala',
   'database/database-uri-source.vala',

@@ -23,7 +23,8 @@ private class Games.Database : Object {
 			uid TEXT PRIMARY KEY NOT NULL,
 			cooperative INTEGER,
 			description TEXT,
-			developer TEXT
+			developer TEXT,
+			genre TEXT
 		) WITHOUT ROWID;
 	""";
 
