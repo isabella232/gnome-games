@@ -1,4 +1,45 @@
 ==============
+Version 3.31.1
+==============
+
+* UI
+ - Update primary menu layout according to app menu retirement initiative.
+ - Refine controller preferences: hide sidebar while testing controllers
+   and use better transitions.
+ - Wrap plugin descriptions in preferences.
+ - Remove double border on preferences sidebar.
+ - Use HdyColumn to allow preferences dialog to get smaller.
+ - Use HdyTitleBar in main and preferences windows.
+ - Update development build style.
+
+* Don't build MAME plugin by default. It can still be enabled via
+  '-Dmame-plugin=true' build option.
+
+* Fixes
+ - Fix crash in PlayStation plugin.
+ - Pressed buttons in controller preferences are now positioned correctly.
+ - Fix drawing failure in controller preferences.
+ - Fix Cancel button flickering in controller preferences.
+ - Fix occasional tiny thumbnails in Developers and Platforms views.
+ - Fix GTK+ warnings when browsing collection.
+ - Fix Steam registry tree parser logic.
+ - Fix game filtering when switching between collection views while searching.
+ - Various code cleanups.
+
+* Dependencies:
+ - Add libhandy-0.0 dependency.
+
+* Fix typos in coding style document.
+
+* Translation updates
+ Croatian
+ Czech
+ Friulian
+ Hungarian
+ Polish
+ Swedish
+
+==============
 Version 3.30.0
 ==============
 
