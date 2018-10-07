@@ -1,13 +1,13 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public class Games.GenericGenre : Object, Genre {
-	private List<string> genre;
+	private string[] genre;
 
-	public GenericGenre (List<string> genre) {
+	public GenericGenre (string[] genre) {
 		this.genre = genre.copy ();
 	}
 
-	public unowned List<string> get_genre () {
+	public unowned string[] get_genre () {
 		return genre;
 	}
 }

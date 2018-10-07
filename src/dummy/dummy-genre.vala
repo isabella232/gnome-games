@@ -2,13 +2,13 @@
 
 public class Games.DummyGenre : Object, Genre {
 	// This is needed because get_genre() can't transfer ownership of the list.
-	private List<string> genres;
+	private string[] genres;
 
 	construct {
-		genres = new List<string> ();
+		genres = {};
 	}
 
-	public unowned List<string> get_genre () {
+	public unowned string[] get_genre () {
 		return genres;
 	}
 }

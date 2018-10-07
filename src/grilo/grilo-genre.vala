@@ -2,7 +2,7 @@
 
 public class Games.GriloGenre : Object, Genre {
 	private GriloMedia media;
-	private List<string> genre;
+	private string[] genre;
 	private bool resolving;
 
 	public GriloGenre (GriloMedia media) {
@@ -11,7 +11,7 @@ public class Games.GriloGenre : Object, Genre {
 		resolving = false;
 	}
 
-	public unowned List<string> get_genre () {
+	public unowned string[] get_genre () {
 		if (resolving)
 			return genre;
 
@@ -35,16 +35,16 @@ public class Games.GriloGenre : Object, Genre {
 		if (genre_count == 0)
 			return;
 
-		var genre_list = new List<string> ();
+		string[] genres = {};
 
 		for (uint index = 0; index < genre_count; index++)
-			genre_list.append (grl_media.get_genre_nth (index));
+			genres += grl_media.get_genre_nth (index);
 
-		load_media_genre (genre_list);
+		load_media_genre (genres);
 	}
 
-	private void load_media_genre (List<string> genre_list) {
-		genre = genre_list.copy ();
+	private void load_media_genre (string[] genres) {
+		genre = genres.copy ();
 
 		changed ();
 	}

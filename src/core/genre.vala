@@ -3,5 +3,5 @@
 public interface Games.Genre : Object {
 	public signal void changed ();
 
-	public abstract unowned List<string> get_genre ();
+	public abstract unowned string[] get_genre ();
 }
