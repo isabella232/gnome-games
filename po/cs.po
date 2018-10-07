@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2018-08-05 16:40+0000\n"
-"PO-Revision-Date: 2018-08-08 08:06+0200\n"
+"POT-Creation-Date: 2018-10-07 07:20+0000\n"
+"PO-Revision-Date: 2018-10-07 16:40+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -19,8 +19,9 @@ msgstr ""
 "X-Generator: Gtranslator 2.91.7\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:6
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:32
-#: data/ui/display-header-bar.ui:6 src/ui/application.vala:24
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:40
+#: data/ui/collection-header-bar.ui:67 data/ui/display-header-bar.ui:6
+#: src/ui/application.vala:26
 msgid "Games"
 msgstr "Hry"
 
@@ -124,15 +125,15 @@ msgstr "Velikost okna"
 msgid "Window size (width and height)."
 msgstr "Velikost okna (šířka a výška)."
 
-#: data/ui/collection-box.ui:42
+#: data/ui/collection-box.ui:50
 msgid "Developers"
 msgstr "Vývojáři"
 
-#: data/ui/collection-box.ui:52
+#: data/ui/collection-box.ui:60
 msgid "Platforms"
 msgstr "Platformy"
 
-#: data/ui/collection-box.ui:75
+#: data/ui/collection-box.ui:83
 msgid "Loading"
 msgstr "Načítá se"
 
@@ -145,29 +146,29 @@ msgstr "Přidat soubory s hrami…"
 msgid "Menu"
 msgstr "Nabídka"
 
-#: data/ui/collection-header-bar.ui:70
+#: data/ui/collection-header-bar.ui:85
 msgid "Search"
 msgstr "Hledat"
 
-#: data/ui/collection-header-bar.ui:96 data/ui/preferences-window.ui:6
-#: data/ui/preferences-window.ui:18
+#: data/ui/collection-header-bar.ui:111 data/ui/preferences-window.ui:6
+#: data/ui/preferences-window.ui:25
 msgid "Preferences"
 msgstr "Předvolby"
 
-#: data/ui/collection-header-bar.ui:111 data/ui/shortcuts-window.ui:10
-msgid "Shortcuts"
+#: data/ui/collection-header-bar.ui:119
+msgid "Keyboard Shortcuts"
 msgstr "Klávesové zkratky"
 
-#: data/ui/collection-header-bar.ui:119
+#: data/ui/collection-header-bar.ui:127
 msgid "Help"
 msgstr "Nápověda"
 
-#: data/ui/collection-header-bar.ui:127
-msgid "About"
-msgstr "O aplikaci"
+#: data/ui/collection-header-bar.ui:135
+msgid "About Games"
+msgstr "O aplikaci Hry"
 
-#: data/ui/display-header-bar.ui:20 data/ui/gamepad-configurer.ui:73
-#: data/ui/keyboard-configurer.ui:74
+#: data/ui/display-header-bar.ui:20 data/ui/preferences-subpage-gamepad.ui:82
+#: data/ui/preferences-subpage-keyboard.ui:83
 msgid "Back"
 msgstr "Zpět"
 
@@ -198,58 +199,57 @@ msgstr ""
 "Nainstalujte hry nebo přidejte do prohledávaných zdrojů složky obsahující "
 "hry."
 
-#: data/ui/gamepad-configurer.ui:35
-msgctxt "Gamepad configuration factory reset"
-msgid "Reset"
-msgstr "Výrobní nastavení"
-
-#: data/ui/gamepad-configurer.ui:48 data/ui/keyboard-configurer.ui:49
-msgid "Configure"
-msgstr "Nastavit"
-
-#: data/ui/gamepad-configurer.ui:91 data/ui/keyboard-configurer.ui:92
-#: data/ui/quit-dialog.ui:15 data/ui/reset-controller-mapping-dialog.ui:15
-#: data/ui/resume-failed-dialog.ui:14
-msgid "Cancel"
-msgstr "Zrušit"
-
-#: data/ui/gamepad-mapper.ui:19 data/ui/keyboard-mapper.ui:19
-msgid "Skip"
-msgstr "Vynechat"
-
-#: data/ui/keyboard-configurer.ui:36
-msgctxt "Keyboard configuration factory reset"
-msgid "Reset"
-msgstr "Tovární nastavení"
-
 #: data/ui/media-menu-button.ui:11
 msgid "Media"
 msgstr "Médium"
 
-#: data/ui/preferences-page-controllers.ui:31
+#: data/ui/preferences-page-controllers.ui:28
 msgid "Gamepads"
 msgstr "Herní ovladače"
 
-#: data/ui/preferences-page-controllers.ui:54
-#: src/ui/preferences-page-controllers.vala:95
+#: data/ui/preferences-page-controllers.ui:51
+#: src/ui/preferences-page-controllers.vala:76
 msgid "Keyboard"
 msgstr "Klávesnice"
 
-#: data/ui/preferences-page-controllers.ui:86 data/ui/preferences-window.ui:79
-msgid "Controllers"
-msgstr "Ovladače"
-
-#: data/ui/preferences-page-plugins.ui:40 data/ui/preferences-window.ui:88
-msgid "Extensions"
-msgstr "Rozšíření"
-
-#: data/ui/preferences-page-video.ui:21
+#: data/ui/preferences-page-video.ui:28
 msgid "Filter"
 msgstr "Filtr"
 
-#: data/ui/preferences-page-video.ui:50 data/ui/preferences-window.ui:70
+#: data/ui/preferences-subpage-gamepad.ui:21
+#: data/ui/preferences-subpage-keyboard.ui:22
+msgctxt "Keyboard configuration factory reset"
+msgid "Reset"
+msgstr "Tovární nastavení"
+
+#: data/ui/preferences-subpage-gamepad.ui:34
+#: data/ui/preferences-subpage-keyboard.ui:35
+msgid "Configure"
+msgstr "Nastavit"
+
+#: data/ui/preferences-subpage-gamepad.ui:52
+#: data/ui/preferences-subpage-keyboard.ui:53
+msgid "Skip"
+msgstr "Vynechat"
+
+#: data/ui/preferences-subpage-gamepad.ui:100
+#: data/ui/preferences-subpage-keyboard.ui:101 data/ui/quit-dialog.ui:15
+#: data/ui/reset-controller-mapping-dialog.ui:15
+#: data/ui/resume-failed-dialog.ui:14
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: data/ui/preferences-window.ui:95
 msgid "Video"
 msgstr "Obraz"
+
+#: data/ui/preferences-window.ui:104
+msgid "Controllers"
+msgstr "Ovladače"
+
+#: data/ui/preferences-window.ui:113
+msgid "Extensions"
+msgstr "Rozšíření"
 
 #: data/ui/quit-dialog.ui:9
 msgid "Are you sure you want to quit?"
@@ -309,6 +309,10 @@ msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Od začátku"
 
+#: data/ui/shortcuts-window.ui:10
+msgid "Shortcuts"
+msgstr "Klávesové zkratky"
+
 #: data/ui/shortcuts-window.ui:14
 msgid "General"
 msgstr "Obecné"
@@ -343,7 +347,6 @@ msgid "Directional pad"
 msgstr "Směrová tlačítka"
 
 #: data/ui/shortcuts-window.ui:56
-#| msgid "Select game files"
 msgctxt "shortcut window"
 msgid "Select view"
 msgstr "Výběr zobrazení"
@@ -563,11 +566,11 @@ msgstr "Sega Saturn"
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "Soubor „%s“ není platný binární soubor Sega Saturn."
 
-#: plugins/steam/src/steam-plugin.vala:6
+#: plugins/steam/src/steam-plugin.vala:10
 msgid "Steam"
 msgstr "Steam"
 
-#: plugins/steam/src/steam-plugin.vala:49
+#: plugins/steam/src/steam-plugin.vala:80
 #, c-format
 msgid "Couldn’t get Steam appid from manifest “%s”."
 msgstr "Z manifestu „%s“ nelze získat Steam appid."
@@ -643,11 +646,11 @@ msgstr "Soubor nemá hlavičku Wii."
 msgid "Wii"
 msgstr "Wii"
 
-#: src/command/command-runner.vala:36
+#: src/command/command-runner.vala:34
 msgid "The game doesn’t have a valid command."
 msgstr "Hra nemá platný příkaz pro spuštění."
 
-#: src/command/command-runner.vala:67
+#: src/command/command-runner.vala:60
 #, c-format
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "Nelze spustit „%s“: spuštění selhalo"
@@ -671,7 +674,7 @@ msgstr "Nelze vytvořit novou instanci zásuvného modulu v „%s“."
 msgid "No description available."
 msgstr "Není k dispozici žádný popis."
 
-#: src/dummy/dummy-developer.vala:5 src/dummy/dummy-platform.vala:9
+#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:22
 msgid "Unknown"
 msgstr "Neznámo"
 
@@ -708,11 +711,11 @@ msgstr "Pro ID disku „%s“ nebylo nalezeno žádné ID sady disků."
 msgid "No disc found for disc ID “%s”."
 msgstr "Pro ID disku „%s“ nebyl nalezen žádný disk."
 
-#: src/grilo/grilo-players.vala:46
+#: src/grilo/grilo-players.vala:42
 msgid "Single-player"
 msgstr "Jeden hráč"
 
-#: src/grilo/grilo-players.vala:48
+#: src/grilo/grilo-players.vala:44
 msgid "Multi-player"
 msgstr "Více hráčů"
 
@@ -752,16 +755,16 @@ msgstr ""
 msgid "No module found for “%s”."
 msgstr "Pro „%s“ nebyl nalezen žádný modul."
 
-#: src/retro/retro-runner.vala:540
+#: src/retro/retro-runner.vala:541
 msgid "Unknown platform"
 msgstr "Neznámá platforma"
 
-#: src/retro/retro-runner.vala:585
+#: src/retro/retro-runner.vala:586
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Systém „%s“ není zatím podporován, ale plná podpora je v plánu."
 
-#: src/retro/retro-runner.vala:588
+#: src/retro/retro-runner.vala:589
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Systém není zatím podporován, ale plná podpora je v plánu."
 
@@ -872,39 +875,39 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:161
+#: src/ui/application.vala:174
 msgid "Select game files"
 msgstr "Výběr souborů s hrami"
 
-#: src/ui/application.vala:162
+#: src/ui/application.vala:175
 msgid "_Add"
 msgstr "Přid_at"
 
-#: src/ui/application.vala:162
+#: src/ui/application.vala:175
 msgid "_Cancel"
 msgstr "_Zrušit"
 
-#: src/ui/application.vala:369
+#: src/ui/application.vala:389
 msgid "GNOME Games"
 msgstr "Hry GNOME"
 
-#: src/ui/application.vala:371
+#: src/ui/application.vala:391
 msgid "A video game player for GNOME"
 msgstr "Hraní videoher pro GNOME"
 
-#: src/ui/application.vala:375
+#: src/ui/application.vala:395
 msgid "Learn more about GNOME Games"
 msgstr "Zjistěte si více o Hrách GNOME"
 
-#: src/ui/application.vala:382
+#: src/ui/application.vala:402
 msgid "translator-credits"
 msgstr "Marek Černocký <marek@manet.cz>"
 
-#: src/ui/application-window.vala:367
+#: src/ui/application-window.vala:380
 msgid "An unexpected error occurred."
 msgstr "Vyskytla se neočekávaná chyba."
 
-#: src/ui/application-window.vala:647 src/ui/application-window.vala:664
+#: src/ui/application-window.vala:660 src/ui/application-window.vala:677
 msgid "Playing a game"
 msgstr "Hraje se hra"
 
@@ -917,38 +920,18 @@ msgstr "Problém! Nelze spustit „%s“"
 msgid "Oops! Unable to run the game"
 msgstr "Problém! Hru nelze spustit"
 
-#. translators: testing a gamepad, %s is its name
-#: src/ui/gamepad-configurer.vala:78
-#, c-format
-msgid "Testing %s"
-msgstr "Testuje se %s"
-
-#. translators: configuring a gamepad, %s is its name
-#: src/ui/gamepad-configurer.vala:92
-#, c-format
-msgid "Configuring %s"
-msgstr "Nastavuje se %s"
-
-#: src/ui/gamepad-mapper.vala:126
+#: src/ui/gamepad-mapper.vala:125
 msgid "Press suitable button on your gamepad"
 msgstr "Zmáčkněte vhodné tlačítko na svém herním ovladači"
 
-#: src/ui/gamepad-mapper.vala:131
+#: src/ui/gamepad-mapper.vala:130
 msgid "Move suitable axis left/right on your gamepad"
 msgstr ""
 "Posuňte se pomocí svého herního ovladače vhodným způsobem doleva/doprava"
 
-#: src/ui/gamepad-mapper.vala:133
+#: src/ui/gamepad-mapper.vala:132
 msgid "Move suitable axis up/down on your gamepad"
 msgstr "Posuňte se pomocí svého herního ovladače vhodným způsobem nahoru/dolů"
-
-#: src/ui/keyboard-configurer.vala:67
-msgid "Testing Keyboard"
-msgstr "Testuje se klávesnice"
-
-#: src/ui/keyboard-configurer.vala:80
-msgid "Configuring Keyboard"
-msgstr "Nastavuje se klávesnice"
 
 #: src/ui/keyboard-mapper.vala:18
 msgid "Press suitable key on your keyboard"
@@ -960,17 +943,37 @@ msgid "Media %d"
 msgstr "Médium %d"
 
 #. same as video-filters in gschema
-#: src/ui/preferences-page-video.vala:34
+#: src/ui/preferences-page-video.vala:24
 msgid "Smooth"
 msgstr "vyhlazený"
 
-#: src/ui/preferences-page-video.vala:34
+#: src/ui/preferences-page-video.vala:24
 msgid "Sharp"
 msgstr "ostrý"
 
-#: src/ui/preferences-page-video.vala:34
+#: src/ui/preferences-page-video.vala:24
 msgid "CRT"
 msgstr "CRT"
+
+#. translators: testing a gamepad, %s is its name
+#: src/ui/preferences-subpage-gamepad.vala:78
+#, c-format
+msgid "Testing %s"
+msgstr "Testuje se %s"
+
+#. translators: configuring a gamepad, %s is its name
+#: src/ui/preferences-subpage-gamepad.vala:89
+#, c-format
+msgid "Configuring %s"
+msgstr "Nastavuje se %s"
+
+#: src/ui/preferences-subpage-keyboard.vala:68
+msgid "Testing Keyboard"
+msgstr "Testuje se klávesnice"
+
+#: src/ui/preferences-subpage-keyboard.vala:78
+msgid "Configuring Keyboard"
+msgstr "Nastavuje se klávesnice"
 
 #: src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
@@ -1024,36 +1027,3 @@ msgstr "%s:%lu: Neočekávaný konec řádku, byl očekáván symbol."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: Neočekávaný symbol %s, byl očekáván konec řádku."
-
-#~ msgid "org.gnome.Games"
-#~ msgstr "org.gnome.Games"
-
-#~ msgid "Plugins"
-#~ msgstr "Zásuvné moduly"
-
-#~ msgid "Atari 5200"
-#~ msgstr "Atari 5200"
-
-#~ msgid "MAME"
-#~ msgstr "MAME"
-
-#~ msgid "Nintendo 3DS"
-#~ msgstr "Nintendo 3DS"
-
-#~ msgid "PlayStation 2"
-#~ msgstr "PlayStation 2"
-
-#~ msgid "PlayStation 3"
-#~ msgstr "PlayStation 3"
-
-#~ msgid "PlayStation 4"
-#~ msgstr "PlayStation 4"
-
-#~ msgid "PlayStation Portable"
-#~ msgstr "PlayStation Portable"
-
-#~ msgid "PlayStation Vita"
-#~ msgstr "PlayStation Vita"
-
-#~ msgid "Wii U"
-#~ msgstr "Wii U"
