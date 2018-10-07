@@ -7,7 +7,6 @@ public class Games.Application : Gtk.Application {
 
 	private Database database;
 
-	private PreferencesWindow preferences_window;
 	private ShortcutsWindow shortcuts_window;
 	private ApplicationWindow window;
 	private bool game_list_loaded;
@@ -343,17 +342,20 @@ public class Games.Application : Gtk.Application {
 	}
 
 	private void preferences () {
-		window.show_preferences ();
-		return;
-		if (preferences_window != null) {
-			preferences_window.present ();
-
+		int width, height;
+		window.get_size (out width, out height);
+		if (width <= 800) {
+			window.show_preferences ();
 			return;
 		}
-		preferences_window = new PreferencesWindow ();
-		preferences_window.destroy.connect (() => {
-			preferences_window = null;
-		});
+
+		var preferences_window = new PreferencesWindow ();
+		preferences_window.type_hint = Gdk.WindowTypeHint.DIALOG;
+		preferences_window.destroy_with_parent = true;
+		preferences_window.transient_for = window;
+		preferences_window.modal = true;
+
+		preferences_window.present ();
 	}
 
 	private void shortcuts () {
