@@ -4,15 +4,16 @@ public class Games.GriloCooperative : Object, Cooperative {
 	private GriloMedia media;
 	private bool cooperative;
 	private bool resolving;
+	private bool resolved;
 
 	public GriloCooperative (GriloMedia media) {
 		this.media = media;
 		media.resolved.connect (on_media_resolved);
-		resolving = false;
+		cooperative = false;
 	}
 
 	public bool get_cooperative () {
-		if (resolving)
+		if (resolving || resolved)
 			return cooperative;
 
 		resolving = true;
@@ -39,6 +40,8 @@ public class Games.GriloCooperative : Object, Cooperative {
 
 	private void load_media_cooperative (bool coop) {
 		cooperative = coop;
+
+		resolved = true;
 
 		changed ();
 	}
