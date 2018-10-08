@@ -4,19 +4,21 @@ public class Games.GriloRating : Object, Rating {
 	private GriloMedia media;
 	private float rating;
 	private bool resolving;
+	private bool resolved;
 
 	public GriloRating (GriloMedia media) {
 		this.media = media;
 		media.resolved.connect (on_media_resolved);
-		resolving = false;
+		rating = 0;
 	}
 
 	public float get_rating () {
-		if (resolving)
+		if (resolving || resolved)
 			return rating;
 
 		resolving = true;
 		media.try_resolve_media ();
+
 		return rating;
 	}
 
@@ -35,6 +37,8 @@ public class Games.GriloRating : Object, Rating {
 
 	private void load_media_rating (float media_rating) {
 		rating = media_rating;
+
+		resolved = true;
 
 		changed ();
 	}
