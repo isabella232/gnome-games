@@ -2,6 +2,6 @@
 
 public class Games.DummyReleaseDate : Object, ReleaseDate {
 	public DateTime get_release_date () {
-		return null;
+		return new DateTime.utc (1970, 1, 1, 0, 0, 0);
 	}
 }
