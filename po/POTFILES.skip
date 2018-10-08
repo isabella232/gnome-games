@@ -31,7 +31,6 @@ src/core/media-set/media-set.c
 src/core/plugin-registrar.c
 src/dummy/dummy-developer.c
 src/dummy/dummy-platform.c
-src/dummy/dummy-publisher.c
 src/gameinfo/gameinfo-disc-id-disc-title.c
 src/gameinfo/gameinfo-doc.c
 src/grilo/grilo-players.c

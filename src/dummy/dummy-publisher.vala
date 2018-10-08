@@ -2,6 +2,6 @@
 
 public class Games.DummyPublisher : Object, Publisher {
 	public string get_publisher () {
-		return _("Publisher not available.");
+		return "";
 	}
 }
