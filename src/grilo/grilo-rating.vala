@@ -31,12 +31,7 @@ public class Games.GriloRating : Object, Rating {
 		if (grl_media.length (Grl.MetadataKey.RATING) == 0)
 			return;
 
-		var media_rating = grl_media.get_rating ();
-		load_media_rating (media_rating);
-	}
-
-	private void load_media_rating (float media_rating) {
-		rating = media_rating;
+		rating = grl_media.get_rating ();
 
 		resolved = true;
 
