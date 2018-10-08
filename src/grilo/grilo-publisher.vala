@@ -34,12 +34,7 @@ public class Games.GriloPublisher : Object, Publisher {
 		if (grl_media.length (metadata_key) == 0)
 			return;
 
-		var publisher_string = grl_media.get_string (metadata_key);
-		load_media_publisher (publisher_string);
-	}
-
-	private void load_media_publisher (string publisher_string) {
-		publisher = publisher_string;
+		publisher = grl_media.get_string (metadata_key);
 
 		resolved = true;
 
