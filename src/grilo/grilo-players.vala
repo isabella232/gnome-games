@@ -4,18 +4,16 @@ public class Games.GriloPlayers : Object, Players {
 	private GriloMedia media;
 	private string players;
 	private bool resolving;
+	private bool resolved;
 
 	public GriloPlayers (GriloMedia media) {
 		this.media = media;
 		media.resolved.connect (on_media_resolved);
-		resolving = false;
+		players = "";
 	}
 
 	public string get_players () {
-		if (resolving)
-			return players;
-
-		if (players != null)
+		if (resolving || resolved)
 			return players;
 
 		resolving = true;
@@ -48,6 +46,8 @@ public class Games.GriloPlayers : Object, Players {
 
 	private void load_media_players (string player) {
 		players = player;
+
+		resolved = true;
 
 		changed ();
 	}
