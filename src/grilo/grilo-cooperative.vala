@@ -34,12 +34,7 @@ public class Games.GriloCooperative : Object, Cooperative {
 		if (grl_media.length (metadata_key) == 0)
 			return;
 
-		var coop = grl_media.get_boolean (metadata_key);
-		load_media_cooperative (coop);
-	}
-
-	private void load_media_cooperative (bool coop) {
-		cooperative = coop;
+		cooperative = grl_media.get_boolean (metadata_key);
 
 		resolved = true;
 
