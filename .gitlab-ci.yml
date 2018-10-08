@@ -11,7 +11,7 @@ flatpak:tests:
   image: registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:master
   stage: test
   variables:
-    MANIFEST_PATH: "flatpak/org.gnome.Games.UnitTests.json"
+    MANIFEST_PATH: "flatpak/org.gnome.Games.UnitTests.yml"
   script:
     - flatpak-builder unit-tests ${MANIFEST_PATH}
     - xvfb-run -a -s "-screen 0 1024x768x24" flatpak-builder --run unit-tests ${MANIFEST_PATH} games-unit-tests
