@@ -34,12 +34,8 @@ public class Games.GriloDeveloper : Object, Developer {
 		if (grl_media.length (metadata_key) == 0)
 			return;
 
-		var developer_string = grl_media.get_string (metadata_key);
-		load_media_developer (developer_string);
-	}
+		developer = grl_media.get_string (metadata_key);
 
-	private void load_media_developer (string developer_string) {
-		developer = developer_string;
 		resolved = true;
 
 		changed ();
