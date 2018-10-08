@@ -31,12 +31,7 @@ public class Games.GriloReleaseDate : Object, ReleaseDate {
 		if (grl_media.length (Grl.MetadataKey.PUBLICATION_DATE) == 0)
 			return;
 
-		var release = grl_media.get_publication_date ();
-		load_media_release_date (release);
-	}
-
-	private void load_media_release_date (DateTime release) {
-		release_date = release;
+		release_date = grl_media.get_publication_date ();
 
 		resolved = true;
 
