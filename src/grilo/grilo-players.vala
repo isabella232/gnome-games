@@ -37,15 +37,9 @@ public class Games.GriloPlayers : Object, Players {
 		var player = grl_media.get_string (metadata_key);
 
 		if (int.parse (player) == 1)
-			player = _("Single-player");
+			players = _("Single-player");
 		else
-			player = _("Multi-player");
-
-		load_media_players (player);
-	}
-
-	private void load_media_players (string player) {
-		players = player;
+			players = _("Multi-player");
 
 		resolved = true;
 
