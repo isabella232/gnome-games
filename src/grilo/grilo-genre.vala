@@ -4,18 +4,16 @@ public class Games.GriloGenre : Object, Genre {
 	private GriloMedia media;
 	private string[] genre;
 	private bool resolving;
+	private bool resolved;
 
 	public GriloGenre (GriloMedia media) {
 		this.media = media;
 		media.resolved.connect (on_media_resolved);
-		resolving = false;
+		genre = {};
 	}
 
 	public unowned string[] get_genre () {
-		if (resolving)
-			return genre;
-
-		if (genre != null)
+		if (resolving || resolved)
 			return genre;
 
 		resolving = true;
@@ -45,6 +43,8 @@ public class Games.GriloGenre : Object, Genre {
 
 	private void load_media_genre (string[] genres) {
 		genre = genres.copy ();
+
+		resolved = true;
 
 		changed ();
 	}
