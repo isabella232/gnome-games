@@ -2,6 +2,6 @@
 
 public class Games.DummyPlayers : Object, Players {
 	public string get_players () {
-		return _("Not available");
+		return "";
 	}
 }
