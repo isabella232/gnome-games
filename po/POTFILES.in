@@ -51,7 +51,6 @@ plugins/wii/src/wii-plugin.vala
 src/command/command-runner.vala
 src/core/media-set/media-set.vala
 src/core/plugin-registrar.vala
-src/dummy/dummy-description.vala
 src/dummy/dummy-platform.vala
 src/dummy/dummy-players.vala
 src/dummy/dummy-publisher.vala

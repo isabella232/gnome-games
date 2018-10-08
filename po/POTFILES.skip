@@ -29,7 +29,6 @@ plugins/wii/src/wii-plugin.c
 src/command/command-runner.c
 src/core/media-set/media-set.c
 src/core/plugin-registrar.c
-src/dummy/dummy-description.c
 src/dummy/dummy-developer.c
 src/dummy/dummy-platform.c
 src/dummy/dummy-players.c

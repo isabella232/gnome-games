@@ -2,6 +2,6 @@
 
 public class Games.DummyDescription : Object, Description {
 	public string get_description () {
-		return _("No description available.");
+		return "";
 	}
 }
