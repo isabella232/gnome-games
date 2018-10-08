@@ -31,12 +31,7 @@ public class Games.GriloDescription : Object, Description {
 		if (grl_media.length (Grl.MetadataKey.DESCRIPTION) == 0)
 			return;
 
-		var description_string = grl_media.get_description ();
-		load_media_description (description_string);
-	}
-
-	private void load_media_description (string description_string) {
-		description = description_string;
+		description = grl_media.get_description ();
 
 		resolved = true;
 
