@@ -33,16 +33,8 @@ public class Games.GriloGenre : Object, Genre {
 		if (genre_count == 0)
 			return;
 
-		string[] genres = {};
-
 		for (uint index = 0; index < genre_count; index++)
-			genres += grl_media.get_genre_nth (index);
-
-		load_media_genre (genres);
-	}
-
-	private void load_media_genre (string[] genres) {
-		genre = genres.copy ();
+			genre += grl_media.get_genre_nth (index);
 
 		resolved = true;
 
