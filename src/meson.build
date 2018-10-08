@@ -179,7 +179,6 @@ vala_sources = [
   'utils/cue-sheet/cue-sheet-file-node.vala',
   'utils/cue-sheet/cue-sheet-track-mode.vala',
   'utils/cue-sheet/cue-sheet-track-node.vala',
-  'utils/directory.vala',
   'utils/filename-title.vala',
   'utils/fingerprint.vala',
   'utils/grep.vala',
