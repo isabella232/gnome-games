@@ -76,8 +76,16 @@ private class Games.GamepadMapper : Gtk.Bin {
 			if (-0.8 < value < 0.8)
 				return;
 
+			int range = 0;
+
+			if (input.code == EventCode.BTN_DPAD_UP ||
+			    input.code == EventCode.BTN_DPAD_DOWN ||
+			    input.code == EventCode.BTN_DPAD_LEFT ||
+			    input.code == EventCode.BTN_DPAD_RIGHT)
+				range = value > 0 ? 1 : -1;
+
 			if (!mapping_builder.set_axis_mapping ((uint8) event.get_hardware_index (),
-			                                       0, input))
+			                                       range, input))
 				return;
 
 			break;
