@@ -35,12 +35,19 @@ private class Games.GamepadMappingBuilder : Object {
 		string destination_string;
 	}
 
+	private struct GamepadAxisMapping {
+		bool positive_mapped;
+		bool negative_mapped;
+	}
+
 	private GamepadInputMapping[] mappings;
 	private GamepadDPad[] dpads;
+	private HashTable<string, GamepadAxisMapping?> axes;
 
 	construct {
 		mappings = new GamepadInputMapping[]{};
 		dpads = new GamepadDPad[]{};
+		axes = new HashTable<string, GamepadAxisMapping?> (str_hash, str_equal);
 	}
 
 	public string build_sdl_string () {
@@ -56,8 +63,34 @@ private class Games.GamepadMappingBuilder : Object {
 		return add_destination (@"b$(hardware_index)", source);
 	}
 
-	public bool set_axis_mapping (uint8 hardware_index, GamepadInput source) {
-		return add_destination (@"a$(hardware_index)", source);
+	// FIXME: range should have Manette.MappingRange type
+	public bool set_axis_mapping (uint8 hardware_index, int range, GamepadInput source) {
+		var destination = @"a$(hardware_index)";
+
+		var positive = range >= 0;
+		var negative = range <= 0;
+
+		if (!(destination in axes))
+			axes[destination] = { false, false };
+
+		var mapping = axes[destination];
+
+		if ((positive && mapping.positive_mapped) ||
+		    (negative && mapping.negative_mapped))
+			return false;
+
+		axes[destination] = {
+			mapping.positive_mapped || positive,
+			mapping.negative_mapped || negative
+		};
+
+		if (range > 0)
+			return add_destination (@"+$(destination)", source);
+
+		if (range < 0)
+			return add_destination (@"-$(destination)", source);
+
+		return add_destination (destination, source);
 	}
 
 	public bool set_hat_mapping (uint8 hardware_index, int32 value, GamepadInput source) {

@@ -77,7 +77,7 @@ private class Games.GamepadMapper : Gtk.Bin {
 				return;
 
 			if (!mapping_builder.set_axis_mapping ((uint8) event.get_hardware_index (),
-			                                       input))
+			                                       0, input))
 				return;
 
 			break;
