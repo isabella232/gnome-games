@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <template class="GamesPreferencesPageControllers" parent="GtkBin">
+  <template class="GamesPreferencesPageControllers" parent="GamesPreferencesPage">
     <property name="visible">True</property>
     <child>
       <object class="GtkScrolledWindow">

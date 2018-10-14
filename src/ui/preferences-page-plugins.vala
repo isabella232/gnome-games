@@ -1,9 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-page-plugins.ui")]
-private class Games.PreferencesPagePlugins: Gtk.Bin, PreferencesPage {
-	public PreferencesSubpage subpage { get; protected set; }
-
+private class Games.PreferencesPagePlugins: PreferencesPage {
 	[GtkChild]
 	private Gtk.ListBox list_box;
 
