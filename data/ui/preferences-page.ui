@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <template class="GamesPreferencesPage" parent="GtkBin">
+    <property name="visible">True</property>
+    <child>
+      <object class="GtkScrolledWindow">
+        <property name="visible">True</property>
+        <property name="hscrollbar-policy">never</property>
+        <child>
+          <object class="GtkViewport">
+            <property name="visible">True</property>
+            <child>
+              <object class="HdyColumn">
+                <property name="visible">True</property>
+                <property name="expand">True</property>
+                <property name="maximum_width">600</property>
+                <property name="linear-growth-width">300</property>
+                <child>
+                  <object class="GtkBox" id="box">
+                    <property name="visible">True</property>
+                    <property name="orientation">vertical</property>
+                    <property name="margin">12</property>
+                    <property name="spacing">12</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

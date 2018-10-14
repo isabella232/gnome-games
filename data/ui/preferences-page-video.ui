@@ -3,51 +3,24 @@
   <template class="GamesPreferencesPageVideo" parent="GamesPreferencesPage">
     <property name="visible">True</property>
     <child>
-      <object class="GtkScrolledWindow">
+      <object class="GtkLabel">
         <property name="visible">True</property>
-        <property name="hscrollbar-policy">never</property>
+        <property name="halign">start</property>
+        <property name="label" translatable="yes">Filter</property>
+        <attributes>
+          <attribute name="weight" value="bold"/>
+        </attributes>
+      </object>
+    </child>
+    <child>
+      <object class="GtkFrame">
+        <property name="visible">True</property>
+        <property name="shadow_type">in</property>
         <child>
-          <object class="GtkViewport">
+          <object class="GtkListBox" id="filter_list_box">
             <property name="visible">True</property>
-            <child>
-              <object class="HdyColumn">
-                <property name="visible">True</property>
-                <property name="expand">True</property>
-                <property name="maximum_width">600</property>
-                <property name="linear-growth-width">300</property>
-                <child>
-                  <object class="GtkBox">
-                    <property name="visible">True</property>
-                    <property name="orientation">vertical</property>
-                    <property name="margin">12</property>
-                    <property name="spacing">12</property>
-                    <child>
-                      <object class="GtkLabel">
-                        <property name="visible">True</property>
-                        <property name="halign">start</property>
-                        <property name="label" translatable="yes">Filter</property>
-                        <attributes>
-                          <attribute name="weight" value="bold"/>
-                        </attributes>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkFrame">
-                        <property name="visible">True</property>
-                        <property name="shadow_type">in</property>
-                        <child>
-                          <object class="GtkListBox" id="filter_list_box">
-                            <property name="visible">True</property>
-                            <property name="selection_mode">none</property>
-                            <signal name="row-activated" handler="filter_list_box_row_activated"/>
-                          </object>
-                        </child>
-                      </object>
-                    </child>
-                  </object>
-                </child>
-              </object>
-            </child>
+            <property name="selection_mode">none</property>
+            <signal name="row-activated" handler="filter_list_box_row_activated"/>
           </object>
         </child>
       </object>
