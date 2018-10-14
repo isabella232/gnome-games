@@ -22,6 +22,7 @@
     <file preprocess="xml-stripblanks">ui/empty-collection.ui</file>
     <file preprocess="xml-stripblanks">ui/error-display.ui</file>
     <file preprocess="xml-stripblanks">ui/error-info-bar.ui</file>
+    <file preprocess="xml-stripblanks">ui/fullscreen-box.ui</file>
     <file preprocess="xml-stripblanks">ui/gamepad-mapper.ui</file>
     <file preprocess="xml-stripblanks">ui/gamepad-tester.ui</file>
     <file preprocess="xml-stripblanks">ui/game-icon-view.ui</file>
