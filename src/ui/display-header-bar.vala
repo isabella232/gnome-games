@@ -23,6 +23,9 @@ private class Games.DisplayHeaderBar : Gtk.HeaderBar {
 
 	private MediaSelector media_selector;
 
+	[GtkChild (name = "back")]
+	private Gtk.Button _back;
+
 	[GtkChild]
 	private Gtk.Button fullscreen;
 
@@ -43,6 +46,9 @@ private class Games.DisplayHeaderBar : Gtk.HeaderBar {
 	private void on_fullscreen_changed () {
 		fullscreen.visible = can_fullscreen && !is_fullscreen;
 		restore.visible = can_fullscreen && is_fullscreen;
+
+		_back.can_focus = !is_fullscreen;
+		restore.can_focus = !is_fullscreen;
 	}
 
 	[GtkCallback]
