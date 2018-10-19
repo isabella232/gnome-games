@@ -6,7 +6,7 @@
     <property name="title" translatable="yes">Preferences</property>
     <property name="default-width">800</property>
     <property name="default-height">500</property>
-    <property name="window-position">GTK_WIN_POS_CENTER_ON_PARENT</property>
+    <property name="window-position">center-on-parent</property>
     <child type="titlebar">
       <object class="HdyTitleBar" id="titlebar">
         <property name="visible">True</property>
@@ -85,7 +85,7 @@
                 <property name="visible">True</property>
                 <property name="expand">True</property>
                 <property name="visible-child">video_page</property>
-                <property name="transition-type">GTK_STACK_TRANSITION_TYPE_CROSSFADE</property>
+                <property name="transition-type">crossfade</property>
                 <child>
                   <object class="GamesPreferencesPageVideo" id="video_page">
                     <property name="visible">True</property>
@@ -121,7 +121,7 @@
     </child>
   </template>
   <object class="GtkSizeGroup">
-    <property name="mode">GTK_SIZE_GROUP_HORIZONTAL</property>
+    <property name="mode">horizontal</property>
     <widgets>
       <widget name="left_header_bar"/>
       <widget name="sidebar"/>

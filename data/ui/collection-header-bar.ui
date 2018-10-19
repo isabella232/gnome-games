@@ -55,7 +55,7 @@
     <child type="title">
       <object class="GtkStack" id="title_stack">
         <property name="visible">True</property>
-        <property name="transition-type">GTK_STACK_TRANSITION_TYPE_CROSSFADE</property>
+        <property name="transition-type">crossfade</property>
         <child>
           <object class="GtkStackSwitcher" id="view_switcher">
             <property name="visible">True</property>
