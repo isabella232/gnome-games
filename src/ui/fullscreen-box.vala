@@ -4,8 +4,6 @@
 private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 	private const uint INACTIVITY_TIME_MILLISECONDS = 2000;
 
-	public signal void back ();
-
 	public bool is_fullscreen { get; set; }
 
 	private Gtk.Widget _header_bar;
