@@ -5,7 +5,7 @@
     <child>
       <object class="GtkFrame">
         <property name="visible">True</property>
-        <property name="shadow_type">none</property>
+        <property name="shadow-type">none</property>
         <child>
           <object class="GtkListBox" id="list_box">
             <property name="visible">True</property>
@@ -13,7 +13,7 @@
             <property name="margin-bottom">6</property>
             <property name="margin-start">6</property>
             <property name="margin-end">6</property>
-            <property name="selection_mode">none</property>
+            <property name="selection-mode">none</property>
             <signal name="row-activated" after="yes" handler="on_row_activated"/>
           </object>
         </child>

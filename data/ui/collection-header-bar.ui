@@ -33,7 +33,7 @@
       <object class="GtkMenuButton" id="menu">
         <property name="popover">menu_popover</property>
         <!-- Translators: tooltip for the application menu button -->
-        <property name="tooltip_text" translatable="yes">Menu</property>
+        <property name="tooltip-text" translatable="yes">Menu</property>
         <property name="use-underline">True</property>
         <property name="valign">center</property>
         <property name="visible">True</property>
@@ -107,7 +107,7 @@
         <property name="visible">True</property>
         <child>
           <object class="GtkModelButton">
-            <property name="can_focus">True</property>
+            <property name="can-focus">True</property>
             <property name="text" translatable="yes">Preferences</property>
             <property name="action-name">app.preferences</property>
             <property name="visible">True</property>
@@ -115,7 +115,7 @@
         </child>
         <child>
           <object class="GtkModelButton">
-            <property name="can_focus">True</property>
+            <property name="can-focus">True</property>
             <property name="text" translatable="yes">Keyboard Shortcuts</property>
             <property name="action-name">app.shortcuts</property>
             <property name="visible">True</property>
@@ -123,7 +123,7 @@
         </child>
         <child>
           <object class="GtkModelButton">
-            <property name="can_focus">True</property>
+            <property name="can-focus">True</property>
             <property name="text" translatable="yes">Help</property>
             <property name="action-name">app.help</property>
             <property name="visible">True</property>
@@ -131,7 +131,7 @@
         </child>
         <child>
           <object class="GtkModelButton">
-            <property name="can_focus">True</property>
+            <property name="can-focus">True</property>
             <property name="text" translatable="yes">About Games</property>
             <property name="action-name">app.about</property>
             <property name="visible">True</property>

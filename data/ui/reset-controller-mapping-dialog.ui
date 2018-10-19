@@ -4,10 +4,10 @@
   <template class="GamesResetControllerMappingDialog" parent="GtkMessageDialog">
     <property name="modal">True</property>
     <property name="destroy-with-parent">True</property>
-    <property name="type_hint">dialog</property>
-    <property name="message_type">question</property>
+    <property name="type-hint">dialog</property>
+    <property name="message-type">question</property>
     <property name="text" translatable="yes">Factory reset mapping for this controller?</property>
-    <property name="secondary_text" translatable="yes">Your mapping will be lost.</property>
+    <property name="secondary-text" translatable="yes">Your mapping will be lost.</property>
     <child type="action">
       <object class="GtkButton" id="button_cancel">
         <property name="visible">True</property>

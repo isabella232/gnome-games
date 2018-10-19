@@ -2,7 +2,7 @@
 <interface>
   <template class="GamesPreferencesSubpageKeyboard" parent="GtkBox">
     <property name="visible">True</property>
-    <property name="can_focus">True</property>
+    <property name="can-focus">True</property>
     <property name="orientation">vertical</property>
     <child>
       <object class="GtkStack" id="gamepad_view_stack">

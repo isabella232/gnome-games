@@ -4,8 +4,8 @@
   <template class="GamesResumeFailedDialog" parent="GamesMessageDialog">
     <property name="modal">True</property>
     <property name="destroy-with-parent">True</property>
-    <property name="type_hint">dialog</property>
-    <property name="message_type">question</property>
+    <property name="type-hint">dialog</property>
+    <property name="message-type">question</property>
     <property name="text" translatable="yes">Resuming failed. Do you want to restart the game?</property>
     <child type="action">
       <object class="GtkButton" id="button_cancel">

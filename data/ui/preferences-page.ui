@@ -13,7 +13,7 @@
               <object class="HdyColumn">
                 <property name="visible">True</property>
                 <property name="expand">True</property>
-                <property name="maximum_width">600</property>
+                <property name="maximum-width">600</property>
                 <property name="linear-growth-width">300</property>
                 <child>
                   <object class="GtkBox" id="box">

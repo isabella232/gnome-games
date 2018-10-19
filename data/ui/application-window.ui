@@ -3,9 +3,9 @@
 <interface>
   <requires lib="gtk+" version="3.16"/>
   <template class="GamesApplicationWindow" parent="GtkApplicationWindow">
-    <property name="default_width">768</property>
-    <property name="default_height">600</property>
-    <property name="show_menubar">False</property>
+    <property name="default-width">768</property>
+    <property name="default-height">600</property>
+    <property name="show-menubar">False</property>
     <signal name="delete-event" after="yes" handler="on_delete_event"/>
     <signal name="key-press-event" after="yes" handler="on_key_pressed"/>
     <signal name="button-press-event" after="yes" handler="on_button_pressed"/>
@@ -43,7 +43,7 @@
             <child>
               <object class="GamesCollectionHeaderBar" id="collection_header_bar">
                 <property name="visible">True</property>
-                <property name="show_close_button">True</property>
+                <property name="show-close-button">True</property>
               </object>
               <packing>
                 <property name="name">collection</property>
@@ -52,7 +52,7 @@
             <child>
               <object class="GamesDisplayHeaderBar" id="display_header_bar">
                 <property name="visible">True</property>
-                <property name="show_close_button">True</property>
+                <property name="show-close-button">True</property>
                 <signal name="back" handler="on_display_back"/>
               </object>
               <packing>

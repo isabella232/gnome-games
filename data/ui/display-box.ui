@@ -9,7 +9,7 @@
         <child type="titlebar">
           <object class="GamesDisplayHeaderBar" id="fullscreen_header_bar">
             <property name="visible">True</property>
-            <property name="show_close_button">False</property>
+            <property name="show-close-button">False</property>
             <signal name="back" handler="on_fullscreen_header_bar_back"/>
           </object>
         </child>

@@ -10,7 +10,7 @@
       <object class="GtkScrolledWindow">
         <property name="visible">True</property>
         <property name="vexpand">True</property>
-        <property name="width_request">250</property>
+        <property name="width-request">250</property>
         <child>
           <object class="GtkListBox" id="list_box">
             <property name="visible">True</property>
