@@ -94,6 +94,8 @@ ubuntu:devel:
   image: ubuntu:18.10
   stage: cross_distro
   before_script:
+    # Enable source repositories, this is required for `apt-get build-dep`
+    - sed -i -e 's/# deb-src/deb-src/' /etc/apt/sources.list
     - apt-get update
     - apt-get install -y git
     - apt-get build-dep -y libmanette retro-gtk gnome-games-app
