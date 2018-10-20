@@ -20,6 +20,8 @@ private class Games.PreferencesWindow : Gtk.Window {
 	private PreferencesSidebar sidebar;
 	[GtkChild]
 	private Gtk.Stack stack;
+	[GtkChild]
+	private Hdy.HeaderGroup header_group;
 
 	[GtkChild]
 	private Gtk.Button back_button;
@@ -73,6 +75,7 @@ private class Games.PreferencesWindow : Gtk.Window {
 	private void sidebar_row_selected () {
 		content_box.visible_child = stack;
 		titlebar_box.visible_child = right_header_bar;
+		update_header_group ();
 
 		update_ui ();
 	}
@@ -106,13 +109,14 @@ private class Games.PreferencesWindow : Gtk.Window {
 	private void on_back_clicked () {
 		content_box.visible_child = sidebar;
 		titlebar_box.visible_child = left_header_bar;
+		update_header_group ();
 	}
 
 	[GtkCallback]
 	private void on_folded_changed (Object object, ParamSpec paramSpec) {
 		var folded = content_box.folded;
 
-		left_header_bar.show_close_button = folded;
+		update_header_group ();
 		back_button.visible = folded;
 		sidebar.show_selection = !folded;
 
@@ -120,5 +124,15 @@ private class Games.PreferencesWindow : Gtk.Window {
 			stack.transition_type = Gtk.StackTransitionType.NONE;
 		else
 			stack.transition_type = Gtk.StackTransitionType.CROSSFADE;
+	}
+
+	private void update_header_group () {
+		var folded = content_box.folded;
+		var visible_header_bar = titlebar_box.visible_child as Gtk.HeaderBar;
+
+		if (folded)
+			header_group.focus = visible_header_bar;
+		else
+			header_group.focus = null;
 	}
 }

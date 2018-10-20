@@ -25,7 +25,7 @@
                     <property name="name">left_header_bar</property>
                     <property name="visible">True</property>
                     <property name="title" translatable="yes">Preferences</property>
-                    <property name="show-close-button">False</property>
+                    <property name="show-close-button">True</property>
                   </object>
                 </child>
                 <child>
@@ -147,5 +147,11 @@
       <widget name="right_header_bar"/>
       <widget name="stack"/>
     </widgets>
+  </object>
+  <object class="HdyHeaderGroup" id="header_group">
+    <headerbars>
+      <headerbar name="left_header_bar"/>
+      <headerbar name="right_header_bar"/>
+    </headerbars>
   </object>
 </interface>
