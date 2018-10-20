@@ -2,6 +2,8 @@
 
 private class Games.SteamUriSource : Object, UriSource {
 	// From the home directory.
+	private const string STEAM_DIR = "/.steam";
+	// From the home directory.
 	private const string REGISTRY_PATH = "/.steam/registry.vdf";
 	// From the home directory.
 	private const string DEFAULT_INSTALL_DIR_SYMLINK = "/.steam/steam";
@@ -24,6 +26,11 @@ private class Games.SteamUriSource : Object, UriSource {
 		var registry_path = base_dir + REGISTRY_PATH;
 		var registry = new SteamRegistry (registry_path);
 		var install_path = registry.get_data (INSTALL_PATH_REGISTRY_PATH);
+
+		// If `.steam` dir is a symlink, it could be pointing to another Steam
+		// installation, so skip it altogether to avoid duplicating games
+		if (FileUtils.test (base_dir + STEAM_DIR, FileTest.IS_SYMLINK))
+			return;
 
 		add_library (base_dir + DEFAULT_INSTALL_DIR_SYMLINK);
 
