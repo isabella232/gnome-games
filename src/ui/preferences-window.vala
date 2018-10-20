@@ -69,9 +69,7 @@ private class Games.PreferencesWindow : Gtk.Window {
 			return;
 		}
 
-		var title = "";
-		stack.child_get (page, "title", out title, null);
-		right_header_bar.title = title;
+		right_header_bar.title = page.title;
 
 		subpage_binding = page.bind_property ("subpage", this, "subpage",
 		                                      BindingFlags.SYNC_CREATE);
