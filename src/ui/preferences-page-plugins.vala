@@ -9,6 +9,7 @@ private class Games.PreferencesPagePlugins: PreferencesPage {
 		var register = PluginRegister.get_register ();
 		foreach (var plugin_registrar in register)
 			add_plugin_registrar (plugin_registrar);
+		title = _("Extensions");
 	}
 
 	private void add_plugin_registrar (PluginRegistrar plugin_registrar) {
