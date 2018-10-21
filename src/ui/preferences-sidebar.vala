@@ -27,6 +27,22 @@ private class Games.PreferencesSidebar: Gtk.Bin {
 		}
 	}
 
+	private bool _show_selection;
+	public bool show_selection {
+		get { return _show_selection; }
+		set {
+			_show_selection = value;
+
+			if (_show_selection)
+				list.selection_mode = Gtk.SelectionMode.SINGLE;
+			else
+				list.selection_mode = Gtk.SelectionMode.NONE;
+
+			if (stack != null)
+				select_current_row ();
+		}
+	}
+
 	public signal void row_selected ();
 
 	[GtkChild]
@@ -40,6 +56,7 @@ private class Games.PreferencesSidebar: Gtk.Bin {
 	construct {
 		rows = new HashTable<PreferencesPage, PreferencesSidebarItem> (null, null);
 		list.set_header_func (update_header);
+		show_selection = true;
 	}
 
 	[GtkCallback]
@@ -79,6 +96,9 @@ private class Games.PreferencesSidebar: Gtk.Bin {
 	}
 
 	private void select_current_row () {
+		if (!show_selection)
+			return;
+
 		var page = stack.visible_child as PreferencesPage;
 
 		var row = rows[page];
