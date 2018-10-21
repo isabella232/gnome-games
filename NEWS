@@ -1,4 +1,12 @@
 ==============
+Version 3.30.2
+==============
+
+* Fixes
+ - Fix search filter not updating when switching between collection views.
+ - Fix header bar buttons grabbing arrow keys in fullscreen.
+
+==============
 Version 3.30.1
 ==============
 
