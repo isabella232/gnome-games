@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2018-08-28 08:14+0000\n"
-"PO-Revision-Date: 2018-09-02 21:39+0200\n"
+"POT-Creation-Date: 2018-10-21 14:24+0000\n"
+"PO-Revision-Date: 2018-10-24 21:42+0200\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "Language: hr\n"
@@ -151,24 +151,24 @@ msgid "Search"
 msgstr "Pretraži"
 
 #: data/ui/collection-header-bar.ui:111 data/ui/preferences-window.ui:6
-#: data/ui/preferences-window.ui:18
+#: data/ui/preferences-window.ui:25
 msgid "Preferences"
 msgstr "Osobitosti"
 
-#: data/ui/collection-header-bar.ui:126 data/ui/shortcuts-window.ui:10
-msgid "Shortcuts"
-msgstr "Prečaci"
+#: data/ui/collection-header-bar.ui:119
+msgid "Keyboard Shortcuts"
+msgstr "Prečaci tipkovnice"
 
-#: data/ui/collection-header-bar.ui:134
+#: data/ui/collection-header-bar.ui:127
 msgid "Help"
 msgstr "Priručnik"
 
-#: data/ui/collection-header-bar.ui:142
-msgid "About"
-msgstr "O programu"
+#: data/ui/collection-header-bar.ui:135
+msgid "About Games"
+msgstr "O Igre"
 
-#: data/ui/display-header-bar.ui:20 data/ui/gamepad-configurer.ui:73
-#: data/ui/keyboard-configurer.ui:74
+#: data/ui/display-header-bar.ui:20 data/ui/preferences-subpage-gamepad.ui:82
+#: data/ui/preferences-subpage-keyboard.ui:83
 msgid "Back"
 msgstr "Natrag"
 
@@ -198,58 +198,45 @@ msgid ""
 msgstr ""
 "Instalirajte igru ili dodajte mape koje sadrže igre u vaše izvore pretrage."
 
-#: data/ui/gamepad-configurer.ui:35
-msgctxt "Gamepad configuration factory reset"
-msgid "Reset"
-msgstr "Vrati izvorno"
-
-#: data/ui/gamepad-configurer.ui:48 data/ui/keyboard-configurer.ui:49
-msgid "Configure"
-msgstr "Podesi"
-
-#: data/ui/gamepad-configurer.ui:91 data/ui/keyboard-configurer.ui:92
-#: data/ui/quit-dialog.ui:15 data/ui/reset-controller-mapping-dialog.ui:15
-#: data/ui/resume-failed-dialog.ui:14
-msgid "Cancel"
-msgstr "Odustani"
-
-#: data/ui/gamepad-mapper.ui:19 data/ui/keyboard-mapper.ui:19
-msgid "Skip"
-msgstr "Preskoči"
-
-#: data/ui/keyboard-configurer.ui:36
-msgctxt "Keyboard configuration factory reset"
-msgid "Reset"
-msgstr "Vrati izvorno"
-
 #: data/ui/media-menu-button.ui:11
 msgid "Media"
 msgstr "Medij"
 
-#: data/ui/preferences-page-controllers.ui:31
+#: data/ui/preferences-page-controllers.ui:9
 msgid "Gamepads"
 msgstr "Upravljači igrama"
 
-#: data/ui/preferences-page-controllers.ui:54
-#: src/ui/preferences-page-controllers.vala:95
+#: data/ui/preferences-page-controllers.ui:32
+#: src/ui/preferences-page-controllers.vala:75
 msgid "Keyboard"
 msgstr "Tipkovnica"
 
-#: data/ui/preferences-page-controllers.ui:86 data/ui/preferences-window.ui:79
-msgid "Controllers"
-msgstr "Upravljači"
-
-#: data/ui/preferences-page-plugins.ui:40 data/ui/preferences-window.ui:88
-msgid "Extensions"
-msgstr "Proširenja"
-
-#: data/ui/preferences-page-video.ui:21
+#: data/ui/preferences-page-video.ui:9
 msgid "Filter"
 msgstr "Filter"
 
-#: data/ui/preferences-page-video.ui:50 data/ui/preferences-window.ui:70
-msgid "Video"
-msgstr "Snimka"
+#: data/ui/preferences-subpage-gamepad.ui:21
+#: data/ui/preferences-subpage-keyboard.ui:22
+msgctxt "Keyboard configuration factory reset"
+msgid "Reset"
+msgstr "Vrati izvorno"
+
+#: data/ui/preferences-subpage-gamepad.ui:34
+#: data/ui/preferences-subpage-keyboard.ui:35
+msgid "Configure"
+msgstr "Podesi"
+
+#: data/ui/preferences-subpage-gamepad.ui:52
+#: data/ui/preferences-subpage-keyboard.ui:53
+msgid "Skip"
+msgstr "Preskoči"
+
+#: data/ui/preferences-subpage-gamepad.ui:100
+#: data/ui/preferences-subpage-keyboard.ui:101 data/ui/quit-dialog.ui:15
+#: data/ui/reset-controller-mapping-dialog.ui:15
+#: data/ui/resume-failed-dialog.ui:14
+msgid "Cancel"
+msgstr "Odustani"
 
 #: data/ui/quit-dialog.ui:9
 msgid "Are you sure you want to quit?"
@@ -308,6 +295,10 @@ msgstr "Nastavljanje neuspjelo. Želite li ponovno pokrenuti igru?"
 msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Vrati izvorno"
+
+#: data/ui/shortcuts-window.ui:10
+msgid "Shortcuts"
+msgstr "Prečaci"
 
 #: data/ui/shortcuts-window.ui:14
 msgid "General"
@@ -665,21 +656,9 @@ msgstr "Neispravan opisnik priključka: %s"
 msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr "Nemoguće stvaranje novog primjerka priključka u “%s”."
 
-#: src/dummy/dummy-description.vala:5
-msgid "No description available."
-msgstr "Nema dostupnog opisa."
-
-#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:19
+#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:22
 msgid "Unknown"
 msgstr "Napoznato"
-
-#: src/dummy/dummy-players.vala:5
-msgid "Not available"
-msgstr "Nedostupno"
-
-#: src/dummy/dummy-publisher.vala:5
-msgid "Publisher not available."
-msgstr "Izdavač nije dostupan."
 
 #: src/gameinfo/gameinfo-disc-id-disc-title.vala:24
 #, c-format
@@ -706,11 +685,11 @@ msgstr "Nema postavljenog ID diska, pronađeno za disk ID “%s”."
 msgid "No disc found for disc ID “%s”."
 msgstr "Nema pronađenog diska za disk ID “%s”."
 
-#: src/grilo/grilo-players.vala:46
+#: src/grilo/grilo-players.vala:40
 msgid "Single-player"
 msgstr "Jedan igrač"
 
-#: src/grilo/grilo-players.vala:48
+#: src/grilo/grilo-players.vala:42
 msgid "Multi-player"
 msgstr "Više igrača"
 
@@ -913,37 +892,17 @@ msgstr "Ups! Nemoguće je pokrenuti “%s”"
 msgid "Oops! Unable to run the game"
 msgstr "Ups! Nemoguće je pokrenuti igru"
 
-#. translators: testing a gamepad, %s is its name
-#: src/ui/gamepad-configurer.vala:78
-#, c-format
-msgid "Testing %s"
-msgstr "Testiram %s"
-
-#. translators: configuring a gamepad, %s is its name
-#: src/ui/gamepad-configurer.vala:92
-#, c-format
-msgid "Configuring %s"
-msgstr "Podešavam %s"
-
-#: src/ui/gamepad-mapper.vala:126
+#: src/ui/gamepad-mapper.vala:125
 msgid "Press suitable button on your gamepad"
 msgstr "Pritisnite odgovarajuću tipku na vašem upravljaču igre"
 
-#: src/ui/gamepad-mapper.vala:131
+#: src/ui/gamepad-mapper.vala:130
 msgid "Move suitable axis left/right on your gamepad"
 msgstr "Pritisnite odgovarajuće palice lijevo/desno na vašem upravljaču igre"
 
-#: src/ui/gamepad-mapper.vala:133
+#: src/ui/gamepad-mapper.vala:132
 msgid "Move suitable axis up/down on your gamepad"
 msgstr "Pritisnite odgovarajuće palice gore/dolje na vašem upravljaču igre"
-
-#: src/ui/keyboard-configurer.vala:67
-msgid "Testing Keyboard"
-msgstr "Testiranje tipkovnice"
-
-#: src/ui/keyboard-configurer.vala:80
-msgid "Configuring Keyboard"
-msgstr "Podešavanje tipkovnice"
 
 #: src/ui/keyboard-mapper.vala:18
 msgid "Press suitable key on your keyboard"
@@ -954,18 +913,50 @@ msgstr "Pritisnite odgovarajuću tipku na vašoj tipkovnici"
 msgid "Media %d"
 msgstr "Medij %d"
 
+#: src/ui/preferences-page-controllers.vala:24
+msgid "Controllers"
+msgstr "Upravljači"
+
+#: src/ui/preferences-page-plugins.vala:12
+msgid "Extensions"
+msgstr "Proširenja"
+
 #. same as video-filters in gschema
-#: src/ui/preferences-page-video.vala:34
+#: src/ui/preferences-page-video.vala:22
 msgid "Smooth"
 msgstr "Zaglađena"
 
-#: src/ui/preferences-page-video.vala:34
+#: src/ui/preferences-page-video.vala:22
 msgid "Sharp"
 msgstr "Oštra"
 
-#: src/ui/preferences-page-video.vala:34
+#: src/ui/preferences-page-video.vala:22
 msgid "CRT"
 msgstr "CRT"
+
+#: src/ui/preferences-page-video.vala:36
+msgid "Video"
+msgstr "Snimka"
+
+#. translators: testing a gamepad, %s is its name
+#: src/ui/preferences-subpage-gamepad.vala:78
+#, c-format
+msgid "Testing %s"
+msgstr "Testiram %s"
+
+#. translators: configuring a gamepad, %s is its name
+#: src/ui/preferences-subpage-gamepad.vala:89
+#, c-format
+msgid "Configuring %s"
+msgstr "Podešavam %s"
+
+#: src/ui/preferences-subpage-keyboard.vala:68
+msgid "Testing Keyboard"
+msgstr "Testiranje tipkovnice"
+
+#: src/ui/preferences-subpage-keyboard.vala:78
+msgid "Configuring Keyboard"
+msgstr "Podešavanje tipkovnice"
 
 #: src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
@@ -1017,6 +1008,22 @@ msgstr "%s:%lu: Neočekivani završetak redka, očekivan simbol."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: Neočekivani simbol %s, očekivan završetak redka."
+
+#~ msgid "About"
+#~ msgstr "O programu"
+
+#~ msgctxt "Gamepad configuration factory reset"
+#~ msgid "Reset"
+#~ msgstr "Vrati izvorno"
+
+#~ msgid "No description available."
+#~ msgstr "Nema dostupnog opisa."
+
+#~ msgid "Not available"
+#~ msgstr "Nedostupno"
+
+#~ msgid "Publisher not available."
+#~ msgstr "Izdavač nije dostupan."
 
 #~ msgid "_Preferences"
 #~ msgstr "_Osobitosti"
