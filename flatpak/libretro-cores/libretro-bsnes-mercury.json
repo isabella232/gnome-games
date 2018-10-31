@@ -4,17 +4,17 @@
             "make-args": [
                 "prefix=/app",
                 "core_installdir=/app/lib/libretro",
-                "profile=balanced"
+                "profile=performance"
             ],
             "make-install-args": [
                 "prefix=/app",
                 "core_installdir=/app/lib/libretro",
-                "profile=balanced"
+                "profile=performance"
             ],
             "post-install": [
                 /* TODO: Send that upstream */
                 "mkdir -p /app/lib/libretro/",
-                "install -m644 -p bsnes_mercury_balanced.libretro /app/lib/libretro/"
+                "install -m644 -p bsnes_mercury_performance.libretro /app/lib/libretro/"
             ],
             "sources": [
                 {
@@ -23,7 +23,7 @@
                 },
                 {
                     "type": "file",
-                    "path": "bsnes_mercury_balanced.libretro"
+                    "path": "bsnes_mercury_performance.libretro"
                 }
             ]
         }
