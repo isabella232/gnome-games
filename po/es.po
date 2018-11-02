@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2018-08-26 19:27+0000\n"
-"PO-Revision-Date: 2018-08-31 09:55+0200\n"
+"POT-Creation-Date: 2018-10-08 22:21+0000\n"
+"PO-Revision-Date: 2018-10-31 16:25+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: es <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -155,24 +155,26 @@ msgid "Search"
 msgstr "Buscar"
 
 #: data/ui/collection-header-bar.ui:111 data/ui/preferences-window.ui:6
-#: data/ui/preferences-window.ui:18
+#: data/ui/preferences-window.ui:25
 msgid "Preferences"
 msgstr "Preferencias"
 
-#: data/ui/collection-header-bar.ui:126 data/ui/shortcuts-window.ui:10
-msgid "Shortcuts"
-msgstr "Atajos"
+#: data/ui/collection-header-bar.ui:119
+#| msgid "Shortcuts"
+msgid "Keyboard Shortcuts"
+msgstr "Atajos del teclado"
 
-#: data/ui/collection-header-bar.ui:134
+#: data/ui/collection-header-bar.ui:127
 msgid "Help"
 msgstr "Ayuda"
 
-#: data/ui/collection-header-bar.ui:142
-msgid "About"
-msgstr "Acerca de"
+#: data/ui/collection-header-bar.ui:135
+#| msgid "Games"
+msgid "About Games"
+msgstr "Acerca de Juegos"
 
-#: data/ui/display-header-bar.ui:20 data/ui/gamepad-configurer.ui:73
-#: data/ui/keyboard-configurer.ui:74
+#: data/ui/display-header-bar.ui:20 data/ui/preferences-subpage-gamepad.ui:82
+#: data/ui/preferences-subpage-keyboard.ui:83
 msgid "Back"
 msgstr "Atrás"
 
@@ -203,58 +205,57 @@ msgstr ""
 "Instale juegos o añada carpetas que contengan juegos a los orígenes de "
 "búsqueda."
 
-#: data/ui/gamepad-configurer.ui:35
-msgctxt "Gamepad configuration factory reset"
-msgid "Reset"
-msgstr "Restablecer"
-
-#: data/ui/gamepad-configurer.ui:48 data/ui/keyboard-configurer.ui:49
-msgid "Configure"
-msgstr "Configurar"
-
-#: data/ui/gamepad-configurer.ui:91 data/ui/keyboard-configurer.ui:92
-#: data/ui/quit-dialog.ui:15 data/ui/reset-controller-mapping-dialog.ui:15
-#: data/ui/resume-failed-dialog.ui:14
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: data/ui/gamepad-mapper.ui:19 data/ui/keyboard-mapper.ui:19
-msgid "Skip"
-msgstr "Omitir"
-
-#: data/ui/keyboard-configurer.ui:36
-msgctxt "Keyboard configuration factory reset"
-msgid "Reset"
-msgstr "Reiniciar"
-
 #: data/ui/media-menu-button.ui:11
 msgid "Media"
 msgstr "Soporte"
 
-#: data/ui/preferences-page-controllers.ui:31
+#: data/ui/preferences-page-controllers.ui:28
 msgid "Gamepads"
 msgstr "Mandos"
 
-#: data/ui/preferences-page-controllers.ui:54
-#: src/ui/preferences-page-controllers.vala:95
+#: data/ui/preferences-page-controllers.ui:51
+#: src/ui/preferences-page-controllers.vala:76
 msgid "Keyboard"
 msgstr "Teclado"
 
-#: data/ui/preferences-page-controllers.ui:86 data/ui/preferences-window.ui:79
-msgid "Controllers"
-msgstr "Controladores"
-
-#: data/ui/preferences-page-plugins.ui:40 data/ui/preferences-window.ui:88
-msgid "Extensions"
-msgstr "Extensiones"
-
-#: data/ui/preferences-page-video.ui:21
+#: data/ui/preferences-page-video.ui:28
 msgid "Filter"
 msgstr "Filtro"
 
-#: data/ui/preferences-page-video.ui:50 data/ui/preferences-window.ui:70
+#: data/ui/preferences-subpage-gamepad.ui:21
+#: data/ui/preferences-subpage-keyboard.ui:22
+msgctxt "Keyboard configuration factory reset"
+msgid "Reset"
+msgstr "Reiniciar"
+
+#: data/ui/preferences-subpage-gamepad.ui:34
+#: data/ui/preferences-subpage-keyboard.ui:35
+msgid "Configure"
+msgstr "Configurar"
+
+#: data/ui/preferences-subpage-gamepad.ui:52
+#: data/ui/preferences-subpage-keyboard.ui:53
+msgid "Skip"
+msgstr "Omitir"
+
+#: data/ui/preferences-subpage-gamepad.ui:100
+#: data/ui/preferences-subpage-keyboard.ui:101 data/ui/quit-dialog.ui:15
+#: data/ui/reset-controller-mapping-dialog.ui:15
+#: data/ui/resume-failed-dialog.ui:14
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: data/ui/preferences-window.ui:95
 msgid "Video"
 msgstr "Vídeo"
+
+#: data/ui/preferences-window.ui:104
+msgid "Controllers"
+msgstr "Controladores"
+
+#: data/ui/preferences-window.ui:113
+msgid "Extensions"
+msgstr "Extensiones"
 
 #: data/ui/quit-dialog.ui:9
 msgid "Are you sure you want to quit?"
@@ -313,6 +314,10 @@ msgstr "Falló al reanudar. ¿Quiere reiniciar el juego?"
 msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Reiniciar"
+
+#: data/ui/shortcuts-window.ui:10
+msgid "Shortcuts"
+msgstr "Atajos"
 
 #: data/ui/shortcuts-window.ui:14
 msgid "General"
@@ -672,21 +677,9 @@ msgstr "Descriptor del complemento no válido: %s"
 msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr "No se pudo crear una nueva instancia del complemento en «%s»."
 
-#: src/dummy/dummy-description.vala:5
-msgid "No description available."
-msgstr "No hay una descripción disponible."
-
-#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:19
+#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:22
 msgid "Unknown"
 msgstr "Desconocido"
-
-#: src/dummy/dummy-players.vala:5
-msgid "Not available"
-msgstr "No disponible"
-
-#: src/dummy/dummy-publisher.vala:5
-msgid "Publisher not available."
-msgstr "Editor no disponible."
 
 #: src/gameinfo/gameinfo-disc-id-disc-title.vala:24
 #, c-format
@@ -713,11 +706,11 @@ msgstr "No se ha encontrado el conjunto de discos para el ID de disco «%s»."
 msgid "No disc found for disc ID “%s”."
 msgstr "No se ha encontrado el disco para el ID de disco «%s»."
 
-#: src/grilo/grilo-players.vala:46
+#: src/grilo/grilo-players.vala:40
 msgid "Single-player"
 msgstr "Un jugador"
 
-#: src/grilo/grilo-players.vala:48
+#: src/grilo/grilo-players.vala:42
 msgid "Multi-player"
 msgstr "Multijugador"
 
@@ -924,37 +917,17 @@ msgstr "No se puede ejecutar «%s»"
 msgid "Oops! Unable to run the game"
 msgstr "No se puede ejecutar el juego"
 
-#. translators: testing a gamepad, %s is its name
-#: src/ui/gamepad-configurer.vala:78
-#, c-format
-msgid "Testing %s"
-msgstr "Probando %s"
-
-#. translators: configuring a gamepad, %s is its name
-#: src/ui/gamepad-configurer.vala:92
-#, c-format
-msgid "Configuring %s"
-msgstr "Configurando %s"
-
-#: src/ui/gamepad-mapper.vala:126
+#: src/ui/gamepad-mapper.vala:125
 msgid "Press suitable button on your gamepad"
 msgstr "Pulse el botón adecuado en el mando"
 
-#: src/ui/gamepad-mapper.vala:131
+#: src/ui/gamepad-mapper.vala:130
 msgid "Move suitable axis left/right on your gamepad"
 msgstr "Mueva el eje derecha/izquierda adecuado en el mando"
 
-#: src/ui/gamepad-mapper.vala:133
+#: src/ui/gamepad-mapper.vala:132
 msgid "Move suitable axis up/down on your gamepad"
 msgstr "Mueva el eje arriba/abajo adecuado en el mando"
-
-#: src/ui/keyboard-configurer.vala:67
-msgid "Testing Keyboard"
-msgstr "Probando el teclado"
-
-#: src/ui/keyboard-configurer.vala:80
-msgid "Configuring Keyboard"
-msgstr "Configurando el teclado"
 
 #: src/ui/keyboard-mapper.vala:18
 msgid "Press suitable key on your keyboard"
@@ -966,17 +939,37 @@ msgid "Media %d"
 msgstr "Soporte %d"
 
 #. same as video-filters in gschema
-#: src/ui/preferences-page-video.vala:34
+#: src/ui/preferences-page-video.vala:24
 msgid "Smooth"
 msgstr "Suave"
 
-#: src/ui/preferences-page-video.vala:34
+#: src/ui/preferences-page-video.vala:24
 msgid "Sharp"
 msgstr "Brusca"
 
-#: src/ui/preferences-page-video.vala:34
+#: src/ui/preferences-page-video.vala:24
 msgid "CRT"
 msgstr "CRT"
+
+#. translators: testing a gamepad, %s is its name
+#: src/ui/preferences-subpage-gamepad.vala:78
+#, c-format
+msgid "Testing %s"
+msgstr "Probando %s"
+
+#. translators: configuring a gamepad, %s is its name
+#: src/ui/preferences-subpage-gamepad.vala:89
+#, c-format
+msgid "Configuring %s"
+msgstr "Configurando %s"
+
+#: src/ui/preferences-subpage-keyboard.vala:68
+msgid "Testing Keyboard"
+msgstr "Probando el teclado"
+
+#: src/ui/preferences-subpage-keyboard.vala:78
+msgid "Configuring Keyboard"
+msgstr "Configurando el teclado"
 
 #: src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
@@ -1031,6 +1024,22 @@ msgstr "%s:%lu: fin de línea no esperado, se esperaba un testigo."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: testigo %s no esperado, se esperaba un final de línea."
+
+#~ msgid "About"
+#~ msgstr "Acerca de"
+
+#~ msgctxt "Gamepad configuration factory reset"
+#~ msgid "Reset"
+#~ msgstr "Restablecer"
+
+#~ msgid "No description available."
+#~ msgstr "No hay una descripción disponible."
+
+#~ msgid "Not available"
+#~ msgstr "No disponible"
+
+#~ msgid "Publisher not available."
+#~ msgstr "Editor no disponible."
 
 #~ msgid "Plugins"
 #~ msgstr "Complementos"
