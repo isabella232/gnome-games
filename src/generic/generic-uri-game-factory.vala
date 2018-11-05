@@ -62,7 +62,7 @@ public class Games.GenericUriGameFactory : Object, UriGameFactory {
 	public async void foreach_game (GameCallback game_callback) {
 		uint handled_uris = 0;
 		var games = game_for_uri.get_values ();
-		for (unowned List<Game> game = games; game != null; game = game.next) {
+		for (unowned List<weak Game> game = games; game != null; game = game.next) {
 			game_callback (game.data);
 
 			if (handled_uris++ < GAMES_PER_CYCLE)

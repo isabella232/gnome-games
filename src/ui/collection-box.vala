@@ -78,7 +78,7 @@ private class Games.CollectionBox : Gtk.Box {
 		switch (button) {
 		case EventCode.BTN_TL:
 			var views = viewstack.get_children ();
-			unowned List<Gtk.Widget> current_view = views.find (viewstack.visible_child);
+			unowned List<weak Gtk.Widget> current_view = views.find (viewstack.visible_child);
 
 			assert (current_view != null);
 
@@ -88,7 +88,7 @@ private class Games.CollectionBox : Gtk.Box {
 			return true;
 		case EventCode.BTN_TR:
 			var views = viewstack.get_children ();
-			unowned List<Gtk.Widget> current_view = views.find (viewstack.visible_child);
+			unowned List<weak Gtk.Widget> current_view = views.find (viewstack.visible_child);
 
 			assert (current_view != null);
 
