@@ -25,6 +25,7 @@ vala_sources = [
   'core/genre.vala',
   'core/icon.vala',
   'core/input-capabilities.vala',
+  'core/input-mode.vala',
   'core/media.vala',
   'core/media-info.vala',
   'core/media-set/media-set.vala',
