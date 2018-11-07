@@ -146,6 +146,7 @@ vala_sources = [
   'ui/game-icon-view.vala',
   'ui/game-thumbnail.vala',
   'ui/gamepad-view-configuration.vala',
+  'ui/input-mode-switcher.vala',
   'ui/keyboard-mapper.vala',
   'ui/keyboard-tester.vala',
   'ui/konami-code.vala',
