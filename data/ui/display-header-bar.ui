@@ -91,5 +91,13 @@
         <property name="pack-type">end</property>
       </packing>
     </child>
+    <child>
+      <object class="GamesInputModeSwitcher" id="input_mode_switcher">
+        <property name="visible">True</property>
+      </object>
+      <packing>
+        <property name="pack-type">end</property>
+      </packing>
+    </child>
   </template>
 </interface>

@@ -350,6 +350,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 		display_header_bar.can_fullscreen = runner.can_fullscreen;
 		display_box.header_bar.can_fullscreen = runner.can_fullscreen;
+		display_header_bar.runner = runner;
 		display_box.runner = runner;
 		display_header_bar.media_set = runner.media_set;
 		display_box.header_bar.media_set = runner.media_set;
@@ -688,6 +689,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private void reset_display_page () {
 		display_header_bar.can_fullscreen = false;
 		display_box.header_bar.can_fullscreen = false;
+		display_header_bar.runner = null;
 		display_box.runner = null;
 		display_header_bar.media_set = null;
 		display_box.header_bar.media_set = null;

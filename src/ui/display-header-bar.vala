@@ -23,6 +23,17 @@ private class Games.DisplayHeaderBar : Gtk.HeaderBar {
 
 	private MediaSelector media_selector;
 
+	[GtkChild]
+	private InputModeSwitcher input_mode_switcher;
+	private Runner _runner;
+	public Runner runner {
+		get { return _runner; }
+		set {
+			_runner = value;
+			input_mode_switcher.runner = value;
+		}
+	}
+
 	[GtkChild (name = "back")]
 	private Gtk.Button _back;
 

@@ -18,6 +18,7 @@ private class Games.DisplayBox : Gtk.Bin {
 
 			_runner = value;
 			remove_display ();
+			header_bar.runner = runner;
 
 			if (runner == null)
 				return;
