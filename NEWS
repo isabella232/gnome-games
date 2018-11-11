@@ -1,4 +1,23 @@
 ==============
+Version 3.31.2
+==============
+
+* Drop custom development build style.
+
+* Fixes
+ - Fix build on upcoming Vala versions.
+ - Skip symlinked Steam directories to avoid duplicating games.
+ - Fix header bar buttons grabbing arrow keys in fullscreen.
+ - Various code cleanups.
+
+* Translation updates
+ Brazilian Portuguese
+ Croatian
+ Russian
+ Spanish
+ Swedish
+
+==============
 Version 3.31.1
 ==============
 
