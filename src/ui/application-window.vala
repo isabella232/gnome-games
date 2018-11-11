@@ -158,6 +158,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 		if (Config.PROFILE == "Devel")
 			get_style_context ().add_class ("devel");
+
+		set_help_overlay (new ShortcutsWindow ());
 	}
 
 	public void run_game (Game game) {

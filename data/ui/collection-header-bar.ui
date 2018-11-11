@@ -117,7 +117,7 @@
           <object class="GtkModelButton">
             <property name="can-focus">True</property>
             <property name="text" translatable="yes">Keyboard Shortcuts</property>
-            <property name="action-name">app.shortcuts</property>
+            <property name="action-name">win.show-help-overlay</property>
             <property name="visible">True</property>
           </object>
         </child>
