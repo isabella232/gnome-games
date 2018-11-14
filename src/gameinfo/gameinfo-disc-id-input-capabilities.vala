@@ -32,4 +32,8 @@ public class Games.GameinfoDiscIdInputCapabilities : Object, InputCapabilities {
 
 		return "analog-gamepad" in controllers;
 	}
+
+	public bool get_allow_keyboard_mode () {
+		return false;
+	}
 }
