@@ -1,6 +1,7 @@
 vala_sources = [
   'libretro-error.vala',
   'libretro-icon.vala',
+  'libretro-input-capabilities.vala',
   'libretro-plugin.vala',
   'libretro-title.vala',
   'libretro-uid.vala',

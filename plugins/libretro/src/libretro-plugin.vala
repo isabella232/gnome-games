@@ -39,7 +39,8 @@ private class Games.LibretroPlugin : Object, Plugin {
 		var uid = new LibretroUid (core_descriptor);
 		var title = new LibretroTitle (core_descriptor);
 		var icon = new LibretroIcon (core_descriptor);
-		var runner = new RetroRunner.for_core_descriptor (core_descriptor, uid, title);
+		var input_capabilities = new LibretroInputCapabilities ();
+		var runner = new RetroRunner.for_core_descriptor (core_descriptor, uid, title, input_capabilities);
 
 		var game = new GenericGame (uid, title, platform, runner);
 		game.set_icon (icon);
