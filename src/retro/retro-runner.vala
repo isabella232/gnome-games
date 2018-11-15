@@ -319,7 +319,13 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public InputMode[] get_available_input_modes () {
-		return { InputMode.GAMEPAD, InputMode.KEYBOARD };
+		if (input_capabilities == null)
+			return { InputMode.GAMEPAD };
+
+		if (input_capabilities.get_allow_keyboard_mode ())
+			return { InputMode.GAMEPAD, InputMode.KEYBOARD };
+		else
+			return { InputMode.GAMEPAD };
 	}
 
 	private void on_media_number_changed () {
