@@ -54,6 +54,7 @@ public class Games.RetroRunner : Object, Runner {
 
 	private Retro.CoreDescriptor core_descriptor;
 	private RetroCoreSource core_source;
+	private Platform platform;
 	private Uid uid;
 	private InputCapabilities input_capabilities;
 	private Settings settings;
@@ -89,6 +90,7 @@ public class Games.RetroRunner : Object, Runner {
 
 		this.uid = uid;
 		this.core_source = core_source;
+		this.platform = core_source.get_platform ();
 		this.input_capabilities = input_capabilities;
 		this.game_title = game_title;
 	}
@@ -100,6 +102,7 @@ public class Games.RetroRunner : Object, Runner {
 
 		this.core_descriptor = null;
 		this.core_source = core_source;
+		this.platform = core_source.get_platform ();
 		this._media_set = media_set;
 		this.uid = uid;
 		this.input_capabilities = input_capabilities;
@@ -115,6 +118,7 @@ public class Games.RetroRunner : Object, Runner {
 
 		this.core_descriptor = core_descriptor;
 		this.core_source = null;
+		this.platform = platform;
 		this._media_set = new MediaSet ();
 		this.uid = uid;
 		this.input_capabilities = input_capabilities;
@@ -267,12 +271,9 @@ public class Games.RetroRunner : Object, Runner {
 				}
 			});
 
-		if (core_source != null) {
-			var platforms_dir = Application.get_platforms_dir ();
-			var platform = core_source.get_platform ();
-			var platform_id = platform.get_id ();
-			core.system_directory = @"$platforms_dir/$platform_id/system";
-		}
+		var platforms_dir = Application.get_platforms_dir ();
+		var platform_id = platform.get_id ();
+		core.system_directory = @"$platforms_dir/$platform_id/system";
 
 		var save_directory = get_save_directory_path ();
 		Application.try_make_dir (save_directory);
@@ -553,7 +554,6 @@ public class Games.RetroRunner : Object, Runner {
 
 		var now = new GLib.DateTime.now_local ();
 		var creation_time = now.to_string ();
-		var platform = core_source.get_platform ();
 		var platform_name = platform.get_name ();
 		var platform_id = platform.get_id ();
 		if (platform_name == null) {
@@ -599,12 +599,9 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private string get_unsupported_system_message () {
-		if (core_source != null) {
-			var platform = core_source.get_platform ();
-			var platform_name = platform.get_name ();
-			if (platform_name != null)
-				return _("The system “%s” isn’t supported yet, but full support is planned.").printf (platform_name);
-		}
+		var platform_name = platform.get_name ();
+		if (platform_name != null)
+			return _("The system “%s” isn’t supported yet, but full support is planned.").printf (platform_name);
 
 		return _("The system isn’t supported yet, but full support is planned.");
 	}
