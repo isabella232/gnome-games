@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games gnome-3-26\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2018-08-05 16:40+0000\n"
-"PO-Revision-Date: 2018-08-27 14:15+0700\n"
+"POT-Creation-Date: 2018-10-08 22:21+0000\n"
+"PO-Revision-Date: 2018-11-15 23:29+0700\n"
 "Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
@@ -18,8 +18,9 @@ msgstr ""
 "X-Generator: Poedit 2.0.6\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:6
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:32
-#: data/ui/display-header-bar.ui:6 src/ui/application.vala:24
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:40
+#: data/ui/collection-header-bar.ui:67 data/ui/display-header-bar.ui:6
+#: src/ui/application.vala:26
 msgid "Games"
 msgstr "Permainan"
 
@@ -124,15 +125,15 @@ msgstr "Ukuran jendela"
 msgid "Window size (width and height)."
 msgstr "Ukuran jendela (lebar dan tinggi)."
 
-#: data/ui/collection-box.ui:42
+#: data/ui/collection-box.ui:50
 msgid "Developers"
 msgstr "Pengembang"
 
-#: data/ui/collection-box.ui:52
+#: data/ui/collection-box.ui:60
 msgid "Platforms"
 msgstr "Platform"
 
-#: data/ui/collection-box.ui:75
+#: data/ui/collection-box.ui:83
 msgid "Loading"
 msgstr "Memuat"
 
@@ -145,29 +146,29 @@ msgstr "Tambah berkas permainan…"
 msgid "Menu"
 msgstr "Menu"
 
-#: data/ui/collection-header-bar.ui:70
+#: data/ui/collection-header-bar.ui:85
 msgid "Search"
 msgstr "Cari"
 
-#: data/ui/collection-header-bar.ui:96 data/ui/preferences-window.ui:6
-#: data/ui/preferences-window.ui:18
+#: data/ui/collection-header-bar.ui:111 data/ui/preferences-window.ui:6
+#: data/ui/preferences-window.ui:25
 msgid "Preferences"
 msgstr "Preferensi"
 
-#: data/ui/collection-header-bar.ui:111 data/ui/shortcuts-window.ui:10
-msgid "Shortcuts"
-msgstr "Pintasan"
-
 #: data/ui/collection-header-bar.ui:119
+msgid "Keyboard Shortcuts"
+msgstr "Pintasan Papan Tik"
+
+#: data/ui/collection-header-bar.ui:127
 msgid "Help"
 msgstr "Bantuan"
 
-#: data/ui/collection-header-bar.ui:127
-msgid "About"
-msgstr "Tentang"
+#: data/ui/collection-header-bar.ui:135
+msgid "About Games"
+msgstr "Tentang Permainan"
 
-#: data/ui/display-header-bar.ui:20 data/ui/gamepad-configurer.ui:73
-#: data/ui/keyboard-configurer.ui:74
+#: data/ui/display-header-bar.ui:20 data/ui/preferences-subpage-gamepad.ui:82
+#: data/ui/preferences-subpage-keyboard.ui:83
 msgid "Back"
 msgstr "Kembali"
 
@@ -198,58 +199,57 @@ msgstr ""
 "Pasag permainan atau tambahkan direktori yang berisi permainan untuk mencari "
 "sumber."
 
-#: data/ui/gamepad-configurer.ui:35
-msgctxt "Gamepad configuration factory reset"
-msgid "Reset"
-msgstr "Atur Ulang"
-
-#: data/ui/gamepad-configurer.ui:48 data/ui/keyboard-configurer.ui:49
-msgid "Configure"
-msgstr "Konfigurasikan"
-
-#: data/ui/gamepad-configurer.ui:91 data/ui/keyboard-configurer.ui:92
-#: data/ui/quit-dialog.ui:15 data/ui/reset-controller-mapping-dialog.ui:15
-#: data/ui/resume-failed-dialog.ui:14
-msgid "Cancel"
-msgstr "Batal"
-
-#: data/ui/gamepad-mapper.ui:19 data/ui/keyboard-mapper.ui:19
-msgid "Skip"
-msgstr "Lewati"
-
-#: data/ui/keyboard-configurer.ui:36
-msgctxt "Keyboard configuration factory reset"
-msgid "Reset"
-msgstr "Atur Ulang"
-
 #: data/ui/media-menu-button.ui:11
 msgid "Media"
 msgstr "Media"
 
-#: data/ui/preferences-page-controllers.ui:31
+#: data/ui/preferences-page-controllers.ui:28
 msgid "Gamepads"
 msgstr "Gamepad"
 
-#: data/ui/preferences-page-controllers.ui:54
-#: src/ui/preferences-page-controllers.vala:95
+#: data/ui/preferences-page-controllers.ui:51
+#: src/ui/preferences-page-controllers.vala:76
 msgid "Keyboard"
 msgstr "Papan Tik"
 
-#: data/ui/preferences-page-controllers.ui:86 data/ui/preferences-window.ui:79
-msgid "Controllers"
-msgstr "Pengendali"
-
-#: data/ui/preferences-page-plugins.ui:40 data/ui/preferences-window.ui:88
-msgid "Extensions"
-msgstr "Tambahan"
-
-#: data/ui/preferences-page-video.ui:21
+#: data/ui/preferences-page-video.ui:28
 msgid "Filter"
 msgstr "Penyaring"
 
-#: data/ui/preferences-page-video.ui:50 data/ui/preferences-window.ui:70
+#: data/ui/preferences-subpage-gamepad.ui:21
+#: data/ui/preferences-subpage-keyboard.ui:22
+msgctxt "Keyboard configuration factory reset"
+msgid "Reset"
+msgstr "Atur Ulang"
+
+#: data/ui/preferences-subpage-gamepad.ui:34
+#: data/ui/preferences-subpage-keyboard.ui:35
+msgid "Configure"
+msgstr "Konfigurasikan"
+
+#: data/ui/preferences-subpage-gamepad.ui:52
+#: data/ui/preferences-subpage-keyboard.ui:53
+msgid "Skip"
+msgstr "Lewati"
+
+#: data/ui/preferences-subpage-gamepad.ui:100
+#: data/ui/preferences-subpage-keyboard.ui:101 data/ui/quit-dialog.ui:15
+#: data/ui/reset-controller-mapping-dialog.ui:15
+#: data/ui/resume-failed-dialog.ui:14
+msgid "Cancel"
+msgstr "Batal"
+
+#: data/ui/preferences-window.ui:95
 msgid "Video"
 msgstr "Video"
+
+#: data/ui/preferences-window.ui:104
+msgid "Controllers"
+msgstr "Pengendali"
+
+#: data/ui/preferences-window.ui:113
+msgid "Extensions"
+msgstr "Tambahan"
 
 #: data/ui/quit-dialog.ui:9
 msgid "Are you sure you want to quit?"
@@ -308,6 +308,10 @@ msgstr "Gagal melanjutkan. Apakah Anda ingin memulai ulang permainan?"
 msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Mulai Ulang"
+
+#: data/ui/shortcuts-window.ui:10
+msgid "Shortcuts"
+msgstr "Pintasan"
 
 #: data/ui/shortcuts-window.ui:14
 msgid "General"
@@ -561,11 +565,11 @@ msgstr "Sega Saturn"
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "Berkas \"%s\" tidak memiliki berkas biner Sega Saturn yang valid."
 
-#: plugins/steam/src/steam-plugin.vala:6
+#: plugins/steam/src/steam-plugin.vala:10
 msgid "Steam"
 msgstr "Steam"
 
-#: plugins/steam/src/steam-plugin.vala:49
+#: plugins/steam/src/steam-plugin.vala:80
 #, c-format
 msgid "Couldn’t get Steam appid from manifest “%s”."
 msgstr "Tak bisa mendapatkan Steam appid dari manifes \"%s\"."
@@ -641,11 +645,11 @@ msgstr "Berkas tidak memiliki header Wii."
 msgid "Wii"
 msgstr "Wii"
 
-#: src/command/command-runner.vala:36
+#: src/command/command-runner.vala:34
 msgid "The game doesn’t have a valid command."
 msgstr "Permainan tidak memiliki perintah yang valid."
 
-#: src/command/command-runner.vala:67
+#: src/command/command-runner.vala:60
 #, c-format
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "Tak bisa menjalankan \"%s\": eksekusi gagal."
@@ -665,21 +669,9 @@ msgstr "Pengaya deskriptor tidak valid: %s"
 msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr "Tak bisa membuat contoh baru dari pengaya \"%s\"."
 
-#: src/dummy/dummy-description.vala:5
-msgid "No description available."
-msgstr "Deskripsi tidak tersedia."
-
-#: src/dummy/dummy-developer.vala:5 src/dummy/dummy-platform.vala:9
+#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:22
 msgid "Unknown"
 msgstr "Tidak dikenal"
-
-#: src/dummy/dummy-players.vala:5
-msgid "Not available"
-msgstr "Tidak tersedia"
-
-#: src/dummy/dummy-publisher.vala:5
-msgid "Publisher not available."
-msgstr "Penerbit tidak tersedia."
 
 #: src/gameinfo/gameinfo-disc-id-disc-title.vala:24
 #, c-format
@@ -706,11 +698,11 @@ msgstr "Tidak ada set ID diska yang ditemukan untuk ID diska \"%s\"."
 msgid "No disc found for disc ID “%s”."
 msgstr "Tidak ada diska yang ditemukan untuk ID diska \"%s\"."
 
-#: src/grilo/grilo-players.vala:46
+#: src/grilo/grilo-players.vala:40
 msgid "Single-player"
 msgstr "Pemain tunggal"
 
-#: src/grilo/grilo-players.vala:48
+#: src/grilo/grilo-players.vala:42
 msgid "Multi-player"
 msgstr "Multi-pemain"
 
@@ -753,16 +745,16 @@ msgstr ""
 msgid "No module found for “%s”."
 msgstr "Tidak ada modul yang ditemukan untuk \"%s\"."
 
-#: src/retro/retro-runner.vala:540
+#: src/retro/retro-runner.vala:541
 msgid "Unknown platform"
 msgstr "Platform tidak dikenal"
 
-#: src/retro/retro-runner.vala:585
+#: src/retro/retro-runner.vala:586
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Sistem \"%s\" tidak didukung, tapi dukungan penuh direncanakan."
 
-#: src/retro/retro-runner.vala:588
+#: src/retro/retro-runner.vala:589
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Sistem ini belum didukung, tetapi dukungan penuh direncanakan."
 
@@ -873,41 +865,41 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:161
+#: src/ui/application.vala:174
 msgid "Select game files"
 msgstr "Pilih berkas permainan"
 
-#: src/ui/application.vala:162
+#: src/ui/application.vala:175
 msgid "_Add"
 msgstr "T_ambah"
 
-#: src/ui/application.vala:162
+#: src/ui/application.vala:175
 msgid "_Cancel"
 msgstr "_Batal"
 
-#: src/ui/application.vala:369
+#: src/ui/application.vala:389
 msgid "GNOME Games"
 msgstr "Permainan GNOME"
 
-#: src/ui/application.vala:371
+#: src/ui/application.vala:391
 msgid "A video game player for GNOME"
 msgstr "Player permainan video untuk GNOME"
 
-#: src/ui/application.vala:375
+#: src/ui/application.vala:395
 msgid "Learn more about GNOME Games"
 msgstr "Pelajari lebih lanjut mengenai Permainan GNOME"
 
-#: src/ui/application.vala:382
+#: src/ui/application.vala:402
 msgid "translator-credits"
 msgstr ""
 "Lorenz Adam Damara <lorenzadam@resolution-consulting.co.id>, 2016.\n"
 "Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017, 2018."
 
-#: src/ui/application-window.vala:367
+#: src/ui/application-window.vala:380
 msgid "An unexpected error occurred."
 msgstr "Kesalahan yang tidak terduga terjadi."
 
-#: src/ui/application-window.vala:647 src/ui/application-window.vala:664
+#: src/ui/application-window.vala:660 src/ui/application-window.vala:677
 msgid "Playing a game"
 msgstr "Mainkan permainan"
 
@@ -920,37 +912,17 @@ msgstr "Ups! Tidak dapat menjalankan \"%s\""
 msgid "Oops! Unable to run the game"
 msgstr "Ups! Tidak dapat menjalankan permainan"
 
-#. translators: testing a gamepad, %s is its name
-#: src/ui/gamepad-configurer.vala:78
-#, c-format
-msgid "Testing %s"
-msgstr "Menguji %s"
-
-#. translators: configuring a gamepad, %s is its name
-#: src/ui/gamepad-configurer.vala:92
-#, c-format
-msgid "Configuring %s"
-msgstr "Mengkonfigurasi %s"
-
-#: src/ui/gamepad-mapper.vala:126
+#: src/ui/gamepad-mapper.vala:125
 msgid "Press suitable button on your gamepad"
 msgstr "Tekan tombol yang sesuai pada gamepad Anda"
 
-#: src/ui/gamepad-mapper.vala:131
+#: src/ui/gamepad-mapper.vala:130
 msgid "Move suitable axis left/right on your gamepad"
 msgstr "Pindahkan sumbu yang sesuai ke kiri/kanan pada gamepad Anda"
 
-#: src/ui/gamepad-mapper.vala:133
+#: src/ui/gamepad-mapper.vala:132
 msgid "Move suitable axis up/down on your gamepad"
 msgstr "Pindahkan sumbu yang sesuai ke atas/bawah pada gamepad Anda"
-
-#: src/ui/keyboard-configurer.vala:67
-msgid "Testing Keyboard"
-msgstr "Menguji Papan Tik"
-
-#: src/ui/keyboard-configurer.vala:80
-msgid "Configuring Keyboard"
-msgstr "Mengkonfigurasi Papan Tik"
 
 #: src/ui/keyboard-mapper.vala:18
 msgid "Press suitable key on your keyboard"
@@ -962,17 +934,37 @@ msgid "Media %d"
 msgstr "Media %d"
 
 #. same as video-filters in gschema
-#: src/ui/preferences-page-video.vala:34
+#: src/ui/preferences-page-video.vala:24
 msgid "Smooth"
 msgstr "Halus"
 
-#: src/ui/preferences-page-video.vala:34
+#: src/ui/preferences-page-video.vala:24
 msgid "Sharp"
 msgstr "Tajam"
 
-#: src/ui/preferences-page-video.vala:34
+#: src/ui/preferences-page-video.vala:24
 msgid "CRT"
 msgstr "CRT"
+
+#. translators: testing a gamepad, %s is its name
+#: src/ui/preferences-subpage-gamepad.vala:78
+#, c-format
+msgid "Testing %s"
+msgstr "Menguji %s"
+
+#. translators: configuring a gamepad, %s is its name
+#: src/ui/preferences-subpage-gamepad.vala:89
+#, c-format
+msgid "Configuring %s"
+msgstr "Mengkonfigurasi %s"
+
+#: src/ui/preferences-subpage-keyboard.vala:68
+msgid "Testing Keyboard"
+msgstr "Menguji Papan Tik"
+
+#: src/ui/preferences-subpage-keyboard.vala:78
+msgid "Configuring Keyboard"
+msgstr "Mengkonfigurasi Papan Tik"
 
 #: src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
@@ -1026,6 +1018,22 @@ msgstr "%s:%lu: Akhir baris tidak terduga, diharapkan token."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: Token tidak terduga %s, diharapkan akhir baris."
+
+#~ msgid "About"
+#~ msgstr "Tentang"
+
+#~ msgctxt "Gamepad configuration factory reset"
+#~ msgid "Reset"
+#~ msgstr "Atur Ulang"
+
+#~ msgid "No description available."
+#~ msgstr "Deskripsi tidak tersedia."
+
+#~ msgid "Not available"
+#~ msgstr "Tidak tersedia"
+
+#~ msgid "Publisher not available."
+#~ msgstr "Penerbit tidak tersedia."
 
 #~ msgid "_Preferences"
 #~ msgstr "_Preferensi"
