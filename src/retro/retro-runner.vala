@@ -108,7 +108,7 @@ public class Games.RetroRunner : Object, Runner {
 		_media_set.notify["selected-media-number"].connect (on_media_number_changed);
 	}
 
-	public RetroRunner.for_core_descriptor (Retro.CoreDescriptor core_descriptor, Uid uid, Title game_title, InputCapabilities? input_capabilities = null) {
+	public RetroRunner.for_core_descriptor_and_platform (Retro.CoreDescriptor core_descriptor, Platform platform, Uid uid, Title game_title, InputCapabilities? input_capabilities = null) {
 		is_initialized = false;
 		is_ready = false;
 		should_save = false;
