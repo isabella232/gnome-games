@@ -272,11 +272,11 @@ public class Games.RetroRunner : Object, Runner {
 			var platform = core_source.get_platform ();
 			var platform_id = platform.get_id ();
 			core.system_directory = @"$platforms_dir/$platform_id/system";
-
-			var save_directory = get_save_directory_path ();
-			Application.try_make_dir (save_directory);
-			core.save_directory = save_directory;
 		}
+
+		var save_directory = get_save_directory_path ();
+		Application.try_make_dir (save_directory);
+		core.save_directory = save_directory;
 
 		core.log.connect (Retro.g_log);
 		view.set_core (core);
