@@ -76,7 +76,7 @@ public class Games.RetroRunner : Object, Runner {
 	private bool is_ready;
 	private bool should_save;
 
-	public RetroRunner (RetroCoreSource core_source, Uri uri, Uid uid, Title game_title) {
+	public RetroRunner (RetroCoreSource core_source, Uri uri, Uid uid, Title game_title, InputCapabilities? input_capabilities = null) {
 		is_initialized = false;
 		is_ready = false;
 		should_save = false;
@@ -89,11 +89,11 @@ public class Games.RetroRunner : Object, Runner {
 
 		this.uid = uid;
 		this.core_source = core_source;
-		this.input_capabilities = null;
+		this.input_capabilities = input_capabilities;
 		this.game_title = game_title;
 	}
 
-	public RetroRunner.for_media_set_and_input_capabilities (RetroCoreSource core_source, MediaSet media_set, Uid uid, InputCapabilities input_capabilities, Title game_title) {
+	public RetroRunner.for_media_set (RetroCoreSource core_source, MediaSet media_set, Uid uid, Title game_title, InputCapabilities? input_capabilities = null) {
 		is_initialized = false;
 		is_ready = false;
 		should_save = false;
@@ -108,7 +108,7 @@ public class Games.RetroRunner : Object, Runner {
 		_media_set.notify["selected-media-number"].connect (on_media_number_changed);
 	}
 
-	public RetroRunner.for_core_descriptor (Retro.CoreDescriptor core_descriptor, Uid uid, Title game_title) {
+	public RetroRunner.for_core_descriptor (Retro.CoreDescriptor core_descriptor, Uid uid, Title game_title, InputCapabilities? input_capabilities = null) {
 		is_initialized = false;
 		is_ready = false;
 		should_save = false;
@@ -117,7 +117,7 @@ public class Games.RetroRunner : Object, Runner {
 		this.core_source = null;
 		this._media_set = new MediaSet ();
 		this.uid = uid;
-		this.input_capabilities = null;
+		this.input_capabilities = input_capabilities;
 		this.game_title = game_title;
 	}
 
