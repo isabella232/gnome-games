@@ -1,0 +1,8 @@
+[Libretro]
+Type=Game
+Version=1.0
+Name=OpenGL Test (Compute Shaders)
+Module=testgl_compute_shaders_libretro.so
+LibretroVersion=1
+Authors=Team Libretro;
+License=MIT;

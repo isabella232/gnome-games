@@ -1,0 +1,86 @@
+        {
+            "name": "libretro-samples",
+            "no-autogen": true,
+            "make-args": [
+                "--makefile=Makefile",
+                "prefix=/app"
+            ],
+            "make-install-args": [
+                "--makefile=Makefile",
+                "prefix=/app"
+            ],
+            "post-install": [
+                "mkdir -p /app/lib/libretro/extra.d/Test",
+                "install -m644 -p advanced_tests.libretro /app/lib/libretro/extra.d/Test",
+                "install -m644 -p button_test.libretro /app/lib/libretro/extra.d/Test",
+                "install -m644 -p cruzes.libretro /app/lib/libretro/extra.d/Test",
+                "install -m644 -p test.libretro /app/lib/libretro/extra.d/Test",
+                "install -m644 -p testaudio_callback.libretro /app/lib/libretro/extra.d/Test",
+                "install -m644 -p testaudio_no_callback.libretro /app/lib/libretro/extra.d/Test",
+                "install -m644 -p testaudio_playback_wav.libretro /app/lib/libretro/extra.d/Test",
+                "install -m644 -p testgl.libretro /app/lib/libretro/extra.d/Test",
+                "install -m644 -p testgl_compute_shaders.libretro /app/lib/libretro/extra.d/Test",
+                "install -m644 -p testgl_ff.libretro /app/lib/libretro/extra.d/Test",
+                "install -m644 -p testsw.libretro /app/lib/libretro/extra.d/Test",
+                "install -m644 -p testsw_vram.libretro /app/lib/libretro/extra.d/Test"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/libretro-samples.git"
+                },
+                {
+                    "type": "file",
+                    "path": "samples-Makefile",
+                    "dest-filename": "Makefile"
+                },
+                {
+                    "type": "file",
+                    "path": "advanced_tests.libretro"
+                },
+                {
+                    "type": "file",
+                    "path": "button_test.libretro"
+                },
+                {
+                    "type": "file",
+                    "path": "cruzes.libretro"
+                },
+                {
+                    "type": "file",
+                    "path": "test.libretro"
+                },
+                {
+                    "type": "file",
+                    "path": "testaudio_callback.libretro"
+                },
+                {
+                    "type": "file",
+                    "path": "testaudio_no_callback.libretro"
+                },
+                {
+                    "type": "file",
+                    "path": "testaudio_playback_wav.libretro"
+                },
+                {
+                    "type": "file",
+                    "path": "testgl.libretro"
+                },
+                {
+                    "type": "file",
+                    "path": "testgl_compute_shaders.libretro"
+                },
+                {
+                    "type": "file",
+                    "path": "testgl_ff.libretro"
+                },
+                {
+                    "type": "file",
+                    "path": "testsw.libretro"
+                },
+                {
+                    "type": "file",
+                    "path": "testsw_vram.libretro"
+                }
+            ]
+        }

@@ -1,0 +1,8 @@
+[Libretro]
+Type=Game
+Version=1.0
+Name=Software Rendering Test (Direct to VRAM)
+Module=testsw_vram_libretro.so
+LibretroVersion=1
+Authors=Team Libretro;
+License=MIT;

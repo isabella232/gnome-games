@@ -1,0 +1,8 @@
+[Libretro]
+Type=Game
+Version=1.0
+Name=Audio Test (No Callback)
+Module=testaudio_no_callback_libretro.so
+LibretroVersion=1
+Authors=Team Libretro;
+License=MIT;
