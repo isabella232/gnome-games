@@ -15,4 +15,5 @@ public interface Games.Runner : Object {
 	public abstract void resume () throws Error;
 	public abstract void pause ();
 	public abstract void stop ();
+	public abstract InputMode[] get_available_input_modes ();
 }

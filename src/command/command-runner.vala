@@ -77,4 +77,8 @@ public class Games.CommandRunner : Object, Runner {
 
 	public void stop () {
 	}
+
+	public InputMode[] get_available_input_modes () {
+		return { };
+	}
 }

@@ -318,6 +318,10 @@ public class Games.RetroRunner : Object, Runner {
 		stopped ();
 	}
 
+	public InputMode[] get_available_input_modes () {
+		return { InputMode.GAMEPAD, InputMode.KEYBOARD };
+	}
+
 	private void on_media_number_changed () {
 		if (!is_initialized)
 			return;
