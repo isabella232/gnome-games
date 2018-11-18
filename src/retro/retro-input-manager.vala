@@ -5,6 +5,36 @@ private class Games.RetroInputManager : Object {
 	private Retro.CoreView view;
 	private KeyboardMappingManager keyboard_mapping_manager;
 	private Manette.Monitor monitor;
+	private InputMode _input_mode;
+	public InputMode input_mode {
+		get { return _input_mode; }
+		set {
+			if (value == _input_mode)
+				return;
+
+			var core_view_joypad = view.as_controller (Retro.ControllerType.JOYPAD);
+
+			_input_mode = value;
+			switch (value) {
+			case InputMode.GAMEPAD:
+				core.set_keyboard (null);
+				core.set_default_controller (Retro.ControllerType.JOYPAD, core_view_joypad);
+
+				break;
+			case InputMode.KEYBOARD:
+				core.set_keyboard (view);
+				core.set_default_controller (Retro.ControllerType.JOYPAD, null);
+
+				break;
+			case InputMode.NONE:
+				core.set_keyboard (null);
+				core.set_default_controller (Retro.ControllerType.JOYPAD, null);
+
+				break;
+			}
+		}
+	}
+
 	// This is used only to compute the port on which a device is connected,
 	// which is needed to not store it in closures which would also hold a
 	// reference on the current object and create a reference cycle, leading to
@@ -22,8 +52,8 @@ private class Games.RetroInputManager : Object {
 		keyboard_mapping_manager = new KeyboardMappingManager ();
 		view.set_key_joypad_mapping (keyboard_mapping_manager.mapping);
 		keyboard_mapping_manager.changed.connect (on_keyboard_mapping_manager_changed);
-		core.set_keyboard (view);
 		view.set_as_default_controller (core);
+		input_mode = InputMode.GAMEPAD;
 
 		monitor = new Manette.Monitor ();
 		var iterator = monitor.iterate ();
