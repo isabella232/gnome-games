@@ -3,7 +3,6 @@
 private class Games.RetroInputManager : Object {
 	private Retro.Core core;
 	private Retro.CoreView view;
-	private Retro.Controller core_view_joypad;
 	private KeyboardMappingManager keyboard_mapping_manager;
 	private Manette.Monitor monitor;
 	// This is used only to compute the port on which a device is connected,
@@ -23,7 +22,6 @@ private class Games.RetroInputManager : Object {
 		keyboard_mapping_manager = new KeyboardMappingManager ();
 		view.set_key_joypad_mapping (keyboard_mapping_manager.mapping);
 		keyboard_mapping_manager.changed.connect (on_keyboard_mapping_manager_changed);
-		core_view_joypad = view.as_controller (Retro.ControllerType.JOYPAD);
 		core.set_keyboard (view);
 		view.set_as_default_controller (core);
 
@@ -41,8 +39,8 @@ private class Games.RetroInputManager : Object {
 
 		core_view_joypad_port = controllers.length;
 		devices += null;
-		controllers += core_view_joypad;
-		core.set_controller (core_view_joypad_port, core_view_joypad);
+		controllers += null;
+		core.set_controller (core_view_joypad_port, null);
 		monitor.device_connected.connect (on_device_connected);
 	}
 
@@ -76,8 +74,8 @@ private class Games.RetroInputManager : Object {
 				// Found an disconnected port and so assigning core_view_joypad to it
 				core_view_joypad_port = i;
 				devices[core_view_joypad_port] = null;
-				controllers[core_view_joypad_port] = core_view_joypad;
-				core.set_controller (core_view_joypad_port, core_view_joypad);
+				controllers[core_view_joypad_port] = null;
+				core.set_controller (core_view_joypad_port, null);
 
 				return;
 			}
@@ -87,8 +85,8 @@ private class Games.RetroInputManager : Object {
 		// CoreView's joypad to ports.
 		core_view_joypad_port = controllers.length;
 		devices += null;
-		controllers += core_view_joypad;
-		core.set_controller (core_view_joypad_port, core_view_joypad);
+		controllers += null;
+		core.set_controller (core_view_joypad_port, null);
 	}
 
 	private void on_device_disconnected (Manette.Device device) {
@@ -105,8 +103,8 @@ private class Games.RetroInputManager : Object {
 			controllers[core_view_joypad_port] = null;
 			core_view_joypad_port = port;
 			devices[core_view_joypad_port] = null;
-			controllers[core_view_joypad_port] = core_view_joypad;
-			core.set_controller (core_view_joypad_port, core_view_joypad);
+			controllers[core_view_joypad_port] = null;
+			core.set_controller (core_view_joypad_port, null);
 		}
 		else {
 			// Just remove the controller as no need to shift the
