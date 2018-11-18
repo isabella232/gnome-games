@@ -38,6 +38,14 @@ public class Games.RetroRunner : Object, Runner {
 	private Retro.CoreView view;
 	private RetroInputManager input_manager;
 	private Retro.MainLoop loop;
+	private InputMode _input_mode;
+	public InputMode input_mode {
+		get { return _input_mode; }
+		set {
+			_input_mode = value;
+			input_manager.input_mode = value;
+		}
+	}
 
 	private string save_directory_path;
 	private string save_path;
@@ -196,6 +204,8 @@ public class Games.RetroRunner : Object, Runner {
 
 		var present_analog_sticks = input_capabilities == null || input_capabilities.get_allow_analog_gamepads ();
 		input_manager = new RetroInputManager (core, view, present_analog_sticks);
+		// Keep the internal values of input_mode in sync between RetroRunner and RetroInputManager
+		_input_mode = input_manager.input_mode;
 
 		core.shutdown.connect (on_shutdown);
 

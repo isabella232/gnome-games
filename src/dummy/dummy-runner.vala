@@ -17,6 +17,11 @@ private class Games.DummyRunner : Object, Runner {
 		get { return null; }
 	}
 
+	public InputMode input_mode {
+		get { return InputMode.NONE; }
+		set { }
+	}
+
 	public bool check_is_valid (out string error_message) throws Error {
 		error_message = "";
 

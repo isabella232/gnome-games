@@ -17,6 +17,11 @@ public class Games.CommandRunner : Object, Runner {
 		get { return null; }
 	}
 
+	public InputMode input_mode {
+		get { return InputMode.NONE; }
+		set { }
+	}
+
 	private string[] args;
 
 	public CommandRunner (string[] args) {

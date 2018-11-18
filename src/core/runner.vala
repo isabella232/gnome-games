@@ -7,6 +7,7 @@ public interface Games.Runner : Object {
 	public abstract bool can_quit_safely { get; }
 	public abstract bool can_resume { get; }
 	public abstract MediaSet? media_set { get; }
+	public abstract InputMode input_mode { get; set; }
 
 	public abstract bool check_is_valid (out string error_message) throws Error;
 	public abstract Gtk.Widget get_display ();
