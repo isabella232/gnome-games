@@ -9,6 +9,7 @@ data/ui/display-header-bar.ui
 data/ui/dummy-display.ui
 data/ui/empty-collection.ui
 data/ui/gamepad-mapper.ui
+data/ui/input-mode-switcher.ui
 data/ui/keyboard-mapper.ui
 data/ui/media-menu-button.ui
 data/ui/preferences-page-controllers.ui
