@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2018-10-08 22:21+0000\n"
-"PO-Revision-Date: 2018-10-15 07:07-0200\n"
+"POT-Creation-Date: 2018-11-20 18:40+0000\n"
+"PO-Revision-Date: 2018-11-22 06:55-0200\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: data/org.gnome.Games.appdata.xml.in.in:6
 #: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:40
 #: data/ui/collection-header-bar.ui:67 data/ui/display-header-bar.ui:6
-#: src/ui/application.vala:26
+#: src/ui/application.vala:25
 msgid "Games"
 msgstr "Jogos"
 
@@ -159,7 +159,6 @@ msgid "Preferences"
 msgstr "Preferências"
 
 #: data/ui/collection-header-bar.ui:119
-#| msgid "Shortcuts"
 msgid "Keyboard Shortcuts"
 msgstr "Atalhos de teclado"
 
@@ -168,7 +167,6 @@ msgid "Help"
 msgstr "Ajuda"
 
 #: data/ui/collection-header-bar.ui:135
-#| msgid "Games"
 msgid "About Games"
 msgstr "Sobre Jogos"
 
@@ -204,20 +202,30 @@ msgstr ""
 "Instale jogos ou adicione diretórios que contenham jogos às suas fontes de "
 "pesquisa."
 
+#: data/ui/input-mode-switcher.ui:16
+#| msgid "Gamepads"
+msgid "Gamepad Input"
+msgstr "Entrada de gamepads"
+
+#: data/ui/input-mode-switcher.ui:36
+#| msgid "Keyboard"
+msgid "Keyboard Input"
+msgstr "Entrada de teclado"
+
 #: data/ui/media-menu-button.ui:11
 msgid "Media"
 msgstr "Mídia"
 
-#: data/ui/preferences-page-controllers.ui:28
+#: data/ui/preferences-page-controllers.ui:9
 msgid "Gamepads"
 msgstr "Gamepads"
 
-#: data/ui/preferences-page-controllers.ui:51
-#: src/ui/preferences-page-controllers.vala:76
+#: data/ui/preferences-page-controllers.ui:32
+#: src/ui/preferences-page-controllers.vala:75
 msgid "Keyboard"
 msgstr "Teclado"
 
-#: data/ui/preferences-page-video.ui:28
+#: data/ui/preferences-page-video.ui:9
 msgid "Filter"
 msgstr "Filtro"
 
@@ -243,18 +251,6 @@ msgstr "Pular"
 #: data/ui/resume-failed-dialog.ui:14
 msgid "Cancel"
 msgstr "Cancelar"
-
-#: data/ui/preferences-window.ui:95
-msgid "Video"
-msgstr "Vídeo"
-
-#: data/ui/preferences-window.ui:104
-msgid "Controllers"
-msgstr "Controles"
-
-#: data/ui/preferences-window.ui:113
-msgid "Extensions"
-msgstr "Extensões"
 
 #: data/ui/quit-dialog.ui:9
 msgid "Are you sure you want to quit?"
@@ -650,11 +646,11 @@ msgstr "O arquivo não possui um cabeçalho de Wii."
 msgid "Wii"
 msgstr "Wii"
 
-#: src/command/command-runner.vala:34
+#: src/command/command-runner.vala:39
 msgid "The game doesn’t have a valid command."
 msgstr "O jogo não possui um comando válido."
 
-#: src/command/command-runner.vala:60
+#: src/command/command-runner.vala:65
 #, c-format
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "Não foi possível executar “%s”: execução falhou."
@@ -742,22 +738,22 @@ msgstr ""
 "Esse jogo requer o arquivo de firmware de %s com uma impressão digital "
 "SHA-512 de %s para jogar."
 
-#: src/retro/retro-runner.vala:241
+#: src/retro/retro-runner.vala:251
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nenhum módulo localizado para “%s”."
 
-#: src/retro/retro-runner.vala:541
+#: src/retro/retro-runner.vala:561
 msgid "Unknown platform"
 msgstr "Plataforma desconhecida"
 
-#: src/retro/retro-runner.vala:586
+#: src/retro/retro-runner.vala:606
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
 "Não há suporte ao sistema “%s” ainda, mas suporte complete está nos planos."
 
-#: src/retro/retro-runner.vala:589
+#: src/retro/retro-runner.vala:609
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Não há suporte ao sistema ainda, mas suporte completo está nos planos."
 
@@ -868,41 +864,41 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:174
+#: src/ui/application.vala:169
 msgid "Select game files"
 msgstr "Selecione arquivos de jogos"
 
-#: src/ui/application.vala:175
+#: src/ui/application.vala:170
 msgid "_Add"
 msgstr "_Adicionar"
 
-#: src/ui/application.vala:175
+#: src/ui/application.vala:170
 msgid "_Cancel"
 msgstr "_Cancelar"
 
-#: src/ui/application.vala:389
+#: src/ui/application.vala:367
 msgid "GNOME Games"
 msgstr "GNOME Jogos"
 
-#: src/ui/application.vala:391
+#: src/ui/application.vala:369
 msgid "A video game player for GNOME"
 msgstr "Um executor de video game para o GNOME"
 
-#: src/ui/application.vala:395
+#: src/ui/application.vala:373
 msgid "Learn more about GNOME Games"
 msgstr "Aprenda mais sobre o GNOME Jogos"
 
-#: src/ui/application.vala:402
+#: src/ui/application.vala:380
 msgid "translator-credits"
 msgstr ""
 "Enrico Nicoletto <liverig@gmail.com>\n"
 "Rafael Fontenelle <rafaelff@gnome.org>"
 
-#: src/ui/application-window.vala:380
+#: src/ui/application-window.vala:383
 msgid "An unexpected error occurred."
 msgstr "Ocorreu um erro inesperado."
 
-#: src/ui/application-window.vala:660 src/ui/application-window.vala:677
+#: src/ui/application-window.vala:663 src/ui/application-window.vala:680
 msgid "Playing a game"
 msgstr "Jogar um jogo"
 
@@ -936,18 +932,30 @@ msgstr "Pressione a tecla adequada em seu teclado"
 msgid "Media %d"
 msgstr "Mídia %d"
 
+#: src/ui/preferences-page-controllers.vala:24
+msgid "Controllers"
+msgstr "Controles"
+
+#: src/ui/preferences-page-plugins.vala:12
+msgid "Extensions"
+msgstr "Extensões"
+
 #. same as video-filters in gschema
-#: src/ui/preferences-page-video.vala:24
+#: src/ui/preferences-page-video.vala:22
 msgid "Smooth"
 msgstr "Suave"
 
-#: src/ui/preferences-page-video.vala:24
+#: src/ui/preferences-page-video.vala:22
 msgid "Sharp"
 msgstr "Nítido"
 
-#: src/ui/preferences-page-video.vala:24
+#: src/ui/preferences-page-video.vala:22
 msgid "CRT"
 msgstr "CRT"
+
+#: src/ui/preferences-page-video.vala:36
+msgid "Video"
+msgstr "Vídeo"
 
 #. translators: testing a gamepad, %s is its name
 #: src/ui/preferences-subpage-gamepad.vala:78
