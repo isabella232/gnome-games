@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2018-10-07 07:20+0000\n"
-"PO-Revision-Date: 2018-10-07 16:48+0200\n"
+"POT-Creation-Date: 2018-11-20 18:40+0000\n"
+"PO-Revision-Date: 2018-11-25 10:40+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: data/org.gnome.Games.appdata.xml.in.in:6
 #: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:40
 #: data/ui/collection-header-bar.ui:67 data/ui/display-header-bar.ui:6
-#: src/ui/application.vala:26
+#: src/ui/application.vala:25
 msgid "Games"
 msgstr "Gry"
 
@@ -203,20 +203,28 @@ msgstr ""
 "Należy zainstalować gry lub dodać katalogi zawierające gry do źródeł "
 "wyszukiwania."
 
+#: data/ui/input-mode-switcher.ui:16
+msgid "Gamepad Input"
+msgstr "Kontroler"
+
+#: data/ui/input-mode-switcher.ui:36
+msgid "Keyboard Input"
+msgstr "Klawiatura"
+
 #: data/ui/media-menu-button.ui:11
 msgid "Media"
 msgstr "Nośnik"
 
-#: data/ui/preferences-page-controllers.ui:28
+#: data/ui/preferences-page-controllers.ui:9
 msgid "Gamepads"
 msgstr "Kontrolery"
 
-#: data/ui/preferences-page-controllers.ui:51
-#: src/ui/preferences-page-controllers.vala:76
+#: data/ui/preferences-page-controllers.ui:32
+#: src/ui/preferences-page-controllers.vala:75
 msgid "Keyboard"
 msgstr "Klawiatura"
 
-#: data/ui/preferences-page-video.ui:28
+#: data/ui/preferences-page-video.ui:9
 msgid "Filter"
 msgstr "Filtr"
 
@@ -242,18 +250,6 @@ msgstr "Pomiń"
 #: data/ui/resume-failed-dialog.ui:14
 msgid "Cancel"
 msgstr "Anuluj"
-
-#: data/ui/preferences-window.ui:95
-msgid "Video"
-msgstr "Obraz"
-
-#: data/ui/preferences-window.ui:104
-msgid "Controllers"
-msgstr "Kontrolery"
-
-#: data/ui/preferences-window.ui:113
-msgid "Extensions"
-msgstr "Rozszerzenia"
 
 #: data/ui/quit-dialog.ui:9
 msgid "Are you sure you want to quit?"
@@ -651,11 +647,11 @@ msgstr "Plik nie ma nagłówka konsoli Wii."
 msgid "Wii"
 msgstr "Wii"
 
-#: src/command/command-runner.vala:34
+#: src/command/command-runner.vala:39
 msgid "The game doesn’t have a valid command."
 msgstr "Gra nie ma prawidłowego polecenia."
 
-#: src/command/command-runner.vala:60
+#: src/command/command-runner.vala:65
 #, c-format
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "Nie można uruchomić „%s”: wykonanie się nie powiodło."
@@ -675,21 +671,9 @@ msgstr "Nieprawidłowy deskryptor wtyczki: %s"
 msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr "Nie można utworzyć nowego wystąpienia wtyczki w „%s”."
 
-#: src/dummy/dummy-description.vala:5
-msgid "No description available."
-msgstr "Opis jest nieodstępny."
-
 #: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:22
 msgid "Unknown"
 msgstr "Nieznane"
-
-#: src/dummy/dummy-players.vala:5
-msgid "Not available"
-msgstr "Niedostępne"
-
-#: src/dummy/dummy-publisher.vala:5
-msgid "Publisher not available."
-msgstr "Wydawca jest nieodstępny."
 
 #: src/gameinfo/gameinfo-disc-id-disc-title.vala:24
 #, c-format
@@ -716,11 +700,11 @@ msgstr "Nie odnaleziono identyfikatora zestawu płyt dla identyfikatora „%s”
 msgid "No disc found for disc ID “%s”."
 msgstr "Nie odnaleziono płyty dla identyfikatora „%s”."
 
-#: src/grilo/grilo-players.vala:42
+#: src/grilo/grilo-players.vala:40
 msgid "Single-player"
 msgstr "Jednoosobowe"
 
-#: src/grilo/grilo-players.vala:44
+#: src/grilo/grilo-players.vala:42
 msgid "Multi-player"
 msgstr "Wieloosobowe"
 
@@ -755,21 +739,21 @@ msgstr ""
 "Ta gra do działania wymaga pliku oprogramowania sprzętowego %s o sumie "
 "kontrolnej SHA-512 „%s”."
 
-#: src/retro/retro-runner.vala:241
+#: src/retro/retro-runner.vala:251
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nie odnaleziono modułu dla „%s”."
 
-#: src/retro/retro-runner.vala:541
+#: src/retro/retro-runner.vala:561
 msgid "Unknown platform"
 msgstr "Nieznana platforma"
 
-#: src/retro/retro-runner.vala:586
+#: src/retro/retro-runner.vala:606
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Konsola „%s” nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: src/retro/retro-runner.vala:589
+#: src/retro/retro-runner.vala:609
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Konsola nie jest jeszcze obsługiwana, ale jest w planach."
 
@@ -880,41 +864,41 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:174
+#: src/ui/application.vala:169
 msgid "Select game files"
 msgstr "Wybór plików gry"
 
-#: src/ui/application.vala:175
+#: src/ui/application.vala:170
 msgid "_Add"
 msgstr "_Dodaj"
 
-#: src/ui/application.vala:175
+#: src/ui/application.vala:170
 msgid "_Cancel"
 msgstr "_Anuluj"
 
-#: src/ui/application.vala:389
+#: src/ui/application.vala:367
 msgid "GNOME Games"
 msgstr "Gry GNOME"
 
-#: src/ui/application.vala:391
+#: src/ui/application.vala:369
 msgid "A video game player for GNOME"
 msgstr "Uruchamianie gier w środowisku GNOME"
 
-#: src/ui/application.vala:395
+#: src/ui/application.vala:373
 msgid "Learn more about GNOME Games"
 msgstr "Więcej informacji o Grach GNOME"
 
-#: src/ui/application.vala:402
+#: src/ui/application.vala:380
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2016-2018\n"
 "Aviary.pl <community-poland@mozilla.org>, 2016-2018"
 
-#: src/ui/application-window.vala:380
+#: src/ui/application-window.vala:383
 msgid "An unexpected error occurred."
 msgstr "Wystąpił nieoczekiwany błąd."
 
-#: src/ui/application-window.vala:660 src/ui/application-window.vala:677
+#: src/ui/application-window.vala:663 src/ui/application-window.vala:680
 msgid "Playing a game"
 msgstr "W trakcie gry"
 
@@ -948,18 +932,30 @@ msgstr "Proszę nacisnąć odpowiedni klawisz na klawiaturze"
 msgid "Media %d"
 msgstr "%d. nośnik"
 
+#: src/ui/preferences-page-controllers.vala:24
+msgid "Controllers"
+msgstr "Kontrolery"
+
+#: src/ui/preferences-page-plugins.vala:12
+msgid "Extensions"
+msgstr "Rozszerzenia"
+
 #. same as video-filters in gschema
-#: src/ui/preferences-page-video.vala:24
+#: src/ui/preferences-page-video.vala:22
 msgid "Smooth"
 msgstr "Gładki"
 
-#: src/ui/preferences-page-video.vala:24
+#: src/ui/preferences-page-video.vala:22
 msgid "Sharp"
 msgstr "Kanciasty"
 
-#: src/ui/preferences-page-video.vala:24
+#: src/ui/preferences-page-video.vala:22
 msgid "CRT"
 msgstr "Monitor kineskopowy"
+
+#: src/ui/preferences-page-video.vala:36
+msgid "Video"
+msgstr "Obraz"
 
 #. translators: testing a gamepad, %s is its name
 #: src/ui/preferences-subpage-gamepad.vala:78
