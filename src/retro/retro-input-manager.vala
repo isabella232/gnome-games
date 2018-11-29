@@ -14,23 +14,11 @@ private class Games.RetroInputManager : Object {
 				return;
 
 			_input_mode = value;
-			switch (value) {
-			case InputMode.GAMEPAD:
-				core.set_keyboard (null);
-				core.set_default_controller (Retro.ControllerType.JOYPAD, core_view_joypad);
 
-				break;
-			case InputMode.KEYBOARD:
+			if (value == InputMode.KEYBOARD)
 				core.set_keyboard (view);
-				core.set_default_controller (Retro.ControllerType.JOYPAD, null);
-
-				break;
-			case InputMode.NONE:
+			else
 				core.set_keyboard (null);
-				core.set_default_controller (Retro.ControllerType.JOYPAD, null);
-
-				break;
-			}
 
 			update_core_view_gamepad ();
 		}
@@ -55,6 +43,8 @@ private class Games.RetroInputManager : Object {
 		keyboard_mapping_manager.changed.connect (on_keyboard_mapping_manager_changed);
 		view.set_as_default_controller (core);
 
+		// Unset default joypad controller to avoid duplicating input on all ports
+		core.set_default_controller (Retro.ControllerType.JOYPAD, null);
 		core_view_joypad = view.as_controller (Retro.ControllerType.JOYPAD);
 
 		monitor = new Manette.Monitor ();
