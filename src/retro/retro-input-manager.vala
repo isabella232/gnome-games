@@ -3,6 +3,7 @@
 private class Games.RetroInputManager : Object {
 	private Retro.Core core;
 	private Retro.CoreView view;
+	private Retro.Controller core_view_joypad;
 	private KeyboardMappingManager keyboard_mapping_manager;
 	private Manette.Monitor monitor;
 	private InputMode _input_mode;
@@ -11,8 +12,6 @@ private class Games.RetroInputManager : Object {
 		set {
 			if (value == _input_mode)
 				return;
-
-			var core_view_joypad = view.as_controller (Retro.ControllerType.JOYPAD);
 
 			_input_mode = value;
 			switch (value) {
@@ -32,6 +31,8 @@ private class Games.RetroInputManager : Object {
 
 				break;
 			}
+
+			update_core_view_gamepad ();
 		}
 	}
 
@@ -53,7 +54,8 @@ private class Games.RetroInputManager : Object {
 		view.set_key_joypad_mapping (keyboard_mapping_manager.mapping);
 		keyboard_mapping_manager.changed.connect (on_keyboard_mapping_manager_changed);
 		view.set_as_default_controller (core);
-		input_mode = InputMode.GAMEPAD;
+
+		core_view_joypad = view.as_controller (Retro.ControllerType.JOYPAD);
 
 		monitor = new Manette.Monitor ();
 		var iterator = monitor.iterate ();
@@ -70,8 +72,9 @@ private class Games.RetroInputManager : Object {
 		core_view_joypad_port = controllers.length;
 		devices += null;
 		controllers += null;
-		core.set_controller (core_view_joypad_port, null);
 		monitor.device_connected.connect (on_device_connected);
+
+		input_mode = InputMode.GAMEPAD;
 	}
 
 	~RetroInputManager () {
@@ -81,6 +84,18 @@ private class Games.RetroInputManager : Object {
 		core.set_controller (core_view_joypad_port, null);
 		for (int port = 0; port < controllers.length; port++)
 			core.set_controller (port, null);
+	}
+
+	private void update_core_view_gamepad () {
+		devices[core_view_joypad_port] = null;
+
+		if (input_mode == InputMode.GAMEPAD) {
+			controllers[core_view_joypad_port] = core_view_joypad;
+			core.set_controller (core_view_joypad_port, core_view_joypad);
+		} else {
+			controllers[core_view_joypad_port] = null;
+			core.set_controller (core_view_joypad_port, null);
+		}
 	}
 
 	private void on_keyboard_mapping_manager_changed () {
@@ -103,9 +118,7 @@ private class Games.RetroInputManager : Object {
 			if (controllers[i] == null) {
 				// Found an disconnected port and so assigning core_view_joypad to it
 				core_view_joypad_port = i;
-				devices[core_view_joypad_port] = null;
-				controllers[core_view_joypad_port] = null;
-				core.set_controller (core_view_joypad_port, null);
+				update_core_view_gamepad ();
 
 				return;
 			}
@@ -116,7 +129,7 @@ private class Games.RetroInputManager : Object {
 		core_view_joypad_port = controllers.length;
 		devices += null;
 		controllers += null;
-		core.set_controller (core_view_joypad_port, null);
+		update_core_view_gamepad ();
 	}
 
 	private void on_device_disconnected (Manette.Device device) {
@@ -131,10 +144,9 @@ private class Games.RetroInputManager : Object {
 			// "lesser" port.
 			devices[core_view_joypad_port] = null;
 			controllers[core_view_joypad_port] = null;
-			core_view_joypad_port = port;
-			devices[core_view_joypad_port] = null;
-			controllers[core_view_joypad_port] = null;
 			core.set_controller (core_view_joypad_port, null);
+			core_view_joypad_port = port;
+			update_core_view_gamepad ();
 		}
 		else {
 			// Just remove the controller as no need to shift the
