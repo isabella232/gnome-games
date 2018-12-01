@@ -54,7 +54,11 @@ private class Games.TrackerUriIterator : Object, UriIterator {
 		if (!cursor.next ())
 			return false;
 
-		uri = new Uri (cursor.get_string (0));
+		var uri_string = cursor.get_string (0);
+		if (uri_string == null)
+			return false;
+
+		uri = new Uri (uri_string);
 
 		return true;
 	}
