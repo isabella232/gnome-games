@@ -33,8 +33,6 @@ private struct Games.RetroSimpleType {
 		case "MasterSystem":
 			/* translators: also known as "Sega Mark III" in eastern asia */
 			return _("Master System");
-		case "MSDOS":
-			return _("MS-DOS");
 		case "NeoGeoPocket":
 			return _("Neo Geo Pocket");
 		case "NeoGeoPocketColor":
