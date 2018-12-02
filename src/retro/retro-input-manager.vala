@@ -77,8 +77,6 @@ private class Games.RetroInputManager : Object {
 	}
 
 	private void update_core_view_gamepad () {
-		devices[core_view_joypad_port] = null;
-
 		if (input_mode == InputMode.GAMEPAD) {
 			controllers[core_view_joypad_port] = core_view_joypad;
 			core.set_controller (core_view_joypad_port, core_view_joypad);
@@ -108,6 +106,7 @@ private class Games.RetroInputManager : Object {
 			if (controllers[i] == null) {
 				// Found an disconnected port and so assigning core_view_joypad to it
 				core_view_joypad_port = i;
+				devices[core_view_joypad_port] = null;
 				update_core_view_gamepad ();
 
 				return;
@@ -136,6 +135,7 @@ private class Games.RetroInputManager : Object {
 			controllers[core_view_joypad_port] = null;
 			core.set_controller (core_view_joypad_port, null);
 			core_view_joypad_port = port;
+			devices[core_view_joypad_port] = null;
 			update_core_view_gamepad ();
 		}
 		else {
