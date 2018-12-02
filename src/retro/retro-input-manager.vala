@@ -105,7 +105,7 @@ private class Games.RetroInputManager : Object {
 		// exists and return.
 		for (var i = core_view_joypad_port; i < controllers.length; i++) {
 			if (controllers[i] == null) {
-				// Found an disconnected port and so assigning core_view_joypad to it
+				// Found a disconnected port and so assigning core_view_joypad to it
 				core_view_joypad_port = i;
 				devices[core_view_joypad_port] = null;
 				update_core_view_gamepad ();
