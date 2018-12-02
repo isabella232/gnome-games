@@ -80,7 +80,8 @@ private class Games.RetroInputManager : Object {
 		if (input_mode == InputMode.GAMEPAD) {
 			controllers[core_view_joypad_port] = core_view_joypad;
 			core.set_controller (core_view_joypad_port, core_view_joypad);
-		} else {
+		}
+		else {
 			controllers[core_view_joypad_port] = null;
 			core.set_controller (core_view_joypad_port, null);
 		}
