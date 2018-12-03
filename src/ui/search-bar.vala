@@ -1,11 +1,15 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/search-bar.ui")]
-private class Games.SearchBar : Gtk.SearchBar {
+private class Games.SearchBar : Hdy.SearchBar {
 	public string text { get; private set; }
 
 	[GtkChild]
 	private Gtk.SearchEntry entry;
+
+	construct {
+		connect_entry (entry);
+	}
 
 	[GtkCallback]
 	private void on_search_changed () {

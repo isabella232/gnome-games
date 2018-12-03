@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.16 -->
-  <template class="GamesSearchBar" parent="GtkSearchBar">
+  <template class="GamesSearchBar" parent="HdySearchBar">
     <property name="visible">True</property>
     <child>
-      <object class="GtkSearchEntry" id="entry">
+      <object class="HdyColumn">
         <property name="visible">True</property>
-        <property name="width-chars">40</property>
-        <signal name="search-changed" handler="on_search_changed"/>
-        <signal name="activate" handler="on_search_activated"/>
+        <property name="maximum-width">400</property>
+        <property name="linear-growth-width">300</property>
+        <child>
+          <object class="GtkSearchEntry" id="entry">
+            <property name="visible">True</property>
+            <signal name="search-changed" handler="on_search_changed"/>
+            <signal name="activate" handler="on_search_activated"/>
+          </object>
+        </child>
       </object>
     </child>
   </template>
