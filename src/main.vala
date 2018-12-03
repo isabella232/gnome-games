@@ -6,9 +6,7 @@ int main (string[] args) {
 	Intl.textdomain (Config.GETTEXT_PACKAGE);
 
 	Grl.init (ref args);
-
-	typeof (Hdy.Column).ensure ();
-	typeof (Hdy.TitleBar).ensure ();
+	Hdy.init (ref args);
 
 	var app = new Games.Application ();
 	var result = app.run (args);
