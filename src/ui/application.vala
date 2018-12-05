@@ -249,7 +249,7 @@ public class Games.Application : Gtk.Application {
 			tracker_uri_source = new TrackerUriSource (connection);
 		}
 		catch (Error e) {
-			debug (e.message);
+			critical ("!!!!! Tracker not found: %s", e.message);
 		}
 
 		game_collection = new GameCollection ();
