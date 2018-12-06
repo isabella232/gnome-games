@@ -1,0 +1,6 @@
+[Plugin]
+Module=libgames-ms-dos-plugin
+Name=MS-DOS Plugin
+Description=Provides support for MS-DOS games.
+Authors=Andrei Lisita <andreii.lisita@gmail.com>
+Copyright=Copyright © 2018 Andrei Lisita

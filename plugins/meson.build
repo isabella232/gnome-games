@@ -5,6 +5,7 @@ plugins = [
   'libretro',
   'love',
   'mame',
+  'ms-dos',
   'nintendo-ds',
   'playstation',
   'sega-cd',
