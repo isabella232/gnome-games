@@ -165,9 +165,11 @@ public class Games.Application : Gtk.Application {
 	}
 
 	public async void add_game_files_async () {
-		var chooser = new Gtk.FileChooserNative (
+		var chooser = new Gtk.FileChooserDialog (
 			_("Select game files"), window, Gtk.FileChooserAction.OPEN,
-			_("_Add"), _("_Cancel"));
+			_("_Cancel"), Gtk.ResponseType.CANCEL,
+			_("_Add"), Gtk.ResponseType.ACCEPT);
+
 
 		chooser.select_multiple = true;
 
@@ -181,6 +183,8 @@ public class Games.Application : Gtk.Application {
 				var uri = new Uri (uri_string);
 				yield add_cached_uri (uri);
 			}
+
+		chooser.close ();
 	}
 
 	protected override void open (File[] files, string hint) {
