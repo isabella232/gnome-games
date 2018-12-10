@@ -1,4 +1,24 @@
 ==============
+Version 3.31.3
+==============
+
+* UI
+ - Introduce a widget for switching between gamepad and keyboard input. This
+   is currently enabled for DOS and standalone Libretro games.
+ - Make search bar in the collection adaptive.
+
+* Fixes
+ - Keyboard doesn't control every player in multiplayer games anymore.
+ - Prevent a crash when creating snapshots of standalone libretro games.
+ - Various code cleanups.
+
+* Translation updates
+ Brazilian Portuguese
+ Indonesian
+ Polish
+ Spanish
+
+==============
 Version 3.31.2
 ==============
 
