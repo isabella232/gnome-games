@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>@appid@.desktop</id>
+  <id>@appid@</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
   <name>Games</name>
@@ -40,13 +40,17 @@
       <image width="800" height="450">https://gitlab.gnome.org/GNOME/gnome-games/raw/master/data/appdata/3-30-gamepad-test.png</image>
     </screenshot>
   </screenshots>
+  <provides>
+    <binary>gnome-games</binary>
+  </provides>
 
+  <launchable type="desktop-id">@appid@.desktop</launchable>
   <url type="homepage">https://wiki.gnome.org/Apps/Games</url>
   <url type="bugtracker">https://gitlab.gnome.org/GNOME/gnome-games/issues</url>
   <url type="donation">http://www.gnome.org/friends/</url>
   <url type="translate">https://wiki.gnome.org/TranslationProject</url>
   <project_group>GNOME</project_group>
-
+  <developer_name>The GNOME Project</developer_name>
   <update_contact>kekun.plazas_at_laposte.net</update_contact>
   <translation type="gettext">org.gnome.Games</translation>
 
