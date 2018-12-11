@@ -37,7 +37,7 @@
         /* Needed to be able to run desktop and Steam games */
         "--talk-name=org.freedesktop.Flatpak",
         /* Needed to find the ROMs */
-        "--filesystem=home:ro",
+        "--filesystem=host:ro",
         /* Needed to find flatpaked Steam games */
         "--filesystem=~/.var/app/com.valvesoftware.Steam:ro"
     ],
