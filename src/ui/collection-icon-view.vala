@@ -14,6 +14,12 @@ private class Games.CollectionIconView : Gtk.Bin {
 		}
 	}
 
+	public delegate bool GameFilter (Game game);
+	private unowned GameFilter? game_filter;
+	public void set_game_filter (GameFilter? game_filter) {
+		this.game_filter = game_filter;
+	}
+
 	private Developer? _filtering_developer;
 	public Developer? filtering_developer {
 		get { return _filtering_developer; }
