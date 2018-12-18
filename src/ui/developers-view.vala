@@ -5,6 +5,7 @@ private class Games.DevelopersView : SidebarView {
 	// and can't be stored in a GenericSet without breaking.
 	private List<Developer> shown_developers;
 	private List<Developer> all_developers;
+	private Developer selected_developer;
 
 	construct {
 		shown_developers = new List<Developer> ();
@@ -69,6 +70,7 @@ private class Games.DevelopersView : SidebarView {
 	protected override void invalidate (Gtk.ListBoxRow row_item) {
 		var row = row_item as DeveloperListItem;
 		var developer = row.developer;
+		selected_developer = developer;
 		collection_view.filtering_developer = developer;
 	}
 
@@ -77,5 +79,15 @@ private class Games.DevelopersView : SidebarView {
 		var item2 = row2 as DeveloperListItem;
 
 		return DeveloperListItem.compare (item1, item2);
+	}
+
+	protected override bool filter_game (Game game) {
+		string game_developer = game.get_developer ().get_developer ();
+
+		if (selected_developer != null &&
+		    selected_developer.get_developer () != game_developer)
+			return false;
+
+		return true;
 	}
 }

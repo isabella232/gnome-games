@@ -161,6 +161,7 @@ private abstract class Games.SidebarView : Gtk.Box {
 	protected abstract void game_added (Game game);
 	protected abstract void invalidate (Gtk.ListBoxRow row_item);
 	protected abstract int sort_rows (Gtk.ListBoxRow row1, Gtk.ListBoxRow row2);
+	protected abstract bool filter_game (Game game);
 
 	[GtkCallback]
 	private void on_list_box_row_selected (Gtk.ListBoxRow? row_item) {

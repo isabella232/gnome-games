@@ -2,6 +2,7 @@
 
 private class Games.PlatformsView : SidebarView {
 	private GenericSet<Platform> platforms = new GenericSet<Platform> (Platform.hash, Platform.equal);
+	private Platform selected_platform;
 
 	protected override void game_added (Game game) {
 		var platform = game.get_platform ();
@@ -16,6 +17,7 @@ private class Games.PlatformsView : SidebarView {
 	protected override void invalidate (Gtk.ListBoxRow row_item) {
 		var row = row_item as PlatformListItem;
 		var platform = row.platform;
+		selected_platform = platform;
 		collection_view.filtering_platform = platform;
 	}
 
@@ -24,5 +26,13 @@ private class Games.PlatformsView : SidebarView {
 		var item2 = row2 as PlatformListItem;
 
 		return PlatformListItem.compare (item1, item2);
+	}
+
+	protected override bool filter_game (Game game) {
+		if (selected_platform != null &&
+		    selected_platform.get_name () != game.get_platform ().get_name ())
+			return false;
+
+		return true;
 	}
 }
