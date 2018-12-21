@@ -59,6 +59,8 @@ private abstract class Games.SidebarView : Gtk.Box {
 		collection_view.game_activated.connect ((game) => {
 			game_activated (game);
 		});
+
+		collection_view.set_game_filter (filter_game);
 	}
 
 	[GtkCallback]
