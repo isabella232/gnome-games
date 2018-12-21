@@ -242,12 +242,7 @@ private class Games.CollectionIconView : Gtk.Bin {
 	}
 
 	private bool filter_game (Game game) {
-		if (filtering_developer != null &&
-		    filtering_developer.get_developer () != game.get_developer ().get_developer ())
-			return false;
-
-		if (filtering_platform != null &&
-		    filtering_platform.get_name () != game.get_platform ().get_name ())
+		if (game_filter != null && !game_filter (game))
 			return false;
 
 		if (filtering_terms.length != 0)
