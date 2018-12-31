@@ -231,12 +231,7 @@ private class Games.CollectionIconView : Gtk.Bin {
 		if (game_filter != null && !game_filter (game))
 			return false;
 
-		if (filtering_terms.length != 0)
-			foreach (var term in filtering_terms)
-				if (!(term.casefold () in game.name.casefold ()))
-					return false;
-
-		return true;
+		return game.matches_search_terms (filtering_terms);
 	}
 
 	private int sort_boxes (Gtk.FlowBoxChild child1, Gtk.FlowBoxChild child2) {
