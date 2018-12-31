@@ -17,6 +17,15 @@ public interface Games.Game : Object {
 	public abstract Platform get_platform ();
 	public abstract Runner get_runner () throws Error;
 
+	public bool matches_search_terms (string[] search_terms) {
+		if (search_terms.length != 0)
+			foreach (var term in search_terms)
+				if (!(term.casefold () in name.casefold ()))
+					return false;
+
+		return true;
+	}
+
 	public static uint hash (Game key) {
 		var uid = "";
 		try {
