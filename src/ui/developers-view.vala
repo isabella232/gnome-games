@@ -71,7 +71,6 @@ private class Games.DevelopersView : SidebarView {
 		var row = row_item as DeveloperListItem;
 		var developer = row.developer;
 		selected_developer = developer;
-		collection_view.filtering_developer = developer;
 	}
 
 	protected override int sort_rows (Gtk.ListBoxRow row1, Gtk.ListBoxRow row2) {

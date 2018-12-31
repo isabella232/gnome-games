@@ -18,7 +18,6 @@ private class Games.PlatformsView : SidebarView {
 		var row = row_item as PlatformListItem;
 		var platform = row.platform;
 		selected_platform = platform;
-		collection_view.filtering_platform = platform;
 	}
 
 	protected override int sort_rows (Gtk.ListBoxRow row1, Gtk.ListBoxRow row2) {

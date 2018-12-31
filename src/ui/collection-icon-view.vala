@@ -20,24 +20,6 @@ private class Games.CollectionIconView : Gtk.Bin {
 		this.game_filter = game_filter;
 	}
 
-	private Developer? _filtering_developer;
-	public Developer? filtering_developer {
-		get { return _filtering_developer; }
-		set {
-			_filtering_developer = value;
-			flow_box.invalidate_filter ();
-		}
-	}
-
-	private Platform? _filtering_platform;
-	public Platform? filtering_platform {
-		get { return _filtering_platform; }
-		set {
-			_filtering_platform = value;
-			flow_box.invalidate_filter ();
-		}
-	}
-
 	private ulong model_changed_id;
 	private ListModel _model;
 	public ListModel model {
