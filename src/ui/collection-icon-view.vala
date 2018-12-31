@@ -167,6 +167,10 @@ private class Games.CollectionIconView : Gtk.Bin {
 		flow_box.unselect_all ();
 	}
 
+	public void invalidate_flow_box_filter () {
+		flow_box.invalidate_filter ();
+	}
+
 	[GtkCallback]
 	private bool on_gamepad_browse (Gtk.DirectionType direction) {
 		if (!has_game_selected ())

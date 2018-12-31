@@ -173,6 +173,7 @@ private abstract class Games.SidebarView : Gtk.Box {
 		list_box.select_row (row_item);
 		row_item.focus (Gtk.DirectionType.LEFT);
 		invalidate (row_item);
+		collection_view.invalidate_flow_box_filter ();
 		collection_view.reset_scroll_position ();
 		collection_view.unselect_game ();
 	}
