@@ -1,8 +1,4 @@
-[GtkTemplate (ui = "/org/gnome/Games/ui/developer-list-item.ui")]
-private class Games.DeveloperListItem: Gtk.ListBoxRow {
-	[GtkChild]
-	private Gtk.Label label;
-
+private class Games.DeveloperListItem: Games.SidebarListItem {
 	private Developer _developer;
 	public Developer developer {
 		get { return _developer; }
@@ -15,6 +11,12 @@ private class Games.DeveloperListItem: Gtk.ListBoxRow {
 
 	public DeveloperListItem (Developer developer) {
 		Object (developer: developer);
+	}
+
+	public override bool has_game (Game game) {
+		string game_developer = game.get_developer ().get_developer ();
+
+		return (game_developer == developer.get_developer ());
 	}
 
 	private void update_label () {

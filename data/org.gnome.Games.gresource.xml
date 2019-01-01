@@ -15,7 +15,6 @@
     <file preprocess="xml-stripblanks">ui/collection-box.ui</file>
     <file preprocess="xml-stripblanks">ui/collection-header-bar.ui</file>
     <file preprocess="xml-stripblanks">ui/collection-icon-view.ui</file>
-    <file preprocess="xml-stripblanks">ui/developer-list-item.ui</file>
     <file preprocess="xml-stripblanks">ui/display-box.ui</file>
     <file preprocess="xml-stripblanks">ui/display-header-bar.ui</file>
     <file preprocess="xml-stripblanks">ui/dummy-display.ui</file>
@@ -31,7 +30,6 @@
     <file preprocess="xml-stripblanks">ui/keyboard-tester.ui</file>
     <file preprocess="xml-stripblanks">ui/media-menu-button.ui</file>
     <file preprocess="xml-stripblanks">ui/media-selector.ui</file>
-    <file preprocess="xml-stripblanks">ui/platform-list-item.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page-controllers.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page-plugins.ui</file>
