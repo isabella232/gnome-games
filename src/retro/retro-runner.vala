@@ -94,54 +94,6 @@ public class Games.RetroRunner : Object, Runner {
 		_media_set.notify["selected-media-number"].connect (on_media_number_changed);
 	}
 
-	public RetroRunner (RetroCoreSource core_source, Uri uri, Uid uid, Title game_title, InputCapabilities? input_capabilities = null) {
-		is_initialized = false;
-		is_ready = false;
-		should_save = false;
-
-		this.core_descriptor = null;
-		var game_media = new Media ();
-		game_media.add_uri (uri);
-		_media_set = new MediaSet ();
-		_media_set.add_media (game_media);
-
-		this.uid = uid;
-		this.core_source = core_source;
-		this.platform = core_source.get_platform ();
-		this.input_capabilities = input_capabilities;
-		this.game_title = game_title;
-	}
-
-	public RetroRunner.for_media_set (RetroCoreSource core_source, MediaSet media_set, Uid uid, Title game_title, InputCapabilities? input_capabilities = null) {
-		is_initialized = false;
-		is_ready = false;
-		should_save = false;
-
-		this.core_descriptor = null;
-		this.core_source = core_source;
-		this.platform = core_source.get_platform ();
-		this._media_set = media_set;
-		this.uid = uid;
-		this.input_capabilities = input_capabilities;
-		this.game_title = game_title;
-
-		_media_set.notify["selected-media-number"].connect (on_media_number_changed);
-	}
-
-	public RetroRunner.for_core_descriptor_and_platform (Retro.CoreDescriptor core_descriptor, Platform platform, Uid uid, Title game_title, InputCapabilities? input_capabilities = null) {
-		is_initialized = false;
-		is_ready = false;
-		should_save = false;
-
-		this.core_descriptor = core_descriptor;
-		this.core_source = null;
-		this.platform = platform;
-		this._media_set = new MediaSet ();
-		this.uid = uid;
-		this.input_capabilities = input_capabilities;
-		this.game_title = game_title;
-	}
-
 	construct {
 		settings = new Settings ("org.gnome.Games");
 	}
