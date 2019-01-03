@@ -45,6 +45,10 @@ public class Games.CommandRunner : Object, Runner {
 		return new RemoteDisplay ();
 	}
 
+	public Gtk.Widget? get_extra_widget () {
+		return null;
+	}
+
 	public void start () throws Error {
 		string? working_directory = null;
 		string[]? envp = null;

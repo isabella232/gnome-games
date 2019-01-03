@@ -130,6 +130,10 @@ public class Games.RetroRunner : Object, Runner {
 		return view;
 	}
 
+	public Gtk.Widget? get_extra_widget () {
+		return null;
+	}
+
 	public void start () throws Error {
 		load_media_data ();
 

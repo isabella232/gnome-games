@@ -32,6 +32,10 @@ private class Games.DummyRunner : Object, Runner {
 		return new DummyDisplay ();
 	}
 
+	public Gtk.Widget? get_extra_widget () {
+		return null;
+	}
+
 	public void start () throws Error {
 	}
 
