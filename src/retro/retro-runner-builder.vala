@@ -51,6 +51,6 @@ public class Games.RetroRunnerBuilder : Object {
 		return_val_if_fail (title != null, null);
 		return_val_if_fail (platform != null, null);
 
-		return new RetroRunner.from_builder (this);
+		return new RetroRunner (this);
 	}
 }

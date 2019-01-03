@@ -77,7 +77,7 @@ public class Games.RetroRunner : Object, Runner {
 	private bool is_ready;
 	private bool should_save;
 
-	internal RetroRunner.from_builder (RetroRunnerBuilder builder) {
+	internal RetroRunner (RetroRunnerBuilder builder) {
 		is_initialized = false;
 		is_ready = false;
 		should_save = false;
