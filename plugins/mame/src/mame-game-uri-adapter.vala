@@ -32,7 +32,13 @@ private class Games.MameGameUriAdapter : GameUriAdapter, Object {
 		var cover = new LocalCover (uri);
 		var developer = new GenericDeveloper (info.company);
 		var core_source = new RetroCoreSource (platform, { SEARCHED_MIME_TYPE, SPECIFIC_MIME_TYPE });
-		var runner = new RetroRunner (core_source, uri, uid, title);
+
+		var builder = new RetroRunnerBuilder ();
+		builder.core_source = core_source;
+		builder.uri = uri;
+		builder.uid = uid;
+		builder.title = title;
+		var runner = builder.to_runner ();
 
 		Idle.add (this.game_for_uri.callback);
 		yield;

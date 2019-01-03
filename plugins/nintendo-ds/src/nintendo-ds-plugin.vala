@@ -41,7 +41,13 @@ private class Games.NintendoDsPlugin : Object, Plugin {
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
 		var core_source = new RetroCoreSource (platform, { MIME_TYPE });
-		var runner = new RetroRunner (core_source, uri, uid, title);
+
+		var builder = new RetroRunnerBuilder ();
+		builder.core_source = core_source;
+		builder.uri = uri;
+		builder.uid = uid;
+		builder.title = title;
+		var runner = builder.to_runner ();
 
 		var game = new GenericGame (uid, title, platform, runner);
 		game.set_icon (icon);
