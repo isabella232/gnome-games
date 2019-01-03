@@ -114,6 +114,7 @@ vala_sources = [
   'retro/retro-input-manager.vala',
   'retro/retro-options.vala',
   'retro/retro-runner.vala',
+  'retro/retro-runner-builder.vala',
   'retro/retro-simple-game-uri-adapter.vala',
   'retro/retro-simple-type.vala',
   'retro/retro-simple-types.vala',

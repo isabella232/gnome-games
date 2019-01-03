@@ -77,6 +77,23 @@ public class Games.RetroRunner : Object, Runner {
 	private bool is_ready;
 	private bool should_save;
 
+	internal RetroRunner.from_builder (RetroRunnerBuilder builder) {
+		is_initialized = false;
+		is_ready = false;
+		should_save = false;
+
+		core_descriptor = builder.core_descriptor;
+		_media_set = builder.media_set;
+
+		uid = builder.uid;
+		core_source = builder.core_source;
+		platform = builder.platform;
+		input_capabilities = builder.input_capabilities;
+		game_title = builder.title;
+
+		_media_set.notify["selected-media-number"].connect (on_media_number_changed);
+	}
+
 	public RetroRunner (RetroCoreSource core_source, Uri uri, Uid uid, Title game_title, InputCapabilities? input_capabilities = null) {
 		is_initialized = false;
 		is_ready = false;
