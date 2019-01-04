@@ -575,4 +575,8 @@ public class Games.RetroRunner : Object, Runner {
 
 		return _("The system isn’t supported yet, but full support is planned.");
 	}
+
+	public Retro.Core get_core () {
+		return core;
+	}
 }
