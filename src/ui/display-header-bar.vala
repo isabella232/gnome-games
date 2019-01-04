@@ -31,6 +31,28 @@ private class Games.DisplayHeaderBar : Gtk.HeaderBar {
 		set {
 			_runner = value;
 			input_mode_switcher.runner = value;
+
+			if (runner != null)
+				extra_widget = runner.get_extra_widget ();
+			else
+				extra_widget = null;
+		}
+	}
+
+	private Gtk.Widget _extra_widget;
+	private Gtk.Widget extra_widget {
+		get { return _extra_widget; }
+		set {
+			if (extra_widget == value)
+				return;
+
+			if (extra_widget != null)
+				remove (extra_widget);
+
+			_extra_widget = value;
+
+			if (extra_widget != null)
+				pack_end (extra_widget);
 		}
 	}
 
