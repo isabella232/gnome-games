@@ -47,7 +47,7 @@ private class Games.NintendoDsPlugin : Object, Plugin {
 		builder.uri = uri;
 		builder.uid = uid;
 		builder.title = title;
-		var runner = builder.to_runner ();
+		var runner = new NintendoDsRunner (builder.to_runner ());
 
 		var game = new GenericGame (uid, title, platform, runner);
 		game.set_icon (icon);

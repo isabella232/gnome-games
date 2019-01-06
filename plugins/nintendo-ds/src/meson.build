@@ -3,6 +3,7 @@ vala_sources = [
   'nintendo-ds-layout-item.vala',
   'nintendo-ds-layout-switcher.vala',
   'nintendo-ds-plugin.vala',
+  'nintendo-ds-runner.vala',
 ]
 
 c_sources = [
