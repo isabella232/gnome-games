@@ -30,3 +30,6 @@ stacksidebar list {
 	border-right-width: 0px;
 }
 
+.list-icon {
+	opacity: 0.7;
+}

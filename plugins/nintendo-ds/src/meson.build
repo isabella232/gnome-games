@@ -1,5 +1,7 @@
 vala_sources = [
   'nintendo-ds-icon.vala',
+  'nintendo-ds-layout-item.vala',
+  'nintendo-ds-layout-switcher.vala',
   'nintendo-ds-plugin.vala',
 ]
 
@@ -13,7 +15,7 @@ c_args = [
 
 shared_module (
   'games-' + plugin_name + '-plugin',
-  vala_sources + c_sources,
+  vala_sources + c_sources + nintendo_ds_resources,
   dependencies: gnome_games_dep,
   c_args: c_args,
   install: true,
