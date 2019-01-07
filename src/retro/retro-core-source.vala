@@ -4,11 +4,9 @@ public class Games.RetroCoreSource : Object {
 	private RetroPlatform platform;
 
 	private Retro.CoreDescriptor core_descriptor;
-	private bool searched;
 
 	public RetroCoreSource (RetroPlatform platform) {
 		this.platform = platform;
-		searched = false;
 	}
 
 	public Platform get_platform () {
@@ -29,10 +27,7 @@ public class Games.RetroCoreSource : Object {
 	}
 
 	private void ensure_module_is_found () throws Error {
-		if (!searched) {
-			searched = true;
-			search_module ();
-		}
+		search_module ();
 
 		var platform_id = platform.get_id ();
 
