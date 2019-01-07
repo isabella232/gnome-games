@@ -1,14 +1,14 @@
 # Czech translation for gnome-games.
 # Copyright (C) 2016 gnome-games's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-games package.
-# Marek Černocký <marek@manet.cz>, 2016, 2017, 2018.
+# Marek Černocký <marek@manet.cz>, 2016, 2017, 2018, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2018-10-07 07:20+0000\n"
-"PO-Revision-Date: 2018-10-07 16:40+0200\n"
+"POT-Creation-Date: 2018-12-11 09:49+0000\n"
+"PO-Revision-Date: 2019-01-07 11:20+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: čeština <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -21,7 +21,7 @@ msgstr ""
 #: data/org.gnome.Games.appdata.xml.in.in:6
 #: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:40
 #: data/ui/collection-header-bar.ui:67 data/ui/display-header-bar.ui:6
-#: src/ui/application.vala:26
+#: src/ui/application.vala:25
 msgid "Games"
 msgstr "Hry"
 
@@ -70,6 +70,10 @@ msgstr "Samozřejmě hry můžete hrát"
 #: data/org.gnome.Games.appdata.xml.in.in:25
 msgid "Resume your game to where you left it"
 msgstr "Můžete se do her vracet na místo, kde jste je opustili"
+
+#: data/org.gnome.Games.appdata.xml.in.in:53
+msgid "The GNOME Project"
+msgstr "Projekt GNOME"
 
 #: data/org.gnome.Games.desktop.in.in:4
 msgid "Video game player"
@@ -199,20 +203,28 @@ msgstr ""
 "Nainstalujte hry nebo přidejte do prohledávaných zdrojů složky obsahující "
 "hry."
 
+#: data/ui/input-mode-switcher.ui:16
+msgid "Gamepad Input"
+msgstr "Ovládání herním ovladačem"
+
+#: data/ui/input-mode-switcher.ui:36
+msgid "Keyboard Input"
+msgstr "Ovládání klávesnicí"
+
 #: data/ui/media-menu-button.ui:11
 msgid "Media"
 msgstr "Médium"
 
-#: data/ui/preferences-page-controllers.ui:28
+#: data/ui/preferences-page-controllers.ui:9
 msgid "Gamepads"
 msgstr "Herní ovladače"
 
-#: data/ui/preferences-page-controllers.ui:51
-#: src/ui/preferences-page-controllers.vala:76
+#: data/ui/preferences-page-controllers.ui:32
+#: src/ui/preferences-page-controllers.vala:75
 msgid "Keyboard"
 msgstr "Klávesnice"
 
-#: data/ui/preferences-page-video.ui:28
+#: data/ui/preferences-page-video.ui:9
 msgid "Filter"
 msgstr "Filtr"
 
@@ -238,18 +250,6 @@ msgstr "Vynechat"
 #: data/ui/resume-failed-dialog.ui:14
 msgid "Cancel"
 msgstr "Zrušit"
-
-#: data/ui/preferences-window.ui:95
-msgid "Video"
-msgstr "Obraz"
-
-#: data/ui/preferences-window.ui:104
-msgid "Controllers"
-msgstr "Ovladače"
-
-#: data/ui/preferences-window.ui:113
-msgid "Extensions"
-msgstr "Rozšíření"
 
 #: data/ui/quit-dialog.ui:9
 msgid "Are you sure you want to quit?"
@@ -501,6 +501,10 @@ msgstr "Neplatné id „%s“ hry MAME pro „%s“."
 msgid "Arcade"
 msgstr "Arcade"
 
+#: plugins/ms-dos/src/ms-dos-plugin.vala:7
+msgid "MS-DOS"
+msgstr "MS-DOS"
+
 #: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:7
 msgid "Nintendo DS"
 msgstr "Nintendo DS"
@@ -646,11 +650,11 @@ msgstr "Soubor nemá hlavičku Wii."
 msgid "Wii"
 msgstr "Wii"
 
-#: src/command/command-runner.vala:34
+#: src/command/command-runner.vala:39
 msgid "The game doesn’t have a valid command."
 msgstr "Hra nemá platný příkaz pro spuštění."
 
-#: src/command/command-runner.vala:60
+#: src/command/command-runner.vala:65
 #, c-format
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "Nelze spustit „%s“: spuštění selhalo"
@@ -670,21 +674,9 @@ msgstr "Neplatný popisovač zásuvného modulu: %s"
 msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr "Nelze vytvořit novou instanci zásuvného modulu v „%s“."
 
-#: src/dummy/dummy-description.vala:5
-msgid "No description available."
-msgstr "Není k dispozici žádný popis."
-
 #: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:22
 msgid "Unknown"
 msgstr "Neznámo"
-
-#: src/dummy/dummy-players.vala:5
-msgid "Not available"
-msgstr "Není k dispozici"
-
-#: src/dummy/dummy-publisher.vala:5
-msgid "Publisher not available."
-msgstr "Vydavatel není znám."
 
 #: src/gameinfo/gameinfo-disc-id-disc-title.vala:24
 #, c-format
@@ -711,11 +703,11 @@ msgstr "Pro ID disku „%s“ nebylo nalezeno žádné ID sady disků."
 msgid "No disc found for disc ID “%s”."
 msgstr "Pro ID disku „%s“ nebyl nalezen žádný disk."
 
-#: src/grilo/grilo-players.vala:42
+#: src/grilo/grilo-players.vala:40
 msgid "Single-player"
 msgstr "Jeden hráč"
 
-#: src/grilo/grilo-players.vala:44
+#: src/grilo/grilo-players.vala:42
 msgid "Multi-player"
 msgstr "Více hráčů"
 
@@ -750,21 +742,21 @@ msgstr ""
 "Tato hra potřebuje ke spuštění soubor s firmwarem %s s kontrolním otiskem "
 "SHA-512 %s."
 
-#: src/retro/retro-runner.vala:241
+#: src/retro/retro-runner.vala:255
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Pro „%s“ nebyl nalezen žádný modul."
 
-#: src/retro/retro-runner.vala:541
+#: src/retro/retro-runner.vala:561
 msgid "Unknown platform"
 msgstr "Neznámá platforma"
 
-#: src/retro/retro-runner.vala:586
+#: src/retro/retro-runner.vala:604
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Systém „%s“ není zatím podporován, ale plná podpora je v plánu."
 
-#: src/retro/retro-runner.vala:589
+#: src/retro/retro-runner.vala:606
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Systém není zatím podporován, ale plná podpora je v plánu."
 
@@ -815,99 +807,95 @@ msgid "Master System"
 msgstr "Master System"
 
 #: src/retro/retro-simple-type.vala:37
-msgid "MS-DOS"
-msgstr "MS-DOS"
-
-#: src/retro/retro-simple-type.vala:39
 msgid "Neo Geo Pocket"
 msgstr "Neo Geo Pocket"
 
-#: src/retro/retro-simple-type.vala:41
+#: src/retro/retro-simple-type.vala:39
 msgid "Neo Geo Pocket Color"
 msgstr "Neo Geo Pocket Color"
 
 #. translators: known as "Famicom" in eastern Asia
-#: src/retro/retro-simple-type.vala:44
+#: src/retro/retro-simple-type.vala:42
 msgid "Nintendo Entertainment System"
 msgstr "Nintendo Entertainment System"
 
-#: src/retro/retro-simple-type.vala:46
+#: src/retro/retro-simple-type.vala:44
 msgid "Nintendo 64"
 msgstr "Nintendo 64"
 
 #. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
-#: src/retro/retro-simple-type.vala:49
+#: src/retro/retro-simple-type.vala:47
 msgid "Genesis 32X"
 msgstr "Genesis 32X"
 
 #. translators: known as "Mega Drive" in most of the world
-#: src/retro/retro-simple-type.vala:52
+#: src/retro/retro-simple-type.vala:50
 msgid "Sega Genesis"
 msgstr "Sega Genesis"
 
-#: src/retro/retro-simple-type.vala:54
+#: src/retro/retro-simple-type.vala:52
 msgid "Sega Pico"
 msgstr "Sega Pico"
 
-#: src/retro/retro-simple-type.vala:56
+#: src/retro/retro-simple-type.vala:54
 msgid "SG-1000"
 msgstr "SG-1000"
 
 #. translators: known as "Super Famicom" in eastern Asia
-#: src/retro/retro-simple-type.vala:59
+#: src/retro/retro-simple-type.vala:57
 msgid "Super Nintendo Entertainment System"
 msgstr "Super Nintendo Entertainment System"
 
 #. translators: known as "PC Engine" in eastern Asia and France
-#: src/retro/retro-simple-type.vala:62
+#: src/retro/retro-simple-type.vala:60
 msgid "TurboGrafx-16"
 msgstr "TurboGrafx-16"
 
-#: src/retro/retro-simple-type.vala:64
+#: src/retro/retro-simple-type.vala:62
 msgid "WiiWare"
 msgstr "WiiWare"
 
-#: src/retro/retro-simple-type.vala:66
+#: src/retro/retro-simple-type.vala:64
 msgid "WonderSwan"
 msgstr "WonderSwan"
 
-#: src/retro/retro-simple-type.vala:68
+#: src/retro/retro-simple-type.vala:66
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:174
+#: src/ui/application.vala:169
 msgid "Select game files"
 msgstr "Výběr souborů s hrami"
 
-#: src/ui/application.vala:175
+#: src/ui/application.vala:170
 msgid "_Add"
 msgstr "Přid_at"
 
-#: src/ui/application.vala:175
+#: src/ui/application.vala:170
 msgid "_Cancel"
 msgstr "_Zrušit"
 
-#: src/ui/application.vala:389
+#: src/ui/application.vala:367
 msgid "GNOME Games"
 msgstr "Hry GNOME"
 
-#: src/ui/application.vala:391
+#: src/ui/application.vala:369
 msgid "A video game player for GNOME"
 msgstr "Hraní videoher pro GNOME"
 
-#: src/ui/application.vala:395
+#: src/ui/application.vala:373
 msgid "Learn more about GNOME Games"
 msgstr "Zjistěte si více o Hrách GNOME"
 
-#: src/ui/application.vala:402
+#: src/ui/application.vala:380
 msgid "translator-credits"
 msgstr "Marek Černocký <marek@manet.cz>"
 
-#: src/ui/application-window.vala:380
+#: src/ui/application-window.vala:383
 msgid "An unexpected error occurred."
 msgstr "Vyskytla se neočekávaná chyba."
 
-#: src/ui/application-window.vala:660 src/ui/application-window.vala:677
+#: src/ui/application-window.vala:663 src/ui/application-window.vala:680
 msgid "Playing a game"
 msgstr "Hraje se hra"
 
@@ -942,18 +930,30 @@ msgstr "Zmáčkněte vhodné tlačítko na své klávesnici"
 msgid "Media %d"
 msgstr "Médium %d"
 
+#: src/ui/preferences-page-controllers.vala:24
+msgid "Controllers"
+msgstr "Ovladače"
+
+#: src/ui/preferences-page-plugins.vala:12
+msgid "Extensions"
+msgstr "Rozšíření"
+
 #. same as video-filters in gschema
-#: src/ui/preferences-page-video.vala:24
+#: src/ui/preferences-page-video.vala:22
 msgid "Smooth"
 msgstr "vyhlazený"
 
-#: src/ui/preferences-page-video.vala:24
+#: src/ui/preferences-page-video.vala:22
 msgid "Sharp"
 msgstr "ostrý"
 
-#: src/ui/preferences-page-video.vala:24
+#: src/ui/preferences-page-video.vala:22
 msgid "CRT"
 msgstr "CRT"
+
+#: src/ui/preferences-page-video.vala:36
+msgid "Video"
+msgstr "Obraz"
 
 #. translators: testing a gamepad, %s is its name
 #: src/ui/preferences-subpage-gamepad.vala:78
