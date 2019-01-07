@@ -1,4 +1,27 @@
 ==============
+Version 3.31.4
+==============
+
+* UI
+ - Make preferences window adaptive.
+ - Preferences window should now work better with window buttons on the left
+   side.
+
+* Revert to non-portal file chooser for Flatpak, to allow adding games
+  consisting of multiple files.
+
+* Update appdata to add launchable, provides and developer_name tags, remove
+  .desktop from application id.
+
+* Appdata and desktop files are now validated when building.
+
+* Translation updates
+ Brazilian Portuguese
+ Czech
+ Polish
+ Swedish
+
+==============
 Version 3.31.3
 ==============
 
