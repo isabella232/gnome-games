@@ -20,4 +20,8 @@ private class Games.SearchBar : Hdy.SearchBar {
 	private void on_search_activated () {
 		text = entry.text;
 	}
+
+	public void focus_entry () {
+		entry.grab_focus_without_selecting ();
+	}
 }
