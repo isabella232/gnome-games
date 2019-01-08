@@ -142,14 +142,10 @@ private class Games.CollectionBox : Gtk.Box {
 
 	[GtkCallback]
 	private void on_visible_child_changed () {
-		if (viewstack.visible_child == platform_view) {
+		if (viewstack.visible_child == platform_view)
 			platform_view.filtering_text = search_bar.text;
-			platform_view.select_default_row ();
-		}
-		else if (viewstack.visible_child == developer_view) {
+		else if (viewstack.visible_child == developer_view)
 			developer_view.filtering_text = search_bar.text;
-			developer_view.select_default_row ();
-		}
 		else {
 			collection_view.filtering_text = search_bar.text;
 			collection_view.reset_scroll_position ();
@@ -164,6 +160,12 @@ private class Games.CollectionBox : Gtk.Box {
 			developer_view.filtering_text = search_bar.text;
 		else
 			collection_view.filtering_text = search_bar.text;
+
+		// Changing the filtering_text for the Developer|PlatformView might
+		// cause the currently selected sidebar row to become empty and therefore
+		// hidden. In this case the first visible row will become selected and
+		// this causes the search bar to lose focus so we have to regrab it here
+		search_bar.focus_entry ();
 	}
 
 	public bool search_bar_handle_event (Gdk.Event event) {
