@@ -1,0 +1,11 @@
+[Libretro]
+Type=Emulator
+Version=1.0
+Name=Snes9x
+Module=bsnes_snes9x_libretro.so
+LibretroVersion=1
+Authors=Snes9x Team;
+License=Non-commercial;
+
+[Platform:SuperNintendoEntertainmentSystem]
+MimeType=application/vnd.nintendo.snes.rom;
