@@ -249,6 +249,7 @@ public class Games.Application : Gtk.Application {
 
 		TrackerUriSource tracker_uri_source = null;
 		try {
+			Tracker.Sparql.Connection.set_domain (Config.APPLICATION_ID);
 			var connection = Tracker.Sparql.Connection.@get ();
 			tracker_uri_source = new TrackerUriSource (connection);
 		}
