@@ -3,7 +3,7 @@
 # Build libhandy
 git clone --depth 1 https://source.puri.sm/Librem5/libhandy.git
 cd libhandy
-meson --prefix=/usr -Dtests=false -Dexamples=false -Dglade_catalog=false _build
+meson --prefix=/usr -Dtests=false -Dexamples=false -Dglade_catalog=disabled _build
 ninja -C _build install
 cd ..
 
