@@ -64,5 +64,15 @@ configure_file (
   install_dir: join_paths(datadir, 'glib-2.0', 'schemas'),
 )
 
+ontology_conf = configuration_data()
+ontology_conf.set('appid', application_id)
+configure_file (
+  input: 'org.gnome.Games.rule.in',
+  output: '@0@.rule'.format(application_id),
+  configuration: ontology_conf,
+  install: true,
+  install_dir: join_paths (datadir, 'tracker', 'domain-ontologies')
+)
+
 subdir ('icons')
 subdir ('options')
