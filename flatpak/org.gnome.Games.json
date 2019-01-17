@@ -188,7 +188,7 @@
                 "--libdir=lib",
                 "-Dtests=false",
                 "-Dexamples=false",
-                "-Dglade_catalog=false"
+                "-Dglade_catalog=disabled"
             ],
             "sources" : [
                 {
