@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="addon">
-  <id>libretro-genesis-plus-gx</id>
+  <id>libretro-genesisplusgx</id>
   <extends>org.gnome.Games.desktop</extends>
   <extends>retroarch.desktop</extends>
   <name>Genesis Plus GX</name>
