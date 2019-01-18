@@ -74,5 +74,27 @@ configure_file (
   install_dir: join_paths (datadir, 'tracker', 'domain-ontologies')
 )
 
+service_conf = configuration_data()
+service_conf.set('appid', application_id)
+service_conf.set('libexecdir', libexecdir)
+
+services = [
+  'Tracker1',
+  'Tracker1.Miner.Applications',
+  'Tracker1.Miner.Extract',
+  'Tracker1.Miner.Files',
+  'Tracker1.Writeback',
+]
+
+foreach service: services
+  configure_file (
+    input: 'org.gnome.Games.@0@.service.in'.format(service),
+    output: '@0@.@1@.service'.format(application_id, service),
+    configuration: service_conf,
+    install: true,
+    install_dir: join_paths (datadir, 'dbus-1', 'services')
+  )
+endforeach
+
 subdir ('icons')
 subdir ('options')

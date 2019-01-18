@@ -1,0 +1,10 @@
+[D-BUS Service]
+Name=@appid@.Tracker1.Miner.Applications
+Exec=@libexecdir@/tracker-miner-apps -d @appid@
+SystemdService=tracker-miner-apps.service
+
+# Miner details needed for tracker-control
+Path=/org/freedesktop/Tracker1/Miner/Applications
+NameSuffix=Miner.Applications
+DisplayName=Applications
+Comment=Applications data miner

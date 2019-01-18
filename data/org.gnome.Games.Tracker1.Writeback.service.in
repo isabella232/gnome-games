@@ -1,0 +1,4 @@
+[D-BUS Service]
+Name=@appid@.Tracker1.Writeback
+Exec=@libexecdir@/tracker-writeback -d @appid@
+SystemdService=tracker-writeback.service
