@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="addon">
-  <id>libretro-beetle-ngp</id>
+  <id>libretro-beetle-wswan</id>
   <extends>org.gnome.Games.desktop</extends>
   <extends>retroarch.desktop</extends>
   <name>Beetle Cygne</name>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="addon">
-  <id>libretro-beetle-ngp</id>
+  <id>libretro-beetle-vb</id>
   <extends>org.gnome.Games.desktop</extends>
   <extends>retroarch.desktop</extends>
   <name>Beetle VB</name>
-  <summary>VirtualBoy emulator</summary>
+  <summary>Virtual Boy emulator</summary>
   <url type="homepage">https://github.com/libretro/beetle-vb-libretro</url>
   <url type="bugtracker">https://github.com/libretro/beetle-vb-libretro/issues</url>
   <metadata_license>CC0-1.0</metadata_license>
