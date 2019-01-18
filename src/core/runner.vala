@@ -17,4 +17,7 @@ public interface Games.Runner : Object {
 	public abstract void pause ();
 	public abstract void stop ();
 	public abstract InputMode[] get_available_input_modes ();
+
+	public abstract bool key_press_event (Gdk.EventKey event);
+	public abstract bool gamepad_button_press_event (uint16 button);
 }

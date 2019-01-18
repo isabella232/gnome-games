@@ -51,4 +51,12 @@ private class Games.DummyRunner : Object, Runner {
 	public InputMode[] get_available_input_modes () {
 		return { };
 	}
+
+	public bool key_press_event (Gdk.EventKey event) {
+		return false;
+	}
+
+	public bool gamepad_button_press_event (uint16 button) {
+		return false;
+	}
 }

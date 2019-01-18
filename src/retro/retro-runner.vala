@@ -309,6 +309,14 @@ public class Games.RetroRunner : Object, Runner {
 			return { InputMode.GAMEPAD };
 	}
 
+	public bool key_press_event (Gdk.EventKey event) {
+		return false;
+	}
+
+	public bool gamepad_button_press_event (uint16 button) {
+		return false;
+	}
+
 	private void on_media_number_changed () {
 		if (!is_initialized)
 			return;
