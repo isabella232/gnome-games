@@ -203,6 +203,8 @@ vala_sources = [
   'main.vala',
 ]
 
+event_codes_dep = valac.find_library ('event-codes', dirs: gamepad_dir)
+
 dependencies = [
   config_dep,
   handy_dep,
@@ -219,7 +221,7 @@ dependencies = [
   xml_dep,
   valac.find_library ('linux'),
   valac.find_library ('posix'),
-  valac.find_library ('event-codes', dirs: gamepad_dir),
+  event_codes_dep,
 ]
 
 gnome_games_exec = executable (
@@ -240,6 +242,7 @@ plugin_dependencies = [
   retro_gtk_dep,
   soup_dep,
   tracker_sparql_dep,
+  event_codes_dep,
 ]
 
 gnome_games_dep = declare_dependency (
