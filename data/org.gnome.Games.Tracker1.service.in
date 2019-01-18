@@ -1,4 +1,3 @@
 [D-BUS Service]
 Name=@appid@.Tracker1
 Exec=@libexecdir@/tracker-store -d @appid@
-SystemdService=tracker-store.service
