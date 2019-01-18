@@ -42,6 +42,7 @@ retro_gtk_dep = dependency ('retro-gtk-0.14', version: '>=' + retro_gtk_min_vers
 rsvg_dep = dependency ('librsvg-2.0')
 soup_dep = dependency ('libsoup-2.4')
 sqlite_dep = dependency ('sqlite3')
+tracker_control_dep = dependency ('tracker-control-2.0')
 tracker_sparql_dep = dependency ('tracker-sparql-2.0')
 xml_dep = dependency ('libxml-2.0')
 

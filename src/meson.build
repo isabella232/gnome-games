@@ -213,6 +213,7 @@ dependencies = [
   rsvg_dep,
   soup_dep,
   sqlite_dep,
+  tracker_control_dep,
   tracker_sparql_dep,
   xml_dep,
   valac.find_library ('linux'),

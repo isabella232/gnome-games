@@ -12,6 +12,7 @@ public class Games.Application : Gtk.Application {
 	private bool game_list_loaded;
 
 	private GameCollection game_collection;
+	private Tracker.MinerManager tracker_miner_manager;
 
 	private Manette.Monitor manette_monitor;
 
@@ -252,6 +253,13 @@ public class Games.Application : Gtk.Application {
 			Tracker.Sparql.Connection.set_domain (Config.APPLICATION_ID);
 			var connection = Tracker.Sparql.Connection.@get ();
 			tracker_uri_source = new TrackerUriSource (connection);
+
+			tracker_miner_manager = new Tracker.MinerManager ();
+
+			message("ontology: %s", tracker_miner_manager.domain_ontology);
+			var services = tracker_miner_manager.get_running ();
+			foreach (var service in services)
+				message("miner: %s", service);
 		}
 		catch (Error e) {
 			debug (e.message);
