@@ -70,4 +70,28 @@ private class Games.DisplayBox : Gtk.Bin {
 		if (child != null)
 			display_bin.remove (child);
 	}
+
+	public bool on_key_press_event (Gdk.EventKey event) {
+		if (!get_mapped ())
+			return false;
+
+		if (runner == null)
+			return false;
+
+		return runner.key_press_event (event);
+	}
+
+	public bool gamepad_button_press_event (Manette.Event event) {
+		if (!get_mapped ())
+			return false;
+
+		if (runner == null)
+			return false;
+
+		uint16 button;
+		if (!event.get_button (out button))
+			return false;
+
+		return runner.gamepad_button_press_event (button);
+	}
 }

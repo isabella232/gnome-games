@@ -89,6 +89,9 @@ private class Games.DisplayView : Object, UiView {
 	public bool on_key_pressed (Gdk.EventKey event) {
 		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
 
+		if (box.on_key_press_event (event))
+			return true;
+
 		if ((event.keyval == Gdk.Key.f || event.keyval == Gdk.Key.F) &&
 		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK &&
 		    header_bar.can_fullscreen) {
@@ -139,6 +142,9 @@ private class Games.DisplayView : Object, UiView {
 		uint16 button;
 		if (!event.get_button (out button))
 			return false;
+
+		if (box.gamepad_button_press_event (event))
+			return true;
 
 		switch (button) {
 		case EventCode.BTN_MODE:
