@@ -31,6 +31,7 @@ flatpak:app:
     - flatpak-builder --stop-at=${FLATPAK_MODULE} app ${MANIFEST_PATH}
     - flatpak build app meson --prefix=/app -Dprofile=development ${MESON_ARGS} _build
     - flatpak build app ninja -C _build install
+    - flatpak build app ninja -C _build test
     - flatpak build app mkdir -p /app/lib/libretro/extra.d
     - flatpak-builder --finish-only --repo=repo app ${MANIFEST_PATH}
     - flatpak build-bundle repo ${BUNDLE} --runtime-repo=${RUNTIME_REPO} org.gnome.GamesDevel
