@@ -30,6 +30,8 @@ public class Games.Application : Gtk.Application {
 		add_actions ();
 		add_signal_handlers ();
 
+		try_make_dir (get_data_dir ());
+
 		var database_path = get_database_path ();
 		try {
 			database = new Database (database_path);
