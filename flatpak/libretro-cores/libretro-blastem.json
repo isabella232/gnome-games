@@ -5,10 +5,11 @@
                 "arm"
             ],
             "no-autogen": true,
-            "subdir": "libretro",
+            "install-rule": "install_libretro",
             "make-args": [
                 "prefix=/app",
-                "core_installdir=/app/lib/libretro"
+                "core_installdir=/app/lib/libretro",
+                "libblastem.so"
             ],
             "make-install-args": [
                 "prefix=/app",
@@ -21,13 +22,21 @@
             ],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/libretro/blastem-libretro.git"
+                    "type": "archive",
+                    "url": "https://www.retrodev.com/repos/blastem/archive/ba3fb7a3be6b.tar.gz",
+                    "sha256": "5c11eaaa385d82ef3796a7a8372398ab62ba7de7d9b3526b8bb161618f94c133"
+                },
+                {
+                    "type": "patch",
+                    "path": "blastem-Add-the-Libretro-installation-rules.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "blastem-Bundle-rom.db-as-a-resource.patch"
                 },
                 {
                     "type": "file",
-                    "path": "blastem.libretro",
-                    "dest-filename": "libretro/blastem.libretro"
+                    "path": "blastem.libretro"
                 }
             ]
         }

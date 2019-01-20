@@ -1,0 +1,64 @@
+From 0c823eb78531b6d6e9103dff953b27ee8ae33a68 Mon Sep 17 00:00:00 2001
+From: Adrien Plazas <kekun.plazas@laposte.net>
+Date: Mon, 11 Feb 2019 13:34:36 +0100
+Subject: [PATCH 2/2] Bundle rom.db as a resource
+
+This lets BlastEm fall back to the bundled rom.db if the file isn't
+found.
+---
+ Makefile | 12 +++++++++++-
+ config.c |  4 ++++
+ 2 files changed, 15 insertions(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index a421341..6934a06 100644
+--- a/Makefile
++++ b/Makefile
+@@ -302,6 +302,16 @@ offsets : offsets.c z80_to_x86.h m68k_core.h
+ vos_prog_info : vos_prog_info.o vos_program_module.o
+ 	$(CC) -o vos_prog_info vos_prog_info.o vos_program_module.o
+ 
++romdb_resource.h : rom.db
++	echo "#ifndef ROMDB_RESOURCE_H_" > $@
++	echo "#define ROMDB_RESOURCE_H_" >> $@
++	echo "unsigned char romdb_resource[] = {" >> $@
++	hexdump -v -e '12/1 "0x%02X, " "\n"' $< | sed 's/ 0x  ,//g; s/.*/  &/' >> $@
++	echo "};" >> $@
++	echo "#endif //ROMDB_RESOURCE_H_" >> $@
++
++config.c : romdb_resource.h
++
+ %.o : %.S
+ 	$(CC) -c -o $@ $<
+ 
+@@ -340,4 +350,4 @@ uninstall_libretro:
+ 	rm $(DESTDIR)$(libdir)/$(LIBRETRO_DIR)/$(TARGET)
+ 
+ clean :
+-	rm -rf $(ALL) trans ztestrun ztestgen *.o nuklear_ui/*.o zlib/*.o
++	rm -rf $(ALL) trans ztestrun ztestgen romdb_resource.h *.o nuklear_ui/*.o zlib/*.o
+diff --git a/config.c b/config.c
+index 351bff7..1483fee 100644
+--- a/config.c
++++ b/config.c
+@@ -6,6 +6,7 @@
+ #include "tern.h"
+ #include "util.h"
+ #include "paths.h"
++#include "romdb_resource.h"
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+@@ -219,6 +220,9 @@ tern_node *parse_bundled_config(char *config_name)
+ 		confdata[confsize] = 0;
+ 		ret = parse_config(confdata);
+ 		free(confdata);
++	} else if (!strcmp("rom.db", config_name)) {
++		puts("ROM DB file not found, falling back to the bundled resource\n");
++		ret = parse_config(romdb_resource);
+ 	}
+ #ifdef CONFIG_PATH
+ 	}
+-- 
+2.20.1
+
