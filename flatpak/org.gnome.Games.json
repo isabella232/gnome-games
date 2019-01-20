@@ -71,7 +71,7 @@
         "libretro-cores/libretro-blastem.json",
         "libretro-cores/libretro-bsnes-mercury.json",
         "libretro-cores/libretro-desmume2015.json",
-        "libretro-cores/libretro-dosbox.json",
+        "libretro-cores/libretro-dosbox_svn.json",
         "libretro-cores/libretro-gambatte.json",
         "libretro-cores/libretro-gearsystem.json",
         "libretro-cores/libretro-handy.json",

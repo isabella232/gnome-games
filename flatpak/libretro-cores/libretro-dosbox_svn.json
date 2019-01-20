@@ -1,0 +1,35 @@
+        {
+            "name": "libretro-dosbox_svn",
+            "no-autogen": true,
+            "subdir": "libretro",
+            "make-args": [
+                "--makefile=Makefile.install",
+                "prefix=/app"
+            ],
+            "make-install-args": [
+                "--makefile=Makefile.install",
+                "prefix=/app"
+            ],
+            "post-install": [
+                /* TODO: Send that upstream */
+                "mkdir -p /app/lib/libretro/",
+                "install -m644 -p dosbox_svn.libretro /app/lib/libretro/"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/libretro/dosbox-svn.git",
+                    "branch": "libretro"
+                },
+                {
+                    "type": "file",
+                    "path": "dosbox_svn-Makefile.install",
+                    "dest-filename": "libretro/Makefile.install"
+                },
+                {
+                    "type": "file",
+                    "path": "dosbox_svn.libretro",
+                    "dest-filename": "libretro/dosbox_svn.libretro"
+                }
+            ]
+        }

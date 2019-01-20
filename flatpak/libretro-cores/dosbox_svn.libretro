@@ -1,10 +1,10 @@
 [Libretro]
 Type=Emulator
 Version=1.0
-Name=DOSBox
-Module=dosbox_libretro.so
+Name=DOSBox-SVN
+Module=dosbox_svn_libretro.so
 LibretroVersion=1
-Authors=DOSBox Team;
+Authors=DOSBox Team;fr500;
 License=GPL-2.0+;
 
 [Platform:MSDOS]

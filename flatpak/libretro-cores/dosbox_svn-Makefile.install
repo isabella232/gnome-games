@@ -1,0 +1,4 @@
+include Makefile.libretro
+
+install: dosbox_svn_libretro.so
+	install -Dp -m755 dosbox_svn_libretro.so $(DESTDIR)$(prefix)/lib/libretro/dosbox_svn_libretro.so
