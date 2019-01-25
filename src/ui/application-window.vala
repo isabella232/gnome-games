@@ -166,8 +166,6 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (run_game_cancellable != null)
 			run_game_cancellable.cancel ();
 
-		run_game_cancellable = new Cancellable ();
-
 		var cancellable = new Cancellable ();
 		run_game_cancellable = cancellable;
 
