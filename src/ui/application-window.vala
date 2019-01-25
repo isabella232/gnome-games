@@ -163,6 +163,10 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	public void run_game (Game game) {
+		// If there is a game already running we have to quit it first
+		if (display_box.runner != null && !quit_game())
+			return;
+
 		if (run_game_cancellable != null)
 			run_game_cancellable.cancel ();
 
