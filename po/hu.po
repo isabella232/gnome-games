@@ -1,28 +1,28 @@
 # Hungarian translation for gnome-games.
-# Copyright (C) 2016, 2017, 2018 Free Software Foundation, Inc.
+# Copyright (C) 2016, 2017, 2018, 2019 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-games package.
 #
-# Balázs Úr <urbalazs at gmail dot com>, 2016, 2017, 2018.
+# Balázs Úr <urbalazs at gmail dot com>, 2016, 2017, 2018, 2019.
 # Gabor Kelemen <kelemeng at ubuntu dot com>, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2018-08-27 20:15+0000\n"
-"PO-Revision-Date: 2018-08-31 22:58+0200\n"
-"Last-Translator: Meskó Balázs <mesko.balazs@fsf.hu>\n"
-"Language-Team: Hungarian <openscope at googlegroups dot com>\n"
+"POT-Creation-Date: 2018-12-11 09:49+0000\n"
+"PO-Revision-Date: 2019-01-27 18:22+0100\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.8\n"
+"X-Generator: Lokalize 1.2\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:6
 #: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:40
 #: data/ui/collection-header-bar.ui:67 data/ui/display-header-bar.ui:6
-#: src/ui/application.vala:26
+#: src/ui/application.vala:25
 msgid "Games"
 msgstr "Játékok"
 
@@ -70,6 +70,10 @@ msgstr "Játékok elindítása"
 #: data/org.gnome.Games.appdata.xml.in.in:25
 msgid "Resume your game to where you left it"
 msgstr "Játék folytatása, ahol abbahagyta"
+
+#: data/org.gnome.Games.appdata.xml.in.in:53
+msgid "The GNOME Project"
+msgstr "A GNOME projekt"
 
 #: data/org.gnome.Games.desktop.in.in:4
 msgid "Video game player"
@@ -151,24 +155,24 @@ msgid "Search"
 msgstr "Keresés"
 
 #: data/ui/collection-header-bar.ui:111 data/ui/preferences-window.ui:6
-#: data/ui/preferences-window.ui:18
+#: data/ui/preferences-window.ui:25
 msgid "Preferences"
 msgstr "Beállítások"
 
-#: data/ui/collection-header-bar.ui:126 data/ui/shortcuts-window.ui:10
-msgid "Shortcuts"
+#: data/ui/collection-header-bar.ui:119
+msgid "Keyboard Shortcuts"
 msgstr "Gyorsbillentyűk"
 
-#: data/ui/collection-header-bar.ui:134
+#: data/ui/collection-header-bar.ui:127
 msgid "Help"
 msgstr "Súgó"
 
-#: data/ui/collection-header-bar.ui:142
-msgid "About"
-msgstr "Névjegy"
+#: data/ui/collection-header-bar.ui:135
+msgid "About Games"
+msgstr "A Játékok névjegye"
 
-#: data/ui/display-header-bar.ui:20 data/ui/gamepad-configurer.ui:73
-#: data/ui/keyboard-configurer.ui:74
+#: data/ui/display-header-bar.ui:20 data/ui/preferences-subpage-gamepad.ui:82
+#: data/ui/preferences-subpage-keyboard.ui:83
 msgid "Back"
 msgstr "Vissza"
 
@@ -199,58 +203,53 @@ msgstr ""
 "Telepítsen játékokat, vagy adjon hozzá játékokat tartalmazó könyvtárakat a "
 "keresési forrásokhoz."
 
-#: data/ui/gamepad-configurer.ui:35
-msgctxt "Gamepad configuration factory reset"
-msgid "Reset"
-msgstr "Visszaállítás"
+#: data/ui/input-mode-switcher.ui:16
+msgid "Gamepad Input"
+msgstr "Irányító bemenet"
 
-#: data/ui/gamepad-configurer.ui:48 data/ui/keyboard-configurer.ui:49
-msgid "Configure"
-msgstr "Beállítás"
-
-#: data/ui/gamepad-configurer.ui:91 data/ui/keyboard-configurer.ui:92
-#: data/ui/quit-dialog.ui:15 data/ui/reset-controller-mapping-dialog.ui:15
-#: data/ui/resume-failed-dialog.ui:14
-msgid "Cancel"
-msgstr "Mégse"
-
-#: data/ui/gamepad-mapper.ui:19 data/ui/keyboard-mapper.ui:19
-msgid "Skip"
-msgstr "Kihagyás"
-
-#: data/ui/keyboard-configurer.ui:36
-msgctxt "Keyboard configuration factory reset"
-msgid "Reset"
-msgstr "Visszaállítás"
+#: data/ui/input-mode-switcher.ui:36
+msgid "Keyboard Input"
+msgstr "Billentyűzet bemenet"
 
 #: data/ui/media-menu-button.ui:11
 msgid "Media"
 msgstr "Adathordozó"
 
-#: data/ui/preferences-page-controllers.ui:31
+#: data/ui/preferences-page-controllers.ui:9
 msgid "Gamepads"
 msgstr "Irányítók"
 
-#: data/ui/preferences-page-controllers.ui:54
-#: src/ui/preferences-page-controllers.vala:95
+#: data/ui/preferences-page-controllers.ui:32
+#: src/ui/preferences-page-controllers.vala:75
 msgid "Keyboard"
 msgstr "Billentyűzet"
 
-#: data/ui/preferences-page-controllers.ui:86 data/ui/preferences-window.ui:79
-msgid "Controllers"
-msgstr "Vezérlők"
-
-#: data/ui/preferences-page-plugins.ui:40 data/ui/preferences-window.ui:88
-msgid "Extensions"
-msgstr "Kiterjesztések"
-
-#: data/ui/preferences-page-video.ui:21
+#: data/ui/preferences-page-video.ui:9
 msgid "Filter"
 msgstr "Szűrő"
 
-#: data/ui/preferences-page-video.ui:50 data/ui/preferences-window.ui:70
-msgid "Video"
-msgstr "Videó"
+#: data/ui/preferences-subpage-gamepad.ui:21
+#: data/ui/preferences-subpage-keyboard.ui:22
+msgctxt "Keyboard configuration factory reset"
+msgid "Reset"
+msgstr "Visszaállítás"
+
+#: data/ui/preferences-subpage-gamepad.ui:34
+#: data/ui/preferences-subpage-keyboard.ui:35
+msgid "Configure"
+msgstr "Beállítás"
+
+#: data/ui/preferences-subpage-gamepad.ui:52
+#: data/ui/preferences-subpage-keyboard.ui:53
+msgid "Skip"
+msgstr "Kihagyás"
+
+#: data/ui/preferences-subpage-gamepad.ui:100
+#: data/ui/preferences-subpage-keyboard.ui:101 data/ui/quit-dialog.ui:15
+#: data/ui/reset-controller-mapping-dialog.ui:15
+#: data/ui/resume-failed-dialog.ui:14
+msgid "Cancel"
+msgstr "Mégse"
 
 #: data/ui/quit-dialog.ui:9
 msgid "Are you sure you want to quit?"
@@ -309,6 +308,10 @@ msgstr "A folytatás sikertelen. Szeretné újraindítani a játékot?"
 msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Visszaállítás"
+
+#: data/ui/shortcuts-window.ui:10
+msgid "Shortcuts"
+msgstr "Gyorsbillentyűk"
 
 #: data/ui/shortcuts-window.ui:14
 msgid "General"
@@ -498,6 +501,10 @@ msgstr "A(z) „%s” egy érvénytelen MAME játékazonosító ehhez: „%s”.
 msgid "Arcade"
 msgstr "Játékterem"
 
+#: plugins/ms-dos/src/ms-dos-plugin.vala:7
+msgid "MS-DOS"
+msgstr "MS-DOS"
+
 #: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:7
 msgid "Nintendo DS"
 msgstr "Nintendo DS"
@@ -643,11 +650,11 @@ msgstr "A fájlnak nincs Wii fejléce."
 msgid "Wii"
 msgstr "Wii"
 
-#: src/command/command-runner.vala:34
+#: src/command/command-runner.vala:39
 msgid "The game doesn’t have a valid command."
 msgstr "A fájlnak nincs Wii fejléce."
 
-#: src/command/command-runner.vala:60
+#: src/command/command-runner.vala:65
 #, c-format
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "A(z) „%s” nem futtatható: végrehajtás sikertelen."
@@ -667,21 +674,9 @@ msgstr "Érvénytelen bővítményleíró: %s"
 msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr "Nem hozható létre a bővítmény új példánya itt: „%s”."
 
-#: src/dummy/dummy-description.vala:5
-msgid "No description available."
-msgstr "Nem áll rendelkezésre leírás."
-
-#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:19
+#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:22
 msgid "Unknown"
 msgstr "Ismeretlen"
-
-#: src/dummy/dummy-players.vala:5
-msgid "Not available"
-msgstr "Nem érhető el"
-
-#: src/dummy/dummy-publisher.vala:5
-msgid "Publisher not available."
-msgstr "A kiadó nem érhető el."
 
 #: src/gameinfo/gameinfo-disc-id-disc-title.vala:24
 #, c-format
@@ -708,11 +703,11 @@ msgstr "Nem található lemezkészlet-azonosító a(z) „%s” lemezazonosító
 msgid "No disc found for disc ID “%s”."
 msgstr "Nem található lemez a(z) „%s” lemezazonosítóhoz."
 
-#: src/grilo/grilo-players.vala:46
+#: src/grilo/grilo-players.vala:40
 msgid "Single-player"
 msgstr "Egyjátékos"
 
-#: src/grilo/grilo-players.vala:48
+#: src/grilo/grilo-players.vala:42
 msgid "Multi-player"
 msgstr "Többjátékos"
 
@@ -748,22 +743,22 @@ msgstr ""
 "Ennek a játéknak a futtatásához a(z) %s, %s SHA-512 ujjlenyomattal ellátott "
 "firmware fájl szükséges."
 
-#: src/retro/retro-runner.vala:241
+#: src/retro/retro-runner.vala:255
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nem található modul ehhez: „%s”."
 
-#: src/retro/retro-runner.vala:541
+#: src/retro/retro-runner.vala:561
 msgid "Unknown platform"
 msgstr "Ismeretlen platform"
 
-#: src/retro/retro-runner.vala:586
+#: src/retro/retro-runner.vala:604
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
 "A(z) „%s” rendszer még nem támogatott, de a teljes támogatás tervezett."
 
-#: src/retro/retro-runner.vala:589
+#: src/retro/retro-runner.vala:606
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "A rendszer még nem támogatott, de a teljes támogatás tervezett."
 
@@ -814,101 +809,97 @@ msgid "Master System"
 msgstr "Master System"
 
 #: src/retro/retro-simple-type.vala:37
-msgid "MS-DOS"
-msgstr "MS-DOS"
-
-#: src/retro/retro-simple-type.vala:39
 msgid "Neo Geo Pocket"
 msgstr "Neo Geo Pocket"
 
-#: src/retro/retro-simple-type.vala:41
+#: src/retro/retro-simple-type.vala:39
 msgid "Neo Geo Pocket Color"
 msgstr "Neo Geo Pocket Color"
 
 #. translators: known as "Famicom" in eastern Asia
-#: src/retro/retro-simple-type.vala:44
+#: src/retro/retro-simple-type.vala:42
 msgid "Nintendo Entertainment System"
 msgstr "Nintendo Entertainment System"
 
-#: src/retro/retro-simple-type.vala:46
+#: src/retro/retro-simple-type.vala:44
 msgid "Nintendo 64"
 msgstr "Nintendo 64"
 
 #. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
-#: src/retro/retro-simple-type.vala:49
+#: src/retro/retro-simple-type.vala:47
 msgid "Genesis 32X"
 msgstr "Genesis 32X"
 
 #. translators: known as "Mega Drive" in most of the world
-#: src/retro/retro-simple-type.vala:52
+#: src/retro/retro-simple-type.vala:50
 msgid "Sega Genesis"
 msgstr "Sega Genesis"
 
-#: src/retro/retro-simple-type.vala:54
+#: src/retro/retro-simple-type.vala:52
 msgid "Sega Pico"
 msgstr "Sega Pico"
 
-#: src/retro/retro-simple-type.vala:56
+#: src/retro/retro-simple-type.vala:54
 msgid "SG-1000"
 msgstr "SG-1000"
 
 #. translators: known as "Super Famicom" in eastern Asia
-#: src/retro/retro-simple-type.vala:59
+#: src/retro/retro-simple-type.vala:57
 msgid "Super Nintendo Entertainment System"
 msgstr "Super Nintendo Entertainment System"
 
 #. translators: known as "PC Engine" in eastern Asia and France
-#: src/retro/retro-simple-type.vala:62
+#: src/retro/retro-simple-type.vala:60
 msgid "TurboGrafx-16"
 msgstr "TurboGrafx-16"
 
-#: src/retro/retro-simple-type.vala:64
+#: src/retro/retro-simple-type.vala:62
 msgid "WiiWare"
 msgstr "WiiWare"
 
-#: src/retro/retro-simple-type.vala:66
+#: src/retro/retro-simple-type.vala:64
 msgid "WonderSwan"
 msgstr "WonderSwan"
 
-#: src/retro/retro-simple-type.vala:68
+#: src/retro/retro-simple-type.vala:66
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:174
+#: src/ui/application.vala:169
 msgid "Select game files"
 msgstr "Játékfájlok kiválasztása"
 
-#: src/ui/application.vala:175
+#: src/ui/application.vala:170
 msgid "_Add"
 msgstr "_Hozzáadás"
 
-#: src/ui/application.vala:175
+#: src/ui/application.vala:170
 msgid "_Cancel"
 msgstr "_Mégse"
 
-#: src/ui/application.vala:389
+#: src/ui/application.vala:367
 msgid "GNOME Games"
 msgstr "GNOME Játékok"
 
-#: src/ui/application.vala:391
+#: src/ui/application.vala:369
 msgid "A video game player for GNOME"
 msgstr "Egy videojáték-lejátszó a GNOME-hoz"
 
-#: src/ui/application.vala:395
+#: src/ui/application.vala:373
 msgid "Learn more about GNOME Games"
 msgstr "Tudjon meg többet a GNOME Játékokról"
 
-#: src/ui/application.vala:402
+#: src/ui/application.vala:380
 msgid "translator-credits"
 msgstr ""
 "Úr Balázs <urbalazs at gmail dot com>\n"
 "Meskó Balázs <mesko.balazs at fsf dot hu>"
 
-#: src/ui/application-window.vala:380
+#: src/ui/application-window.vala:383
 msgid "An unexpected error occurred."
 msgstr "Váratlan hiba történt."
 
-#: src/ui/application-window.vala:660 src/ui/application-window.vala:677
+#: src/ui/application-window.vala:663 src/ui/application-window.vala:680
 msgid "Playing a game"
 msgstr "Játék elindítása"
 
@@ -921,37 +912,17 @@ msgstr "Hoppá! A(z) „%s” nem futtatható"
 msgid "Oops! Unable to run the game"
 msgstr "Hoppá! A játék nem futtatható"
 
-#. translators: testing a gamepad, %s is its name
-#: src/ui/gamepad-configurer.vala:78
-#, c-format
-msgid "Testing %s"
-msgstr "%s tesztelése"
-
-#. translators: configuring a gamepad, %s is its name
-#: src/ui/gamepad-configurer.vala:92
-#, c-format
-msgid "Configuring %s"
-msgstr "%s beállítása"
-
-#: src/ui/gamepad-mapper.vala:126
+#: src/ui/gamepad-mapper.vala:125
 msgid "Press suitable button on your gamepad"
 msgstr "Nyomja meg a megfelelő gombot az irányítón"
 
-#: src/ui/gamepad-mapper.vala:131
+#: src/ui/gamepad-mapper.vala:130
 msgid "Move suitable axis left/right on your gamepad"
 msgstr "Mozgassa a megfelelő tengelyt balra/jobbra az irányítón"
 
-#: src/ui/gamepad-mapper.vala:133
+#: src/ui/gamepad-mapper.vala:132
 msgid "Move suitable axis up/down on your gamepad"
 msgstr "Mozgassa a megfelelő tengelyt fel/le az irányítón"
-
-#: src/ui/keyboard-configurer.vala:67
-msgid "Testing Keyboard"
-msgstr "Billentyűzet tesztelése"
-
-#: src/ui/keyboard-configurer.vala:80
-msgid "Configuring Keyboard"
-msgstr "Billentyűzet beállítása"
 
 #: src/ui/keyboard-mapper.vala:18
 msgid "Press suitable key on your keyboard"
@@ -962,18 +933,50 @@ msgstr "Nyomja meg a megfelelő gombot a billentyűzeten"
 msgid "Media %d"
 msgstr "%d. adathordozó"
 
+#: src/ui/preferences-page-controllers.vala:24
+msgid "Controllers"
+msgstr "Vezérlők"
+
+#: src/ui/preferences-page-plugins.vala:12
+msgid "Extensions"
+msgstr "Kiterjesztések"
+
 #. same as video-filters in gschema
-#: src/ui/preferences-page-video.vala:34
+#: src/ui/preferences-page-video.vala:22
 msgid "Smooth"
 msgstr "Sima"
 
-#: src/ui/preferences-page-video.vala:34
+#: src/ui/preferences-page-video.vala:22
 msgid "Sharp"
 msgstr "Éles"
 
-#: src/ui/preferences-page-video.vala:34
+#: src/ui/preferences-page-video.vala:22
 msgid "CRT"
 msgstr "CRT"
+
+#: src/ui/preferences-page-video.vala:36
+msgid "Video"
+msgstr "Videó"
+
+#. translators: testing a gamepad, %s is its name
+#: src/ui/preferences-subpage-gamepad.vala:78
+#, c-format
+msgid "Testing %s"
+msgstr "%s tesztelése"
+
+#. translators: configuring a gamepad, %s is its name
+#: src/ui/preferences-subpage-gamepad.vala:89
+#, c-format
+msgid "Configuring %s"
+msgstr "%s beállítása"
+
+#: src/ui/preferences-subpage-keyboard.vala:68
+msgid "Testing Keyboard"
+msgstr "Billentyűzet tesztelése"
+
+#: src/ui/preferences-subpage-keyboard.vala:78
+msgid "Configuring Keyboard"
+msgstr "Billentyűzet beállítása"
 
 #: src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
@@ -1026,42 +1029,3 @@ msgstr "%s:%lu: Váratlan sorvég, egy token várt."
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: Váratlan %s token, sorvég várt."
 
-#~ msgid "_Preferences"
-#~ msgstr "_Beállítások"
-
-#~ msgid "_Quit"
-#~ msgstr "_Kilépés"
-
-#~ msgid "Plugins"
-#~ msgstr "Bővítmények"
-
-#~ msgctxt "Confirm gamepad configuration factory reset"
-#~ msgid "Reset"
-#~ msgstr "Visszaállítás"
-
-#~ msgid "Atari 5200"
-#~ msgstr "Atari 5200"
-
-#~ msgid "MAME"
-#~ msgstr "MAME"
-
-#~ msgid "Nintendo 3DS"
-#~ msgstr "Nintendo 3DS"
-
-#~ msgid "PlayStation 2"
-#~ msgstr "PlayStation 2"
-
-#~ msgid "PlayStation 3"
-#~ msgstr "PlayStation 3"
-
-#~ msgid "PlayStation 4"
-#~ msgstr "PlayStation 4"
-
-#~ msgid "PlayStation Portable"
-#~ msgstr "PlayStation Portable"
-
-#~ msgid "PlayStation Vita"
-#~ msgstr "PlayStation Vita"
-
-#~ msgid "Wii U"
-#~ msgstr "Wii U"
