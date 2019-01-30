@@ -359,12 +359,16 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 		is_fullscreen = settings.get_boolean ("fullscreen") && runner.can_fullscreen;
 
-		bool resume = false;
+		var response = Gtk.ResponseType.NONE;
 		if (runner.can_resume)
-			resume = prompt_resume_with_cancellable (cancellable);
+			response = prompt_resume_with_cancellable (cancellable);
 
-		if (!try_run_with_cancellable (runner, resume, cancellable))
-			prompt_resume_fail_with_cancellable (runner, cancellable);
+		if (response != Gtk.ResponseType.NONE) {
+			var resume = (response == Gtk.ResponseType.ACCEPT);
+
+			if (!try_run_with_cancellable (runner, resume, cancellable))
+				prompt_resume_fail_with_cancellable (runner, cancellable);
+		}
 	}
 
 	private Runner? try_get_runner (Game game) {
@@ -388,9 +392,9 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		}
 	}
 
-	private bool prompt_resume_with_cancellable (Cancellable cancellable) {
+	private Gtk.ResponseType prompt_resume_with_cancellable (Cancellable cancellable) {
 		if (resume_dialog != null)
-			return false;
+			return Gtk.ResponseType.NONE;
 
 		resume_dialog = new ResumeDialog ();
 		resume_dialog.transient_for = this;
@@ -401,16 +405,15 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		});
 
 		var response = resume_dialog.run ();
-		resume_dialog.destroy ();
-		resume_dialog = null;
 
-		if (cancellable.is_cancelled ())
-			response = Gtk.ResponseType.CANCEL;
+		// The null check is necessary because the dialog could already
+		// be canceled by this point
+		if (resume_dialog != null) {
+			resume_dialog.destroy ();
+			resume_dialog = null;
+		}
 
-		if (response == Gtk.ResponseType.CANCEL)
-			return false;
-
-		return true;
+		return (Gtk.ResponseType) response;
 	}
 
 	private bool try_run_with_cancellable (Runner runner, bool resume, Cancellable cancellable) {
