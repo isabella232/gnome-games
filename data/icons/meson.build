@@ -17,7 +17,7 @@ foreach icon_size: icon_sizes
   )
 endforeach
 
-hicolor_dir = join_paths('hicolor', 'scalable', 'apps')
+hicolor_dir = join_paths('hicolor', 'symbolic', 'apps')
 
 install_data(
   join_paths(hicolor_dir, 'org.gnome.Games-symbolic.svg'),
