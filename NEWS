@@ -1,3 +1,26 @@
+===============
+Version 3.31.90
+===============
+
+* During search, developers and platforms without any games to show are now
+  hidden.
+
+* Fixes
+ - Quit dialog now actually appears when exiting a game that doesn't support
+   snapshots.
+ - Opening a game by double-clicking while another game is running now quits
+   the previous game correctly.
+ - Database file is now correctly created even if data directory didn't exist.
+ - Steam plugin now works if ~/.steam directory contains invalid symlinks.
+
+* Symbolic icon is now installed into symbolic/ directory instead of scalable/.
+
+* Deprecated HighContrast app icons have been removed.
+
+* Translation updates
+ Hungarian
+ Spanish
+
 ==============
 Version 3.31.4
 ==============
