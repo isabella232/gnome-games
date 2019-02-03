@@ -439,9 +439,6 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private void save_snapshot () throws Error {
-		if (!core.get_can_access_state ())
-			return;
-
 		var bytes = core.get_state ();
 		var buffer = bytes.get_data ();
 
