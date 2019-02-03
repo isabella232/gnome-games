@@ -475,10 +475,13 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (display_box.runner == null)
 			return true;
 
-		display_box.runner.stop ();
+		display_box.runner.pause ();
 
-		if (display_box.runner.can_quit_safely)
+		if (display_box.runner.can_quit_safely) {
+			display_box.runner.stop();
+
 			return true;
+		}
 
 		if (quit_dialog != null)
 			return false;
@@ -492,8 +495,13 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		});
 
 		var response = quit_dialog.run ();
-		quit_dialog.destroy ();
-		quit_dialog = null;
+
+		// The null check is necessary because the dialog could already
+		// be canceled by this point
+		if (quit_dialog != null) {
+			quit_dialog.destroy ();
+			quit_dialog = null;
+		}
 
 		if (cancellable.is_cancelled ())
 			return cancel_quitting_game ();
