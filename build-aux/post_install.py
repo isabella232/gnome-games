@@ -14,7 +14,6 @@ if not destdir and len(sys.argv) > 1:
 
     print('Updating icon cache...')
     subprocess.call(['gtk-update-icon-cache', '-qtf', os.path.join(datadir, 'icons', 'hicolor')])
-    subprocess.call(['gtk-update-icon-cache', '-qtf', os.path.join(datadir, 'icons', 'HighContrast')])
 
     print('Updating desktop database...')
     subprocess.call(['update-desktop-database', '-q', os.path.join(datadir, 'icons', 'applications')])
