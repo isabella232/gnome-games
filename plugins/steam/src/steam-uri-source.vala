@@ -6,7 +6,7 @@ private class Games.SteamUriSource : Object, UriSource {
 	// From the home directory.
 	private const string REGISTRY_PATH = "/.steam/registry.vdf";
 	// From the home directory.
-	private const string DEFAULT_INSTALL_DIR_SYMLINK = "/.steam/steam";
+	private const string DEFAULT_INSTALL_DIR = "/.local/share/Steam";
 	// From an install directory.
 	private const string[] STEAMAPPS_DIRS = { "/SteamApps", "/steamapps" };
 	// From the default SteamApp directory.
@@ -32,7 +32,7 @@ private class Games.SteamUriSource : Object, UriSource {
 		if (FileUtils.test (base_dir + STEAM_DIR, FileTest.IS_SYMLINK))
 			return;
 
-		add_library (base_dir + DEFAULT_INSTALL_DIR_SYMLINK);
+		add_library (base_dir + DEFAULT_INSTALL_DIR);
 
 		if (install_path == null)
 			return;
