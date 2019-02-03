@@ -359,6 +359,11 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 		is_fullscreen = settings.get_boolean ("fullscreen") && runner.can_fullscreen;
 
+		if (!runner.can_resume) {
+			try_run_with_cancellable (runner, false, cancellable);
+			return;
+		}
+
 		var response = Gtk.ResponseType.NONE;
 		if (runner.can_resume)
 			response = prompt_resume_with_cancellable (cancellable);
