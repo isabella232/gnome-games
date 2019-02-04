@@ -2,7 +2,6 @@ stages:
   - build
   - test
   - review
-  - cross_distro
 
 variables:
   BUNDLE: "gnome-games-git.flatpak"
@@ -76,30 +75,3 @@ stop_review:
   except:
     - master@GNOME/gnome-games
     - tags
-
-fedora:29:
-  image: fedora:29
-  stage: cross_distro
-  before_script:
-    - dnf update -y
-    # libmanette, retro-gtk and gnome-games aren't in Fedora repos, so we
-    # cannot simply do `dnf builddep -y libmanette retro-gtk gnome-games`
-    - dnf install -y redhat-rpm-config git vala meson libevdev-devel libepoxy-devel
-                     gtk3-devel pulseaudio-libs-devel grilo-devel librsvg2-devel
-                     libsoup-devel sqlite-devel tracker-devel libarchive-devel
-    - bash -x ./.gitlab-ci/prepare.sh
-  script:
-    - bash -x ./.gitlab-ci/build.sh
-
-ubuntu:devel:
-  image: ubuntu:devel
-  stage: cross_distro
-  before_script:
-    # Enable source repositories, this is required for `apt-get build-dep`
-    - sed -i -e 's/# deb-src/deb-src/' /etc/apt/sources.list
-    - apt-get update
-    - apt-get install -y git
-    - apt-get build-dep -y libmanette retro-gtk gnome-games-app
-    - bash -x ./.gitlab-ci/prepare.sh
-  script:
-    - bash -x ./.gitlab-ci/build.sh
