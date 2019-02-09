@@ -68,7 +68,7 @@ private class Games.MediaSelector : Gtk.Popover {
 		var i = 0;
 		var row = list_box.get_row_at_index (i);
 		while (row != null) {
-			var checkmark_item = row.get_child () as CheckmarkItem;
+			var checkmark_item = row as CheckmarkItem;
 			checkmark_item.checkmark_visible = (i == media_number);
 
 			row = list_box.get_row_at_index (++i);

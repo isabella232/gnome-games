@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <template class="GamesCheckmarkItem" parent="GtkBox">
-    <property name="margin">6</property>
-    <property name="spacing">12</property>
+  <template class="GamesCheckmarkItem" parent="GtkListBoxRow">
     <property name="visible">true</property>
     <child>
-      <object class="GtkLabel" id="title_label">
+      <object class="GtkBox">
+        <property name="margin">6</property>
+        <property name="spacing">12</property>
         <property name="visible">true</property>
-        <property name="vexpand">true</property>
-        <property name="wrap">true</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkImage" id="checkmark_image">
-        <property name="visible">False</property>
-        <property name="icon-name">object-select-symbolic</property>
-        <property name="valign">center</property>
+        <child>
+          <object class="GtkLabel" id="title_label">
+            <property name="visible">true</property>
+            <property name="vexpand">true</property>
+            <property name="wrap">true</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkImage" id="checkmark_image">
+            <property name="visible">False</property>
+            <property name="icon-name">object-select-symbolic</property>
+            <property name="valign">center</property>
+          </object>
+        </child>
       </object>
     </child>
   </template>
