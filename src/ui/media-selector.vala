@@ -48,6 +48,8 @@ private class Games.MediaSelector : Gtk.Popover {
 			}
 
 			var checkmark_item = new CheckmarkItem (media_name);
+			var media_has_uris = (media.get_uris ().length != 0);
+			checkmark_item.sensitive = media_has_uris;
 			var is_current_media = (_media_set.selected_media_number == media_number);
 			checkmark_item.checkmark_visible = is_current_media;
 			list_box.add (checkmark_item);
