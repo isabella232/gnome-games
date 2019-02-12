@@ -228,6 +228,11 @@ public class Games.Application : Gtk.Application {
 				list_store.append (game);
 		});
 
+		if (window != null) {
+			window.present ();
+			return;
+		}
+
 		window = new ApplicationWindow (list_store);
 		this.add_window (window);
 		window.destroy.connect (() => {
