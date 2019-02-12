@@ -2,15 +2,14 @@
 # Copyright (C) 2016 gnome-games's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-games package.
 #
-# Matej Urbančič <mateju@svn.gnome.org>, 2016
+# Matej Urbančič <mateju@svn.gnome.org>, 2016–2019
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"games&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-08-29 12:14+0000\n"
-"PO-Revision-Date: 2016-08-29 19:49+0200\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
+"POT-Creation-Date: 2019-02-12 14:19+0000\n"
+"PO-Revision-Date: 2019-02-12 17:18+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: sl_SI\n"
@@ -20,502 +19,1099 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.1.1\n"
 
-#: ../data/org.gnome.Games.appdata.xml.in.h:1
-#: ../data/org.gnome.Games.desktop.in.h:1
-#: ../data/ui/collection-header-bar.ui.h:1 ../data/ui/display-header-bar.ui.h:1
+#: data/org.gnome.Games.appdata.xml.in.in:6
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:40
+#: data/ui/collection-header-bar.ui:67 data/ui/display-header-bar.ui:6
+#: src/ui/application.vala:25
 msgid "Games"
 msgstr "Igre"
 
-#: ../data/org.gnome.Games.appdata.xml.in.h:2
+#: data/org.gnome.Games.appdata.xml.in.in:7
 #, fuzzy
 msgid "Simple game launcher for GNOME"
 msgstr "Zaganjalnik seje X za zaslon GNOME"
 
-#: ../data/org.gnome.Games.appdata.xml.in.h:3
+#: data/org.gnome.Games.appdata.xml.in.in:10
 msgid ""
 "Games is a GNOME 3 application to browse your video games library and to "
 "easily pick and play a game from it. It aims to do for games what Music "
 "already does for your music library."
 msgstr ""
 
-#: ../data/org.gnome.Games.appdata.xml.in.h:4
+#: data/org.gnome.Games.appdata.xml.in.in:15
 msgid ""
 "You want to install Games if you just want a very simple and comfortable way "
-"to play your games and you don't need advanced features such as speedrunning "
+"to play your games and you don’t need advanced features such as speedrunning "
 "tools or video game development tools."
 msgstr ""
 
-#: ../data/org.gnome.Games.appdata.xml.in.h:5
-#, fuzzy
+#: data/org.gnome.Games.appdata.xml.in.in:20
 msgid "Features:"
-msgstr "Zmožnosti"
+msgstr "Zmožnosti:"
 
-#: ../data/org.gnome.Games.appdata.xml.in.h:6
-msgid "List your installed games, your Steam games, your game ROMs..."
+#: data/org.gnome.Games.appdata.xml.in.in:22
+msgid "List your installed games, your Steam games, your game ROMs…"
 msgstr ""
 
-#: ../data/org.gnome.Games.appdata.xml.in.h:7
+#: data/org.gnome.Games.appdata.xml.in.in:23
 #, fuzzy
 msgid "Search in your games collection"
 msgstr "Namigi za vaše naslednje igre"
 
-#: ../data/org.gnome.Games.appdata.xml.in.h:8
+#: data/org.gnome.Games.appdata.xml.in.in:24
 #, fuzzy
 msgid "Play your games"
 msgstr "Igranje vseh iger"
 
-#: ../data/org.gnome.Games.appdata.xml.in.h:9
+#: data/org.gnome.Games.appdata.xml.in.in:25
 msgid "Resume your game to where you left it"
 msgstr ""
 
-#: ../data/org.gnome.Games.desktop.in.h:2
+#: data/org.gnome.Games.appdata.xml.in.in:53
+msgid "The GNOME Project"
+msgstr "Projekt GNOME"
+
+#: data/org.gnome.Games.desktop.in.in:4
 #, fuzzy
 msgid "Video game player"
 msgstr "Počisti igralčevo zgodovino iger"
 
-#: ../data/org.gnome.Games.desktop.in.h:3
+#: data/org.gnome.Games.desktop.in.in:5
 msgid "View and play your video games collection"
 msgstr ""
 
-#: ../data/org.gnome.Games.desktop.in.h:4
-#, fuzzy
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Games.desktop.in.in:7
 msgid "game;videogame;video game;player;"
-msgstr "Igralčeva zgodovina iger"
+msgstr "game;igra;videoigra;igralec;zabava;"
 
-#: ../data/gtk/menus.ui.h:1
-msgid "_Preferences"
-msgstr "_Možnosti"
+#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
+#: data/org.gnome.Games.desktop.in.in:10
+msgid "@icon@"
+msgstr "@icon@"
 
-#: ../data/gtk/menus.ui.h:2
-msgid "_About"
-msgstr "_O programu"
-
-#: ../data/gtk/menus.ui.h:3
-msgid "_Quit"
-msgstr "_Končaj"
-
-#: ../data/ui/collection-header-bar.ui.h:2
-msgid "Search"
-msgstr "Poišči"
-
-#: ../data/ui/display-header-bar.ui.h:2
-msgid "Back"
-msgstr "Nazaj"
-
-#: ../data/ui/display-header-bar.ui.h:3
+#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:43
 msgid "Fullscreen"
 msgstr "Celozaslonski način"
 
-#: ../data/ui/display-header-bar.ui.h:4
+#: data/org.gnome.Games.gschema.xml:11
+msgid "Whether the games should be displayed in full screen or not."
+msgstr ""
+
+#: data/org.gnome.Games.gschema.xml:15
+msgid "Video filter"
+msgstr "Slikovni filter"
+
+#: data/org.gnome.Games.gschema.xml:16
+msgid ""
+"Filter for the game video output. Allowed values are: “smooth” (blurry "
+"pixels), “sharp” (blocky pixels), “crt” (CRT emulation)."
+msgstr ""
+
+#: data/org.gnome.Games.gschema.xml:20
+msgid "Window maximized"
+msgstr "Razpeto okno"
+
+#: data/org.gnome.Games.gschema.xml:21
+msgid "Window maximized state."
+msgstr "Razpeto glavno okno."
+
+#: data/org.gnome.Games.gschema.xml:25
+msgid "Window size"
+msgstr "Velikost okna"
+
+#: data/org.gnome.Games.gschema.xml:26
+msgid "Window size (width and height)."
+msgstr "Velikost okna (širina in višina)."
+
+#: data/ui/collection-box.ui:50
+msgid "Developers"
+msgstr "Razvijalci"
+
+#: data/ui/collection-box.ui:60
+msgid "Platforms"
+msgstr "Okolja"
+
+#: data/ui/collection-box.ui:83
+msgid "Loading"
+msgstr "Poteka nalaganje"
+
+#: data/ui/collection-header-bar.ui:17
+msgid "Add game files…"
+msgstr "Dodaj datoteke igre ..."
+
+#. Translators: tooltip for the application menu button
+#: data/ui/collection-header-bar.ui:36
+msgid "Menu"
+msgstr "Meni"
+
+#: data/ui/collection-header-bar.ui:85
+msgid "Search"
+msgstr "Poišči"
+
+#: data/ui/collection-header-bar.ui:111 data/ui/preferences-window.ui:6
+#: data/ui/preferences-window.ui:27
+msgid "Preferences"
+msgstr "Možnosti"
+
+#: data/ui/collection-header-bar.ui:119
+msgid "Keyboard Shortcuts"
+msgstr "Tipkovne bližnjice"
+
+#: data/ui/collection-header-bar.ui:127
+msgid "Help"
+msgstr "Pomoč"
+
+#: data/ui/collection-header-bar.ui:135
+msgid "About Games"
+msgstr "O igrah"
+
+#: data/ui/display-header-bar.ui:20 data/ui/preferences-subpage-gamepad.ui:82
+#: data/ui/preferences-subpage-keyboard.ui:83 data/ui/preferences-window.ui:55
+msgid "Back"
+msgstr "Nazaj"
+
+#: data/ui/display-header-bar.ui:69
 msgid "Restore"
 msgstr "Obnovi"
 
-#: ../data/ui/dummy-display.ui.h:1
-msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
+#: data/ui/dummy-display.ui:36
+msgid "This is a dummy game display"
 msgstr ""
 
-#: ../data/ui/dummy-display.ui.h:2
+#: data/ui/dummy-display.ui:51
 #, fuzzy
 msgid "If you see this, this is a bug."
 msgstr "Ali ste kadarkoli naleteli na hrošča?"
 
-#: ../data/ui/dummy-display.ui.h:3
+#: data/ui/dummy-display.ui:64
 #, fuzzy
 msgid "Please contact the developers."
 msgstr "Pošljite sporočilo o napaki razvijalcem programa."
 
-#: ../data/ui/empty-collection.ui.h:1
-#, fuzzy
+#: data/ui/empty-collection.ui:29
 msgid "No games found"
-msgstr "Igre"
+msgstr "Ni najdenih iger"
 
-#: ../data/ui/empty-collection.ui.h:2
+#: data/ui/empty-collection.ui:43
 msgid ""
 "Install games or add directories containing games to your search sources."
 msgstr ""
 
-#: ../data/ui/media-menu-button.ui.h:1
+#: data/ui/input-mode-switcher.ui:16
+#, fuzzy
+#| msgid "Gamepads"
+msgid "Gamepad Input"
+msgstr "Igralne plošče"
+
+#: data/ui/input-mode-switcher.ui:36
+msgid "Keyboard Input"
+msgstr ""
+
+#: data/ui/media-menu-button.ui:11
 msgid "Media"
 msgstr "Nosilci"
 
-#: ../data/ui/preferences-page-plugins.ui.h:1
-msgid "Plugins"
-msgstr "Vstavki"
+#: data/ui/preferences-page-controllers.ui:9
+msgid "Gamepads"
+msgstr "Igralne plošče"
 
-#: ../data/ui/preferences-window.ui.h:1
-msgid "Preferences"
-msgstr "Možnosti"
+#: data/ui/preferences-page-controllers.ui:32
+#: src/ui/preferences-page-controllers.vala:75
+msgid "Keyboard"
+msgstr "Tipkovnica"
 
-#: ../data/ui/preferences-window.ui.h:2
-#: ../src/ui/preferences-page-plugins.vala:6
-msgid "Extensions"
-msgstr "Razširitve"
+#: data/ui/preferences-page-video.ui:9
+msgid "Filter"
+msgstr "Filter"
 
-#: ../data/ui/quit-dialog.ui.h:1
+#: data/ui/preferences-subpage-gamepad.ui:21
+#: data/ui/preferences-subpage-keyboard.ui:22
+msgctxt "Keyboard configuration factory reset"
+msgid "Reset"
+msgstr "Počisti"
+
+#: data/ui/preferences-subpage-gamepad.ui:34
+#: data/ui/preferences-subpage-keyboard.ui:35
+msgid "Configure"
+msgstr "Nastavi"
+
+#: data/ui/preferences-subpage-gamepad.ui:52
+#: data/ui/preferences-subpage-keyboard.ui:53
+msgid "Skip"
+msgstr "Preskoči"
+
+#: data/ui/preferences-subpage-gamepad.ui:100
+#: data/ui/preferences-subpage-keyboard.ui:101 data/ui/quit-dialog.ui:15
+#: data/ui/reset-controller-mapping-dialog.ui:15
+#: data/ui/resume-failed-dialog.ui:14
+msgid "Cancel"
+msgstr "Prekliči"
+
+#: data/ui/quit-dialog.ui:9
 msgid "Are you sure you want to quit?"
-msgstr "Ali ste prepričani, da želite končati?"
+msgstr "Ali ste prepričani, da želite program končati?"
 
-#: ../data/ui/quit-dialog.ui.h:2
+#: data/ui/quit-dialog.ui:10
 #, fuzzy
 msgid "All unsaved progress will be lost."
 msgstr "Vsi obstoječi podatki bodo nepovratno izgubljeni."
 
-#: ../data/ui/quit-dialog.ui.h:3
+#: data/ui/quit-dialog.ui:21
 msgid "Quit"
-msgstr "Izhod"
+msgstr "Končaj"
 
-#: ../data/ui/quit-dialog.ui.h:4 ../data/ui/resume-failed-dialog.ui.h:3
-msgid "Cancel"
-msgstr "Prekliči"
-
-#: ../data/ui/remote-display.ui.h:1
-msgid "<b><span size=\"large\">Use the game's own window to play it</span></b>"
+#: data/ui/remote-display.ui:36
+msgid "Use the game’s own window to play it"
 msgstr ""
 
-#: ../data/ui/remote-display.ui.h:2
-msgid "This game isn't integrated to GNOME Games."
+#: data/ui/remote-display.ui:51
+msgid "This game isn’t integrated to GNOME Games."
 msgstr ""
 
-#: ../data/ui/remote-display.ui.h:3
+#: data/ui/remote-display.ui:64
 msgid "You have to use its own window to play it."
 msgstr ""
 
-#: ../data/ui/resume-dialog.ui.h:1
+#: data/ui/reset-controller-mapping-dialog.ui:9
+msgid "Factory reset mapping for this controller?"
+msgstr ""
+
+#: data/ui/reset-controller-mapping-dialog.ui:10
+#, fuzzy
+msgid "Your mapping will be lost."
+msgstr "Vsi obstoječi podatki bodo nepovratno izgubljeni."
+
+#: data/ui/reset-controller-mapping-dialog.ui:21
+msgctxt "Confirm controller configuration factory reset"
+msgid "Reset"
+msgstr "Počisti"
+
+#: data/ui/resume-dialog.ui:9
 #, fuzzy
 msgid "Resume last game?"
 msgstr "Premor ali nadaljevanje igre"
 
-#: ../data/ui/resume-dialog.ui.h:2
+#: data/ui/resume-dialog.ui:13
+msgid "Restart"
+msgstr "Ponovno zaženi"
+
+#: data/ui/resume-dialog.ui:20
 msgid "Resume"
 msgstr "Nadaljuj"
 
-#: ../data/ui/resume-dialog.ui.h:3
-msgid "Restart"
-msgstr "Ponoven zagon"
-
-#: ../data/ui/resume-failed-dialog.ui.h:1
-msgid "Resuming failed. Do you want to to restart the game?"
+#: data/ui/resume-failed-dialog.ui:9
+msgid "Resuming failed. Do you want to restart the game?"
 msgstr ""
 
-#: ../data/ui/resume-failed-dialog.ui.h:2
+#: data/ui/resume-failed-dialog.ui:20
+msgctxt "Resuming a game failed dialog"
 msgid "Reset"
-msgstr "↓Ponastavi"
+msgstr "Počisti"
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:56
+#: data/ui/shortcuts-window.ui:10
+msgid "Shortcuts"
+msgstr "Tipkovne bližnjice"
+
+#: data/ui/shortcuts-window.ui:14
+msgid "General"
+msgstr "Splošno"
+
+#: data/ui/shortcuts-window.ui:19
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Končaj"
+
+#: data/ui/shortcuts-window.ui:27 data/ui/shortcuts-window.ui:139
+msgid "Collection"
+msgstr "Zbirka"
+
+#: data/ui/shortcuts-window.ui:32
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Iskanje"
+
+#: data/ui/shortcuts-window.ui:40 data/ui/shortcuts-window.ui:48
+msgctxt "shortcut window"
+msgid "Navigate"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:41
+msgctxt "shortcut window"
+msgid "Left analog stick"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:49
+msgctxt "shortcut window"
+msgid "Directional pad"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:56
+msgctxt "shortcut window"
+msgid "Select view"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:57
+msgctxt "shortcut window"
+msgid "Front shoulder buttons"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:64 data/ui/shortcuts-window.ui:72
+msgctxt "shortcut window"
+msgid "Start game"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:65
+msgctxt "shortcut window"
+msgid "Start button"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:73 data/ui/shortcuts-window.ui:116
+msgctxt "shortcut window"
+msgid "Bottom action button"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:80
+#, fuzzy
+#| msgid "Games"
+msgid "In Game"
+msgstr "Igre"
+
+#: data/ui/shortcuts-window.ui:85
+msgctxt "shortcut window"
+msgid "Toggle fullscreen"
+msgstr "Preklopi celozaslonski način"
+
+#: data/ui/shortcuts-window.ui:92
+msgctxt "shortcut window"
+msgid "Exit fullscreen"
+msgstr "Končaj celozaslonski način"
+
+#: data/ui/shortcuts-window.ui:99 data/ui/shortcuts-window.ui:107
+#, fuzzy
+msgctxt "shortcut window"
+msgid "Go back to the collection"
+msgstr "Namigi za vaše naslednje igre"
+
+#: data/ui/shortcuts-window.ui:108
+msgctxt "shortcut window"
+msgid "Home button"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:115
+msgctxt "shortcut window"
+msgid "Accept"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:123
+msgctxt "shortcut window"
+msgid "Cancel"
+msgstr "Prekliči"
+
+#: data/ui/shortcuts-window.ui:124
+msgctxt "shortcut window"
+msgid "Right action button"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:135
+msgid "Cheats"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:144
+msgctxt "shortcut window"
+msgid "Contribute"
+msgstr ""
+
+#: plugins/desktop/src/desktop-plugin.vala:6
+msgid "Desktop"
+msgstr "Namizje"
+
+#: plugins/desktop/src/desktop-plugin.vala:56
 #, fuzzy, c-format
-msgid "Invalid command '%s'."
+msgid "Invalid command “%s”."
 msgstr "Neveljaven izvajalni ukaz: %s\n"
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:84
+#: plugins/desktop/src/desktop-plugin.vala:69
 #, fuzzy, c-format
-msgid "Tracker listed file not found: '%s'."
+msgid "Tracker listed file not found: “%s”."
 msgstr "Datoteke pomoči “%s.%s” ni mogoče najti"
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:90
+#: plugins/desktop/src/desktop-plugin.vala:75
 #, fuzzy, c-format
-msgid "Couldn't parse desktop entry '%s'."
+msgid "Couldn’t parse desktop entry “%s”."
 msgstr "Ni mogoče razčleniti vrednosti za %s::%s: %s\n"
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:103
+#: plugins/desktop/src/desktop-plugin.vala:85
+#, c-format
+msgid "“%s” shouldn’t be displayed."
+msgstr ""
+
+#: plugins/desktop/src/desktop-plugin.vala:88
+#, c-format
+msgid "“%s” is hidden."
+msgstr ""
+
+#: plugins/desktop/src/desktop-plugin.vala:97
 #, fuzzy, c-format
-msgid "'%s' has blacklisted category '%s'."
+msgid "“%s” has blacklisted category “%s”."
 msgstr "Vrstica seznama kategorije %s"
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:112
+#: plugins/desktop/src/desktop-plugin.vala:106
 #, fuzzy, c-format
-msgid "'%s' has blacklisted executable '%s'."
+msgid "“%s” has blacklisted executable “%s”."
 msgstr "Izvršljiva datoteka '%s' ni posodobljena."
 
-#: ../plugins/desktop/src/desktop-tracker-query.vala:119
+#: plugins/desktop/src/desktop-plugin.vala:113
 #, c-format
-msgid "'%s' is blacklisted."
+msgid "“%s” is blacklisted."
 msgstr ""
 
-#: ../plugins/dreamcast/src/dreamcast-header.vala:54
-msgid "The file doesn't have a Dreamcast header."
-msgstr ""
-
-#: ../plugins/game-boy/src/game-boy-header.vala:97
-msgid "The file doesn't have a Game Boy header."
-msgstr ""
-
-#: ../plugins/game-cube/src/game-cube-header.vala:20
-msgid "The file doesn't have a Game Cube header."
-msgstr ""
-
-#: ../plugins/love/src/love-package.vala:13
-#: ../plugins/love/src/love-package.vala:17
-#, c-format
-msgid "This doesn't represent a valid LÖVE package: '%s'."
-msgstr ""
-
-#: ../plugins/mame/src/mame-game-uri-adapter.vala:17
-#, fuzzy, c-format
-msgid "Invalid MAME game id '%s' for '%s'."
-msgstr "Neveljaven ID programa: '%s'\n"
-
-#: ../plugins/master-system/src/master-system-header.vala:69
-msgid "The file doesn't have a Master System header."
-msgstr ""
-
-#: ../plugins/mega-drive/src/mega-drive-header.vala:63
-#: ../plugins/mega-drive/src/mega-drive-header.vala:79
-msgid "The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."
-msgstr ""
-
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:104
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:42
-#, fuzzy, c-format
-msgid "The file '%s' doesn't have a track."
+#: plugins/dreamcast/src/dreamcast-header.vala:54
+#, fuzzy
+msgid "The file doesn’t have a Dreamcast header."
 msgstr "Datoteka ne vsebuje slovarja \"%s\""
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:110
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:48
-#, c-format
-msgid "The file '%s' doesn't have a valid binary file format."
+#: plugins/dreamcast/src/dreamcast-plugin.vala:6
+msgid "Dreamcast"
 msgstr ""
 
-#: ../plugins/mega-drive/src/mega-drive-plugin.vala:113
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:51
-#, c-format
-msgid "The file '%s' doesn't have a valid track mode for track %d."
-msgstr ""
-
-#: ../plugins/playstation/src/playstation-game-factory.vala:66
-#, fuzzy, c-format
-msgid "Disc with disc_id %s is unknown"
-msgstr "Neznan vstavek z id=\"%s\"\n"
-
-#: ../plugins/playstation/src/playstation-header.vala:47
-#, c-format
-msgid "Invalid PlayStation header: disc ID not found in '%s'."
-msgstr ""
-
-#: ../plugins/sega-saturn/src/sega-saturn-header.vala:54
-msgid "The file doesn't have a Sega Saturn header."
-msgstr ""
-
-#: ../plugins/sega-saturn/src/sega-saturn-plugin.vala:55
-#, c-format
-msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
-msgstr ""
-
-#: ../plugins/steam/src/steam-game-source.vala:99
-#, c-format
-msgid "Couldn't get Steam appid from manifest '%s'."
-msgstr ""
-
-#: ../plugins/steam/src/steam-registry.vala:68
-#, fuzzy, c-format
-msgid "File '%s' doesn't exist."
-msgstr "Modul \"%s\" ne obstaja."
-
-#: ../plugins/steam/src/steam-registry.vala:96
+#: plugins/game-cube/src/game-cube-header.vala:20
 #, fuzzy
-msgid "Unexpected token '{'."
-msgstr "Nepričakovan žeton %c"
+msgid "The file doesn’t have a Game Cube header."
+msgstr "Datoteka ne vsebuje slovarja \"%s\""
 
-#: ../plugins/steam/src/steam-registry.vala:110
+#: plugins/game-cube/src/game-cube-plugin.vala:6
+msgid "Nintendo GameCube"
+msgstr "Nintendo GameCube"
+
+#: plugins/libretro/src/libretro-plugin.vala:6
+msgid "Libretro"
+msgstr ""
+
+#: plugins/love/src/love-package.vala:13 plugins/love/src/love-package.vala:17
+#, c-format
+msgid "This doesn’t represent a valid LÖVE package: “%s”."
+msgstr ""
+
+#: plugins/love/src/love-plugin.vala:7
+msgid "LÖVE"
+msgstr ""
+
+#: plugins/mame/src/mame-game-uri-adapter.vala:21
+#, fuzzy, c-format
+msgid "Invalid MAME game id “%s” for “%s”."
+msgstr "Neveljaven ID programa: '%s'\n"
+
+#: plugins/mame/src/mame-plugin.vala:6
+msgid "Arcade"
+msgstr ""
+
+#: plugins/ms-dos/src/ms-dos-plugin.vala:7
+msgid "MS-DOS"
+msgstr "MS-DOS"
+
+#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:7
+msgid "Nintendo DS"
+msgstr "Nintendo DS"
+
+#: plugins/playstation/src/playstation-header.vala:27
+#, c-format
+msgid "Not a PlayStation disc: “%s”."
+msgstr ""
+
+#: plugins/playstation/src/playstation-header.vala:37
+#, c-format
+msgid "Invalid PlayStation header: disc ID not found in “%s”."
+msgstr ""
+
+#: plugins/playstation/src/playstation-plugin.vala:6
+msgid "PlayStation"
+msgstr "PlayStation"
+
+#: plugins/sega-cd/src/sega-cd-header.vala:44
+#: plugins/sega-cd/src/sega-cd-header.vala:63
+msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
+msgstr ""
+
+#. translators: known as "Mega-CD" in most of the world
+#: plugins/sega-cd/src/sega-cd-plugin.vala:12
+msgid "Sega CD"
+msgstr "Sega CD"
+
+#. translators: known as "Mega-CD 32X" in most of the world
+#: plugins/sega-cd/src/sega-cd-plugin.vala:14
+msgid "Sega CD 32X"
+msgstr "Sega CD 32X"
+
+#: plugins/sega-cd/src/sega-cd-plugin.vala:114
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:93
+#, fuzzy, c-format
+msgid "The file “%s” doesn’t have a track."
+msgstr "Datoteka ne vsebuje slovarja \"%s\""
+
+#: plugins/sega-cd/src/sega-cd-plugin.vala:120
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:99
+#, fuzzy, c-format
+msgid "The file “%s” doesn’t have a valid binary file format."
+msgstr "Datoteka ne vsebuje slovarja \"%s\""
+
+#: plugins/sega-cd/src/sega-cd-plugin.vala:123
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:102
+#, fuzzy, c-format
+msgid "The file “%s” doesn’t have a valid track mode for track %d."
+msgstr "Datoteka ne vsebuje slovarja \"%s\""
+
+#: plugins/sega-saturn/src/sega-saturn-header.vala:54
+#, fuzzy
+msgid "The file doesn’t have a Sega Saturn header."
+msgstr "Datoteka ne vsebuje slovarja \"%s\""
+
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:7
+msgid "Sega Saturn"
+msgstr "Sega Saturn"
+
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:106
+#, fuzzy, c-format
+msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
+msgstr "Datoteka ne vsebuje slovarja \"%s\""
+
+#: plugins/steam/src/steam-plugin.vala:10
+msgid "Steam"
+msgstr ""
+
+#: plugins/steam/src/steam-plugin.vala:80
+#, c-format
+msgid "Couldn’t get Steam appid from manifest “%s”."
+msgstr ""
+
+#: plugins/steam/src/steam-registry.vala:68
+#, c-format
+msgid "File “%s” doesn’t exist."
+msgstr "Datoteka »%s« ne obstaja."
+
+#: plugins/steam/src/steam-registry.vala:96
+msgid "Unexpected token '{'."
+msgstr "Nepričakovan žeton » { «"
+
+#: plugins/steam/src/steam-registry.vala:110
 #, fuzzy
 msgid "Unexpected end of tokens."
 msgstr "Prejet je nepričakovan konec pretoka."
 
-#: ../plugins/steam/src/steam-registry.vala:113
-#, fuzzy
+#: plugins/steam/src/steam-registry.vala:113
 msgid "Unexpected token '}'."
-msgstr "Nepričakovan žeton %c"
+msgstr "Nepričakovan žeton » } «"
 
-#: ../plugins/steam/src/steam-title.vala:17
-msgid "Couldn't get name from Steam registry."
+#: plugins/steam/src/steam-title.vala:17
+msgid "Couldn’t get name from Steam registry."
 msgstr ""
 
-#: ../plugins/wii/src/wii-header.vala:20
+#. translators: known as "CD-ROM²" in eastern Asia and France
+#: plugins/turbografx-cd/src/turbografx-cd-plugin.vala:10
+msgid "TurboGrafx-CD"
+msgstr "TurboGrafx-CD"
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:20
+msgid "The file is too short."
+msgstr ""
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:26
+#, fuzzy, c-format
+msgid "Invalid Virtual Boy ROM header size: %s"
+msgstr "%s: %s: Neveljavne glave %s.\n"
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:38
+#, fuzzy
+msgid "Invalid Virtual Boy ROM header size."
+msgstr "%s: %s: Neveljavne glave %s.\n"
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:42
+#, fuzzy
+msgid "The file doesn’t have a Virtual Boy ROM header."
+msgstr "Datoteka ne vsebuje slovarja \"%s\""
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:51
+#, c-format
+msgid "Couldn’t get file size: %s"
+msgstr "Ni mogoče pridobiti velikosti datoteke: %s"
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:60
+#: plugins/wii/src/wii-header.vala:55
+#, c-format
+msgid "Couldn’t read file: %s"
+msgstr "Ni mogoče prebrati datoteke: %s"
+
+#: plugins/virtual-boy/src/virtual-boy-plugin.vala:7
+msgid "Virtual Boy"
+msgstr ""
+
+#: plugins/wii/src/wii-header.vala:20
 #, fuzzy, c-format
 msgid "Invalid Wii header size: %s"
 msgstr "%s: %s: Neveljavne glave %s.\n"
 
-#: ../plugins/wii/src/wii-header.vala:33 ../plugins/wii/src/wii-header.vala:44
-msgid "The file doesn't have a Wii header."
-msgstr ""
+#: plugins/wii/src/wii-header.vala:33 plugins/wii/src/wii-header.vala:44
+#, fuzzy
+msgid "The file doesn’t have a Wii header."
+msgstr "Datoteka ne vsebuje slovarja \"%s\""
 
-#: ../plugins/wii/src/wii-header.vala:55
+#: plugins/wii/src/wii-plugin.vala:6
+msgid "Wii"
+msgstr "Wii"
+
+#: src/command/command-runner.vala:39
+#, fuzzy
+msgid "The game doesn’t have a valid command."
+msgstr "Datoteka ne vsebuje slovarja \"%s\""
+
+#: src/command/command-runner.vala:65
 #, fuzzy, c-format
-msgid "Couldn't read file: %s"
-msgstr "Ni mogoče brati iz mape %s: %s"
-
-#: ../src/command/command-runner.vala:30
-msgid "Invalid command: it doesn't have any argument."
-msgstr ""
-
-#: ../src/command/command-runner.vala:59
-#, fuzzy, c-format
-msgid "Couldn't run '%s': execution failed."
+msgid "Couldn’t run “%s”: execution failed."
 msgstr "Uveljavljanje filtra '%s' je spodletelo:"
 
-#: ../src/core/media-set/media-set.vala:31
+#: src/core/media-set/media-set.vala:30
 #, fuzzy, c-format
 msgid "Invalid media index %u."
 msgstr "Neveljavno kazalo seznama slik"
 
-#: ../src/core/plugin-registrar.vala:27
+#: src/core/plugin-registrar.vala:27
 #, fuzzy, c-format
 msgid "Invalid plugin descriptor: %s"
 msgstr "Neveljavna datoteka vstavka %s"
 
-#: ../src/core/plugin-registrar.vala:48 ../src/core/plugin-registrar.vala:52
+#: src/core/plugin-registrar.vala:48 src/core/plugin-registrar.vala:52
 #, c-format
-msgid "Couldn't create a new instance of plugin in '%s'."
+msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr ""
 
-#: ../src/gameinfo/gameinfo-disc-id-disc-title.vala:24
+#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:24
+msgid "Unknown"
+msgstr "Neznano"
+
+#: src/gameinfo/gameinfo-disc-id-disc-title.vala:24
 #, fuzzy, c-format
 msgid "Disc %d"
 msgstr " (Disk %d/%d)"
 
-#: ../src/gameinfo/gameinfo-doc.vala:15
-#, c-format
-msgid "No game title found for disc ID '%s'."
-msgstr ""
-
-#: ../src/gameinfo/gameinfo-doc.vala:25
-#, c-format
-msgid "No disc title found for disc ID '%s'."
-msgstr ""
-
-#: ../src/gameinfo/gameinfo-doc.vala:35
+#: src/gameinfo/gameinfo-doc.vala:15
 #, fuzzy, c-format
-msgid "No disc set ID found for disc ID '%s'."
-msgstr "Gradnika GdaHolder z ID '%s' ni mogoče najti v naboru"
-
-#: ../src/gameinfo/gameinfo-doc.vala:43 ../src/gameinfo/gameinfo-doc.vala:53
-#, fuzzy, c-format
-msgid "No disc found for disc ID '%s'."
+msgid "No game title found for disc ID “%s”."
 msgstr "Vira z ID '%s' ni mogoče najti"
 
-#: ../src/gamepad/gamepad-mapping.vala:12
+#: src/gameinfo/gameinfo-doc.vala:31
+#, fuzzy, c-format
+msgid "No disc title found for disc ID “%s”."
+msgstr "Vira z ID '%s' ni mogoče najti"
+
+#: src/gameinfo/gameinfo-doc.vala:41
+#, fuzzy, c-format
+msgid "No disc set ID found for disc ID “%s”."
+msgstr "Gradnika GdaHolder z ID '%s' ni mogoče najti v naboru"
+
+#: src/gameinfo/gameinfo-doc.vala:49 src/gameinfo/gameinfo-doc.vala:59
+#, fuzzy, c-format
+msgid "No disc found for disc ID “%s”."
+msgstr "Vira z ID '%s' ni mogoče najti"
+
+#: src/grilo/grilo-players.vala:40
 #, fuzzy
-msgid "The mapping string can't be null."
-msgstr "Ali naj se izpraznijo niti, kadar so te vrednosti NULL?"
+msgid "Single-player"
+msgstr "Počisti igralčevo zgodovino iger"
 
-#: ../src/gamepad/gamepad-mapping.vala:15
-#, fuzzy
-msgid "The mapping string can't be empty."
-msgstr "Ali naj se izpraznijo niti, kadar so te vrednosti NULL?"
-
-#: ../src/gamepad/linux/linux-raw-gamepad.vala:42
-#, fuzzy, c-format
-msgid "Unable to open file '%s': %s"
-msgstr "Ni mogoče odpreti datoteke '%s'"
-
-#: ../src/gamepad/linux/linux-raw-gamepad.vala:46
-#, fuzzy, c-format
-msgid "Evdev is unable to open '%s': %s"
-msgstr "Ni mogoče odpreti dokumenta “%s”."
-
-#: ../src/retro/retro-runner.vala:237
-#, fuzzy, c-format
-msgid "Invalid game file: '%s'."
-msgstr "Neveljavna datoteka predloge: %s"
-
-#: ../src/retro/retro-runner.vala:247
-#, c-format
-msgid "Couldn't run game: module '%s' not found."
+#: src/grilo/grilo-players.vala:42
+msgid "Multi-player"
 msgstr ""
 
-#: ../src/retro/retro-runner.vala:254
+#: src/retro/retro-core-source.vala:25 src/retro/retro-core-source.vala:39
+#, c-format
+msgid "No module found for platform “%s” and MIME types [ “%s” ]."
+msgstr ""
+
+#: src/retro/retro-core-source.vala:25 src/retro/retro-core-source.vala:39
+msgid "”, “"
+msgstr "”, “"
+
+#: src/retro/retro-core-source.vala:84
+#, c-format
+msgid "This game requires the %s firmware file to run."
+msgstr ""
+
+#: src/retro/retro-core-source.vala:101
 #, c-format
 msgid ""
-"Couldn't run game: module '%s' not found and no module found for MIME types "
-"%s."
+"This game requires the %s firmware file with a MD5 fingerprint of %s to run."
 msgstr ""
 
-#: ../src/retro/retro-runner.vala:453
-#, fuzzy
-msgid "Couldn't write snapshot."
-msgstr "V datoteko BMP ni mogoče pisati"
+#: src/retro/retro-core-source.vala:107
+#, c-format
+msgid ""
+"This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
+"run."
+msgstr ""
 
-#: ../src/ui/application.vala:148
+#: src/retro/retro-runner.vala:224
+#, fuzzy, c-format
+msgid "No module found for “%s”."
+msgstr "Vira z ID '%s' ni mogoče najti"
+
+#: src/retro/retro-runner.vala:527
+msgid "Unknown platform"
+msgstr ""
+
+#: src/retro/retro-runner.vala:570
+#, c-format
+msgid "The system “%s” isn’t supported yet, but full support is planned."
+msgstr ""
+
+#: src/retro/retro-runner.vala:572
+msgid "The system isn’t supported yet, but full support is planned."
+msgstr ""
+
+#: src/retro/retro-simple-type.vala:13
+msgid "Amiga"
+msgstr "Amiga"
+
+#: src/retro/retro-simple-type.vala:15
+msgid "Atari 2600"
+msgstr "Atari 2600"
+
+#: src/retro/retro-simple-type.vala:17
+msgid "Atari 7800"
+msgstr "Atari 7800"
+
+#: src/retro/retro-simple-type.vala:19
+msgid "Atari Lynx"
+msgstr "Atari Lynx"
+
+#: src/retro/retro-simple-type.vala:21
+msgid "DOOM"
+msgstr "DOOM"
+
+#. translators: only released in eastern Asia
+#: src/retro/retro-simple-type.vala:24
+msgid "Famicom Disk System"
+msgstr ""
+
+#: src/retro/retro-simple-type.vala:26
+#, fuzzy
+#| msgid "Games"
+msgid "Game Boy"
+msgstr "Igre"
+
+#: src/retro/retro-simple-type.vala:28
+msgid "Game Boy Color"
+msgstr "Game Boy Color"
+
+#: src/retro/retro-simple-type.vala:30
+msgid "Game Boy Advance"
+msgstr "Game Boy Advance"
+
+#: src/retro/retro-simple-type.vala:32
+msgid "Game Gear"
+msgstr "Game Gear"
+
+#. translators: also known as "Sega Mark III" in eastern asia
+#: src/retro/retro-simple-type.vala:35
+#, fuzzy
+#| msgid "Sega Master System"
+msgid "Master System"
+msgstr "Sega Master System"
+
+#: src/retro/retro-simple-type.vala:37
+msgid "Neo Geo Pocket"
+msgstr ""
+
+#: src/retro/retro-simple-type.vala:39
+msgid "Neo Geo Pocket Color"
+msgstr ""
+
+#. translators: known as "Famicom" in eastern Asia
+#: src/retro/retro-simple-type.vala:42
+msgid "Nintendo Entertainment System"
+msgstr ""
+
+#: src/retro/retro-simple-type.vala:44
+msgid "Nintendo 64"
+msgstr "Nintendo 64"
+
+#. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
+#: src/retro/retro-simple-type.vala:47
+msgid "Genesis 32X"
+msgstr "Genesis 32X"
+
+#. translators: known as "Mega Drive" in most of the world
+#: src/retro/retro-simple-type.vala:50
+msgid "Sega Genesis"
+msgstr "Sega Genesis"
+
+#: src/retro/retro-simple-type.vala:52
+msgid "Sega Pico"
+msgstr "Sega Pico"
+
+#: src/retro/retro-simple-type.vala:54
+msgid "SG-1000"
+msgstr "SG-1000"
+
+#. translators: known as "Super Famicom" in eastern Asia
+#: src/retro/retro-simple-type.vala:57
+msgid "Super Nintendo Entertainment System"
+msgstr "Sistem Super Nintendo Entertainment"
+
+#. translators: known as "PC Engine" in eastern Asia and France
+#: src/retro/retro-simple-type.vala:60
+msgid "TurboGrafx-16"
+msgstr "TurboGrafx-16"
+
+#: src/retro/retro-simple-type.vala:62
+msgid "WiiWare"
+msgstr "WiiWare"
+
+#: src/retro/retro-simple-type.vala:64
+msgid "WonderSwan"
+msgstr "WonderSwan"
+
+#: src/retro/retro-simple-type.vala:66
+msgid "WonderSwan Color"
+msgstr "WonderSwan Color"
+
+#: src/ui/application.vala:171
+msgid "Select game files"
+msgstr ""
+
+#: src/ui/application.vala:172
+msgid "_Cancel"
+msgstr "_Prekliči"
+
+#: src/ui/application.vala:173
+msgid "_Add"
+msgstr "_Dodaj"
+
+#: src/ui/application.vala:373
 #, fuzzy
 msgid "GNOME Games"
 msgstr "Igre"
 
-#: ../src/ui/application.vala:150
+#: src/ui/application.vala:375
 #, fuzzy
 msgid "A video game player for GNOME"
 msgstr "Igralčeva zgodovina iger"
 
-#: ../src/ui/application.vala:154
+#: src/ui/application.vala:379
 #, fuzzy
 msgid "Learn more about GNOME Games"
 msgstr "Več podrobnosti o programu GNOME Builder"
 
-#: ../src/ui/application.vala:161
+#: src/ui/application.vala:386
 msgid "translator-credits"
 msgstr "Matej Urbančič <mateju@svn@gnome.org>"
 
-#: ../src/ui/error-display.vala:11
-#, fuzzy, c-format
-msgid "Oops! Unable to run “%s”"
-msgstr "Napaka! Ni mogoče naložiti dokumenta “%s”."
+#: src/ui/application-window.vala:394
+msgid "An unexpected error occurred."
+msgstr ""
 
-#: ../src/ui/error-display.vala:13
+#: src/ui/application-window.vala:681 src/ui/application-window.vala:698
+msgid "Playing a game"
+msgstr "Igranje iger"
+
+#: src/ui/error-display.vala:13
+#, c-format
+msgid "Oops! Unable to run “%s”"
+msgstr "Napaka! Ni mogoče zagnati »%s«"
+
+#: src/ui/error-display.vala:15
 #, fuzzy
 msgid "Oops! Unable to run the game"
 msgstr "Opa! Spletne strani ni mogoče pokazati."
 
-#: ../src/ui/media-selector.vala:29
+#: src/ui/gamepad-mapper.vala:133
+msgid "Press suitable button on your gamepad"
+msgstr ""
+
+#: src/ui/gamepad-mapper.vala:138
+msgid "Move suitable axis left/right on your gamepad"
+msgstr ""
+
+#: src/ui/gamepad-mapper.vala:140
+msgid "Move suitable axis up/down on your gamepad"
+msgstr ""
+
+#: src/ui/keyboard-mapper.vala:18
+msgid "Press suitable key on your keyboard"
+msgstr ""
+
+#: src/ui/media-selector.vala:38
 #, fuzzy, c-format
 msgid "Media %d"
 msgstr "<ni nosilca>"
 
-#: ../src/utils/cue-sheet/cue-sheet.vala:25
-#, c-format
-msgid "'%s' doesn't have a track for index %u."
+#: src/ui/preferences-page-controllers.vala:24
+msgid "Controllers"
 msgstr ""
 
-#: ../src/utils/cue-sheet/cue-sheet.vala:114
+#: src/ui/preferences-page-plugins.vala:12
+msgid "Extensions"
+msgstr "Razširitve"
+
+#. same as video-filters in gschema
+#: src/ui/preferences-page-video.vala:22
+#, fuzzy
+msgid "Smooth"
+msgstr "Gladko"
+
+#: src/ui/preferences-page-video.vala:22
+msgid "Sharp"
+msgstr ""
+
+#: src/ui/preferences-page-video.vala:22
+msgid "CRT"
+msgstr ""
+
+#: src/ui/preferences-page-video.vala:36
+msgid "Video"
+msgstr "Video"
+
+#. translators: testing a gamepad, %s is its name
+#: src/ui/preferences-subpage-gamepad.vala:78
+#, c-format
+msgid "Testing %s"
+msgstr ""
+
+#. translators: configuring a gamepad, %s is its name
+#: src/ui/preferences-subpage-gamepad.vala:89
+#, c-format
+msgid "Configuring %s"
+msgstr ""
+
+#: src/ui/preferences-subpage-keyboard.vala:68
+msgid "Testing Keyboard"
+msgstr ""
+
+#: src/ui/preferences-subpage-keyboard.vala:78
+#, fuzzy
+msgid "Configuring Keyboard"
+msgstr "Nastavitve"
+
+#: src/utils/cue-sheet/cue-sheet.vala:25
+#, c-format
+msgid "“%s” doesn’t have a track for index %u."
+msgstr ""
+
+#: src/utils/cue-sheet/cue-sheet.vala:114
 #, c-format
 msgid "%s:%lu: Invalid file format %s, expected a valid file format or none."
 msgstr ""
 
-#: ../src/utils/cue-sheet/cue-sheet.vala:121
+#: src/utils/cue-sheet/cue-sheet.vala:121
 #, c-format
 msgid "%s:%lu: Unexpected token TRACK before a FILE token."
 msgstr ""
 
-#: ../src/utils/cue-sheet/cue-sheet.vala:130
+#: src/utils/cue-sheet/cue-sheet.vala:130
 #, c-format
 msgid "%s:%lu: Invalid track number %s, expected a number in the 1-99 range."
 msgstr ""
 
-#: ../src/utils/cue-sheet/cue-sheet.vala:134
+#: src/utils/cue-sheet/cue-sheet.vala:134
 #, c-format
 msgid "%s:%lu: Invalid track mode %s, expected a valid track mode."
 msgstr ""
 
-#: ../src/utils/cue-sheet/cue-sheet.vala:141
+#: src/utils/cue-sheet/cue-sheet.vala:141
 #, c-format
 msgid "%s:%lu: Unexpected end of file, expected %s."
 msgstr ""
 
-#: ../src/utils/cue-sheet/cue-sheet.vala:144
+#: src/utils/cue-sheet/cue-sheet.vala:144
 #, fuzzy, c-format
 msgid "%s:%lu: Unexpected token %s, expected %s."
 msgstr "Napačen simbol žetona: pričakovan je %s, prejet pa %s"
 
-#: ../src/utils/cue-sheet/cue-sheet.vala:151
+#: src/utils/cue-sheet/cue-sheet.vala:151
 #, c-format
 msgid "%s:%lu: Unexpected end of file, expected a token."
 msgstr ""
 
-#: ../src/utils/cue-sheet/cue-sheet.vala:154
+#: src/utils/cue-sheet/cue-sheet.vala:154
 #, c-format
 msgid "%s:%lu: Unexpected end of line, expected a token."
 msgstr ""
 
-#: ../src/utils/cue-sheet/cue-sheet.vala:177
+#: src/utils/cue-sheet/cue-sheet.vala:177
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr ""
+
+#~ msgid "_Preferences"
+#~ msgstr "_Možnosti"
+
+#~ msgid "_About"
+#~ msgstr "_O programu"
+
+#~ msgid "_Quit"
+#~ msgstr "_Končaj"
+
+#~ msgid "Plugins"
+#~ msgstr "Vstavki"
+
+#, fuzzy
+#~| msgid "Reset"
+#~ msgctxt "Confirm gamepad configuration factory reset"
+#~ msgid "Reset"
+#~ msgstr "Počisti"
+
+#, fuzzy
+#~ msgid "The mapping string can’t be null."
+#~ msgstr "Ali naj se izpraznijo niti, kadar so te vrednosti NULL?"
+
+#, fuzzy
+#~ msgid "The mapping string can’t be empty."
+#~ msgstr "Ali naj se izpraznijo niti, kadar so te vrednosti NULL?"
+
+#, fuzzy
+#~ msgid "Unable to open file “%s”: %s"
+#~ msgstr "Ni mogoče odpreti datoteke '%s'"
+
+#, fuzzy
+#~ msgid "Evdev is unable to open “%s”: %s"
+#~ msgstr "Ni mogoče odpreti dokumenta “%s”."
+
+#~ msgid "Atari 5200"
+#~ msgstr "Atari 5200"
+
+#~ msgid "MAME"
+#~ msgstr "MAME"
+
+#~ msgid "Nintendo 3DS"
+#~ msgstr "Nintendo 3DS"
+
+#~ msgid "PlayStation 2"
+#~ msgstr "PlayStation 2"
+
+#~ msgid "PlayStation 3"
+#~ msgstr "PlayStation 3"
+
+#~ msgid "PlayStation 4"
+#~ msgstr "PlayStation 4"
+
+#~ msgid "PlayStation Portable"
+#~ msgstr "PlayStation Portable"
+
+#~ msgid "PlayStation Vita"
+#~ msgstr "PlayStation Vita"
+
+#~ msgid "Wii U"
+#~ msgstr "Wii U"
+
+#, fuzzy
+#~ msgid "Disc with disc_id %s is unknown"
+#~ msgstr "Neznan vstavek z id=\"%s\"\n"
+
+#, fuzzy
+#~ msgid "Invalid game file: '%s'."
+#~ msgstr "Neveljavna datoteka predloge: %s"
+
+#, fuzzy
+#~ msgid "Couldn't write snapshot."
+#~ msgstr "V datoteko BMP ni mogoče pisati"
