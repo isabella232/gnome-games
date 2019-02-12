@@ -8,6 +8,7 @@ Exec=gnome-games %U
 # Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=@icon@
 Terminal=false
+X-GNOME-SingleWindow=true
 Type=Application
 StartupNotify=true
 Categories=GNOME;GTK;Player;Game;
