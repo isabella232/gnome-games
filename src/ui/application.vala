@@ -219,6 +219,7 @@ public class Games.Application : Gtk.Application {
 		var provider = load_css ("gtk-style.css");
 		Gtk.StyleContext.add_provider_for_screen (screen, provider, 600);
 
+		init_game_sources ();
 		load_game_list.begin ();
 		ListStore list_store = new ListStore (typeof (Game));
 		game_collection.game_added.connect ((game) => {
@@ -339,13 +340,18 @@ public class Games.Application : Gtk.Application {
 	}
 
 	internal async void load_game_list () {
-		init_game_sources ();
-
-		yield game_collection.search_games ();
+		if (!yield game_collection.search_games ())
+			return;
 
 		game_list_loaded = true;
 		if (window != null)
 			window.loading_notification = false;
+	}
+
+	public async void set_pause_loading (bool paused) {
+		game_collection.paused = paused;
+
+		load_game_list.begin ();
 	}
 
 	private void preferences () {

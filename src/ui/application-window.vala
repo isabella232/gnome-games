@@ -38,6 +38,9 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 				break;
 			}
 
+			assert (application is Application);
+			(application as Application).set_pause_loading (ui_state != UiState.COLLECTION);
+
 			konami_code.reset ();
 		}
 	}

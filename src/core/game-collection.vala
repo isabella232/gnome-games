@@ -10,6 +10,8 @@ private class Games.GameCollection : Object {
 	private HashTable<string, Array<UriGameFactory>> factories_for_mime_type;
 	private HashTable<string, Array<UriGameFactory>> factories_for_scheme;
 
+	public bool paused { get; set; }
+
 	construct {
 		games = new GenericSet<Game> (Game.hash, Game.equal);
 		factories_for_mime_type = new HashTable<string, Array<UriGameFactory>> (str_hash, str_equal);
@@ -61,10 +63,16 @@ private class Games.GameCollection : Object {
 		return games[0];
 	}
 
-	public async void search_games () {
+	public async bool search_games () {
 		foreach (var source in sources)
-			foreach (var uri in source)
+			foreach (var uri in source) {
+				if (paused)
+					return false;
+
 				yield add_uri (uri);
+			}
+
+		return true;
 	}
 
 	private async UriGameFactory[] get_factories_for_uri (Uri uri) {
