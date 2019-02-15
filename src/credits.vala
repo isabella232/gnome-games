@@ -6,14 +6,16 @@ namespace Games.Credits {
 		"Abhinav Singh <theawless@gmail.com>",
 		"Alexander Mikhaylenko <exalm7659@gmail.com>",
 		"Megh Parikh <meghprkh@gmail.com>",
+		"Ricard Gascons <gascons1995@gmail.com>",
 		"Saurabh Singh <saurabhsingh412@gmail.com>",
 		"Sebastien Nicouleaud <sebn@users.noreply.github.com>",
-		"Ricard Gascons <gascons1995@gmail.com>",
 		null
 	};
 
 	private const string[] ARTISTS = {
 		"Adrien Plazas <kekun.plazas@laposte.net>",
+		"Jakub Steiner <jimmac@gmail.com>",
+		"Tobias Bernard <tbernard@gnome.org>",
 		null
 	};
 
