@@ -1,14 +1,10 @@
-icon_sizes = ['16x16', '22x22', '24x24', '32x32', '48x48', '256x256', '512x512']
+hicolor_dir = join_paths('hicolor', 'scalable', 'apps')
 
-foreach icon_size: icon_sizes
-  hicolor_dir = join_paths('hicolor', icon_size, 'apps')
-
-  install_data(
-    join_paths(hicolor_dir, 'org.gnome.Games.png'),
-    install_dir: join_paths(datadir, 'icons', hicolor_dir),
-    rename: '@0@.png'.format(application_id)
-  )
-endforeach
+install_data(
+  join_paths(hicolor_dir, 'org.gnome.Games.svg'),
+  install_dir: join_paths(datadir, 'icons', hicolor_dir),
+  rename: '@0@.svg'.format(application_id)
+)
 
 hicolor_dir = join_paths('hicolor', 'symbolic', 'apps')
 
