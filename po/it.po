@@ -1,27 +1,28 @@
 # Italian translaion for GNOME Games.
-# Copyright (C) 2016, 2017, 2018 The GNOME Games Authors.
+# Copyright (C) 2016, 2017, 2018, 2019 The GNOME Games Authors.
 # This file is distributed under the same license as the GNOME Games package.
 # Michael Moroni <michael.moroni@openmailbox.org>, 2016.
-# Milo Casagrande <milo@milo.name>, 2016, 2017, 2018.
+# Milo Casagrande <milo@milo.name>, 2016, 2017, 2018, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2018-08-05 16:40+0000\n"
-"PO-Revision-Date: 2018-08-08 16:18+0200\n"
+"POT-Creation-Date: 2018-12-11 09:49+0000\n"
+"PO-Revision-Date: 2019-02-13 09:57+0100\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.2.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:6
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:32
-#: data/ui/display-header-bar.ui:6 src/ui/application.vala:24
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:40
+#: data/ui/collection-header-bar.ui:67 data/ui/display-header-bar.ui:6
+#: src/ui/application.vala:25
 msgid "Games"
 msgstr "Giochi"
 
@@ -68,6 +69,10 @@ msgstr "Gioca con tutti i tuoi giochi"
 #: data/org.gnome.Games.appdata.xml.in.in:25
 msgid "Resume your game to where you left it"
 msgstr "Riprendi il gioco da dove l'hai abbandonato"
+
+#: data/org.gnome.Games.appdata.xml.in.in:53
+msgid "The GNOME Project"
+msgstr "Il progetto GNOME"
 
 #: data/org.gnome.Games.desktop.in.in:4
 msgid "Video game player"
@@ -124,15 +129,15 @@ msgstr "Dimensione finestra"
 msgid "Window size (width and height)."
 msgstr "La dimensione della finestra (larghezza e altezza)."
 
-#: data/ui/collection-box.ui:42
+#: data/ui/collection-box.ui:50
 msgid "Developers"
 msgstr "Sviluppatori"
 
-#: data/ui/collection-box.ui:52
+#: data/ui/collection-box.ui:60
 msgid "Platforms"
 msgstr "Piattaforme"
 
-#: data/ui/collection-box.ui:75
+#: data/ui/collection-box.ui:83
 msgid "Loading"
 msgstr "Caricamento"
 
@@ -145,29 +150,29 @@ msgstr "Aggiungi file di gioco…"
 msgid "Menu"
 msgstr "Menù"
 
-#: data/ui/collection-header-bar.ui:70
+#: data/ui/collection-header-bar.ui:85
 msgid "Search"
 msgstr "Cerca"
 
-#: data/ui/collection-header-bar.ui:96 data/ui/preferences-window.ui:6
-#: data/ui/preferences-window.ui:18
+#: data/ui/collection-header-bar.ui:111 data/ui/preferences-window.ui:6
+#: data/ui/preferences-window.ui:25
 msgid "Preferences"
 msgstr "Preferenze"
 
-#: data/ui/collection-header-bar.ui:111 data/ui/shortcuts-window.ui:10
-msgid "Shortcuts"
-msgstr "Scorciatoie"
-
 #: data/ui/collection-header-bar.ui:119
+msgid "Keyboard Shortcuts"
+msgstr "Scorciatoie da tastiera"
+
+#: data/ui/collection-header-bar.ui:127
 msgid "Help"
 msgstr "Aiuto"
 
-#: data/ui/collection-header-bar.ui:127
-msgid "About"
-msgstr "Informazioni"
+#: data/ui/collection-header-bar.ui:135
+msgid "About Games"
+msgstr "Informazioni su Giochi"
 
-#: data/ui/display-header-bar.ui:20 data/ui/gamepad-configurer.ui:73
-#: data/ui/keyboard-configurer.ui:74
+#: data/ui/display-header-bar.ui:20 data/ui/preferences-subpage-gamepad.ui:82
+#: data/ui/preferences-subpage-keyboard.ui:83
 msgid "Back"
 msgstr "Indietro"
 
@@ -197,58 +202,53 @@ msgid ""
 msgstr ""
 "Installa giochi o aggiungi cartelle contenenti giochi alle fonti di ricerca."
 
-#: data/ui/gamepad-configurer.ui:35
-msgctxt "Gamepad configuration factory reset"
-msgid "Reset"
-msgstr "Ripristina"
+#: data/ui/input-mode-switcher.ui:16
+msgid "Gamepad Input"
+msgstr "Ingresso gamepad"
 
-#: data/ui/gamepad-configurer.ui:48 data/ui/keyboard-configurer.ui:49
-msgid "Configure"
-msgstr "Configura"
-
-#: data/ui/gamepad-configurer.ui:91 data/ui/keyboard-configurer.ui:92
-#: data/ui/quit-dialog.ui:15 data/ui/reset-controller-mapping-dialog.ui:15
-#: data/ui/resume-failed-dialog.ui:14
-msgid "Cancel"
-msgstr "Annulla"
-
-#: data/ui/gamepad-mapper.ui:19 data/ui/keyboard-mapper.ui:19
-msgid "Skip"
-msgstr "Ignora"
-
-#: data/ui/keyboard-configurer.ui:36
-msgctxt "Keyboard configuration factory reset"
-msgid "Reset"
-msgstr "Ripristina"
+#: data/ui/input-mode-switcher.ui:36
+msgid "Keyboard Input"
+msgstr "Ingresso tastiera"
 
 #: data/ui/media-menu-button.ui:11
 msgid "Media"
 msgstr "Supporti"
 
-#: data/ui/preferences-page-controllers.ui:31
+#: data/ui/preferences-page-controllers.ui:9
 msgid "Gamepads"
 msgstr "Gamepad"
 
-#: data/ui/preferences-page-controllers.ui:54
-#: src/ui/preferences-page-controllers.vala:95
+#: data/ui/preferences-page-controllers.ui:32
+#: src/ui/preferences-page-controllers.vala:75
 msgid "Keyboard"
 msgstr "Tastiera"
 
-#: data/ui/preferences-page-controllers.ui:86 data/ui/preferences-window.ui:79
-msgid "Controllers"
-msgstr "Periferiche"
-
-#: data/ui/preferences-page-plugins.ui:40 data/ui/preferences-window.ui:88
-msgid "Extensions"
-msgstr "Estensioni"
-
-#: data/ui/preferences-page-video.ui:21
+#: data/ui/preferences-page-video.ui:9
 msgid "Filter"
 msgstr "Filtra"
 
-#: data/ui/preferences-page-video.ui:50 data/ui/preferences-window.ui:70
-msgid "Video"
-msgstr "Video"
+#: data/ui/preferences-subpage-gamepad.ui:21
+#: data/ui/preferences-subpage-keyboard.ui:22
+msgctxt "Keyboard configuration factory reset"
+msgid "Reset"
+msgstr "Ripristina"
+
+#: data/ui/preferences-subpage-gamepad.ui:34
+#: data/ui/preferences-subpage-keyboard.ui:35
+msgid "Configure"
+msgstr "Configura"
+
+#: data/ui/preferences-subpage-gamepad.ui:52
+#: data/ui/preferences-subpage-keyboard.ui:53
+msgid "Skip"
+msgstr "Ignora"
+
+#: data/ui/preferences-subpage-gamepad.ui:100
+#: data/ui/preferences-subpage-keyboard.ui:101 data/ui/quit-dialog.ui:15
+#: data/ui/reset-controller-mapping-dialog.ui:15
+#: data/ui/resume-failed-dialog.ui:14
+msgid "Cancel"
+msgstr "Annulla"
 
 #: data/ui/quit-dialog.ui:9
 msgid "Are you sure you want to quit?"
@@ -307,6 +307,10 @@ msgstr "Ripresa della partita non riuscita. Ricominciare?"
 msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Ripristina"
+
+#: data/ui/shortcuts-window.ui:10
+msgid "Shortcuts"
+msgstr "Scorciatoie"
 
 #: data/ui/shortcuts-window.ui:14
 msgid "General"
@@ -496,6 +500,10 @@ msgstr "ID gioco MAME «%s» non valido per «%s»."
 msgid "Arcade"
 msgstr "Arcade"
 
+#: plugins/ms-dos/src/ms-dos-plugin.vala:7
+msgid "MS-DOS"
+msgstr "MS-DOS"
+
 #: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:7
 msgid "Nintendo DS"
 msgstr "Nintendo DS"
@@ -560,11 +568,11 @@ msgstr "Sega Saturn"
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "Il file «%s» non ha un file binario Sega Saturn valido."
 
-#: plugins/steam/src/steam-plugin.vala:6
+#: plugins/steam/src/steam-plugin.vala:10
 msgid "Steam"
 msgstr "Steam"
 
-#: plugins/steam/src/steam-plugin.vala:49
+#: plugins/steam/src/steam-plugin.vala:80
 #, c-format
 msgid "Couldn’t get Steam appid from manifest “%s”."
 msgstr "Impossibile ottenere lo appid Steam da «%s»."
@@ -640,11 +648,11 @@ msgstr "Il file non ha un'intestazione Wii."
 msgid "Wii"
 msgstr "Wii"
 
-#: src/command/command-runner.vala:36
+#: src/command/command-runner.vala:39
 msgid "The game doesn’t have a valid command."
 msgstr "Il gioco non ha un comando valido."
 
-#: src/command/command-runner.vala:67
+#: src/command/command-runner.vala:65
 #, c-format
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "Impossibile lanciare «%s»: esecuzione non riuscita."
@@ -664,21 +672,9 @@ msgstr "Descrittore plugin non valido: %s"
 msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr "Impossibile creare una nuova istanza del plugin in «%s»."
 
-#: src/dummy/dummy-description.vala:5
-msgid "No description available."
-msgstr "Nessuna descrizione disponibile."
-
-#: src/dummy/dummy-developer.vala:5 src/dummy/dummy-platform.vala:9
+#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:22
 msgid "Unknown"
 msgstr "Sconosciuta"
-
-#: src/dummy/dummy-players.vala:5
-msgid "Not available"
-msgstr "Non disponibile"
-
-#: src/dummy/dummy-publisher.vala:5
-msgid "Publisher not available."
-msgstr "Editore non disponibile."
 
 #: src/gameinfo/gameinfo-disc-id-disc-title.vala:24
 #, c-format
@@ -705,11 +701,11 @@ msgstr "ID dell'insieme di dischi non trovato per il disco con ID «%s»."
 msgid "No disc found for disc ID “%s”."
 msgstr "Nessun disco trovato per il disco con ID «%s»."
 
-#: src/grilo/grilo-players.vala:46
+#: src/grilo/grilo-players.vala:40
 msgid "Single-player"
 msgstr "Giocatore singolo"
 
-#: src/grilo/grilo-players.vala:48
+#: src/grilo/grilo-players.vala:42
 msgid "Multi-player"
 msgstr "Multi-giocatore"
 
@@ -746,21 +742,21 @@ msgstr ""
 "Questo gioco richiede il file di firmware %s con un codice SHA-512 %s per "
 "essere eseguito."
 
-#: src/retro/retro-runner.vala:241
+#: src/retro/retro-runner.vala:255
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nessun modulo trovato per «%s»."
 
-#: src/retro/retro-runner.vala:540
+#: src/retro/retro-runner.vala:561
 msgid "Unknown platform"
 msgstr "Piattaforma sconosciuta"
 
-#: src/retro/retro-runner.vala:585
+#: src/retro/retro-runner.vala:604
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Il sistema «%s» non è ancora supportato, ma presto lo sarà."
 
-#: src/retro/retro-runner.vala:588
+#: src/retro/retro-runner.vala:606
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Il sistema non è ancora supportato, ma presto lo sarà."
 
@@ -811,101 +807,97 @@ msgid "Master System"
 msgstr "Master System"
 
 #: src/retro/retro-simple-type.vala:37
-msgid "MS-DOS"
-msgstr "MS-DOS"
-
-#: src/retro/retro-simple-type.vala:39
 msgid "Neo Geo Pocket"
 msgstr "Neo Geo Pocket"
 
-#: src/retro/retro-simple-type.vala:41
+#: src/retro/retro-simple-type.vala:39
 msgid "Neo Geo Pocket Color"
 msgstr "Neo Geo Pocket Color"
 
 #. translators: known as "Famicom" in eastern Asia
-#: src/retro/retro-simple-type.vala:44
+#: src/retro/retro-simple-type.vala:42
 msgid "Nintendo Entertainment System"
 msgstr "Nintendo Entertainment System"
 
-#: src/retro/retro-simple-type.vala:46
+#: src/retro/retro-simple-type.vala:44
 msgid "Nintendo 64"
 msgstr "Nintendo 64"
 
 #. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
-#: src/retro/retro-simple-type.vala:49
+#: src/retro/retro-simple-type.vala:47
 msgid "Genesis 32X"
 msgstr "Genesis 32X"
 
 #. translators: known as "Mega Drive" in most of the world
-#: src/retro/retro-simple-type.vala:52
+#: src/retro/retro-simple-type.vala:50
 msgid "Sega Genesis"
 msgstr "Sega Genesis"
 
-#: src/retro/retro-simple-type.vala:54
+#: src/retro/retro-simple-type.vala:52
 msgid "Sega Pico"
 msgstr "Sega Pico"
 
-#: src/retro/retro-simple-type.vala:56
+#: src/retro/retro-simple-type.vala:54
 msgid "SG-1000"
 msgstr "SG-1000"
 
 #. translators: known as "Super Famicom" in eastern Asia
-#: src/retro/retro-simple-type.vala:59
+#: src/retro/retro-simple-type.vala:57
 msgid "Super Nintendo Entertainment System"
 msgstr "Super Nintendo Entertainment System"
 
 #. translators: known as "PC Engine" in eastern Asia and France
-#: src/retro/retro-simple-type.vala:62
+#: src/retro/retro-simple-type.vala:60
 msgid "TurboGrafx-16"
 msgstr "TurboGrafx-16"
 
-#: src/retro/retro-simple-type.vala:64
+#: src/retro/retro-simple-type.vala:62
 msgid "WiiWare"
 msgstr "WiiWare"
 
-#: src/retro/retro-simple-type.vala:66
+#: src/retro/retro-simple-type.vala:64
 msgid "WonderSwan"
 msgstr "WonderSwan"
 
-#: src/retro/retro-simple-type.vala:68
+#: src/retro/retro-simple-type.vala:66
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:161
+#: src/ui/application.vala:169
 msgid "Select game files"
 msgstr "Seleziona file di gioco"
 
-#: src/ui/application.vala:162
+#: src/ui/application.vala:170
 msgid "_Add"
 msgstr "A_ggiungi"
 
-#: src/ui/application.vala:162
+#: src/ui/application.vala:170
 msgid "_Cancel"
 msgstr "A_nnulla"
 
-#: src/ui/application.vala:369
+#: src/ui/application.vala:367
 msgid "GNOME Games"
 msgstr "Giochi GNOME"
 
-#: src/ui/application.vala:371
+#: src/ui/application.vala:369
 msgid "A video game player for GNOME"
 msgstr "Un riproduttore di videogiochi per GNOME"
 
-#: src/ui/application.vala:375
+#: src/ui/application.vala:373
 msgid "Learn more about GNOME Games"
 msgstr "Informazioni su Giochi GNOME"
 
-#: src/ui/application.vala:382
+#: src/ui/application.vala:380
 msgid "translator-credits"
 msgstr ""
 "Milo Casagrande <milo@milo.name>, 2016, 2017, 2018\n"
 "Michael Moroni <michael.moroni@openmailbox.org>, 2016"
 
-#: src/ui/application-window.vala:367
+#: src/ui/application-window.vala:383
 msgid "An unexpected error occurred."
 msgstr "Si è verificato un errore non atteso."
 
-#: src/ui/application-window.vala:647 src/ui/application-window.vala:664
+#: src/ui/application-window.vala:663 src/ui/application-window.vala:680
 msgid "Playing a game"
 msgstr "Gioca con tutti i tuoi giochi"
 
@@ -918,37 +910,17 @@ msgstr "Impossibile lanciare «%s»"
 msgid "Oops! Unable to run the game"
 msgstr "Impossibile lanciare il gioco"
 
-#. translators: testing a gamepad, %s is its name
-#: src/ui/gamepad-configurer.vala:78
-#, c-format
-msgid "Testing %s"
-msgstr "Verifica di «%s»"
-
-#. translators: configuring a gamepad, %s is its name
-#: src/ui/gamepad-configurer.vala:92
-#, c-format
-msgid "Configuring %s"
-msgstr "Configurazione di «%s»"
-
-#: src/ui/gamepad-mapper.vala:126
+#: src/ui/gamepad-mapper.vala:125
 msgid "Press suitable button on your gamepad"
 msgstr "Premere il pulsante corretto sul gamepad"
 
-#: src/ui/gamepad-mapper.vala:131
+#: src/ui/gamepad-mapper.vala:130
 msgid "Move suitable axis left/right on your gamepad"
 msgstr "Muovere l'asse corretto del gamepad a destra/sinistra"
 
-#: src/ui/gamepad-mapper.vala:133
+#: src/ui/gamepad-mapper.vala:132
 msgid "Move suitable axis up/down on your gamepad"
 msgstr "Muovere l'asse corretto del gamepad in su/giù"
-
-#: src/ui/keyboard-configurer.vala:67
-msgid "Testing Keyboard"
-msgstr "Verifica tastiera"
-
-#: src/ui/keyboard-configurer.vala:80
-msgid "Configuring Keyboard"
-msgstr "Configurazione tastiera"
 
 #: src/ui/keyboard-mapper.vala:18
 msgid "Press suitable key on your keyboard"
@@ -959,18 +931,50 @@ msgstr "Premere il pulsante corretto sulla tastiera"
 msgid "Media %d"
 msgstr "Supporto %d"
 
+#: src/ui/preferences-page-controllers.vala:24
+msgid "Controllers"
+msgstr "Periferiche"
+
+#: src/ui/preferences-page-plugins.vala:12
+msgid "Extensions"
+msgstr "Estensioni"
+
 #. same as video-filters in gschema
-#: src/ui/preferences-page-video.vala:34
+#: src/ui/preferences-page-video.vala:22
 msgid "Smooth"
 msgstr "Morbido"
 
-#: src/ui/preferences-page-video.vala:34
+#: src/ui/preferences-page-video.vala:22
 msgid "Sharp"
 msgstr "Dettagliato"
 
-#: src/ui/preferences-page-video.vala:34
+#: src/ui/preferences-page-video.vala:22
 msgid "CRT"
 msgstr "CRT"
+
+#: src/ui/preferences-page-video.vala:36
+msgid "Video"
+msgstr "Video"
+
+#. translators: testing a gamepad, %s is its name
+#: src/ui/preferences-subpage-gamepad.vala:78
+#, c-format
+msgid "Testing %s"
+msgstr "Verifica di «%s»"
+
+#. translators: configuring a gamepad, %s is its name
+#: src/ui/preferences-subpage-gamepad.vala:89
+#, c-format
+msgid "Configuring %s"
+msgstr "Configurazione di «%s»"
+
+#: src/ui/preferences-subpage-keyboard.vala:68
+msgid "Testing Keyboard"
+msgstr "Verifica tastiera"
+
+#: src/ui/preferences-subpage-keyboard.vala:78
+msgid "Configuring Keyboard"
+msgstr "Configurazione tastiera"
 
 #: src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
@@ -1023,6 +1027,22 @@ msgstr "%s:%lu: fine riga inattesa, atteso un elemento."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: elemento %s inatteso, attesa fine riga."
+
+#~ msgid "About"
+#~ msgstr "Informazioni"
+
+#~ msgctxt "Gamepad configuration factory reset"
+#~ msgid "Reset"
+#~ msgstr "Ripristina"
+
+#~ msgid "No description available."
+#~ msgstr "Nessuna descrizione disponibile."
+
+#~ msgid "Not available"
+#~ msgstr "Non disponibile"
+
+#~ msgid "Publisher not available."
+#~ msgstr "Editore non disponibile."
 
 #~ msgid "Plugins"
 #~ msgstr "Plugin"
