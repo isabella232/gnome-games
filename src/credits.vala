@@ -2,8 +2,8 @@
 
 namespace Games.Credits {
 	private const string[] AUTHORS = {
-		"Adrien Plazas <kekun.plazas@laposte.net>",
 		"Abhinav Singh <theawless@gmail.com>",
+		"Adrien Plazas <kekun.plazas@laposte.net>",
 		"Alexander Mikhaylenko <exalm7659@gmail.com>",
 		"Megh Parikh <meghprkh@gmail.com>",
 		"Ricard Gascons <gascons1995@gmail.com>",
