@@ -6,6 +6,7 @@ int main (string[] args) {
 	Intl.textdomain (Config.GETTEXT_PACKAGE);
 
 	Grl.init (ref args);
+	Hdy.init (ref args);
 
 	var app = new Games.Application ();
 	var result = app.run (args);
