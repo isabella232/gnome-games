@@ -97,8 +97,8 @@
                 "-Dfts=false",
                 "-Dfunctional_tests=false",
                 "-Djournal=false",
-                "-Dnetwork_manager=no",
-                "-Dstemmer=no",
+                "-Dnetwork_manager=disabled",
+                "-Dstemmer=disabled",
                 "-Dbash_completion=no",
                 "-Ddbus_services=/app/share/dbus-1/services",
                 "-Dsystemd_user_services=no"
