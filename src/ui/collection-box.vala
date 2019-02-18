@@ -9,6 +9,8 @@ private class Games.CollectionBox : Gtk.Box {
 	public bool loading_notification { get; set; }
 
 	[GtkChild]
+	private ErrorInfoBar error_info_bar;
+	[GtkChild]
 	private SearchBar search_bar;
 	[GtkChild]
 	private Gtk.Revealer loading_notification_revealer;
@@ -62,6 +64,11 @@ private class Games.CollectionBox : Gtk.Box {
 		                                BindingFlags.BIDIRECTIONAL);
 		loading_notification_binding = bind_property ("loading-notification", loading_notification_revealer, "reveal-child",
 		                                              BindingFlags.DEFAULT);
+	}
+
+	public void reveal_error_info_bar (string error_message) {
+		error_info_bar.message = error_message;
+		error_info_bar.revealed = true;
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {
