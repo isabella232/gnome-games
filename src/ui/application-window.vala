@@ -171,6 +171,10 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		set_help_overlay (new ShortcutsWindow ());
 	}
 
+	public void show_error (string error_message) {
+		collection_box.reveal_error_info_bar (error_message);
+	}
+
 	public void run_game (Game game) {
 		// If there is a game already running we have to quit it first
 		if (display_box.runner != null && !quit_game())
