@@ -13,4 +13,9 @@ private class Games.ErrorInfoBar : Gtk.InfoBar {
 	public string message {
 		set { label.label = value; }
 	}
+
+	[GtkCallback]
+	private void on_response () {
+		revealed = false;
+	}
 }
