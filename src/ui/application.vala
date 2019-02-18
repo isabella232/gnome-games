@@ -204,12 +204,18 @@ public class Games.Application : Gtk.Application {
 		foreach (var file in files)
 			uris += new Uri.from_file (file);
 
+		// FIXME: This is done because files[0] gets freed after yield
+		var file = files[0];
 		var game = yield game_for_uris (uris);
 
-		if (game != null)
-			window.run_game (game);
-		// else
-			// TODO Display an error
+		if (game == null) {
+			var filename = file.get_basename ();
+			var error_msg = _("An unexpected error occured while trying to run %s").printf (filename);
+			window.show_error (error_msg);
+			return;
+		}
+
+		window.run_game (game);
 	}
 
 	protected override void activate () {
