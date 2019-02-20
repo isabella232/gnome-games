@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2018-12-11 09:49+0000\n"
+"POT-Creation-Date: 2019-02-15 12:49+0000\n"
 "PO-Revision-Date: 2019-02-13 09:57+0100\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
@@ -155,7 +155,7 @@ msgid "Search"
 msgstr "Cerca"
 
 #: data/ui/collection-header-bar.ui:111 data/ui/preferences-window.ui:6
-#: data/ui/preferences-window.ui:25
+#: data/ui/preferences-window.ui:27
 msgid "Preferences"
 msgstr "Preferenze"
 
@@ -172,7 +172,7 @@ msgid "About Games"
 msgstr "Informazioni su Giochi"
 
 #: data/ui/display-header-bar.ui:20 data/ui/preferences-subpage-gamepad.ui:82
-#: data/ui/preferences-subpage-keyboard.ui:83
+#: data/ui/preferences-subpage-keyboard.ui:83 data/ui/preferences-window.ui:55
 msgid "Back"
 msgstr "Indietro"
 
@@ -537,20 +537,20 @@ msgstr "Sega Mega CD"
 msgid "Sega CD 32X"
 msgstr "Sega Mega CD 32X"
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:108
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:87
+#: plugins/sega-cd/src/sega-cd-plugin.vala:114
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:93
 #, c-format
 msgid "The file “%s” doesn’t have a track."
 msgstr "Il file «%s» non ha una traccia."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:114
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:93
+#: plugins/sega-cd/src/sega-cd-plugin.vala:120
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:99
 #, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr "Il file «%s» non ha un formato file binario valido."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:117
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:96
+#: plugins/sega-cd/src/sega-cd-plugin.vala:123
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:102
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
 msgstr "Il file «%s» non ha una modalità traccia valida per la traccia %d."
@@ -563,7 +563,7 @@ msgstr "Il file non ha un'intestazione Sega Saturn."
 msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:100
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:106
 #, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "Il file «%s» non ha un file binario Sega Saturn valido."
@@ -672,7 +672,7 @@ msgstr "Descrittore plugin non valido: %s"
 msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr "Impossibile creare una nuova istanza del plugin in «%s»."
 
-#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:22
+#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:24
 msgid "Unknown"
 msgstr "Sconosciuta"
 
@@ -742,21 +742,21 @@ msgstr ""
 "Questo gioco richiede il file di firmware %s con un codice SHA-512 %s per "
 "essere eseguito."
 
-#: src/retro/retro-runner.vala:255
+#: src/retro/retro-runner.vala:224
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nessun modulo trovato per «%s»."
 
-#: src/retro/retro-runner.vala:561
+#: src/retro/retro-runner.vala:527
 msgid "Unknown platform"
 msgstr "Piattaforma sconosciuta"
 
-#: src/retro/retro-runner.vala:604
+#: src/retro/retro-runner.vala:570
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Il sistema «%s» non è ancora supportato, ma presto lo sarà."
 
-#: src/retro/retro-runner.vala:606
+#: src/retro/retro-runner.vala:572
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Il sistema non è ancora supportato, ma presto lo sarà."
 
@@ -863,41 +863,41 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:169
+#: src/ui/application.vala:171
 msgid "Select game files"
 msgstr "Seleziona file di gioco"
 
-#: src/ui/application.vala:170
-msgid "_Add"
-msgstr "A_ggiungi"
-
-#: src/ui/application.vala:170
+#: src/ui/application.vala:172
 msgid "_Cancel"
 msgstr "A_nnulla"
 
-#: src/ui/application.vala:367
+#: src/ui/application.vala:173
+msgid "_Add"
+msgstr "A_ggiungi"
+
+#: src/ui/application.vala:384
 msgid "GNOME Games"
 msgstr "Giochi GNOME"
 
-#: src/ui/application.vala:369
+#: src/ui/application.vala:386
 msgid "A video game player for GNOME"
 msgstr "Un riproduttore di videogiochi per GNOME"
 
-#: src/ui/application.vala:373
+#: src/ui/application.vala:390
 msgid "Learn more about GNOME Games"
 msgstr "Informazioni su Giochi GNOME"
 
-#: src/ui/application.vala:380
+#: src/ui/application.vala:397
 msgid "translator-credits"
 msgstr ""
 "Milo Casagrande <milo@milo.name>, 2016, 2017, 2018\n"
 "Michael Moroni <michael.moroni@openmailbox.org>, 2016"
 
-#: src/ui/application-window.vala:383
+#: src/ui/application-window.vala:397
 msgid "An unexpected error occurred."
 msgstr "Si è verificato un errore non atteso."
 
-#: src/ui/application-window.vala:663 src/ui/application-window.vala:680
+#: src/ui/application-window.vala:684 src/ui/application-window.vala:701
 msgid "Playing a game"
 msgstr "Gioca con tutti i tuoi giochi"
 
@@ -910,15 +910,15 @@ msgstr "Impossibile lanciare «%s»"
 msgid "Oops! Unable to run the game"
 msgstr "Impossibile lanciare il gioco"
 
-#: src/ui/gamepad-mapper.vala:125
+#: src/ui/gamepad-mapper.vala:133
 msgid "Press suitable button on your gamepad"
 msgstr "Premere il pulsante corretto sul gamepad"
 
-#: src/ui/gamepad-mapper.vala:130
+#: src/ui/gamepad-mapper.vala:138
 msgid "Move suitable axis left/right on your gamepad"
 msgstr "Muovere l'asse corretto del gamepad a destra/sinistra"
 
-#: src/ui/gamepad-mapper.vala:132
+#: src/ui/gamepad-mapper.vala:140
 msgid "Move suitable axis up/down on your gamepad"
 msgstr "Muovere l'asse corretto del gamepad in su/giù"
 
@@ -1027,89 +1027,3 @@ msgstr "%s:%lu: fine riga inattesa, atteso un elemento."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: elemento %s inatteso, attesa fine riga."
-
-#~ msgid "About"
-#~ msgstr "Informazioni"
-
-#~ msgctxt "Gamepad configuration factory reset"
-#~ msgid "Reset"
-#~ msgstr "Ripristina"
-
-#~ msgid "No description available."
-#~ msgstr "Nessuna descrizione disponibile."
-
-#~ msgid "Not available"
-#~ msgstr "Non disponibile"
-
-#~ msgid "Publisher not available."
-#~ msgstr "Editore non disponibile."
-
-#~ msgid "Plugins"
-#~ msgstr "Plugin"
-
-#~ msgid "Developer not available."
-#~ msgstr "Sviluppatore non disponibile."
-
-#~ msgid "Atari 5200"
-#~ msgstr "Atari 5200"
-
-#~ msgid "MAME"
-#~ msgstr "MAME"
-
-#~ msgid "Nintendo 3DS"
-#~ msgstr "Nintendo 3DS"
-
-#~ msgid "PlayStation 2"
-#~ msgstr "PlayStation 2"
-
-#~ msgid "PlayStation 3"
-#~ msgstr "PlayStation 3"
-
-#~ msgid "PlayStation 4"
-#~ msgstr "PlayStation 4"
-
-#~ msgid "PlayStation Portable"
-#~ msgstr "PlayStation Portable"
-
-#~ msgid "PlayStation Vita"
-#~ msgstr "PlayStation Vita"
-
-#~ msgid "Wii U"
-#~ msgstr "Wii U"
-
-#~ msgid "_Preferences"
-#~ msgstr "Preferen_ze"
-
-#~ msgid "_Quit"
-#~ msgstr "_Esci"
-
-#~ msgctxt "Confirm gamepad configuration factory reset"
-#~ msgid "Reset"
-#~ msgstr "Ripristina"
-
-#~ msgid "The mapping string can’t be null."
-#~ msgstr "La stringa di mappatura non può essere nulla."
-
-#~ msgid "The mapping string can’t be empty."
-#~ msgstr "La stringa di mappatura non può essere vuota."
-
-#~ msgid "Unable to open file “%s”: %s"
-#~ msgstr "Impossibile aprire il file «%s»: %s"
-
-#~ msgid "Evdev is unable to open “%s”: %s"
-#~ msgstr "Evdev non è in grado di aprire «%s»: %s"
-
-#~ msgid "The file doesn’t have a Master System header."
-#~ msgstr "Il file non ha un'intestazione Master System."
-
-#~ msgid "Disc with disc_id %s is unknown"
-#~ msgstr "Disco con disc_id %s sconosciuto"
-
-#~ msgid ""
-#~ "<b><span size=\"large\">Use the game’s own window to play it</span></b>"
-#~ msgstr ""
-#~ "<b><span size=\"large\">Usa la finestra nativa del gioco per giocare</"
-#~ "span></b>"
-
-#~ msgid "Invalid command: it doesn't have any argument."
-#~ msgstr "Comando non valido: non è stato passato alcun argomento."
