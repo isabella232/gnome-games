@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2018-10-24 19:43+0000\n"
+"POT-Creation-Date: 2019-02-21 17:14+0000\n"
 "PO-Revision-Date: 2018-10-31 00:10+0300\n"
 "Last-Translator: Stas Solovey <whats_up@tut.by>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 #: data/org.gnome.Games.appdata.xml.in.in:6
 #: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:40
 #: data/ui/collection-header-bar.ui:67 data/ui/display-header-bar.ui:6
-#: src/ui/application.vala:26
+#: src/ui/application.vala:25
 msgid "Games"
 msgstr "Игры"
 
@@ -64,6 +64,10 @@ msgstr "Играйте в игры"
 #: data/org.gnome.Games.appdata.xml.in.in:25
 msgid "Resume your game to where you left it"
 msgstr "Продолжайте игру с того места, где вы вышли"
+
+#: data/org.gnome.Games.appdata.xml.in.in:53
+msgid "The GNOME Project"
+msgstr "Проект GNOME"
 
 #: data/org.gnome.Games.desktop.in.in:4
 msgid "Video game player"
@@ -145,7 +149,7 @@ msgid "Search"
 msgstr "Поиск"
 
 #: data/ui/collection-header-bar.ui:111 data/ui/preferences-window.ui:6
-#: data/ui/preferences-window.ui:25
+#: data/ui/preferences-window.ui:27
 msgid "Preferences"
 msgstr "Параметры"
 
@@ -162,7 +166,7 @@ msgid "About Games"
 msgstr "О приложении Игры"
 
 #: data/ui/display-header-bar.ui:20 data/ui/preferences-subpage-gamepad.ui:82
-#: data/ui/preferences-subpage-keyboard.ui:83
+#: data/ui/preferences-subpage-keyboard.ui:83 data/ui/preferences-window.ui:55
 msgid "Back"
 msgstr "Назад"
 
@@ -191,6 +195,14 @@ msgid ""
 "Install games or add directories containing games to your search sources."
 msgstr ""
 "Установите игры или добавьте каталоги, содержащие игры, в источники поиска."
+
+#: data/ui/input-mode-switcher.ui:16
+msgid "Gamepad Input"
+msgstr "Геймпад"
+
+#: data/ui/input-mode-switcher.ui:36
+msgid "Keyboard Input"
+msgstr "Клавиатура"
 
 #: data/ui/media-menu-button.ui:11
 msgid "Media"
@@ -320,7 +332,7 @@ msgstr "Навигация"
 #: data/ui/shortcuts-window.ui:41
 msgctxt "shortcut window"
 msgid "Left analog stick"
-msgstr "Левая аналоговая кнопка"
+msgstr "Левый аналоговый стик"
 
 #: data/ui/shortcuts-window.ui:49
 msgctxt "shortcut window"
@@ -402,7 +414,7 @@ msgstr "Сделать вклад"
 
 #: plugins/desktop/src/desktop-plugin.vala:6
 msgid "Desktop"
-msgstr "Настольный"
+msgstr "PC"
 
 #: plugins/desktop/src/desktop-plugin.vala:56
 #, c-format
@@ -482,6 +494,10 @@ msgstr "Некорректный ID игры MAME «%s» для «%s»."
 msgid "Arcade"
 msgstr "Аркада"
 
+#: plugins/ms-dos/src/ms-dos-plugin.vala:7
+msgid "MS-DOS"
+msgstr "MS-DOS"
+
 #: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:7
 msgid "Nintendo DS"
 msgstr "Nintendo DS"
@@ -515,20 +531,20 @@ msgstr "Sega CD"
 msgid "Sega CD 32X"
 msgstr "Sega CD 32X"
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:108
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:87
+#: plugins/sega-cd/src/sega-cd-plugin.vala:114
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:93
 #, c-format
 msgid "The file “%s” doesn’t have a track."
 msgstr "Файл «%s» не содержит дорожки."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:114
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:93
+#: plugins/sega-cd/src/sega-cd-plugin.vala:120
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:99
 #, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr "Файл «%s» не содержит двоичного файла корректного формата."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:117
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:96
+#: plugins/sega-cd/src/sega-cd-plugin.vala:123
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:102
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
 msgstr "Файл «%s» не содержит корректного режима для дорожки %d."
@@ -541,7 +557,7 @@ msgstr "Файл не содержит заголовка Sega Saturn."
 msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:100
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:106
 #, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "Файл «%s» не содержит корректного файла Sega Saturn."
@@ -626,11 +642,11 @@ msgstr "Файл не содержит заголовка Wii."
 msgid "Wii"
 msgstr "Wii"
 
-#: src/command/command-runner.vala:34
+#: src/command/command-runner.vala:39
 msgid "The game doesn’t have a valid command."
 msgstr "Игра не содержит корректной команды."
 
-#: src/command/command-runner.vala:60
+#: src/command/command-runner.vala:65
 #, c-format
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "Не удалось запустить «%s»: ошибка при выполнении."
@@ -650,7 +666,7 @@ msgstr "Некорректный дескриптор плагина: %s"
 msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr "Не удалось создать новый экземпляр плагина в «%s»."
 
-#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:22
+#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:24
 msgid "Unknown"
 msgstr "Неизвестный"
 
@@ -717,22 +733,22 @@ msgstr ""
 "Этой игре для запуска необходим образ BIOS «%s» с контрольной суммой SHA-512 "
 "%s."
 
-#: src/retro/retro-runner.vala:241
+#: src/retro/retro-runner.vala:224
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Не найден модуль для «%s»."
 
-#: src/retro/retro-runner.vala:541
+#: src/retro/retro-runner.vala:527
 msgid "Unknown platform"
 msgstr "Неизвестная платформа"
 
-#: src/retro/retro-runner.vala:586
+#: src/retro/retro-runner.vala:570
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
 "Система «%s» ещё не поддерживается, но полная поддержка ожидается в будущем."
 
-#: src/retro/retro-runner.vala:589
+#: src/retro/retro-runner.vala:572
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr ""
 "Система ещё не поддерживается, но полная поддержка ожидается в будущем."
@@ -784,101 +800,97 @@ msgid "Master System"
 msgstr "Master System"
 
 #: src/retro/retro-simple-type.vala:37
-msgid "MS-DOS"
-msgstr "MS-DOS"
-
-#: src/retro/retro-simple-type.vala:39
 msgid "Neo Geo Pocket"
 msgstr "Neo Geo Pocket"
 
-#: src/retro/retro-simple-type.vala:41
+#: src/retro/retro-simple-type.vala:39
 msgid "Neo Geo Pocket Color"
 msgstr "Neo Geo Pocket Color"
 
 #. translators: known as "Famicom" in eastern Asia
-#: src/retro/retro-simple-type.vala:44
+#: src/retro/retro-simple-type.vala:42
 msgid "Nintendo Entertainment System"
 msgstr "Nintendo Entertainment System"
 
-#: src/retro/retro-simple-type.vala:46
+#: src/retro/retro-simple-type.vala:44
 msgid "Nintendo 64"
 msgstr "Nintendo 64"
 
 #. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
-#: src/retro/retro-simple-type.vala:49
+#: src/retro/retro-simple-type.vala:47
 msgid "Genesis 32X"
 msgstr "Genesis 32X"
 
 #. translators: known as "Mega Drive" in most of the world
-#: src/retro/retro-simple-type.vala:52
+#: src/retro/retro-simple-type.vala:50
 msgid "Sega Genesis"
 msgstr "Sega Genesis"
 
-#: src/retro/retro-simple-type.vala:54
+#: src/retro/retro-simple-type.vala:52
 msgid "Sega Pico"
 msgstr "Sega Pico"
 
-#: src/retro/retro-simple-type.vala:56
+#: src/retro/retro-simple-type.vala:54
 msgid "SG-1000"
 msgstr "SG-1000"
 
 #. translators: known as "Super Famicom" in eastern Asia
-#: src/retro/retro-simple-type.vala:59
+#: src/retro/retro-simple-type.vala:57
 msgid "Super Nintendo Entertainment System"
 msgstr "Super Nintendo Entertainment System"
 
 #. translators: known as "PC Engine" in eastern Asia and France
-#: src/retro/retro-simple-type.vala:62
+#: src/retro/retro-simple-type.vala:60
 msgid "TurboGrafx-16"
 msgstr "TurboGrafx-16"
 
-#: src/retro/retro-simple-type.vala:64
+#: src/retro/retro-simple-type.vala:62
 msgid "WiiWare"
 msgstr "WiiWare"
 
-#: src/retro/retro-simple-type.vala:66
+#: src/retro/retro-simple-type.vala:64
 msgid "WonderSwan"
 msgstr "WonderSwan"
 
-#: src/retro/retro-simple-type.vala:68
+#: src/retro/retro-simple-type.vala:66
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:174
+#: src/ui/application.vala:171
 msgid "Select game files"
 msgstr "Выберите файлы игр"
 
-#: src/ui/application.vala:175
-msgid "_Add"
-msgstr "_Добавить"
-
-#: src/ui/application.vala:175
+#: src/ui/application.vala:172
 msgid "_Cancel"
 msgstr "_Отмена"
 
-#: src/ui/application.vala:389
+#: src/ui/application.vala:173
+msgid "_Add"
+msgstr "_Добавить"
+
+#: src/ui/application.vala:384
 msgid "GNOME Games"
 msgstr "Игры GNOME"
 
-#: src/ui/application.vala:391
+#: src/ui/application.vala:386
 msgid "A video game player for GNOME"
 msgstr "Приложение GNOME для запуска видеоигр"
 
-#: src/ui/application.vala:395
+#: src/ui/application.vala:390
 msgid "Learn more about GNOME Games"
 msgstr "Веб-страница"
 
-#: src/ui/application.vala:402
+#: src/ui/application.vala:397
 msgid "translator-credits"
 msgstr ""
 "Александр Михайленко <exalm7659@gmail.com>, 2018.\n"
 "Станислав Соловей <whats_up@tut.by>, 2018."
 
-#: src/ui/application-window.vala:380
+#: src/ui/application-window.vala:397
 msgid "An unexpected error occurred."
 msgstr "Произошла неожиданная ошибка."
 
-#: src/ui/application-window.vala:660 src/ui/application-window.vala:677
+#: src/ui/application-window.vala:684 src/ui/application-window.vala:701
 msgid "Playing a game"
 msgstr "Запущена игра"
 
@@ -891,15 +903,15 @@ msgstr "Ой! Не удалось запустить «%s»"
 msgid "Oops! Unable to run the game"
 msgstr "Ой! Не удалось запустить игру"
 
-#: src/ui/gamepad-mapper.vala:125
+#: src/ui/gamepad-mapper.vala:133
 msgid "Press suitable button on your gamepad"
 msgstr "Нажмите подходящую кнопку на геймпаде"
 
-#: src/ui/gamepad-mapper.vala:130
+#: src/ui/gamepad-mapper.vala:138
 msgid "Move suitable axis left/right on your gamepad"
 msgstr "Переместите подходящий стик на геймпаде влево/вправо"
 
-#: src/ui/gamepad-mapper.vala:132
+#: src/ui/gamepad-mapper.vala:140
 msgid "Move suitable axis up/down on your gamepad"
 msgstr "Переместите подходящий стик на геймпаде вверх/вниз"
 
