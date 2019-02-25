@@ -14,24 +14,6 @@
     <child>
       <object class="GtkStack" id="content_box">
         <property name="visible">True</property>
-        <child>
-          <object class="GamesCollectionBox" id="collection_box">
-            <property name="visible">True</property>
-            <signal name="game-activated" handler="on_game_activated"/>
-          </object>
-          <packing>
-            <property name="name">collection</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GamesDisplayBox" id="display_box">
-            <property name="visible">True</property>
-            <signal name="back" handler="on_display_back"/>
-          </object>
-          <packing>
-            <property name="name">display</property>
-          </packing>
-        </child>
       </object>
     </child>
     <child type="titlebar">
@@ -40,23 +22,6 @@
         <child>
           <object class="GtkStack" id="header_bar">
             <property name="visible">True</property>
-            <child>
-              <object class="GamesCollectionHeaderBar" id="collection_header_bar">
-                <property name="visible">True</property>
-              </object>
-              <packing>
-                <property name="name">collection</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GamesDisplayHeaderBar" id="display_header_bar">
-                <property name="visible">True</property>
-                <signal name="back" handler="on_display_back"/>
-              </object>
-              <packing>
-                <property name="name">display</property>
-              </packing>
-            </child>
           </object>
         </child>
       </object>

@@ -66,7 +66,7 @@ private class Games.CollectionBox : Gtk.Box {
 		                                              BindingFlags.DEFAULT);
 	}
 
-	public void reveal_error_info_bar (string error_message) {
+	public void show_error (string error_message) {
 		error_info_bar.message = error_message;
 		error_info_bar.revealed = true;
 	}
