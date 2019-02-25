@@ -4,6 +4,7 @@
   <template class="GamesDisplayHeaderBar" parent="GtkHeaderBar">
     <property name="visible">True</property>
     <property name="title" translatable="yes">Games</property>
+    <property name="show_close_button">True</property>
     <signal name="notify::is-fullscreen" handler="on_fullscreen_changed"/>
     <signal name="notify::can-fullscreen" handler="on_fullscreen_changed"/>
     <child>

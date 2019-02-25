@@ -43,7 +43,6 @@
             <child>
               <object class="GamesCollectionHeaderBar" id="collection_header_bar">
                 <property name="visible">True</property>
-                <property name="show-close-button">True</property>
               </object>
               <packing>
                 <property name="name">collection</property>
@@ -52,7 +51,6 @@
             <child>
               <object class="GamesDisplayHeaderBar" id="display_header_bar">
                 <property name="visible">True</property>
-                <property name="show-close-button">True</property>
                 <signal name="back" handler="on_display_back"/>
               </object>
               <packing>
