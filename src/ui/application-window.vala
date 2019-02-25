@@ -117,8 +117,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		}
 	}
 
-	public ApplicationWindow (ListModel collection) {
-		Object (collection: collection);
+	public ApplicationWindow (Application application, ListModel collection) {
+		Object (application: application, collection: collection);
 	}
 
 	construct {

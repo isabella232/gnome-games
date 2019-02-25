@@ -234,8 +234,7 @@ public class Games.Application : Gtk.Application {
 			return;
 		}
 
-		window = new ApplicationWindow (list_store);
-		this.add_window (window);
+		window = new ApplicationWindow (this, list_store);
 		window.destroy.connect (() => {
 			quit_application ();
 		});
