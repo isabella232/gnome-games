@@ -1,3 +1,5 @@
+// This file is part of GNOME Games. License: GPL-3.0+.
+
 private class Games.PlatformListItem : Games.SidebarListItem {
 	private Platform _platform;
 	public Platform platform {

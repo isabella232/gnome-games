@@ -1,3 +1,5 @@
+// This file is part of GNOME Games. License: GPL-3.0+.
+
 [CCode (cprefix = "", lower_case_cprefix = "", cheader_filename = "config.h")]
 namespace Config {
 	public const string APPLICATION_ID;
