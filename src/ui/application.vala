@@ -363,6 +363,7 @@ public class Games.Application : Gtk.Application {
 		preferences_window.destroy.connect (() => {
 			preferences_window = null;
 		});
+		preferences_window.present ();
 	}
 
 	private void help () {
