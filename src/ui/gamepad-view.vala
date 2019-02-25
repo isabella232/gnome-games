@@ -26,7 +26,11 @@ private class Games.GamepadView : Gtk.DrawingArea {
 				critical ("Could not set up gamepad view: %s", e.message);
 			}
 
-			set_size_request (handle.width, handle.height);
+			Rsvg.Rectangle rect = {};
+			if (!handle.get_geometry_sub (null, out rect, null))
+				assert_not_reached ();
+
+			set_size_request ((int) rect.width, (int) rect.height);
 			input_highlights = new bool[value.input_paths.length];
 
 			reset ();
@@ -101,9 +105,13 @@ private class Games.GamepadView : Gtk.DrawingArea {
 		double w = get_allocated_width ();
 		double h = get_allocated_height ();
 
-		scale = double.min (h / handle.height, w / handle.width);
+		Rsvg.Rectangle rect = {};
+		if (!handle.get_geometry_sub (null, out rect, null))
+			assert_not_reached ();
 
-		x = (w - handle.width * scale) / 2;
-		y = (h - handle.height * scale) / 2;
+		scale = double.min (h / rect.height, w / rect.width);
+
+		x = (w - rect.width * scale) / 2;
+		y = (h - rect.height * scale) / 2;
 	}
 }
