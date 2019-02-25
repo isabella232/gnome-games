@@ -19,19 +19,6 @@ private class Games.InputModeSwitcher : Gtk.Box {
 		}
 	}
 
-	private void on_input_mode_changed () {
-		switch (runner.input_mode) {
-		case InputMode.GAMEPAD:
-			gamepad_mode.active = true;
-
-			break;
-		case InputMode.KEYBOARD:
-			keyboard_mode.active = true;
-
-			break;
-		}
-	}
-
 	[GtkChild]
 	private Gtk.RadioButton keyboard_mode;
 	[GtkChild]
@@ -47,5 +34,18 @@ private class Games.InputModeSwitcher : Gtk.Box {
 	private void on_gamepad_button_toggled () {
 		if (gamepad_mode.active)
 			runner.input_mode = InputMode.GAMEPAD;
+	}
+
+	private void on_input_mode_changed () {
+		switch (runner.input_mode) {
+		case InputMode.GAMEPAD:
+			gamepad_mode.active = true;
+
+			break;
+		case InputMode.KEYBOARD:
+			keyboard_mode.active = true;
+
+			break;
+		}
 	}
 }

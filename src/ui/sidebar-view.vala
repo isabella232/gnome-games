@@ -4,6 +4,8 @@
 private abstract class Games.SidebarView : Gtk.Box {
 	public signal void game_activated (Game game);
 
+	private ulong model_items_changed_id;
+
 	private string[] filtering_terms;
 	public string filtering_text {
 		set {
@@ -15,38 +17,6 @@ private abstract class Games.SidebarView : Gtk.Box {
 			hide_empty_sidebar_items ();
 		}
 	}
-
-	private void hide_empty_sidebar_items () {
-		// Create an array of all the games which fit the search text entered
-		// in the top search bar
-		Game[] visible_games = {};
-
-		for (int i = 0; i < model.get_n_items (); i++) {
-			var game = model.get_item (i) as Game;
-
-			if (game.matches_search_terms (filtering_terms))
-				visible_games += game;
-		}
-
-		foreach (var row in list_box.get_children ()) {
-			var sidebar_item = row as SidebarListItem;
-			// Assume row doesn't have any games to show
-			var is_row_visible = false;
-
-			foreach (var game in visible_games) {
-				if (sidebar_item.has_game (game)) {
-					is_row_visible = true;
-					break;
-				}
-			}
-
-			row.visible = is_row_visible;
-		}
-
-		select_default_row ();
-	}
-
-	private ulong model_items_changed_id;
 
 	private ListModel _model;
 	public ListModel model {
@@ -241,5 +211,35 @@ private abstract class Games.SidebarView : Gtk.Box {
 				break;
 			}
 		}
+	}
+
+	private void hide_empty_sidebar_items () {
+		// Create an array of all the games which fit the search text entered
+		// in the top search bar
+		Game[] visible_games = {};
+
+		for (int i = 0; i < model.get_n_items (); i++) {
+			var game = model.get_item (i) as Game;
+
+			if (game.matches_search_terms (filtering_terms))
+				visible_games += game;
+		}
+
+		foreach (var row in list_box.get_children ()) {
+			var sidebar_item = row as SidebarListItem;
+			// Assume row doesn't have any games to show
+			var is_row_visible = false;
+
+			foreach (var game in visible_games) {
+				if (sidebar_item.has_game (game)) {
+					is_row_visible = true;
+					break;
+				}
+			}
+
+			row.visible = is_row_visible;
+		}
+
+		select_default_row ();
 	}
 }
