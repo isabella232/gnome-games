@@ -30,7 +30,8 @@ private abstract class Games.SidebarView : Gtk.Box {
 
 		foreach (var row in list_box.get_children ()) {
 			var sidebar_item = row as SidebarListItem;
-			var is_row_visible = false; // Assume row doesn't have any games to show
+			// Assume row doesn't have any games to show
+			var is_row_visible = false;
 
 			foreach (var game in visible_games) {
 				if (sidebar_item.has_game (game)) {
