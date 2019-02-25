@@ -11,6 +11,11 @@ private class Games.GamepadView : Gtk.DrawingArea {
 			if (value == configuration)
 				return;
 
+			_configuration = value;
+
+			if (value.svg_path == "")
+				return;
+
 			try {
 				var bytes = resources_lookup_data (value.svg_path, ResourceLookupFlags.NONE);
 				var data = bytes.get_data ();
@@ -22,7 +27,6 @@ private class Games.GamepadView : Gtk.DrawingArea {
 			}
 
 			set_size_request (handle.width, handle.height);
-			_configuration = value;
 			input_highlights = new bool[value.input_paths.length];
 
 			reset ();
