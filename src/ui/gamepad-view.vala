@@ -11,11 +11,17 @@ private class Games.GamepadView : Gtk.DrawingArea {
 		input_highlights = {};
 	}
 
-	public void set_configuration (GamepadViewConfiguration configuration) throws Error {
-		var bytes = resources_lookup_data (configuration.svg_path, ResourceLookupFlags.NONE);
-		var data = bytes.get_data ();
+	public void set_configuration (GamepadViewConfiguration configuration) {
+		try {
+			var bytes = resources_lookup_data (configuration.svg_path, ResourceLookupFlags.NONE);
+			var data = bytes.get_data ();
 
-		handle = new Rsvg.Handle.from_data (data);
+			handle = new Rsvg.Handle.from_data (data);
+		}
+		catch (Error e) {
+			critical ("Could not set up gamepad view: %s", e.message);
+		}
+
 		set_size_request (handle.width, handle.height);
 		this.configuration = configuration;
 		input_highlights = new bool[configuration.input_paths.length];

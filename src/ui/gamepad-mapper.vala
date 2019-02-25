@@ -23,12 +23,7 @@ private class Games.GamepadMapper : Gtk.Bin {
 		get { return _configuration; }
 		construct {
 			_configuration = value;
-			try {
-				gamepad_view.set_configuration (value);
-			}
-			catch (Error e) {
-				critical ("Could not set up gamepad view: %s", e.message);
-			}
+			gamepad_view.set_configuration (value);
 		}
 	}
 
