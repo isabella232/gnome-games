@@ -12,7 +12,7 @@ private class Games.KeyboardTester : Gtk.Bin {
 		get { return _configuration; }
 		construct {
 			_configuration = value;
-			gamepad_view.set_configuration (value);
+			gamepad_view.configuration = value;
 		}
 	}
 

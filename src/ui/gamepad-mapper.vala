@@ -23,7 +23,7 @@ private class Games.GamepadMapper : Gtk.Bin {
 		get { return _configuration; }
 		construct {
 			_configuration = value;
-			gamepad_view.set_configuration (value);
+			gamepad_view.configuration = value;
 		}
 	}
 

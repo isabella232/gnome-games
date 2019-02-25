@@ -2,31 +2,37 @@
 
 private class Games.GamepadView : Gtk.DrawingArea {
 	private Rsvg.Handle handle;
-	private GamepadViewConfiguration configuration;
 	private bool[] input_highlights;
+
+	private GamepadViewConfiguration _configuration;
+	public GamepadViewConfiguration configuration {
+		get { return _configuration; }
+		set {
+			if (value == configuration)
+				return;
+
+			try {
+				var bytes = resources_lookup_data (value.svg_path, ResourceLookupFlags.NONE);
+				var data = bytes.get_data ();
+
+				handle = new Rsvg.Handle.from_data (data);
+			}
+			catch (Error e) {
+				critical ("Could not set up gamepad view: %s", e.message);
+			}
+
+			set_size_request (handle.width, handle.height);
+			_configuration = value;
+			input_highlights = new bool[value.input_paths.length];
+
+			reset ();
+		}
+	}
 
 	construct {
 		handle = new Rsvg.Handle ();
 		configuration = { "", new GamepadInputPath[0] };
 		input_highlights = {};
-	}
-
-	public void set_configuration (GamepadViewConfiguration configuration) {
-		try {
-			var bytes = resources_lookup_data (configuration.svg_path, ResourceLookupFlags.NONE);
-			var data = bytes.get_data ();
-
-			handle = new Rsvg.Handle.from_data (data);
-		}
-		catch (Error e) {
-			critical ("Could not set up gamepad view: %s", e.message);
-		}
-
-		set_size_request (handle.width, handle.height);
-		this.configuration = configuration;
-		input_highlights = new bool[configuration.input_paths.length];
-
-		reset ();
 	}
 
 	public void reset () {
