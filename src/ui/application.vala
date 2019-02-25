@@ -348,7 +348,7 @@ public class Games.Application : Gtk.Application {
 			window.loading_notification = false;
 	}
 
-	public async void set_pause_loading (bool paused) {
+	public void set_pause_loading (bool paused) {
 		game_collection.paused = paused;
 
 		load_game_list.begin ();
