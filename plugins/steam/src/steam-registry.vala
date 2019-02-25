@@ -140,11 +140,11 @@ private class Games.SteamRegistry {
 	}
 }
 
-private abstract class Games.SteamRegistryValue: Object {
+private abstract class Games.SteamRegistryValue : Object {
 	public string tag { construct; get; }
 }
 
-private class Games.SteamRegistryNode: SteamRegistryValue {
+private class Games.SteamRegistryNode : SteamRegistryValue {
 	private List<SteamRegistryValue> children;
 
 	public SteamRegistryNode (string tag) {
@@ -172,7 +172,7 @@ private class Games.SteamRegistryNode: SteamRegistryValue {
 	}
 }
 
-private class Games.SteamRegistryData: SteamRegistryValue {
+private class Games.SteamRegistryData : SteamRegistryValue {
 	public string data { construct; get; }
 
 	public SteamRegistryData (string tag, string data) {

@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-private class Games.XmlDoc: Object {
+private class Games.XmlDoc : Object {
 	private delegate void NodeCallback (Xml.Node* node);
 
 	private Xml.Doc* doc;

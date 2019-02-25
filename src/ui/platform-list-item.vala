@@ -1,4 +1,4 @@
-private class Games.PlatformListItem: Games.SidebarListItem {
+private class Games.PlatformListItem : Games.SidebarListItem {
 	private Platform _platform;
 	public Platform platform {
 		get { return _platform; }

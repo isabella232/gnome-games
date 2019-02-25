@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-subpage-keyboard.ui")]
-private class Games.PreferencesSubpageKeyboard: Gtk.Box, PreferencesSubpage {
+private class Games.PreferencesSubpageKeyboard : Gtk.Box, PreferencesSubpage {
 	private const GamepadInput[] KEYBOARD_GAMEPAD_INPUTS = {
 		{ EventCode.EV_KEY, EventCode.BTN_A },
 		{ EventCode.EV_KEY, EventCode.BTN_B },

@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 // Documentation: http://www.gc-forever.com/yagcd/chap13.html
-private class Games.GameCubeHeader: Object {
+private class Games.GameCubeHeader : Object {
 	private const size_t MAGIC_OFFSET = 0x1c;
 	private const string MAGIC_VALUE = "\xc2\x33\x9f\x3d";
 

@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-page-plugins-item.ui")]
-private class Games.PreferencesPagePluginsItem: Gtk.Box {
+private class Games.PreferencesPagePluginsItem : Gtk.Box {
 	[GtkChild]
 	private Gtk.Label plugin_name;
 	[GtkChild]

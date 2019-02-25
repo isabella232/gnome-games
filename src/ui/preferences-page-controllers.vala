@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-page-controllers.ui")]
-private class Games.PreferencesPageControllers: PreferencesPage {
+private class Games.PreferencesPageControllers : PreferencesPage {
 	[GtkChild]
 	private Gtk.Label gamepads_label;
 	[GtkChild]

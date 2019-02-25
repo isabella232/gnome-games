@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/checkmark-item.ui")]
-private class Games.CheckmarkItem: Gtk.ListBoxRow {
+private class Games.CheckmarkItem : Gtk.ListBoxRow {
 	[GtkChild]
 	private Gtk.Label title_label;
 	[GtkChild]

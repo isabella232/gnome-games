@@ -1,4 +1,4 @@
-private class Games.DeveloperListItem: Games.SidebarListItem {
+private class Games.DeveloperListItem : Games.SidebarListItem {
 	private Developer _developer;
 	public Developer developer {
 		get { return _developer; }

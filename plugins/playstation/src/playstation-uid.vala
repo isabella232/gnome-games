@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-private class Games.PlayStationUid: Object, Uid {
+private class Games.PlayStationUid : Object, Uid {
 	private string disc_set_id;
 	private string uid;
 

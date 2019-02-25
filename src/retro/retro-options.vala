@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-private class Games.RetroOptions: Object {
+private class Games.RetroOptions : Object {
 	public const string OPTIONS_GROUP = "Options";
 
 	private KeyFile keyfile;

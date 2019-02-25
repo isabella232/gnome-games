@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 // Documentation: http://wiibrew.org/wiki/Wii_Disc
-private class Games.WiiHeader: Object {
+private class Games.WiiHeader : Object {
 	private const size_t MAGIC_OFFSET = 0x18;
 	private const string MAGIC_VALUE = "\x5d\x1c\x9e\xa3";
 

@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 // Documentation: https://www.planetvb.com/content/downloads/documents/stsvb.html
-private class Games.VirtualBoyHeader: Object {
+private class Games.VirtualBoyHeader : Object {
 	private const size_t MAGIC_OFFSET = 0x20C;
 	private const uint8[] MAGIC_VALUE = { 0, 0, 0, 0, 0 };
 

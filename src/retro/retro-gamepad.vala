@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-private class Games.RetroGamepad: Object, Retro.Controller {
+private class Games.RetroGamepad : Object, Retro.Controller {
 	public Manette.Device device { get; construct; }
 	public bool present_analog_sticks { get; construct; }
 

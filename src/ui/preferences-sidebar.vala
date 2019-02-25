@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-sidebar.ui")]
-private class Games.PreferencesSidebar: Gtk.Bin {
+private class Games.PreferencesSidebar : Gtk.Bin {
 	private ulong child_added_id;
 
 	private Gtk.Stack _stack;

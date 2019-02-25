@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-private class Games.SteamUid: Object, Uid {
+private class Games.SteamUid : Object, Uid {
 	private string uid;
 	private string prefix;
 	private string game_id;

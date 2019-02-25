@@ -1,5 +1,5 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-sidebar-item.ui")]
-private class Games.PreferencesSidebarItem: Gtk.ListBoxRow {
+private class Games.PreferencesSidebarItem : Gtk.ListBoxRow {
 	[GtkChild]
 	private Gtk.Label label;
 
