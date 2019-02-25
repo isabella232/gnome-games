@@ -41,8 +41,14 @@ private class Games.KonamiCode : Object {
 
 	private uint current_index;
 
+	public Gtk.Widget widget {
+		construct {
+			value.key_press_event.connect (on_key_pressed);
+		}
+	}
+
 	public KonamiCode (Gtk.Widget widget) {
-		widget.key_press_event.connect (on_key_pressed);
+		Object (widget: widget);
 	}
 
 	public void reset () {

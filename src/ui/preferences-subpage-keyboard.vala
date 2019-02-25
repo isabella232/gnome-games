@@ -119,7 +119,7 @@ private class Games.PreferencesSubpageKeyboard: Gtk.Box, PreferencesSubpage {
 
 	private Binding info_message_binding;
 
-	public PreferencesSubpageKeyboard () {
+	construct {
 		mapper = new KeyboardMapper (KEYBOARD_GAMEPAD_VIEW_CONFIGURATION, KEYBOARD_GAMEPAD_INPUTS);
 		gamepad_view_stack.add (mapper);
 		tester = new KeyboardTester (KEYBOARD_GAMEPAD_VIEW_CONFIGURATION);

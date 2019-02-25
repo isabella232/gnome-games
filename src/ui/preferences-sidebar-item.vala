@@ -6,7 +6,7 @@ private class Games.PreferencesSidebarItem: Gtk.ListBoxRow {
 	private PreferencesPage _preferences_page;
 	public PreferencesPage preferences_page {
 		get { return _preferences_page; }
-		set {
+		construct {
 			_preferences_page = value;
 			label.label = value.title;
 		}

@@ -10,8 +10,14 @@ private class Games.CheckmarkItem: Gtk.ListBoxRow {
 	public bool checkmark_visible { get; set; }
 	private Binding checkmark_visible_binding;
 
-	public CheckmarkItem (string name) {
-		title_label.label = name;
+	public string label {
+		construct {
+			title_label.label = value;
+		}
+	}
+
+	public CheckmarkItem (string label) {
+		Object (label: label);
 	}
 
 	construct {

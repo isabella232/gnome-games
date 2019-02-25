@@ -125,19 +125,28 @@ private class Games.PreferencesSubpageGamepad: Gtk.Box, PreferencesSubpage {
 	[GtkChild]
 	private Gtk.Label info_message;
 
-	private Manette.Device device;
 	private GamepadMapper mapper;
 	private GamepadTester tester;
 
 	private Binding info_message_binding;
 
-	public PreferencesSubpageGamepad (Manette.Device device) {
-		this.device = device;
-		mapper = new GamepadMapper (device, STANDARD_GAMEPAD_VIEW_CONFIGURATION, STANDARD_GAMEPAD_INPUTS);
-		gamepad_view_stack.add (mapper);
-		tester = new GamepadTester (device, STANDARD_GAMEPAD_VIEW_CONFIGURATION);
-		gamepad_view_stack.add (tester);
+	private Manette.Device _device;
+	public Manette.Device device {
+		get { return _device; }
+		construct {
+			_device = value;
+			mapper = new GamepadMapper (value, STANDARD_GAMEPAD_VIEW_CONFIGURATION, STANDARD_GAMEPAD_INPUTS);
+			gamepad_view_stack.add (mapper);
+			tester = new GamepadTester (value, STANDARD_GAMEPAD_VIEW_CONFIGURATION);
+			gamepad_view_stack.add (tester);
+		}
+	}
 
+	public PreferencesSubpageGamepad (Manette.Device device) {
+		Object (device: device);
+	}
+
+	construct {
 		info_message_binding = mapper.bind_property ("info-message", info_message, "label", BindingFlags.SYNC_CREATE);
 
 		state = State.TEST;

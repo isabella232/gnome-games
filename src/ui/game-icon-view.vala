@@ -5,18 +5,13 @@ private class Games.GameIconView : Gtk.Box {
 	private Game _game;
 	public Game game {
 		get { return _game; }
-		set {
-			if (value == game)
-				return;
-
+		construct {
 			_game = value;
 
 			thumbnail.uid = game.get_uid ();
 			thumbnail.icon = game.get_icon ();
 			thumbnail.cover = game.get_cover ();
 			title.label = game.name;
-
-			queue_draw ();
 		}
 	}
 
@@ -26,6 +21,6 @@ private class Games.GameIconView : Gtk.Box {
 	private Gtk.Label title;
 
 	public GameIconView (Game game) {
-		this.game = game;
+		Object (game: game);
 	}
 }

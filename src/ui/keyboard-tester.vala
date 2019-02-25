@@ -7,13 +7,22 @@ private class Games.KeyboardTester : Gtk.Bin {
 
 	public Retro.KeyJoypadMapping mapping { get; set; }
 
+	private GamepadViewConfiguration _configuration;
+	public GamepadViewConfiguration configuration {
+		get { return _configuration; }
+		construct {
+			_configuration = value;
+			try {
+				gamepad_view.set_configuration (value);
+			}
+			catch (Error e) {
+				critical ("Could not set up gamepad view: %s", e.message);
+			}
+		}
+	}
+
 	public KeyboardTester (GamepadViewConfiguration configuration) {
-		try {
-			gamepad_view.set_configuration (configuration);
-		}
-		catch (Error e) {
-			critical ("Could not set up gamepad view: %s", e.message);
-		}
+		Object (configuration: configuration);
 	}
 
 	public void start () {

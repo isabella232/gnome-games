@@ -14,18 +14,27 @@ private class Games.KeyboardMapper : Gtk.Bin {
 
 	public string info_message { get; private set; }
 
+	private GamepadViewConfiguration _configuration;
+	public GamepadViewConfiguration configuration {
+		get { return _configuration; }
+		construct {
+			_configuration = value;
+			try {
+				gamepad_view.set_configuration (value);
+			}
+			catch (Error e) {
+				critical ("Could not set up gamepad view: %s", e.message);
+			}
+		}
+	}
+
 	construct {
 		info_message = _("Press suitable key on your keyboard");
 	}
 
 	public KeyboardMapper (GamepadViewConfiguration configuration, GamepadInput[] mapping_inputs) {
+		Object (configuration: configuration);
 		this.mapping_inputs = mapping_inputs;
-		try {
-			gamepad_view.set_configuration (configuration);
-		}
-		catch (Error e) {
-			critical ("Could not set up gamepad view: %s", e.message);
-		}
 	}
 
 	public void start () {

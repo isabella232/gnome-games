@@ -107,12 +107,18 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	private KonamiCode konami_code;
 
+	public ListModel collection {
+		construct {
+			collection_box.collection = value;
+			value.items_changed.connect (() => {
+				is_collection_empty = value.get_n_items () == 0;
+			});
+			is_collection_empty = value.get_n_items () == 0;
+		}
+	}
+
 	public ApplicationWindow (ListModel collection) {
-		collection_box.collection = collection;
-		collection.items_changed.connect (() => {
-			is_collection_empty = collection.get_n_items () == 0;
-		});
-		is_collection_empty = collection.get_n_items () == 0;
+		Object (collection: collection);
 	}
 
 	construct {

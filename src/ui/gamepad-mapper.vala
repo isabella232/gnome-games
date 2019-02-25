@@ -7,7 +7,6 @@ private class Games.GamepadMapper : Gtk.Bin {
 	[GtkChild]
 	private GamepadView gamepad_view;
 
-	private Manette.Device device;
 	private GamepadMappingBuilder mapping_builder;
 	private GamepadInput[] mapping_inputs;
 	private GamepadInput input;
@@ -17,15 +16,25 @@ private class Games.GamepadMapper : Gtk.Bin {
 
 	private ulong gamepad_event_handler_id;
 
+	public Manette.Device device { get; construct; }
+
+	private GamepadViewConfiguration _configuration;
+	public GamepadViewConfiguration configuration {
+		get { return _configuration; }
+		construct {
+			_configuration = value;
+			try {
+				gamepad_view.set_configuration (value);
+			}
+			catch (Error e) {
+				critical ("Could not set up gamepad view: %s", e.message);
+			}
+		}
+	}
+
 	public GamepadMapper (Manette.Device device, GamepadViewConfiguration configuration, GamepadInput[] mapping_inputs) {
-		this.device = device;
+		Object (device: device, configuration: configuration);
 		this.mapping_inputs = mapping_inputs;
-		try {
-			gamepad_view.set_configuration (configuration);
-		}
-		catch (Error e) {
-			critical ("Could not set up gamepad view: %s", e.message);
-		}
 	}
 
 	public void start () {

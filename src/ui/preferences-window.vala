@@ -67,7 +67,7 @@ private class Games.PreferencesWindow : Gtk.Window {
 	private Binding subpage_binding;
 	private Binding selection_mode_binding;
 
-	public PreferencesWindow () {
+	construct {
 		update_ui ();
 	}
 

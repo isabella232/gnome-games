@@ -7,8 +7,14 @@ private class Games.PreferencesPagePluginsItem: Gtk.Box {
 	[GtkChild]
 	private Gtk.Label plugin_description;
 
+	public PluginRegistrar plugin_registrar {
+		construct {
+			plugin_name.label = value.name;
+			plugin_description.label = value.description;
+		}
+	}
+
 	public PreferencesPagePluginsItem (PluginRegistrar plugin_registrar) {
-		plugin_name.label = plugin_registrar.name;
-		plugin_description.label = plugin_registrar.description;
+		Object (plugin_registrar: plugin_registrar);
 	}
 }

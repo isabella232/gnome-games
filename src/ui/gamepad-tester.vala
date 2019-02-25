@@ -5,20 +5,28 @@ private class Games.GamepadTester : Gtk.Bin {
 	[GtkChild]
 	private GamepadView gamepad_view;
 
-	private Manette.Device device;
-
 	private ulong gamepad_button_press_event_handler_id;
 	private ulong gamepad_button_release_event_handler_id;
 	private ulong gamepad_axis_event_handler_id;
 
+	public Manette.Device device { get; construct; }
+
+	private GamepadViewConfiguration _configuration;
+	public GamepadViewConfiguration configuration {
+		get { return _configuration; }
+		construct {
+			_configuration = value;
+			try {
+				gamepad_view.set_configuration (value);
+			}
+			catch (Error e) {
+				critical ("Could not set up gamepad view: %s", e.message);
+			}
+		}
+	}
+
 	public GamepadTester (Manette.Device device, GamepadViewConfiguration configuration) {
-		this.device = device;
-		try {
-			gamepad_view.set_configuration (configuration);
-		}
-		catch (Error e) {
-			critical ("Could not set up gamepad view: %s", e.message);
-		}
+		Object (device: device, configuration: configuration);
 	}
 
 	public void start () {
