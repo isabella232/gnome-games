@@ -44,7 +44,7 @@ private class Games.CollectionBox : Gtk.Box {
 	private Binding search_binding;
 	private Binding loading_notification_binding;
 
-	public CollectionBox (ListStore collection) {
+	public CollectionBox (ListModel collection) {
 		Object (collection: collection);
 	}
 
