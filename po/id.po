@@ -7,20 +7,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games gnome-3-26\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2018-10-08 22:21+0000\n"
-"PO-Revision-Date: 2018-11-15 23:29+0700\n"
+"POT-Creation-Date: 2018-12-11 09:49+0000\n"
+"PO-Revision-Date: 2019-02-28 14:01+0700\n"
 "Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:6
 #: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:40
 #: data/ui/collection-header-bar.ui:67 data/ui/display-header-bar.ui:6
-#: src/ui/application.vala:26
+#: src/ui/application.vala:25
 msgid "Games"
 msgstr "Permainan"
 
@@ -69,6 +69,10 @@ msgstr "Mainkan permainan"
 #: data/org.gnome.Games.appdata.xml.in.in:25
 msgid "Resume your game to where you left it"
 msgstr "Lanjutkan permainan Anda dimana Anda meninggalkannya"
+
+#: data/org.gnome.Games.appdata.xml.in.in:53
+msgid "The GNOME Project"
+msgstr "Proyek GNOME"
 
 #: data/org.gnome.Games.desktop.in.in:4
 msgid "Video game player"
@@ -199,20 +203,28 @@ msgstr ""
 "Pasag permainan atau tambahkan direktori yang berisi permainan untuk mencari "
 "sumber."
 
+#: data/ui/input-mode-switcher.ui:16
+msgid "Gamepad Input"
+msgstr "Masukan Gamepad"
+
+#: data/ui/input-mode-switcher.ui:36
+msgid "Keyboard Input"
+msgstr "Masukan Papan Tik"
+
 #: data/ui/media-menu-button.ui:11
 msgid "Media"
 msgstr "Media"
 
-#: data/ui/preferences-page-controllers.ui:28
+#: data/ui/preferences-page-controllers.ui:9
 msgid "Gamepads"
 msgstr "Gamepad"
 
-#: data/ui/preferences-page-controllers.ui:51
-#: src/ui/preferences-page-controllers.vala:76
+#: data/ui/preferences-page-controllers.ui:32
+#: src/ui/preferences-page-controllers.vala:75
 msgid "Keyboard"
 msgstr "Papan Tik"
 
-#: data/ui/preferences-page-video.ui:28
+#: data/ui/preferences-page-video.ui:9
 msgid "Filter"
 msgstr "Penyaring"
 
@@ -238,18 +250,6 @@ msgstr "Lewati"
 #: data/ui/resume-failed-dialog.ui:14
 msgid "Cancel"
 msgstr "Batal"
-
-#: data/ui/preferences-window.ui:95
-msgid "Video"
-msgstr "Video"
-
-#: data/ui/preferences-window.ui:104
-msgid "Controllers"
-msgstr "Pengendali"
-
-#: data/ui/preferences-window.ui:113
-msgid "Extensions"
-msgstr "Tambahan"
 
 #: data/ui/quit-dialog.ui:9
 msgid "Are you sure you want to quit?"
@@ -501,6 +501,10 @@ msgstr "Id permainan MAME tidak valid \"%s\" untuk \"%s\"."
 msgid "Arcade"
 msgstr "Arcade"
 
+#: plugins/ms-dos/src/ms-dos-plugin.vala:7
+msgid "MS-DOS"
+msgstr "MS-DOS"
+
 #: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:7
 msgid "Nintendo DS"
 msgstr "Nintendo DS"
@@ -645,11 +649,11 @@ msgstr "Berkas tidak memiliki header Wii."
 msgid "Wii"
 msgstr "Wii"
 
-#: src/command/command-runner.vala:34
+#: src/command/command-runner.vala:39
 msgid "The game doesn’t have a valid command."
 msgstr "Permainan tidak memiliki perintah yang valid."
 
-#: src/command/command-runner.vala:60
+#: src/command/command-runner.vala:65
 #, c-format
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "Tak bisa menjalankan \"%s\": eksekusi gagal."
@@ -740,21 +744,21 @@ msgstr ""
 "Permainan ini membutuhkan berkas perangkat tegar (firmware) %s dengan sidik "
 "jari SHA-512  dari %s untuk menjalankan."
 
-#: src/retro/retro-runner.vala:241
+#: src/retro/retro-runner.vala:255
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Tidak ada modul yang ditemukan untuk \"%s\"."
 
-#: src/retro/retro-runner.vala:541
+#: src/retro/retro-runner.vala:561
 msgid "Unknown platform"
 msgstr "Platform tidak dikenal"
 
-#: src/retro/retro-runner.vala:586
+#: src/retro/retro-runner.vala:604
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Sistem \"%s\" tidak didukung, tapi dukungan penuh direncanakan."
 
-#: src/retro/retro-runner.vala:589
+#: src/retro/retro-runner.vala:606
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Sistem ini belum didukung, tetapi dukungan penuh direncanakan."
 
@@ -805,101 +809,97 @@ msgid "Master System"
 msgstr "Master System"
 
 #: src/retro/retro-simple-type.vala:37
-msgid "MS-DOS"
-msgstr "MS-DOS"
-
-#: src/retro/retro-simple-type.vala:39
 msgid "Neo Geo Pocket"
 msgstr "Neo Geo Pocket"
 
-#: src/retro/retro-simple-type.vala:41
+#: src/retro/retro-simple-type.vala:39
 msgid "Neo Geo Pocket Color"
 msgstr "Warna Neo Geo Pocket"
 
 #. translators: known as "Famicom" in eastern Asia
-#: src/retro/retro-simple-type.vala:44
+#: src/retro/retro-simple-type.vala:42
 msgid "Nintendo Entertainment System"
 msgstr "Nintendo Entertainment System"
 
-#: src/retro/retro-simple-type.vala:46
+#: src/retro/retro-simple-type.vala:44
 msgid "Nintendo 64"
 msgstr "Nintendo 64"
 
 #. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
-#: src/retro/retro-simple-type.vala:49
+#: src/retro/retro-simple-type.vala:47
 msgid "Genesis 32X"
 msgstr "Genesis 32X"
 
 #. translators: known as "Mega Drive" in most of the world
-#: src/retro/retro-simple-type.vala:52
+#: src/retro/retro-simple-type.vala:50
 msgid "Sega Genesis"
 msgstr "Sega Genesis"
 
-#: src/retro/retro-simple-type.vala:54
+#: src/retro/retro-simple-type.vala:52
 msgid "Sega Pico"
 msgstr "Sega Pico"
 
-#: src/retro/retro-simple-type.vala:56
+#: src/retro/retro-simple-type.vala:54
 msgid "SG-1000"
 msgstr "SG-1000"
 
 #. translators: known as "Super Famicom" in eastern Asia
-#: src/retro/retro-simple-type.vala:59
+#: src/retro/retro-simple-type.vala:57
 msgid "Super Nintendo Entertainment System"
 msgstr "Super Nintendo Entertainment System"
 
 #. translators: known as "PC Engine" in eastern Asia and France
-#: src/retro/retro-simple-type.vala:62
+#: src/retro/retro-simple-type.vala:60
 msgid "TurboGrafx-16"
 msgstr "TurboGrafx-16"
 
-#: src/retro/retro-simple-type.vala:64
+#: src/retro/retro-simple-type.vala:62
 msgid "WiiWare"
 msgstr "WiiWare"
 
-#: src/retro/retro-simple-type.vala:66
+#: src/retro/retro-simple-type.vala:64
 msgid "WonderSwan"
 msgstr "WonderSwan"
 
-#: src/retro/retro-simple-type.vala:68
+#: src/retro/retro-simple-type.vala:66
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:174
+#: src/ui/application.vala:169
 msgid "Select game files"
 msgstr "Pilih berkas permainan"
 
-#: src/ui/application.vala:175
+#: src/ui/application.vala:170
 msgid "_Add"
 msgstr "T_ambah"
 
-#: src/ui/application.vala:175
+#: src/ui/application.vala:170
 msgid "_Cancel"
 msgstr "_Batal"
 
-#: src/ui/application.vala:389
+#: src/ui/application.vala:367
 msgid "GNOME Games"
 msgstr "Permainan GNOME"
 
-#: src/ui/application.vala:391
+#: src/ui/application.vala:369
 msgid "A video game player for GNOME"
 msgstr "Player permainan video untuk GNOME"
 
-#: src/ui/application.vala:395
+#: src/ui/application.vala:373
 msgid "Learn more about GNOME Games"
 msgstr "Pelajari lebih lanjut mengenai Permainan GNOME"
 
-#: src/ui/application.vala:402
+#: src/ui/application.vala:380
 msgid "translator-credits"
 msgstr ""
 "Lorenz Adam Damara <lorenzadam@resolution-consulting.co.id>, 2016.\n"
-"Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017, 2018."
+"Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017, 2018, 2019."
 
-#: src/ui/application-window.vala:380
+#: src/ui/application-window.vala:383
 msgid "An unexpected error occurred."
 msgstr "Kesalahan yang tidak terduga terjadi."
 
-#: src/ui/application-window.vala:660 src/ui/application-window.vala:677
+#: src/ui/application-window.vala:663 src/ui/application-window.vala:680
 msgid "Playing a game"
 msgstr "Mainkan permainan"
 
@@ -933,18 +933,30 @@ msgstr "Tekan tombol yang sesuai pada papan tik Anda"
 msgid "Media %d"
 msgstr "Media %d"
 
+#: src/ui/preferences-page-controllers.vala:24
+msgid "Controllers"
+msgstr "Pengendali"
+
+#: src/ui/preferences-page-plugins.vala:12
+msgid "Extensions"
+msgstr "Tambahan"
+
 #. same as video-filters in gschema
-#: src/ui/preferences-page-video.vala:24
+#: src/ui/preferences-page-video.vala:22
 msgid "Smooth"
 msgstr "Halus"
 
-#: src/ui/preferences-page-video.vala:24
+#: src/ui/preferences-page-video.vala:22
 msgid "Sharp"
 msgstr "Tajam"
 
-#: src/ui/preferences-page-video.vala:24
+#: src/ui/preferences-page-video.vala:22
 msgid "CRT"
 msgstr "CRT"
+
+#: src/ui/preferences-page-video.vala:36
+msgid "Video"
+msgstr "Video"
 
 #. translators: testing a gamepad, %s is its name
 #: src/ui/preferences-subpage-gamepad.vala:78
