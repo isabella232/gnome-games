@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2018-08-05 16:40+0000\n"
-"PO-Revision-Date: 2018-08-18 16:26+0300\n"
+"POT-Creation-Date: 2018-12-11 09:49+0000\n"
+"PO-Revision-Date: 2019-03-02 11:02+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <lokalisointi-lista@googlegroups.com>\n"
 "Language: fi\n"
@@ -19,8 +19,9 @@ msgstr ""
 "X-Generator: Poedit 2.0.6\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:6
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:32
-#: data/ui/display-header-bar.ui:6 src/ui/application.vala:24
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:40
+#: data/ui/collection-header-bar.ui:67 data/ui/display-header-bar.ui:6
+#: src/ui/application.vala:25
 msgid "Games"
 msgstr "Pelit"
 
@@ -67,6 +68,10 @@ msgstr "Pelaa pelejäsi"
 #: data/org.gnome.Games.appdata.xml.in.in:25
 msgid "Resume your game to where you left it"
 msgstr "Jatka peliä siitä, mihin jäit"
+
+#: data/org.gnome.Games.appdata.xml.in.in:53
+msgid "The GNOME Project"
+msgstr "Gnome-projekti"
 
 #: data/org.gnome.Games.desktop.in.in:4
 msgid "Video game player"
@@ -120,15 +125,15 @@ msgstr "Ikkunan koko"
 msgid "Window size (width and height)."
 msgstr "Ikkunan koko (leveys ja korkeus)."
 
-#: data/ui/collection-box.ui:42
+#: data/ui/collection-box.ui:50
 msgid "Developers"
 msgstr "Kehittäjät"
 
-#: data/ui/collection-box.ui:52
+#: data/ui/collection-box.ui:60
 msgid "Platforms"
 msgstr "Alustat"
 
-#: data/ui/collection-box.ui:75
+#: data/ui/collection-box.ui:83
 msgid "Loading"
 msgstr "Ladataan"
 
@@ -141,29 +146,29 @@ msgstr "Lisää pelitiedostoja…"
 msgid "Menu"
 msgstr "Valikko"
 
-#: data/ui/collection-header-bar.ui:70
+#: data/ui/collection-header-bar.ui:85
 msgid "Search"
 msgstr "Etsi"
 
-#: data/ui/collection-header-bar.ui:96 data/ui/preferences-window.ui:6
-#: data/ui/preferences-window.ui:18
+#: data/ui/collection-header-bar.ui:111 data/ui/preferences-window.ui:6
+#: data/ui/preferences-window.ui:25
 msgid "Preferences"
 msgstr "Asetukset"
 
-#: data/ui/collection-header-bar.ui:111 data/ui/shortcuts-window.ui:10
-msgid "Shortcuts"
+#: data/ui/collection-header-bar.ui:119
+msgid "Keyboard Shortcuts"
 msgstr "Pikanäppäimet"
 
-#: data/ui/collection-header-bar.ui:119
+#: data/ui/collection-header-bar.ui:127
 msgid "Help"
 msgstr "Ohje"
 
-#: data/ui/collection-header-bar.ui:127
-msgid "About"
-msgstr "Tietoja"
+#: data/ui/collection-header-bar.ui:135
+msgid "About Games"
+msgstr "Tietoja - Pelit"
 
-#: data/ui/display-header-bar.ui:20 data/ui/gamepad-configurer.ui:73
-#: data/ui/keyboard-configurer.ui:74
+#: data/ui/display-header-bar.ui:20 data/ui/preferences-subpage-gamepad.ui:82
+#: data/ui/preferences-subpage-keyboard.ui:83
 msgid "Back"
 msgstr "Takaisin"
 
@@ -192,58 +197,53 @@ msgid ""
 "Install games or add directories containing games to your search sources."
 msgstr "Asenna pelejä tai lisää pelejä sisältäviä kansioita hakulähteisiin."
 
-#: data/ui/gamepad-configurer.ui:35
-msgctxt "Gamepad configuration factory reset"
-msgid "Reset"
-msgstr ""
+#: data/ui/input-mode-switcher.ui:16
+msgid "Gamepad Input"
+msgstr "Peliohjaimen syöte"
 
-#: data/ui/gamepad-configurer.ui:48 data/ui/keyboard-configurer.ui:49
-msgid "Configure"
-msgstr "Määritä"
-
-#: data/ui/gamepad-configurer.ui:91 data/ui/keyboard-configurer.ui:92
-#: data/ui/quit-dialog.ui:15 data/ui/reset-controller-mapping-dialog.ui:15
-#: data/ui/resume-failed-dialog.ui:14
-msgid "Cancel"
-msgstr "Peru"
-
-#: data/ui/gamepad-mapper.ui:19 data/ui/keyboard-mapper.ui:19
-msgid "Skip"
-msgstr "Ohita"
-
-#: data/ui/keyboard-configurer.ui:36
-msgctxt "Keyboard configuration factory reset"
-msgid "Reset"
-msgstr ""
+#: data/ui/input-mode-switcher.ui:36
+msgid "Keyboard Input"
+msgstr "Näppäimistön syöte"
 
 #: data/ui/media-menu-button.ui:11
 msgid "Media"
 msgstr "Media"
 
-#: data/ui/preferences-page-controllers.ui:31
+#: data/ui/preferences-page-controllers.ui:9
 msgid "Gamepads"
 msgstr "Peliohjaimet"
 
-#: data/ui/preferences-page-controllers.ui:54
-#: src/ui/preferences-page-controllers.vala:95
+#: data/ui/preferences-page-controllers.ui:32
+#: src/ui/preferences-page-controllers.vala:75
 msgid "Keyboard"
 msgstr "Näppäimistö"
 
-#: data/ui/preferences-page-controllers.ui:86 data/ui/preferences-window.ui:79
-msgid "Controllers"
-msgstr "Ohjaimet"
-
-#: data/ui/preferences-page-plugins.ui:40 data/ui/preferences-window.ui:88
-msgid "Extensions"
-msgstr "Laajennukset"
-
-#: data/ui/preferences-page-video.ui:21
+#: data/ui/preferences-page-video.ui:9
 msgid "Filter"
 msgstr "Suodatin"
 
-#: data/ui/preferences-page-video.ui:50 data/ui/preferences-window.ui:70
-msgid "Video"
-msgstr "Video"
+#: data/ui/preferences-subpage-gamepad.ui:21
+#: data/ui/preferences-subpage-keyboard.ui:22
+msgctxt "Keyboard configuration factory reset"
+msgid "Reset"
+msgstr "Nollaa"
+
+#: data/ui/preferences-subpage-gamepad.ui:34
+#: data/ui/preferences-subpage-keyboard.ui:35
+msgid "Configure"
+msgstr "Määritä"
+
+#: data/ui/preferences-subpage-gamepad.ui:52
+#: data/ui/preferences-subpage-keyboard.ui:53
+msgid "Skip"
+msgstr "Ohita"
+
+#: data/ui/preferences-subpage-gamepad.ui:100
+#: data/ui/preferences-subpage-keyboard.ui:101 data/ui/quit-dialog.ui:15
+#: data/ui/reset-controller-mapping-dialog.ui:15
+#: data/ui/resume-failed-dialog.ui:14
+msgid "Cancel"
+msgstr "Peru"
 
 #: data/ui/quit-dialog.ui:9
 msgid "Are you sure you want to quit?"
@@ -271,18 +271,16 @@ msgstr "Käytä pelin omaa ikkunaa pelaamiseen."
 
 #: data/ui/reset-controller-mapping-dialog.ui:9
 msgid "Factory reset mapping for this controller?"
-msgstr ""
+msgstr "Palautetaanko tämän ohjaimen asetukset tehdasasetuksille?"
 
 #: data/ui/reset-controller-mapping-dialog.ui:10
-#, fuzzy
-#| msgid "All unsaved progress will be lost."
 msgid "Your mapping will be lost."
-msgstr "Kaikki tallentamattomat tiedot katoavat."
+msgstr "Peliohjaimen asetukset nollataan."
 
 #: data/ui/reset-controller-mapping-dialog.ui:21
 msgctxt "Confirm controller configuration factory reset"
 msgid "Reset"
-msgstr ""
+msgstr "Nollaa"
 
 #: data/ui/resume-dialog.ui:9
 msgid "Resume last game?"
@@ -303,7 +301,11 @@ msgstr "Palauttaminen epäonnistui. Haluatko käynnistää pelin uudelleen?"
 #: data/ui/resume-failed-dialog.ui:20
 msgctxt "Resuming a game failed dialog"
 msgid "Reset"
-msgstr ""
+msgstr "Nollaa"
+
+#: data/ui/shortcuts-window.ui:10
+msgid "Shortcuts"
+msgstr "Pikanäppäimet"
 
 #: data/ui/shortcuts-window.ui:14
 msgid "General"
@@ -326,7 +328,7 @@ msgstr "Etsi"
 #: data/ui/shortcuts-window.ui:40 data/ui/shortcuts-window.ui:48
 msgctxt "shortcut window"
 msgid "Navigate"
-msgstr ""
+msgstr "Liikkuminen"
 
 #: data/ui/shortcuts-window.ui:41
 msgctxt "shortcut window"
@@ -356,7 +358,7 @@ msgstr "Käynnistä peli"
 #: data/ui/shortcuts-window.ui:65
 msgctxt "shortcut window"
 msgid "Start button"
-msgstr ""
+msgstr "Start-painike"
 
 #: data/ui/shortcuts-window.ui:73 data/ui/shortcuts-window.ui:116
 msgctxt "shortcut window"
@@ -385,7 +387,7 @@ msgstr "Palaa takaisin kokoelmaan"
 #: data/ui/shortcuts-window.ui:108
 msgctxt "shortcut window"
 msgid "Home button"
-msgstr ""
+msgstr "Home-painike"
 
 #: data/ui/shortcuts-window.ui:115
 msgctxt "shortcut window"
@@ -495,6 +497,10 @@ msgstr ""
 msgid "Arcade"
 msgstr "Arcade"
 
+#: plugins/ms-dos/src/ms-dos-plugin.vala:7
+msgid "MS-DOS"
+msgstr "MS-DOS"
+
 #: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:7
 msgid "Nintendo DS"
 msgstr "Nintendo DS"
@@ -563,11 +569,11 @@ msgstr "Sega Saturn"
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "Tiedostossa '%s' ei ole kelvollista Sega Saturn -binääritiedostoa."
 
-#: plugins/steam/src/steam-plugin.vala:6
+#: plugins/steam/src/steam-plugin.vala:10
 msgid "Steam"
 msgstr "Steam"
 
-#: plugins/steam/src/steam-plugin.vala:49
+#: plugins/steam/src/steam-plugin.vala:80
 #, c-format
 msgid "Couldn’t get Steam appid from manifest “%s”."
 msgstr ""
@@ -591,7 +597,7 @@ msgstr ""
 
 #: plugins/steam/src/steam-title.vala:17
 msgid "Couldn’t get name from Steam registry."
-msgstr ""
+msgstr "Nimen saaminen Steam-rekisteristä epäonnistui."
 
 #. translators: known as "CD-ROM²" in eastern Asia and France
 #: plugins/turbografx-cd/src/turbografx-cd-plugin.vala:10
@@ -615,10 +621,8 @@ msgid "Invalid Virtual Boy ROM header size."
 msgstr "Virheellinen Wii-otsakkeen koko: %s"
 
 #: plugins/virtual-boy/src/virtual-boy-header.vala:42
-#, fuzzy
-#| msgid "The file doesn’t have a Wii header."
 msgid "The file doesn’t have a Virtual Boy ROM header."
-msgstr "Tiedostossa ei ole Wii-otsaketta."
+msgstr "Tiedostossa ei ole Virtual Boy ROM -otsaketta."
 
 #: plugins/virtual-boy/src/virtual-boy-header.vala:51
 #, fuzzy, c-format
@@ -649,11 +653,11 @@ msgstr "Tiedostossa ei ole Wii-otsaketta."
 msgid "Wii"
 msgstr "Wii"
 
-#: src/command/command-runner.vala:36
+#: src/command/command-runner.vala:39
 msgid "The game doesn’t have a valid command."
 msgstr "Pelillä ei ole kelvollista komentoa."
 
-#: src/command/command-runner.vala:67
+#: src/command/command-runner.vala:65
 #, c-format
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "Kohteen “%s” käynnistäminen epäonnistui: suorittaminen epäonnistui."
@@ -661,7 +665,7 @@ msgstr "Kohteen “%s” käynnistäminen epäonnistui: suorittaminen epäonnist
 #: src/core/media-set/media-set.vala:30
 #, c-format
 msgid "Invalid media index %u."
-msgstr ""
+msgstr "Virheellinen mediaindeksi %u."
 
 #: src/core/plugin-registrar.vala:27
 #, c-format
@@ -673,21 +677,9 @@ msgstr ""
 msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr ""
 
-#: src/dummy/dummy-description.vala:5
-msgid "No description available."
-msgstr "Ei kuvausta saatavilla."
-
-#: src/dummy/dummy-developer.vala:5 src/dummy/dummy-platform.vala:9
+#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:22
 msgid "Unknown"
 msgstr "Tuntematon"
-
-#: src/dummy/dummy-players.vala:5
-msgid "Not available"
-msgstr "Ei saatavilla"
-
-#: src/dummy/dummy-publisher.vala:5
-msgid "Publisher not available."
-msgstr "Julkaisija ei saatavilla."
 
 #: src/gameinfo/gameinfo-disc-id-disc-title.vala:24
 #, c-format
@@ -714,11 +706,11 @@ msgstr ""
 msgid "No disc found for disc ID “%s”."
 msgstr ""
 
-#: src/grilo/grilo-players.vala:46
+#: src/grilo/grilo-players.vala:40
 msgid "Single-player"
 msgstr "Yksinpeli"
 
-#: src/grilo/grilo-players.vala:48
+#: src/grilo/grilo-players.vala:42
 msgid "Multi-player"
 msgstr "Moninpeli"
 
@@ -749,22 +741,22 @@ msgid ""
 "run."
 msgstr ""
 
-#: src/retro/retro-runner.vala:241
+#: src/retro/retro-runner.vala:255
 #, c-format
 msgid "No module found for “%s”."
 msgstr ""
 
-#: src/retro/retro-runner.vala:540
+#: src/retro/retro-runner.vala:561
 msgid "Unknown platform"
 msgstr "Tuntematon alusta"
 
-#: src/retro/retro-runner.vala:585
+#: src/retro/retro-runner.vala:604
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
 "Järjestelmä “%s” ei ole vielä tuettu, mutta täysi tuki on suunnitelmissa."
 
-#: src/retro/retro-runner.vala:588
+#: src/retro/retro-runner.vala:606
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Järjestelmä ei ole vielä tuettu, mutta täysi tuki on suunnitelmissa."
 
@@ -817,101 +809,97 @@ msgid "Master System"
 msgstr "Sega Master System"
 
 #: src/retro/retro-simple-type.vala:37
-msgid "MS-DOS"
-msgstr "MS-DOS"
-
-#: src/retro/retro-simple-type.vala:39
 msgid "Neo Geo Pocket"
 msgstr "Neo Geo Pocket"
 
-#: src/retro/retro-simple-type.vala:41
+#: src/retro/retro-simple-type.vala:39
 #, fuzzy
 #| msgid "Neo Geo Pocket"
 msgid "Neo Geo Pocket Color"
 msgstr "Neo Geo Pocket"
 
 #. translators: known as "Famicom" in eastern Asia
-#: src/retro/retro-simple-type.vala:44
+#: src/retro/retro-simple-type.vala:42
 msgid "Nintendo Entertainment System"
 msgstr "Nintendo Entertainment System"
 
-#: src/retro/retro-simple-type.vala:46
+#: src/retro/retro-simple-type.vala:44
 msgid "Nintendo 64"
 msgstr "Nintendo 64"
 
 #. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
-#: src/retro/retro-simple-type.vala:49
+#: src/retro/retro-simple-type.vala:47
 msgid "Genesis 32X"
 msgstr "Genesis 32X"
 
 #. translators: known as "Mega Drive" in most of the world
-#: src/retro/retro-simple-type.vala:52
+#: src/retro/retro-simple-type.vala:50
 msgid "Sega Genesis"
 msgstr "Sega Genesis"
 
-#: src/retro/retro-simple-type.vala:54
+#: src/retro/retro-simple-type.vala:52
 msgid "Sega Pico"
 msgstr "Sega Pico"
 
-#: src/retro/retro-simple-type.vala:56
+#: src/retro/retro-simple-type.vala:54
 msgid "SG-1000"
 msgstr "SG-1000"
 
 #. translators: known as "Super Famicom" in eastern Asia
-#: src/retro/retro-simple-type.vala:59
+#: src/retro/retro-simple-type.vala:57
 msgid "Super Nintendo Entertainment System"
 msgstr "Super Nintendo Entertainment System"
 
 #. translators: known as "PC Engine" in eastern Asia and France
-#: src/retro/retro-simple-type.vala:62
+#: src/retro/retro-simple-type.vala:60
 msgid "TurboGrafx-16"
 msgstr "TurboGrafx-16"
 
-#: src/retro/retro-simple-type.vala:64
+#: src/retro/retro-simple-type.vala:62
 msgid "WiiWare"
 msgstr "WiiWare"
 
-#: src/retro/retro-simple-type.vala:66
+#: src/retro/retro-simple-type.vala:64
 msgid "WonderSwan"
 msgstr "WonderSwan"
 
-#: src/retro/retro-simple-type.vala:68
+#: src/retro/retro-simple-type.vala:66
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:161
+#: src/ui/application.vala:169
 msgid "Select game files"
 msgstr "Valitse pelitiedostot"
 
-#: src/ui/application.vala:162
+#: src/ui/application.vala:170
 msgid "_Add"
 msgstr "_Lisää"
 
-#: src/ui/application.vala:162
+#: src/ui/application.vala:170
 msgid "_Cancel"
 msgstr "_Peru"
 
-#: src/ui/application.vala:369
+#: src/ui/application.vala:367
 msgid "GNOME Games"
 msgstr "Gnomen pelit"
 
-#: src/ui/application.vala:371
+#: src/ui/application.vala:369
 msgid "A video game player for GNOME"
 msgstr "Videopelitoistin Gnomelle"
 
-#: src/ui/application.vala:375
+#: src/ui/application.vala:373
 msgid "Learn more about GNOME Games"
 msgstr "Lisätietoja Gnomen peleistä"
 
-#: src/ui/application.vala:382
+#: src/ui/application.vala:380
 msgid "translator-credits"
 msgstr "Jiri Grönroos"
 
-#: src/ui/application-window.vala:367
+#: src/ui/application-window.vala:383
 msgid "An unexpected error occurred."
 msgstr "Tapahtui odottamaton virhe."
 
-#: src/ui/application-window.vala:647 src/ui/application-window.vala:664
+#: src/ui/application-window.vala:663 src/ui/application-window.vala:680
 msgid "Playing a game"
 msgstr "Peli meneillään"
 
@@ -924,63 +912,71 @@ msgstr "Hups! Pelin “%s” käynnistäminen ei onnistu"
 msgid "Oops! Unable to run the game"
 msgstr "Hups! Pelin käynnistäminen ei onnistu"
 
+#: src/ui/gamepad-mapper.vala:125
+msgid "Press suitable button on your gamepad"
+msgstr "Paina soveltuvaa painiketta peliohjaimesta"
+
+#: src/ui/gamepad-mapper.vala:130
+msgid "Move suitable axis left/right on your gamepad"
+msgstr ""
+
+#: src/ui/gamepad-mapper.vala:132
+msgid "Move suitable axis up/down on your gamepad"
+msgstr ""
+
+#: src/ui/keyboard-mapper.vala:18
+msgid "Press suitable key on your keyboard"
+msgstr "Paina soveltuvaa näppäintä näppäimistöstä"
+
+#: src/ui/media-selector.vala:38
+#, c-format
+msgid "Media %d"
+msgstr "Media %d"
+
+#: src/ui/preferences-page-controllers.vala:24
+msgid "Controllers"
+msgstr "Ohjaimet"
+
+#: src/ui/preferences-page-plugins.vala:12
+msgid "Extensions"
+msgstr "Laajennukset"
+
+#. same as video-filters in gschema
+#: src/ui/preferences-page-video.vala:22
+msgid "Smooth"
+msgstr "Sulava"
+
+#: src/ui/preferences-page-video.vala:22
+msgid "Sharp"
+msgstr "Terävä"
+
+#: src/ui/preferences-page-video.vala:22
+msgid "CRT"
+msgstr ""
+
+#: src/ui/preferences-page-video.vala:36
+msgid "Video"
+msgstr "Video"
+
 #. translators: testing a gamepad, %s is its name
-#: src/ui/gamepad-configurer.vala:78
+#: src/ui/preferences-subpage-gamepad.vala:78
 #, c-format
 msgid "Testing %s"
 msgstr "Testataan %s"
 
 #. translators: configuring a gamepad, %s is its name
-#: src/ui/gamepad-configurer.vala:92
+#: src/ui/preferences-subpage-gamepad.vala:89
 #, c-format
 msgid "Configuring %s"
 msgstr "Määritetään %s"
 
-#: src/ui/gamepad-mapper.vala:126
-msgid "Press suitable button on your gamepad"
-msgstr ""
-
-#: src/ui/gamepad-mapper.vala:131
-msgid "Move suitable axis left/right on your gamepad"
-msgstr ""
-
-#: src/ui/gamepad-mapper.vala:133
-msgid "Move suitable axis up/down on your gamepad"
-msgstr ""
-
-#: src/ui/keyboard-configurer.vala:67
-#, fuzzy
-#| msgid "Testing %s"
+#: src/ui/preferences-subpage-keyboard.vala:68
 msgid "Testing Keyboard"
-msgstr "Testataan %s"
+msgstr "Testataan näppäimistöä"
 
-#: src/ui/keyboard-configurer.vala:80
-#, fuzzy
-#| msgid "Configuring %s"
+#: src/ui/preferences-subpage-keyboard.vala:78
 msgid "Configuring Keyboard"
-msgstr "Määritetään %s"
-
-#: src/ui/keyboard-mapper.vala:18
-msgid "Press suitable key on your keyboard"
-msgstr ""
-
-#: src/ui/media-selector.vala:38
-#, c-format
-msgid "Media %d"
-msgstr ""
-
-#. same as video-filters in gschema
-#: src/ui/preferences-page-video.vala:34
-msgid "Smooth"
-msgstr "Sulava"
-
-#: src/ui/preferences-page-video.vala:34
-msgid "Sharp"
-msgstr "Terävä"
-
-#: src/ui/preferences-page-video.vala:34
-msgid "CRT"
-msgstr ""
+msgstr "Määritetään näppäimistöä"
 
 #: src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
@@ -1031,6 +1027,18 @@ msgstr ""
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr ""
+
+#~ msgid "About"
+#~ msgstr "Tietoja"
+
+#~ msgid "No description available."
+#~ msgstr "Ei kuvausta saatavilla."
+
+#~ msgid "Not available"
+#~ msgstr "Ei saatavilla"
+
+#~ msgid "Publisher not available."
+#~ msgstr "Julkaisija ei saatavilla."
 
 #~ msgid "_Preferences"
 #~ msgstr "_Asetukset"
