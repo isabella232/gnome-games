@@ -1,4 +1,22 @@
 ===============
+Version 3.31.92
+===============
+
+* Fixes
+ - Fix compile-time warnings when building with recent librsvg and gtk.
+ - Fix compile-time warning introduced in the 3.31.91.
+
+* Various cleanups.
+
+* Translation updates
+ Danish
+ Dutch
+ Finnish
+ Indonesian
+ Italian
+ Russian
+
+===============
 Version 3.31.91
 ===============
 

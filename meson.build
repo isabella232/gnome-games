@@ -1,6 +1,6 @@
 project('gnome-games',
   ['vala', 'c'],
-  version: '3.31.91',
+  version: '3.31.92',
   license: 'GPL3+',
   meson_version: '>= 0.46.1'
 )
