@@ -230,7 +230,7 @@ public class Games.Application : Gtk.Application {
 		});
 
 		if (window != null) {
-			window.present ();
+			window.present_with_time (Gtk.get_current_event_time ());
 			return;
 		}
 
@@ -354,16 +354,14 @@ public class Games.Application : Gtk.Application {
 	}
 
 	private void preferences () {
-		if (preferences_window != null) {
-			preferences_window.present ();
-
-			return;
+		if (preferences_window == null) {
+			preferences_window = new PreferencesWindow ();
+			preferences_window.destroy.connect (() => {
+				preferences_window = null;
+			});
 		}
-		preferences_window = new PreferencesWindow ();
-		preferences_window.destroy.connect (() => {
-			preferences_window = null;
-		});
-		preferences_window.present ();
+
+		preferences_window.present_with_time (Gtk.get_current_event_time ());
 	}
 
 	private void help () {
@@ -401,7 +399,7 @@ public class Games.Application : Gtk.Application {
 				dialog.hide_on_delete ();
 		});
 
-		dialog.present ();
+		dialog.present_with_time (Gtk.get_current_event_time ());
 	}
 
 	private void quit_application () {
