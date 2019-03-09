@@ -144,7 +144,7 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 
 	public void draw_default (DrawingContext context) {
 		draw_background (context);
-		draw_emblem_icon (context, "applications-games-symbolic", EMBLEM_SCALE);
+		draw_emblem_icon (context, Config.APPLICATION_ID + "-symbolic", EMBLEM_SCALE);
 		draw_border (context);
 	}
 
