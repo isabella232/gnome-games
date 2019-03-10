@@ -40,6 +40,36 @@
       <image width="800" height="450">https://gitlab.gnome.org/GNOME/gnome-games/raw/master/data/appdata/3-30-gamepad-test.png</image>
     </screenshot>
   </screenshots>
+
+  <releases>
+    <release version="3.32.0" type="stable" date="2019-03-10" urgency="medium">
+      <description>
+        <p>Improvements</p>
+        <ul>
+          <li>Collection loading is now paused in game, leading to vastly improved performance when opening a game from file manager.</li>
+          <li>Disable MAME plugin because of major performance and reliability problems.</li>
+          <li>Revert to non-portal file chooser for Flatpak, to allow adding games consisting of multiple files.</li>
+          <li>Update primary menu layout according to app menu retirement initiative.</li>
+          <li>Allow to switch between gamepad and keyboard input in standalone Libretro games.</li>
+          <li>New application icons from GNOME Design team, symbolic icon is now used for HighContrast.</li>
+          <li>Many refinements in preferences window.</li>
+        </ul>
+        <p>Fixes</p>
+        <ul>
+          <li>It's not possible to open multiple main windows anymore.</li>
+          <li>Binding directional pads should work for more gamepads now.</li>
+          <li>Keyboard doesn't control every player in multiplayer games anymore.</li>
+          <li>Invalid discs in PlayStation disc selector are now disabled.</li>
+          <li>Quit dialog now actually appears when exiting a game that doesn't support snapshots.</li>
+          <li>pening a game by double-clicking while another game is running now quits the previous game correctly.</li>
+          <li>Database file is now correctly created even if data directory didn't exist.</li>
+          <li>During search, developers and platforms without any games to show are now hidden.</li>
+          <li>Steam plugin reliability improvements.</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+
   <provides>
     <binary>gnome-games</binary>
   </provides>
