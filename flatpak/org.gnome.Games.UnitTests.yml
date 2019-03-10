@@ -1,6 +1,6 @@
 app-id: org.gnome.Games.UnitTests
 runtime: org.gnome.Platform
-runtime-version: master
+runtime-version: 3.32
 sdk: org.gnome.Sdk
 command: games-unit-tests
 tags:
@@ -81,3 +81,4 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/retro-gtk.git
+        commit: a901142bea575ee3a782803015cfe97917494913
