@@ -22,7 +22,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/libretro/desmume2015"
+                    "url": "https://github.com/libretro/desmume2015",
+                    "commit": "79c66b62eb17e5d5f36aa888dbc0df386bb9426b"
                 },
                 {
                     "type": "file",

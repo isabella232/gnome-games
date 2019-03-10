@@ -21,7 +21,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/libretro/pcsx_rearmed"
+                    "url": "https://github.com/libretro/pcsx_rearmed",
+                    "commit": "e21479a6d304e6c3eed69e2b6385ed674500e8d4"
                 },
                 {
                     "type": "patch",
