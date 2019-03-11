@@ -1,4 +1,4 @@
-From d3d0b2ab9a3930173b6924c7a9c0ba8745090f91 Mon Sep 17 00:00:00 2001
+From 18f10980179849733f42442e6156e3e7563008a5 Mon Sep 17 00:00:00 2001
 From: Adrien Plazas <kekun.plazas@laposte.net>
 Date: Fri, 10 Mar 2017 07:24:33 +0100
 Subject: [PATCH] libretro: Remove reset in retro_run() hack
@@ -11,7 +11,7 @@ the core just after setting its state.
  1 file changed, 2 insertions(+), 19 deletions(-)
 
 diff --git a/frontend/libretro.c b/frontend/libretro.c
-index bc56ff8..ed6a096 100644
+index 89b5ae2..56e1c94 100644
 --- a/frontend/libretro.c
 +++ b/frontend/libretro.c
 @@ -50,9 +50,6 @@
@@ -24,7 +24,7 @@ index bc56ff8..ed6a096 100644
  static retro_video_refresh_t video_cb;
  static retro_input_poll_t input_poll_cb;
  static retro_input_state_t input_state_cb;
-@@ -1290,10 +1287,7 @@ bool retro_load_game(const struct retro_game_info *info)
+@@ -1296,10 +1293,7 @@ bool retro_load_game(const struct retro_game_info *info)
  		return false;
  	}
  
@@ -36,7 +36,7 @@ index bc56ff8..ed6a096 100644
  
  	if (LoadCdrom() == -1) {
  		log_cb(RETRO_LOG_INFO, "could not load CD\n");
-@@ -1336,9 +1330,7 @@ size_t retro_get_memory_size(unsigned id)
+@@ -1342,9 +1336,7 @@ size_t retro_get_memory_size(unsigned id)
  
  void retro_reset(void)
  {
@@ -47,7 +47,7 @@ index bc56ff8..ed6a096 100644
  }
  
  static const unsigned short retro_psx_map[] = {
-@@ -1626,15 +1618,6 @@ static uint16_t get_analog_button(retro_input_state_t input_state_cb, int player
+@@ -1641,15 +1633,6 @@ static uint16_t get_analog_button(retro_input_state_t input_state_cb, int player
  void retro_run(void)
  {
  	int i;
@@ -59,7 +59,7 @@ index bc56ff8..ed6a096 100644
 -			// skip BIOS logos
 -			psxRegs.pc = psxRegs.GPR.n.ra;
 -		}
--    }
+-	}
  
  	input_poll_cb();
  
