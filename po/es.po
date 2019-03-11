@@ -10,19 +10,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2018-12-11 09:49+0000\n"
-"PO-Revision-Date: 2019-01-28 15:07+0100\n"
+"POT-Creation-Date: 2019-03-11 10:49+0000\n"
+"PO-Revision-Date: 2019-03-11 11:59+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: es <gnome-es-list@gnome.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Gtranslator 3.31.0\n"
+"X-Generator: Gtranslator 3.31.90\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:6
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:40
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:43
 #: data/ui/collection-header-bar.ui:67 data/ui/display-header-bar.ui:6
 #: src/ui/application.vala:25
 msgid "Games"
@@ -74,7 +74,7 @@ msgstr "Iniciar sus juegos"
 msgid "Resume your game to where you left it"
 msgstr "Reanudar la partida donde la dejó"
 
-#: data/org.gnome.Games.appdata.xml.in.in:53
+#: data/org.gnome.Games.appdata.xml.in.in:83
 msgid "The GNOME Project"
 msgstr "El Proyecto GNOME"
 
@@ -133,15 +133,15 @@ msgstr "Tamaño de la ventana"
 msgid "Window size (width and height)."
 msgstr "Tamaño de la ventana (anchura y altura)."
 
-#: data/ui/collection-box.ui:50
+#: data/ui/collection-box.ui:53
 msgid "Developers"
 msgstr "Desarrolladores"
 
-#: data/ui/collection-box.ui:60
+#: data/ui/collection-box.ui:63
 msgid "Platforms"
 msgstr "Plataformas"
 
-#: data/ui/collection-box.ui:83
+#: data/ui/collection-box.ui:86
 msgid "Loading"
 msgstr "Cargando"
 
@@ -158,8 +158,8 @@ msgstr "Menú"
 msgid "Search"
 msgstr "Buscar"
 
-#: data/ui/collection-header-bar.ui:111 data/ui/preferences-window.ui:6
-#: data/ui/preferences-window.ui:25
+#: data/ui/collection-header-bar.ui:111 data/ui/preferences-window.ui:5
+#: data/ui/preferences-window.ui:26
 msgid "Preferences"
 msgstr "Preferencias"
 
@@ -176,7 +176,7 @@ msgid "About Games"
 msgstr "Acerca de Juegos"
 
 #: data/ui/display-header-bar.ui:20 data/ui/preferences-subpage-gamepad.ui:82
-#: data/ui/preferences-subpage-keyboard.ui:83
+#: data/ui/preferences-subpage-keyboard.ui:83 data/ui/preferences-window.ui:54
 msgid "Back"
 msgstr "Atrás"
 
@@ -544,20 +544,20 @@ msgstr "Sega CD"
 msgid "Sega CD 32X"
 msgstr "Sega CD 32X"
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:108
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:87
+#: plugins/sega-cd/src/sega-cd-plugin.vala:114
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:93
 #, c-format
 msgid "The file “%s” doesn’t have a track."
 msgstr "El archivo «%s» no tiene ninguna pista."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:114
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:93
+#: plugins/sega-cd/src/sega-cd-plugin.vala:120
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:99
 #, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr "El archivo «%s» no tiene un formato binario válido."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:117
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:96
+#: plugins/sega-cd/src/sega-cd-plugin.vala:123
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:102
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
 msgstr "El archivo «%s» no tiene ningún modo de pista válido para la pista %d."
@@ -570,7 +570,7 @@ msgstr "El archivo no tiene una cabecera de Sega Saturn."
 msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:100
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:106
 #, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "El archivo «%s» no tiene un archivo binario de Sega Saturn válido."
@@ -679,7 +679,7 @@ msgstr "Descriptor del complemento no válido: %s"
 msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr "No se pudo crear una nueva instancia del complemento en «%s»."
 
-#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:22
+#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:26
 msgid "Unknown"
 msgstr "Desconocido"
 
@@ -749,21 +749,21 @@ msgstr ""
 "El juego necesita el archivo de firmware %s con una huella SHA-512 %s para "
 "ejecutarse."
 
-#: src/retro/retro-runner.vala:255
+#: src/retro/retro-runner.vala:224
 #, c-format
 msgid "No module found for “%s”."
 msgstr "No se pudo encontrar un módulo apropiado para «%s»."
 
-#: src/retro/retro-runner.vala:561
+#: src/retro/retro-runner.vala:527
 msgid "Unknown platform"
 msgstr "Plataforma desconocida"
 
-#: src/retro/retro-runner.vala:604
+#: src/retro/retro-runner.vala:570
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "El sistema «%s» todavía no está soportado, pero llegará pronto."
 
-#: src/retro/retro-runner.vala:606
+#: src/retro/retro-runner.vala:572
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "El sistema todavía no está soportado, pero llegará pronto."
 
@@ -870,39 +870,45 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:169
+#: src/ui/application.vala:171
 msgid "Select game files"
 msgstr "Seleccionar archivos de juegos"
 
-#: src/ui/application.vala:170
-msgid "_Add"
-msgstr "_Añadir"
-
-#: src/ui/application.vala:170
+#: src/ui/application.vala:172
 msgid "_Cancel"
 msgstr "_Cancelar"
 
-#: src/ui/application.vala:367
+#: src/ui/application.vala:173
+msgid "_Add"
+msgstr "_Añadir"
+
+#: src/ui/application.vala:213
+#, c-format
+#| msgid "An unexpected error occurred."
+msgid "An unexpected error occured while trying to run %s"
+msgstr "Ha ocurrido un error inesperado. al intentar ejecutar %s."
+
+#: src/ui/application.vala:388
 msgid "GNOME Games"
 msgstr "Juegos de GNOME"
 
-#: src/ui/application.vala:369
+#: src/ui/application.vala:390
 msgid "A video game player for GNOME"
 msgstr "Un reproductor de videojuegos para GNOME"
 
-#: src/ui/application.vala:373
+#: src/ui/application.vala:394
 msgid "Learn more about GNOME Games"
 msgstr "Más información acerca de Juegos de GNOME"
 
-#: src/ui/application.vala:380
+#: src/ui/application.vala:401
 msgid "translator-credits"
 msgstr "Daniel Mustieles <daniel.mustieles@gmail.com>, 2016"
 
-#: src/ui/application-window.vala:383
+#: src/ui/application-window.vala:407
 msgid "An unexpected error occurred."
 msgstr "Ha ocurrido un error inesperado."
 
-#: src/ui/application-window.vala:663 src/ui/application-window.vala:680
+#: src/ui/application-window.vala:694 src/ui/application-window.vala:711
 msgid "Playing a game"
 msgstr "Jugando a un juego"
 
@@ -915,19 +921,19 @@ msgstr "No se puede ejecutar «%s»"
 msgid "Oops! Unable to run the game"
 msgstr "No se puede ejecutar el juego"
 
-#: src/ui/gamepad-mapper.vala:125
+#: src/ui/gamepad-mapper.vala:137
 msgid "Press suitable button on your gamepad"
 msgstr "Pulse el botón adecuado en el mando"
 
-#: src/ui/gamepad-mapper.vala:130
+#: src/ui/gamepad-mapper.vala:142
 msgid "Move suitable axis left/right on your gamepad"
 msgstr "Mueva el eje derecha/izquierda adecuado en el mando"
 
-#: src/ui/gamepad-mapper.vala:132
+#: src/ui/gamepad-mapper.vala:144
 msgid "Move suitable axis up/down on your gamepad"
 msgstr "Mueva el eje arriba/abajo adecuado en el mando"
 
-#: src/ui/keyboard-mapper.vala:18
+#: src/ui/keyboard-mapper.vala:27
 msgid "Press suitable key on your keyboard"
 msgstr "Pulse la tecla adecuada en el teclado"
 
