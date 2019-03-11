@@ -92,7 +92,6 @@
             "name" : "tracker",
             "buildsystem" : "meson",
             "config-opts" : [
-                "--libdir=lib",
                 "-Ddocs=false",
                 "-Dfts=false",
                 "-Dfunctional_tests=false",
@@ -114,7 +113,6 @@
             "name" : "grilo",
             "buildsystem" : "meson",
             "config-opts" : [
-                "--libdir=lib",
                 "-Denable-grl-net=true",
                 "-Denable-grl-pls=false",
                 "-Denable-gtk-doc=false",
@@ -136,7 +134,6 @@
             "name" : "grilo-plugins",
             "buildsystem" : "meson",
             "config-opts" : [
-                "--libdir=lib",
                 "-Denable-goa=no",
                 "-Denable-filesystem=no",
                 "-Denable-optical-media=no",
@@ -186,7 +183,6 @@
             "name" : "libhandy",
             "buildsystem" : "meson",
             "config-opts" : [
-                "--libdir=lib",
                 "-Dtests=false",
                 "-Dexamples=false",
                 "-Dglade_catalog=disabled"
@@ -201,9 +197,6 @@
         {
             "name" : "manette",
             "buildsystem" : "meson",
-            "config-opts" : [
-                "--libdir=lib"
-            ],
             "sources" : [
                 {
                     "type" : "git",
@@ -214,9 +207,6 @@
         {
             "name" : "retro-gtk",
             "buildsystem" : "meson",
-            "config-opts" : [
-                "--libdir=lib"
-            ],
             "sources" : [
                 {
                     "type" : "git",
