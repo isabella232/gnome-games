@@ -10,6 +10,7 @@ plugins/love/src/love-package.c
 plugins/love/src/love-plugin.c
 plugins/mame/src/mame-game-uri-adapter.c
 plugins/mame/src/mame-plugin.c
+plugins/nintendo-ds/src/nintendo-ds-layout-switcher.c
 plugins/nintendo-ds/src/nintendo-ds-plugin.c
 plugins/playstation/data/playstation.gameinfo.xml.in
 plugins/playstation/src/playstation-header.c
@@ -38,6 +39,7 @@ src/retro/retro-runner.c
 src/retro/retro-simple-type.c
 src/ui/application.c
 src/ui/application-window.c
+src/ui/display-view.c
 src/ui/error-display.c
 src/ui/gamepad-mapper.c
 src/ui/keyboard-mapper.c
