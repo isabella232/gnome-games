@@ -76,6 +76,8 @@ private class Games.NintendoDsLayoutSwitcher : Gtk.Box {
 		var layout = layout_item.get_layout ();
 
 		settings.set_string ("screen-layout", layout);
+
+		layout_popover.popdown ();
 	}
 
 	private string get_layout_icon (string layout) {
