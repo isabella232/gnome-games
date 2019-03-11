@@ -210,7 +210,7 @@ public class Games.Application : Gtk.Application {
 
 		if (game == null) {
 			var filename = file.get_basename ();
-			var error_msg = _("An unexpected error occured while trying to run %s").printf (filename);
+			var error_msg = _("An unexpected error occurred while trying to run %s").printf (filename);
 			window.show_error (error_msg);
 			return;
 		}
