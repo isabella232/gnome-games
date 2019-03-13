@@ -1,28 +1,31 @@
 # Turkish translation for gnome-games.
 # Copyright (C) 2018 gnome-games's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-games package.
+# 
 # Ertan Kurt <ertank@gmail.com>, 2016.
 # Emin Tufan Çetin <etcetin@gmail.com>, 2018.
-#
+# Serdar Sağlam <teknomobil@yandex.com>, 2019.
+# Sabri Ünal <libreajans@gmail.com>, 2019.
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2018-08-11 01:06+0000\n"
-"PO-Revision-Date: 2018-08-11 10:30+0300\n"
-"Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
+"POT-Creation-Date: 2019-03-05 14:54+0000\n"
+"PO-Revision-Date: 2019-03-09 17:31+0200\n"
+"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:6
 #: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:40
 #: data/ui/collection-header-bar.ui:67 data/ui/display-header-bar.ui:6
-#: src/ui/application.vala:24
+#: src/ui/application.vala:26
 msgid "Games"
 msgstr "Oyunlar"
 
@@ -344,7 +347,7 @@ msgstr "Yön yüzeyi"
 #: data/ui/shortcuts-window.ui:56
 msgctxt "shortcut window"
 msgid "Select view"
-msgstr ""
+msgstr "Seçim görünümü"
 
 #: data/ui/shortcuts-window.ui:57
 msgctxt "shortcut window"
@@ -412,7 +415,7 @@ msgstr "Hileler"
 #: data/ui/shortcuts-window.ui:144
 msgctxt "shortcut window"
 msgid "Contribute"
-msgstr ""
+msgstr "Katkı ver"
 
 #: plugins/desktop/src/desktop-plugin.vala:6
 msgid "Desktop"
@@ -426,7 +429,7 @@ msgstr "Geçersiz komut “%s”."
 #: plugins/desktop/src/desktop-plugin.vala:69
 #, c-format
 msgid "Tracker listed file not found: “%s”."
-msgstr ""
+msgstr "Tracker tarafından listelenen dosya bulunamadı: “%s”."
 
 #: plugins/desktop/src/desktop-plugin.vala:75
 #, c-format
@@ -640,11 +643,11 @@ msgstr "Dosyanın Wii başlığı yok."
 msgid "Wii"
 msgstr "Wii"
 
-#: src/command/command-runner.vala:36
+#: src/command/command-runner.vala:34
 msgid "The game doesn’t have a valid command."
 msgstr "Oyunun geçerli komutu yok."
 
-#: src/command/command-runner.vala:67
+#: src/command/command-runner.vala:60
 #, c-format
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "“%s” çalıştırılamadı: çalıştırma başarısız."
@@ -668,7 +671,7 @@ msgstr "“%s” içinde eklentinin yeni örneği oluşturulamadı."
 msgid "No description available."
 msgstr "Uygun açıklama yok."
 
-#: src/dummy/dummy-developer.vala:5 src/dummy/dummy-platform.vala:9
+#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:19
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
@@ -749,16 +752,16 @@ msgstr ""
 msgid "No module found for “%s”."
 msgstr "“%s” için modül bulunamadı."
 
-#: src/retro/retro-runner.vala:540
+#: src/retro/retro-runner.vala:541
 msgid "Unknown platform"
 msgstr "Bilinmeyen platform"
 
-#: src/retro/retro-runner.vala:585
+#: src/retro/retro-runner.vala:586
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "“%s” sistemi henüz desteklenmiyor ancak tam destek planlanmaktadır."
 
-#: src/retro/retro-runner.vala:588
+#: src/retro/retro-runner.vala:589
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Sistem henüz desteklenmiyor ancak tam destek planlanmaktadır."
 
@@ -869,31 +872,31 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:161
+#: src/ui/application.vala:174
 msgid "Select game files"
 msgstr "Oyun dosyaları seç"
 
-#: src/ui/application.vala:162
+#: src/ui/application.vala:175
 msgid "_Add"
 msgstr "_Ekle"
 
-#: src/ui/application.vala:162
+#: src/ui/application.vala:175
 msgid "_Cancel"
 msgstr "_İptal"
 
-#: src/ui/application.vala:369
+#: src/ui/application.vala:389
 msgid "GNOME Games"
 msgstr "GNOME Oyunlar"
 
-#: src/ui/application.vala:371
+#: src/ui/application.vala:391
 msgid "A video game player for GNOME"
 msgstr "GNOME için video oyun oynatıcı"
 
-#: src/ui/application.vala:375
+#: src/ui/application.vala:395
 msgid "Learn more about GNOME Games"
 msgstr "GNOME Oyunlar hakkında daha çok öğren"
 
-#: src/ui/application.vala:382
+#: src/ui/application.vala:402
 msgid "translator-credits"
 msgstr "Emin Tufan Çetin <etcetin@gmail.com>"
 
