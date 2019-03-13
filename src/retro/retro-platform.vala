@@ -22,4 +22,8 @@ public class Games.RetroPlatform : Object, Platform {
 	public string[] get_mime_types () {
 		return mime_types;
 	}
+
+	public PreferencesPagePlatformsRow get_row () {
+		return new PreferencesPagePlatformsRetroRow (this);
+	}
 }

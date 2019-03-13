@@ -33,3 +33,7 @@ stacksidebar list {
 .list-icon {
 	opacity: 0.7;
 }
+
+.combo-list-box {
+	background: none;
+}

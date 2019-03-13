@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <!-- interface-requires gtk+ 3.16 -->
+  <template class="GamesPreferencesPagePlatformsGenericRow" parent="GtkListBoxRow">
+    <property name="visible">True</property>
+    <child>
+      <object class="GtkLabel" id="title_label">
+        <property name="visible">True</property>
+        <property name="ellipsize">end</property>
+        <property name="halign">start</property>
+        <property name="hexpand">true</property>
+        <property name="margin">6</property>
+      </object>
+    </child>
+  </template>
+</interface>

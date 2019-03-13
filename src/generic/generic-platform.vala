@@ -16,4 +16,8 @@ public class Games.GenericPlatform : Object, Platform {
 	public string get_name () {
 		return name;
 	}
+
+	public PreferencesPagePlatformsRow get_row () {
+		return new PreferencesPagePlatformsGenericRow (name);
+	}
 }

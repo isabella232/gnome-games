@@ -8,4 +8,8 @@ public class Games.DummyPlatform : Object, Platform {
 	public string get_name () {
 		return _("Unknown");
 	}
+
+	public PreferencesPagePlatformsRow get_row () {
+		return new PreferencesPagePlatformsGenericRow (_("Unknown"));
+	}
 }
