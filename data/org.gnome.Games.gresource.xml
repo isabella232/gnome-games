@@ -32,6 +32,7 @@
     <file preprocess="xml-stripblanks">ui/media-selector.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page-controllers.ui</file>
+    <file preprocess="xml-stripblanks">ui/preferences-page-platforms.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page-platforms-generic-row.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page-platforms-retro-row.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page-plugins.ui</file>

@@ -126,6 +126,11 @@
                     <property name="visible">True</property>
                   </object>
                 </child>
+                <child>
+                  <object class="GamesPreferencesPagePlatforms" id="platforms_page">
+                    <property name="visible">True</property>
+                  </object>
+                </child>
               </object>
             </child>
           </object>
