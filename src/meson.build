@@ -167,8 +167,6 @@ vala_sources = [
   'ui/preferences-page-platforms-generic-row.vala',
   'ui/preferences-page-platforms-retro-row.vala',
   'ui/preferences-page-platforms-row.vala',
-  'ui/preferences-page-plugins.vala',
-  'ui/preferences-page-plugins-item.vala',
   'ui/preferences-page-video.vala',
   'ui/preferences-sidebar.vala',
   'ui/preferences-sidebar-item.vala',

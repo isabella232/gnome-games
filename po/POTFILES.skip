@@ -45,7 +45,6 @@ src/ui/gamepad-mapper.c
 src/ui/keyboard-mapper.c
 src/ui/media-selector.c
 src/ui/preferences-page-controllers.c
-src/ui/preferences-page-plugins.c
 src/ui/preferences-page-video.c
 src/ui/preferences-subpage-gamepad.c
 src/ui/preferences-subpage-keyboard.c

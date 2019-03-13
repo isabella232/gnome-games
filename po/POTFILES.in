@@ -13,7 +13,6 @@ data/ui/input-mode-switcher.ui
 data/ui/keyboard-mapper.ui
 data/ui/media-menu-button.ui
 data/ui/preferences-page-controllers.ui
-data/ui/preferences-page-plugins.ui
 data/ui/preferences-page-video.ui
 data/ui/preferences-subpage-gamepad.ui
 data/ui/preferences-subpage-keyboard.ui
@@ -72,7 +71,6 @@ src/ui/gamepad-mapper.vala
 src/ui/keyboard-mapper.vala
 src/ui/media-selector.vala
 src/ui/preferences-page-controllers.vala
-src/ui/preferences-page-plugins.vala
 src/ui/preferences-page-video.vala
 src/ui/preferences-subpage-gamepad.vala
 src/ui/preferences-subpage-keyboard.vala
