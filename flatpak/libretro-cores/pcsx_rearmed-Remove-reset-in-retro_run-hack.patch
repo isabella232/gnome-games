@@ -24,18 +24,6 @@ index 89b5ae2..56e1c94 100644
  static retro_video_refresh_t video_cb;
  static retro_input_poll_t input_poll_cb;
  static retro_input_state_t input_state_cb;
-@@ -1296,10 +1293,7 @@ bool retro_load_game(const struct retro_game_info *info)
- 		return false;
- 	}
- 
--	/* TODO: Calling SysReset() outside retro_run for some system
--	 * causes RetroArch to freeze, e.g Ludo */
--	//SysReset();
--	rebootemu = 1;
-+	SysReset();
- 
- 	if (LoadCdrom() == -1) {
- 		log_cb(RETRO_LOG_INFO, "could not load CD\n");
 @@ -1342,9 +1336,7 @@ size_t retro_get_memory_size(unsigned id)
  
  void retro_reset(void)
