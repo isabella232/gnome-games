@@ -32,6 +32,7 @@ glib_min_version = '2.38'
 manette_min_version = '0.2.0'
 retro_gtk_min_version = '0.15.3'
 handy_min_version = '0.0.8'
+rsvg_min_version = '2.45.0'
 
 gio_dep = dependency ('gio-2.0', version: '>=' + glib_min_version)
 glib_dep = dependency ('glib-2.0', version: '>=' + glib_min_version)
@@ -40,7 +41,7 @@ gtk_dep = dependency ('gtk+-3.0')
 handy_dep = dependency ('libhandy-0.0', version: '>=' + handy_min_version)
 manette_dep = dependency ('manette-0.2', version: '>=' + manette_min_version)
 retro_gtk_dep = dependency ('retro-gtk-0.14', version: '>=' + retro_gtk_min_version)
-rsvg_dep = dependency ('librsvg-2.0')
+rsvg_dep = dependency ('librsvg-2.0', version: '>=' + rsvg_min_version)
 soup_dep = dependency ('libsoup-2.4')
 sqlite_dep = dependency ('sqlite3')
 tracker_sparql_dep = dependency ('tracker-sparql-2.0')
