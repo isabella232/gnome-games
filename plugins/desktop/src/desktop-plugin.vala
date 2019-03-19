@@ -11,10 +11,6 @@ private class Games.DesktopPlugin : Object, Plugin {
 		platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
 	}
 
-	public string[] get_mime_types () {
-		return { MIME_TYPE };
-	}
-
 	public UriSource[] get_uri_sources () {
 		var query = new DesktopTrackerUriQuery ();
 		try {
