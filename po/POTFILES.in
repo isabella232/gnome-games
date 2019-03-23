@@ -71,6 +71,8 @@ src/ui/gamepad-mapper.vala
 src/ui/keyboard-mapper.vala
 src/ui/media-selector.vala
 src/ui/preferences-page-controllers.vala
+src/ui/preferences-page-platforms-retro-row.vala
+src/ui/preferences-page-platforms.vala
 src/ui/preferences-page-video.vala
 src/ui/preferences-subpage-gamepad.vala
 src/ui/preferences-subpage-keyboard.vala
