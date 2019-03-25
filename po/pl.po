@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-03-14 11:39+0000\n"
-"PO-Revision-Date: 2019-03-16 11:40+0100\n"
+"POT-Creation-Date: 2019-03-23 18:36+0000\n"
+"PO-Revision-Date: 2019-03-25 13:08+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -92,11 +92,6 @@ msgstr ""
 "pocket;neogeopocket;nes;nintendo;pegasus;pegazus;pico;playstation;psp;saturn;"
 "sega;sg-1000;snes;sony;turbografx;vita;wii;wii u;wiiu;wiiware;"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.Games.desktop.in.in:10
-msgid "@icon@"
-msgstr "@icon@"
-
 #: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:44
 msgid "Fullscreen"
 msgstr "Pełny ekran"
@@ -133,11 +128,23 @@ msgstr "Rozmiar okna"
 msgid "Window size (width and height)."
 msgstr "Rozmiar okna (szerokość i wysokość)."
 
+#: data/org.gnome.Games.gschema.xml:32
+msgid "Preferred core"
+msgstr "Preferowany rdzeń"
+
+#: data/org.gnome.Games.gschema.xml:33
+msgid ""
+"Preferred Libretro core to be used for running games. A different core may "
+"be used if the preferred core is missing firmware."
+msgstr ""
+"Preferowany rdzeń biblioteki libretro używany do uruchamiania gier. Inny "
+"rdzeń może zostać użyty, jeśli preferowany nie ma oprogramowania sprzętowego."
+
 #: data/ui/collection-box.ui:53
 msgid "Developers"
 msgstr "Producenci"
 
-#: data/ui/collection-box.ui:63
+#: data/ui/collection-box.ui:63 src/ui/preferences-page-platforms.vala:9
 msgid "Platforms"
 msgstr "Platformy"
 
@@ -496,12 +503,12 @@ msgstr "To nie jest prawidłowy pakiet LÖVE: „%s”."
 msgid "LÖVE"
 msgstr "LÖVE"
 
-#: plugins/mame/src/mame-game-uri-adapter.vala:21
+#: plugins/mame/src/mame-game-uri-adapter.vala:18
 #, c-format
 msgid "Invalid MAME game id “%s” for “%s”."
 msgstr "Nieprawidłowy identyfikator gry MAME „%s” dla „%s”."
 
-#: plugins/mame/src/mame-plugin.vala:6
+#: plugins/mame/src/mame-plugin.vala:7
 msgid "Arcade"
 msgstr "Salon gier"
 
@@ -551,7 +558,8 @@ msgid "Single screen"
 msgstr "Jeden ekran"
 
 #: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:114
-#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:26
+#: src/dummy/dummy-platform.vala:9 src/dummy/dummy-platform.vala:13
+#: src/ui/developer-list-item.vala:26
 msgid "Unknown"
 msgstr "Nieznane"
 
@@ -579,7 +587,7 @@ msgstr ""
 "Nieprawidłowy nagłówek konsoli PlayStation: nie odnaleziono identyfikatora "
 "płyty w „%s”."
 
-#: plugins/playstation/src/playstation-plugin.vala:6
+#: plugins/playstation/src/playstation-plugin.vala:7
 msgid "PlayStation"
 msgstr "PlayStation"
 
@@ -598,20 +606,20 @@ msgstr "Mega-CD"
 msgid "Sega CD 32X"
 msgstr "Mega-CD 32X"
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:114
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:93
+#: plugins/sega-cd/src/sega-cd-plugin.vala:115
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:98
 #, c-format
 msgid "The file “%s” doesn’t have a track."
 msgstr "Plik „%s” nie ma ścieżki."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:120
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:99
+#: plugins/sega-cd/src/sega-cd-plugin.vala:121
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:104
 #, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr "Plik „%s” nie ma prawidłowego formatu pliku binarnego."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:123
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:102
+#: plugins/sega-cd/src/sega-cd-plugin.vala:124
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:107
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
 msgstr "Plik „%s” nie ma prawidłowego trybu ścieżki dla %d. ścieżki."
@@ -624,7 +632,7 @@ msgstr "Plik nie ma nagłówka konsoli Sega Saturn."
 msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:106
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:111
 #, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "Plik „%s” nie ma prawidłowego pliku binarnego konsoli Sega Saturn."
@@ -633,7 +641,7 @@ msgstr "Plik „%s” nie ma prawidłowego pliku binarnego konsoli Sega Saturn."
 msgid "Steam"
 msgstr "Steam"
 
-#: plugins/steam/src/steam-plugin.vala:80
+#: plugins/steam/src/steam-plugin.vala:84
 #, c-format
 msgid "Couldn’t get Steam appid from manifest “%s”."
 msgstr "Nie można uzyskać identyfikatora programu Steam z manifestu „%s”."
@@ -766,21 +774,21 @@ msgstr "Jednoosobowe"
 msgid "Multi-player"
 msgstr "Wieloosobowe"
 
-#: src/retro/retro-core-source.vala:25 src/retro/retro-core-source.vala:39
+#: src/retro/retro-core-source.vala:23 src/retro/retro-core-source.vala:37
 #, c-format
 msgid "No module found for platform “%s” and MIME types [ “%s” ]."
 msgstr "Nie odnaleziono modułu dla platformy „%s” i typów MIME [ „%s” ]."
 
-#: src/retro/retro-core-source.vala:25 src/retro/retro-core-source.vala:39
+#: src/retro/retro-core-source.vala:23 src/retro/retro-core-source.vala:37
 msgid "”, “"
 msgstr "”, „"
 
-#: src/retro/retro-core-source.vala:84
+#: src/retro/retro-core-source.vala:64
 #, c-format
 msgid "This game requires the %s firmware file to run."
 msgstr "Ta gra wymaga oprogramowania sprzętowego %s do działania."
 
-#: src/retro/retro-core-source.vala:101
+#: src/retro/retro-core-source.vala:81
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a MD5 fingerprint of %s to run."
@@ -788,7 +796,7 @@ msgstr ""
 "Ta gra do działania wymaga pliku oprogramowania sprzętowego %s o sumie "
 "kontrolnej MD5 „%s”."
 
-#: src/retro/retro-core-source.vala:107
+#: src/retro/retro-core-source.vala:87
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
@@ -935,19 +943,19 @@ msgstr "_Dodaj"
 msgid "An unexpected error occurred while trying to run %s"
 msgstr "Wystąpił nieoczekiwany błąd podczas uruchamiania „%s”"
 
-#: src/ui/application.vala:388
+#: src/ui/application.vala:396
 msgid "GNOME Games"
 msgstr "Gry GNOME"
 
-#: src/ui/application.vala:390
+#: src/ui/application.vala:398
 msgid "A video game player for GNOME"
 msgstr "Uruchamianie gier w środowisku GNOME"
 
-#: src/ui/application.vala:394
+#: src/ui/application.vala:402
 msgid "Learn more about GNOME Games"
 msgstr "Więcej informacji o Grach GNOME"
 
-#: src/ui/application.vala:401
+#: src/ui/application.vala:409
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2016-2019\n"
@@ -995,9 +1003,10 @@ msgstr "%d. nośnik"
 msgid "Controllers"
 msgstr "Kontrolery"
 
-#: src/ui/preferences-page-plugins.vala:12
-msgid "Extensions"
-msgstr "Rozszerzenia"
+#: src/ui/preferences-page-platforms-retro-row.vala:50
+#: src/ui/preferences-page-platforms-retro-row.vala:57
+msgid "None"
+msgstr "Brak"
 
 #. same as video-filters in gschema
 #: src/ui/preferences-page-video.vala:22
