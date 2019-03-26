@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2018-10-21 14:24+0000\n"
-"PO-Revision-Date: 2018-10-24 21:42+0200\n"
+"POT-Creation-Date: 2019-03-23 18:36+0000\n"
+"PO-Revision-Date: 2019-03-26 20:13+0100\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "Language: hr\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:6
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:40
-#: data/ui/collection-header-bar.ui:67 data/ui/display-header-bar.ui:6
-#: src/ui/application.vala:26
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:43
+#: data/ui/collection-header-bar.ui:68 data/ui/display-header-bar.ui:6
+#: src/ui/application.vala:25
 msgid "Games"
 msgstr "Igre"
 
@@ -71,6 +71,10 @@ msgstr "Igrajte svoje igre"
 msgid "Resume your game to where you left it"
 msgstr "Nastavite igrati igru tamo gdje ste stali"
 
+#: data/org.gnome.Games.appdata.xml.in.in:83
+msgid "The GNOME Project"
+msgstr "GNOME projekt"
+
 #: data/org.gnome.Games.desktop.in.in:4
 msgid "Video game player"
 msgstr "Pokretač video igara"
@@ -84,12 +88,7 @@ msgstr "Pogledajte i igrajte svoju kolekciju video igara"
 msgid "game;videogame;video game;player;"
 msgstr "igra;video igra;video igra;igrač;"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.Games.desktop.in.in:10
-msgid "@icon@"
-msgstr "@icon@"
-
-#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:43
+#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:44
 msgid "Fullscreen"
 msgstr "Cjelozaslonski prikaz"
 
@@ -125,54 +124,66 @@ msgstr "Veličina prozora"
 msgid "Window size (width and height)."
 msgstr "Veličina prozora (širina i visina)."
 
-#: data/ui/collection-box.ui:50
+#: data/org.gnome.Games.gschema.xml:32
+msgid "Preferred core"
+msgstr "Poželjna jezgra"
+
+#: data/org.gnome.Games.gschema.xml:33
+msgid ""
+"Preferred Libretro core to be used for running games. A different core may "
+"be used if the preferred core is missing firmware."
+msgstr ""
+"Poželjna Libretro jezgra koja će se koristiti za pokretanje igara. Može se "
+"koristiti drugačija jezgra ako poželjna jezgra nedostaje."
+
+#: data/ui/collection-box.ui:53
 msgid "Developers"
 msgstr "Razvijatelji"
 
-#: data/ui/collection-box.ui:60
+#: data/ui/collection-box.ui:63 src/ui/preferences-page-platforms.vala:9
 msgid "Platforms"
 msgstr "Platforme"
 
-#: data/ui/collection-box.ui:83
+#: data/ui/collection-box.ui:86
 msgid "Loading"
 msgstr "Učitavanje"
 
-#: data/ui/collection-header-bar.ui:17
+#: data/ui/collection-header-bar.ui:18
 msgid "Add game files…"
 msgstr "Dodaj datoteku igre…"
 
 #. Translators: tooltip for the application menu button
-#: data/ui/collection-header-bar.ui:36
+#: data/ui/collection-header-bar.ui:37
 msgid "Menu"
 msgstr "Izbornik"
 
-#: data/ui/collection-header-bar.ui:85
+#: data/ui/collection-header-bar.ui:86
 msgid "Search"
 msgstr "Pretraži"
 
-#: data/ui/collection-header-bar.ui:111 data/ui/preferences-window.ui:6
-#: data/ui/preferences-window.ui:25
+#: data/ui/collection-header-bar.ui:112 data/ui/preferences-window.ui:5
+#: data/ui/preferences-window.ui:26
 msgid "Preferences"
 msgstr "Osobitosti"
 
-#: data/ui/collection-header-bar.ui:119
+#: data/ui/collection-header-bar.ui:120
 msgid "Keyboard Shortcuts"
 msgstr "Prečaci tipkovnice"
 
-#: data/ui/collection-header-bar.ui:127
+#: data/ui/collection-header-bar.ui:128
 msgid "Help"
 msgstr "Priručnik"
 
-#: data/ui/collection-header-bar.ui:135
+#: data/ui/collection-header-bar.ui:136
 msgid "About Games"
 msgstr "O Igre"
 
-#: data/ui/display-header-bar.ui:20 data/ui/preferences-subpage-gamepad.ui:82
-#: data/ui/preferences-subpage-keyboard.ui:83
+#: data/ui/display-header-bar.ui:21 data/ui/preferences-subpage-gamepad.ui:82
+#: data/ui/preferences-subpage-keyboard.ui:83 data/ui/preferences-window.ui:54
 msgid "Back"
 msgstr "Natrag"
 
-#: data/ui/display-header-bar.ui:69
+#: data/ui/display-header-bar.ui:70
 msgid "Restore"
 msgstr "Vrati"
 
@@ -197,6 +208,14 @@ msgid ""
 "Install games or add directories containing games to your search sources."
 msgstr ""
 "Instalirajte igru ili dodajte mape koje sadrže igre u vaše izvore pretrage."
+
+#: data/ui/input-mode-switcher.ui:16
+msgid "Gamepad Input"
+msgstr "Ulaz upravljača igrama"
+
+#: data/ui/input-mode-switcher.ui:36
+msgid "Keyboard Input"
+msgstr "Ulaz tipkovnice"
 
 #: data/ui/media-menu-button.ui:11
 msgid "Media"
@@ -479,14 +498,73 @@ msgstr "Ovo ne predstavlja valjani LÖVE paket: “%s”."
 msgid "LÖVE"
 msgstr "LÖVE"
 
-#: plugins/mame/src/mame-game-uri-adapter.vala:21
+#: plugins/mame/src/mame-game-uri-adapter.vala:18
 #, c-format
 msgid "Invalid MAME game id “%s” for “%s”."
 msgstr "Neispravan id MAME igre “%s” za “%s”."
 
-#: plugins/mame/src/mame-plugin.vala:6
+#: plugins/mame/src/mame-plugin.vala:7
 msgid "Arcade"
 msgstr "Arkada"
+
+#: plugins/ms-dos/src/ms-dos-plugin.vala:7
+msgid "MS-DOS"
+msgstr "MS-DOS"
+
+#: plugins/nintendo-ds/data/org.gnome.Games.plugins.nintendo-ds.gschema.xml:11
+msgid "Screen layout"
+msgstr "Raspored zaslona"
+
+#: plugins/nintendo-ds/data/org.gnome.Games.plugins.nintendo-ds.gschema.xml:12
+msgid ""
+"Screen layout for Nintendo DS games. Allowed values are: “top/bottom”, “left/"
+"right”, “right/left” and “quick switch”."
+msgstr ""
+"Raspored zaslona za Nintendo DS igre. Dopuštene vrijednosti su: “top/"
+"bottom”, “left/right”, “right/left” i “quick switch”."
+
+#: plugins/nintendo-ds/data/org.gnome.Games.plugins.nintendo-ds.gschema.xml:16
+msgid "View bottom screen"
+msgstr "Prikaži donji zaslon"
+
+#: plugins/nintendo-ds/data/org.gnome.Games.plugins.nintendo-ds.gschema.xml:17
+msgid "Whether to view top or bottom screen in quick switch mode."
+msgstr ""
+"Treba li prikazati gornji ili donji zaslon u brzom načinu prebacivanja."
+
+#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:19
+msgid "Change Screen"
+msgstr "Promijeni zaslon"
+
+#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:38
+msgid "Screen Layout"
+msgstr "Raspored zaslona"
+
+#: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:104
+msgid "Vertical"
+msgstr "Okomit"
+
+#: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:108
+msgid "Side by side"
+msgstr "Jedan uz drugog"
+
+#: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:111
+msgid "Single screen"
+msgstr "Jedan zaslon"
+
+#: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:114
+#: src/dummy/dummy-platform.vala:9 src/dummy/dummy-platform.vala:13
+#: src/ui/developer-list-item.vala:26
+msgid "Unknown"
+msgstr "Napoznato"
+
+#: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:120
+msgid "Bottom to the right"
+msgstr "S dna na desno"
+
+#: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:123
+msgid "Bottom to the left"
+msgstr "S dna prema na lijevo"
 
 #: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:7
 msgid "Nintendo DS"
@@ -502,7 +580,7 @@ msgstr "Nije PlayStation disk: “%s”."
 msgid "Invalid PlayStation header: disc ID not found in “%s”."
 msgstr "Neispravno PlayStation zaglavlje: ID diska nije pronađen u “%s”."
 
-#: plugins/playstation/src/playstation-plugin.vala:6
+#: plugins/playstation/src/playstation-plugin.vala:7
 msgid "PlayStation"
 msgstr "PlayStation"
 
@@ -521,20 +599,20 @@ msgstr "Sega CD"
 msgid "Sega CD 32X"
 msgstr "Sega CD 32X"
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:108
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:87
+#: plugins/sega-cd/src/sega-cd-plugin.vala:115
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:98
 #, c-format
 msgid "The file “%s” doesn’t have a track."
 msgstr "Datoteka “%s” ne sadrži zapis."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:114
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:93
+#: plugins/sega-cd/src/sega-cd-plugin.vala:121
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:104
 #, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr "Datoteka “%s” nema valjani format binarne datoteke."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:117
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:96
+#: plugins/sega-cd/src/sega-cd-plugin.vala:124
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:107
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
 msgstr "Datoteka “%s” nema valjani način zapisa za zapis %d."
@@ -547,7 +625,7 @@ msgstr "Datoteka nema Sega Saturn zaglavlje."
 msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:100
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:111
 #, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "Datoteka “%s” nema valjanu Sega Saturn binarnu datoteku."
@@ -556,7 +634,7 @@ msgstr "Datoteka “%s” nema valjanu Sega Saturn binarnu datoteku."
 msgid "Steam"
 msgstr "Steam"
 
-#: plugins/steam/src/steam-plugin.vala:80
+#: plugins/steam/src/steam-plugin.vala:84
 #, c-format
 msgid "Couldn’t get Steam appid from manifest “%s”."
 msgstr "Nemoguće dobivanje Steam appid iz manifesta “%s”."
@@ -632,11 +710,11 @@ msgstr "Datoteka nema Wii zaglavlje."
 msgid "Wii"
 msgstr "Wii"
 
-#: src/command/command-runner.vala:34
+#: src/command/command-runner.vala:39
 msgid "The game doesn’t have a valid command."
 msgstr "Datoteka ne sadrži valjanu naredbu."
 
-#: src/command/command-runner.vala:60
+#: src/command/command-runner.vala:69
 #, c-format
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "Nemoguće pokrenuti “%s”: izvršavanje neuspjelo."
@@ -655,10 +733,6 @@ msgstr "Neispravan opisnik priključka: %s"
 #, c-format
 msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr "Nemoguće stvaranje novog primjerka priključka u “%s”."
-
-#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:22
-msgid "Unknown"
-msgstr "Napoznato"
 
 #: src/gameinfo/gameinfo-disc-id-disc-title.vala:24
 #, c-format
@@ -693,28 +767,28 @@ msgstr "Jedan igrač"
 msgid "Multi-player"
 msgstr "Više igrača"
 
-#: src/retro/retro-core-source.vala:25 src/retro/retro-core-source.vala:39
+#: src/retro/retro-core-source.vala:23 src/retro/retro-core-source.vala:37
 #, c-format
 msgid "No module found for platform “%s” and MIME types [ “%s” ]."
 msgstr "Nema pronađenih modula za platformu “%s” i MIME vrstu [ “%s” ]."
 
-#: src/retro/retro-core-source.vala:25 src/retro/retro-core-source.vala:39
+#: src/retro/retro-core-source.vala:23 src/retro/retro-core-source.vala:37
 msgid "”, “"
 msgstr "”, “"
 
-#: src/retro/retro-core-source.vala:84
+#: src/retro/retro-core-source.vala:64
 #, c-format
 msgid "This game requires the %s firmware file to run."
 msgstr "Ova igra zahtijeva %s datoteku firmvera za pokretanje."
 
-#: src/retro/retro-core-source.vala:101
+#: src/retro/retro-core-source.vala:81
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a MD5 fingerprint of %s to run."
 msgstr ""
 "Ova igra zahtijeva %s datoteku firmvera sa MD5 otiskom %s za pokretanje."
 
-#: src/retro/retro-core-source.vala:107
+#: src/retro/retro-core-source.vala:87
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
@@ -722,21 +796,21 @@ msgid ""
 msgstr ""
 "Ova igra zahtijeva %s datoteku firmvera sa SHA-512 otiskom %s za pokretanje."
 
-#: src/retro/retro-runner.vala:241
+#: src/retro/retro-runner.vala:233
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Modul nije pronađen za “%s”."
 
-#: src/retro/retro-runner.vala:541
+#: src/retro/retro-runner.vala:546
 msgid "Unknown platform"
 msgstr "Nepoznata platforma"
 
-#: src/retro/retro-runner.vala:586
+#: src/retro/retro-runner.vala:589
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Sustav “%s” još nije podržan, ali potpuna podrška je planirana."
 
-#: src/retro/retro-runner.vala:589
+#: src/retro/retro-runner.vala:591
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Sustav još nije podržan, ali potpuna podrška je planirana."
 
@@ -787,101 +861,102 @@ msgid "Master System"
 msgstr "Master System"
 
 #: src/retro/retro-simple-type.vala:37
-msgid "MS-DOS"
-msgstr "MS-DOS"
-
-#: src/retro/retro-simple-type.vala:39
 msgid "Neo Geo Pocket"
 msgstr "Neo Geo Pocket"
 
-#: src/retro/retro-simple-type.vala:41
+#: src/retro/retro-simple-type.vala:39
 msgid "Neo Geo Pocket Color"
 msgstr "Neo Geo Pocket Color"
 
 #. translators: known as "Famicom" in eastern Asia
-#: src/retro/retro-simple-type.vala:44
+#: src/retro/retro-simple-type.vala:42
 msgid "Nintendo Entertainment System"
 msgstr "Nintendo Entertainment System"
 
-#: src/retro/retro-simple-type.vala:46
+#: src/retro/retro-simple-type.vala:44
 msgid "Nintendo 64"
 msgstr "Nintendo 64"
 
 #. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
-#: src/retro/retro-simple-type.vala:49
+#: src/retro/retro-simple-type.vala:47
 msgid "Genesis 32X"
 msgstr "Genesis 32X"
 
 #. translators: known as "Mega Drive" in most of the world
-#: src/retro/retro-simple-type.vala:52
+#: src/retro/retro-simple-type.vala:50
 msgid "Sega Genesis"
 msgstr "Sega Genesis"
 
-#: src/retro/retro-simple-type.vala:54
+#: src/retro/retro-simple-type.vala:52
 msgid "Sega Pico"
 msgstr "Sega Pico"
 
-#: src/retro/retro-simple-type.vala:56
+#: src/retro/retro-simple-type.vala:54
 msgid "SG-1000"
 msgstr "SG-1000"
 
 #. translators: known as "Super Famicom" in eastern Asia
-#: src/retro/retro-simple-type.vala:59
+#: src/retro/retro-simple-type.vala:57
 msgid "Super Nintendo Entertainment System"
 msgstr "Super Nintendo Entertainment System"
 
 #. translators: known as "PC Engine" in eastern Asia and France
-#: src/retro/retro-simple-type.vala:62
+#: src/retro/retro-simple-type.vala:60
 msgid "TurboGrafx-16"
 msgstr "TurboGrafx-16"
 
-#: src/retro/retro-simple-type.vala:64
+#: src/retro/retro-simple-type.vala:62
 msgid "WiiWare"
 msgstr "WiiWare"
 
-#: src/retro/retro-simple-type.vala:66
+#: src/retro/retro-simple-type.vala:64
 msgid "WonderSwan"
 msgstr "WonderSwan"
 
-#: src/retro/retro-simple-type.vala:68
+#: src/retro/retro-simple-type.vala:66
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:174
+#: src/ui/application.vala:171
 msgid "Select game files"
 msgstr "Odaberi datoteku igre"
 
-#: src/ui/application.vala:175
-msgid "_Add"
-msgstr "_Dodaj"
-
-#: src/ui/application.vala:175
+#: src/ui/application.vala:172
 msgid "_Cancel"
 msgstr "_Odustani"
 
-#: src/ui/application.vala:389
+#: src/ui/application.vala:173
+msgid "_Add"
+msgstr "_Dodaj"
+
+#: src/ui/application.vala:213
+#, c-format
+msgid "An unexpected error occurred while trying to run %s"
+msgstr "Dogodila se neočekivana greška pri pokretanju %s"
+
+#: src/ui/application.vala:396
 msgid "GNOME Games"
 msgstr "GNOME Igre"
 
-#: src/ui/application.vala:391
+#: src/ui/application.vala:398
 msgid "A video game player for GNOME"
 msgstr "Pokretač video igara za GNOME"
 
-#: src/ui/application.vala:395
+#: src/ui/application.vala:402
 msgid "Learn more about GNOME Games"
 msgstr "Saznajte više o GNOME Igre"
 
-#: src/ui/application.vala:402
+#: src/ui/application.vala:409
 msgid "translator-credits"
 msgstr "gogo https://launchpad.net/~trebelnik-stefina"
 
-#: src/ui/application-window.vala:380
-msgid "An unexpected error occurred."
-msgstr "Dogodila se neočekivana greška."
-
-#: src/ui/application-window.vala:660 src/ui/application-window.vala:677
+#: src/ui/application-window.vala:273 src/ui/application-window.vala:290
 msgid "Playing a game"
 msgstr "Igranje igre"
+
+#: src/ui/display-view.vala:242
+msgid "An unexpected error occurred."
+msgstr "Dogodila se neočekivana greška."
 
 #: src/ui/error-display.vala:13
 #, c-format
@@ -892,19 +967,19 @@ msgstr "Ups! Nemoguće je pokrenuti “%s”"
 msgid "Oops! Unable to run the game"
 msgstr "Ups! Nemoguće je pokrenuti igru"
 
-#: src/ui/gamepad-mapper.vala:125
+#: src/ui/gamepad-mapper.vala:137
 msgid "Press suitable button on your gamepad"
 msgstr "Pritisnite odgovarajuću tipku na vašem upravljaču igre"
 
-#: src/ui/gamepad-mapper.vala:130
+#: src/ui/gamepad-mapper.vala:142
 msgid "Move suitable axis left/right on your gamepad"
 msgstr "Pritisnite odgovarajuće palice lijevo/desno na vašem upravljaču igre"
 
-#: src/ui/gamepad-mapper.vala:132
+#: src/ui/gamepad-mapper.vala:144
 msgid "Move suitable axis up/down on your gamepad"
 msgstr "Pritisnite odgovarajuće palice gore/dolje na vašem upravljaču igre"
 
-#: src/ui/keyboard-mapper.vala:18
+#: src/ui/keyboard-mapper.vala:27
 msgid "Press suitable key on your keyboard"
 msgstr "Pritisnite odgovarajuću tipku na vašoj tipkovnici"
 
@@ -917,9 +992,10 @@ msgstr "Medij %d"
 msgid "Controllers"
 msgstr "Upravljači"
 
-#: src/ui/preferences-page-plugins.vala:12
-msgid "Extensions"
-msgstr "Proširenja"
+#: src/ui/preferences-page-platforms-retro-row.vala:50
+#: src/ui/preferences-page-platforms-retro-row.vala:57
+msgid "None"
+msgstr "Nepoznato"
 
 #. same as video-filters in gschema
 #: src/ui/preferences-page-video.vala:22
@@ -1008,6 +1084,12 @@ msgstr "%s:%lu: Neočekivani završetak redka, očekivan simbol."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: Neočekivani simbol %s, očekivan završetak redka."
+
+#~ msgid "@icon@"
+#~ msgstr "@icon@"
+
+#~ msgid "Extensions"
+#~ msgstr "Proširenja"
 
 #~ msgid "About"
 #~ msgstr "O programu"
