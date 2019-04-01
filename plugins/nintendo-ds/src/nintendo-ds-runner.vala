@@ -5,7 +5,19 @@ private class Games.NintendoDsRunner : Object, Runner {
 	private Settings settings;
 	private ulong settings_changed_id;
 
+	// Map the 1,2,3,4 key values to the 4 screen layouts of the Nintendo DS
+	private static HashTable<uint, string> layouts;
+
 	private const string SCREENS_LAYOUT_OPTION = "desmume_screens_layout";
+
+	static construct {
+		layouts = new HashTable<uint, string> (direct_hash, direct_equal);
+
+		layouts[Gdk.Key.@1] = "top/bottom";
+		layouts[Gdk.Key.@2] = "left/right";
+		layouts[Gdk.Key.@3] = "right/left";
+		layouts[Gdk.Key.@4] = "quick switch";
+	}
 
 	public NintendoDsRunner (RetroRunner runner) {
 		this.runner = runner;
@@ -125,6 +137,20 @@ private class Games.NintendoDsRunner : Object, Runner {
 	}
 
 	public bool key_press_event (Gdk.EventKey event) {
+		// First check for Alt + 1|2|3|4
+		// These shortcuts change the screen layout
+		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
+		if ((event.state & default_modifiers) == Gdk.ModifierType.MOD1_MASK) {
+			// Alt key is pressed
+
+			var shortcut_layout = layouts[event.keyval];
+			if (shortcut_layout != null) {
+				settings.set_string ("screen-layout", shortcut_layout);
+
+				return true;
+			}
+		}
+
 		var layout = settings.get_string ("screen-layout");
 
 		if (layout != "quick switch")
