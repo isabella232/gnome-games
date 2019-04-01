@@ -197,10 +197,14 @@
         {
             "name" : "manette",
             "buildsystem" : "meson",
+            "config-opts" : [
+                "-Dgudev=disabled"
+            ],
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://gitlab.gnome.org/aplazas/libmanette.git"
+                    "url" : "https://gitlab.gnome.org/exalm/libmanette.git",
+                    "branch" : "wip/exalm/gudev"
                 }
             ]
         },
