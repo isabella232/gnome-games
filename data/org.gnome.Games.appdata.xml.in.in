@@ -42,6 +42,14 @@
   </screenshots>
 
   <releases>
+    <release version="3.32.1" type="stable" date="2019-04-10" urgency="medium">
+      <description>
+        <p>Fixes</p>
+        <ul>
+          <li>Help doesn't show up as a game anymore.</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.32.0" type="stable" date="2019-03-10" urgency="medium">
       <description>
         <p>Improvements</p>
