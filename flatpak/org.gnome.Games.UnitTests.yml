@@ -1,6 +1,6 @@
 app-id: org.gnome.Games.UnitTests
 runtime: org.gnome.Platform
-runtime-version: '3.32'
+runtime-version: master
 sdk: org.gnome.Sdk
 command: games-unit-tests
 tags:
