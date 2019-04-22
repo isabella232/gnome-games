@@ -42,6 +42,21 @@
   </screenshots>
 
   <releases>
+    <release version="3.33.1" type="development" date="2019-04-23" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>Allow to change screen layouts for Nintendo DS games when using DeSmuME and DeSmuME 2015 cores</li>
+          <li>Replace plugin list in preferences by platform list, and allow to select libretro cores to be used for each platform</li>
+          <li>Show an error when trying to open a non-game file</li>
+          <li>Use a better icon for missing game thumbnails</li>
+        </ul>
+        <p>Fixes:</p>
+        <ul>
+          <li>Help doesn't show up as a game anymore</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.32.0" type="stable" date="2019-03-10" urgency="medium">
       <description>
         <p>Improvements</p>

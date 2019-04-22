@@ -1,4 +1,32 @@
 ==============
+Version 3.33.1
+==============
+
+* Allow to change screen layouts for Nintendo DS games when using DeSmuME
+  and DeSmuME 2015 cores.
+
+* Replace plugin list in preferences by a list of platforms, and allow to
+  select libretro cores to be used for each platform.
+
+* Show an error when trying to open a non-game file.
+
+* Use a better icon for missing game thumbnails.
+
+* Fixes
+ - Help doesn't show up as a game anymore.
+
+* Various cleanups.
+
+* Translation updates
+ Brazilian Portuguese
+ Croatian
+ Hungarian
+ Indonesian
+ Polish
+ Spanish
+ Turkish
+
+==============
 Version 3.32.0
 ==============
 
