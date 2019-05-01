@@ -30,6 +30,7 @@
     <file preprocess="xml-stripblanks">ui/keyboard-tester.ui</file>
     <file preprocess="xml-stripblanks">ui/media-menu-button.ui</file>
     <file preprocess="xml-stripblanks">ui/media-selector.ui</file>
+    <file preprocess="xml-stripblanks">ui/platforms-view.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page-controllers.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page-platforms.ui</file>
@@ -49,6 +50,5 @@
     <file preprocess="xml-stripblanks">ui/search-bar.ui</file>
     <file preprocess="xml-stripblanks">ui/shortcuts-window.ui</file>
     <file preprocess="xml-stripblanks">ui/sidebar-list-item.ui</file>
-    <file preprocess="xml-stripblanks">ui/sidebar-view.ui</file>
   </gresource>
 </gresources>

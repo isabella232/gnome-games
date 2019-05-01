@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk+" version="3.24"/>
-  <template class="GamesSidebarView" parent="GtkBox">
+  <template class="GamesPlatformsView" parent="GtkBox">
     <property name="visible">True</property>
     <property name="expand">True</property>
     <signal name="map" after="yes" handler="on_map"/>
