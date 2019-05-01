@@ -47,16 +47,6 @@
               </packing>
             </child>
             <child>
-              <object class="GamesDevelopersView" id="developer_view">
-                <property name="visible">True</property>
-                <signal name="game-activated" handler="on_game_activated"/>
-              </object>
-              <packing>
-                <property name="name">developer</property>
-                <property name="title" translatable="yes">Developers</property>
-              </packing>
-            </child>
-            <child>
               <object class="GamesPlatformsView" id="platform_view">
                 <property name="visible">True</property>
                 <signal name="game-activated" handler="on_game_activated"/>

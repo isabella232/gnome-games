@@ -19,8 +19,6 @@ private class Games.CollectionBox : Gtk.Box {
 	[GtkChild]
 	private CollectionIconView collection_view;
 	[GtkChild]
-	private DevelopersView developer_view;
-	[GtkChild]
 	private PlatformsView platform_view;
 	[GtkChild (name = "viewstack")]
 	private Gtk.Stack _viewstack;
@@ -41,7 +39,6 @@ private class Games.CollectionBox : Gtk.Box {
 	}
 
 	private Binding collection_binding;
-	private Binding developer_collection_binding;
 	private Binding platform_collection_binding;
 	private Binding search_binding;
 	private Binding loading_notification_binding;
@@ -53,9 +50,6 @@ private class Games.CollectionBox : Gtk.Box {
 	construct {
 		collection_binding = bind_property ("collection", collection_view, "model",
 		                                    BindingFlags.BIDIRECTIONAL);
-
-		developer_collection_binding = bind_property ("collection", developer_view,
-		                                              "model", BindingFlags.BIDIRECTIONAL);
 
 		platform_collection_binding = bind_property ("collection", platform_view,
 		                                             "model", BindingFlags.BIDIRECTIONAL);
@@ -106,8 +100,6 @@ private class Games.CollectionBox : Gtk.Box {
 		default:
 			if (viewstack.visible_child == platform_view)
 				return platform_view.gamepad_button_press_event (event);
-			else if (viewstack.visible_child == developer_view)
-				return developer_view.gamepad_button_press_event (event);
 			else
 				return collection_view.gamepad_button_press_event (event);
 		}
@@ -119,8 +111,6 @@ private class Games.CollectionBox : Gtk.Box {
 
 		if (viewstack.visible_child == platform_view)
 			return platform_view.gamepad_button_release_event (event);
-		else if (viewstack.visible_child == developer_view)
-			return developer_view.gamepad_button_release_event (event);
 		else
 			return collection_view.gamepad_button_release_event (event);
 	}
@@ -131,8 +121,6 @@ private class Games.CollectionBox : Gtk.Box {
 
 		if (viewstack.visible_child == platform_view)
 			return platform_view.gamepad_absolute_axis_event (event);
-		else if (viewstack.visible_child == developer_view)
-			return developer_view.gamepad_absolute_axis_event (event);
 		else
 			return collection_view.gamepad_absolute_axis_event (event);
 	}
@@ -151,8 +139,6 @@ private class Games.CollectionBox : Gtk.Box {
 	private void on_visible_child_changed () {
 		if (viewstack.visible_child == platform_view)
 			platform_view.filtering_text = search_bar.text;
-		else if (viewstack.visible_child == developer_view)
-			developer_view.filtering_text = search_bar.text;
 		else {
 			collection_view.filtering_text = search_bar.text;
 			collection_view.reset_scroll_position ();
@@ -163,12 +149,10 @@ private class Games.CollectionBox : Gtk.Box {
 	private void on_search_text_notify () {
 		if (viewstack.visible_child == platform_view)
 			platform_view.filtering_text = search_bar.text;
-		else if (viewstack.visible_child == developer_view)
-			developer_view.filtering_text = search_bar.text;
 		else
 			collection_view.filtering_text = search_bar.text;
 
-		// Changing the filtering_text for the Developer|PlatformView might
+		// Changing the filtering_text for the PlatformView might
 		// cause the currently selected sidebar row to become empty and therefore
 		// hidden. In this case the first visible row will become selected and
 		// this causes the search bar to lose focus so we have to regrab it here
