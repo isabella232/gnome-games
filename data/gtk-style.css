@@ -1,5 +1,9 @@
 /* This file is part of GNOME Games. License: GPL-3.0+. */
 
+.solid-background {
+	background-color: @theme_bg_color;
+}
+
 .content-view {
 	background-color: @theme_base_color;
 }

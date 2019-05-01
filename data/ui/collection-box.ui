@@ -25,6 +25,9 @@
             <property name="visible-child">collection_view</property>
             <property name="transition-type">crossfade</property>
             <signal name="notify::visible-child" handler="on_visible_child_changed"/>
+            <style>
+              <class name="solid-background"/>
+            </style>
             <child>
               <object class="GamesEmptyCollection" id="empty_collection">
                 <property name="visible">True</property>
