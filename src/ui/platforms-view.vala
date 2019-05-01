@@ -249,12 +249,15 @@ private class Games.PlatformsView : Gtk.Box {
 		}
 
 		foreach (var row in list_box.get_children ()) {
-			var sidebar_item = row as SidebarListItem;
+			var platform_item = row as PlatformListItem;
+			var platform = platform_item.platform;
 			// Assume row doesn't have any games to show
 			var is_row_visible = false;
 
 			foreach (var game in visible_games) {
-				if (sidebar_item.has_game (game)) {
+				var game_platform = game.get_platform ().get_name ();
+
+				if (game_platform == platform.get_name ()) {
 					is_row_visible = true;
 					break;
 				}

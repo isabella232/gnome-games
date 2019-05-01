@@ -179,7 +179,6 @@ vala_sources = [
   'ui/resume-failed-dialog.vala',
   'ui/search-bar.vala',
   'ui/shortcuts-window.vala',
-  'ui/sidebar-list-item.vala',
   'ui/ui-view.vala',
 
   'utils/composite-cover.vala',
