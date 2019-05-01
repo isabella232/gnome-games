@@ -53,6 +53,8 @@
               </object>
               <packing>
                 <property name="name">platform</property>
+                <!-- FIXME: the icon is meant to be used for text formatting -->
+                <property name="icon-name">view-list-bullet-symbolic</property>
                 <property name="title" translatable="yes">Platforms</property>
               </packing>
             </child>

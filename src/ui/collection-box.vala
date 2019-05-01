@@ -58,6 +58,9 @@ private class Games.CollectionBox : Gtk.Box {
 		                                BindingFlags.BIDIRECTIONAL);
 		loading_notification_binding = bind_property ("loading-notification", loading_notification_revealer, "reveal-child",
 		                                              BindingFlags.DEFAULT);
+
+		var icon_name = Config.APPLICATION_ID + "-symbolic";
+		viewstack.child_set (collection_view, "icon-name", icon_name);
 	}
 
 	public void show_error (string error_message) {

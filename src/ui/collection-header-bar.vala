@@ -30,7 +30,7 @@ private class Games.CollectionHeaderBar : Gtk.HeaderBar {
 	[GtkChild]
 	private Gtk.Label empty_title;
 	[GtkChild]
-	private Gtk.StackSwitcher view_switcher;
+	private Hdy.ViewSwitcher view_switcher;
 	[GtkChild]
 	private Gtk.ToggleButton search;
 	private Binding search_binding;
