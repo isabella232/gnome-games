@@ -63,7 +63,7 @@ modules:
         commands:
           - /app/libexec/installed-tests/retro-gtk-0.14/retro-reftest /app/tests/blastem.240pSuite.test 2>&1 | diff /app/tests/blastem.240pSuite.expected -
           - /app/libexec/installed-tests/retro-gtk-0.14/retro-reftest /app/tests/bsnes_mercury_balanced.240pSuite.test 2>&1 | diff /app/tests/bsnes_mercury_balanced.240pSuite.expected -
-          - /app/libexec/installed-tests/retro-gtk-0.14/retro-reftest /app/tests/desmume2015.pong-ds.test
+          - /app/libexec/installed-tests/retro-gtk-0.14/retro-reftest /app/tests/desmume2015.pong-ds.test 2>&1 | diff /app/tests/desmume2015.pong-ds.expected -
           - /app/libexec/installed-tests/retro-gtk-0.14/retro-reftest /app/tests/gambatte.OpenMAZE.test 2>&1 | diff /app/tests/gambatte.OpenMAZE.expected -
           - /app/libexec/installed-tests/retro-gtk-0.14/retro-reftest /app/tests/mednafen_pce_fast.240pSuite.test 2>&1 | diff /app/tests/mednafen_pce_fast.240pSuite.expected -
           - /app/libexec/installed-tests/retro-gtk-0.14/retro-reftest /app/tests/mgba.nomad2_full.test 2>&1 | diff /app/tests/mgba.nomad2_full.expected -

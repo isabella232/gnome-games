@@ -43,6 +43,11 @@
                 },
                 {
                     "type" : "file",
+                    "path" : "desmume2015.pong-ds.expected",
+                    "dest-filename" : "desmume2015.pong-ds.expected"
+                },
+                {
+                    "type" : "file",
                     "path" : "desmume2015.pong-ds.test",
                     "dest-filename" : "desmume2015.pong-ds.test"
                 },
