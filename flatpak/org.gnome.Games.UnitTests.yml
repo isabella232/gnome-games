@@ -47,7 +47,6 @@ modules:
   - medias/240p-test-suite-pce.json
   - medias/240p-test-suite-ps1.json
   - medias/240p-test-suite-snes.json
-  - medias/hunchy.json
   - medias/openmaze.json
   - medias/pong-ds.json
   - medias/the-nomad-2-trapped.json
@@ -70,7 +69,6 @@ modules:
           - /app/libexec/installed-tests/retro-gtk-0.14/retro-reftest /app/tests/mgba.nomad2_full.test 2>&1 | diff /app/tests/mgba.nomad2_full.expected -
           - /app/libexec/installed-tests/retro-gtk-0.14/retro-reftest /app/tests/nestopia.240pee.test 2>&1 | diff /app/tests/nestopia.240pee.expected -
           - /app/libexec/installed-tests/retro-gtk-0.14/retro-reftest /app/tests/pcsx_rearmed.240pTestSuitePS1.test 2>&1 | diff /app/tests/pcsx_rearmed.240pTestSuitePS1.expected -
-          - /app/libexec/installed-tests/retro-gtk-0.14/retro-reftest /app/tests/stella.hunchy.test 2>&1 | diff /app/tests/stella.hunchy.expected -
         dest-filename: games-unit-tests
       - type: file
         path: org.gnome.Games.UnitTests.desktop
