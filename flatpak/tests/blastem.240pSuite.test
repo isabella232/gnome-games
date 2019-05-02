@@ -4,6 +4,7 @@ Core=/app/lib/libretro/blastem_libretro.so
 Medias=240pTestSuite-v15.gen;
 
 [Options]
+blastem_show_overscan=disabled;enabled;
 
 [Frame 150]
 Video=blastem.240pSuite.150.png

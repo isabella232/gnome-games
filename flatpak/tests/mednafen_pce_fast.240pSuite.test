@@ -5,7 +5,7 @@ Medias=240pSuite.pce;
 
 [Options]
 pce_fast_cdimagecache=disabled;enabled;
-pce_fast_cdbios=System Card 3;Games Express;System Card 1;System Card 2;
+pce_fast_cdbios=System Card 3;Games Express;System Card 1;System Card 2;System Card 2 US;System Card 3 US;
 pce_nospritelimit=disabled;enabled;
 pce_ocmultiplier=1;2;3;4;5;6;7;8;9;10;20;30;40;50;
 pce_hoverscan=352;300;302;304;306;308;310;312;314;316;318;320;322;324;326;328;330;332;334;336;338;340;342;344;346;348;350;

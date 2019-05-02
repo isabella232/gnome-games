@@ -4,6 +4,13 @@ Core=/app/lib/libretro/bsnes_mercury_balanced_libretro.so
 Medias=240pSuite.sfc;
 
 [Options]
+bsnes_violate_accuracy=disabled;enabled;
+bsnes_chip_hle=LLE;HLE;
+bsnes_superfx_overclock=100%;150%;200%;300%;400%;500%;1000%;
+bsnes_region=auto;ntsc;pal;
+bsnes_aspect_ratio=auto;ntsc;pal;
+bsnes_crop_overscan=disabled;enabled;
+bsnes_gamma_ramp=disabled;enabled;
 
 [Frame 120]
 Video=bsnes_mercury_balanced.240pSuite.120.png

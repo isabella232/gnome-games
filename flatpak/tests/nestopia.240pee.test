@@ -16,6 +16,7 @@ nestopia_aspect=auto;ntsc;pal;4:3;
 nestopia_genie_distortion=disabled;enabled;
 nestopia_favored_system=auto;ntsc;pal;famicom;dendy;
 nestopia_ram_power_state=0x00;0xFF;random;
+nestopia_button_shift=disabled;enabled;
 nestopia_turbo_pulse=2;3;4;5;6;7;8;9;
 
 [Frame 120]
