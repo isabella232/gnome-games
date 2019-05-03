@@ -132,6 +132,78 @@
     <child>
       <object class="GtkShortcutsSection">
         <property name="max-height">12</property>
+        <property name="section-name">nintendo_ds</property>
+        <property name="title" translatable="yes">Nintendo DS</property>
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkShortcutsGroup">
+            <property name="title" translatable="yes">Screen Layout</property>
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <property name="title" translatable="yes" context="shortcut window">Vertical</property>
+                <property name="accelerator">&lt;alt&gt;1</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <property name="title" translatable="yes" context="shortcut window">Side by side</property>
+                <property name="subtitle" translatable="yes" context="shortcut window">Bottom to the right</property>
+                <property name="accelerator">&lt;alt&gt;2</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <property name="title" translatable="yes" context="shortcut window">Side by side</property>
+                <property name="subtitle" translatable="yes" context="shortcut window">Bottom to the left</property>
+                <property name="accelerator">&lt;alt&gt;3</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <property name="title" translatable="yes" context="shortcut window">Single screen</property>
+                <property name="accelerator">&lt;alt&gt;4</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkShortcutsGroup">
+            <property name="title" translatable="yes">Screen Switching</property>
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <property name="title" translatable="yes" context="shortcut window">Show top screen</property>
+                <property name="accelerator">Page_Up</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <property name="title" translatable="yes" context="shortcut window">Show bottom screen</property>
+                <property name="accelerator">Page_Down</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut" id="nintendo_ds_shortcut_right_stick">
+                <property name="visible">True</property>
+                <property name="shortcut-type">gesture</property>
+                <property name="title" translatable="yes" context="shortcut window">Toggle screen</property>
+                <property name="subtitle" translatable="yes" context="shortcut window">Press right analog stick</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkShortcutsSection">
+        <property name="max-height">12</property>
         <property name="section-name">cheats</property>
         <property name="title" translatable="yes">Cheats</property>
         <property name="visible">True</property>
@@ -152,3 +224,4 @@
     </child>
   </template>
 </interface>
+
