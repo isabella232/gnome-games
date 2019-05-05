@@ -10,17 +10,10 @@ c_args = [
   '-DG_LOG_DOMAIN="GamesLOVE"'
 ]
 
-libarchive_dep = dependency ('libarchive')
-
-dependencies = [
-  gnome_games_dep,
-  libarchive_dep,
-]
-
 shared_module (
   'games-' + plugin_name + '-plugin',
   vala_sources,
-  dependencies: dependencies,
+  dependencies: gnome_games_dep,
   c_args: c_args,
   install: true,
   install_dir: plugins_dir

@@ -207,6 +207,7 @@ vala_sources = [
 event_codes_dep = valac.find_library ('event-codes', dirs: gamepad_dir)
 
 dependencies = [
+  libarchive_dep,
   config_dep,
   handy_dep,
   gio_dep,
@@ -237,6 +238,7 @@ gnome_games_exec = executable (
 )
 
 plugin_dependencies = [
+  libarchive_dep,
   gio_dep,
   glib_dep,
   gtk_dep,

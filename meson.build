@@ -33,6 +33,7 @@ manette_min_version = '0.2.0'
 retro_gtk_min_version = '0.15.3'
 handy_min_version = '0.0.8'
 
+libarchive_dep = dependency ('libarchive')
 gio_dep = dependency ('gio-2.0', version: '>=' + glib_min_version)
 glib_dep = dependency ('glib-2.0', version: '>=' + glib_min_version)
 grilo_dep = dependency ('grilo-0.3')
