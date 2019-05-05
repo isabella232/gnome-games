@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-03-23 18:36+0000\n"
-"PO-Revision-Date: 2019-03-25 13:08+0100\n"
+"POT-Creation-Date: 2019-05-04 17:44+0000\n"
+"PO-Revision-Date: 2019-05-05 15:25+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -20,7 +20,7 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:6
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:43
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:46
 #: data/ui/collection-header-bar.ui:68 data/ui/display-header-bar.ui:6
 #: src/ui/application.vala:25
 msgid "Games"
@@ -70,7 +70,7 @@ msgstr "Uruchamianie gier"
 msgid "Resume your game to where you left it"
 msgstr "Wstrzymywanie i wznawianie gier"
 
-#: data/org.gnome.Games.appdata.xml.in.in:83
+#: data/org.gnome.Games.appdata.xml.in.in:98
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
@@ -140,15 +140,11 @@ msgstr ""
 "Preferowany rdzeń biblioteki libretro używany do uruchamiania gier. Inny "
 "rdzeń może zostać użyty, jeśli preferowany nie ma oprogramowania sprzętowego."
 
-#: data/ui/collection-box.ui:53
-msgid "Developers"
-msgstr "Producenci"
-
-#: data/ui/collection-box.ui:63 src/ui/preferences-page-platforms.vala:9
+#: data/ui/collection-box.ui:58 src/ui/preferences-page-platforms.vala:9
 msgid "Platforms"
 msgstr "Platformy"
 
-#: data/ui/collection-box.ui:86
+#: data/ui/collection-box.ui:81
 msgid "Loading"
 msgstr "Wczytywanie"
 
@@ -182,8 +178,8 @@ msgstr "Pomoc"
 msgid "About Games"
 msgstr "O programie"
 
-#: data/ui/display-header-bar.ui:21 data/ui/preferences-subpage-gamepad.ui:82
-#: data/ui/preferences-subpage-keyboard.ui:83 data/ui/preferences-window.ui:54
+#: data/ui/display-header-bar.ui:21 data/ui/preferences-subpage-gamepad.ui:83
+#: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:54
 msgid "Back"
 msgstr "Wstecz"
 
@@ -226,37 +222,37 @@ msgstr "Klawiatura"
 msgid "Media"
 msgstr "Nośnik"
 
-#: data/ui/preferences-page-controllers.ui:9
+#: data/ui/preferences-page-controllers.ui:10
 msgid "Gamepads"
 msgstr "Kontrolery"
 
-#: data/ui/preferences-page-controllers.ui:32
+#: data/ui/preferences-page-controllers.ui:33
 #: src/ui/preferences-page-controllers.vala:75
 msgid "Keyboard"
 msgstr "Klawiatura"
 
-#: data/ui/preferences-page-video.ui:9
+#: data/ui/preferences-page-video.ui:10
 msgid "Filter"
 msgstr "Filtr"
 
-#: data/ui/preferences-subpage-gamepad.ui:21
-#: data/ui/preferences-subpage-keyboard.ui:22
+#: data/ui/preferences-subpage-gamepad.ui:22
+#: data/ui/preferences-subpage-keyboard.ui:23
 msgctxt "Keyboard configuration factory reset"
 msgid "Reset"
 msgstr "Przywróć"
 
-#: data/ui/preferences-subpage-gamepad.ui:34
-#: data/ui/preferences-subpage-keyboard.ui:35
+#: data/ui/preferences-subpage-gamepad.ui:35
+#: data/ui/preferences-subpage-keyboard.ui:36
 msgid "Configure"
 msgstr "Skonfiguruj"
 
-#: data/ui/preferences-subpage-gamepad.ui:52
-#: data/ui/preferences-subpage-keyboard.ui:53
+#: data/ui/preferences-subpage-gamepad.ui:53
+#: data/ui/preferences-subpage-keyboard.ui:54
 msgid "Skip"
 msgstr "Pomiń"
 
-#: data/ui/preferences-subpage-gamepad.ui:100
-#: data/ui/preferences-subpage-keyboard.ui:101 data/ui/quit-dialog.ui:15
+#: data/ui/preferences-subpage-gamepad.ui:101
+#: data/ui/preferences-subpage-keyboard.ui:102 data/ui/quit-dialog.ui:15
 #: data/ui/reset-controller-mapping-dialog.ui:15
 #: data/ui/resume-failed-dialog.ui:14
 msgid "Cancel"
@@ -320,112 +316,171 @@ msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Uruchom ponownie"
 
-#: data/ui/shortcuts-window.ui:10
+#: data/ui/shortcuts-window.ui:11
 msgid "Shortcuts"
 msgstr "Skróty"
 
-#: data/ui/shortcuts-window.ui:14
+#: data/ui/shortcuts-window.ui:15
 msgid "General"
 msgstr "Ogólne"
 
-#: data/ui/shortcuts-window.ui:19
+#: data/ui/shortcuts-window.ui:20
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Zakończenie działania"
 
-#: data/ui/shortcuts-window.ui:27 data/ui/shortcuts-window.ui:139
+#: data/ui/shortcuts-window.ui:28 data/ui/shortcuts-window.ui:212
 msgid "Collection"
 msgstr "Kolekcja"
 
-#: data/ui/shortcuts-window.ui:32
+#: data/ui/shortcuts-window.ui:33
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Wyszukiwanie"
 
-#: data/ui/shortcuts-window.ui:40 data/ui/shortcuts-window.ui:48
+#: data/ui/shortcuts-window.ui:41 data/ui/shortcuts-window.ui:49
 msgctxt "shortcut window"
 msgid "Navigate"
 msgstr "Nawigacja"
 
-#: data/ui/shortcuts-window.ui:41
+#: data/ui/shortcuts-window.ui:42
 msgctxt "shortcut window"
 msgid "Left analog stick"
 msgstr "Lewa gałka analogowa"
 
-#: data/ui/shortcuts-window.ui:49
+#: data/ui/shortcuts-window.ui:50
 msgctxt "shortcut window"
 msgid "Directional pad"
 msgstr "Przyciski kierunkowe"
 
-#: data/ui/shortcuts-window.ui:56
+#: data/ui/shortcuts-window.ui:57
 msgctxt "shortcut window"
 msgid "Select view"
 msgstr "Wybór widoku"
 
-#: data/ui/shortcuts-window.ui:57
+#: data/ui/shortcuts-window.ui:58
 msgctxt "shortcut window"
 msgid "Front shoulder buttons"
 msgstr "Przyciski boczne"
 
-#: data/ui/shortcuts-window.ui:64 data/ui/shortcuts-window.ui:72
+#: data/ui/shortcuts-window.ui:65 data/ui/shortcuts-window.ui:73
 msgctxt "shortcut window"
 msgid "Start game"
 msgstr "Rozpoczęcie gry"
 
-#: data/ui/shortcuts-window.ui:65
+#: data/ui/shortcuts-window.ui:66
 msgctxt "shortcut window"
 msgid "Start button"
 msgstr "Przycisk start"
 
-#: data/ui/shortcuts-window.ui:73 data/ui/shortcuts-window.ui:116
+#: data/ui/shortcuts-window.ui:74 data/ui/shortcuts-window.ui:117
 msgctxt "shortcut window"
 msgid "Bottom action button"
 msgstr "Dolny przycisk działania"
 
-#: data/ui/shortcuts-window.ui:80
+#: data/ui/shortcuts-window.ui:81
 msgid "In Game"
 msgstr "W grze"
 
-#: data/ui/shortcuts-window.ui:85
+#: data/ui/shortcuts-window.ui:86
 msgctxt "shortcut window"
 msgid "Toggle fullscreen"
 msgstr "Przełączenie pełnego ekranu"
 
-#: data/ui/shortcuts-window.ui:92
+#: data/ui/shortcuts-window.ui:93
 msgctxt "shortcut window"
 msgid "Exit fullscreen"
 msgstr "Wyjście z pełnego ekranu"
 
-#: data/ui/shortcuts-window.ui:99 data/ui/shortcuts-window.ui:107
+#: data/ui/shortcuts-window.ui:100 data/ui/shortcuts-window.ui:108
 msgctxt "shortcut window"
 msgid "Go back to the collection"
 msgstr "Powrót do kolekcji"
 
-#: data/ui/shortcuts-window.ui:108
+#: data/ui/shortcuts-window.ui:109
 msgctxt "shortcut window"
 msgid "Home button"
 msgstr "Przycisk domowy"
 
-#: data/ui/shortcuts-window.ui:115
+#: data/ui/shortcuts-window.ui:116
 msgctxt "shortcut window"
 msgid "Accept"
 msgstr "Przyjęcie"
 
-#: data/ui/shortcuts-window.ui:123
+#: data/ui/shortcuts-window.ui:124
 msgctxt "shortcut window"
 msgid "Cancel"
 msgstr "Anulowanie"
 
-#: data/ui/shortcuts-window.ui:124
+#: data/ui/shortcuts-window.ui:125
 msgctxt "shortcut window"
 msgid "Right action button"
 msgstr "Prawy przycisk działania"
 
-#: data/ui/shortcuts-window.ui:135
+#: data/ui/shortcuts-window.ui:136
+#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:7
+msgid "Nintendo DS"
+msgstr "Nintendo DS"
+
+#: data/ui/shortcuts-window.ui:140
+#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:38
+msgid "Screen Layout"
+msgstr "Układ ekranów"
+
+#: data/ui/shortcuts-window.ui:145
+msgctxt "shortcut window"
+msgid "Vertical"
+msgstr "Pionowo"
+
+#: data/ui/shortcuts-window.ui:152 data/ui/shortcuts-window.ui:160
+msgctxt "shortcut window"
+msgid "Side by side"
+msgstr "Obok siebie"
+
+#: data/ui/shortcuts-window.ui:153
+msgctxt "shortcut window"
+msgid "Bottom to the right"
+msgstr "Dolny po prawej"
+
+#: data/ui/shortcuts-window.ui:161
+msgctxt "shortcut window"
+msgid "Bottom to the left"
+msgstr "Dolny po lewej"
+
+#: data/ui/shortcuts-window.ui:168
+msgctxt "shortcut window"
+msgid "Single screen"
+msgstr "Jeden ekran"
+
+#: data/ui/shortcuts-window.ui:176
+msgid "Screen Switching"
+msgstr "Przełączanie ekranów"
+
+#: data/ui/shortcuts-window.ui:181
+msgctxt "shortcut window"
+msgid "Show top screen"
+msgstr "Wyświetlenie górnego ekranu"
+
+#: data/ui/shortcuts-window.ui:188
+msgctxt "shortcut window"
+msgid "Show bottom screen"
+msgstr "Wyświetlenie dolnego ekranu"
+
+#: data/ui/shortcuts-window.ui:196
+msgctxt "shortcut window"
+msgid "Toggle screen"
+msgstr "Przełączenie ekranu"
+
+#: data/ui/shortcuts-window.ui:197
+msgctxt "shortcut window"
+msgid "Press right analog stick"
+msgstr "Naciśnięcie prawej gałki analogowej"
+
+#: data/ui/shortcuts-window.ui:208
 msgid "Cheats"
 msgstr "Kody"
 
-#: data/ui/shortcuts-window.ui:144
+#: data/ui/shortcuts-window.ui:217
 msgctxt "shortcut window"
 msgid "Contribute"
 msgstr "Dołącz do nas!"
@@ -541,10 +596,6 @@ msgstr "Czy wyświetlać górny lub dolny ekran w trybie szybkiego przełączan
 msgid "Change Screen"
 msgstr "Zmień ekran"
 
-#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:38
-msgid "Screen Layout"
-msgstr "Układ ekranów"
-
 #: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:104
 msgid "Vertical"
 msgstr "Pionowo"
@@ -559,7 +610,6 @@ msgstr "Jeden ekran"
 
 #: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:114
 #: src/dummy/dummy-platform.vala:9 src/dummy/dummy-platform.vala:13
-#: src/ui/developer-list-item.vala:26
 msgid "Unknown"
 msgstr "Nieznane"
 
@@ -570,10 +620,6 @@ msgstr "Dolny po prawej"
 #: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:123
 msgid "Bottom to the left"
 msgstr "Dolny po lewej"
-
-#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:7
-msgid "Nintendo DS"
-msgstr "Nintendo DS"
 
 #: plugins/playstation/src/playstation-header.vala:27
 #, c-format
