@@ -75,4 +75,5 @@ src/ui/preferences-page-platforms.vala
 src/ui/preferences-page-video.vala
 src/ui/preferences-subpage-gamepad.vala
 src/ui/preferences-subpage-keyboard.vala
+src/utils/archive.vala
 src/utils/cue-sheet/cue-sheet.vala

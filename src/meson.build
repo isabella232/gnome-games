@@ -181,6 +181,7 @@ vala_sources = [
   'ui/shortcuts-window.vala',
   'ui/ui-view.vala',
 
+  'utils/archive.vala',
   'utils/archive-error.vala',
   'utils/composite-cover.vala',
   'utils/composite-title.vala',
