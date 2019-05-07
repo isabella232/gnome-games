@@ -109,7 +109,7 @@
         <child>
           <object class="GtkModelButton">
             <property name="can-focus">True</property>
-            <property name="text" translatable="yes">Preferences</property>
+            <property name="text" translatable="yes">Pr_eferences</property>
             <property name="action-name">app.preferences</property>
             <property name="visible">True</property>
           </object>
@@ -117,7 +117,7 @@
         <child>
           <object class="GtkModelButton">
             <property name="can-focus">True</property>
-            <property name="text" translatable="yes">Keyboard Shortcuts</property>
+            <property name="text" translatable="yes">_Keyboard Shortcuts</property>
             <property name="action-name">win.show-help-overlay</property>
             <property name="visible">True</property>
           </object>
@@ -125,7 +125,7 @@
         <child>
           <object class="GtkModelButton">
             <property name="can-focus">True</property>
-            <property name="text" translatable="yes">Help</property>
+            <property name="text" translatable="yes">_Help</property>
             <property name="action-name">app.help</property>
             <property name="visible">True</property>
           </object>
@@ -133,7 +133,7 @@
         <child>
           <object class="GtkModelButton">
             <property name="can-focus">True</property>
-            <property name="text" translatable="yes">About Games</property>
+            <property name="text" translatable="yes">_About Games</property>
             <property name="action-name">app.about</property>
             <property name="visible">True</property>
           </object>
