@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.24"/>
+  <template class="GamesPreferencesPageBackupRestore" parent="GamesPreferencesPage">
+    <property name="visible">True</property>
+    <child>
+      <object class="GtkLabel">
+        <property name="visible">True</property>
+        <property name="xalign">0</property>
+        <property name="label" translatable="yes">Backup save states and in-game saves. This can be used for moving the data to another device or for restoring it later. Desktop, Steam and LÖVE games cannot be backed up.</property>
+        <property name="wrap">True</property>
+        <style>
+          <class name="dim-label"/>
+        </style>
+      </object>
+    </child>
+    <child>
+      <object class="GtkFrame">
+        <property name="visible">True</property>
+        <property name="shadow-type">in</property>
+        <child>
+          <object class="GtkListBox">
+            <property name="visible">True</property>
+            <property name="selection-mode">none</property>
+            <child>
+              <object class="GtkListBoxRow">
+                <property name="visible">True</property>
+                <child>
+                  <object class="GtkBox">
+                    <property name="visible">True</property>
+                    <property name="valign">center</property>
+                    <property name="margin">6</property>
+                    <property name="spacing">6</property>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="visible">True</property>
+                        <property name="xalign">0</property>
+                        <property name="expand">True</property>
+                        <property name="label" translatable="yes">Backup save data</property>
+                        <property name="ellipsize">end</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkButton">
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="use-underline">True</property>
+                        <property name="label" translatable="yes">_Backup</property>
+                        <signal name="clicked" handler="on_backup_clicked"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+         </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkLabel">
+        <property name="visible">True</property>
+        <property name="xalign">0</property>
+        <property name="margin-top">12</property>
+        <property name="label" translatable="yes">Restore save data for games from existing backup. This will replace existing saves and cannot be undone.</property>
+        <property name="wrap">True</property>
+        <style>
+          <class name="dim-label"/>
+        </style>
+      </object>
+    </child>
+    <child>
+       <object class="GtkFrame">
+        <property name="visible">True</property>
+        <property name="shadow-type">in</property>
+        <child>
+          <object class="GtkListBox">
+            <property name="visible">True</property>
+            <property name="selection-mode">none</property>
+            <child>
+              <object class="GtkListBoxRow">
+                <property name="visible">True</property>
+                <child>
+                  <object class="GtkBox">
+                    <property name="visible">True</property>
+                    <property name="valign">center</property>
+                    <property name="margin">6</property>
+                    <property name="spacing">6</property>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="visible">True</property>
+                        <property name="xalign">0</property>
+                        <property name="expand">True</property>
+                        <property name="label" translatable="yes">Restore save data</property>
+                        <property name="ellipsize">end</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkButton">
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="use-underline">True</property>
+                        <property name="label" translatable="yes">_Restore</property>
+                        <signal name="clicked" handler="on_restore_clicked"/>
+                        <style>
+                          <class name="destructive-action"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

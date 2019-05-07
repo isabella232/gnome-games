@@ -11,18 +11,68 @@
           <object class="GtkViewport">
             <property name="visible">True</property>
             <child>
-              <object class="HdyColumn">
+              <object class="GtkOverlay">
                 <property name="visible">True</property>
-                <property name="expand">True</property>
-                <property name="maximum-width">600</property>
-                <property name="linear-growth-width">300</property>
+                <property name="vexpand">True</property>
                 <child>
-                  <object class="GtkBox" id="box">
+                  <object class="HdyColumn">
                     <property name="visible">True</property>
-                    <property name="orientation">vertical</property>
-                    <property name="margin">12</property>
-                    <property name="spacing">12</property>
+                    <property name="expand">True</property>
+                    <property name="maximum-width">600</property>
+                    <property name="linear-growth-width">300</property>
+                    <child>
+                      <object class="GtkBox" id="box">
+                        <property name="visible">True</property>
+                        <property name="orientation">vertical</property>
+                        <property name="margin">12</property>
+                        <property name="spacing">12</property>
+                      </object>
+                    </child>
                   </object>
+                </child>
+                <child type="overlay">
+                  <object class="GtkRevealer" id="error_notification_revealer">
+                    <property name="visible">True</property>
+                    <property name="halign">center</property>
+                    <property name="valign">start</property>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="visible">True</property>
+                        <property name="spacing">12</property>
+                        <style>
+                          <class name="app-notification"/>
+                        </style>
+                        <child>
+                          <object class="GtkLabel" id="error_label">
+                            <property name="visible">True</property>
+                            <property name="xalign">0</property>
+                            <property name="wrap">True</property>
+                            <property name="wrap-mode">word-char</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkButton">
+                            <property name="visible">True</property>
+                            <property name="can-focus">True</property>
+                            <property name="valign">center</property>
+                            <signal name="clicked" handler="on_error_notification_closed"/>
+                            <style>
+                              <class name="flat"/>
+                            </style>
+                            <child>
+                              <object class="GtkImage">
+                                <property name="visible">True</property>
+                                <property name="icon-name">window-close-symbolic</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="pass-through">True</property>
+                  </packing>
                 </child>
               </object>
             </child>

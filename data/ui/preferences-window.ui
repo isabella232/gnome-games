@@ -126,6 +126,11 @@
                     <property name="visible">True</property>
                   </object>
                 </child>
+                <child>
+                  <object class="GamesPreferencesPageBackupRestore" id="backup_restore_page">
+                    <property name="visible">True</property>
+                  </object>
+                </child>
               </object>
             </child>
           </object>

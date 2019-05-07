@@ -161,6 +161,7 @@ vala_sources = [
   'ui/platforms-view.vala',
   'ui/preferences-page.vala',
   'ui/preferences-page-controllers.vala',
+  'ui/preferences-page-backup-restore.vala',
   'ui/preferences-page-platforms.vala',
   'ui/preferences-page-platforms-generic-row.vala',
   'ui/preferences-page-platforms-retro-row.vala',
