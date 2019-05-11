@@ -22,9 +22,6 @@
               <object class="GamesErrorDisplay" id="error_display">
                 <property name="visible">True</property>
               </object>
-              <packing>
-                <property name="name">error</property>
-              </packing>
             </child>
             <child>
               <object class="GtkOverlay" id="display_overlay">
@@ -48,9 +45,6 @@
                   </object>
                 </child>
               </object>
-              <packing>
-                <property name="name">display</property>
-              </packing>
             </child>
           </object>
         </child>

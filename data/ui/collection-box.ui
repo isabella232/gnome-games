@@ -31,32 +31,38 @@
               <class name="solid-background"/>
             </style>
             <child>
-              <object class="GamesEmptyCollection" id="empty_collection">
-                <property name="visible">True</property>
-              </object>
-              <packing>
+              <object class="GtkStackPage">
                 <property name="name">empty</property>
-              </packing>
+                <property name="child">
+                  <object class="GamesEmptyCollection" id="empty_collection">
+                    <property name="visible">True</property>
+                  </object>
+                </property>
+              </object>
             </child>
             <child>
-              <object class="GamesCollectionIconView" id="collection_view">
-                <property name="visible">True</property>
-                <signal name="game-activated" handler="on_game_activated"/>
-              </object>
-              <packing>
+              <object class="GtkStackPage" id="games_page">
                 <property name="name">games</property>
                 <property name="title" translatable="yes">Games</property>
-              </packing>
+                <property name="child">
+                  <object class="GamesCollectionIconView" id="collection_view">
+                    <property name="visible">True</property>
+                    <signal name="game-activated" handler="on_game_activated"/>
+                  </object>
+                </property>
+              </object>
             </child>
             <child>
-              <object class="GamesPlatformsView" id="platform_view">
-                <property name="visible">True</property>
-                <signal name="game-activated" handler="on_game_activated"/>
-              </object>
-              <packing>
+              <object class="GtkStackPage">
                 <property name="name">platform</property>
                 <property name="title" translatable="yes">Platforms</property>
-              </packing>
+                <property name="child">
+                  <object class="GamesPlatformsView" id="platform_view">
+                    <property name="visible">True</property>
+                    <signal name="game-activated" handler="on_game_activated"/>
+                  </object>
+                </property>
+              </object>
             </child>
           </object>
         </child>
