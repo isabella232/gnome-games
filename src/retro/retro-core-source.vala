@@ -13,6 +13,10 @@ public class Games.RetroCoreSource : Object {
 		return platform;
 	}
 
+	public string get_core_id () throws Error {
+		return core_descriptor.get_id ();
+	}
+
 	public string get_module_path () throws Error {
 		ensure_module_is_found ();
 

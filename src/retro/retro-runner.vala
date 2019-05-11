@@ -15,14 +15,15 @@ public class Games.RetroRunner : Object, Runner {
 	public bool can_resume {
 		get {
 			try {
+				// Check if there are any existing savestates
 				init ();
 				if (!core.get_can_access_state ())
 					return false;
 
-				var snapshot_path = get_snapshot_path ();
-				var file = File.new_for_path (snapshot_path);
+				var game_savestates_dir_path = get_game_savestates_dir_path ();
+				var game_savestates_dir = Dir.open (game_savestates_dir_path);
 
-				return file.query_exists ();
+				return game_savestates_dir.read_name () != null;
 			}
 			catch (Error e) {
 				warning (e.message);
@@ -52,7 +53,6 @@ public class Games.RetroRunner : Object, Runner {
 
 	private string save_directory_path;
 	private string save_path;
-	private string snapshot_path;
 	private string screenshot_path;
 
 	private Retro.CoreDescriptor core_descriptor;
@@ -164,14 +164,31 @@ public class Games.RetroRunner : Object, Runner {
 		loop.stop ();
 
 		if (!is_ready) {
-			load_ram ();
-			core.reset ();
-			load_snapshot ();
-			is_ready = true;
+			load_latest_savestate ();
 		}
 
 		loop.start ();
 		running = true;
+	}
+
+	private void load_latest_savestate () throws Error {
+		var game_savestates_dir_path = get_game_savestates_dir_path ();
+		var game_savestates_dir = Dir.open (game_savestates_dir_path);
+
+		string latest_savestate_name = null;
+		string dir_entry = null;
+
+		while ((dir_entry = game_savestates_dir.read_name ()) != null) {
+			latest_savestate_name = dir_entry;
+		}
+
+		var latest_savestate_dir_path = Path.build_filename (game_savestates_dir_path, latest_savestate_name);
+		var latest_savestate_dir = File.new_for_path (latest_savestate_dir_path);
+
+		//load_ram ();
+		core.reset ();
+		load_snapshot (latest_savestate_dir);
+		is_ready = true;
 	}
 
 	private void init () throws Error {
@@ -280,15 +297,12 @@ public class Games.RetroRunner : Object, Runner {
 			return;
 
 		loop.stop ();
+
+		//FIXME:
+		// In the future here there will be code which updates the currently
+		// used temporary savestate
+
 		running = false;
-
-
-		try {
-			save ();
-		}
-		catch (Error e) {
-			warning (e.message);
-		}
 	}
 
 	public void stop () {
@@ -296,6 +310,14 @@ public class Games.RetroRunner : Object, Runner {
 			return;
 
 		pause ();
+
+		try {
+			save ();
+		}
+		catch (Error e) {
+			warning (e.message);
+		}
+
 		deinit ();
 
 		stopped ();
@@ -356,29 +378,53 @@ public class Games.RetroRunner : Object, Runner {
 
 			return;
 		}
-
-		try {
-			save_media_data ();
-		}
-		catch (Error e) {
-			warning (e.message);
-		}
 	}
 
-	private void save () throws Error {
+	private string get_game_savestates_dir_path () throws Error {
+		// Get the savestates directory of the game currently being run
+
+		var data_dir_path = Application.get_data_dir ();
+		var savestates_dir_path = Path.build_filename (data_dir_path, "savestates");
+		var uid = uid.get_uid ();
+
+		string core_id = null;
+
+		if (core_descriptor != null) {
+			core_id = core_descriptor.get_id ();
+		}
+		else {
+			core_id = core_source.get_core_id ();
+		}
+
+		var core_id_prefix = core_id.replace (".libretro", "");
+
+		return Path.build_filename (savestates_dir_path, uid + "-" + core_id_prefix);
+	}
+
+	// FIXME: This should be private, but it is public because of a temporary
+	// hack used in the DisplayView
+	public void save () throws Error {
 		if (!should_save)
 			return;
 
-		save_ram ();
+		// Create a new savestate
+		var game_savestates_dir_path = get_game_savestates_dir_path ();
+		var now_time_str = TimeVal ().to_iso8601 ();
+		var new_savestate_path = Path.build_filename (game_savestates_dir_path, now_time_str);
+		var new_savestate_dir = File.new_for_path (new_savestate_path);
+
+		new_savestate_dir.make_directory ();
+
+		save_ram (new_savestate_dir);
 
 		if (media_set.get_size () > 1)
-			save_media_data ();
+			save_media_data (new_savestate_dir);
 
 		if (!core.get_can_access_state ())
 			return;
 
-		save_snapshot ();
-		save_screenshot ();
+		save_snapshot (new_savestate_dir);
+		save_screenshot (new_savestate_dir);
 
 		should_save = false;
 	}
@@ -406,6 +452,7 @@ public class Games.RetroRunner : Object, Runner {
 		return save_directory_path;
 	}
 
+	// TODO: To be removed
 	private string get_save_path () throws Error {
 		if (save_path != null)
 			return save_path;
@@ -417,16 +464,14 @@ public class Games.RetroRunner : Object, Runner {
 		return save_path;
 	}
 
-	private void save_ram () throws Error{
+	private void save_ram (File savestate_dir) throws Error{
 		var bytes = core.get_memory (Retro.MemoryType.SAVE_RAM);
 		var save = bytes.get_data ();
 		if (save.length == 0)
 			return;
 
-		var dir = Application.get_saves_dir ();
-		Application.try_make_dir (dir);
-
-		var save_path = get_save_path ();
+		var savestate_dir_path = savestate_dir.get_path ();
+		var save_path = Path.build_filename (savestate_dir_path, "save");
 
 		FileUtils.set_data (save_path, save);
 	}
@@ -448,34 +493,22 @@ public class Games.RetroRunner : Object, Runner {
 		core.set_memory (Retro.MemoryType.SAVE_RAM, bytes);
 	}
 
-	private string get_snapshot_path () throws Error {
-		if (snapshot_path != null)
-			return snapshot_path;
-
-		var dir = Application.get_snapshots_dir ();
-		var uid = uid.get_uid ();
-		snapshot_path = @"$dir/$uid.snapshot";
-
-		return snapshot_path;
-	}
-
-	private void save_snapshot () throws Error {
+	private void save_snapshot (File savestate_dir) throws Error {
 		var bytes = core.get_state ();
 		var buffer = bytes.get_data ();
 
-		var dir = Application.get_snapshots_dir ();
-		Application.try_make_dir (dir);
-
-		var snapshot_path = get_snapshot_path ();
+		var savestate_dir_path = savestate_dir.get_path ();
+		var snapshot_path = Path.build_filename (savestate_dir_path, "snapshot");
 
 		FileUtils.set_data (snapshot_path, buffer);
 	}
 
-	private void load_snapshot () throws Error {
+	private void load_snapshot (File savestate_dir) throws Error {
 		if (!core.get_can_access_state ())
 			return;
 
-		var snapshot_path = get_snapshot_path ();
+		var savestate_dir_path = savestate_dir.get_path ();
+		var snapshot_path = Path.build_filename (savestate_dir_path, "snapshot");
 
 		if (!FileUtils.test (snapshot_path, FileTest.EXISTS))
 			return;
@@ -487,15 +520,13 @@ public class Games.RetroRunner : Object, Runner {
 		core.set_state (bytes);
 	}
 
-	private void save_media_data () throws Error {
-		var dir = Application.get_medias_dir ();
-		Application.try_make_dir (dir);
-
-		var medias_path = get_medias_path ();
+	private void save_media_data (File savestate_dir) throws Error {
+		var savestate_dir_path = savestate_dir.get_path ();
+		var media_path = Path.build_filename (savestate_dir_path, "media");
 
 		string contents = media_set.selected_media_number.to_string ();
 
-		FileUtils.set_contents (medias_path, contents, contents.length);
+		FileUtils.set_contents (media_path, contents, contents.length);
 	}
 
 	private void load_media_data () throws Error {
@@ -511,6 +542,7 @@ public class Games.RetroRunner : Object, Runner {
 		media_set.selected_media_number = disc_num;
 	}
 
+	// TODO: To be removed
 	private string get_medias_path () throws Error {
 		var dir = Application.get_medias_dir ();
 		var uid = uid.get_uid ();
@@ -518,18 +550,20 @@ public class Games.RetroRunner : Object, Runner {
 		return @"$dir/$uid.media";
 	}
 
+	// TODO: To be removed
 	private string get_screenshot_path () throws Error {
 		if (screenshot_path != null)
 			return screenshot_path;
 
 		var dir = Application.get_snapshots_dir ();
 		var uid = uid.get_uid ();
-		screenshot_path = @"$dir/$uid.png";
+		var now_time_str = TimeVal ().to_iso8601 ();
+		screenshot_path = @"$dir/$uid/$now_time_str.png";
 
 		return screenshot_path;
 	}
 
-	private void save_screenshot () throws Error {
+	private void save_screenshot (File savestate_dir) throws Error {
 		if (!core.get_can_access_state ())
 			return;
 
@@ -537,7 +571,8 @@ public class Games.RetroRunner : Object, Runner {
 		if (pixbuf == null)
 			return;
 
-		var screenshot_path = get_screenshot_path ();
+		var savestate_dir_path = savestate_dir.get_path ();
+		var screenshot_path = Path.build_filename (savestate_dir_path, "screenshot");
 
 		var now = new GLib.DateTime.now_local ();
 		var creation_time = now.to_string ();
