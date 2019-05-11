@@ -7,7 +7,6 @@
     <child type="action">
       <object class="GtkButton" id="button_cancel">
         <property name="visible">True</property>
-        <property name="can-default">True</property>
         <property name="label" translatable="yes">Cancel</property>
       </object>
     </child>

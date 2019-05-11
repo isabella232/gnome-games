@@ -12,7 +12,6 @@
     <child type="action">
       <object class="GtkButton" id="button_resume">
         <property name="visible">True</property>
-        <property name="can-default">True</property>
         <property name="label" translatable="yes">Resume</property>
       </object>
     </child>
