@@ -23,7 +23,7 @@
                     <property name="visible">True</property>
                     <property name="title" translatable="yes">Preferences</property>
                     <property name="show-title-buttons">False</property>
-                    <child>
+                    <child type="start">
                       <object class="GtkButton" id="window_back_button">
                         <property name="visible">False</property>
                         <property name="icon-name">go-previous-symbolic</property>
@@ -34,9 +34,6 @@
                           </object>
                         </child>
                       </object>
-                      <packing>
-                        <property name="pack-type">start</property>
-                      </packing>
                     </child>
                   </object>
                 </child>
@@ -55,7 +52,7 @@
                     <property name="visible">True</property>
                     <property name="hexpand">True</property>
                     <property name="show-title-buttons">True</property>
-                    <child>
+                    <child type="start">
                       <object class="GtkButton" id="page_back_button">
                         <property name="visible">False</property>
                         <property name="icon-name">go-previous-symbolic</property>
@@ -66,9 +63,6 @@
                           </object>
                         </child>
                       </object>
-                      <packing>
-                        <property name="pack-type">start</property>
-                      </packing>
                     </child>
                   </object>
                 </child>
