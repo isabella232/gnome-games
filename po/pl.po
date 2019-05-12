@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-05-04 17:44+0000\n"
-"PO-Revision-Date: 2019-05-05 15:25+0200\n"
+"POT-Creation-Date: 2019-05-07 18:17+0000\n"
+"PO-Revision-Date: 2019-05-12 14:57+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -92,7 +92,7 @@ msgstr ""
 "pocket;neogeopocket;nes;nintendo;pegasus;pegazus;pico;playstation;psp;saturn;"
 "sega;sg-1000;snes;sony;turbografx;vita;wii;wii u;wiiu;wiiware;"
 
-#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:44
+#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:46
 msgid "Fullscreen"
 msgstr "Pełny ekran"
 
@@ -161,29 +161,28 @@ msgstr "Menu"
 msgid "Search"
 msgstr "Wyszukaj"
 
-#: data/ui/collection-header-bar.ui:112 data/ui/preferences-window.ui:5
-#: data/ui/preferences-window.ui:26
-msgid "Preferences"
-msgstr "Preferencje"
+#: data/ui/collection-header-bar.ui:112
+msgid "Pr_eferences"
+msgstr "_Preferencje"
 
 #: data/ui/collection-header-bar.ui:120
-msgid "Keyboard Shortcuts"
-msgstr "Skróty klawiszowe"
+msgid "_Keyboard Shortcuts"
+msgstr "_Skróty klawiszowe"
 
 #: data/ui/collection-header-bar.ui:128
-msgid "Help"
-msgstr "Pomoc"
+msgid "_Help"
+msgstr "Pomo_c"
 
 #: data/ui/collection-header-bar.ui:136
-msgid "About Games"
-msgstr "O programie"
+msgid "_About Games"
+msgstr "_O programie"
 
-#: data/ui/display-header-bar.ui:21 data/ui/preferences-subpage-gamepad.ui:83
+#: data/ui/display-header-bar.ui:22 data/ui/preferences-subpage-gamepad.ui:83
 #: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:54
 msgid "Back"
 msgstr "Wstecz"
 
-#: data/ui/display-header-bar.ui:70
+#: data/ui/display-header-bar.ui:73
 msgid "Restore"
 msgstr "Przywróć"
 
@@ -257,6 +256,10 @@ msgstr "Pomiń"
 #: data/ui/resume-failed-dialog.ui:14
 msgid "Cancel"
 msgstr "Anuluj"
+
+#: data/ui/preferences-window.ui:5 data/ui/preferences-window.ui:26
+msgid "Preferences"
+msgstr "Preferencje"
 
 #: data/ui/quit-dialog.ui:9
 msgid "Are you sure you want to quit?"
