@@ -70,9 +70,6 @@
                       </object>
                     </child>
                   </object>
-                  <packing>
-                    <property name="pass-through">True</property>
-                  </packing>
                 </child>
               </object>
             </child>
