@@ -12,6 +12,7 @@ data/ui/gamepad-mapper.ui
 data/ui/input-mode-switcher.ui
 data/ui/keyboard-mapper.ui
 data/ui/media-menu-button.ui
+data/ui/preferences-page-backup-restore.ui
 data/ui/preferences-page-controllers.ui
 data/ui/preferences-page-video.ui
 data/ui/preferences-subpage-gamepad.ui
