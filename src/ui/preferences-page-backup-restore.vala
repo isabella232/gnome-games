@@ -3,7 +3,7 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-page-backup-restore.ui")]
 private class Games.PreferencesPageBackupRestore : PreferencesPage {
 	construct {
-		title = _("Backup & Restore");
+		title = _("Back Up & Restore");
 	}
 
 	[GtkCallback]
@@ -31,9 +31,9 @@ private class Games.PreferencesPageBackupRestore : PreferencesPage {
 	[GtkCallback]
 	private void on_backup_clicked () {
 		var toplevel = get_toplevel () as Gtk.Window;
-		var chooser = new Gtk.FileChooserNative (_("Backup save data"), toplevel,
+		var chooser = new Gtk.FileChooserNative (_("Back up save data"), toplevel,
 		                                        Gtk.FileChooserAction.SAVE,
-		                                        _("_Backup"), _("_Cancel"));
+		                                        _("_Back Up"), _("_Cancel"));
 
 		chooser.do_overwrite_confirmation = true;
 
@@ -50,7 +50,7 @@ private class Games.PreferencesPageBackupRestore : PreferencesPage {
 				Application.backup_to (filename);
 			}
 			catch (ArchiveError e) {
-				var msg = _("Couldn’t backup: %s").printf (e.message);
+				var msg = _("Couldn’t back up: %s").printf (e.message);
 				show_error_message (msg);
 			}
 		}
