@@ -20,7 +20,7 @@ private class Games.PreferencesPageBackupRestore : PreferencesPage {
 				Application.restore_from (archive_name);
 			}
 			catch (Error e) {
-				var msg = _("Couldn't restore: %s").printf (e.message);
+				var msg = _("Couldn’t restore: %s").printf (e.message);
 				show_error_message (msg);
 			}
 		}
@@ -50,7 +50,7 @@ private class Games.PreferencesPageBackupRestore : PreferencesPage {
 				Application.backup_to (filename);
 			}
 			catch (ArchiveError e) {
-				var msg = _("Couldn't backup: %s").printf (e.message);
+				var msg = _("Couldn’t backup: %s").printf (e.message);
 				show_error_message (msg);
 			}
 		}

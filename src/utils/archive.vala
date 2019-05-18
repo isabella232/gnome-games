@@ -61,7 +61,7 @@ namespace Games {
 		entry.set_filetype ((Archive.FileType) Posix.S_IFREG);
 		entry.set_perm (0644);
 		if (export_archive.write_header (entry) != Archive.Result.OK) {
-			var error_msg = _("Error writing '%s': %s (%d)").printf (export_dir.get_path (), export_archive.error_string (), export_archive.errno ());
+			var error_msg = _("Error writing “%s”: %s (%d)").printf (export_dir.get_path (), export_archive.error_string (), export_archive.errno ());
 			throw new ArchiveError.COMPRESSION_FAILED (error_msg);
 		}
 
