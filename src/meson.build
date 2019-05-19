@@ -183,7 +183,6 @@ vala_sources = [
   'ui/ui-view.vala',
 
   'utils/archive.vala',
-  'utils/archive-error.vala',
   'utils/composite-cover.vala',
   'utils/composite-title.vala',
   'utils/cue-sheet/cue-sheet.vala',

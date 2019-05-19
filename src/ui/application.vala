@@ -447,14 +447,14 @@ public class Games.Application : Gtk.Application {
 		device.absolute_axis_event.connect (on_gamepad_absolute_axis_event);
 	}
 
-	public static void restore_from (string archive_path) throws ArchiveError {
+	public static void restore_from (string archive_path) throws ExtractionError {
 		var data_dir = Application.get_data_dir ();
 		string[] database = { Application.get_database_path () };
 
 		extract_archive (archive_path, data_dir, database);
 	}
 
-	public static void backup_to (string file_path) throws ArchiveError {
+	public static void backup_to (string file_path) throws CompressionError {
 		var data_dir = File.new_for_path (Application.get_data_dir ());
 		string[] database = { Application.get_database_path () };
 

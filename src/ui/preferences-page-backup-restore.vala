@@ -19,7 +19,7 @@ private class Games.PreferencesPageBackupRestore : PreferencesPage {
 			try {
 				Application.restore_from (archive_name);
 			}
-			catch (Error e) {
+			catch (ExtractionError e) {
 				var msg = _("Couldn’t restore: %s").printf (e.message);
 				show_error_message (msg);
 			}
@@ -49,7 +49,7 @@ private class Games.PreferencesPageBackupRestore : PreferencesPage {
 			try {
 				Application.backup_to (filename);
 			}
-			catch (ArchiveError e) {
+			catch (CompressionError e) {
 				var msg = _("Couldn’t back up: %s").printf (e.message);
 				show_error_message (msg);
 			}

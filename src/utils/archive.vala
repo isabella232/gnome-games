@@ -1,7 +1,21 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
+public errordomain Games.CompressionError {
+	CLOSING_FAILED,
+	COULDNT_ENUMERATE_CHILDREN,
+	COULDNT_WRITE_HEADER,
+	COULDNT_WRITE_FILE,
+	INITIALIZATION_FAILED,
+}
+
+public errordomain Games.ExtractionError {
+	CLEANUP_FAILED,
+	COULDNT_READ_HEADER,
+	DIDNT_REACH_EOF,
+}
+
 namespace Games {
-	private void compress_dir (string name, File parent_dir, File export_data, string[]? exclude_files = null) throws ArchiveError {
+	private void compress_dir (string name, File parent_dir, File export_data, string[]? exclude_files = null) throws CompressionError {
 		var archive = new Archive.Write ();
 		archive.add_filter_gzip ();
 		archive.set_format_pax_restricted ();
@@ -10,11 +24,11 @@ namespace Games {
 		backup_data (parent_dir, export_data, archive, exclude_files);
 		if (archive.close () != Archive.Result.OK) {
 			var error_message = _("Error: %s (%d)").printf (archive.error_string (), archive.errno ());
-			throw new ArchiveError.COMPRESSION_FAILED (error_message);
+			throw new CompressionError.CLOSING_FAILED (error_message);
 		}
 	}
 
-	private void backup_data (File parent, File dir, Archive.Write archive, string[] exclusions) throws ArchiveError {
+	private void backup_data (File parent, File dir, Archive.Write archive, string[] exclusions) throws CompressionError {
 		var dtype = dir.query_file_type (FileQueryInfoFlags.NOFOLLOW_SYMLINKS);
 
 		if (dtype == FileType.DIRECTORY) {
@@ -27,7 +41,7 @@ namespace Games {
 				}
 			}
 			catch (Error e) {
-				throw new ArchiveError.COMPRESSION_FAILED (e.message);
+				throw new CompressionError.COULDNT_ENUMERATE_CHILDREN (e.message);
 			}
 		}
 		else {
@@ -38,7 +52,7 @@ namespace Games {
 		}
 	}
 
-	private void compress_files (File parent_working_dir, File export_dir, Archive.Write export_archive) throws ArchiveError {
+	private void compress_files (File parent_working_dir, File export_dir, Archive.Write export_archive) throws CompressionError {
 		FileInfo export_info;
 		FileInputStream input_stream;
 		DataInputStream data_input_stream;
@@ -50,7 +64,7 @@ namespace Games {
 			data_input_stream = new DataInputStream (input_stream);
 		}
 		catch (Error e) {
-			throw new ArchiveError.INITIALIZATION_FAILED (e.message);
+			throw new CompressionError.INITIALIZATION_FAILED (e.message);
 		}
 
 		var entry = new Archive.Entry ();
@@ -62,7 +76,7 @@ namespace Games {
 		entry.set_perm (0644);
 		if (export_archive.write_header (entry) != Archive.Result.OK) {
 			var error_msg = _("Error writing “%s”: %s (%d)").printf (export_dir.get_path (), export_archive.error_string (), export_archive.errno ());
-			throw new ArchiveError.COMPRESSION_FAILED (error_msg);
+			throw new CompressionError.COULDNT_WRITE_HEADER (error_msg);
 		}
 
 		size_t bytes_read;
@@ -76,7 +90,7 @@ namespace Games {
 			}
 		}
 		catch (Error e) {
-			throw new ArchiveError.FILE_HANDLING (e.message);
+			throw new CompressionError.COULDNT_WRITE_FILE (e.message);
 		}
 	}
 
@@ -84,16 +98,11 @@ namespace Games {
 		var dtype = file.query_file_type (FileQueryInfoFlags.NOFOLLOW_SYMLINKS);
 
 		if (dtype == FileType.DIRECTORY) {
-			try	{
-				var file_children = file.enumerate_children (FileAttribute.STANDARD_NAME, 0);
-				FileInfo file_info;
-				while ((file_info = file_children.next_file ()) != null) {
-					var child = file.get_child (file_info.get_name ());
-					delete_files (child, exclusions);
-				}
-			}
-			catch (Error e) {
-				throw e;
+			var file_children = file.enumerate_children (FileAttribute.STANDARD_NAME, 0);
+			FileInfo file_info;
+			while ((file_info = file_children.next_file ()) != null) {
+				var child = file.get_child (file_info.get_name ());
+				delete_files (child, exclusions);
 			}
 		}
 		else {
@@ -104,13 +113,13 @@ namespace Games {
 		}
 	}
 
-	private void extract_archive (string archive_path, string extract_dir, string[] exclude) throws ArchiveError {
+	private void extract_archive (string archive_path, string extract_dir, string[] exclude) throws ExtractionError {
 		try {
 			var file_dir = File.new_for_path (extract_dir);
 			delete_files (file_dir, exclude);
 		}
 		catch (Error e) {
-			throw new ArchiveError.DELETION_FAILED (e.message);
+			throw new ExtractionError.CLEANUP_FAILED (e.message);
 		}
 
 		var restore_archive = new Archive.Read ();
@@ -131,7 +140,7 @@ namespace Games {
 			var dir_pathname = ("%s/%s").printf (extract_dir, entry.pathname ());
 			entry.set_pathname (dir_pathname);
 			if (extractor_archive.write_header (entry) != Archive.Result.OK)
-				throw new ArchiveError.EXTRACTION_FAILED ("%s\n", extractor_archive.error_string ());
+				throw new ExtractionError.COULDNT_READ_HEADER ("%s\n", extractor_archive.error_string ());
 
 			uint8[] buffer = new uint8[64];
 			size_t buffer_length;
@@ -141,6 +150,6 @@ namespace Games {
 		}
 
 		if (last_result != Archive.Result.EOF)
-			throw new ArchiveError.EXTRACTION_FAILED ("%s (%d)", restore_archive.error_string (), restore_archive.errno ());
+			throw new ExtractionError.DIDNT_REACH_EOF ("%s (%d)", restore_archive.error_string (), restore_archive.errno ());
 	}
 }
