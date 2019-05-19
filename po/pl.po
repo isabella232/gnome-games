@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-05-07 18:17+0000\n"
-"PO-Revision-Date: 2019-05-12 14:57+0200\n"
+"POT-Creation-Date: 2019-05-18 12:24+0000\n"
+"PO-Revision-Date: 2019-05-19 12:29+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -220,6 +220,44 @@ msgstr "Klawiatura"
 #: data/ui/media-menu-button.ui:11
 msgid "Media"
 msgstr "Nośnik"
+
+#: data/ui/preferences-page-backup-restore.ui:10
+msgid ""
+"Backup save states and in-game saves. This can be used for moving the data "
+"to another device or for restoring it later. Desktop, Steam and LÖVE games "
+"cannot be backed up."
+msgstr ""
+"Zachowywanie stanów zapisu i zapisów w grach. Można tego używać do "
+"przenoszenia danych na inne urządzenie lub do przywrócenia później. Nie "
+"można zachowywać gier komputerowych, Steam i LÖVE."
+
+#: data/ui/preferences-page-backup-restore.ui:39
+#: src/ui/preferences-page-backup-restore.vala:34
+msgid "Back up save data"
+msgstr "Zachowywanie danych zapisu"
+
+#: data/ui/preferences-page-backup-restore.ui:48
+#: src/ui/preferences-page-backup-restore.vala:36
+msgid "_Back Up"
+msgstr "_Zachowaj"
+
+#: data/ui/preferences-page-backup-restore.ui:65
+msgid ""
+"Restore save data for games from existing backup. This will replace existing "
+"saves and cannot be undone."
+msgstr ""
+"Przywracanie danych zapisu gier z istniejącej kopii. Zastąpi to istniejące "
+"zapisy i nie może zostać cofnięte."
+
+#: data/ui/preferences-page-backup-restore.ui:94
+#: src/ui/preferences-page-backup-restore.vala:12
+msgid "Restore save data"
+msgstr "Przywracanie danych zapisu"
+
+#: data/ui/preferences-page-backup-restore.ui:103
+#: src/ui/preferences-page-backup-restore.vala:14
+msgid "_Restore"
+msgstr "_Przywróć"
 
 #: data/ui/preferences-page-controllers.ui:10
 msgid "Gamepads"
@@ -979,7 +1017,8 @@ msgstr "WonderSwan Color"
 msgid "Select game files"
 msgstr "Wybór plików gry"
 
-#: src/ui/application.vala:172
+#: src/ui/application.vala:172 src/ui/preferences-page-backup-restore.vala:14
+#: src/ui/preferences-page-backup-restore.vala:36
 msgid "_Cancel"
 msgstr "_Anuluj"
 
@@ -1052,6 +1091,20 @@ msgstr "%d. nośnik"
 msgid "Controllers"
 msgstr "Kontrolery"
 
+#: src/ui/preferences-page-backup-restore.vala:6
+msgid "Back Up & Restore"
+msgstr "Zachowywanie i przywracanie"
+
+#: src/ui/preferences-page-backup-restore.vala:23
+#, c-format
+msgid "Couldn’t restore: %s"
+msgstr "Nie można przywrócić: %s"
+
+#: src/ui/preferences-page-backup-restore.vala:53
+#, c-format
+msgid "Couldn’t back up: %s"
+msgstr "Nie można zachować: %s"
+
 #: src/ui/preferences-page-platforms-retro-row.vala:50
 #: src/ui/preferences-page-platforms-retro-row.vala:57
 msgid "None"
@@ -1093,6 +1146,16 @@ msgstr "Testowanie klawiatury"
 #: src/ui/preferences-subpage-keyboard.vala:78
 msgid "Configuring Keyboard"
 msgstr "Konfigurowanie klawiatury"
+
+#: src/utils/archive.vala:12
+#, c-format
+msgid "Error: %s (%d)"
+msgstr "Błąd: %s (%d)"
+
+#: src/utils/archive.vala:64
+#, c-format
+msgid "Error writing “%s”: %s (%d)"
+msgstr "Błąd podczas zapisywania „%s”: %s (%d)"
 
 #: src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
