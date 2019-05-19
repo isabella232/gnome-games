@@ -182,7 +182,6 @@ vala_sources = [
   'ui/shortcuts-window.vala',
   'ui/ui-view.vala',
 
-  'utils/archive.vala',
   'utils/composite-cover.vala',
   'utils/composite-title.vala',
   'utils/cue-sheet/cue-sheet.vala',
@@ -192,6 +191,7 @@ vala_sources = [
   'utils/cue-sheet/cue-sheet-track-mode.vala',
   'utils/cue-sheet/cue-sheet-track-node.vala',
   'utils/directory.vala',
+  'utils/file-operations.vala',
   'utils/filename-title.vala',
   'utils/fingerprint.vala',
   'utils/grep.vala',

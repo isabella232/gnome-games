@@ -14,8 +14,8 @@ public errordomain Games.ExtractionError {
 	DIDNT_REACH_EOF,
 }
 
-namespace Games {
-	private void compress_dir (string name, File parent_dir, File export_data, string[]? exclude_files = null) throws CompressionError {
+public class Games.FileOperations {
+	public static void compress_dir (string name, File parent_dir, File export_data, string[]? exclude_files = null) throws CompressionError {
 		var archive = new Archive.Write ();
 		archive.add_filter_gzip ();
 		archive.set_format_pax_restricted ();
@@ -28,7 +28,7 @@ namespace Games {
 		}
 	}
 
-	private void backup_data (File parent, File dir, Archive.Write archive, string[] exclusions) throws CompressionError {
+	private static void backup_data (File parent, File dir, Archive.Write archive, string[] exclusions) throws CompressionError {
 		var dtype = dir.query_file_type (FileQueryInfoFlags.NOFOLLOW_SYMLINKS);
 
 		if (dtype == FileType.DIRECTORY) {
@@ -52,7 +52,7 @@ namespace Games {
 		}
 	}
 
-	private void compress_files (File parent_working_dir, File export_dir, Archive.Write export_archive) throws CompressionError {
+	private static void compress_files (File parent_working_dir, File export_dir, Archive.Write export_archive) throws CompressionError {
 		FileInfo export_info;
 		FileInputStream input_stream;
 		DataInputStream data_input_stream;
@@ -94,7 +94,7 @@ namespace Games {
 		}
 	}
 
-	private void delete_files (File file, string[] exclusions) throws Error {
+	public static void delete_files (File file, string[] exclusions) throws Error {
 		var dtype = file.query_file_type (FileQueryInfoFlags.NOFOLLOW_SYMLINKS);
 
 		if (dtype == FileType.DIRECTORY) {
@@ -113,7 +113,7 @@ namespace Games {
 		}
 	}
 
-	private void extract_archive (string archive_path, string extract_dir, string[] exclude) throws ExtractionError {
+	public static void extract_archive (string archive_path, string extract_dir, string[] exclude) throws ExtractionError {
 		try {
 			var file_dir = File.new_for_path (extract_dir);
 			delete_files (file_dir, exclude);

@@ -451,13 +451,13 @@ public class Games.Application : Gtk.Application {
 		var data_dir = Application.get_data_dir ();
 		string[] database = { Application.get_database_path () };
 
-		extract_archive (archive_path, data_dir, database);
+		FileOperations.extract_archive (archive_path, data_dir, database);
 	}
 
 	public static void backup_to (string file_path) throws CompressionError {
 		var data_dir = File.new_for_path (Application.get_data_dir ());
 		string[] database = { Application.get_database_path () };
 
-		compress_dir (file_path, data_dir, data_dir, database);
+		FileOperations.compress_dir (file_path, data_dir, data_dir, database);
 	}
 }
