@@ -45,6 +45,7 @@ src/ui/error-display.c
 src/ui/gamepad-mapper.c
 src/ui/keyboard-mapper.c
 src/ui/media-selector.c
+src/ui/preferences-page-backup-restore.c
 src/ui/preferences-page-controllers.c
 src/ui/preferences-page-platforms.c
 src/ui/preferences-page-platforms-retro-row.c
@@ -52,3 +53,4 @@ src/ui/preferences-page-video.c
 src/ui/preferences-subpage-gamepad.c
 src/ui/preferences-subpage-keyboard.c
 src/utils/cue-sheet/cue-sheet.c
+src/utils/file-operations.c
