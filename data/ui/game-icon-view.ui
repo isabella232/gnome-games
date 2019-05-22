@@ -4,23 +4,26 @@
   <template class="GamesGameIconView" parent="GtkFlowBoxChild">
     <property name="visible">True</property>
     <child>
-      <object class="GtkBox">
-        <property name="visible">True</property>
-        <property name="orientation">vertical</property>
+      <object class="GtkOverlay">
+         <property name="visible">True</property>
         <child>
           <object class="GamesGameThumbnail" id="thumbnail">
             <property name="visible">True</property>
           </object>
         </child>
-        <child>
+        <child type="overlay">
           <object class="GtkLabel" id="title">
             <property name="visible">True</property>
+            <property name="valign">end</property>
             <property name="ellipsize">middle</property>
             <property name="justify">center</property>
             <property name="lines">2</property>
             <property name="max-width-chars">0</property>
             <property name="wrap">True</property>
             <property name="wrap-mode">word-char</property>
+            <style>
+              <class name="game-title"/>
+            </style>
           </object>
         </child>
       </object>

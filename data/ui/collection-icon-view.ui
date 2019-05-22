@@ -20,13 +20,7 @@
             <property name="can-focus">True</property>
             <property name="halign">center</property>
             <property name="valign">start</property>
-            <property name="margin-start">28</property>
-            <property name="margin-end">28</property>
-            <property name="margin-top">21</property>
-            <property name="margin-bottom">21</property>
             <property name="homogeneous">True</property>
-            <property name="column-spacing">14</property>
-            <property name="row-spacing">14</property>
             <property name="selection-mode">single</property>
             <signal name="child-activated" handler="on_child_activated"/>
           </object>
