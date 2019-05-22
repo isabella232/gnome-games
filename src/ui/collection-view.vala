@@ -58,10 +58,13 @@ private class Games.CollectionView : Object, UiView {
 	private Binding header_bar_empty_collection_binding;
 
 	private KonamiCode konami_code;
+	private AdaptiveState adaptive_state;
 
 	construct {
-		box = new CollectionBox (collection);
-		header_bar = new CollectionHeaderBar ();
+		adaptive_state = new AdaptiveState ();
+
+		box = new CollectionBox (collection, adaptive_state);
+		header_bar = new CollectionHeaderBar (adaptive_state);
 		box.game_activated.connect (game => {
 			game_activated (game);
 		});

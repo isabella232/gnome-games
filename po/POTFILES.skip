@@ -40,6 +40,7 @@ src/retro/retro-runner.c
 src/retro/retro-simple-type.c
 src/ui/application.c
 src/ui/application-window.c
+src/ui/collection-header-bar.c
 src/ui/display-view.c
 src/ui/error-display.c
 src/ui/gamepad-mapper.c

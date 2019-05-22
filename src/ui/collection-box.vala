@@ -22,6 +22,9 @@ private class Games.CollectionBox : Gtk.Box {
 	private PlatformsView platform_view;
 	[GtkChild (name = "viewstack")]
 	private Gtk.Stack _viewstack;
+	[GtkChild]
+	private Hdy.ViewSwitcherBar view_switcher_bar;
+
 	public Gtk.Stack viewstack {
 		get { return _viewstack; }
 	}
@@ -38,13 +41,22 @@ private class Games.CollectionBox : Gtk.Box {
 		}
 	}
 
+	private AdaptiveState _adaptive_state;
+	public AdaptiveState adaptive_state {
+		get { return _adaptive_state; }
+		construct {
+			_adaptive_state = value;
+			adaptive_state.notify["is-showing-bottom-bar"].connect (update_bottom_bar);
+		}
+	}
+
 	private Binding collection_binding;
 	private Binding platform_collection_binding;
 	private Binding search_binding;
 	private Binding loading_notification_binding;
 
-	public CollectionBox (ListModel collection) {
-		Object (collection: collection);
+	public CollectionBox (ListModel collection, AdaptiveState adaptive_state) {
+		Object (collection: collection, adaptive_state: adaptive_state);
 	}
 
 	construct {
@@ -164,5 +176,9 @@ private class Games.CollectionBox : Gtk.Box {
 
 	public bool search_bar_handle_event (Gdk.Event event) {
 		return search_bar.handle_event (event);
+	}
+
+	private void update_bottom_bar () {
+		view_switcher_bar.reveal = adaptive_state.is_showing_bottom_bar;
 	}
 }
