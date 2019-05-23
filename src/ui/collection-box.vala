@@ -56,8 +56,9 @@ private class Games.CollectionBox : Gtk.Box {
 
 		search_binding = bind_property ("search-mode", search_bar, "search-mode-enabled",
 		                                BindingFlags.BIDIRECTIONAL);
-		loading_notification_binding = bind_property ("loading-notification", loading_notification_revealer, "reveal-child",
-		                                              BindingFlags.DEFAULT);
+		loading_notification_binding = bind_property ("loading-notification",
+		                                              loading_notification_revealer,
+		                                              "reveal-child", BindingFlags.DEFAULT);
 
 		var icon_name = Config.APPLICATION_ID + "-symbolic";
 		viewstack.child_set (collection_view, "icon-name", icon_name);
