@@ -109,6 +109,15 @@ private class Games.CollectionView : Object, UiView {
 	public bool on_key_pressed (Gdk.EventKey event) {
 		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
 
+		if (((event.state & default_modifiers) == Gdk.ModifierType.MOD1_MASK) &&
+		    (((window.get_direction () == Gtk.TextDirection.LTR) && event.keyval == Gdk.Key.Left) ||
+		     ((window.get_direction () == Gtk.TextDirection.RTL) && event.keyval == Gdk.Key.Right)) &&
+		     adaptive_state.is_subview_open) {
+			adaptive_state.is_subview_open = false;
+
+			return true;
+		}
+
 		if ((event.keyval == Gdk.Key.f || event.keyval == Gdk.Key.F) &&
 		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK) {
 			if (!search_mode)

@@ -1,12 +1,27 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/platforms-view.ui")]
-private class Games.PlatformsView : Gtk.Box {
+private class Games.PlatformsView : Gtk.Bin {
 	public signal void game_activated (Game game);
 
+	[GtkChild]
+	private Hdy.Leaflet leaflet;
+	[GtkChild]
+	private Gtk.ScrolledWindow scrolled_window;
+	[GtkChild]
+	private Gtk.ListBox list_box;
+	[GtkChild]
+	private CollectionIconView collection_view;
+	[GtkChild]
+	private GamepadBrowse gamepad_browse;
+
 	private ulong model_items_changed_id;
+	private ulong adaptive_state_folded_id;
+	private ulong adaptive_state_subview_id;
+
 	private GenericSet<Platform> platforms;
 	private Platform selected_platform;
+	private bool has_used_gamepad;
 
 	private string[] filtering_terms;
 	public string filtering_text {
@@ -52,14 +67,30 @@ private class Games.PlatformsView : Gtk.Box {
 		}
 	}
 
-	[GtkChild]
-	private CollectionIconView collection_view;
+	private AdaptiveState _adaptive_state;
+	public AdaptiveState adaptive_state {
+		get { return _adaptive_state; }
+		set {
+			if (adaptive_state_subview_id != 0) {
+				adaptive_state.disconnect (adaptive_state_subview_id);
+				adaptive_state_subview_id = 0;
+			}
 
-	[GtkChild]
-	private Gtk.ListBox list_box;
+			if (adaptive_state_folded_id != 0) {
+				adaptive_state.disconnect (adaptive_state_folded_id);
+				adaptive_state_folded_id = 0;
+			}
 
-	[GtkChild]
-	private GamepadBrowse gamepad_browse;
+			_adaptive_state = value;
+
+			if (adaptive_state != null) {
+				adaptive_state_subview_id = adaptive_state.notify["is-subview-open"].connect (update_subview);
+				adaptive_state_folded_id = adaptive_state.notify["is-folded"].connect (update_selection_mode);
+
+				on_leaflet_folded_changed ();
+			}
+		}
+	}
 
 	construct {
 		platforms = new GenericSet<Platform> (Platform.hash, Platform.equal);
@@ -71,6 +102,8 @@ private class Games.PlatformsView : Gtk.Box {
 		});
 
 		collection_view.set_game_filter (filter_game);
+
+		has_used_gamepad = false;
 	}
 
 	private int sort_rows (Gtk.ListBoxRow row1, Gtk.ListBoxRow row2) {
@@ -146,7 +179,9 @@ private class Games.PlatformsView : Gtk.Box {
 			if (first_row == null)
 				return false;
 
-			list_box.select_row (first_row);
+			has_used_gamepad = true;
+			update_selection_mode ();
+
 			// This is needed to start moving the cursor with the gamepad only.
 			first_row.focus (direction);
 
@@ -156,15 +191,16 @@ private class Games.PlatformsView : Gtk.Box {
 		switch (direction) {
 		case Gtk.DirectionType.UP:
 			list_box.move_cursor (Gtk.MovementStep.DISPLAY_LINES, -1);
-			list_box.activate_cursor_row ();
+			select_platform_for_row (list_box.get_selected_row ());
 
 			return true;
 		case Gtk.DirectionType.DOWN:
 			list_box.move_cursor (Gtk.MovementStep.DISPLAY_LINES, 1);
-			list_box.activate_cursor_row ();
+			select_platform_for_row (list_box.get_selected_row ());
 
 			return true;
 		case Gtk.DirectionType.RIGHT:
+			adaptive_state.is_subview_open = true;
 			collection_view.select_default_game (Gtk.DirectionType.RIGHT);
 
 			return true;
@@ -175,7 +211,8 @@ private class Games.PlatformsView : Gtk.Box {
 
 	[GtkCallback]
 	private bool on_gamepad_accept () {
-		list_box.activate_cursor_row ();
+		adaptive_state.is_subview_open = true;
+		collection_view.select_default_game (Gtk.DirectionType.RIGHT);
 
 		return true;
 	}
@@ -183,14 +220,22 @@ private class Games.PlatformsView : Gtk.Box {
 	[GtkCallback]
 	private bool on_gamepad_cancel () {
 		collection_view.unselect_game ();
+		adaptive_state.is_subview_open = false;
 
 		return true;
 	}
 
 	[GtkCallback]
 	private void on_list_box_row_activated (Gtk.ListBoxRow row_item) {
+		select_platform_for_row (row_item);
+
+		adaptive_state.is_subview_open = true;
+	}
+
+	private void select_platform_for_row (Gtk.ListBoxRow row_item) {
 		var row = row_item as PlatformListItem;
 		selected_platform = row.platform;
+		adaptive_state.subview_title = selected_platform.get_name ();
 
 		collection_view.invalidate_flow_box_filter ();
 		collection_view.reset_scroll_position ();
@@ -214,14 +259,28 @@ private class Games.PlatformsView : Gtk.Box {
 		}
 	}
 
-	public void select_default_row () {
+	public void select_first_visible_row () {
 		foreach (var child in list_box.get_children ()) {
 			var row = child as Gtk.ListBoxRow;
 
 			if (row.visible) {
 				list_box.select_row (row);
 				row.focus (Gtk.DirectionType.LEFT);
-				on_list_box_row_activated (row);
+				select_platform_for_row (row);
+				break;
+			}
+		}
+	}
+
+	private void select_current_row () {
+		if (adaptive_state.is_folded && !has_used_gamepad)
+			return;
+
+		foreach (var child in list_box.get_children ()) {
+			var platform_item = child as PlatformListItem;
+
+			if (Platform.equal (platform_item.platform, selected_platform)) {
+				list_box.select_row (platform_item);
 				break;
 			}
 		}
@@ -257,6 +316,26 @@ private class Games.PlatformsView : Gtk.Box {
 			row.visible = is_row_visible;
 		}
 
-		select_default_row ();
+		select_first_visible_row ();
+	}
+
+	private void update_selection_mode () {
+		if (!adaptive_state.is_folded || has_used_gamepad)
+			list_box.selection_mode = Gtk.SelectionMode.SINGLE;
+		else
+			list_box.selection_mode = Gtk.SelectionMode.NONE;
+		select_current_row ();
+	}
+
+	[GtkCallback]
+	private void on_leaflet_folded_changed () {
+		adaptive_state.is_folded = leaflet.folded;
+	}
+
+	private void update_subview () {
+		if (adaptive_state.is_subview_open)
+			leaflet.visible_child = collection_view;
+		else
+			leaflet.visible_child = scrolled_window;
 	}
 }

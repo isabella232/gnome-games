@@ -46,7 +46,11 @@ private class Games.CollectionBox : Gtk.Box {
 		get { return _adaptive_state; }
 		construct {
 			_adaptive_state = value;
+
+			platform_view.adaptive_state = adaptive_state;
+
 			adaptive_state.notify["is-showing-bottom-bar"].connect (update_bottom_bar);
+			adaptive_state.notify["is-subview-open"].connect (update_bottom_bar);
 		}
 	}
 
@@ -179,6 +183,6 @@ private class Games.CollectionBox : Gtk.Box {
 	}
 
 	private void update_bottom_bar () {
-		view_switcher_bar.reveal = adaptive_state.is_showing_bottom_bar;
+		view_switcher_bar.reveal = adaptive_state.is_showing_bottom_bar && !adaptive_state.is_subview_open;
 	}
 }
