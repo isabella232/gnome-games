@@ -5,7 +5,7 @@ namespace Games.Credits {
 		"Abhinav Singh <theawless@gmail.com>",
 		"Adrien Plazas <kekun.plazas@laposte.net>",
 		"Alexander Mikhaylenko <exalm7659@gmail.com>",
-		"Andrei Lisita <andreii.lisita@gmail.com>",
+		"Andrei Lişiţă <andreii.lisita@gmail.com>",
 		"Megh Parikh <meghprkh@gmail.com>",
 		"Ricard Gascons <gascons1995@gmail.com>",
 		"Saurabh Singh <saurabhsingh412@gmail.com>",
