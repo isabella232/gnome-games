@@ -15,7 +15,6 @@
           <object class="GtkListBox" id="list_box">
             <property name="visible">True</property>
             <signal name="row-activated" handler="on_list_box_row_activated"/>
-            <signal name="row-selected" handler="on_list_box_row_selected"/>
             <style>
               <class name="sidebar"/>
             </style>

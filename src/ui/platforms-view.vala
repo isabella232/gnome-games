@@ -156,14 +156,16 @@ private class Games.PlatformsView : Gtk.Box {
 		switch (direction) {
 		case Gtk.DirectionType.UP:
 			list_box.move_cursor (Gtk.MovementStep.DISPLAY_LINES, -1);
+			list_box.activate_cursor_row ();
 
 			return true;
 		case Gtk.DirectionType.DOWN:
 			list_box.move_cursor (Gtk.MovementStep.DISPLAY_LINES, 1);
+			list_box.activate_cursor_row ();
 
 			return true;
 		case Gtk.DirectionType.RIGHT:
-			list_box.activate_cursor_row ();
+			collection_view.select_default_game (Gtk.DirectionType.RIGHT);
 
 			return true;
 		default:
@@ -186,23 +188,12 @@ private class Games.PlatformsView : Gtk.Box {
 	}
 
 	[GtkCallback]
-	private void on_list_box_row_selected (Gtk.ListBoxRow? row_item) {
-		if (row_item == null)
-			return;
-
+	private void on_list_box_row_activated (Gtk.ListBoxRow row_item) {
 		var row = row_item as PlatformListItem;
-		list_box.select_row (row);
-		row.focus (Gtk.DirectionType.LEFT);
 		selected_platform = row.platform;
 
 		collection_view.invalidate_flow_box_filter ();
 		collection_view.reset_scroll_position ();
-		collection_view.unselect_game ();
-	}
-
-	[GtkCallback]
-	private void on_list_box_row_activated (Gtk.ListBoxRow row_item) {
-		collection_view.select_default_game (Gtk.DirectionType.RIGHT);
 	}
 
 	private void on_model_changed (uint position, uint removed, uint added) {
@@ -228,7 +219,9 @@ private class Games.PlatformsView : Gtk.Box {
 			var row = child as Gtk.ListBoxRow;
 
 			if (row.visible) {
-				on_list_box_row_selected (row);
+				list_box.select_row (row);
+				row.focus (Gtk.DirectionType.LEFT);
+				on_list_box_row_activated (row);
 				break;
 			}
 		}
