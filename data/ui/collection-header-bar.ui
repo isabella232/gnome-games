@@ -63,6 +63,7 @@
             <child>
               <object class="HdyViewSwitcher" id="view_switcher">
                 <property name="visible">True</property>
+                <property name="policy">wide</property>
               </object>
             </child>
             <child>
