@@ -1,4 +1,29 @@
 ==============
+Version 3.33.2
+==============
+
+* Remove Developers view. The API used previously for this has been shut
+  down, and the metadata wasn't reliable anyway.
+
+* Add backup and restore functions.
+
+* UI
+ - List Nintendo DS shortucts in shortcuts dialog.
+ - Add mnemonics to primary menu.
+ - Use adaptive view switcher in collection.
+
+* Fixes
+ - Fixed error infobar being visible on empty collection screen.
+ - Pressing Enter key twice immediately after starting a game from a file
+   doesn't exit the game anymore.
+
+* Various cleanups.
+
+* Translation updates
+ Polish
+ Spanish
+
+==============
 Version 3.33.1
 ==============
 

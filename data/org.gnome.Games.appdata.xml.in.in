@@ -42,6 +42,23 @@
   </screenshots>
 
   <releases>
+    <release version="3.33.2" type="development" date="2019-05-24" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>Remove Developers view</li>
+          <li>Add backup and restore functions</li>
+          <li>List Nintendo DS shortucts in shortcuts dialog</li>
+          <li>Add mnemonics to primary menu</li>
+          <li>Use adaptive view switcher in collection</li>
+        </ul>
+        <p>Fixes:</p>
+        <ul>
+          <li>Fixed error infobar being visible on empty collection screen</li>
+          <li>Pressing Enter key twice immediately after starting a game from a file doesn't exit the game anymore</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.33.1" type="development" date="2019-04-23" urgency="medium">
       <description>
         <p>Improvements:</p>
