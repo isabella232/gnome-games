@@ -154,7 +154,6 @@ vala_sources = [
   'ui/keyboard-mapper.vala',
   'ui/keyboard-tester.vala',
   'ui/konami-code.vala',
-  'ui/media-selector.vala',
   'ui/media-menu-button.vala',
   'ui/message-dialog.vala',
   'ui/platform-list-item.vala',

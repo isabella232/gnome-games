@@ -19,13 +19,8 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 	public bool is_fullscreen { get; set; }
 
 	public MediaSet? media_set {
-		set {
-			media_button.media_set = value;
-			media_selector.media_set = value;
-		}
+		set { media_button.media_set = value; }
 	}
-
-	private MediaSelector media_selector;
 
 	[GtkChild]
 	private InputModeSwitcher input_mode_switcher;
@@ -71,10 +66,6 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 
 	construct {
 		settings = new Settings ("org.gnome.Games");
-
-		media_selector = new MediaSelector ();
-		media_selector.relative_to = media_button;
-		media_button.popover = media_selector;
 	}
 
 	[GtkCallback]
