@@ -89,11 +89,7 @@
           </packing>
         </child>
         <child>
-          <object class="GamesMediaMenuButton" id="media_button">
-            <property name="visible">False</property>
-            <property name="valign">center</property>
-            <property name="use-underline">True</property>
-          </object>
+          <object class="GamesMediaMenuButton" id="media_button"/>
           <packing>
             <property name="pack-type">end</property>
           </packing>
