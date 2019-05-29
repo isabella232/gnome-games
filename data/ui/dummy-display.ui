@@ -33,6 +33,7 @@
             <property name="halign">center</property>
             <property name="vexpand">True</property>
             <property name="margin-bottom">6</property>
+            <property name="wrap">True</property>
             <property name="label" translatable="yes">This is a dummy game display</property>
             <attributes>
               <attribute name="weight" value="bold"/>
@@ -48,20 +49,8 @@
             <property name="use-markup">True</property>
             <property name="halign">center</property>
             <property name="vexpand">True</property>
-            <property name="label" translatable="yes">If you see this, this is a bug.</property>
-            <style>
-              <class name="dim-label"/>
-            </style>
-          </object>
-        </child>
-
-        <child>
-          <object class="GtkLabel" id="instructions_label">
-            <property name="visible">True</property>
-            <property name="use-markup">True</property>
-            <property name="halign">center</property>
-            <property name="vexpand">True</property>
-            <property name="label" translatable="yes">Please contact the developers.</property>
+            <property name="wrap">True</property>
+            <property name="label" translatable="yes">If you see this, this is a bug. Please contact the developers.</property>
             <style>
               <class name="dim-label"/>
             </style>
