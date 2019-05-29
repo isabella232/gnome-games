@@ -1,14 +1,18 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/display-header-bar.ui")]
-private class Games.DisplayHeaderBar : Gtk.HeaderBar {
+private class Games.DisplayHeaderBar : Gtk.Bin {
 	public signal void back ();
 
 	[GtkChild]
 	private MediaMenuButton media_button;
 
 	public string game_title {
-		set { title = value; }
+		set { header_bar.title = value; }
+	}
+
+	public bool show_title_buttons {
+		set { header_bar.show_close_button = value; }
 	}
 
 	public bool can_fullscreen { get; set; }
@@ -52,13 +56,14 @@ private class Games.DisplayHeaderBar : Gtk.HeaderBar {
 			_extra_widget = value;
 
 			if (extra_widget != null)
-				pack_end (extra_widget);
+				header_bar.pack_end (extra_widget);
 		}
 	}
 
 	[GtkChild]
+	private Gtk.HeaderBar header_bar;
+	[GtkChild]
 	private Gtk.Button fullscreen;
-
 	[GtkChild]
 	private Gtk.Button restore;
 
