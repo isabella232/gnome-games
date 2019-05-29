@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/collection-header-bar.ui")]
-private class Games.CollectionHeaderBar : Gtk.HeaderBar {
+private class Games.CollectionHeaderBar : Gtk.Bin {
 	public bool search_mode { get; set; }
 	private Gtk.Stack _viewstack;
 	public Gtk.Stack viewstack {
