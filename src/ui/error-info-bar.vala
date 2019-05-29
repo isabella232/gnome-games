@@ -1,21 +1,19 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/error-info-bar.ui")]
-private class Games.ErrorInfoBar : Gtk.InfoBar {
+private class Games.ErrorInfoBar : Gtk.Bin {
+	[GtkChild]
+	private Gtk.InfoBar info_bar;
 	[GtkChild]
 	private Gtk.Label label;
 
-	construct {
-		show_close_button = true; // FIXME: Why doesn't this work from template?
-		message_type = Gtk.MessageType.ERROR; // FIXME: Why doesn't this work from template?
-	}
-
-	public string message {
-		set { label.label = value; }
-	}
-
 	[GtkCallback]
 	private void on_response () {
-		revealed = false;
+		info_bar.revealed = false;
+	}
+
+	public void show_error (string message) {
+		label.label = message;
+		info_bar.revealed = true;
 	}
 }

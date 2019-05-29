@@ -65,8 +65,7 @@ private class Games.CollectionBox : Gtk.Box {
 	}
 
 	public void show_error (string error_message) {
-		error_info_bar.message = error_message;
-		error_info_bar.revealed = true;
+		error_info_bar.show_error (error_message);
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {
