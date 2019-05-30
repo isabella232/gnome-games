@@ -46,7 +46,7 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 				return;
 
 			if (extra_widget != null)
-				remove (extra_widget);
+				header_bar.remove (extra_widget);
 
 			_extra_widget = value;
 
