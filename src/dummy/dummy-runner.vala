@@ -48,6 +48,9 @@ private class Games.DummyRunner : Object, Runner {
 	public void stop () {
 	}
 
+	public void attempt_create_savestate () {
+	}
+
 	public InputMode[] get_available_input_modes () {
 		return { };
 	}

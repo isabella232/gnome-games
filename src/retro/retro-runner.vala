@@ -15,15 +15,15 @@ public class Games.RetroRunner : Object, Runner {
 	public bool can_resume {
 		get {
 			try {
-				// Check if there are any existing savestates
 				init ();
+
+				// Check if the core can support savestates
 				if (!core.get_can_access_state ())
 					return false;
 
-				var game_savestates_dir_path = get_game_savestates_dir_path ();
-				var game_savestates_dir = Dir.open (game_savestates_dir_path);
-
-				return game_savestates_dir.read_name () != null;
+				// Check if there are any existing savestates
+				if (game_savestates.length != 0)
+					return true;
 			}
 			catch (Error e) {
 				warning (e.message);
@@ -51,10 +51,6 @@ public class Games.RetroRunner : Object, Runner {
 		}
 	}
 
-	private string save_directory_path;
-	private string save_path;
-	private string screenshot_path;
-
 	private Retro.CoreDescriptor core_descriptor;
 	private RetroCoreSource core_source;
 	private Platform platform;
@@ -62,6 +58,8 @@ public class Games.RetroRunner : Object, Runner {
 	private InputCapabilities input_capabilities;
 	private Settings settings;
 	private Title game_title;
+	private Savestate[] game_savestates;
+	private Savestate latest_savestate;
 
 	private bool _running;
 	private bool running {
@@ -110,7 +108,7 @@ public class Games.RetroRunner : Object, Runner {
 
 	public bool check_is_valid (out string error_message) throws Error {
 		try {
-			load_media_data ();
+			media_set.selected_media_number = 0;
 			init ();
 		}
 		catch (RetroError.MODULE_NOT_FOUND e) {
@@ -140,7 +138,8 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void start () throws Error {
-		load_media_data ();
+		if (latest_savestate != null && latest_savestate.has_media_data ())
+			media_set.selected_media_number = latest_savestate.get_media_data ();
 
 		if (!is_initialized)
 			init ();
@@ -148,7 +147,9 @@ public class Games.RetroRunner : Object, Runner {
 		loop.stop ();
 
 		if (!is_ready) {
-			load_ram ();
+			if (latest_savestate != null)
+				load_save_ram (latest_savestate.get_save_ram_path ());
+
 			is_ready = true;
 		}
 		core.reset ();
@@ -172,22 +173,15 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private void load_latest_savestate () throws Error {
-		var game_savestates_dir_path = get_game_savestates_dir_path ();
-		var game_savestates_dir = Dir.open (game_savestates_dir_path);
-
-		string latest_savestate_name = null;
-		string dir_entry = null;
-
-		while ((dir_entry = game_savestates_dir.read_name ()) != null) {
-			latest_savestate_name = dir_entry;
-		}
-
-		var latest_savestate_dir_path = Path.build_filename (game_savestates_dir_path, latest_savestate_name);
-		var latest_savestate_dir = File.new_for_path (latest_savestate_dir_path);
-
-		//load_ram ();
+		// TODO: This method assumes that there exists at least a savestate
+		// [Yeti]: Perhaps we should bug-proof this using an Assert ?
+		load_save_ram (latest_savestate.get_save_ram_path ());
 		core.reset ();
-		load_snapshot (latest_savestate_dir);
+		core.set_state (latest_savestate.get_snapshot_data ());
+
+		if (latest_savestate.has_media_data ())
+			media_set.selected_media_number = latest_savestate.get_media_data ();
+
 		is_ready = true;
 	}
 
@@ -212,6 +206,20 @@ public class Games.RetroRunner : Object, Runner {
 
 		loop = new Retro.MainLoop (core);
 		running = false;
+
+		// Load the game's savestates if there are any
+		string core_id = null;
+
+		if (core_descriptor != null) {
+			core_id = core_descriptor.get_id ();
+		}
+		else {
+			core_id = core_source.get_core_id ();
+		}
+
+		game_savestates = Savestate.get_game_savestates (uid, core_id);
+		if (game_savestates.length != 0)
+			latest_savestate = game_savestates[0];
 
 		load_screenshot ();
 
@@ -274,9 +282,11 @@ public class Games.RetroRunner : Object, Runner {
 		var platform_id = platform.get_id ();
 		core.system_directory = @"$platforms_dir/$platform_id/system";
 
-		var save_directory = get_save_directory_path ();
-		Application.try_make_dir (save_directory);
-		core.save_directory = save_directory;
+		if (latest_savestate != null) {
+			var save_directory = latest_savestate.get_save_directory_path ();
+			Application.try_make_dir (save_directory);
+			core.save_directory = save_directory;
+		}
 
 		core.log.connect (Retro.g_log);
 		view.set_core (core);
@@ -312,7 +322,7 @@ public class Games.RetroRunner : Object, Runner {
 		pause ();
 
 		try {
-			save ();
+			attempt_create_savestate ();
 		}
 		catch (Error e) {
 			warning (e.message);
@@ -381,8 +391,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private string get_game_savestates_dir_path () throws Error {
-		// Get the savestates directory of the game currently being run
-
+		// Get the savestates directory of the game
 		var data_dir_path = Application.get_data_dir ();
 		var savestates_dir_path = Path.build_filename (data_dir_path, "savestates");
 		var uid = uid.get_uid ();
@@ -401,9 +410,7 @@ public class Games.RetroRunner : Object, Runner {
 		return Path.build_filename (savestates_dir_path, uid + "-" + core_id_prefix);
 	}
 
-	// FIXME: This should be private, but it is public because of a temporary
-	// hack used in the DisplayView
-	public void save () throws Error {
+	public void attempt_create_savestate () throws Error {
 		if (!should_save)
 			return;
 
@@ -415,7 +422,7 @@ public class Games.RetroRunner : Object, Runner {
 
 		new_savestate_dir.make_directory ();
 
-		save_ram (new_savestate_dir);
+		store_save_ram (new_savestate_dir);
 
 		if (media_set.get_size () > 1)
 			save_media_data (new_savestate_dir);
@@ -441,49 +448,24 @@ public class Games.RetroRunner : Object, Runner {
 		return @"$(Config.OPTIONS_DIR)/$options_name.options";
 	}
 
-	private string get_save_directory_path () throws Error {
-		if (save_directory_path != null)
-			return save_directory_path;
-
-		var dir = Application.get_saves_dir ();
-		var uid = uid.get_uid ();
-		save_directory_path = @"$dir/$uid";
-
-		return save_directory_path;
-	}
-
-	// TODO: To be removed
-	private string get_save_path () throws Error {
-		if (save_path != null)
-			return save_path;
-
-		var dir = Application.get_saves_dir ();
-		var uid = uid.get_uid ();
-		save_path = @"$dir/$uid.save";
-
-		return save_path;
-	}
-
-	private void save_ram (File savestate_dir) throws Error{
+	private void store_save_ram (File savestate_dir) throws Error{
 		var bytes = core.get_memory (Retro.MemoryType.SAVE_RAM);
 		var save = bytes.get_data ();
 		if (save.length == 0)
 			return;
 
 		var savestate_dir_path = savestate_dir.get_path ();
-		var save_path = Path.build_filename (savestate_dir_path, "save");
+		var save_ram_path = Path.build_filename (savestate_dir_path, "save");
 
-		FileUtils.set_data (save_path, save);
+		FileUtils.set_data (save_ram_path, save);
 	}
 
-	private void load_ram () throws Error {
-		var save_path = get_save_path ();
-
-		if (!FileUtils.test (save_path, FileTest.EXISTS))
+	private void load_save_ram (string save_ram_path) throws Error {
+		if (!FileUtils.test (save_ram_path, FileTest.EXISTS))
 			return;
 
 		uint8[] data = null;
-		FileUtils.get_data (save_path, out data);
+		FileUtils.get_data (save_ram_path, out data);
 
 		var expected_size = core.get_memory_size (Retro.MemoryType.SAVE_RAM);
 		if (data.length != expected_size)
@@ -503,23 +485,6 @@ public class Games.RetroRunner : Object, Runner {
 		FileUtils.set_data (snapshot_path, buffer);
 	}
 
-	private void load_snapshot (File savestate_dir) throws Error {
-		if (!core.get_can_access_state ())
-			return;
-
-		var savestate_dir_path = savestate_dir.get_path ();
-		var snapshot_path = Path.build_filename (savestate_dir_path, "snapshot");
-
-		if (!FileUtils.test (snapshot_path, FileTest.EXISTS))
-			return;
-
-		uint8[] data = null;
-		FileUtils.get_data (snapshot_path, out data);
-
-		var bytes = new Bytes.take (data);
-		core.set_state (bytes);
-	}
-
 	private void save_media_data (File savestate_dir) throws Error {
 		var savestate_dir_path = savestate_dir.get_path ();
 		var media_path = Path.build_filename (savestate_dir_path, "media");
@@ -527,40 +492,6 @@ public class Games.RetroRunner : Object, Runner {
 		string contents = media_set.selected_media_number.to_string ();
 
 		FileUtils.set_contents (media_path, contents, contents.length);
-	}
-
-	private void load_media_data () throws Error {
-		var medias_path = get_medias_path ();
-
-		if (!FileUtils.test (medias_path, FileTest.EXISTS))
-			return;
-
-		string contents;
-		FileUtils.get_contents (medias_path, out contents);
-
-		int disc_num = int.parse (contents);
-		media_set.selected_media_number = disc_num;
-	}
-
-	// TODO: To be removed
-	private string get_medias_path () throws Error {
-		var dir = Application.get_medias_dir ();
-		var uid = uid.get_uid ();
-
-		return @"$dir/$uid.media";
-	}
-
-	// TODO: To be removed
-	private string get_screenshot_path () throws Error {
-		if (screenshot_path != null)
-			return screenshot_path;
-
-		var dir = Application.get_snapshots_dir ();
-		var uid = uid.get_uid ();
-		var now_time_str = TimeVal ().to_iso8601 ();
-		screenshot_path = @"$dir/$uid/$now_time_str.png";
-
-		return screenshot_path;
 	}
 
 	private void save_screenshot (File savestate_dir) throws Error {
@@ -605,7 +536,11 @@ public class Games.RetroRunner : Object, Runner {
 		if (!core.get_can_access_state ())
 			return;
 
-		var screenshot_path = get_screenshot_path ();
+		if (game_savestates.length == 0)
+			return;
+
+		// Load the screenshot of the latest savestate
+		var screenshot_path = latest_savestate.get_screenshot_path ();
 
 		if (!FileUtils.test (screenshot_path, FileTest.EXISTS))
 			return;

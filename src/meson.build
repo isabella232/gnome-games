@@ -42,6 +42,7 @@ vala_sources = [
   'core/rating.vala',
   'core/release-date.vala',
   'core/runner.vala',
+  'core/savestate.vala',
   'core/title.vala',
   'core/uid.vala',
   'core/uri-game-factory.vala',

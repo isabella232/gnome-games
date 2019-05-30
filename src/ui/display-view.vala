@@ -344,17 +344,11 @@ private class Games.DisplayView : Object, UiView {
 
 		box.runner.pause ();
 
-		// FIXME: Temporary hack used to avoid displaying the Quit Dialog when
-		// not necessary
-
-		var retro_runner = box.runner as RetroRunner;
-		if (retro_runner != null) {
-			try {
-				retro_runner.save ();
-			}
-			catch (Error e) {
-				critical (e.message);
-			}
+		try {
+			box.runner.attempt_create_savestate ();
+		}
+		catch (Error e) {
+			warning (e.message);
 		}
 
 		if (box.runner.can_quit_safely) {
