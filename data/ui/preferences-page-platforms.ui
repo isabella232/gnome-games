@@ -4,16 +4,13 @@
   <template class="GamesPreferencesPagePlatforms" parent="GamesPreferencesPage">
     <property name="visible">True</property>
     <child>
-      <object class="GtkFrame">
+      <object class="GtkListBox" id="list_box">
+        <property name="selection-mode">none</property>
         <property name="visible">true</property>
-        <property name="shadow-type">in</property>
-        <child>
-          <object class="GtkListBox" id="list_box">
-            <property name="selection-mode">none</property>
-            <property name="visible">true</property>
-            <signal name="row-activated" handler="on_row_activated"/>
-          </object>
-        </child>
+        <signal name="row-activated" handler="on_row_activated"/>
+        <style>
+          <class name="frame"/>
+        </style>
       </object>
     </child>
   </template>

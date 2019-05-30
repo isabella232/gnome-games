@@ -5,8 +5,6 @@ private class Games.PreferencesPageControllers : PreferencesPage {
 	[GtkChild]
 	private Gtk.Label gamepads_label;
 	[GtkChild]
-	private Gtk.Frame gamepads_frame;
-	[GtkChild]
 	private Gtk.ListBox gamepads_list_box;
 	[GtkChild]
 	private Gtk.ListBox keyboard_list_box;
@@ -42,7 +40,7 @@ private class Games.PreferencesPageControllers : PreferencesPage {
 			gamepads_list_box.add (box);
 		}
 		gamepads_label.visible = i > 0;
-		gamepads_frame.visible = i > 0;
+		gamepads_list_box.visible = i > 0;
 	}
 
 	private void clear_gamepad_list () {

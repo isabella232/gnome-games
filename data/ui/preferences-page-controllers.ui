@@ -14,16 +14,13 @@
       </object>
     </child>
     <child>
-      <object class="GtkFrame" id="gamepads_frame">
+      <object class="GtkListBox" id="gamepads_list_box">
         <property name="visible">True</property>
-        <property name="shadow-type">in</property>
-        <child>
-          <object class="GtkListBox" id="gamepads_list_box">
-            <property name="visible">True</property>
-            <property name="selection-mode">none</property>
-            <signal name="row-activated" handler="gamepads_list_box_row_activated"/>
-          </object>
-        </child>
+        <property name="selection-mode">none</property>
+        <signal name="row-activated" handler="gamepads_list_box_row_activated"/>
+        <style>
+          <class name="frame"/>
+        </style>
       </object>
     </child>
     <child>
@@ -37,16 +34,13 @@
       </object>
     </child>
     <child>
-      <object class="GtkFrame">
+      <object class="GtkListBox" id="keyboard_list_box">
         <property name="visible">True</property>
-        <property name="shadow-type">in</property>
-        <child>
-          <object class="GtkListBox" id="keyboard_list_box">
-            <property name="visible">True</property>
-            <property name="selection-mode">none</property>
-            <signal name="row-activated" handler="keyboard_list_box_row_activated"/>
-          </object>
-        </child>
+        <property name="selection-mode">none</property>
+        <signal name="row-activated" handler="keyboard_list_box_row_activated"/>
+        <style>
+          <class name="frame"/>
+        </style>
       </object>
     </child>
   </template>

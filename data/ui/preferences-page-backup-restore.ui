@@ -15,45 +15,42 @@
       </object>
     </child>
     <child>
-      <object class="GtkFrame">
+      <object class="GtkListBox">
         <property name="visible">True</property>
-        <property name="shadow-type">in</property>
+        <property name="selection-mode">none</property>
+        <style>
+          <class name="frame"/>
+        </style>
         <child>
-          <object class="GtkListBox">
+          <object class="GtkListBoxRow">
             <property name="visible">True</property>
-            <property name="selection-mode">none</property>
             <child>
-              <object class="GtkListBoxRow">
+              <object class="GtkBox">
                 <property name="visible">True</property>
+                <property name="valign">center</property>
+                <property name="margin">6</property>
+                <property name="spacing">6</property>
                 <child>
-                  <object class="GtkBox">
+                  <object class="GtkLabel">
                     <property name="visible">True</property>
-                    <property name="valign">center</property>
-                    <property name="margin">6</property>
-                    <property name="spacing">6</property>
-                    <child>
-                      <object class="GtkLabel">
-                        <property name="visible">True</property>
-                        <property name="xalign">0</property>
-                        <property name="expand">True</property>
-                        <property name="label" translatable="yes">Back up save data</property>
-                        <property name="ellipsize">end</property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkButton">
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="use-underline">True</property>
-                        <property name="label" translatable="yes">_Back Up</property>
-                        <signal name="clicked" handler="on_backup_clicked"/>
-                      </object>
-                    </child>
+                    <property name="xalign">0</property>
+                    <property name="expand">True</property>
+                    <property name="label" translatable="yes">Back up save data</property>
+                    <property name="ellipsize">end</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton">
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="use-underline">True</property>
+                    <property name="label" translatable="yes">_Back Up</property>
+                    <signal name="clicked" handler="on_backup_clicked"/>
                   </object>
                 </child>
               </object>
             </child>
-         </object>
+          </object>
         </child>
       </object>
     </child>
@@ -70,43 +67,40 @@
       </object>
     </child>
     <child>
-       <object class="GtkFrame">
+      <object class="GtkListBox">
         <property name="visible">True</property>
-        <property name="shadow-type">in</property>
+        <property name="selection-mode">none</property>
+        <style>
+          <class name="frame"/>
+        </style>
         <child>
-          <object class="GtkListBox">
+          <object class="GtkListBoxRow">
             <property name="visible">True</property>
-            <property name="selection-mode">none</property>
             <child>
-              <object class="GtkListBoxRow">
+              <object class="GtkBox">
                 <property name="visible">True</property>
+                <property name="valign">center</property>
+                <property name="margin">6</property>
+                <property name="spacing">6</property>
                 <child>
-                  <object class="GtkBox">
+                  <object class="GtkLabel">
                     <property name="visible">True</property>
-                    <property name="valign">center</property>
-                    <property name="margin">6</property>
-                    <property name="spacing">6</property>
-                    <child>
-                      <object class="GtkLabel">
-                        <property name="visible">True</property>
-                        <property name="xalign">0</property>
-                        <property name="expand">True</property>
-                        <property name="label" translatable="yes">Restore save data</property>
-                        <property name="ellipsize">end</property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkButton">
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="use-underline">True</property>
-                        <property name="label" translatable="yes">_Restore</property>
-                        <signal name="clicked" handler="on_restore_clicked"/>
-                        <style>
-                          <class name="destructive-action"/>
-                        </style>
-                      </object>
-                    </child>
+                    <property name="xalign">0</property>
+                    <property name="expand">True</property>
+                    <property name="label" translatable="yes">Restore save data</property>
+                    <property name="ellipsize">end</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton">
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="use-underline">True</property>
+                    <property name="label" translatable="yes">_Restore</property>
+                    <signal name="clicked" handler="on_restore_clicked"/>
+                    <style>
+                      <class name="destructive-action"/>
+                    </style>
                   </object>
                 </child>
               </object>

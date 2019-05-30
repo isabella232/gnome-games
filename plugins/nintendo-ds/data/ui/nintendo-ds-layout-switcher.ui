@@ -64,6 +64,7 @@
       <object class="GtkFrame">
         <property name="visible">True</property>
         <property name="margin">6</property>
+        <property name="shadow-type">in</property>
         <child>
           <object class="GtkListBox" id="list_box">
             <property name="visible">True</property>
