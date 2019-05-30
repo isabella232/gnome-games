@@ -8,17 +8,26 @@
         <property name="valign">center</property>
         <property name="use-underline">True</property>
         <property name="popover">popover</property>
-        <style>
-          <class name="image-button"/>
-        </style>
         <child internal-child="accessible">
           <object class="AtkObject" id="a11y-display-discs">
             <property name="accessible-name" translatable="yes">Media</property>
           </object>
         </child>
         <child>
-          <object class="GtkImage" id="media_image">
+          <object class="GtkBox">
             <property name="visible">True</property>
+            <property name="spacing">6</property>
+            <child>
+              <object class="GtkImage" id="media_image">
+                <property name="visible">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">True</property>
+                <property name="icon-name">pan-down-symbolic</property>
+              </object>
+            </child>
           </object>
         </child>
       </object>
