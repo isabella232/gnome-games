@@ -62,8 +62,10 @@ private class Games.PlatformsView : Gtk.Bin {
 
 			_is_active = value;
 
-			if (!_is_active)
+			if (!_is_active) {
 				gamepad_browse.cancel_cursor_movement ();
+				adaptive_state.is_subview_open = false;
+			}
 		}
 	}
 
