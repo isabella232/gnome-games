@@ -71,10 +71,9 @@ git clone https://gitlab.gnome.org/GNOME/gnome-games.git
 ```
 
 ### Required dependencies
-Games always requires the matching version of [retro-gtk](https://gitlab.gnome.org/GNOME/retro-gtk)
-and [libmanette](https://gitlab.gnome.org/aplazas/libmanette),
-so if you use the master version of Games, you need to use
-the master version of retro-gtk and libmanette.
+Games always requires the matching version of [retro-gtk](https://gitlab.gnome.org/GNOME/retro-gtk),
+[libmanette](https://gitlab.gnome.org/aplazas/libmanette) and [libhandy](https://source.puri.sm/Librem5/libhandy)
+so if you use the master version of Games, you need to use the master version of retro-gtk, libmanette and libhandy.
 
 ### Prepare compilation
 ```shell
