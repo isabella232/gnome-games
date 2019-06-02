@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-05-18 12:24+0000\n"
-"PO-Revision-Date: 2019-05-19 12:29+0200\n"
+"POT-Creation-Date: 2019-05-31 18:52+0000\n"
+"PO-Revision-Date: 2019-06-02 13:58+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -20,9 +20,9 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:6
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:46
-#: data/ui/collection-header-bar.ui:68 data/ui/display-header-bar.ui:6
-#: src/ui/application.vala:25
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:47
+#: data/ui/display-header-bar.ui:11 src/ui/application.vala:25
+#: src/ui/collection-header-bar.vala:87
 msgid "Games"
 msgstr "Gry"
 
@@ -70,7 +70,7 @@ msgstr "Uruchamianie gier"
 msgid "Resume your game to where you left it"
 msgstr "Wstrzymywanie i wznawianie gier"
 
-#: data/org.gnome.Games.appdata.xml.in.in:98
+#: data/org.gnome.Games.appdata.xml.in.in:115
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
@@ -92,7 +92,7 @@ msgstr ""
 "pocket;neogeopocket;nes;nintendo;pegasus;pegazus;pico;playstation;psp;saturn;"
 "sega;sg-1000;snes;sony;turbografx;vita;wii;wii u;wiiu;wiiware;"
 
-#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:46
+#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:49
 msgid "Fullscreen"
 msgstr "Pełny ekran"
 
@@ -140,69 +140,68 @@ msgstr ""
 "Preferowany rdzeń biblioteki libretro używany do uruchamiania gier. Inny "
 "rdzeń może zostać użyty, jeśli preferowany nie ma oprogramowania sprzętowego."
 
-#: data/ui/collection-box.ui:58 src/ui/preferences-page-platforms.vala:9
+#: data/ui/collection-box.ui:59 src/ui/preferences-page-platforms.vala:9
 msgid "Platforms"
 msgstr "Platformy"
 
-#: data/ui/collection-box.ui:81
+#: data/ui/collection-box.ui:82
 msgid "Loading"
 msgstr "Wczytywanie"
 
-#: data/ui/collection-header-bar.ui:18
+#: data/ui/collection-header-bar.ui:22
 msgid "Add game files…"
 msgstr "Dodaj pliki gry…"
 
 #. Translators: tooltip for the application menu button
-#: data/ui/collection-header-bar.ui:37
+#: data/ui/collection-header-bar.ui:41
 msgid "Menu"
 msgstr "Menu"
 
-#: data/ui/collection-header-bar.ui:86
+#: data/ui/collection-header-bar.ui:91 data/ui/collection-header-bar.ui:148
 msgid "Search"
 msgstr "Wyszukaj"
 
-#: data/ui/collection-header-bar.ui:112
-msgid "Pr_eferences"
-msgstr "_Preferencje"
-
-#: data/ui/collection-header-bar.ui:120
-msgid "_Keyboard Shortcuts"
-msgstr "_Skróty klawiszowe"
-
-#: data/ui/collection-header-bar.ui:128
-msgid "_Help"
-msgstr "Pomo_c"
-
-#: data/ui/collection-header-bar.ui:136
-msgid "_About Games"
-msgstr "_O programie"
-
-#: data/ui/display-header-bar.ui:22 data/ui/preferences-subpage-gamepad.ui:83
+#: data/ui/collection-header-bar.ui:126 data/ui/display-header-bar.ui:25
+#: data/ui/preferences-subpage-gamepad.ui:83
 #: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:54
 msgid "Back"
 msgstr "Wstecz"
 
-#: data/ui/display-header-bar.ui:73
+#: data/ui/collection-header-bar.ui:179
+msgid "Pr_eferences"
+msgstr "_Preferencje"
+
+#: data/ui/collection-header-bar.ui:187
+msgid "_Keyboard Shortcuts"
+msgstr "_Skróty klawiszowe"
+
+#: data/ui/collection-header-bar.ui:195
+msgid "_Help"
+msgstr "Pomo_c"
+
+#: data/ui/collection-header-bar.ui:203
+msgid "_About Games"
+msgstr "_O programie"
+
+#: data/ui/display-header-bar.ui:76
 msgid "Restore"
 msgstr "Przywróć"
 
-#: data/ui/dummy-display.ui:36
+#: data/ui/dummy-display.ui:37
 msgid "This is a dummy game display"
 msgstr "Pusta gra"
 
-#: data/ui/dummy-display.ui:51
-msgid "If you see this, this is a bug."
-msgstr "Jeśli to jest widoczne, to wystąpił błąd."
-
-#: data/ui/dummy-display.ui:64
-msgid "Please contact the developers."
-msgstr "Prosimy skontaktować się z programistami."
+#: data/ui/dummy-display.ui:53
+msgid "If you see this, this is a bug. Please contact the developers."
+msgstr ""
+"Jeśli to jest widoczne, to wystąpił błąd. Prosimy skontaktować się "
+"z programistami."
 
 #: data/ui/empty-collection.ui:29
 msgid "No games found"
 msgstr "Brak gier"
 
-#: data/ui/empty-collection.ui:43
+#: data/ui/empty-collection.ui:44
 msgid ""
 "Install games or add directories containing games to your search sources."
 msgstr ""
@@ -217,7 +216,7 @@ msgstr "Kontroler"
 msgid "Keyboard Input"
 msgstr "Klawiatura"
 
-#: data/ui/media-menu-button.ui:11
+#: data/ui/media-menu-button.ui:13
 msgid "Media"
 msgstr "Nośnik"
 
@@ -231,17 +230,17 @@ msgstr ""
 "przenoszenia danych na inne urządzenie lub do przywrócenia później. Nie "
 "można zachowywać gier komputerowych, Steam i LÖVE."
 
-#: data/ui/preferences-page-backup-restore.ui:39
+#: data/ui/preferences-page-backup-restore.ui:38
 #: src/ui/preferences-page-backup-restore.vala:34
 msgid "Back up save data"
 msgstr "Zachowywanie danych zapisu"
 
-#: data/ui/preferences-page-backup-restore.ui:48
+#: data/ui/preferences-page-backup-restore.ui:47
 #: src/ui/preferences-page-backup-restore.vala:36
 msgid "_Back Up"
 msgstr "_Zachowaj"
 
-#: data/ui/preferences-page-backup-restore.ui:65
+#: data/ui/preferences-page-backup-restore.ui:62
 msgid ""
 "Restore save data for games from existing backup. This will replace existing "
 "saves and cannot be undone."
@@ -249,12 +248,12 @@ msgstr ""
 "Przywracanie danych zapisu gier z istniejącej kopii. Zastąpi to istniejące "
 "zapisy i nie może zostać cofnięte."
 
-#: data/ui/preferences-page-backup-restore.ui:94
+#: data/ui/preferences-page-backup-restore.ui:90
 #: src/ui/preferences-page-backup-restore.vala:12
 msgid "Restore save data"
 msgstr "Przywracanie danych zapisu"
 
-#: data/ui/preferences-page-backup-restore.ui:103
+#: data/ui/preferences-page-backup-restore.ui:99
 #: src/ui/preferences-page-backup-restore.vala:14
 msgid "_Restore"
 msgstr "_Przywróć"
@@ -263,8 +262,8 @@ msgstr "_Przywróć"
 msgid "Gamepads"
 msgstr "Kontrolery"
 
-#: data/ui/preferences-page-controllers.ui:33
-#: src/ui/preferences-page-controllers.vala:75
+#: data/ui/preferences-page-controllers.ui:30
+#: src/ui/preferences-page-controllers.vala:73
 msgid "Keyboard"
 msgstr "Klawiatura"
 
@@ -1082,14 +1081,10 @@ msgstr "Proszę przesunąć odpowiednią oś w górę/dół na kontrolerze"
 msgid "Press suitable key on your keyboard"
 msgstr "Proszę nacisnąć odpowiedni klawisz na klawiaturze"
 
-#: src/ui/media-selector.vala:38
+#: src/ui/media-menu-button.vala:50
 #, c-format
 msgid "Media %d"
 msgstr "%d. nośnik"
-
-#: src/ui/preferences-page-controllers.vala:24
-msgid "Controllers"
-msgstr "Kontrolery"
 
 #: src/ui/preferences-page-backup-restore.vala:6
 msgid "Back Up & Restore"
@@ -1104,6 +1099,10 @@ msgstr "Nie można przywrócić: %s"
 #, c-format
 msgid "Couldn’t back up: %s"
 msgstr "Nie można zachować: %s"
+
+#: src/ui/preferences-page-controllers.vala:22
+msgid "Controllers"
+msgstr "Kontrolery"
 
 #: src/ui/preferences-page-platforms-retro-row.vala:50
 #: src/ui/preferences-page-platforms-retro-row.vala:57
@@ -1146,16 +1145,6 @@ msgstr "Testowanie klawiatury"
 #: src/ui/preferences-subpage-keyboard.vala:78
 msgid "Configuring Keyboard"
 msgstr "Konfigurowanie klawiatury"
-
-#: src/utils/archive.vala:12
-#, c-format
-msgid "Error: %s (%d)"
-msgstr "Błąd: %s (%d)"
-
-#: src/utils/archive.vala:64
-#, c-format
-msgid "Error writing “%s”: %s (%d)"
-msgstr "Błąd podczas zapisywania „%s”: %s (%d)"
 
 #: src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
@@ -1210,3 +1199,13 @@ msgstr "%s:%lu: nieoczekiwany koniec wiersza, oczekiwano tokena."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: nieoczekiwany token %s, oczekiwano końca wiersza."
+
+#: src/utils/file-operations.vala:26
+#, c-format
+msgid "Error: %s (%d)"
+msgstr "Błąd: %s (%d)"
+
+#: src/utils/file-operations.vala:78
+#, c-format
+msgid "Error writing “%s”: %s (%d)"
+msgstr "Błąd podczas zapisywania „%s”: %s (%d)"
