@@ -86,20 +86,6 @@ public class Games.Application : Gtk.Application {
 		return @"$data_dir/gnome-games";
 	}
 
-	// TODO: To be removed
-	public static string get_saves_dir () {
-		var data_dir = get_data_dir ();
-
-		return @"$data_dir/saves";
-	}
-
-	// TODO: To be removed
-	public static string get_snapshots_dir () {
-		var data_dir = get_data_dir ();
-
-		return @"$data_dir/snapshots";
-	}
-
 	public static string get_database_path () {
 		var data_dir = get_data_dir ();
 
@@ -145,13 +131,6 @@ public class Games.Application : Gtk.Application {
 		catch (Error e) {
 			warning (@"$(e.message)\n");
 		}
-	}
-
-	// TODO: To be removed
-	public static string get_medias_dir () {
-		var data_dir = get_data_dir ();
-
-		return @"$data_dir/medias";
 	}
 
 	public static bool is_running_in_flatpak () {
