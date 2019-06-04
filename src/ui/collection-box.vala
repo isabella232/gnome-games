@@ -162,6 +162,8 @@ private class Games.CollectionBox : Gtk.Box {
 			collection_view.filtering_text = search_bar.text;
 			collection_view.reset_scroll_position ();
 		}
+
+		adaptive_state.is_subview_open = false;
 	}
 
 	[GtkCallback]
