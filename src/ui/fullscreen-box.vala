@@ -2,7 +2,7 @@
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/fullscreen-box.ui")]
 private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
-	private const uint INACTIVITY_TIME_MILLISECONDS = 2000;
+	private const uint INACTIVITY_TIME_MILLISECONDS = 3000;
 	private const int SHOW_HEADERBAR_DISTANCE = 5;
 
 	public bool is_fullscreen { get; set; }
