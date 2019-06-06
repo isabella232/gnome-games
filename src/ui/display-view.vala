@@ -228,7 +228,7 @@ private class Games.DisplayView : Object, UiView {
 		try {
 			var runner = game.get_runner ();
 			string error_message;
-			if (runner.check_is_valid (out error_message))
+			if (runner.try_init_phase_one (out error_message))
 				return runner;
 
 			reset_display_page ();

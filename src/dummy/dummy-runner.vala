@@ -22,7 +22,7 @@ private class Games.DummyRunner : Object, Runner {
 		set { }
 	}
 
-	public bool check_is_valid (out string error_message) throws Error {
+	public bool try_init_phase_one (out string error_message) {
 		error_message = "";
 
 		return true;

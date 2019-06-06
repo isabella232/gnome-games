@@ -9,7 +9,7 @@ public interface Games.Runner : Object {
 	public abstract MediaSet? media_set { get; }
 	public abstract InputMode input_mode { get; set; }
 
-	public abstract bool check_is_valid (out string error_message) throws Error;
+	public abstract bool try_init_phase_one (out string error_message);
 	public abstract Gtk.Widget get_display ();
 	public abstract Gtk.Widget? get_extra_widget ();
 	public abstract void start () throws Error;

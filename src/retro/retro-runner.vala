@@ -13,24 +13,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public bool can_resume {
-		get {
-			try {
-				init ();
-
-				// Check if the core can support savestates
-				if (!core.get_can_access_state ())
-					return false;
-
-				// Check if there are any existing savestates
-				if (game_savestates.length != 0)
-					return true;
-			}
-			catch (Error e) {
-				warning (e.message);
-			}
-
-			return false;
-		}
+		get { return game_savestates.length != 0; }
 	}
 
 	private MediaSet _media_set;
@@ -60,6 +43,7 @@ public class Games.RetroRunner : Object, Runner {
 	private Title game_title;
 	private Savestate[] game_savestates;
 	private Savestate latest_savestate;
+	private Savestate tmp_live_savestate;
 
 	private bool _running;
 	private bool running {
@@ -106,10 +90,16 @@ public class Games.RetroRunner : Object, Runner {
 		deinit ();
 	}
 
-	public bool check_is_valid (out string error_message) throws Error {
+	// init_phase_one attempts to init everything that can be init-ed right away
+	// It is called by the DisplayView to check if a runner can be used
+	// This method must be called before other methods/properties
+	public bool try_init_phase_one (out string error_message) {
+		// Step 1) Check for the two RetroErrors -------------------------------
+		// FIXME: Write this properly using RetroCoreManager
+		/*
 		try {
 			media_set.selected_media_number = 0;
-			init ();
+			//init ();
 		}
 		catch (RetroError.MODULE_NOT_FOUND e) {
 			debug (e.message);
@@ -123,9 +113,49 @@ public class Games.RetroRunner : Object, Runner {
 
 			return false;
 		}
+		*/
 
+		// Step 2) Load the game's savestates ----------------------------------
+		try {
+			core_source.get_module_path (); // FIXME: Hack needed to get core_id
+			string core_id = null;
+
+			if (core_descriptor != null) {
+				core_id = core_descriptor.get_id ();
+			}
+			else {
+				core_id = core_source.get_core_id ();
+			}
+
+			game_savestates = Savestate.get_game_savestates (uid, core_id);
+			if (game_savestates.length != 0)
+				latest_savestate = game_savestates[0];
+		}
+		catch (Error e) {
+			error_message = e.message;
+			return false;
+		}
+
+		// Step 3) Init the CoreView -------------------------------------------
+		// This is done here such that get_display() won't return null
+		view = new Retro.CoreView ();
+		settings.changed["video-filter"].connect (on_video_filter_changed);
+		on_video_filter_changed ();
+
+		// Step 4) Display the screenshot of the latest_savestate --------------
+		// FIXME: This does not work currently, but perhaps we can fix it
+		// somehow in retro-gtk ? We should be able to render a picture on the
+		// screen without having to boot the core itself
+		try {
+			load_screenshot ();
+		}
+		catch (Error e) {
+			error_message = e.message;
+			return false;
+		}
+
+		// Nothing went wrong
 		error_message = "";
-
 		return true;
 	}
 
@@ -141,10 +171,14 @@ public class Games.RetroRunner : Object, Runner {
 		if (latest_savestate != null && latest_savestate.has_media_data ())
 			media_set.selected_media_number = latest_savestate.get_media_data ();
 
-		if (!is_initialized)
-			init ();
+		if (!is_initialized) {
+			if (latest_savestate != null)
+				tmp_live_savestate = latest_savestate.clone_in_tmp ();
+			else
+				tmp_live_savestate = Savestate.create_empty_in_tmp ();
 
-		loop.stop ();
+			init_phase_two (tmp_live_savestate.get_save_directory_path ());
+		}
 
 		if (!is_ready) {
 			if (latest_savestate != null)
@@ -159,41 +193,34 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void resume () throws Error {
-		if (!is_initialized)
-			init ();
+		if (is_ready) {
+			// In this case, the effect is to simply "unpause" an already running game
+			loop.start ();
+		}
+		else {
+			// In this case, the effect is to load the data from a savestate and
+			// run the game
+			if (!is_initialized) {
+				tmp_live_savestate = latest_savestate.clone_in_tmp ();
+				init_phase_two (tmp_live_savestate.get_save_directory_path ());
+			}
 
-		loop.stop ();
+			loop.stop ();
 
-		if (!is_ready) {
-			load_latest_savestate ();
+			// TODO: This will become "load_data_from_arbitrary_savestate ()"
+			load_data_from_latest_savestate ();
+
+			loop.start ();
 		}
 
-		loop.start ();
+		// In both cases the game is now running
 		running = true;
 	}
 
-	private void load_latest_savestate () throws Error {
-		// TODO: This method assumes that there exists at least a savestate
-		// [Yeti]: Perhaps we should bug-proof this using an Assert ?
-		load_save_ram (latest_savestate.get_save_ram_path ());
-		core.reset ();
-		core.set_state (latest_savestate.get_snapshot_data ());
-
-		if (latest_savestate.has_media_data ())
-			media_set.selected_media_number = latest_savestate.get_media_data ();
-
-		is_ready = true;
-	}
-
-	private void init () throws Error {
-		if (is_initialized)
-			return;
-
-		view = new Retro.CoreView ();
-		settings.changed["video-filter"].connect (on_video_filter_changed);
-		on_video_filter_changed ();
-
-		prepare_core ();
+	// init_phase_two is used to setup the core, which needs to have the savestate
+	// in /tmp created and ready
+	private void init_phase_two (string core_save_directory_path) throws Error {
+		prepare_core (core_save_directory_path);
 
 		var present_analog_sticks = input_capabilities == null || input_capabilities.get_allow_analog_gamepads ();
 		input_manager = new RetroInputManager (core, view, present_analog_sticks);
@@ -207,23 +234,20 @@ public class Games.RetroRunner : Object, Runner {
 		loop = new Retro.MainLoop (core);
 		running = false;
 
-		// Load the game's savestates if there are any
-		string core_id = null;
-
-		if (core_descriptor != null) {
-			core_id = core_descriptor.get_id ();
-		}
-		else {
-			core_id = core_source.get_core_id ();
-		}
-
-		game_savestates = Savestate.get_game_savestates (uid, core_id);
-		if (game_savestates.length != 0)
-			latest_savestate = game_savestates[0];
-
-		load_screenshot ();
-
 		is_initialized = true;
+	}
+
+	private void load_data_from_latest_savestate () throws Error {
+		// TODO: This method assumes that there exists at least a savestate
+		// [Yeti]: Perhaps we should bug-proof this using an Assert ?
+		load_save_ram (latest_savestate.get_save_ram_path ());
+		core.reset ();
+		core.set_state (latest_savestate.get_snapshot_data ());
+
+		if (latest_savestate.has_media_data ())
+			media_set.selected_media_number = latest_savestate.get_media_data ();
+
+		is_ready = true;
 	}
 
 	private void deinit () {
@@ -252,7 +276,7 @@ public class Games.RetroRunner : Object, Runner {
 		view.set_filter (filter);
 	}
 
-	private void prepare_core () throws Error {
+	private void prepare_core (string save_directory_path) throws Error {
 		string module_path;
 		if (core_descriptor != null) {
 			var module_file = core_descriptor.get_module_file ();
@@ -282,11 +306,7 @@ public class Games.RetroRunner : Object, Runner {
 		var platform_id = platform.get_id ();
 		core.system_directory = @"$platforms_dir/$platform_id/system";
 
-		if (latest_savestate != null) {
-			var save_directory = latest_savestate.get_save_directory_path ();
-			Application.try_make_dir (save_directory);
-			core.save_directory = save_directory;
-		}
+		core.save_directory = save_directory_path;
 
 		core.log.connect (Retro.g_log);
 		view.set_core (core);
@@ -411,29 +431,28 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void attempt_create_savestate () throws Error {
+		if (!core.get_can_access_state ()) // Check if the core can support savestates
+			return;
+
 		if (!should_save)
 			return;
 
-		// Create a new savestate
+		store_save_ram_in_tmp ();
+		// TODO: Also save the media data in tmp_savestate
+		tmp_live_savestate.set_snapshot_data (core.get_state ());
+		save_screenshot_in_tmp ();
+
+		// Save the tmp_live_savestate into the game savestates directory
 		var game_savestates_dir_path = get_game_savestates_dir_path ();
-		var now_time_str = TimeVal ().to_iso8601 ();
-		var new_savestate_path = Path.build_filename (game_savestates_dir_path, now_time_str);
-		var new_savestate_dir = File.new_for_path (new_savestate_path);
+		tmp_live_savestate.save_in (game_savestates_dir_path);
+		should_save = false;
 
-		new_savestate_dir.make_directory ();
-
+		/*
 		store_save_ram (new_savestate_dir);
 
 		if (media_set.get_size () > 1)
 			save_media_data (new_savestate_dir);
-
-		if (!core.get_can_access_state ())
-			return;
-
-		save_snapshot (new_savestate_dir);
-		save_screenshot (new_savestate_dir);
-
-		should_save = false;
+		*/
 	}
 
 	private string get_options_path () throws Error {
@@ -448,16 +467,13 @@ public class Games.RetroRunner : Object, Runner {
 		return @"$(Config.OPTIONS_DIR)/$options_name.options";
 	}
 
-	private void store_save_ram (File savestate_dir) throws Error{
+	private void store_save_ram_in_tmp () throws Error {
 		var bytes = core.get_memory (Retro.MemoryType.SAVE_RAM);
 		var save = bytes.get_data ();
 		if (save.length == 0)
 			return;
 
-		var savestate_dir_path = savestate_dir.get_path ();
-		var save_ram_path = Path.build_filename (savestate_dir_path, "save");
-
-		FileUtils.set_data (save_ram_path, save);
+		tmp_live_savestate.set_save_ram_data (save);
 	}
 
 	private void load_save_ram (string save_ram_path) throws Error {
@@ -475,35 +491,12 @@ public class Games.RetroRunner : Object, Runner {
 		core.set_memory (Retro.MemoryType.SAVE_RAM, bytes);
 	}
 
-	private void save_snapshot (File savestate_dir) throws Error {
-		var bytes = core.get_state ();
-		var buffer = bytes.get_data ();
-
-		var savestate_dir_path = savestate_dir.get_path ();
-		var snapshot_path = Path.build_filename (savestate_dir_path, "snapshot");
-
-		FileUtils.set_data (snapshot_path, buffer);
-	}
-
-	private void save_media_data (File savestate_dir) throws Error {
-		var savestate_dir_path = savestate_dir.get_path ();
-		var media_path = Path.build_filename (savestate_dir_path, "media");
-
-		string contents = media_set.selected_media_number.to_string ();
-
-		FileUtils.set_contents (media_path, contents, contents.length);
-	}
-
-	private void save_screenshot (File savestate_dir) throws Error {
-		if (!core.get_can_access_state ())
-			return;
-
+	private void save_screenshot_in_tmp () throws Error {
 		var pixbuf = view.get_pixbuf ();
 		if (pixbuf == null)
 			return;
 
-		var savestate_dir_path = savestate_dir.get_path ();
-		var screenshot_path = Path.build_filename (savestate_dir_path, "screenshot");
+		var screenshot_path = tmp_live_savestate.get_screenshot_path ();
 
 		var now = new GLib.DateTime.now_local ();
 		var creation_time = now.to_string ();
@@ -532,14 +525,11 @@ public class Games.RetroRunner : Object, Runner {
 		             null);
 	}
 
+	// Display the screenshot of the latest savestate
 	private void load_screenshot () throws Error {
-		if (!core.get_can_access_state ())
-			return;
-
 		if (game_savestates.length == 0)
 			return;
 
-		// Load the screenshot of the latest savestate
 		var screenshot_path = latest_savestate.get_screenshot_path ();
 
 		if (!FileUtils.test (screenshot_path, FileTest.EXISTS))
@@ -567,3 +557,4 @@ public class Games.RetroRunner : Object, Runner {
 		return core;
 	}
 }
+
