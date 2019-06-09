@@ -34,7 +34,7 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 	private Binding visible_binding;
 	private Binding fullscreen_binding;
 
-	private long timeout_id;
+	private uint timeout_id;
 
 	construct {
 		visible_binding = bind_property ("is-fullscreen", header_bar_revealer,
@@ -75,7 +75,7 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 
 	private void on_activity () {
 		if (timeout_id != -1) {
-			Source.remove ((uint) timeout_id);
+			Source.remove (timeout_id);
 			timeout_id = -1;
 		}
 
@@ -102,7 +102,7 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 
 	private void on_restore () {
 		if (timeout_id != -1) {
-			Source.remove ((uint) timeout_id);
+			Source.remove (timeout_id);
 			timeout_id = -1;
 		}
 
