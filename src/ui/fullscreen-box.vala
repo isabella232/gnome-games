@@ -121,7 +121,7 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 
 		if (!show) {
 			var display = window.get_display ();
-			window.cursor = new Gdk.Cursor.for_display (display, Gdk.CursorType.BLANK_CURSOR);
+			window.cursor = new Gdk.Cursor.from_name (display, "none");
 		}
 		else
 			window.cursor = null;
