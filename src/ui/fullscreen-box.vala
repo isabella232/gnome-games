@@ -112,18 +112,12 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 			cursor_timeout_id = -1;
 		}
 
-		if (!is_fullscreen)
-			return;
-
 		cursor_timeout_id = Timeout.add (INACTIVITY_TIME_MILLISECONDS, on_inactivity);
 		show_cursor (true);
 	}
 
 	private bool on_inactivity () {
 		cursor_timeout_id = -1;
-
-		if (!is_fullscreen)
-			return false;
 
 		show_cursor (false);
 
@@ -142,7 +136,7 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 		}
 
 		header_bar_revealer.reveal_child = false;
-		show_cursor (true);
+		on_cursor_moved ();
 	}
 
 	private void show_cursor (bool show) {
