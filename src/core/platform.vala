@@ -5,6 +5,8 @@ public interface Games.Platform : Object {
 
 	public abstract string get_name ();
 
+	public abstract string get_uid_prefix ();
+
 	public abstract PreferencesPagePlatformsRow get_row ();
 
 	public static uint hash (Platform platform) {

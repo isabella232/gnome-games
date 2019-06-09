@@ -1,19 +1,19 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.TurboGrafxCDPlugin : Object, Plugin {
-	private const string FINGERPRINT_PREFIX = "pc-engine";
 	private const string PHONY_MIME_TYPE = "application/x-pc-engine-cd-rom";
 	private const string CUE_MIME_TYPE = "application/x-cue";
 	private const string CD_MAGIC_VALUE = "PC Engine CD-ROM SYSTEM";
 	private const string PLATFORM_ID = "TurboGrafxCD";
 	/* translators: known as "CD-ROM²" in eastern Asia and France */
 	private const string PLATFORM_NAME = _("TurboGrafx-CD");
+	private const string PLATFORM_UID_PREFIX = "pc-engine";
 
 	private static RetroPlatform platform;
 
 	static construct {
 		string[] mime_types = { CUE_MIME_TYPE, PHONY_MIME_TYPE };
-		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, mime_types);
+		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, mime_types, PLATFORM_UID_PREFIX);
 	}
 
 	public Platform[] get_platforms () {
@@ -36,7 +36,7 @@ private class Games.TurboGrafxCDPlugin : Object, Plugin {
 		if (!is_valid_disc (uri))
 			throw new TurboGrafxCDError.INVALID_DISC ("“%s” isn’t a valid TurboGrafx-CD disc.", uri.to_string ());
 
-		var uid = new FingerprintUid (uri, FINGERPRINT_PREFIX);
+		var uid = new FingerprintUid (uri, PLATFORM_UID_PREFIX);
 		var title = new FilenameTitle (uri);
 		var media = new GriloMedia (title, PHONY_MIME_TYPE);
 		var cover = new CompositeCover ({

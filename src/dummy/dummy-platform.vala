@@ -9,6 +9,10 @@ public class Games.DummyPlatform : Object, Platform {
 		return _("Unknown");
 	}
 
+	public string get_uid_prefix () {
+		return "unknown";
+	}
+
 	public PreferencesPagePlatformsRow get_row () {
 		return new PreferencesPagePlatformsGenericRow (_("Unknown"));
 	}

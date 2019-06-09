@@ -1,15 +1,15 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.VirtualBoyPlugin : Object, Plugin {
-	private const string FINGERPRINT_PREFIX = "virtual-boy";
 	private const string MIME_TYPE = "application/x-virtual-boy-rom";
 	private const string PLATFORM_ID = "VirtualBoy";
 	private const string PLATFORM_NAME = _("Virtual Boy");
+	private const string PLATFORM_UID_PREFIX = "virtual-boy";
 
 	private static RetroPlatform platform;
 
 	static construct {
-		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, { MIME_TYPE });
+		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, { MIME_TYPE }, PLATFORM_UID_PREFIX);
 	}
 
 	public Platform[] get_platforms () {
@@ -34,7 +34,7 @@ private class Games.VirtualBoyPlugin : Object, Plugin {
 		var header = new VirtualBoyHeader (file);
 		header.check_validity ();
 
-		var uid = new FingerprintUid (uri, FINGERPRINT_PREFIX);
+		var uid = new FingerprintUid (uri, PLATFORM_UID_PREFIX);
 		var title = new FilenameTitle (uri);
 		var media = new GriloMedia (title, MIME_TYPE);
 		var cover = new CompositeCover ({

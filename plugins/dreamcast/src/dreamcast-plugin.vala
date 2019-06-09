@@ -4,11 +4,12 @@ private class Games.DreamcastPlugin : Object, Plugin {
 	private const string MIME_TYPE = "application/x-dc-rom";
 	private const string PLATFORM_ID = "Dreamcast";
 	private const string PLATFORM_NAME = _("Dreamcast");
+	private const string PLATFORM_UID_PREFIX = "dreamcast";
 
 	private static RetroPlatform platform;
 
 	static construct {
-		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, { MIME_TYPE });
+		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, { MIME_TYPE }, PLATFORM_UID_PREFIX);
 	}
 
 	public Platform[] get_platforms () {

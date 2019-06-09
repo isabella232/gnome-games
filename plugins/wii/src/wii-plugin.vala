@@ -4,11 +4,12 @@ private class Games.WiiPlugin : Object, Plugin {
 	private const string MIME_TYPE = "application/x-wii-rom";
 	private const string PLATFORM_ID = "Wii";
 	private const string PLATFORM_NAME = _("Wii");
+	private const string PLATFORM_UID_PREFIX = "wii";
 
 	private static RetroPlatform platform;
 
 	static construct {
-		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, { MIME_TYPE });
+		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, { MIME_TYPE }, PLATFORM_UID_PREFIX);
 	}
 
 	public Platform[] get_platforms () {

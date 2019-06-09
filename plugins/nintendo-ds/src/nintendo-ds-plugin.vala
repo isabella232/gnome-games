@@ -1,15 +1,15 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.NintendoDsPlugin : Object, Plugin {
-	private const string FINGERPRINT_PREFIX = "nintendo-ds";
 	private const string MIME_TYPE = "application/x-nintendo-ds-rom";
 	private const string PLATFORM_ID = "NintendoDS";
 	private const string PLATFORM_NAME = _("Nintendo DS");
+	private const string PLATFORM_UID_PREFIX = "nintendo-ds";
 
 	private static RetroPlatform platform;
 
 	static construct {
-		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, { MIME_TYPE });
+		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, { MIME_TYPE }, PLATFORM_UID_PREFIX);
 	}
 
 	public Platform[] get_platforms () {
@@ -29,7 +29,7 @@ private class Games.NintendoDsPlugin : Object, Plugin {
 	}
 
 	private static Game game_for_uri (Uri uri) throws Error {
-		var uid = new FingerprintUid (uri, FINGERPRINT_PREFIX);
+		var uid = new FingerprintUid (uri, PLATFORM_UID_PREFIX);
 		var title = new FilenameTitle (uri);
 		var icon = new NintendoDsIcon (uri);
 		var media = new GriloMedia (title, MIME_TYPE);

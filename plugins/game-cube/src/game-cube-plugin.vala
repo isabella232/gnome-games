@@ -4,11 +4,12 @@ private class Games.GameCubePlugin : Object, Plugin {
 	private const string MIME_TYPE = "application/x-gamecube-rom";
 	private const string PLATFORM_ID = "GameCube";
 	private const string PLATFORM_NAME = _("Nintendo GameCube");
+	private const string PLATFORM_UID_PREFIX = "game-cube";
 
 	private static RetroPlatform platform;
 
 	static construct {
-		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, { MIME_TYPE });
+		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, { MIME_TYPE }, PLATFORM_UID_PREFIX);
 	}
 
 	public Platform[] get_platforms () {

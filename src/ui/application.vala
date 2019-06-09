@@ -290,7 +290,7 @@ public class Games.Application : Gtk.Application {
 			}
 
 			var platform_name = simple_type.get_platform_name ();
-			var platform = new RetroPlatform (simple_type.platform, platform_name, { simple_type.mime_type });
+			var platform = new RetroPlatform (simple_type.platform, platform_name, { simple_type.mime_type }, simple_type.prefix);
 			platform_register.add_platform (platform);
 
 			var game_uri_adapter = new RetroSimpleGameUriAdapter (simple_type, platform);

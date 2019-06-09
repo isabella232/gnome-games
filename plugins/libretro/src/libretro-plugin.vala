@@ -4,11 +4,12 @@ private class Games.LibretroPlugin : Object, Plugin {
 	private const string LIBRETRO_FILE_SCHEME = "libretro+file";
 	private const string PLATFORM_ID = "Libretro";
 	private const string PLATFORM_NAME = _("Libretro");
+	private const string PLATFORM_UID_PREFIX = "libretro";
 
 	private static Platform platform;
 
 	static construct {
-		platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
+		platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME, PLATFORM_UID_PREFIX);
 	}
 
 	public Platform[] get_platforms () {

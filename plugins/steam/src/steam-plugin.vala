@@ -8,11 +8,12 @@ private class Games.SteamPlugin : Object, Plugin {
 	private const string FLATPAK_STEAM_FILE_SCHEME = "flatpak+steam+file";
 	private const string PLATFORM_ID = "Steam";
 	private const string PLATFORM_NAME = _("Steam");
+	private const string PLATFORM_UID_PREFIX = "steam";
 
 	private static Platform platform;
 
 	static construct {
-		platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
+		platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME, PLATFORM_UID_PREFIX);
 
 		// Add directories where Steam installs icons
 		var home = Environment.get_home_dir ();

@@ -1,15 +1,15 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.MsDosPlugin : Object, Plugin {
-	private const string FINGERPRINT_PREFIX = "ms-dos";
 	private const string MIME_TYPE = "application/x-ms-dos-executable";
 	private const string PLATFORM_ID = "MSDOS";
 	private const string PLATFORM_NAME = _("MS-DOS");
+	private const string PLATFORM_UID_PREFIX = "ms-dos";
 
 	private static RetroPlatform platform;
 
 	static construct {
-		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, { MIME_TYPE });
+		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, { MIME_TYPE }, PLATFORM_UID_PREFIX);
 	}
 
 	public Platform[] get_platforms () {
@@ -25,7 +25,7 @@ private class Games.MsDosPlugin : Object, Plugin {
 	}
 
 	private static Game game_for_uri (Uri uri) throws Error {
-		var uid = new FingerprintUid (uri, FINGERPRINT_PREFIX);
+		var uid = new FingerprintUid (uri, PLATFORM_UID_PREFIX);
 		var title = new FilenameTitle (uri);
 		var media = new GriloMedia (title, MIME_TYPE);
 		var release_date = new GriloReleaseDate (media);

@@ -4,11 +4,13 @@ public class Games.RetroPlatform : Object, Platform {
 	private string name;
 	private string id;
 	private string[] mime_types;
+	private string prefix;
 
-	public RetroPlatform (string id, string name, string[] mime_types) {
+	public RetroPlatform (string id, string name, string[] mime_types, string prefix) {
 		this.id = id;
 		this.name = name;
 		this.mime_types = mime_types;
+		this.prefix = prefix;
 	}
 
 	public string get_id () {
@@ -17,6 +19,10 @@ public class Games.RetroPlatform : Object, Platform {
 
 	public string get_name () {
 		return name;
+	}
+
+	public string get_uid_prefix () {
+		return prefix;
 	}
 
 	public string[] get_mime_types () {

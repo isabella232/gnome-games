@@ -5,12 +5,13 @@ private class Games.PlayStation : Object, Plugin {
 	private const string PHONY_MIME_TYPE = "application/x-playstation-rom";
 	private const string PLATFORM_ID = "PlayStation";
 	private const string PLATFORM_NAME = _("PlayStation");
+	private const string PLATFORM_UID_PREFIX = "playstation";
 
 	private static RetroPlatform platform;
 
 	static construct {
 		string[] mime_types = { CUE_MIME_TYPE, PHONY_MIME_TYPE };
-		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, mime_types);
+		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, mime_types, PLATFORM_UID_PREFIX);
 	}
 
 	public Platform[] get_platforms () {

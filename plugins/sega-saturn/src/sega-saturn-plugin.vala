@@ -5,12 +5,13 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 	private const string SEGA_SATURN_MIME_TYPE = "application/x-saturn-rom";
 	private const string PLATFORM_ID = "SegaSaturn";
 	private const string PLATFORM_NAME = _("Sega Saturn");
+	private const string PLATFORM_UID_PREFIX = "sega-saturn";
 
 	private static RetroPlatform platform;
 
 	static construct {
 		string[] mime_types = { CUE_MIME_TYPE, SEGA_SATURN_MIME_TYPE };
-		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, mime_types);
+		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, mime_types, PLATFORM_UID_PREFIX);
 	}
 
 	public Platform[] get_platforms () {

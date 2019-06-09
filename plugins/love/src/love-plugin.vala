@@ -1,15 +1,15 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.LovePlugin : Object, Plugin {
-	private const string FINGERPRINT_PREFIX = "love";
 	private const string MIME_TYPE = "application/x-love-game";
 	private const string PLATFORM_ID = "LOVE";
 	private const string PLATFORM_NAME = _("LÖVE");
+	private const string PLATFORM_UID_PREFIX = "love";
 
 	private static Platform platform;
 
 	static construct {
-		platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
+		platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME, PLATFORM_UID_PREFIX);
 	}
 
 	public Platform[] get_platforms () {
@@ -29,7 +29,7 @@ private class Games.LovePlugin : Object, Plugin {
 	}
 
 	private static Game game_for_uri (Uri uri) throws Error {
-		var uid = new FingerprintUid (uri, FINGERPRINT_PREFIX);
+		var uid = new FingerprintUid (uri, PLATFORM_UID_PREFIX);
 		var package = new LovePackage (uri);
 		var title = new LoveTitle (package);
 		var icon = new LoveIcon (package);

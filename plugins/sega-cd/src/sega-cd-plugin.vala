@@ -3,7 +3,8 @@
 private class Games.SegaCDPlugin : Object, Plugin {
 	private const string 32X_MIME_TYPE = "application/x-genesis-32x-rom";
 
-	private const string SEGA_CD_PREFIX = "mega-cd";
+	private const string SEGA_CD_UID_PREFIX = "mega-cd";
+	private const string SEGA_CD_32X_UID_PREFIX = "mega-cd";
 	private const string CUE_MIME_TYPE = "application/x-cue";
 	private const string SEGA_CD_MIME_TYPE = "application/x-sega-cd-rom";
 	private const string SEGA_CD_PLATFORM_ID = "SegaCD";
@@ -19,8 +20,8 @@ private class Games.SegaCDPlugin : Object, Plugin {
 	static construct {
 		string[] mime_types = { CUE_MIME_TYPE, SEGA_CD_MIME_TYPE };
 		string[] mime_types_32x = { CUE_MIME_TYPE, SEGA_CD_MIME_TYPE, 32X_MIME_TYPE };
-		platform_sega_cd = new RetroPlatform (SEGA_CD_PLATFORM_ID, SEGA_CD_PLATFORM_NAME, mime_types);
-		platform_sega_cd_32x = new RetroPlatform (SEGA_CD_32X_PLATFORM_ID, SEGA_CD_32X_PLATFORM_NAME, mime_types_32x);
+		platform_sega_cd = new RetroPlatform (SEGA_CD_PLATFORM_ID, SEGA_CD_PLATFORM_NAME, mime_types, SEGA_CD_UID_PREFIX);
+		platform_sega_cd_32x = new RetroPlatform (SEGA_CD_32X_PLATFORM_ID, SEGA_CD_32X_PLATFORM_NAME, mime_types_32x, SEGA_CD_32X_UID_PREFIX);
 	}
 
 	public Platform[] get_platforms () {
@@ -73,7 +74,7 @@ private class Games.SegaCDPlugin : Object, Plugin {
 
 		var bin_uri = new Uri (bin_file.get_uri ());
 		var header_offset = header.get_offset ();
-		var uid = new FingerprintUid.for_chunk (bin_uri, SEGA_CD_PREFIX, header_offset, SegaCDHeader.HEADER_LENGTH);
+		var uid = new FingerprintUid.for_chunk (bin_uri, SEGA_CD_UID_PREFIX, header_offset, SegaCDHeader.HEADER_LENGTH);
 		var title = new FilenameTitle (uri);
 		var media = new GriloMedia (title, SEGA_CD_MIME_TYPE);
 		var cover = new CompositeCover ({

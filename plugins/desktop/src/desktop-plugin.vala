@@ -4,11 +4,12 @@ private class Games.DesktopPlugin : Object, Plugin {
 	private const string MIME_TYPE = "application/x-desktop";
 	private const string PLATFORM_ID = "Desktop";
 	private const string PLATFORM_NAME = _("Desktop");
+	private const string PLATFORM_UID_PREFIX = "desktop";
 
 	private static Platform platform;
 
 	static construct {
-		platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME);
+		platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME, PLATFORM_UID_PREFIX);
 	}
 
 	public Platform[] get_platforms () {
