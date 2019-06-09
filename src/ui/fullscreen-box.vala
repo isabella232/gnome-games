@@ -35,12 +35,14 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 	private Binding visible_binding;
 	private Binding fullscreen_binding;
 
-	private uint timeout_id;
+	private uint ui_timeout_id;
+	private uint cursor_timeout_id;
 
 	construct {
 		visible_binding = bind_property ("is-fullscreen", header_bar_revealer,
 		                                 "visible", BindingFlags.BIDIRECTIONAL);
-		timeout_id = -1;
+		ui_timeout_id = -1;
+		cursor_timeout_id = -1;
 	}
 
 	public void add_child (Gtk.Builder builder, Object child, string? type) {
@@ -61,8 +63,10 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 
 	[GtkCallback]
 	private void on_fullscreen_changed () {
-		if (is_fullscreen)
-			on_activity ();
+		if (is_fullscreen) {
+			show_ui ();
+			on_cursor_moved ();
+		}
 		else
 			on_restore ();
 	}
@@ -70,42 +74,71 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 	[GtkCallback]
 	private bool on_motion_event (Gdk.EventMotion event) {
 		if (event.y_root <= SHOW_HEADERBAR_DISTANCE)
-			on_activity ();
+			show_ui ();
+
+		on_cursor_moved ();
 
 		return false;
 	}
 
-	private void on_activity () {
-		if (timeout_id != -1) {
-			Source.remove (timeout_id);
-			timeout_id = -1;
+	private void show_ui () {
+		if (ui_timeout_id != -1) {
+			Source.remove (ui_timeout_id);
+			ui_timeout_id = -1;
 		}
 
 		if (!is_fullscreen)
 			return;
 
-		timeout_id = Timeout.add (INACTIVITY_TIME_MILLISECONDS, on_inactivity);
+		ui_timeout_id = Timeout.add (INACTIVITY_TIME_MILLISECONDS, hide_ui);
 		header_bar_revealer.reveal_child = true;
-		show_cursor (true);
 	}
 
-	private bool on_inactivity () {
-		timeout_id = -1;
+	private bool hide_ui () {
+		ui_timeout_id = -1;
 
 		if (!is_fullscreen)
 			return false;
 
 		header_bar_revealer.reveal_child = false;
-		show_cursor (false);
 		overlay.grab_focus ();
 
 		return false;
 	}
 
+	private void on_cursor_moved () {
+		if (cursor_timeout_id != -1) {
+			Source.remove (cursor_timeout_id);
+			cursor_timeout_id = -1;
+		}
+
+		if (!is_fullscreen)
+			return;
+
+		cursor_timeout_id = Timeout.add (INACTIVITY_TIME_MILLISECONDS, on_inactivity);
+		show_cursor (true);
+	}
+
+	private bool on_inactivity () {
+		cursor_timeout_id = -1;
+
+		if (!is_fullscreen)
+			return false;
+
+		show_cursor (false);
+
+		return false;
+	}
+
 	private void on_restore () {
-		if (timeout_id != -1) {
-			Source.remove (timeout_id);
-			timeout_id = -1;
+		if (ui_timeout_id != -1) {
+			Source.remove (ui_timeout_id);
+			ui_timeout_id = -1;
+		}
+
+		if (cursor_timeout_id != -1) {
+			Source.remove (cursor_timeout_id);
+			cursor_timeout_id = -1;
 		}
 
 		header_bar_revealer.reveal_child = false;
