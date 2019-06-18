@@ -3,6 +3,7 @@
 public errordomain Games.CompressionError {
 	CLOSING_FAILED,
 	COULDNT_ENUMERATE_CHILDREN,
+	COULDNT_READ_FILE,
 	COULDNT_WRITE_HEADER,
 	COULDNT_WRITE_FILE,
 	INITIALIZATION_FAILED,
@@ -31,6 +32,13 @@ public class Games.FileOperations {
 	private static void backup_data (File parent, File dir, Archive.Write archive, string[] exclusions) throws CompressionError {
 		var dtype = dir.query_file_type (FileQueryInfoFlags.NOFOLLOW_SYMLINKS);
 
+		foreach (var filename in exclusions)
+			if (dir.get_parse_name () == filename)
+				return;
+
+		if (dir != parent)
+			compress_files (parent, dir, archive);
+
 		if (dtype == FileType.DIRECTORY) {
 			try {
 				var dir_children = dir.enumerate_children (FileAttribute.STANDARD_NAME, 0);
@@ -44,39 +52,50 @@ public class Games.FileOperations {
 				throw new CompressionError.COULDNT_ENUMERATE_CHILDREN (e.message);
 			}
 		}
-		else {
-			foreach (var filename in exclusions)
-				if (dir.get_parse_name () == filename)
-					return;
-			compress_files (parent, dir, archive);
-		}
 	}
 
 	private static void compress_files (File parent_working_dir, File export_dir, Archive.Write export_archive) throws CompressionError {
 		FileInfo export_info;
-		FileInputStream input_stream;
-		DataInputStream data_input_stream;
 
 		try {
-			var attributes = ("%s,%s").printf (FileAttribute.STANDARD_SIZE ,FileAttribute.TIME_MODIFIED);
+			var attributes = "%s,%s,%s".printf (FileAttribute.STANDARD_SIZE,
+			                                    FileAttribute.TIME_MODIFIED,
+			                                    FileAttribute.UNIX_MODE);
 			export_info = export_dir.query_info (attributes, FileQueryInfoFlags.NONE);
-			input_stream = export_dir.read ();
-			data_input_stream = new DataInputStream (input_stream);
 		}
 		catch (Error e) {
 			throw new CompressionError.INITIALIZATION_FAILED (e.message);
 		}
+
+		var file_type = export_dir.query_file_type (FileQueryInfoFlags.NOFOLLOW_SYMLINKS);
 
 		var entry = new Archive.Entry ();
 		var timeval = export_info.get_modification_time ();
 		entry.set_pathname (parent_working_dir.get_relative_path (export_dir));
 		entry.set_size ((Archive.int64_t) export_info.get_size ());
 		entry.set_mtime ((time_t) timeval.tv_sec, 0);
-		entry.set_filetype ((Archive.FileType) Posix.S_IFREG);
-		entry.set_perm (0644);
+		entry.set_perm (export_info.get_attribute_uint32 (FileAttribute.UNIX_MODE));
+
+		if (file_type == FileType.DIRECTORY)
+			entry.set_filetype ((Archive.FileType) Posix.S_IFDIR);
+		else
+			entry.set_filetype ((Archive.FileType) Posix.S_IFREG);
+
 		if (export_archive.write_header (entry) != Archive.Result.OK) {
 			var error_msg = _("Error writing “%s”: %s (%d)").printf (export_dir.get_path (), export_archive.error_string (), export_archive.errno ());
 			throw new CompressionError.COULDNT_WRITE_HEADER (error_msg);
+		}
+
+		if (entry.size () <= 0)
+			return;
+
+		DataInputStream data_input_stream;
+		try {
+			var input_stream = export_dir.read ();
+			data_input_stream = new DataInputStream (input_stream);
+		}
+		catch (Error e) {
+			throw new CompressionError.COULDNT_READ_FILE (e.message);
 		}
 
 		size_t bytes_read;
@@ -94,7 +113,16 @@ public class Games.FileOperations {
 		}
 	}
 
-	public static void delete_files (File file, string[] exclusions) throws Error {
+	public static void delete_files (File file, string[] excluded) throws Error {
+		delete_files_recurse (file, excluded);
+	}
+
+	public static bool delete_files_recurse (File file, string[] excluded) throws Error {
+		foreach (var filename in excluded)
+			if (file.get_parse_name () == filename)
+				return true;
+
+		var has_excluded_children = false;
 		var dtype = file.query_file_type (FileQueryInfoFlags.NOFOLLOW_SYMLINKS);
 
 		if (dtype == FileType.DIRECTORY) {
@@ -102,15 +130,14 @@ public class Games.FileOperations {
 			FileInfo file_info;
 			while ((file_info = file_children.next_file ()) != null) {
 				var child = file.get_child (file_info.get_name ());
-				delete_files (child, exclusions);
+				has_excluded_children |= delete_files_recurse (child, excluded);
 			}
 		}
-		else {
-			foreach (var filename in exclusions)
-				if (file.get_parse_name () == filename)
-					return;
+
+		if (!has_excluded_children)
 			file.delete ();
-		}
+
+		return false;
 	}
 
 	public static void extract_archive (string archive_path, string extract_dir, string[] exclude) throws ExtractionError {
