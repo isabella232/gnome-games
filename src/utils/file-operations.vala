@@ -16,13 +16,13 @@ public errordomain Games.ExtractionError {
 }
 
 public class Games.FileOperations {
-	public static void compress_dir (string name, File parent_dir, File export_data, string[]? exclude_files = null) throws CompressionError {
+	public static void compress_dir (string archive_path, File exported_data, string[]? exclude_files = null) throws CompressionError {
 		var archive = new Archive.Write ();
 		archive.add_filter_gzip ();
 		archive.set_format_pax_restricted ();
-		archive.open_filename (name);
+		archive.open_filename (archive_path);
 
-		backup_data (parent_dir, export_data, archive, exclude_files);
+		backup_data (exported_data, exported_data, archive, exclude_files);
 		if (archive.close () != Archive.Result.OK) {
 			var error_message = _("Error: %s (%d)").printf (archive.error_string (), archive.errno ());
 			throw new CompressionError.CLOSING_FAILED (error_message);
@@ -178,5 +178,44 @@ public class Games.FileOperations {
 
 		if (last_result != Archive.Result.EOF)
 			throw new ExtractionError.DIDNT_REACH_EOF ("%s (%d)", restore_archive.error_string (), restore_archive.errno ());
+	}
+
+	public static void copy_dir (File src, File dest) throws Error {
+		copy_recursively (src, dest, false);
+	}
+
+	public static void copy_contents (File src, File dest) throws Error {
+		copy_recursively (src, dest, true);
+	}
+
+	// If the merge_flag is set to true then the copy operation will behave
+	// similarly to how the file system does merging when copy & pasting
+	private static void copy_recursively (File src, File dest, bool merge_flag) throws Error {
+		var src_type = src.query_file_type (FileQueryInfoFlags.NONE);
+
+		if (src_type == FileType.DIRECTORY) {
+			if (!dest.query_exists () || !merge_flag) {
+				dest.make_directory ();
+				src.copy_attributes (dest, FileCopyFlags.NONE);
+			}
+
+			var src_path = src.get_path ();
+			var dest_path = dest.get_path ();
+			var enumerator = src.enumerate_children (FileAttribute.STANDARD_NAME, FileQueryInfoFlags.NONE);
+
+			for (var info = enumerator.next_file (); info != null; info = enumerator.next_file ()) {
+				// src_object is any file found in the src directory (could be
+				// a file or another directory)
+				var info_name = info.get_name ();
+				var src_object_path = Path.build_filename (src_path, info_name);
+				var src_object = File.new_for_path (src_object_path);
+				var dest_object_path = Path.build_filename (dest_path, info_name);
+				var dest_object = File.new_for_path (dest_object_path);
+
+				copy_recursively (src_object, dest_object, merge_flag);
+			}
+		}
+		else if (src_type == FileType.REGULAR)
+			src.copy (dest, FileCopyFlags.NONE);
 	}
 }

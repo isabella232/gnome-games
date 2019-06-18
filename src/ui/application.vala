@@ -458,6 +458,6 @@ public class Games.Application : Gtk.Application {
 		var data_dir = File.new_for_path (Application.get_data_dir ());
 		string[] database = { Application.get_database_path () };
 
-		FileOperations.compress_dir (file_path, data_dir, data_dir, database);
+		FileOperations.compress_dir (file_path, data_dir, database);
 	}
 }
