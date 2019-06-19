@@ -1,7 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-private class Games.NintendoDsRunner : Object, Runner {
-	private RetroRunner runner;
+private class Games.NintendoDsRunner : RetroRunner {
 	private Settings settings;
 	private ulong settings_changed_id;
 
@@ -19,15 +18,13 @@ private class Games.NintendoDsRunner : Object, Runner {
 		layouts[Gdk.Key.@4] = "quick switch";
 	}
 
-	public NintendoDsRunner (RetroRunner runner) {
-		this.runner = runner;
-
-		runner.game_init.connect (on_init);
-		runner.game_deinit.connect (on_deinit);
+	construct {
+		game_init.connect (on_init);
+		game_deinit.connect (on_deinit);
 	}
 
 	private bool core_supports_layouts () {
-		var core = runner.get_core ();
+		var core = get_core ();
 
 		return core != null && core.has_option (SCREENS_LAYOUT_OPTION);
 	}
@@ -36,7 +33,7 @@ private class Games.NintendoDsRunner : Object, Runner {
 		settings = new Settings ("org.gnome.Games.plugins.nintendo-ds");
 		settings_changed_id = settings.changed.connect (on_changed);
 
-		var core = runner.get_core ();
+		var core = get_core ();
 
 		core.options_set.connect (update_screen_layout);
 	}
@@ -59,7 +56,7 @@ private class Games.NintendoDsRunner : Object, Runner {
 		if (!core_supports_layouts ())
 			return;
 
-		var core = runner.get_core ();
+		var core = get_core ();
 
 		var option = core.get_option (SCREENS_LAYOUT_OPTION);
 
@@ -80,63 +77,14 @@ private class Games.NintendoDsRunner : Object, Runner {
 		}
 	}
 
-	public bool can_fullscreen {
-		get { return runner.can_fullscreen; }
-	}
-
-	public bool can_quit_safely {
-		get { return runner.can_quit_safely; }
-	}
-
-	public bool can_resume {
-		get { return runner.can_resume; }
-	}
-
-	public MediaSet? media_set {
-		get { return runner.media_set; }
-	}
-
-	public InputMode input_mode {
-		get { return runner.input_mode; }
-		set { runner.input_mode = value; }
-	}
-
-	public bool check_is_valid (out string error_message) throws Error {
-		return runner.check_is_valid (out error_message);
-	}
-
-	public Gtk.Widget get_display () {
-		return runner.get_display ();
-	}
-
-	public Gtk.Widget? get_extra_widget () {
+	public override Gtk.Widget? get_extra_widget () {
 		if (!core_supports_layouts ())
 			return null;
 
 		return new NintendoDsLayoutSwitcher ();
 	}
 
-	public void start () throws Error {
-		runner.start ();
-	}
-
-	public void resume () throws Error {
-		runner.resume ();
-	}
-
-	public void pause () {
-		runner.pause ();
-	}
-
-	public void stop () {
-		runner.stop ();
-	}
-
-	public InputMode[] get_available_input_modes () {
-		return runner.get_available_input_modes ();
-	}
-
-	public bool key_press_event (Gdk.EventKey event) {
+	public override bool key_press_event (Gdk.EventKey event) {
 		// First check for Alt + 1|2|3|4
 		// These shortcuts change the screen layout
 		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
@@ -164,7 +112,7 @@ private class Games.NintendoDsRunner : Object, Runner {
 		return false;
 	}
 
-	public bool gamepad_button_press_event (uint16 button) {
+	public override bool gamepad_button_press_event (uint16 button) {
 		if (button == EventCode.BTN_THUMBR)
 			return swap_screens ();
 
