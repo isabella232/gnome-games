@@ -80,24 +80,26 @@ public class Games.RetroRunner : Object, Runner {
 	private bool is_ready;
 	private bool should_save;
 
-	internal RetroRunner (RetroRunnerBuilder builder) {
+	public RetroRunnerBuilder builder {
+		construct {
+			core_descriptor = value.core_descriptor;
+			_media_set = value.media_set;
+
+			uid = value.uid;
+			core_source = value.core_source;
+			platform = value.platform;
+			input_capabilities = value.input_capabilities;
+			game_title = value.title;
+
+			_media_set.notify["selected-media-number"].connect (on_media_number_changed);
+		}
+	}
+
+	construct {
 		is_initialized = false;
 		is_ready = false;
 		should_save = false;
 
-		core_descriptor = builder.core_descriptor;
-		_media_set = builder.media_set;
-
-		uid = builder.uid;
-		core_source = builder.core_source;
-		platform = builder.platform;
-		input_capabilities = builder.input_capabilities;
-		game_title = builder.title;
-
-		_media_set.notify["selected-media-number"].connect (on_media_number_changed);
-	}
-
-	construct {
 		settings = new Settings ("org.gnome.Games");
 	}
 
@@ -133,7 +135,7 @@ public class Games.RetroRunner : Object, Runner {
 		return view;
 	}
 
-	public Gtk.Widget? get_extra_widget () {
+	public virtual Gtk.Widget? get_extra_widget () {
 		return null;
 	}
 
@@ -309,11 +311,11 @@ public class Games.RetroRunner : Object, Runner {
 			return { InputMode.GAMEPAD };
 	}
 
-	public bool key_press_event (Gdk.EventKey event) {
+	public virtual bool key_press_event (Gdk.EventKey event) {
 		return false;
 	}
 
-	public bool gamepad_button_press_event (uint16 button) {
+	public virtual bool gamepad_button_press_event (uint16 button) {
 		return false;
 	}
 

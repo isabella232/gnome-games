@@ -46,11 +46,11 @@ public class Games.RetroRunnerBuilder : Object {
 		media_set = new MediaSet ();
 	}
 
-	public RetroRunner to_runner () {
+	public RetroRunner to_runner (Type type = typeof (RetroRunner)) {
 		return_val_if_fail (uid != null, null);
 		return_val_if_fail (title != null, null);
 		return_val_if_fail (platform != null, null);
 
-		return new RetroRunner (this);
+		return Object.new (type, "builder", this, null) as RetroRunner;
 	}
 }
