@@ -42,6 +42,21 @@
   </screenshots>
 
   <releases>
+    <release version="3.33.3" type="development" date="2019-06-21" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>Main window is now fully adaptive</li>
+          <li>Added dropdown arrow to media switcher button to match Nintendo DS screen layout switcher</li>
+          <li>Removed unused subtitles from collection</li>
+          <li>Increased padding on platforms sidebar items</li>
+        </ul>
+        <p>Fixes:</p>
+        <ul>
+          <li>Fixed backup/restore skipping empty directories</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.33.2" type="development" date="2019-05-24" urgency="medium">
       <description>
         <p>Improvements:</p>

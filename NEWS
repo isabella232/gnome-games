@@ -1,4 +1,29 @@
 ==============
+Version 3.33.3
+==============
+
+* UI
+ - Main window is now fully adaptive.
+ - Added dropdown arrow to media switcher button to match Nintendo DS screen
+   layout switcher.
+ - Removed unused subtitles from collection.
+ - Increased padding on platforms sidebar items.
+
+* Fixes
+ - Fixed backup/restore skipping empty directories.
+
+* Dependencies:
+ - Minimum libhandy version has been increased to 0.0.10.
+
+* Various cleanups.
+
+* Translation updates
+ Basque
+ Hungarian
+ Spanish
+ Polish
+
+==============
 Version 3.33.2
 ==============
 
