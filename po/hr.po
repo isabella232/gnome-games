@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-03-23 18:36+0000\n"
-"PO-Revision-Date: 2019-03-26 20:13+0100\n"
+"POT-Creation-Date: 2019-06-15 10:55+0000\n"
+"PO-Revision-Date: 2019-06-22 19:16+0200\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "Language: hr\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:6
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:43
-#: data/ui/collection-header-bar.ui:68 data/ui/display-header-bar.ui:6
-#: src/ui/application.vala:25
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:47
+#: data/ui/display-header-bar.ui:11 src/ui/application.vala:25
+#: src/ui/collection-header-bar.vala:87
 msgid "Games"
 msgstr "Igre"
 
@@ -71,7 +71,7 @@ msgstr "Igrajte svoje igre"
 msgid "Resume your game to where you left it"
 msgstr "Nastavite igrati igru tamo gdje ste stali"
 
-#: data/org.gnome.Games.appdata.xml.in.in:83
+#: data/org.gnome.Games.appdata.xml.in.in:115
 msgid "The GNOME Project"
 msgstr "GNOME projekt"
 
@@ -88,7 +88,7 @@ msgstr "Pogledajte i igrajte svoju kolekciju video igara"
 msgid "game;videogame;video game;player;"
 msgstr "igra;video igra;video igra;igrač;"
 
-#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:44
+#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:49
 msgid "Fullscreen"
 msgstr "Cjelozaslonski prikaz"
 
@@ -136,74 +136,66 @@ msgstr ""
 "Poželjna Libretro jezgra koja će se koristiti za pokretanje igara. Može se "
 "koristiti drugačija jezgra ako poželjna jezgra nedostaje."
 
-#: data/ui/collection-box.ui:53
-msgid "Developers"
-msgstr "Razvijatelji"
-
-#: data/ui/collection-box.ui:63 src/ui/preferences-page-platforms.vala:9
+#: data/ui/collection-box.ui:59 src/ui/preferences-page-platforms.vala:9
 msgid "Platforms"
 msgstr "Platforme"
 
-#: data/ui/collection-box.ui:86
+#: data/ui/collection-box.ui:82
 msgid "Loading"
 msgstr "Učitavanje"
 
-#: data/ui/collection-header-bar.ui:18
+#: data/ui/collection-header-bar.ui:22
 msgid "Add game files…"
 msgstr "Dodaj datoteku igre…"
 
 #. Translators: tooltip for the application menu button
-#: data/ui/collection-header-bar.ui:37
+#: data/ui/collection-header-bar.ui:41
 msgid "Menu"
 msgstr "Izbornik"
 
-#: data/ui/collection-header-bar.ui:86
+#: data/ui/collection-header-bar.ui:91 data/ui/collection-header-bar.ui:148
 msgid "Search"
 msgstr "Pretraži"
 
-#: data/ui/collection-header-bar.ui:112 data/ui/preferences-window.ui:5
-#: data/ui/preferences-window.ui:26
-msgid "Preferences"
-msgstr "Osobitosti"
-
-#: data/ui/collection-header-bar.ui:120
-msgid "Keyboard Shortcuts"
-msgstr "Prečaci tipkovnice"
-
-#: data/ui/collection-header-bar.ui:128
-msgid "Help"
-msgstr "Priručnik"
-
-#: data/ui/collection-header-bar.ui:136
-msgid "About Games"
-msgstr "O Igre"
-
-#: data/ui/display-header-bar.ui:21 data/ui/preferences-subpage-gamepad.ui:82
-#: data/ui/preferences-subpage-keyboard.ui:83 data/ui/preferences-window.ui:54
+#: data/ui/collection-header-bar.ui:126 data/ui/display-header-bar.ui:25
+#: data/ui/preferences-subpage-gamepad.ui:83
+#: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:54
 msgid "Back"
 msgstr "Natrag"
 
-#: data/ui/display-header-bar.ui:70
+#: data/ui/collection-header-bar.ui:179
+msgid "Pr_eferences"
+msgstr "Os_obitosti"
+
+#: data/ui/collection-header-bar.ui:187
+msgid "_Keyboard Shortcuts"
+msgstr "_Prečaci tipkovnice"
+
+#: data/ui/collection-header-bar.ui:195
+msgid "_Help"
+msgstr "_Priručnik"
+
+#: data/ui/collection-header-bar.ui:203
+msgid "_About Games"
+msgstr "_O Igre"
+
+#: data/ui/display-header-bar.ui:76
 msgid "Restore"
 msgstr "Vrati"
 
-#: data/ui/dummy-display.ui:36
+#: data/ui/dummy-display.ui:37
 msgid "This is a dummy game display"
 msgstr "Ovo je lažan zaslon igre"
 
-#: data/ui/dummy-display.ui:51
-msgid "If you see this, this is a bug."
-msgstr "Ako vidite ovo, to je greška."
-
-#: data/ui/dummy-display.ui:64
-msgid "Please contact the developers."
-msgstr "Kontaktirajte razvijatelja."
+#: data/ui/dummy-display.ui:53
+msgid "If you see this, this is a bug. Please contact the developers."
+msgstr "Ako vidite ovo, to je greška. Kontaktirajte razvijatelje."
 
 #: data/ui/empty-collection.ui:29
 msgid "No games found"
 msgstr "Nema pronađenih igara"
 
-#: data/ui/empty-collection.ui:43
+#: data/ui/empty-collection.ui:44
 msgid ""
 "Install games or add directories containing games to your search sources."
 msgstr ""
@@ -217,45 +209,88 @@ msgstr "Ulaz upravljača igrama"
 msgid "Keyboard Input"
 msgstr "Ulaz tipkovnice"
 
-#: data/ui/media-menu-button.ui:11
+#: data/ui/media-menu-button.ui:13
 msgid "Media"
 msgstr "Medij"
 
-#: data/ui/preferences-page-controllers.ui:9
+#: data/ui/preferences-page-backup-restore.ui:10
+msgid ""
+"Backup save states and in-game saves. This can be used for moving the data "
+"to another device or for restoring it later. Desktop, Steam and LÖVE games "
+"cannot be backed up."
+msgstr ""
+"Sigurnosno kopiranje sprema stanja i spremljene igre i postavke iz igara. To "
+"može biti iskorišteno za premještanje podataka na drugi uređaj ili za obnovu "
+"podataka. Radna površina, Steam i LÖVE igre se ne mogu sigurnosno kopirati."
+
+#: data/ui/preferences-page-backup-restore.ui:38
+#: src/ui/preferences-page-backup-restore.vala:34
+msgid "Back up save data"
+msgstr "Sigurnosno kopiraj spremljene podatke"
+
+#: data/ui/preferences-page-backup-restore.ui:47
+#: src/ui/preferences-page-backup-restore.vala:36
+msgid "_Back Up"
+msgstr "_Sigurnosno kopiraj"
+
+#: data/ui/preferences-page-backup-restore.ui:62
+msgid ""
+"Restore save data for games from existing backup. This will replace existing "
+"saves and cannot be undone."
+msgstr ""
+"Obnovi spremljene podatke za igre iz postojeće sigurnosne kopije. To će "
+"zamijeniti postojeće spremljene igre i postavke, ova radnja se ne može "
+"poništiti."
+
+#: data/ui/preferences-page-backup-restore.ui:90
+#: src/ui/preferences-page-backup-restore.vala:12
+msgid "Restore save data"
+msgstr "Obnovi spremljene podatke"
+
+#: data/ui/preferences-page-backup-restore.ui:99
+#: src/ui/preferences-page-backup-restore.vala:14
+msgid "_Restore"
+msgstr "_Obnovi"
+
+#: data/ui/preferences-page-controllers.ui:10
 msgid "Gamepads"
 msgstr "Upravljači igrama"
 
-#: data/ui/preferences-page-controllers.ui:32
-#: src/ui/preferences-page-controllers.vala:75
+#: data/ui/preferences-page-controllers.ui:30
+#: src/ui/preferences-page-controllers.vala:73
 msgid "Keyboard"
 msgstr "Tipkovnica"
 
-#: data/ui/preferences-page-video.ui:9
+#: data/ui/preferences-page-video.ui:10
 msgid "Filter"
 msgstr "Filter"
 
-#: data/ui/preferences-subpage-gamepad.ui:21
-#: data/ui/preferences-subpage-keyboard.ui:22
+#: data/ui/preferences-subpage-gamepad.ui:22
+#: data/ui/preferences-subpage-keyboard.ui:23
 msgctxt "Keyboard configuration factory reset"
 msgid "Reset"
 msgstr "Vrati izvorno"
 
-#: data/ui/preferences-subpage-gamepad.ui:34
-#: data/ui/preferences-subpage-keyboard.ui:35
+#: data/ui/preferences-subpage-gamepad.ui:35
+#: data/ui/preferences-subpage-keyboard.ui:36
 msgid "Configure"
 msgstr "Podesi"
 
-#: data/ui/preferences-subpage-gamepad.ui:52
-#: data/ui/preferences-subpage-keyboard.ui:53
+#: data/ui/preferences-subpage-gamepad.ui:53
+#: data/ui/preferences-subpage-keyboard.ui:54
 msgid "Skip"
 msgstr "Preskoči"
 
-#: data/ui/preferences-subpage-gamepad.ui:100
-#: data/ui/preferences-subpage-keyboard.ui:101 data/ui/quit-dialog.ui:15
+#: data/ui/preferences-subpage-gamepad.ui:101
+#: data/ui/preferences-subpage-keyboard.ui:102 data/ui/quit-dialog.ui:15
 #: data/ui/reset-controller-mapping-dialog.ui:15
 #: data/ui/resume-failed-dialog.ui:14
 msgid "Cancel"
 msgstr "Odustani"
+
+#: data/ui/preferences-window.ui:5 data/ui/preferences-window.ui:26
+msgid "Preferences"
+msgstr "Osobitosti"
 
 #: data/ui/quit-dialog.ui:9
 msgid "Are you sure you want to quit?"
@@ -315,112 +350,171 @@ msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Vrati izvorno"
 
-#: data/ui/shortcuts-window.ui:10
+#: data/ui/shortcuts-window.ui:11
 msgid "Shortcuts"
 msgstr "Prečaci"
 
-#: data/ui/shortcuts-window.ui:14
+#: data/ui/shortcuts-window.ui:15
 msgid "General"
 msgstr "Općenito"
 
-#: data/ui/shortcuts-window.ui:19
+#: data/ui/shortcuts-window.ui:20
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Zatvori"
 
-#: data/ui/shortcuts-window.ui:27 data/ui/shortcuts-window.ui:139
+#: data/ui/shortcuts-window.ui:28 data/ui/shortcuts-window.ui:212
 msgid "Collection"
 msgstr "Kolekcija"
 
-#: data/ui/shortcuts-window.ui:32
+#: data/ui/shortcuts-window.ui:33
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Pretraga"
 
-#: data/ui/shortcuts-window.ui:40 data/ui/shortcuts-window.ui:48
+#: data/ui/shortcuts-window.ui:41 data/ui/shortcuts-window.ui:49
 msgctxt "shortcut window"
 msgid "Navigate"
 msgstr "Navigacija"
 
-#: data/ui/shortcuts-window.ui:41
+#: data/ui/shortcuts-window.ui:42
 msgctxt "shortcut window"
 msgid "Left analog stick"
 msgstr "Lijeva analogna palica"
 
-#: data/ui/shortcuts-window.ui:49
+#: data/ui/shortcuts-window.ui:50
 msgctxt "shortcut window"
 msgid "Directional pad"
 msgstr "Izravan Pad uređaj"
 
-#: data/ui/shortcuts-window.ui:56
+#: data/ui/shortcuts-window.ui:57
 msgctxt "shortcut window"
 msgid "Select view"
 msgstr "Odaberi prikaz"
 
-#: data/ui/shortcuts-window.ui:57
+#: data/ui/shortcuts-window.ui:58
 msgctxt "shortcut window"
 msgid "Front shoulder buttons"
 msgstr "Prednje tipke na obodu"
 
-#: data/ui/shortcuts-window.ui:64 data/ui/shortcuts-window.ui:72
+#: data/ui/shortcuts-window.ui:65 data/ui/shortcuts-window.ui:73
 msgctxt "shortcut window"
 msgid "Start game"
 msgstr "Pokreni igru"
 
-#: data/ui/shortcuts-window.ui:65
+#: data/ui/shortcuts-window.ui:66
 msgctxt "shortcut window"
 msgid "Start button"
 msgstr "Tipka pokretanja"
 
-#: data/ui/shortcuts-window.ui:73 data/ui/shortcuts-window.ui:116
+#: data/ui/shortcuts-window.ui:74 data/ui/shortcuts-window.ui:117
 msgctxt "shortcut window"
 msgid "Bottom action button"
 msgstr "Donje akcijske tipke"
 
-#: data/ui/shortcuts-window.ui:80
+#: data/ui/shortcuts-window.ui:81
 msgid "In Game"
 msgstr "U igri"
 
-#: data/ui/shortcuts-window.ui:85
+#: data/ui/shortcuts-window.ui:86
 msgctxt "shortcut window"
 msgid "Toggle fullscreen"
 msgstr "Uklj/Isklj cjelozaslonski prikaz"
 
-#: data/ui/shortcuts-window.ui:92
+#: data/ui/shortcuts-window.ui:93
 msgctxt "shortcut window"
 msgid "Exit fullscreen"
 msgstr "Zatvori cjelozaslonski prikaz"
 
-#: data/ui/shortcuts-window.ui:99 data/ui/shortcuts-window.ui:107
+#: data/ui/shortcuts-window.ui:100 data/ui/shortcuts-window.ui:108
 msgctxt "shortcut window"
 msgid "Go back to the collection"
 msgstr "Idi natrag na kolekciju"
 
-#: data/ui/shortcuts-window.ui:108
+#: data/ui/shortcuts-window.ui:109
 msgctxt "shortcut window"
 msgid "Home button"
 msgstr "Tipka naslovnice"
 
-#: data/ui/shortcuts-window.ui:115
+#: data/ui/shortcuts-window.ui:116
 msgctxt "shortcut window"
 msgid "Accept"
 msgstr "Prihvati"
 
-#: data/ui/shortcuts-window.ui:123
+#: data/ui/shortcuts-window.ui:124
 msgctxt "shortcut window"
 msgid "Cancel"
 msgstr "Odustani"
 
-#: data/ui/shortcuts-window.ui:124
+#: data/ui/shortcuts-window.ui:125
 msgctxt "shortcut window"
 msgid "Right action button"
 msgstr "Desni gumb akcije"
 
-#: data/ui/shortcuts-window.ui:135
+#: data/ui/shortcuts-window.ui:136
+#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:7
+msgid "Nintendo DS"
+msgstr "Nintendo DS"
+
+#: data/ui/shortcuts-window.ui:140
+#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:38
+msgid "Screen Layout"
+msgstr "Raspored zaslona"
+
+#: data/ui/shortcuts-window.ui:145
+msgctxt "shortcut window"
+msgid "Vertical"
+msgstr "Okomit"
+
+#: data/ui/shortcuts-window.ui:152 data/ui/shortcuts-window.ui:160
+msgctxt "shortcut window"
+msgid "Side by side"
+msgstr "Jedan uz drugog"
+
+#: data/ui/shortcuts-window.ui:153
+msgctxt "shortcut window"
+msgid "Bottom to the right"
+msgstr "S dna na desno"
+
+#: data/ui/shortcuts-window.ui:161
+msgctxt "shortcut window"
+msgid "Bottom to the left"
+msgstr "S dna na lijevo"
+
+#: data/ui/shortcuts-window.ui:168
+msgctxt "shortcut window"
+msgid "Single screen"
+msgstr "Jedan zaslon"
+
+#: data/ui/shortcuts-window.ui:176
+msgid "Screen Switching"
+msgstr "Prebacivanje zaslona"
+
+#: data/ui/shortcuts-window.ui:181
+msgctxt "shortcut window"
+msgid "Show top screen"
+msgstr "Prikaži gornji zaslon"
+
+#: data/ui/shortcuts-window.ui:188
+msgctxt "shortcut window"
+msgid "Show bottom screen"
+msgstr "Prikaži donji zaslon"
+
+#: data/ui/shortcuts-window.ui:196
+msgctxt "shortcut window"
+msgid "Toggle screen"
+msgstr "Uklj/Isklj cjelozaslonski prikaz"
+
+#: data/ui/shortcuts-window.ui:197
+msgctxt "shortcut window"
+msgid "Press right analog stick"
+msgstr "Pritisni lijevu analognu palicu"
+
+#: data/ui/shortcuts-window.ui:208
 msgid "Cheats"
 msgstr "Varanja"
 
-#: data/ui/shortcuts-window.ui:144
+#: data/ui/shortcuts-window.ui:217
 msgctxt "shortcut window"
 msgid "Contribute"
 msgstr "Doprinesi"
@@ -536,10 +630,6 @@ msgstr ""
 msgid "Change Screen"
 msgstr "Promijeni zaslon"
 
-#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:38
-msgid "Screen Layout"
-msgstr "Raspored zaslona"
-
 #: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:104
 msgid "Vertical"
 msgstr "Okomit"
@@ -554,7 +644,6 @@ msgstr "Jedan zaslon"
 
 #: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:114
 #: src/dummy/dummy-platform.vala:9 src/dummy/dummy-platform.vala:13
-#: src/ui/developer-list-item.vala:26
 msgid "Unknown"
 msgstr "Napoznato"
 
@@ -565,10 +654,6 @@ msgstr "S dna na desno"
 #: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:123
 msgid "Bottom to the left"
 msgstr "S dna prema na lijevo"
-
-#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:7
-msgid "Nintendo DS"
-msgstr "Nintendo DS"
 
 #: plugins/playstation/src/playstation-header.vala:27
 #, c-format
@@ -921,7 +1006,8 @@ msgstr "WonderSwan Color"
 msgid "Select game files"
 msgstr "Odaberi datoteku igre"
 
-#: src/ui/application.vala:172
+#: src/ui/application.vala:172 src/ui/preferences-page-backup-restore.vala:14
+#: src/ui/preferences-page-backup-restore.vala:36
 msgid "_Cancel"
 msgstr "_Odustani"
 
@@ -983,12 +1069,26 @@ msgstr "Pritisnite odgovarajuće palice gore/dolje na vašem upravljaču igre"
 msgid "Press suitable key on your keyboard"
 msgstr "Pritisnite odgovarajuću tipku na vašoj tipkovnici"
 
-#: src/ui/media-selector.vala:38
+#: src/ui/media-menu-button.vala:50
 #, c-format
 msgid "Media %d"
 msgstr "Medij %d"
 
-#: src/ui/preferences-page-controllers.vala:24
+#: src/ui/preferences-page-backup-restore.vala:6
+msgid "Back Up & Restore"
+msgstr "Sigurnosno kopiraj i obnovi"
+
+#: src/ui/preferences-page-backup-restore.vala:23
+#, c-format
+msgid "Couldn’t restore: %s"
+msgstr "Nemoguća obnova: %s"
+
+#: src/ui/preferences-page-backup-restore.vala:53
+#, c-format
+msgid "Couldn’t back up: %s"
+msgstr "Nemoguće sigurnosno kopiranje: %s"
+
+#: src/ui/preferences-page-controllers.vala:22
 msgid "Controllers"
 msgstr "Upravljači"
 
@@ -1084,6 +1184,22 @@ msgstr "%s:%lu: Neočekivani završetak redka, očekivan simbol."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: Neočekivani simbol %s, očekivan završetak redka."
+
+#: src/utils/file-operations.vala:26
+#, c-format
+msgid "Error: %s (%d)"
+msgstr "Greška: %s (%d)"
+
+#: src/utils/file-operations.vala:78
+#, c-format
+msgid "Error writing “%s”: %s (%d)"
+msgstr "Greška zapisivanja “%s”: %s (%d)"
+
+#~ msgid "Developers"
+#~ msgstr "Razvijatelji"
+
+#~ msgid "Please contact the developers."
+#~ msgstr "Kontaktirajte razvijatelja."
 
 #~ msgid "@icon@"
 #~ msgstr "@icon@"
