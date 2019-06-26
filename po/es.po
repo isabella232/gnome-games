@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-05-31 18:52+0000\n"
-"PO-Revision-Date: 2019-06-07 13:55+0200\n"
+"POT-Creation-Date: 2019-06-15 10:55+0000\n"
+"PO-Revision-Date: 2019-06-26 10:58+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: es <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -192,7 +192,6 @@ msgid "This is a dummy game display"
 msgstr "Esta es una pantalla de juego falsa"
 
 #: data/ui/dummy-display.ui:53
-#| msgid "If you see this, this is a bug."
 msgid "If you see this, this is a bug. Please contact the developers."
 msgstr "Si ve esto, se trata de un error. Avise a los desarrolladores."
 
@@ -225,6 +224,9 @@ msgid ""
 "to another device or for restoring it later. Desktop, Steam and LÖVE games "
 "cannot be backed up."
 msgstr ""
+"Respaldar estados guardados y datos guardados del juego. Esto se puede hacer "
+"para mover los datos a otro dispositivo o para restaurarlos posteriormente. "
+"Los juegos de Desktop, Steam y LÖVE no se pueden respaldar."
 
 #: data/ui/preferences-page-backup-restore.ui:38
 #: src/ui/preferences-page-backup-restore.vala:34
@@ -233,7 +235,6 @@ msgstr "Respaldar datos guardados"
 
 #: data/ui/preferences-page-backup-restore.ui:47
 #: src/ui/preferences-page-backup-restore.vala:36
-#| msgid "Back"
 msgid "_Back Up"
 msgstr "_Respaldar"
 
@@ -242,6 +243,8 @@ msgid ""
 "Restore save data for games from existing backup. This will replace existing "
 "saves and cannot be undone."
 msgstr ""
+"Restaurar datos guardados de juegos desde un respaldo existente. Esto "
+"reemplazará los datos guardados y no se puede deshacer."
 
 #: data/ui/preferences-page-backup-restore.ui:90
 #: src/ui/preferences-page-backup-restore.vala:12
@@ -250,7 +253,6 @@ msgstr "Restaurar datos guardados"
 
 #: data/ui/preferences-page-backup-restore.ui:99
 #: src/ui/preferences-page-backup-restore.vala:14
-#| msgid "Restore"
 msgid "_Restore"
 msgstr "_Restaurar"
 
@@ -1091,13 +1093,11 @@ msgstr "Respaldar y resturar"
 
 #: src/ui/preferences-page-backup-restore.vala:23
 #, c-format
-#| msgid "Couldn’t read file: %s"
 msgid "Couldn’t restore: %s"
 msgstr "No se pudo restaurar: %s"
 
 #: src/ui/preferences-page-backup-restore.vala:53
 #, c-format
-#| msgid "Couldn’t read file: %s"
 msgid "Couldn’t back up: %s"
 msgstr "No se pudo crear el respaldo: %s"
 
