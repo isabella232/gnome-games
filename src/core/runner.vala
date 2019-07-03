@@ -16,7 +16,9 @@ public interface Games.Runner : Object {
 	public abstract void resume () throws Error;
 	public abstract void pause ();
 	public abstract void stop ();
-	public abstract void attempt_create_savestate () throws Error;
+	public abstract bool try_create_savestate (bool is_automatic);
+	public abstract void load_savestate (Savestate savestate) throws Error;
+	public abstract Savestate[] get_savestates ();
 
 	public abstract InputMode[] get_available_input_modes ();
 	public abstract bool key_press_event (Gdk.EventKey event);

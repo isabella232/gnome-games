@@ -269,10 +269,14 @@ private class Games.DisplayView : Object, UiView {
 		return (Gtk.ResponseType) response;
 	}
 
-	private bool try_run_with_cancellable (Runner runner, bool resume, Cancellable cancellable) {
+	private bool try_run_with_cancellable (Runner runner, bool use_latest_savestate, Cancellable cancellable) {
 		try {
-			if (resume)
-				box.runner.resume ();
+			if (use_latest_savestate) {
+				var savestates = box.runner.get_savestates ();
+				var latest_savestate = savestates[0];
+
+				box.runner.load_savestate (latest_savestate);
+			}
 			else
 				runner.start ();
 
@@ -344,19 +348,14 @@ private class Games.DisplayView : Object, UiView {
 
 		box.runner.pause ();
 
-		try {
-			box.runner.attempt_create_savestate ();
-		}
-		catch (Error e) {
-			warning (e.message);
-		}
-
-		if (box.runner.can_quit_safely) {
+		if (box.runner.try_create_savestate (true)) {
+			// Progress saved => can quit game safely
 			box.runner.stop ();
-
 			return true;
 		}
 
+		// Failed to save progress => warn the user of unsaved progress
+		// via the QuitDialog
 		if (quit_dialog != null)
 			return false;
 

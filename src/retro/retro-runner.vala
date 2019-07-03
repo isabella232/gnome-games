@@ -94,12 +94,9 @@ public class Games.RetroRunner : Object, Runner {
 	// It is called by the DisplayView to check if a runner can be used
 	// This method must be called before other methods/properties
 	public bool try_init_phase_one (out string error_message) {
-		// Step 1) Check for the two RetroErrors -------------------------------
-		// FIXME: Write this properly using RetroCoreManager
-		/*
 		try {
-			media_set.selected_media_number = 0;
-			//init ();
+			init_phase_one ();
+		// TODO: Check for the two RetroErrors using RetroCoreManager
 		}
 		catch (RetroError.MODULE_NOT_FOUND e) {
 			debug (e.message);
@@ -113,44 +110,10 @@ public class Games.RetroRunner : Object, Runner {
 
 			return false;
 		}
-		*/
-
-		// Step 2) Load the game's savestates ----------------------------------
-		try {
-			core_source.get_module_path (); // FIXME: Hack needed to get core_id
-			string core_id = null;
-
-			if (core_descriptor != null) {
-				core_id = core_descriptor.get_id ();
-			}
-			else {
-				core_id = core_source.get_core_id ();
-			}
-
-			game_savestates = Savestate.get_game_savestates (uid, core_id);
-			if (game_savestates.length != 0)
-				latest_savestate = game_savestates[0];
-		}
 		catch (Error e) {
+			debug (e.message);
 			error_message = e.message;
-			return false;
-		}
 
-		// Step 3) Init the CoreView -------------------------------------------
-		// This is done here such that get_display() won't return null
-		view = new Retro.CoreView ();
-		settings.changed["video-filter"].connect (on_video_filter_changed);
-		on_video_filter_changed ();
-
-		// Step 4) Display the screenshot of the latest_savestate --------------
-		// FIXME: This does not work currently, but perhaps we can fix it
-		// somehow in retro-gtk ? We should be able to render a picture on the
-		// screen without having to boot the core itself
-		try {
-			load_screenshot ();
-		}
-		catch (Error e) {
-			error_message = e.message;
 			return false;
 		}
 
@@ -159,12 +122,63 @@ public class Games.RetroRunner : Object, Runner {
 		return true;
 	}
 
+	private string get_core_id () throws Error {
+		if (core_descriptor != null)
+			return core_descriptor.get_id ();
+		else
+			return core_source.get_core_id ();
+	}
+
+	private void init_phase_one () throws Error {
+		// Step 1) Load the game's savestates ----------------------------------
+		game_savestates = Savestate.get_game_savestates (uid, get_core_id ());
+		if (game_savestates.length != 0)
+			latest_savestate = game_savestates[0];
+
+		// Step 2) Init the CoreView -------------------------------------------
+		// This is done here such that get_display() won't return null
+		view = new Retro.CoreView ();
+		settings.changed["video-filter"].connect (on_video_filter_changed);
+		on_video_filter_changed ();
+
+		// Step 3) Display the screenshot of the latest_savestate --------------
+		// FIXME: This does not work currently
+		load_screenshot ();
+	}
+
 	public Gtk.Widget get_display () {
 		return view;
 	}
 
 	public virtual Gtk.Widget? get_extra_widget () {
 		return null;
+	}
+
+	public void load_savestate (Savestate savestate) throws Error {
+		stop ();
+
+		tmp_live_savestate = savestate.clone_in_tmp ();
+		instantiate_core (tmp_live_savestate.get_save_directory_path ());
+
+		core.save_directory = tmp_live_savestate.get_save_directory_path ();
+		load_save_ram (savestate.get_save_ram_path ());
+		core.set_state (savestate.get_snapshot_data ());
+
+		if (savestate.has_media_data ())
+			media_set.selected_media_number = savestate.get_media_data ();
+
+		loop.start ();
+
+		is_ready = true;
+		running = true;
+	}
+
+	public Savestate[] get_savestates () {
+		if (game_savestates == null) {
+			critical ("RetroRunner hasn't loaded savestates. Call try_init_phase_one()");
+		}
+
+		return game_savestates;
 	}
 
 	public void start () throws Error {
@@ -177,7 +191,7 @@ public class Games.RetroRunner : Object, Runner {
 			else
 				tmp_live_savestate = Savestate.create_empty_in_tmp ();
 
-			init_phase_two (tmp_live_savestate.get_save_directory_path ());
+			instantiate_core (tmp_live_savestate.get_save_directory_path ());
 		}
 
 		if (!is_ready) {
@@ -192,34 +206,20 @@ public class Games.RetroRunner : Object, Runner {
 		running = true;
 	}
 
-	public void resume () throws Error {
-		if (is_ready) {
-			// In this case, the effect is to simply "unpause" an already running game
-			loop.start ();
-		}
-		else {
-			// In this case, the effect is to load the data from a savestate and
-			// run the game
-			if (!is_initialized) {
-				tmp_live_savestate = latest_savestate.clone_in_tmp ();
-				init_phase_two (tmp_live_savestate.get_save_directory_path ());
-			}
-
-			loop.stop ();
-
-			// TODO: This will become "load_data_from_arbitrary_savestate ()"
-			load_data_from_latest_savestate ();
-
-			loop.start ();
+	public void resume () {
+		if (!is_ready) {
+			critical ("RetroRunner.resume() cannot be called if the game isn't playing");
+			return;
 		}
 
-		// In both cases the game is now running
+		// Unpause an already running game
+		loop.start ();
 		running = true;
 	}
 
-	// init_phase_two is used to setup the core, which needs to have the savestate
+	// instantiate_core is used to setup the core, which needs to have a savestate
 	// in /tmp created and ready
-	private void init_phase_two (string core_save_directory_path) throws Error {
+	private void instantiate_core (string core_save_directory_path) throws Error {
 		prepare_core (core_save_directory_path);
 
 		var present_analog_sticks = input_capabilities == null || input_capabilities.get_allow_analog_gamepads ();
@@ -235,19 +235,6 @@ public class Games.RetroRunner : Object, Runner {
 		running = false;
 
 		is_initialized = true;
-	}
-
-	private void load_data_from_latest_savestate () throws Error {
-		// TODO: This method assumes that there exists at least a savestate
-		// [Yeti]: Perhaps we should bug-proof this using an Assert ?
-		load_save_ram (latest_savestate.get_save_ram_path ());
-		core.reset ();
-		core.set_state (latest_savestate.get_snapshot_data ());
-
-		if (latest_savestate.has_media_data ())
-			media_set.selected_media_number = latest_savestate.get_media_data ();
-
-		is_ready = true;
 	}
 
 	private void deinit () {
@@ -340,16 +327,7 @@ public class Games.RetroRunner : Object, Runner {
 			return;
 
 		pause ();
-
-		try {
-			attempt_create_savestate ();
-		}
-		catch (Error e) {
-			warning (e.message);
-		}
-
 		deinit ();
-
 		stopped ();
 	}
 
@@ -415,44 +393,72 @@ public class Games.RetroRunner : Object, Runner {
 		var data_dir_path = Application.get_data_dir ();
 		var savestates_dir_path = Path.build_filename (data_dir_path, "savestates");
 		var uid = uid.get_uid ();
-
-		string core_id = null;
-
-		if (core_descriptor != null) {
-			core_id = core_descriptor.get_id ();
-		}
-		else {
-			core_id = core_source.get_core_id ();
-		}
-
+		var core_id = get_core_id ();
 		var core_id_prefix = core_id.replace (".libretro", "");
 
 		return Path.build_filename (savestates_dir_path, uid + "-" + core_id_prefix);
 	}
 
-	public void attempt_create_savestate () throws Error {
+	// Returns true/false to let the caller know if the savestate was created successfully
+	// Currently the caller is the DisplayView
+	// In the future we might want to throw Errors from here in case there is
+	// something that can be done, but right now there's nothing we can do if
+	// savestate creation fails except warn the user of unsaved progress via the
+	// QuitDialog in the DisplayView
+	public bool try_create_savestate (bool is_automatic) {
 		if (!core.get_can_access_state ()) // Check if the core can support savestates
-			return;
+			return false;
 
-		if (!should_save)
-			return;
+		try {
+			create_savestate (is_automatic);
+		}
+		catch (Error e) {
+			critical ("RetroRunner failed to create savestate: %s", e.message);
 
+			return false;
+		}
+
+		return true; // Savestate created successfully
+	}
+
+	private void create_savestate (bool is_automatic) throws Error {
+		// Decide if there are too many automatic savestates and delete the
+		// first one if so
+		var nr_automatic_savestates = count_automatic_savestates ();
+		if (is_automatic) {
+			var max_nr_automatic_savestates = 5;
+
+			if (nr_automatic_savestates >= max_nr_automatic_savestates)
+				delete_first_automatic_savestate ();
+		}
+
+		// Populate the savestate in tmp with data from the current state of the game
 		store_save_ram_in_tmp ();
-		// TODO: Also save the media data in tmp_savestate
+
+		if (media_set.get_size () > 1)
+			tmp_live_savestate.set_media_data (media_set);
+
 		tmp_live_savestate.set_snapshot_data (core.get_state ());
 		save_screenshot_in_tmp ();
+
+		// Populate the metadata file
+		var now_time = new DateTime.now ();
+		var platform_prefix = platform.get_uid_prefix ();
+		if (is_automatic)
+			tmp_live_savestate.set_metadata_automatic (now_time, platform_prefix, get_core_id ());
+		else {
+			var nr_manual_savestates = game_savestates.length - nr_automatic_savestates;
+			var savestate_name = _("New savestate %d").printf (nr_manual_savestates + 1);
+
+			tmp_live_savestate.set_metadata_manual (savestate_name, now_time, platform_prefix, get_core_id ());
+		}
 
 		// Save the tmp_live_savestate into the game savestates directory
 		var game_savestates_dir_path = get_game_savestates_dir_path ();
 		tmp_live_savestate.save_in (game_savestates_dir_path);
 		should_save = false;
 
-		/*
-		store_save_ram (new_savestate_dir);
-
-		if (media_set.get_size () > 1)
-			save_media_data (new_savestate_dir);
-		*/
+		// FIXME: The game_savestates array should be updated somehow here
 	}
 
 	private string get_options_path () throws Error {
@@ -555,6 +561,29 @@ public class Games.RetroRunner : Object, Runner {
 
 	public Retro.Core get_core () {
 		return core;
+	}
+
+	private int count_automatic_savestates () {
+		int counter = 0;
+
+		foreach (var savestate in game_savestates) {
+			if (savestate.is_automatic ())
+				counter++;
+		}
+
+		return counter;
+	}
+
+	private void delete_first_automatic_savestate () {
+		// Delete the first automatic savestate (assume they are sorted
+		// by creation date for now)
+
+		foreach (var savestate in game_savestates) {
+			if (savestate.is_automatic ()) {
+				savestate.delete_from_disk ();
+				break;
+			}
+		}
 	}
 }
 

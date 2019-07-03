@@ -82,7 +82,15 @@ public class Games.CommandRunner : Object, Runner {
 	public void stop () {
 	}
 
-	public void attempt_create_savestate () {
+	public bool try_create_savestate (bool is_automatic) {
+		return false;
+	}
+
+	public void load_savestate (Savestate savestate) {
+	}
+
+	public Savestate[] get_savestates () {
+		return {};
 	}
 
 	public InputMode[] get_available_input_modes () {
