@@ -217,6 +217,7 @@ dependencies = [
   grilo_dep,
   gtk_dep,
   handy_dep,
+  m_dep,
   manette_dep,
   retro_gtk_dep,
   rsvg_dep,
