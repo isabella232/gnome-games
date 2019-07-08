@@ -14,9 +14,6 @@ private class Games.CollectionHeaderBar : Gtk.Stack {
 
 			_viewstack = value;
 			view_switcher.stack = _viewstack;
-
-			if (viewstack != null)
-				viewstack_child_changed_id = viewstack.notify["visible-child"].connect (update_title);
 		}
 	}
 
@@ -46,8 +43,6 @@ private class Games.CollectionHeaderBar : Gtk.Stack {
 	private Gtk.HeaderBar subview_header_bar;
 	[GtkChild]
 	private Hdy.Squeezer title_squeezer;
-	[GtkChild]
-	private Gtk.Label title_label;
 	[GtkChild]
 	private Hdy.ViewSwitcher view_switcher;
 	[GtkChild]
@@ -79,20 +74,6 @@ private class Games.CollectionHeaderBar : Gtk.Stack {
 	private void update_adaptive_state () {
 		bool showing_title = title_squeezer.visible_child != view_switcher;
 		adaptive_state.is_showing_bottom_bar = showing_title && !is_collection_empty;
-
-		update_title ();
-	}
-
-	private void update_title () {
-		var title = _("Games");
-
-		if (!is_collection_empty) {
-			var child = viewstack.visible_child;
-
-			viewstack.child_get (child, "title", out title, null);
-		}
-
-		title_label.label = title;
 	}
 
 	private void update_subview () {
