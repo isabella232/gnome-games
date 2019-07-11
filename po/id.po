@@ -2,25 +2,25 @@
 # Copyright (C) 2016 gnome-games's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-games package.
 # Lorenz Adam Damara <lorenzadam@resolution-consulting.co.id>, 2016.
-#
+# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017, 2018, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games gnome-3-26\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-03-23 18:36+0000\n"
-"PO-Revision-Date: 2019-03-30 17:14+0700\n"
+"POT-Creation-Date: 2019-06-15 10:55+0000\n"
+"PO-Revision-Date: 2019-07-11 15:54+0700\n"
 "Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.2.3\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:6
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:43
-#: data/ui/collection-header-bar.ui:68 data/ui/display-header-bar.ui:6
-#: src/ui/application.vala:25
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:47
+#: data/ui/display-header-bar.ui:11 src/ui/application.vala:25
+#: src/ui/collection-header-bar.vala:87
 msgid "Games"
 msgstr "Permainan"
 
@@ -70,7 +70,7 @@ msgstr "Mainkan permainan"
 msgid "Resume your game to where you left it"
 msgstr "Lanjutkan permainan Anda dimana Anda meninggalkannya"
 
-#: data/org.gnome.Games.appdata.xml.in.in:83
+#: data/org.gnome.Games.appdata.xml.in.in:115
 msgid "The GNOME Project"
 msgstr "Proyek GNOME"
 
@@ -87,7 +87,7 @@ msgstr "Lihat dan mainkan koleksi permainan video Anda"
 msgid "game;videogame;video game;player;"
 msgstr "permainan;videogame;video game;pemain;"
 
-#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:44
+#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:49
 msgid "Fullscreen"
 msgstr "Layar Penuh"
 
@@ -136,74 +136,66 @@ msgstr ""
 "Inti Libretro yang disukai untuk digunakan untuk menjalankan permainan. Inti "
 "yang berbeda dapat digunakan jika inti pilihan kehilangan perangkat tegar."
 
-#: data/ui/collection-box.ui:53
-msgid "Developers"
-msgstr "Pengembang"
-
-#: data/ui/collection-box.ui:63 src/ui/preferences-page-platforms.vala:9
+#: data/ui/collection-box.ui:59 src/ui/preferences-page-platforms.vala:9
 msgid "Platforms"
 msgstr "Platform"
 
-#: data/ui/collection-box.ui:86
+#: data/ui/collection-box.ui:82
 msgid "Loading"
 msgstr "Memuat"
 
-#: data/ui/collection-header-bar.ui:18
+#: data/ui/collection-header-bar.ui:22
 msgid "Add game files…"
 msgstr "Tambah berkas permainan…"
 
 #. Translators: tooltip for the application menu button
-#: data/ui/collection-header-bar.ui:37
+#: data/ui/collection-header-bar.ui:41
 msgid "Menu"
 msgstr "Menu"
 
-#: data/ui/collection-header-bar.ui:86
+#: data/ui/collection-header-bar.ui:91 data/ui/collection-header-bar.ui:148
 msgid "Search"
 msgstr "Cari"
 
-#: data/ui/collection-header-bar.ui:112 data/ui/preferences-window.ui:5
-#: data/ui/preferences-window.ui:26
-msgid "Preferences"
-msgstr "Preferensi"
-
-#: data/ui/collection-header-bar.ui:120
-msgid "Keyboard Shortcuts"
-msgstr "Pintasan Papan Tik"
-
-#: data/ui/collection-header-bar.ui:128
-msgid "Help"
-msgstr "Bantuan"
-
-#: data/ui/collection-header-bar.ui:136
-msgid "About Games"
-msgstr "Tentang Permainan"
-
-#: data/ui/display-header-bar.ui:21 data/ui/preferences-subpage-gamepad.ui:82
-#: data/ui/preferences-subpage-keyboard.ui:83 data/ui/preferences-window.ui:54
+#: data/ui/collection-header-bar.ui:126 data/ui/display-header-bar.ui:25
+#: data/ui/preferences-subpage-gamepad.ui:83
+#: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:54
 msgid "Back"
 msgstr "Kembali"
 
-#: data/ui/display-header-bar.ui:70
+#: data/ui/collection-header-bar.ui:179
+msgid "Pr_eferences"
+msgstr "Pr_eferensi"
+
+#: data/ui/collection-header-bar.ui:187
+msgid "_Keyboard Shortcuts"
+msgstr "Pintasan Papan Ti_k"
+
+#: data/ui/collection-header-bar.ui:195
+msgid "_Help"
+msgstr "_Bantuan"
+
+#: data/ui/collection-header-bar.ui:203
+msgid "_About Games"
+msgstr "Tent_ang Permainan"
+
+#: data/ui/display-header-bar.ui:76
 msgid "Restore"
 msgstr "Pulihkan"
 
-#: data/ui/dummy-display.ui:36
+#: data/ui/dummy-display.ui:37
 msgid "This is a dummy game display"
 msgstr "Ini adalah tampilan permainan dumi"
 
-#: data/ui/dummy-display.ui:51
-msgid "If you see this, this is a bug."
-msgstr "Jika Anda melihat ini, ini adalah bug."
-
-#: data/ui/dummy-display.ui:64
-msgid "Please contact the developers."
-msgstr "Mohon menghubungi pengembang."
+#: data/ui/dummy-display.ui:53
+msgid "If you see this, this is a bug. Please contact the developers."
+msgstr "Jika Anda melihat ini, ini adalah kutu."
 
 #: data/ui/empty-collection.ui:29
 msgid "No games found"
 msgstr "Tidak ada permainan yang ditemukan"
 
-#: data/ui/empty-collection.ui:43
+#: data/ui/empty-collection.ui:44
 msgid ""
 "Install games or add directories containing games to your search sources."
 msgstr ""
@@ -218,45 +210,88 @@ msgstr "Masukan Gamepad"
 msgid "Keyboard Input"
 msgstr "Masukan Papan Tik"
 
-#: data/ui/media-menu-button.ui:11
+#: data/ui/media-menu-button.ui:13
 msgid "Media"
 msgstr "Media"
 
-#: data/ui/preferences-page-controllers.ui:9
+#: data/ui/preferences-page-backup-restore.ui:10
+msgid ""
+"Backup save states and in-game saves. This can be used for moving the data "
+"to another device or for restoring it later. Desktop, Steam and LÖVE games "
+"cannot be backed up."
+msgstr ""
+"Cadangkan keadaan menyimpan dan penyimpanan dalam permainan. Ini dapat "
+"digunakan untuk memindahkan data ke perangkat lain atau untuk "
+"mengembalikannya nanti. Destop, Steam dan permainan LÖVE tidak bisa "
+"dicadangkan."
+
+#: data/ui/preferences-page-backup-restore.ui:38
+#: src/ui/preferences-page-backup-restore.vala:34
+msgid "Back up save data"
+msgstr "Cadangkan data simpanan"
+
+#: data/ui/preferences-page-backup-restore.ui:47
+#: src/ui/preferences-page-backup-restore.vala:36
+msgid "_Back Up"
+msgstr "_Cadangkan"
+
+#: data/ui/preferences-page-backup-restore.ui:62
+msgid ""
+"Restore save data for games from existing backup. This will replace existing "
+"saves and cannot be undone."
+msgstr ""
+"Pulihkan simpanan data untuk permainan dari cadangan yang ada. Ini akan "
+"menggantikan simpanan yang ada dan tidak dapat dibatalkan."
+
+#: data/ui/preferences-page-backup-restore.ui:90
+#: src/ui/preferences-page-backup-restore.vala:12
+msgid "Restore save data"
+msgstr "Pulihkan data simpanan"
+
+#: data/ui/preferences-page-backup-restore.ui:99
+#: src/ui/preferences-page-backup-restore.vala:14
+msgid "_Restore"
+msgstr "_Pulihkan"
+
+#: data/ui/preferences-page-controllers.ui:10
 msgid "Gamepads"
 msgstr "Gamepad"
 
-#: data/ui/preferences-page-controllers.ui:32
-#: src/ui/preferences-page-controllers.vala:75
+#: data/ui/preferences-page-controllers.ui:30
+#: src/ui/preferences-page-controllers.vala:73
 msgid "Keyboard"
 msgstr "Papan Tik"
 
-#: data/ui/preferences-page-video.ui:9
+#: data/ui/preferences-page-video.ui:10
 msgid "Filter"
 msgstr "Penyaring"
 
-#: data/ui/preferences-subpage-gamepad.ui:21
-#: data/ui/preferences-subpage-keyboard.ui:22
+#: data/ui/preferences-subpage-gamepad.ui:22
+#: data/ui/preferences-subpage-keyboard.ui:23
 msgctxt "Keyboard configuration factory reset"
 msgid "Reset"
 msgstr "Atur Ulang"
 
-#: data/ui/preferences-subpage-gamepad.ui:34
-#: data/ui/preferences-subpage-keyboard.ui:35
+#: data/ui/preferences-subpage-gamepad.ui:35
+#: data/ui/preferences-subpage-keyboard.ui:36
 msgid "Configure"
 msgstr "Konfigurasikan"
 
-#: data/ui/preferences-subpage-gamepad.ui:52
-#: data/ui/preferences-subpage-keyboard.ui:53
+#: data/ui/preferences-subpage-gamepad.ui:53
+#: data/ui/preferences-subpage-keyboard.ui:54
 msgid "Skip"
 msgstr "Lewati"
 
-#: data/ui/preferences-subpage-gamepad.ui:100
-#: data/ui/preferences-subpage-keyboard.ui:101 data/ui/quit-dialog.ui:15
+#: data/ui/preferences-subpage-gamepad.ui:101
+#: data/ui/preferences-subpage-keyboard.ui:102 data/ui/quit-dialog.ui:15
 #: data/ui/reset-controller-mapping-dialog.ui:15
 #: data/ui/resume-failed-dialog.ui:14
 msgid "Cancel"
 msgstr "Batal"
+
+#: data/ui/preferences-window.ui:5 data/ui/preferences-window.ui:26
+msgid "Preferences"
+msgstr "Preferensi"
 
 #: data/ui/quit-dialog.ui:9
 msgid "Are you sure you want to quit?"
@@ -316,112 +351,171 @@ msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Mulai Ulang"
 
-#: data/ui/shortcuts-window.ui:10
+#: data/ui/shortcuts-window.ui:11
 msgid "Shortcuts"
 msgstr "Pintasan"
 
-#: data/ui/shortcuts-window.ui:14
+#: data/ui/shortcuts-window.ui:15
 msgid "General"
 msgstr "Umum"
 
-#: data/ui/shortcuts-window.ui:19
+#: data/ui/shortcuts-window.ui:20
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Keluar"
 
-#: data/ui/shortcuts-window.ui:27 data/ui/shortcuts-window.ui:139
+#: data/ui/shortcuts-window.ui:28 data/ui/shortcuts-window.ui:212
 msgid "Collection"
 msgstr "Koleksi"
 
-#: data/ui/shortcuts-window.ui:32
+#: data/ui/shortcuts-window.ui:33
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Cari"
 
-#: data/ui/shortcuts-window.ui:40 data/ui/shortcuts-window.ui:48
+#: data/ui/shortcuts-window.ui:41 data/ui/shortcuts-window.ui:49
 msgctxt "shortcut window"
 msgid "Navigate"
 msgstr "Menavigasi"
 
-#: data/ui/shortcuts-window.ui:41
+#: data/ui/shortcuts-window.ui:42
 msgctxt "shortcut window"
 msgid "Left analog stick"
 msgstr "Tongkat analog kiri"
 
-#: data/ui/shortcuts-window.ui:49
+#: data/ui/shortcuts-window.ui:50
 msgctxt "shortcut window"
 msgid "Directional pad"
 msgstr "Pad arah"
 
-#: data/ui/shortcuts-window.ui:56
+#: data/ui/shortcuts-window.ui:57
 msgctxt "shortcut window"
 msgid "Select view"
 msgstr "Tampilan pilih"
 
-#: data/ui/shortcuts-window.ui:57
+#: data/ui/shortcuts-window.ui:58
 msgctxt "shortcut window"
 msgid "Front shoulder buttons"
 msgstr "Tombol bahu depan"
 
-#: data/ui/shortcuts-window.ui:64 data/ui/shortcuts-window.ui:72
+#: data/ui/shortcuts-window.ui:65 data/ui/shortcuts-window.ui:73
 msgctxt "shortcut window"
 msgid "Start game"
 msgstr "Mulai permainan"
 
-#: data/ui/shortcuts-window.ui:65
+#: data/ui/shortcuts-window.ui:66
 msgctxt "shortcut window"
 msgid "Start button"
 msgstr "Tombol mulai"
 
-#: data/ui/shortcuts-window.ui:73 data/ui/shortcuts-window.ui:116
+#: data/ui/shortcuts-window.ui:74 data/ui/shortcuts-window.ui:117
 msgctxt "shortcut window"
 msgid "Bottom action button"
 msgstr "Tombol aksi bawah"
 
-#: data/ui/shortcuts-window.ui:80
+#: data/ui/shortcuts-window.ui:81
 msgid "In Game"
 msgstr "Dalam Permainan"
 
-#: data/ui/shortcuts-window.ui:85
+#: data/ui/shortcuts-window.ui:86
 msgctxt "shortcut window"
 msgid "Toggle fullscreen"
 msgstr "Jungkitkan layar penuh"
 
-#: data/ui/shortcuts-window.ui:92
+#: data/ui/shortcuts-window.ui:93
 msgctxt "shortcut window"
 msgid "Exit fullscreen"
 msgstr "Keluar layar penuh"
 
-#: data/ui/shortcuts-window.ui:99 data/ui/shortcuts-window.ui:107
+#: data/ui/shortcuts-window.ui:100 data/ui/shortcuts-window.ui:108
 msgctxt "shortcut window"
 msgid "Go back to the collection"
 msgstr "Kembali ke koleksi"
 
-#: data/ui/shortcuts-window.ui:108
+#: data/ui/shortcuts-window.ui:109
 msgctxt "shortcut window"
 msgid "Home button"
 msgstr "Tombol beranda"
 
-#: data/ui/shortcuts-window.ui:115
+#: data/ui/shortcuts-window.ui:116
 msgctxt "shortcut window"
 msgid "Accept"
 msgstr "Terima"
 
-#: data/ui/shortcuts-window.ui:123
+#: data/ui/shortcuts-window.ui:124
 msgctxt "shortcut window"
 msgid "Cancel"
 msgstr "Batal"
 
-#: data/ui/shortcuts-window.ui:124
+#: data/ui/shortcuts-window.ui:125
 msgctxt "shortcut window"
 msgid "Right action button"
 msgstr "Tombol aksi kanan"
 
-#: data/ui/shortcuts-window.ui:135
+#: data/ui/shortcuts-window.ui:136
+#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:7
+msgid "Nintendo DS"
+msgstr "Nintendo DS"
+
+#: data/ui/shortcuts-window.ui:140
+#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:38
+msgid "Screen Layout"
+msgstr "Tata Letak Layar"
+
+#: data/ui/shortcuts-window.ui:145
+msgctxt "shortcut window"
+msgid "Vertical"
+msgstr "Vertikal"
+
+#: data/ui/shortcuts-window.ui:152 data/ui/shortcuts-window.ui:160
+msgctxt "shortcut window"
+msgid "Side by side"
+msgstr "Bersebelahan"
+
+#: data/ui/shortcuts-window.ui:153
+msgctxt "shortcut window"
+msgid "Bottom to the right"
+msgstr "Bawah ke kanan"
+
+#: data/ui/shortcuts-window.ui:161
+msgctxt "shortcut window"
+msgid "Bottom to the left"
+msgstr "Bawah ke kiri"
+
+#: data/ui/shortcuts-window.ui:168
+msgctxt "shortcut window"
+msgid "Single screen"
+msgstr "Layar tunggal"
+
+#: data/ui/shortcuts-window.ui:176
+msgid "Screen Switching"
+msgstr "Beralih layar"
+
+#: data/ui/shortcuts-window.ui:181
+msgctxt "shortcut window"
+msgid "Show top screen"
+msgstr "Tampilkan layar atas"
+
+#: data/ui/shortcuts-window.ui:188
+msgctxt "shortcut window"
+msgid "Show bottom screen"
+msgstr "Tampilkan layar bawah"
+
+#: data/ui/shortcuts-window.ui:196
+msgctxt "shortcut window"
+msgid "Toggle screen"
+msgstr "Jungkitkan layar"
+
+#: data/ui/shortcuts-window.ui:197
+msgctxt "shortcut window"
+msgid "Press right analog stick"
+msgstr "Tekan tongkat analog kanan"
+
+#: data/ui/shortcuts-window.ui:208
 msgid "Cheats"
 msgstr "Tipuan"
 
-#: data/ui/shortcuts-window.ui:144
+#: data/ui/shortcuts-window.ui:217
 msgctxt "shortcut window"
 msgid "Contribute"
 msgstr "Kontribusi"
@@ -536,10 +630,6 @@ msgstr "Apakah akan melihat layar atas atau bawah dalam mode sakelar cepat."
 msgid "Change Screen"
 msgstr "Ubah Layar"
 
-#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:38
-msgid "Screen Layout"
-msgstr "Tata Letak Layar"
-
 #: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:104
 msgid "Vertical"
 msgstr "Vertikal"
@@ -554,7 +644,6 @@ msgstr "Layar tunggal"
 
 #: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:114
 #: src/dummy/dummy-platform.vala:9 src/dummy/dummy-platform.vala:13
-#: src/ui/developer-list-item.vala:26
 msgid "Unknown"
 msgstr "Tidak dikenal"
 
@@ -565,10 +654,6 @@ msgstr "Bawah ke kanan"
 #: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:123
 msgid "Bottom to the left"
 msgstr "Bawah ke kiri"
-
-#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:7
-msgid "Nintendo DS"
-msgstr "Nintendo DS"
 
 #: plugins/playstation/src/playstation-header.vala:27
 #, c-format
@@ -926,7 +1011,8 @@ msgstr "WonderSwan Color"
 msgid "Select game files"
 msgstr "Pilih berkas permainan"
 
-#: src/ui/application.vala:172
+#: src/ui/application.vala:172 src/ui/preferences-page-backup-restore.vala:14
+#: src/ui/preferences-page-backup-restore.vala:36
 msgid "_Cancel"
 msgstr "_Batal"
 
@@ -990,12 +1076,26 @@ msgstr "Pindahkan sumbu yang sesuai ke atas/bawah pada gamepad Anda"
 msgid "Press suitable key on your keyboard"
 msgstr "Tekan tombol yang sesuai pada papan tik Anda"
 
-#: src/ui/media-selector.vala:38
+#: src/ui/media-menu-button.vala:50
 #, c-format
 msgid "Media %d"
 msgstr "Media %d"
 
-#: src/ui/preferences-page-controllers.vala:24
+#: src/ui/preferences-page-backup-restore.vala:6
+msgid "Back Up & Restore"
+msgstr "Cadangkan dan Pulihkan"
+
+#: src/ui/preferences-page-backup-restore.vala:23
+#, c-format
+msgid "Couldn’t restore: %s"
+msgstr "Tak bisa memulihkan: %s"
+
+#: src/ui/preferences-page-backup-restore.vala:53
+#, c-format
+msgid "Couldn’t back up: %s"
+msgstr "Tak bisa mencadangkan: %s"
+
+#: src/ui/preferences-page-controllers.vala:22
 msgid "Controllers"
 msgstr "Pengendali"
 
@@ -1093,6 +1193,22 @@ msgstr "%s:%lu: Akhir baris tidak terduga, diharapkan token."
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: Token tidak terduga %s, diharapkan akhir baris."
+
+#: src/utils/file-operations.vala:26
+#, c-format
+msgid "Error: %s (%d)"
+msgstr "Galat: %s (%d)"
+
+#: src/utils/file-operations.vala:78
+#, c-format
+msgid "Error writing “%s”: %s (%d)"
+msgstr "Galat menulis “%s”: %s (%d)"
+
+#~ msgid "Developers"
+#~ msgstr "Pengembang"
+
+#~ msgid "Please contact the developers."
+#~ msgstr "Mohon menghubungi pengembang."
 
 #~ msgid "@icon@"
 #~ msgstr "@icon@"
