@@ -42,6 +42,18 @@
   </screenshots>
 
   <releases>
+    <release version="3.33.4" type="development" date="2019-07-20" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>Center headerbar title in adaptive mode</li>
+        </ul>
+        <p>Fixes:</p>
+        <ul>
+          <li>Explicitly specify 'm' dependency</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.33.3" type="development" date="2019-06-21" urgency="medium">
       <description>
         <p>Improvements:</p>

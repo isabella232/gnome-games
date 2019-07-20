@@ -1,4 +1,18 @@
 ==============
+Version 3.33.4
+==============
+
+* Center headerbar title in adaptive mode.
+
+* Explicitly specify 'm' dependency.
+
+* Translation updates
+ Brazilian Portuguese
+ Croatian
+ Indonesian
+ Spanish
+
+==============
 Version 3.33.3
 ==============
 
