@@ -123,18 +123,18 @@
                 },
                 {
                     "type" : "file",
-                    "path" : "stella.hunchy.1.png",
-                    "dest-filename" : "stella.hunchy.1.png"
+                    "path" : "stella2014.hunchy.1.png",
+                    "dest-filename" : "stella2014.hunchy.1.png"
                 },
                 {
                     "type" : "file",
-                    "path" : "stella.hunchy.expected",
-                    "dest-filename" : "stella.hunchy.expected"
+                    "path" : "stella2014.hunchy.expected",
+                    "dest-filename" : "stella2014.hunchy.expected"
                 },
                 {
                     "type" : "file",
-                    "path" : "stella.hunchy.test",
-                    "dest-filename" : "stella.hunchy.test"
+                    "path" : "stella2014.hunchy.test",
+                    "dest-filename" : "stella2014.hunchy.test"
                 }
             ]
         }

@@ -41,7 +41,7 @@ modules:
   - libretro-cores/libretro-mgba.json
   - libretro-cores/libretro-nestopia.json
   - libretro-cores/libretro-pcsx_rearmed.json
-  - libretro-cores/libretro-stella.json
+  - libretro-cores/libretro-stella2014.json
   - medias/240p-test-suite-md.json
   - medias/240p-test-suite-nes.json
   - medias/240p-test-suite-pce.json

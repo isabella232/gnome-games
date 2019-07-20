@@ -1,9 +1,0 @@
-[Retro Reftest]
-Path=/stella/hunchy
-Core=/app/lib/libretro/stella_libretro.so
-Medias=hunchy.a26;
-
-[Options]
-
-[Frame 1]
-Video=stella.hunchy.1.png
