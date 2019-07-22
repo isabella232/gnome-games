@@ -329,6 +329,11 @@ public class Games.Application : Gtk.Application {
 				debug ("Error: %s", e.message);
 			}
 		}
+
+		// Re-organize data_dir layout if necessary
+		// This operation has to be executed _after_ the PlatformsRegister has
+		// been populated and therefore this call is placed here
+		Migrator.apply_migration_if_necessary ();
 	}
 
 	private async Game? game_for_uris (Uri[] uris) {

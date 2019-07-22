@@ -30,6 +30,7 @@ vala_sources = [
   'core/media-info.vala',
   'core/media-set/media-set.vala',
   'core/media-set/media-set-error.vala',
+  'core/migrator.vala',
   'core/platform.vala',
   'core/platform-register.vala',
   'core/players.vala',
