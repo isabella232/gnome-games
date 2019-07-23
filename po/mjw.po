@@ -1,0 +1,1004 @@
+# Karbi translation for gnome-games.
+# Copyright (C) 2019 gnome-games's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-games package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Jor Teron <jor.teron@gmail.com>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-games gnome-3-32\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
+"POT-Creation-Date: 2019-05-25 17:29+0000\n"
+"PO-Revision-Date: 2019-07-23 23:42+0530\n"
+"Last-Translator: Jor Teron <jor.teron@gmail.com>\n"
+"Language-Team: Karbi <karbi.translation@gmail.com>\n"
+"Language: mjw\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: n=2 ; ( n != 1 )\n"
+"X-Generator: Gtranslator 2.91.7\n"
+
+#: data/org.gnome.Games.appdata.xml.in.in:6
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:40
+#: data/ui/collection-header-bar.ui:67 data/ui/display-header-bar.ui:6
+#: src/ui/application.vala:25
+msgid "Games"
+msgstr "Games"
+
+#: data/org.gnome.Games.appdata.xml.in.in:7
+msgid "Simple game launcher for GNOME"
+msgstr "Joike GNOME game kangpu phan"
+
+#: data/org.gnome.Games.appdata.xml.in.in:10
+msgid ""
+"Games is a GNOME 3 application to browse your video games library and to "
+"easily pick and play a game from it. It aims to do for games what Music "
+"already does for your music library."
+msgstr ""
+
+#: data/org.gnome.Games.appdata.xml.in.in:15
+msgid ""
+"You want to install Games if you just want a very simple and comfortable way "
+"to play your games and you don’t need advanced features such as speedrunning "
+"tools or video game development tools."
+msgstr ""
+
+#: data/org.gnome.Games.appdata.xml.in.in:20
+msgid "Features:"
+msgstr ""
+
+#: data/org.gnome.Games.appdata.xml.in.in:22
+msgid "List your installed games, your Steam games, your game ROMs…"
+msgstr ""
+
+#: data/org.gnome.Games.appdata.xml.in.in:23
+msgid "Search in your games collection"
+msgstr ""
+
+#: data/org.gnome.Games.appdata.xml.in.in:24
+msgid "Play your games"
+msgstr ""
+
+#: data/org.gnome.Games.appdata.xml.in.in:25
+msgid "Resume your game to where you left it"
+msgstr ""
+
+#: data/org.gnome.Games.appdata.xml.in.in:91
+msgid "The GNOME Project"
+msgstr "GNOME Project"
+
+#: data/org.gnome.Games.desktop.in.in:4
+msgid "Video game player"
+msgstr ""
+
+#: data/org.gnome.Games.desktop.in.in:5
+msgid "View and play your video games collection"
+msgstr ""
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Games.desktop.in.in:7
+msgid "game;videogame;video game;player;"
+msgstr ""
+
+#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:43
+msgid "Fullscreen"
+msgstr ""
+
+#: data/org.gnome.Games.gschema.xml:11
+msgid "Whether the games should be displayed in full screen or not."
+msgstr ""
+
+#: data/org.gnome.Games.gschema.xml:15
+msgid "Video filter"
+msgstr ""
+
+#: data/org.gnome.Games.gschema.xml:16
+msgid ""
+"Filter for the game video output. Allowed values are: “smooth” (blurry "
+"pixels), “sharp” (blocky pixels), “crt” (CRT emulation)."
+msgstr ""
+
+#: data/org.gnome.Games.gschema.xml:20
+msgid "Window maximized"
+msgstr ""
+
+#: data/org.gnome.Games.gschema.xml:21
+msgid "Window maximized state."
+msgstr ""
+
+#: data/org.gnome.Games.gschema.xml:25
+msgid "Window size"
+msgstr ""
+
+#: data/org.gnome.Games.gschema.xml:26
+msgid "Window size (width and height)."
+msgstr ""
+
+#: data/ui/collection-box.ui:50
+msgid "Developers"
+msgstr "Developers"
+
+#: data/ui/collection-box.ui:60
+msgid "Platforms"
+msgstr "Platforms"
+
+#: data/ui/collection-box.ui:83
+msgid "Loading"
+msgstr ""
+
+#: data/ui/collection-header-bar.ui:17
+msgid "Add game files…"
+msgstr ""
+
+#. Translators: tooltip for the application menu button
+#: data/ui/collection-header-bar.ui:36
+msgid "Menu"
+msgstr ""
+
+#: data/ui/collection-header-bar.ui:85
+msgid "Search"
+msgstr "Kiri"
+
+#: data/ui/collection-header-bar.ui:111 data/ui/preferences-window.ui:5
+#: data/ui/preferences-window.ui:26
+msgid "Preferences"
+msgstr ""
+
+#: data/ui/collection-header-bar.ui:119
+msgid "Keyboard Shortcuts"
+msgstr "Keyboard Shortcuts"
+
+#: data/ui/collection-header-bar.ui:127
+msgid "Help"
+msgstr "Help"
+
+#: data/ui/collection-header-bar.ui:135
+msgid "About Games"
+msgstr "Games Aputhak"
+
+#: data/ui/display-header-bar.ui:20 data/ui/preferences-subpage-gamepad.ui:82
+#: data/ui/preferences-subpage-keyboard.ui:83 data/ui/preferences-window.ui:54
+msgid "Back"
+msgstr "Aphi"
+
+#: data/ui/display-header-bar.ui:69
+msgid "Restore"
+msgstr ""
+
+#: data/ui/dummy-display.ui:36
+msgid "This is a dummy game display"
+msgstr ""
+
+#: data/ui/dummy-display.ui:51
+msgid "If you see this, this is a bug."
+msgstr "Nangli la nanglo lote, lake bug cheman po."
+
+#: data/ui/dummy-display.ui:64
+msgid "Please contact the developers."
+msgstr ""
+
+#: data/ui/empty-collection.ui:29
+msgid "No games found"
+msgstr "Game hui longle"
+
+#: data/ui/empty-collection.ui:43
+msgid ""
+"Install games or add directories containing games to your search sources."
+msgstr ""
+
+#: data/ui/input-mode-switcher.ui:16
+msgid "Gamepad Input"
+msgstr ""
+
+#: data/ui/input-mode-switcher.ui:36
+msgid "Keyboard Input"
+msgstr ""
+
+#: data/ui/media-menu-button.ui:11
+msgid "Media"
+msgstr ""
+
+#: data/ui/preferences-page-controllers.ui:9
+msgid "Gamepads"
+msgstr "Gamepads"
+
+#: data/ui/preferences-page-controllers.ui:32
+#: src/ui/preferences-page-controllers.vala:75
+msgid "Keyboard"
+msgstr "Keyboard"
+
+#: data/ui/preferences-page-video.ui:9
+msgid "Filter"
+msgstr ""
+
+#: data/ui/preferences-subpage-gamepad.ui:21
+#: data/ui/preferences-subpage-keyboard.ui:22
+msgctxt "Keyboard configuration factory reset"
+msgid "Reset"
+msgstr ""
+
+#: data/ui/preferences-subpage-gamepad.ui:34
+#: data/ui/preferences-subpage-keyboard.ui:35
+msgid "Configure"
+msgstr ""
+
+#: data/ui/preferences-subpage-gamepad.ui:52
+#: data/ui/preferences-subpage-keyboard.ui:53
+msgid "Skip"
+msgstr ""
+
+#: data/ui/preferences-subpage-gamepad.ui:100
+#: data/ui/preferences-subpage-keyboard.ui:101 data/ui/quit-dialog.ui:15
+#: data/ui/reset-controller-mapping-dialog.ui:15
+#: data/ui/resume-failed-dialog.ui:14
+msgid "Cancel"
+msgstr ""
+
+#: data/ui/quit-dialog.ui:9
+msgid "Are you sure you want to quit?"
+msgstr ""
+
+#: data/ui/quit-dialog.ui:10
+msgid "All unsaved progress will be lost."
+msgstr ""
+
+#: data/ui/quit-dialog.ui:21
+msgid "Quit"
+msgstr ""
+
+#: data/ui/remote-display.ui:36
+msgid "Use the game’s own window to play it"
+msgstr ""
+
+#: data/ui/remote-display.ui:51
+msgid "This game isn’t integrated to GNOME Games."
+msgstr ""
+
+#: data/ui/remote-display.ui:64
+msgid "You have to use its own window to play it."
+msgstr ""
+
+#: data/ui/reset-controller-mapping-dialog.ui:9
+msgid "Factory reset mapping for this controller?"
+msgstr ""
+
+#: data/ui/reset-controller-mapping-dialog.ui:10
+msgid "Your mapping will be lost."
+msgstr ""
+
+#: data/ui/reset-controller-mapping-dialog.ui:21
+msgctxt "Confirm controller configuration factory reset"
+msgid "Reset"
+msgstr ""
+
+#: data/ui/resume-dialog.ui:9
+msgid "Resume last game?"
+msgstr ""
+
+#: data/ui/resume-dialog.ui:13
+msgid "Restart"
+msgstr ""
+
+#: data/ui/resume-dialog.ui:20
+msgid "Resume"
+msgstr ""
+
+#: data/ui/resume-failed-dialog.ui:9
+msgid "Resuming failed. Do you want to restart the game?"
+msgstr ""
+
+#: data/ui/resume-failed-dialog.ui:20
+msgctxt "Resuming a game failed dialog"
+msgid "Reset"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:10
+msgid "Shortcuts"
+msgstr "Shortcuts"
+
+#: data/ui/shortcuts-window.ui:14
+msgid "General"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:19
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:27 data/ui/shortcuts-window.ui:139
+msgid "Collection"
+msgstr "Collection"
+
+#: data/ui/shortcuts-window.ui:32
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Kiri"
+
+#: data/ui/shortcuts-window.ui:40 data/ui/shortcuts-window.ui:48
+msgctxt "shortcut window"
+msgid "Navigate"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:41
+msgctxt "shortcut window"
+msgid "Left analog stick"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:49
+msgctxt "shortcut window"
+msgid "Directional pad"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:56
+msgctxt "shortcut window"
+msgid "Select view"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:57
+msgctxt "shortcut window"
+msgid "Front shoulder buttons"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:64 data/ui/shortcuts-window.ui:72
+msgctxt "shortcut window"
+msgid "Start game"
+msgstr "Pathu pangcheng"
+
+#: data/ui/shortcuts-window.ui:65
+msgctxt "shortcut window"
+msgid "Start button"
+msgstr "Pangcheng button"
+
+#: data/ui/shortcuts-window.ui:73 data/ui/shortcuts-window.ui:116
+msgctxt "shortcut window"
+msgid "Bottom action button"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:80
+msgid "In Game"
+msgstr "Game long"
+
+#: data/ui/shortcuts-window.ui:85
+msgctxt "shortcut window"
+msgid "Toggle fullscreen"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:92
+msgctxt "shortcut window"
+msgid "Exit fullscreen"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:99 data/ui/shortcuts-window.ui:107
+msgctxt "shortcut window"
+msgid "Go back to the collection"
+msgstr "Collection long ke-dam"
+
+#: data/ui/shortcuts-window.ui:108
+msgctxt "shortcut window"
+msgid "Home button"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:115
+msgctxt "shortcut window"
+msgid "Accept"
+msgstr "Deng-ji"
+
+#: data/ui/shortcuts-window.ui:123
+msgctxt "shortcut window"
+msgid "Cancel"
+msgstr "Deng-de"
+
+#: data/ui/shortcuts-window.ui:124
+msgctxt "shortcut window"
+msgid "Right action button"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:135
+msgid "Cheats"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:144
+msgctxt "shortcut window"
+msgid "Contribute"
+msgstr "Contribute"
+
+#: plugins/desktop/src/desktop-plugin.vala:6
+msgid "Desktop"
+msgstr "Desktop"
+
+#: plugins/desktop/src/desktop-plugin.vala:52
+#, c-format
+msgid "Invalid command “%s”."
+msgstr ""
+
+#: plugins/desktop/src/desktop-plugin.vala:65
+#, c-format
+msgid "Tracker listed file not found: “%s”."
+msgstr ""
+
+#: plugins/desktop/src/desktop-plugin.vala:71
+#, c-format
+msgid "Couldn’t parse desktop entry “%s”."
+msgstr ""
+
+#: plugins/desktop/src/desktop-plugin.vala:81
+#, c-format
+msgid "“%s” shouldn’t be displayed."
+msgstr ""
+
+#: plugins/desktop/src/desktop-plugin.vala:84
+#, c-format
+msgid "“%s” is hidden."
+msgstr "“%s” phan matujoi."
+
+#: plugins/desktop/src/desktop-plugin.vala:93
+#, c-format
+msgid "“%s” has blacklisted category “%s”."
+msgstr ""
+
+#: plugins/desktop/src/desktop-plugin.vala:102
+#, c-format
+msgid "“%s” has blacklisted executable “%s”."
+msgstr ""
+
+#: plugins/desktop/src/desktop-plugin.vala:109
+#, c-format
+msgid "“%s” is blacklisted."
+msgstr ""
+
+#: plugins/dreamcast/src/dreamcast-header.vala:54
+msgid "The file doesn’t have a Dreamcast header."
+msgstr ""
+
+#: plugins/dreamcast/src/dreamcast-plugin.vala:6
+msgid "Dreamcast"
+msgstr "Dreamcast"
+
+#: plugins/game-cube/src/game-cube-header.vala:20
+msgid "The file doesn’t have a Game Cube header."
+msgstr ""
+
+#: plugins/game-cube/src/game-cube-plugin.vala:6
+msgid "Nintendo GameCube"
+msgstr "Nintendo GameCube"
+
+#: plugins/libretro/src/libretro-plugin.vala:6
+msgid "Libretro"
+msgstr "Libretro"
+
+#: plugins/love/src/love-package.vala:13 plugins/love/src/love-package.vala:17
+#, c-format
+msgid "This doesn’t represent a valid LÖVE package: “%s”."
+msgstr ""
+
+#: plugins/love/src/love-plugin.vala:7
+msgid "LÖVE"
+msgstr "LÖVE"
+
+#: plugins/mame/src/mame-game-uri-adapter.vala:21
+#, c-format
+msgid "Invalid MAME game id “%s” for “%s”."
+msgstr ""
+
+#: plugins/mame/src/mame-plugin.vala:6
+msgid "Arcade"
+msgstr "Arcade"
+
+#: plugins/ms-dos/src/ms-dos-plugin.vala:7
+msgid "MS-DOS"
+msgstr "MS-DOS"
+
+#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:7
+msgid "Nintendo DS"
+msgstr "Nintendo DS"
+
+#: plugins/playstation/src/playstation-header.vala:27
+#, c-format
+msgid "Not a PlayStation disc: “%s”."
+msgstr ""
+
+#: plugins/playstation/src/playstation-header.vala:37
+#, c-format
+msgid "Invalid PlayStation header: disc ID not found in “%s”."
+msgstr ""
+
+#: plugins/playstation/src/playstation-plugin.vala:6
+msgid "PlayStation"
+msgstr "PlayStation"
+
+#: plugins/sega-cd/src/sega-cd-header.vala:44
+#: plugins/sega-cd/src/sega-cd-header.vala:63
+msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
+msgstr ""
+
+#. translators: known as "Mega-CD" in most of the world
+#: plugins/sega-cd/src/sega-cd-plugin.vala:12
+msgid "Sega CD"
+msgstr "Sega CD"
+
+#. translators: known as "Mega-CD 32X" in most of the world
+#: plugins/sega-cd/src/sega-cd-plugin.vala:14
+msgid "Sega CD 32X"
+msgstr "Sega CD 32X"
+
+#: plugins/sega-cd/src/sega-cd-plugin.vala:114
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:93
+#, c-format
+msgid "The file “%s” doesn’t have a track."
+msgstr ""
+
+#: plugins/sega-cd/src/sega-cd-plugin.vala:120
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:99
+#, c-format
+msgid "The file “%s” doesn’t have a valid binary file format."
+msgstr ""
+
+#: plugins/sega-cd/src/sega-cd-plugin.vala:123
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:102
+#, c-format
+msgid "The file “%s” doesn’t have a valid track mode for track %d."
+msgstr ""
+
+#: plugins/sega-saturn/src/sega-saturn-header.vala:54
+msgid "The file doesn’t have a Sega Saturn header."
+msgstr ""
+
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:7
+msgid "Sega Saturn"
+msgstr "Sega Saturn"
+
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:106
+#, c-format
+msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
+msgstr ""
+
+#: plugins/steam/src/steam-plugin.vala:10
+msgid "Steam"
+msgstr "Steam"
+
+#: plugins/steam/src/steam-plugin.vala:80
+#, c-format
+msgid "Couldn’t get Steam appid from manifest “%s”."
+msgstr ""
+
+#: plugins/steam/src/steam-registry.vala:68
+#, c-format
+msgid "File “%s” doesn’t exist."
+msgstr "File “%s” awe."
+
+#: plugins/steam/src/steam-registry.vala:96
+msgid "Unexpected token '{'."
+msgstr ""
+
+#: plugins/steam/src/steam-registry.vala:110
+msgid "Unexpected end of tokens."
+msgstr ""
+
+#: plugins/steam/src/steam-registry.vala:113
+msgid "Unexpected token '}'."
+msgstr ""
+
+#: plugins/steam/src/steam-title.vala:17
+msgid "Couldn’t get name from Steam registry."
+msgstr ""
+
+#. translators: known as "CD-ROM²" in eastern Asia and France
+#: plugins/turbografx-cd/src/turbografx-cd-plugin.vala:10
+msgid "TurboGrafx-CD"
+msgstr "TurboGrafx-CD"
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:20
+msgid "The file is too short."
+msgstr "File thi ong chet lang."
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:26
+#, c-format
+msgid "Invalid Virtual Boy ROM header size: %s"
+msgstr ""
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:38
+msgid "Invalid Virtual Boy ROM header size."
+msgstr ""
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:42
+msgid "The file doesn’t have a Virtual Boy ROM header."
+msgstr ""
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:51
+#, c-format
+msgid "Couldn’t get file size: %s"
+msgstr ""
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:60
+#: plugins/wii/src/wii-header.vala:55
+#, c-format
+msgid "Couldn’t read file: %s"
+msgstr ""
+
+#: plugins/virtual-boy/src/virtual-boy-plugin.vala:7
+msgid "Virtual Boy"
+msgstr "Virtual Boy"
+
+#: plugins/wii/src/wii-header.vala:20
+#, c-format
+msgid "Invalid Wii header size: %s"
+msgstr ""
+
+#: plugins/wii/src/wii-header.vala:33 plugins/wii/src/wii-header.vala:44
+msgid "The file doesn’t have a Wii header."
+msgstr ""
+
+#: plugins/wii/src/wii-plugin.vala:6
+msgid "Wii"
+msgstr "Wii"
+
+#: src/command/command-runner.vala:39
+msgid "The game doesn’t have a valid command."
+msgstr ""
+
+#: src/command/command-runner.vala:65
+#, c-format
+msgid "Couldn’t run “%s”: execution failed."
+msgstr ""
+
+#: src/core/media-set/media-set.vala:30
+#, c-format
+msgid "Invalid media index %u."
+msgstr ""
+
+#: src/core/plugin-registrar.vala:27
+#, c-format
+msgid "Invalid plugin descriptor: %s"
+msgstr ""
+
+#: src/core/plugin-registrar.vala:48 src/core/plugin-registrar.vala:52
+#, c-format
+msgid "Couldn’t create a new instance of plugin in “%s”."
+msgstr ""
+
+#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:26
+msgid "Unknown"
+msgstr "Puthekthe"
+
+#: src/gameinfo/gameinfo-disc-id-disc-title.vala:24
+#, c-format
+msgid "Disc %d"
+msgstr "Disc %d"
+
+#: src/gameinfo/gameinfo-doc.vala:15
+#, c-format
+msgid "No game title found for disc ID “%s”."
+msgstr ""
+
+#: src/gameinfo/gameinfo-doc.vala:31
+#, c-format
+msgid "No disc title found for disc ID “%s”."
+msgstr ""
+
+#: src/gameinfo/gameinfo-doc.vala:41
+#, c-format
+msgid "No disc set ID found for disc ID “%s”."
+msgstr ""
+
+#: src/gameinfo/gameinfo-doc.vala:49 src/gameinfo/gameinfo-doc.vala:59
+#, c-format
+msgid "No disc found for disc ID “%s”."
+msgstr ""
+
+#: src/grilo/grilo-players.vala:40
+msgid "Single-player"
+msgstr "Single-player"
+
+#: src/grilo/grilo-players.vala:42
+msgid "Multi-player"
+msgstr "Multi-player"
+
+#: src/retro/retro-core-source.vala:25 src/retro/retro-core-source.vala:39
+#, c-format
+msgid "No module found for platform “%s” and MIME types [ “%s” ]."
+msgstr ""
+
+#: src/retro/retro-core-source.vala:25 src/retro/retro-core-source.vala:39
+msgid "”, “"
+msgstr "”, “"
+
+#: src/retro/retro-core-source.vala:84
+#, c-format
+msgid "This game requires the %s firmware file to run."
+msgstr ""
+
+#: src/retro/retro-core-source.vala:101
+#, c-format
+msgid ""
+"This game requires the %s firmware file with a MD5 fingerprint of %s to run."
+msgstr ""
+
+#: src/retro/retro-core-source.vala:107
+#, c-format
+msgid ""
+"This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
+"run."
+msgstr ""
+
+#: src/retro/retro-runner.vala:224
+#, c-format
+msgid "No module found for “%s”."
+msgstr ""
+
+#: src/retro/retro-runner.vala:527
+msgid "Unknown platform"
+msgstr "Platform chinine"
+
+#: src/retro/retro-runner.vala:570
+#, c-format
+msgid "The system “%s” isn’t supported yet, but full support is planned."
+msgstr ""
+
+#: src/retro/retro-runner.vala:572
+msgid "The system isn’t supported yet, but full support is planned."
+msgstr ""
+
+#: src/retro/retro-simple-type.vala:13
+msgid "Amiga"
+msgstr "Amiga"
+
+#: src/retro/retro-simple-type.vala:15
+msgid "Atari 2600"
+msgstr "Atari 2600"
+
+#: src/retro/retro-simple-type.vala:17
+msgid "Atari 7800"
+msgstr "Atari 7800"
+
+#: src/retro/retro-simple-type.vala:19
+msgid "Atari Lynx"
+msgstr "Atari Lynx"
+
+#: src/retro/retro-simple-type.vala:21
+msgid "DOOM"
+msgstr "DOOM"
+
+#. translators: only released in eastern Asia
+#: src/retro/retro-simple-type.vala:24
+msgid "Famicom Disk System"
+msgstr "Famicom Disk System"
+
+#: src/retro/retro-simple-type.vala:26
+msgid "Game Boy"
+msgstr "Game Boy"
+
+#: src/retro/retro-simple-type.vala:28
+msgid "Game Boy Color"
+msgstr "Game Boy Color"
+
+#: src/retro/retro-simple-type.vala:30
+msgid "Game Boy Advance"
+msgstr "Game Boy Advance"
+
+#: src/retro/retro-simple-type.vala:32
+msgid "Game Gear"
+msgstr "Game Gear"
+
+#. translators: also known as "Sega Mark III" in eastern asia
+#: src/retro/retro-simple-type.vala:35
+msgid "Master System"
+msgstr "Master System"
+
+#: src/retro/retro-simple-type.vala:37
+msgid "Neo Geo Pocket"
+msgstr "Neo Geo Pocket"
+
+#: src/retro/retro-simple-type.vala:39
+msgid "Neo Geo Pocket Color"
+msgstr "Neo Geo Pocket Color"
+
+#. translators: known as "Famicom" in eastern Asia
+#: src/retro/retro-simple-type.vala:42
+msgid "Nintendo Entertainment System"
+msgstr "Nintendo Entertainment System"
+
+#: src/retro/retro-simple-type.vala:44
+msgid "Nintendo 64"
+msgstr "Nintendo 64"
+
+#. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
+#: src/retro/retro-simple-type.vala:47
+msgid "Genesis 32X"
+msgstr "Genesis 32X"
+
+#. translators: known as "Mega Drive" in most of the world
+#: src/retro/retro-simple-type.vala:50
+msgid "Sega Genesis"
+msgstr "Sega Genesis"
+
+#: src/retro/retro-simple-type.vala:52
+msgid "Sega Pico"
+msgstr "Sega Pico"
+
+#: src/retro/retro-simple-type.vala:54
+msgid "SG-1000"
+msgstr "SG-1000"
+
+#. translators: known as "Super Famicom" in eastern Asia
+#: src/retro/retro-simple-type.vala:57
+msgid "Super Nintendo Entertainment System"
+msgstr "Super Nintendo Entertainment System"
+
+#. translators: known as "PC Engine" in eastern Asia and France
+#: src/retro/retro-simple-type.vala:60
+msgid "TurboGrafx-16"
+msgstr "TurboGrafx-16"
+
+#: src/retro/retro-simple-type.vala:62
+msgid "WiiWare"
+msgstr "WiiWare"
+
+#: src/retro/retro-simple-type.vala:64
+msgid "WonderSwan"
+msgstr "WonderSwan"
+
+#: src/retro/retro-simple-type.vala:66
+msgid "WonderSwan Color"
+msgstr "WonderSwan Color"
+
+#: src/ui/application.vala:171
+msgid "Select game files"
+msgstr ""
+
+#: src/ui/application.vala:172
+msgid "_Cancel"
+msgstr ""
+
+#: src/ui/application.vala:173
+msgid "_Add"
+msgstr ""
+
+#: src/ui/application.vala:382
+msgid "GNOME Games"
+msgstr "GNOME Games"
+
+#: src/ui/application.vala:384
+msgid "A video game player for GNOME"
+msgstr ""
+
+#: src/ui/application.vala:388
+msgid "Learn more about GNOME Games"
+msgstr ""
+
+#: src/ui/application.vala:395
+msgid "translator-credits"
+msgstr "Jor Teron <jor.teron@gmail.com>"
+
+#: src/ui/application-window.vala:403
+msgid "An unexpected error occurred."
+msgstr ""
+
+#: src/ui/application-window.vala:690 src/ui/application-window.vala:707
+msgid "Playing a game"
+msgstr "Kepathu"
+
+#: src/ui/error-display.vala:13
+#, c-format
+msgid "Oops! Unable to run “%s”"
+msgstr ""
+
+#: src/ui/error-display.vala:15
+msgid "Oops! Unable to run the game"
+msgstr ""
+
+#: src/ui/gamepad-mapper.vala:137
+msgid "Press suitable button on your gamepad"
+msgstr ""
+
+#: src/ui/gamepad-mapper.vala:142
+msgid "Move suitable axis left/right on your gamepad"
+msgstr ""
+
+#: src/ui/gamepad-mapper.vala:144
+msgid "Move suitable axis up/down on your gamepad"
+msgstr ""
+
+#: src/ui/keyboard-mapper.vala:27
+msgid "Press suitable key on your keyboard"
+msgstr ""
+
+#: src/ui/media-selector.vala:38
+#, c-format
+msgid "Media %d"
+msgstr ""
+
+#: src/ui/preferences-page-controllers.vala:24
+msgid "Controllers"
+msgstr ""
+
+#: src/ui/preferences-page-plugins.vala:12
+msgid "Extensions"
+msgstr "Extensions"
+
+#. same as video-filters in gschema
+#: src/ui/preferences-page-video.vala:22
+msgid "Smooth"
+msgstr ""
+
+#: src/ui/preferences-page-video.vala:22
+msgid "Sharp"
+msgstr ""
+
+#: src/ui/preferences-page-video.vala:22
+msgid "CRT"
+msgstr "CRT"
+
+#: src/ui/preferences-page-video.vala:36
+msgid "Video"
+msgstr "Video"
+
+#. translators: testing a gamepad, %s is its name
+#: src/ui/preferences-subpage-gamepad.vala:78
+#, c-format
+msgid "Testing %s"
+msgstr ""
+
+#. translators: configuring a gamepad, %s is its name
+#: src/ui/preferences-subpage-gamepad.vala:89
+#, c-format
+msgid "Configuring %s"
+msgstr ""
+
+#: src/ui/preferences-subpage-keyboard.vala:68
+msgid "Testing Keyboard"
+msgstr ""
+
+#: src/ui/preferences-subpage-keyboard.vala:78
+msgid "Configuring Keyboard"
+msgstr ""
+
+#: src/utils/cue-sheet/cue-sheet.vala:25
+#, c-format
+msgid "“%s” doesn’t have a track for index %u."
+msgstr ""
+
+#: src/utils/cue-sheet/cue-sheet.vala:114
+#, c-format
+msgid "%s:%lu: Invalid file format %s, expected a valid file format or none."
+msgstr ""
+
+#: src/utils/cue-sheet/cue-sheet.vala:121
+#, c-format
+msgid "%s:%lu: Unexpected token TRACK before a FILE token."
+msgstr ""
+
+#: src/utils/cue-sheet/cue-sheet.vala:130
+#, c-format
+msgid "%s:%lu: Invalid track number %s, expected a number in the 1-99 range."
+msgstr ""
+
+#: src/utils/cue-sheet/cue-sheet.vala:134
+#, c-format
+msgid "%s:%lu: Invalid track mode %s, expected a valid track mode."
+msgstr ""
+
+#: src/utils/cue-sheet/cue-sheet.vala:141
+#, c-format
+msgid "%s:%lu: Unexpected end of file, expected %s."
+msgstr ""
+
+#: src/utils/cue-sheet/cue-sheet.vala:144
+#, c-format
+msgid "%s:%lu: Unexpected token %s, expected %s."
+msgstr ""
+
+#: src/utils/cue-sheet/cue-sheet.vala:151
+#, c-format
+msgid "%s:%lu: Unexpected end of file, expected a token."
+msgstr ""
+
+#: src/utils/cue-sheet/cue-sheet.vala:154
+#, c-format
+msgid "%s:%lu: Unexpected end of line, expected a token."
+msgstr ""
+
+#: src/utils/cue-sheet/cue-sheet.vala:177
+#, c-format
+msgid "%s:%lu: Unexpected token %s, expected end of line."
+msgstr ""
