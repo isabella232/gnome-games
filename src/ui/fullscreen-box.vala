@@ -7,6 +7,33 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 
 	public bool is_fullscreen { get; set; }
 
+	private bool _autohide;
+	public bool autohide {
+		get { return _autohide; }
+		set {
+			_autohide = value;
+
+			if (value) {
+				show_ui ();
+				on_cursor_moved ();
+			}
+			else {
+				// Disable timers
+				if (ui_timeout_id != -1) {
+					Source.remove (ui_timeout_id);
+					ui_timeout_id = -1;
+				}
+
+				if (cursor_timeout_id != -1) {
+					Source.remove (cursor_timeout_id);
+					cursor_timeout_id = -1;
+				}
+
+				show_cursor (true);
+			}
+		}
+	}
+
 	private Gtk.Widget _header_bar;
 	public Gtk.Widget header_bar {
 		get { return _header_bar; }
@@ -73,6 +100,9 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 
 	[GtkCallback]
 	private bool on_motion_event (Gdk.EventMotion event) {
+		if (!autohide)
+			return false;
+
 		if (event.y_root <= SHOW_HEADERBAR_DISTANCE)
 			show_ui ();
 
