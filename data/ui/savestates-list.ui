@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.24"/>
+  <template class="GamesSavestatesList" parent="GtkBox">
+    <child>
+      <object class="GtkRevealer" id="revealer">
+        <property name="visible">True</property>
+        <property name="reveal-child">False</property>
+        <property name="transition-type">slide-left</property>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkSeparator">
+                <property name="visible">True</property>
+                <style>
+                  <class name="sidebar"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkScrolledWindow" id="scrolled_window">
+                <property name="visible">True</property>
+                <property name="vexpand">True</property>
+                <property name="width-request">350</property>
+                <child>
+                  <object class="GtkListBox" id="list_box">
+                    <property name="visible">True</property>
+                    <signal name="row-activated" after="yes" handler="on_row_activated"/>
+                    <style>
+                      <class name="sidebar"/>
+                    </style>
+                    <child>
+                      <object class="GtkListBoxRow" id="new_savestate_row">
+                        <property name="visible">True</property>
+                        <style>
+                          <class name="savestate-row"/>
+                        </style>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="visible">True</property>
+                            <child>
+                              <object class="GtkImage">
+                                <property name="visible">True</property>
+                                <property name="icon-name">list-add-symbolic</property>
+                                <property name="pixel-size">32</property>
+                                <style>
+                                  <class name="savestate-thumbnail"/>
+                                </style>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="visible">True</property>
+                                <property name="margin">12</property>
+                                <property name="label">Create new savestate</property>
+                                <attributes>
+                                  <!-- "1.2" is the value of "large" -->
+                                  <attribute name="scale" value="1.2"/>
+                                </attributes>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

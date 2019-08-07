@@ -181,6 +181,8 @@ vala_sources = [
   'ui/resume-dialog.vala',
   'ui/resume-failed-dialog.vala',
   'ui/savestate-listbox-row.vala',
+  'ui/savestates-list.vala',
+  'ui/savestates-list-state.vala',
   'ui/search-bar.vala',
   'ui/shortcuts-window.vala',
   'ui/ui-view.vala',
