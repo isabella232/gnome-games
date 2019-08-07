@@ -10,11 +10,21 @@ private class Games.DisplayBox : Gtk.Bin {
 		get { return fullscreen_header_bar; }
 	}
 
+	public SavestatesListState savestates_list_state {
+		get { return savestates_list.state; }
+		set {
+			value.notify["is-revealed"].connect (on_savestates_list_state_changed);
+
+			savestates_list.state = value;
+			fullscreen_header_bar.savestates_list_state = value;
+		}
+	}
+
 	private Runner _runner;
 	public Runner runner {
 		get { return _runner; }
 		set {
-			stack.visible_child = display_bin;
+			stack.visible_child = display_box;
 
 			_runner = value;
 			remove_display ();
@@ -25,6 +35,8 @@ private class Games.DisplayBox : Gtk.Bin {
 
 			var display = runner.get_display ();
 			set_display (display);
+
+			savestates_list.runner = value;
 		}
 	}
 
@@ -35,11 +47,15 @@ private class Games.DisplayBox : Gtk.Bin {
 	[GtkChild]
 	private ErrorDisplay error_display;
 	[GtkChild]
+	private Gtk.Box display_box;
+	[GtkChild]
 	private Gtk.EventBox display_bin;
 	[GtkChild]
 	private DisplayHeaderBar fullscreen_header_bar;
-	private Binding fullscreen_binding;
+	[GtkChild]
+	private SavestatesList savestates_list;
 
+	private Binding fullscreen_binding;
 	private long timeout_id;
 
 	construct {
@@ -47,6 +63,10 @@ private class Games.DisplayBox : Gtk.Bin {
 		                                    "is-fullscreen",
 		                                    BindingFlags.BIDIRECTIONAL);
 		timeout_id = -1;
+	}
+
+	public DisplayBox (SavestatesListState savestates_list_state) {
+		Object (savestates_list_state: savestates_list_state);
 	}
 
 	public void display_running_game_failed (Game game, string error_message) {
@@ -93,5 +113,9 @@ private class Games.DisplayBox : Gtk.Bin {
 			return false;
 
 		return runner.gamepad_button_press_event (button);
+	}
+
+	public void on_savestates_list_state_changed () {
+		fullscreen_box.autohide = !savestates_list.state.is_revealed;
 	}
 }

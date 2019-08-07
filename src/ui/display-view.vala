@@ -52,6 +52,8 @@ private class Games.DisplayView : Object, UiView {
 	private ResumeFailedDialog resume_failed_dialog;
 	private QuitDialog quit_dialog;
 
+	private SavestatesListState savestates_list_state;
+
 	private long focus_out_timeout_id;
 
 	public DisplayView (Gtk.Window window) {
@@ -59,14 +61,16 @@ private class Games.DisplayView : Object, UiView {
 	}
 
 	construct {
-		box = new DisplayBox ();
-		header_bar = new DisplayHeaderBar ();
+		savestates_list_state = new SavestatesListState ();
+		box = new DisplayBox (savestates_list_state);
+		header_bar = new DisplayHeaderBar (savestates_list_state);
 
 		box.back.connect (on_display_back);
 		header_bar.back.connect (on_display_back);
 
 		settings = new Settings ("org.gnome.Games");
 
+		// Bind the is_fullscreen property between the header_bar and the box
 		box_fullscreen_binding = bind_property ("is-fullscreen", box, "is-fullscreen",
 		                                        BindingFlags.BIDIRECTIONAL);
 		header_bar_fullscreen_binding = bind_property ("is-fullscreen", header_bar,
@@ -94,14 +98,15 @@ private class Games.DisplayView : Object, UiView {
 
 		if ((event.keyval == Gdk.Key.f || event.keyval == Gdk.Key.F) &&
 		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK &&
-		    header_bar.can_fullscreen) {
+		    header_bar.can_fullscreen && !savestates_list_state.is_revealed) {
 			is_fullscreen = !is_fullscreen;
 			settings.set_boolean ("fullscreen", is_fullscreen);
 
 			return true;
 		}
 
-		if (event.keyval == Gdk.Key.F11 && header_bar.can_fullscreen) {
+		if (event.keyval == Gdk.Key.F11 && header_bar.can_fullscreen &&
+		    !savestates_list_state.is_revealed) {
 			is_fullscreen = !is_fullscreen;
 			settings.set_boolean ("fullscreen", is_fullscreen);
 
@@ -148,7 +153,7 @@ private class Games.DisplayView : Object, UiView {
 
 		switch (button) {
 		case EventCode.BTN_MODE:
-			back ();
+			on_display_back ();
 
 			return true;
 		default:
@@ -165,6 +170,9 @@ private class Games.DisplayView : Object, UiView {
 	}
 
 	private void on_display_back () {
+		if (savestates_list_state.is_revealed)
+			return;
+
 		back ();
 	}
 
@@ -349,6 +357,15 @@ private class Games.DisplayView : Object, UiView {
 
 		box.runner.pause ();
 
+		if (!box.runner.can_support_savestates) {
+			// Game does not and will not support savestates (e.g. Steam games)
+			// => Progress cannot be saved so game can be quit safely
+			box.runner.stop ();
+			return true;
+		}
+
+		box.runner.capture_current_state_pixbuf ();
+
 		if (box.runner.try_create_savestate (true) != null) {
 			// Progress saved => can quit game safely
 			box.runner.stop ();
@@ -394,6 +411,8 @@ private class Games.DisplayView : Object, UiView {
 	}
 
 	private void reset_display_page () {
+		header_bar.hide_secondary_menu_button ();
+
 		header_bar.can_fullscreen = false;
 		box.header_bar.can_fullscreen = false;
 		header_bar.runner = null;
@@ -411,8 +430,10 @@ private class Games.DisplayView : Object, UiView {
 		if (!can_update_pause ())
 			return;
 
-		if (window.is_active)
-			box.runner.resume ();
+		if (window.is_active) {
+			if (!savestates_list_state.is_revealed)
+				box.runner.resume ();
+		}
 		else if (with_delay)
 			focus_out_timeout_id = Timeout.add (FOCUS_OUT_DELAY_MILLISECONDS, on_focus_out_delay_elapsed);
 		else

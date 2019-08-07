@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk+" version="3.24"/>
-  <template class="GamesDisplayHeaderBar" parent="GtkBin">
+  <template class="GamesDisplayHeaderBar" parent="GtkStack">
     <property name="visible">True</property>
     <signal name="notify::is-fullscreen" handler="on_fullscreen_changed"/>
     <signal name="notify::can-fullscreen" handler="on_fullscreen_changed"/>
     <child>
-      <object class="GtkHeaderBar" id="header_bar">
+      <object class="GtkHeaderBar" id="ingame_header_bar">
         <property name="visible">True</property>
         <property name="title" translatable="yes">Games</property>
         <property name="show_close_button">True</property>
@@ -33,6 +33,59 @@
               </object>
             </child>
           </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="restore">
+            <property name="visible">False</property>
+            <property name="can_focus">False</property>
+            <property name="valign">center</property>
+            <property name="use-underline">True</property>
+            <property name="margin-left">5</property>
+            <signal name="clicked" handler="on_restore_clicked"/>
+            <style>
+              <class name="image-button"/>
+            </style>
+            <style>
+              <class name="flat"/>
+            </style>
+            <child internal-child="accessible">
+              <object class="AtkObject" id="a11y-restore">
+                <property name="accessible-name" translatable="yes">Restore</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkImage" id="restore_image">
+                <property name="visible">True</property>
+                <property name="icon-name">view-restore-symbolic</property>
+                <property name="icon-size">1</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="pack-type">end</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkMenuButton" id="secondary_menu_button">
+            <property name="popover">secondary_menu</property>
+            <property name="use-underline">True</property>
+            <property name="visible">True</property>
+            <property name="valign">center</property>
+            <property name="can-focus">False</property>
+            <style>
+              <class name="image-button"/>
+            </style>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">True</property>
+                <property name="icon-name">view-more-symbolic</property>
+                <property name="icon-size">1</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="pack-type">end</property>
+          </packing>
         </child>
         <child>
           <object class="GtkButton" id="fullscreen">
@@ -62,33 +115,6 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="restore">
-            <property name="visible">False</property>
-            <property name="can_focus">False</property>
-            <property name="valign">center</property>
-            <property name="use-underline">True</property>
-            <signal name="clicked" handler="on_restore_clicked"/>
-            <style>
-              <class name="image-button"/>
-            </style>
-            <child internal-child="accessible">
-              <object class="AtkObject" id="a11y-restore">
-                <property name="accessible-name" translatable="yes">Restore</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkImage" id="restore_image">
-                <property name="visible">True</property>
-                <property name="icon-name">view-restore-symbolic</property>
-                <property name="icon-size">1</property>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="pack-type">end</property>
-          </packing>
-        </child>
-        <child>
           <object class="GamesMediaMenuButton" id="media_button"/>
           <packing>
             <property name="pack-type">end</property>
@@ -104,5 +130,72 @@
         </child>
       </object>
     </child>
+    <child>
+      <object class="GtkHeaderBar" id="savestates_header_bar">
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkButton" id="load">
+            <property name="visible">True</property>
+            <property name="valign">center</property>
+            <property name="use-underline">True</property>
+            <property name="label" translatable="yes">_Load</property>
+            <signal name="clicked" handler="on_savestates_load_clicked"/>
+            <style>
+              <class name="suggested-action"/>
+            </style>
+          </object>
+          <packing>
+            <property name="pack-type">end</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="delete">
+            <property name="visible">True</property>
+            <property name="valign">center</property>
+            <property name="use-underline">True</property>
+            <property name="label" translatable="yes">_Delete</property>
+            <signal name="clicked" handler="on_savestates_delete_clicked"/>
+          </object>
+          <packing>
+            <property name="pack-type">end</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="cancel">
+            <property name="visible">True</property>
+            <property name="valign">center</property>
+            <property name="use-underline">True</property>
+            <property name="label" translatable="yes">_Cancel</property>
+            <signal name="clicked" handler="on_savestates_cancel_clicked"/>
+          </object>
+          <packing>
+            <property name="pack-type">start</property>
+          </packing>
+        </child>
+      </object>
+    </child>
   </template>
+  <object class="GtkPopoverMenu" id="secondary_menu">
+    <child>
+      <object class="GtkBox" id="secondary_menu_box">
+        <property name="visible">True</property>
+        <property name="margin">6</property>
+        <child>
+          <object class="GtkModelButton" id="savestates_menu_button">
+            <property name="visible">True</property>
+            <property name="text" translatable="yes">_Savestates</property>
+            <signal name="clicked" handler="on_secondary_menu_savestates_clicked"/>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkSizeGroup">
+    <property name="mode">GTK_SIZE_GROUP_HORIZONTAL</property>
+    <widgets>
+      <widget name="load"/>
+      <widget name="delete"/>
+      <widget name="cancel"/>
+    </widgets>
+  </object>
 </interface>

@@ -25,8 +25,19 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEventBox" id="display_bin">
+              <object class="GtkBox" id="display_box">
                 <property name="visible">True</property>
+                <child>
+                  <object class="GtkEventBox" id="display_bin">
+                    <property name="visible">True</property>
+                    <property name="hexpand">True</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GamesSavestatesList" id="savestates_list">
+                    <property name="visible">True</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="name">display</property>
