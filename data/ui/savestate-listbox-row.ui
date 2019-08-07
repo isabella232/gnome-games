@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.24"/>
+  <template class="GamesSavestateListBoxRow" parent="GtkListBoxRow">
+    <property name="visible">true</property>
+    <child>
+      <object class="GtkBox">
+        <property name="visible">true</property>
+        <child>
+          <object class="GtkImage" id="image">
+            <property name="visible">true</property>
+            <style>
+              <class name="savestate-thumbnail"/>
+            </style>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">true</property>
+            <property name="orientation">vertical</property>
+            <property name="margin">12</property>
+            <property name="spacing">12</property>
+            <property name="valign">center</property>
+            <child>
+              <object class="GtkLabel" id="name_label">
+                <property name="visible">true</property>
+                <property name="wrap">true</property>
+                <property name="xalign">0</property>
+                <attributes>
+                  <!-- "1.2" is the value of "large" -->
+                  <attribute name="scale" value="1.2"/>
+                </attributes>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="date_label">
+                <property name="visible">true</property>
+                <property name="wrap">true</property>
+                <property name="xalign">0</property>
+                <style>
+                  <class name="dim-label"/>
+                </style>
+                <attributes>
+                  <attribute name="scale" value="0.8"/>
+                </attributes>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <style>
+      <class name="savestate-row"/>
+    </style>
+  </template>
+</interface>

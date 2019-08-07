@@ -48,6 +48,7 @@
     <file preprocess="xml-stripblanks">ui/reset-controller-mapping-dialog.ui</file>
     <file preprocess="xml-stripblanks">ui/resume-dialog.ui</file>
     <file preprocess="xml-stripblanks">ui/resume-failed-dialog.ui</file>
+    <file preprocess="xml-stripblanks">ui/savestate-listbox-row.ui</file>
     <file preprocess="xml-stripblanks">ui/search-bar.ui</file>
     <file preprocess="xml-stripblanks">ui/shortcuts-window.ui</file>
   </gresource>
