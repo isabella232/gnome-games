@@ -59,6 +59,9 @@ public class Games.CommandRunner : Object, Runner {
 	public void preview_current_state () {
 	}
 
+	public void preview_savestate (Savestate savestate) {
+	}
+
 	public void start () throws Error {
 		string? working_directory = null;
 		string[]? envp = null;

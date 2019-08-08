@@ -46,6 +46,9 @@ private class Games.DummyRunner : Object, Runner {
 	public void preview_current_state () {
 	}
 
+	public void preview_savestate (Savestate savestate) {
+	}
+
 	public void start () throws Error {
 	}
 

@@ -45,9 +45,11 @@ public class Games.RetroRunner : Object, Runner {
 	private InputCapabilities input_capabilities;
 	private Settings settings;
 	private Title game_title;
+
 	private Savestate[] game_savestates;
 	private Savestate latest_savestate;
 	private Savestate tmp_live_savestate;
+	private Savestate previewed_savestate;
 
 	private Gdk.Pixbuf current_state_pixbuf;
 
@@ -156,6 +158,24 @@ public class Games.RetroRunner : Object, Runner {
 
 	public void preview_current_state () {
 		view.set_pixbuf (current_state_pixbuf);
+	}
+
+	public void preview_savestate (Savestate savestate) {
+		previewed_savestate = savestate;
+
+		var screenshot_path = savestate.get_screenshot_path ();
+		Gdk.Pixbuf pixbuf = null;
+
+		// Treat errors locally because loading the savestate screenshot is not
+		// a critical operation
+		try {
+			pixbuf = new Gdk.Pixbuf.from_file (screenshot_path);
+		}
+		catch (Error e) {
+			warning ("Couldn't load %s: %s", screenshot_path, e.message);
+		}
+
+		view.set_pixbuf (pixbuf);
 	}
 
 	public virtual Gtk.Widget? get_extra_widget () {
