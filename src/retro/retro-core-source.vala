@@ -14,6 +14,8 @@ public class Games.RetroCoreSource : Object {
 	}
 
 	public string get_core_id () throws Error {
+		ensure_module_is_found ();
+
 		return core_descriptor.get_id ();
 	}
 
