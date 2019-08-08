@@ -5,10 +5,6 @@ public class Games.CommandRunner : Object, Runner {
 		get { return false; }
 	}
 
-	public bool can_quit_safely {
-		get { return true; }
-	}
-
 	public bool can_resume {
 		get { return false; }
 	}

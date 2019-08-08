@@ -8,10 +8,6 @@ public class Games.RetroRunner : Object, Runner {
 		get { return true; }
 	}
 
-	public bool can_quit_safely {
-		get { return !should_save; }
-	}
-
 	public bool can_resume {
 		get { return game_savestates.length != 0; }
 	}
@@ -58,17 +54,12 @@ public class Games.RetroRunner : Object, Runner {
 		get { return _running; }
 		set {
 			_running = value;
-
-			if (running)
-				should_save = true;
-
 			view.sensitive = running;
 		}
 	}
 
 	private bool is_initialized;
 	private bool is_ready;
-	private bool should_save;
 
 	public RetroRunnerBuilder builder {
 		construct {
@@ -88,7 +79,6 @@ public class Games.RetroRunner : Object, Runner {
 	construct {
 		is_initialized = false;
 		is_ready = false;
-		should_save = false;
 
 		settings = new Settings ("org.gnome.Games");
 	}
@@ -262,7 +252,6 @@ public class Games.RetroRunner : Object, Runner {
 		_running = false;
 		is_initialized = false;
 		is_ready = false;
-		should_save = false;
 	}
 
 	private void on_video_filter_changed () {
@@ -464,8 +453,6 @@ public class Games.RetroRunner : Object, Runner {
 		// Save the tmp_live_savestate into the game savestates directory
 		var game_savestates_dir_path = get_game_savestates_dir_path ();
 		tmp_live_savestate.save_in (game_savestates_dir_path);
-		should_save = false;
-
 		// FIXME: The game_savestates array should be updated somehow here
 	}
 
