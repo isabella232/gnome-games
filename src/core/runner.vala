@@ -21,10 +21,10 @@ public interface Games.Runner : Object {
 
 	public abstract void capture_current_state_pixbuf ();
 	public abstract void preview_current_state ();
-	public abstract void preview_savestate (Savestate savestate);
 
-	public abstract bool try_create_savestate (bool is_automatic);
+	public abstract Savestate? try_create_savestate (bool is_automatic);
 	public abstract void delete_savestate (Savestate savestate);
+	public abstract void preview_savestate (Savestate savestate);
 	public abstract void load_previewed_savestate () throws Error;
 	public abstract Savestate[] get_savestates ();
 

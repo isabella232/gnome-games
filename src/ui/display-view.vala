@@ -349,7 +349,7 @@ private class Games.DisplayView : Object, UiView {
 
 		box.runner.pause ();
 
-		if (box.runner.try_create_savestate (true)) {
+		if (box.runner.try_create_savestate (true) != null) {
 			// Progress saved => can quit game safely
 			box.runner.stop ();
 			return true;

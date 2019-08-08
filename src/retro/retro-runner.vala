@@ -158,6 +158,10 @@ public class Games.RetroRunner : Object, Runner {
 		return view;
 	}
 
+	public virtual Gtk.Widget? get_extra_widget () {
+		return null;
+	}
+
 	public void capture_current_state_pixbuf () {
 		current_state_pixbuf = view.get_pixbuf ();
 	}
@@ -199,10 +203,6 @@ public class Games.RetroRunner : Object, Runner {
 
 		is_ready = true;
 		running = true;
-	}
-
-	public virtual Gtk.Widget? get_extra_widget () {
-		return null;
 	}
 
 	public Savestate[] get_savestates () {
@@ -278,8 +278,13 @@ public class Games.RetroRunner : Object, Runner {
 		game_deinit ();
 
 		core = null;
-		view.set_core (null);
-		view = null;
+		//view.set_core (null);
+
+		// FIXME: Not sure if requires fixing but:
+		// This is commented out because otherwise the screen appears freezed
+		// when loading a savestate
+		//view = null;
+
 		input_manager = null;
 		loop = null;
 
@@ -430,29 +435,27 @@ public class Games.RetroRunner : Object, Runner {
 		return Path.build_filename (savestates_dir_path, uid + "-" + core_id_prefix);
 	}
 
-	// Returns true/false to let the caller know if the savestate was created successfully
-	// Currently the caller is the DisplayView
+	// Returns the created Savestate or null if the Savestate couldn't be created
+	// Currently the callers are the DisplayView and the SavestatesList
 	// In the future we might want to throw Errors from here in case there is
 	// something that can be done, but right now there's nothing we can do if
 	// savestate creation fails except warn the user of unsaved progress via the
 	// QuitDialog in the DisplayView
-	public bool try_create_savestate (bool is_automatic) {
+	public Savestate? try_create_savestate (bool is_automatic) {
 		if (!core.get_can_access_state ()) // Check if the core can support savestates
-			return false;
+			return null;
 
 		try {
-			create_savestate (is_automatic);
+			return create_savestate (is_automatic);
 		}
 		catch (Error e) {
 			critical ("RetroRunner failed to create savestate: %s", e.message);
 
-			return false;
+			return null;
 		}
-
-		return true; // Savestate created successfully
 	}
 
-	private void create_savestate (bool is_automatic) throws Error {
+	private Savestate create_savestate (bool is_automatic) throws Error {
 		// Decide if there are too many automatic savestates and delete the
 		// first one if so
 		var nr_automatic_savestates = count_automatic_savestates ();
@@ -460,7 +463,7 @@ public class Games.RetroRunner : Object, Runner {
 			var max_nr_automatic_savestates = 5;
 
 			if (nr_automatic_savestates >= max_nr_automatic_savestates)
-				delete_first_automatic_savestate ();
+				delete_last_automatic_savestate ();
 		}
 
 		// Populate the savestate in tmp with data from the current state of the game
@@ -487,7 +490,22 @@ public class Games.RetroRunner : Object, Runner {
 		// Save the tmp_live_savestate into the game savestates directory
 		var game_savestates_dir_path = get_game_savestates_dir_path ();
 		tmp_live_savestate.save_in (game_savestates_dir_path);
-		// FIXME: The game_savestates array should be updated somehow here
+
+		// Instantiate the Savestate object
+		var savestate_path = Path.build_filename (game_savestates_dir_path, now_time.to_string ());
+		Savestate savestate = new Savestate (savestate_path);
+
+		// Update the game_savestates array
+		// Insert the new savestate at the beginning of the array since it's the latest savestate
+		Savestate[] new_game_savestates = {};
+
+		new_game_savestates += savestate;
+		foreach (var existing_savestate in game_savestates)
+			new_game_savestates += existing_savestate;
+
+		game_savestates = new_game_savestates;
+
+		return savestate;
 	}
 
 	public void delete_savestate (Savestate savestate) {
@@ -601,16 +619,14 @@ public class Games.RetroRunner : Object, Runner {
 		return counter;
 	}
 
-	private void delete_first_automatic_savestate () {
-		// Delete the first automatic savestate (assume they are sorted
+	private void delete_last_automatic_savestate () {
+		// Delete the last automatic savestate (assume they are sorted
 		// by creation date for now)
+		Savestate last_automatic_savestate = null;
 
-		foreach (var savestate in game_savestates) {
-			if (savestate.is_automatic ()) {
-				savestate.delete_from_disk ();
-				break;
-			}
-		}
+		foreach (var savestate in game_savestates)
+			if (savestate.is_automatic ())
+				last_automatic_savestate = savestate;
 	}
 }
 

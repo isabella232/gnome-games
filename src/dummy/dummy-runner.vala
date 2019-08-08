@@ -68,8 +68,8 @@ private class Games.DummyRunner : Object, Runner {
 	public void stop () {
 	}
 
-	public bool try_create_savestate (bool is_automatic) {
-		return false;
+	public Savestate? try_create_savestate (bool is_automatic) {
+		return null;
 	}
 
 	public void delete_savestate (Savestate savestate) {
