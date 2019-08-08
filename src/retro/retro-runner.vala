@@ -16,6 +16,10 @@ public class Games.RetroRunner : Object, Runner {
 		get { return game_savestates.length != 0; }
 	}
 
+	public bool supports_savestates {
+		get { return core.get_can_access_state (); }
+	}
+
 	private MediaSet _media_set;
 	public MediaSet? media_set {
 		get { return _media_set; }
