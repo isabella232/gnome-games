@@ -43,6 +43,9 @@ private class Games.DummyRunner : Object, Runner {
 	public void capture_current_state_pixbuf () {
 	}
 
+	public void preview_current_state () {
+	}
+
 	public void start () throws Error {
 	}
 

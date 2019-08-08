@@ -56,6 +56,9 @@ public class Games.CommandRunner : Object, Runner {
 	public void capture_current_state_pixbuf () {
 	}
 
+	public void preview_current_state () {
+	}
+
 	public void start () throws Error {
 		string? working_directory = null;
 		string[]? envp = null;

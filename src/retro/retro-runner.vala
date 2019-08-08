@@ -154,6 +154,10 @@ public class Games.RetroRunner : Object, Runner {
 		current_state_pixbuf = view.get_pixbuf ();
 	}
 
+	public void preview_current_state () {
+		view.set_pixbuf (current_state_pixbuf);
+	}
+
 	public virtual Gtk.Widget? get_extra_widget () {
 		return null;
 	}

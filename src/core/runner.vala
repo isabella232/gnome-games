@@ -20,6 +20,7 @@ public interface Games.Runner : Object {
 	public abstract void stop ();
 
 	public abstract void capture_current_state_pixbuf ();
+	public abstract void preview_current_state ();
 
 	public abstract bool try_create_savestate (bool is_automatic);
 	public abstract void load_savestate (Savestate savestate) throws Error;
