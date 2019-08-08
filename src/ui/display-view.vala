@@ -387,12 +387,7 @@ private class Games.DisplayView : Object, UiView {
 
 	private bool cancel_quitting_game () {
 		if (box.runner != null)
-			try {
-				box.runner.resume ();
-			}
-			catch (Error e) {
-				warning (e.message);
-			}
+			box.runner.resume ();
 
 		return false;
 	}
@@ -416,12 +411,7 @@ private class Games.DisplayView : Object, UiView {
 			return;
 
 		if (window.is_active)
-			try {
-				box.runner.resume ();
-			}
-			catch (Error e) {
-				warning (e.message);
-			}
+			box.runner.resume ();
 		else if (with_delay)
 			focus_out_timeout_id = Timeout.add (FOCUS_OUT_DELAY_MILLISECONDS, on_focus_out_delay_elapsed);
 		else

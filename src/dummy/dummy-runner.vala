@@ -46,7 +46,7 @@ private class Games.DummyRunner : Object, Runner {
 	public void start () throws Error {
 	}
 
-	public void resume () throws Error {
+	public void resume () {
 	}
 
 	public void pause () {

@@ -80,7 +80,7 @@ public class Games.CommandRunner : Object, Runner {
 		}
 	}
 
-	public void resume () throws Error {
+	public void resume () {
 	}
 
 	public void pause () {
