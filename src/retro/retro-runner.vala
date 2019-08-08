@@ -143,9 +143,15 @@ public class Games.RetroRunner : Object, Runner {
 		settings.changed["video-filter"].connect (on_video_filter_changed);
 		on_video_filter_changed ();
 
-		// Step 3) Display the screenshot of the latest_savestate --------------
-		// FIXME: This does not work currently
-		load_screenshot ();
+		// Step 3) Instantiate the core
+		// This is needed to check if the core supports savestates
+		tmp_live_savestate = Savestate.create_empty_in_tmp ();
+		instantiate_core (tmp_live_savestate.get_save_directory_path ());
+
+		// Step 4) Preview the latest savestate --------------------------------
+		if (latest_savestate != null)
+			preview_savestate (latest_savestate);
+
 	}
 
 	public Gtk.Widget get_display () {
@@ -554,20 +560,6 @@ public class Games.RetroRunner : Object, Runner {
 		             "x-dpi", x_dpi,
 		             "y-dpi", y_dpi,
 		             null);
-	}
-
-	// Display the screenshot of the latest savestate
-	private void load_screenshot () throws Error {
-		if (game_savestates.length == 0)
-			return;
-
-		var screenshot_path = latest_savestate.get_screenshot_path ();
-
-		if (!FileUtils.test (screenshot_path, FileTest.EXISTS))
-			return;
-
-		var pixbuf = new Gdk.Pixbuf.from_file (screenshot_path);
-		view.set_pixbuf (pixbuf);
 	}
 
 	private bool on_shutdown () {
