@@ -7,6 +7,7 @@ public interface Games.Runner : Object {
 	public abstract bool can_quit_safely { get; }
 	public abstract bool can_resume { get; }
 	public abstract bool supports_savestates { get; }
+	public abstract bool can_support_savestates { get; } // Now or in the future
 	public abstract MediaSet? media_set { get; }
 	public abstract InputMode input_mode { get; set; }
 

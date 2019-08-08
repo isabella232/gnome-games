@@ -17,6 +17,10 @@ public class Games.CommandRunner : Object, Runner {
 		get { return false; }
 	}
 
+	public bool can_support_savestates {
+		get { return false; }
+	}
+
 	public MediaSet? media_set {
 		get { return null; }
 	}
