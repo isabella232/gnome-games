@@ -275,7 +275,8 @@ private class Games.DisplayView : Object, UiView {
 				var savestates = box.runner.get_savestates ();
 				var latest_savestate = savestates[0];
 
-				box.runner.load_savestate (latest_savestate);
+				box.runner.preview_savestate (latest_savestate);
+				box.runner.load_previewed_savestate ();
 			}
 			else
 				runner.start ();

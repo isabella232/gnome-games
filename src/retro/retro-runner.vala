@@ -184,27 +184,25 @@ public class Games.RetroRunner : Object, Runner {
 		view.set_pixbuf (pixbuf);
 	}
 
-	public virtual Gtk.Widget? get_extra_widget () {
-		return null;
-	}
+	public void load_previewed_savestate () throws Error {
+		loop.stop ();
 
-	public void load_savestate (Savestate savestate) throws Error {
-		stop ();
-
-		tmp_live_savestate = savestate.clone_in_tmp ();
-		instantiate_core (tmp_live_savestate.get_save_directory_path ());
-
+		tmp_live_savestate = previewed_savestate.clone_in_tmp ();
 		core.save_directory = tmp_live_savestate.get_save_directory_path ();
-		load_save_ram (savestate.get_save_ram_path ());
-		core.set_state (savestate.get_snapshot_data ());
+		load_save_ram (previewed_savestate.get_save_ram_path ());
+		core.set_state (previewed_savestate.get_snapshot_data ());
 
-		if (savestate.has_media_data ())
-			media_set.selected_media_number = savestate.get_media_data ();
+		if (previewed_savestate.has_media_data ())
+			media_set.selected_media_number = previewed_savestate.get_media_data ();
 
 		loop.start ();
 
 		is_ready = true;
 		running = true;
+	}
+
+	public virtual Gtk.Widget? get_extra_widget () {
+		return null;
 	}
 
 	public Savestate[] get_savestates () {
