@@ -72,6 +72,9 @@ private class Games.DummyRunner : Object, Runner {
 		return false;
 	}
 
+	public void delete_savestate (Savestate savestate) {
+	}
+
 	public InputMode[] get_available_input_modes () {
 		return { };
 	}

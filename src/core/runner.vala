@@ -24,6 +24,7 @@ public interface Games.Runner : Object {
 	public abstract void preview_savestate (Savestate savestate);
 
 	public abstract bool try_create_savestate (bool is_automatic);
+	public abstract void delete_savestate (Savestate savestate);
 	public abstract void load_previewed_savestate () throws Error;
 	public abstract Savestate[] get_savestates ();
 

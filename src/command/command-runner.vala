@@ -106,6 +106,9 @@ public class Games.CommandRunner : Object, Runner {
 		return false;
 	}
 
+	public void delete_savestate (Savestate savestate) {
+	}
+
 	public InputMode[] get_available_input_modes () {
 		return { };
 	}
