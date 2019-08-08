@@ -49,6 +49,8 @@ public class Games.RetroRunner : Object, Runner {
 	private Savestate latest_savestate;
 	private Savestate tmp_live_savestate;
 
+	private Gdk.Pixbuf current_state_pixbuf;
+
 	private bool _running;
 	private bool running {
 		get { return _running; }
@@ -146,6 +148,10 @@ public class Games.RetroRunner : Object, Runner {
 
 	public Gtk.Widget get_display () {
 		return view;
+	}
+
+	public void capture_current_state_pixbuf () {
+		current_state_pixbuf = view.get_pixbuf ();
 	}
 
 	public virtual Gtk.Widget? get_extra_widget () {
@@ -493,7 +499,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private void save_screenshot_in_tmp () throws Error {
-		var pixbuf = view.get_pixbuf ();
+		var pixbuf = current_state_pixbuf;
 		if (pixbuf == null)
 			return;
 
