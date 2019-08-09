@@ -627,6 +627,8 @@ public class Games.RetroRunner : Object, Runner {
 		foreach (var savestate in game_savestates)
 			if (savestate.is_automatic ())
 				last_automatic_savestate = savestate;
+
+		last_automatic_savestate.delete_from_disk ();
 	}
 }
 
