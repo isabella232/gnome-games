@@ -148,9 +148,10 @@ private class Games.DisplayBox : Gtk.Bin {
 
 	private void update_margin () {
 		var width = get_allocated_width ();
+		display_bin.margin_start = 0;
 		if (width > 900)
-			display_bin.margin_right = savestates_list.get_allocated_width ();
+			display_bin.margin_end = savestates_list.get_allocated_width ();
 		else
-			display_bin.margin_right = 0;
+			display_bin.margin_end = 0;
 	}
 }
