@@ -10,6 +10,8 @@ private class Games.SavestatesList : Gtk.Box {
 	private Gtk.ListBoxRow new_savestate_row;
 	[GtkChild]
 	private Gtk.ScrolledWindow scrolled_window;
+	[GtkChild]
+	private Gtk.Button delete_btn;
 
 	private SavestatesListState _state;
 	public SavestatesListState state {
@@ -124,6 +126,7 @@ private class Games.SavestatesList : Gtk.Box {
 		state.on_revealer_transition_end ();
 	}
 
+	[GtkCallback]
 	private void on_delete_clicked () {
 		var selected_row = list_box.get_selected_row ();
 		var selected_row_index = selected_row.get_index ();
@@ -177,5 +180,7 @@ private class Games.SavestatesList : Gtk.Box {
 			runner.preview_savestate (savestate);
 			state.selected_savestate = savestate;
 		}
+
+		delete_btn.sensitive = (state.selected_savestate != null);
 	}
 }

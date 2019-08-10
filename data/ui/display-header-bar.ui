@@ -150,19 +150,6 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="savestates_delete_btn">
-            <property name="sensitive">False</property>
-            <property name="visible">True</property>
-            <property name="valign">center</property>
-            <property name="use-underline">True</property>
-            <property name="label" translatable="yes">_Delete</property>
-            <signal name="clicked" handler="on_savestates_delete_clicked"/>
-          </object>
-          <packing>
-            <property name="pack-type">end</property>
-          </packing>
-        </child>
-        <child>
           <object class="GtkButton" id="savestates_back">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
@@ -206,12 +193,5 @@
         </child>
       </object>
     </child>
-  </object>
-  <object class="GtkSizeGroup">
-    <property name="mode">GTK_SIZE_GROUP_HORIZONTAL</property>
-    <widgets>
-      <widget name="savestates_load_btn"/>
-      <widget name="savestates_delete_btn"/>
-    </widgets>
   </object>
 </interface>

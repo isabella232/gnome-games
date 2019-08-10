@@ -86,8 +86,6 @@ private class Games.DisplayHeaderBar : Gtk.Stack {
 	private Gtk.HeaderBar savestates_header_bar;
 	[GtkChild]
 	private Gtk.Button savestates_load_btn;
-	[GtkChild]
-	private Gtk.Button savestates_delete_btn;
 
 	private Settings settings;
 
@@ -137,11 +135,6 @@ private class Games.DisplayHeaderBar : Gtk.Stack {
 	}
 
 	[GtkCallback]
-	private void on_savestates_delete_clicked () {
-		savestates_list_state.delete_clicked ();
-	}
-
-	[GtkCallback]
 	private void on_savestates_back_clicked () {
 		runner.preview_current_state ();
 		savestates_list_state.is_revealed = false;
@@ -156,6 +149,5 @@ private class Games.DisplayHeaderBar : Gtk.Stack {
 
 	private void on_selected_savestate_changed () {
 		savestates_load_btn.sensitive = (savestates_list_state.selected_savestate != null);
-		savestates_delete_btn.sensitive = (savestates_list_state.selected_savestate != null);
 	}
 }
