@@ -64,6 +64,9 @@
                         </child>
                       </object>
                     </child>
+                    <style>
+                      <class name="savestates-list"/>
+                    </style>
                   </object>
                 </child>
               </object>
