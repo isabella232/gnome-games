@@ -25,7 +25,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkBox" id="display_box">
+              <object class="GtkOverlay" id="display_overlay">
                 <property name="visible">True</property>
                 <child>
                   <object class="GtkEventBox" id="display_bin">
@@ -33,9 +33,11 @@
                     <property name="hexpand">True</property>
                   </object>
                 </child>
-                <child>
+                <child type="overlay">
                   <object class="GamesSavestatesList" id="savestates_list">
                     <property name="visible">True</property>
+                    <property name="halign">end</property>
+                    <signal name="size-allocate" handler="on_savestates_list_size_allocate"/>
                   </object>
                 </child>
               </object>

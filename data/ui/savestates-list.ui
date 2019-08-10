@@ -10,6 +10,9 @@
         <child>
           <object class="GtkBox">
             <property name="visible">True</property>
+            <style>
+              <class name="solid-background"/>
+            </style>
             <child>
               <object class="GtkSeparator">
                 <property name="visible">True</property>

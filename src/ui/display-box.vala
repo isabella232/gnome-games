@@ -34,7 +34,7 @@ private class Games.DisplayBox : Gtk.Bin {
 	public Runner runner {
 		get { return _runner; }
 		set {
-			stack.visible_child = display_box;
+			stack.visible_child = display_overlay;
 
 			_runner = value;
 			remove_display ();
@@ -57,7 +57,7 @@ private class Games.DisplayBox : Gtk.Bin {
 	[GtkChild]
 	private ErrorDisplay error_display;
 	[GtkChild]
-	private Gtk.Box display_box;
+	private Gtk.Overlay display_overlay;
 	[GtkChild]
 	private Gtk.EventBox display_bin;
 	[GtkChild]
@@ -134,5 +134,23 @@ private class Games.DisplayBox : Gtk.Bin {
 
 	private void on_fullscreen_header_bar_size_allocated (Gtk.Allocation allocation) {
 		fullscreen_header_bar_height = allocation.height;
+	}
+
+	[GtkCallback]
+	private void on_savestates_list_size_allocate (Gtk.Allocation allocation) {
+		update_margin ();
+	}
+
+	public override void size_allocate (Gtk.Allocation allocation) {
+		base.size_allocate (allocation);
+		update_margin ();
+	}
+
+	private void update_margin () {
+		var width = get_allocated_width ();
+		if (width > 900)
+			display_bin.margin_right = savestates_list.get_allocated_width ();
+		else
+			display_bin.margin_right = 0;
 	}
 }
