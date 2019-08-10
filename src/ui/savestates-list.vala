@@ -70,7 +70,7 @@ private class Games.SavestatesList : Gtk.Box {
 				var savestate_row = new SavestateListBoxRow (savestate);
 
 				list_box.insert (savestate_row, 1);
-				select_and_preview_row (savestate_row);
+				select_savestate_row (savestate_row);
 			}
 			else {
 				// Savestate creation failed
@@ -79,12 +79,8 @@ private class Games.SavestatesList : Gtk.Box {
 				// TODO: Perhaps we should warn the user that the creation of
 				// the savestate failed via an in-app notification ?
 			}
-		} else {
-			var savestate_row = activated_row as SavestateListBoxRow;
-			var savestate = savestate_row.savestate;
-
-			runner.preview_savestate (savestate);
-		}
+		} else
+			select_savestate_row (activated_row);
 	}
 
 	private void on_load_clicked () {
@@ -114,9 +110,10 @@ private class Games.SavestatesList : Gtk.Box {
 		revealer.reveal_child = state.is_revealed;
 
 		if (state.is_revealed) {
-			list_box.select_row (null);
 			runner.capture_current_state_pixbuf ();
 			runner.pause ();
+
+			select_savestate_row (null);
 		}
 		else
 			runner.resume ();
@@ -139,19 +136,19 @@ private class Games.SavestatesList : Gtk.Box {
 
 			if (nr_rows == 1) {
 				// The only remaining row in the list is the create savestate one
-				runner.preview_current_state ();
+				select_savestate_row (null);
 			}
 			else {
 				// The last row of the list has been deleted but there are still
 				// rows remaining in the list
 				var last_row = list_box.get_row_at_index (selected_row_index - 1);
-				select_and_preview_row (last_row);
+				select_savestate_row (last_row);
 			}
 
 			return;
 		}
 
-		select_and_preview_row (next_row);
+		select_savestate_row (next_row);
 	}
 
 	private void update_header (Gtk.ListBoxRow row, Gtk.ListBoxRow? before) {
@@ -161,11 +158,19 @@ private class Games.SavestatesList : Gtk.Box {
 		}
 	}
 
-	private void select_and_preview_row (Gtk.ListBoxRow row) {
-		var savestate_row = row as SavestateListBoxRow;
-		var savestate = savestate_row.savestate;
+	private void select_savestate_row (Gtk.ListBoxRow? row) {
+		if (row == null) {
+			list_box.select_row (null);
+			runner.preview_current_state ();
+			state.selected_savestate = null;
+		}
+		else {
+			var savestate_row = row as SavestateListBoxRow;
+			var savestate = savestate_row.savestate;
 
-		list_box.select_row (row);
-		runner.preview_savestate (savestate);
+			list_box.select_row (row);
+			runner.preview_savestate (savestate);
+			state.selected_savestate = savestate;
+		}
 	}
 }

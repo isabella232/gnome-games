@@ -134,7 +134,8 @@
       <object class="GtkHeaderBar" id="savestates_header_bar">
         <property name="visible">True</property>
         <child>
-          <object class="GtkButton" id="load">
+          <object class="GtkButton" id="savestates_load_btn">
+            <property name="sensitive">False</property>
             <property name="visible">True</property>
             <property name="valign">center</property>
             <property name="use-underline">True</property>
@@ -149,7 +150,8 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="delete">
+          <object class="GtkButton" id="savestates_delete_btn">
+            <property name="sensitive">False</property>
             <property name="visible">True</property>
             <property name="valign">center</property>
             <property name="use-underline">True</property>
@@ -208,8 +210,8 @@
   <object class="GtkSizeGroup">
     <property name="mode">GTK_SIZE_GROUP_HORIZONTAL</property>
     <widgets>
-      <widget name="load"/>
-      <widget name="delete"/>
+      <widget name="savestates_load_btn"/>
+      <widget name="savestates_delete_btn"/>
     </widgets>
   </object>
 </interface>

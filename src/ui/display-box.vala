@@ -13,7 +13,7 @@ private class Games.DisplayBox : Gtk.Bin {
 	public SavestatesListState savestates_list_state {
 		get { return savestates_list.state; }
 		set {
-			value.notify["is-revealed"].connect (on_savestates_list_state_changed);
+			value.notify["is-revealed"].connect (on_savestates_list_revealed_changed);
 
 			savestates_list.state = value;
 			fullscreen_header_bar.savestates_list_state = value;
@@ -115,7 +115,7 @@ private class Games.DisplayBox : Gtk.Bin {
 		return runner.gamepad_button_press_event (button);
 	}
 
-	public void on_savestates_list_state_changed () {
+	public void on_savestates_list_revealed_changed () {
 		fullscreen_box.autohide = !savestates_list.state.is_revealed;
 	}
 }

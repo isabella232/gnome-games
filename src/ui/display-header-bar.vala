@@ -14,7 +14,8 @@ private class Games.DisplayHeaderBar : Gtk.Stack {
 			_savestates_list_state = value;
 
 			if (value != null)
-				value.notify["is-revealed"].connect (on_savestates_list_state_changed);
+				value.notify["is-revealed"].connect (on_savestates_list_revealed_changed);
+				value.notify["selected-savestate"].connect (on_selected_savestate_changed);
 		}
 	}
 
@@ -83,6 +84,10 @@ private class Games.DisplayHeaderBar : Gtk.Stack {
 	private Gtk.MenuButton secondary_menu_button;
 	[GtkChild]
 	private Gtk.HeaderBar savestates_header_bar;
+	[GtkChild]
+	private Gtk.Button savestates_load_btn;
+	[GtkChild]
+	private Gtk.Button savestates_delete_btn;
 
 	private Settings settings;
 
@@ -141,10 +146,15 @@ private class Games.DisplayHeaderBar : Gtk.Stack {
 		savestates_list_state.is_revealed = false;
 	}
 
-	private void on_savestates_list_state_changed () {
+	private void on_savestates_list_revealed_changed () {
 		if (savestates_list_state.is_revealed)
 			set_visible_child (savestates_header_bar);
 		else
 			set_visible_child (ingame_header_bar);
+	}
+
+	private void on_selected_savestate_changed () {
+		savestates_load_btn.sensitive = (savestates_list_state.selected_savestate != null);
+		savestates_delete_btn.sensitive = (savestates_list_state.selected_savestate != null);
 	}
 }
