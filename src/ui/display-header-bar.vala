@@ -143,6 +143,7 @@ private class Games.DisplayHeaderBar : Gtk.Stack {
 
 	[GtkCallback]
 	private void on_savestates_back_clicked () {
+		runner.preview_current_state ();
 		savestates_list_state.is_revealed = false;
 	}
 

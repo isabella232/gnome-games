@@ -201,10 +201,7 @@ public class Games.RetroRunner : Object, Runner {
 		if (previewed_savestate.has_media_data ())
 			media_set.selected_media_number = previewed_savestate.get_media_data ();
 
-		loop.start ();
-
 		is_ready = true;
-		running = true;
 	}
 
 	public Savestate[] get_savestates () {

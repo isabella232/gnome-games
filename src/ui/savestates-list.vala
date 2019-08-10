@@ -11,22 +11,17 @@ private class Games.SavestatesList : Gtk.Box {
 	[GtkChild]
 	private Gtk.ScrolledWindow scrolled_window;
 
-	public bool is_revealed {
-		get { return revealer.reveal_child; }
-		set { revealer.reveal_child = value; }
-	}
-
 	private SavestatesListState _state;
 	public SavestatesListState state {
 		get { return _state; }
 		set {
 			if (_state != null)
-				_state.notify["is-revealed"].disconnect (on_state_changed);
+				_state.notify["is-revealed"].disconnect (on_revealed_changed);
 
 			_state = value;
 
 			if (value != null) {
-				value.notify["is-revealed"].connect (on_state_changed);
+				value.notify["is-revealed"].connect (on_revealed_changed);
 				value.load_clicked.connect (on_load_clicked);
 				value.delete_clicked.connect (on_delete_clicked);
 			}
@@ -61,6 +56,7 @@ private class Games.SavestatesList : Gtk.Box {
 
 	construct {
 		list_box.set_header_func (update_header);
+		revealer.notify["child-revealed"].connect (on_revealer_transition_end);
 	}
 
 	public void set_margin (int margin) {
@@ -112,7 +108,7 @@ private class Games.SavestatesList : Gtk.Box {
 		return true;
 	}
 
-	private void on_state_changed () {
+	private void on_revealed_changed () {
 		revealer.reveal_child = state.is_revealed;
 
 		if (state.is_revealed) {
@@ -121,8 +117,11 @@ private class Games.SavestatesList : Gtk.Box {
 
 			select_savestate_row (null);
 		}
-		else
-			runner.resume ();
+		// Runner isn't resumed here but after the revealer finishes the transition
+	}
+
+	private void on_revealer_transition_end () {
+		state.on_revealer_transition_end ();
 	}
 
 	private void on_delete_clicked () {

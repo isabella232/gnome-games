@@ -65,6 +65,7 @@ private class Games.DisplayView : Object, UiView {
 		box = new DisplayBox (savestates_list_state);
 		header_bar = new DisplayHeaderBar (savestates_list_state);
 
+		savestates_list_state.on_revealer_transition_end.connect (on_savestates_list_transition_end);
 		box.back.connect (on_display_back);
 		header_bar.back.connect (on_display_back);
 
@@ -419,6 +420,13 @@ private class Games.DisplayView : Object, UiView {
 		box.runner = null;
 		header_bar.media_set = null;
 		box.header_bar.media_set = null;
+	}
+
+	public void on_savestates_list_transition_end () {
+		if (!savestates_list_state.is_revealed && window.is_active) {
+			box.runner.resume ();
+			box.runner.get_display ().grab_focus ();
+		}
 	}
 
 	public void update_pause (bool with_delay) {
