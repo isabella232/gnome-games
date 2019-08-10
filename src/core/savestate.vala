@@ -39,6 +39,20 @@ public class Games.Savestate : Object {
 		}
 	}
 
+	public void set_name (string name) {
+		var metadata = new KeyFile ();
+		var metadata_file_path = Path.build_filename (path, "metadata");
+
+		try {
+			metadata.load_from_file (metadata_file_path, KeyFileFlags.NONE);
+			metadata.set_string ("Metadata", "Name", name);
+			metadata.save_to_file (metadata_file_path);
+		}
+		catch (Error e) {
+			critical ("Failed to set name in metadata file for savestate at %s: %s", path, e.message);
+		}
+	}
+
 	public DateTime? get_creation_date () {
 		var metadata = get_metadata ();
 

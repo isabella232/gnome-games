@@ -72,5 +72,10 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 	public SavestateListBoxRow (Savestate savestate) {
 		Object (savestate: savestate);
 	}
+
+	public void set_name (string name) {
+		name_label.label = name;
+		savestate.set_name (name);
+	}
 }
 

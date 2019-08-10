@@ -85,6 +85,17 @@
                     <property name="pack-type">end</property>
                   </packing>
                 </child>
+                <child>
+                  <object class="GtkButton" id="rename_btn">
+                    <property name="visible">True</property>
+                    <property name="use-underline">True</property>
+                    <property name="label" translatable="yes">_Rename</property>
+                    <signal name="clicked" handler="on_rename_clicked"/>
+                  </object>
+                  <packing>
+                    <property name="pack-type">start</property>
+                  </packing>
+                </child>
               </object>
             </child>
           </object>
@@ -92,4 +103,62 @@
       </object>
     </child>
   </template>
+  <object class="GtkPopover" id="rename_popover">
+    <property name="position">left</property>
+    <child>
+      <object class="GtkBox">
+        <property name="visible">true</property>
+        <property name="orientation">vertical</property>
+        <property name="margin">12</property>
+        <property name="spacing">12</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="visible">true</property>
+            <property name="label" translatable="yes">Name</property>
+            <property name="halign">start</property>
+            <attributes>
+              <attribute name="weight" value="bold"/>
+            </attributes>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">true</property>
+            <property name="spacing">12</property>
+            <child>
+              <object class="GtkEntry" id="rename_entry">
+                <property name="visible">true</property>
+                <property name="hexpand">true</property>
+                <property name="width-chars">21</property>
+                <signal name="activate" handler="on_rename_entry_activated"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="rename_popover_btn">
+                <property name="visible">true</property>
+                <property name="use-underline">True</property>
+                <property name="label" translatable="yes">_Rename</property>
+                <signal name="clicked" handler="apply_rename"/>
+                <style>
+                  <class name="suggested-action"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="rename_error_label">
+            <property name="visible">true</property>
+            <property name="halign">start</property>
+            <property name="wrap">true</property>
+            <property name="wrap-mode">word</property>
+            <property name="max-width-chars">35</property>
+            <style>
+              <class name="dim-label"/>
+            </style>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
 </interface>

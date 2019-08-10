@@ -12,6 +12,17 @@ private class Games.SavestatesList : Gtk.Box {
 	private Gtk.ScrolledWindow scrolled_window;
 	[GtkChild]
 	private Gtk.Button delete_btn;
+	[GtkChild]
+	private Gtk.Button rename_btn;
+
+	[GtkChild]
+	private Gtk.Popover rename_popover;
+	[GtkChild]
+	private Gtk.Entry rename_entry;
+	[GtkChild]
+	private Gtk.Button rename_popover_btn;
+	[GtkChild]
+	private Gtk.Label rename_error_label;
 
 	private SavestatesListState _state;
 	public SavestatesListState state {
@@ -35,6 +46,7 @@ private class Games.SavestatesList : Gtk.Box {
 	construct {
 		list_box.set_header_func (update_header);
 		revealer.notify["child-revealed"].connect (on_revealer_transition_end);
+		rename_entry.notify["text"].connect (on_rename_entry_text_changed);
 	}
 
 	public void set_margin (int margin) {
@@ -153,6 +165,69 @@ private class Games.SavestatesList : Gtk.Box {
 		select_savestate_row (next_row);
 	}
 
+	[GtkCallback]
+	private void on_rename_clicked () {
+		var selected_row = list_box.get_selected_row ();
+
+		rename_entry.text = state.selected_savestate.get_name ();
+		rename_popover.relative_to = selected_row;
+		rename_popover.popup ();
+	}
+
+	[GtkCallback]
+	private void on_rename_entry_activated () {
+		if (check_rename_is_valid ())
+			apply_rename ();
+	}
+
+	private void on_rename_entry_text_changed () {
+		check_rename_is_valid ();
+	}
+
+	private bool check_rename_is_valid () {
+		var entry_text = rename_entry.text.strip ();
+
+		if (entry_text == _("Autosave") || entry_text == "") {
+			rename_entry.get_style_context ().add_class ("error");
+			rename_popover_btn.sensitive = false;
+			rename_error_label.label = _("Invalid name");
+
+			return false;
+		}
+
+		foreach (var list_child in list_box.get_children ()) {
+			var savestate_row = list_child as SavestateListBoxRow;
+			var savestate = savestate_row.savestate;
+
+			if (savestate.is_automatic ())
+				continue;
+
+			if (savestate.get_name () == entry_text) {
+				rename_entry.get_style_context ().add_class ("error");
+				rename_popover_btn.sensitive = false;
+				rename_error_label.label = _("A savestate with this name already exists");
+
+				return false;
+			}
+		}
+
+		// All checks passed, rename operation is valid
+		rename_entry.get_style_context ().remove_class ("error");
+		rename_popover_btn.sensitive = true;
+		rename_error_label.label = "";
+
+		return true;
+	}
+
+	[GtkCallback]
+	private void apply_rename () {
+		var selected_row = list_box.get_selected_row ();
+		var savestate_row = selected_row as SavestateListBoxRow;
+
+		savestate_row.set_name (rename_entry.text.strip ());
+		rename_popover.popdown ();
+	}
+
 	private void update_header (Gtk.ListBoxRow row, Gtk.ListBoxRow? before) {
 		if (before != null && row.get_header () == null) {
 			var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
@@ -176,5 +251,6 @@ private class Games.SavestatesList : Gtk.Box {
 		}
 
 		delete_btn.sensitive = (state.selected_savestate != null);
+		rename_btn.sensitive = (state.selected_savestate != null && !state.selected_savestate.is_automatic ());
 	}
 }
