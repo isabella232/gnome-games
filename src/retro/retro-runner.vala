@@ -1,6 +1,8 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public class Games.RetroRunner : Object, Runner {
+	private const int MAX_AUTOSAVES = 5;
+
 	public signal void game_init ();
 	public signal void game_deinit ();
 
@@ -456,15 +458,9 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private Savestate create_savestate (bool is_automatic) throws Error {
-		// Decide if there are too many automatic savestates and delete the
-		// first one if so
-		var nr_automatic_savestates = count_automatic_savestates ();
-		if (is_automatic) {
-			var max_nr_automatic_savestates = 5;
-
-			if (nr_automatic_savestates >= max_nr_automatic_savestates)
-				delete_last_automatic_savestate ();
-		}
+		// Make room for the new automatic savestate
+		if (is_automatic)
+			trim_autosaves ();
 
 		// Populate the savestate in tmp with data from the current state of the game
 		store_save_ram_in_tmp ();
@@ -481,8 +477,7 @@ public class Games.RetroRunner : Object, Runner {
 		if (is_automatic)
 			tmp_live_savestate.set_metadata_automatic (now_time, platform_prefix, get_core_id ());
 		else {
-			var nr_manual_savestates = game_savestates.length - nr_automatic_savestates;
-			var savestate_name = _("New savestate %d").printf (nr_manual_savestates + 1);
+			var savestate_name = create_new_savestate_name ();
 
 			tmp_live_savestate.set_metadata_manual (savestate_name, now_time, platform_prefix, get_core_id ());
 		}
@@ -608,27 +603,51 @@ public class Games.RetroRunner : Object, Runner {
 		return core;
 	}
 
-	private int count_automatic_savestates () {
-		int counter = 0;
+	private string create_new_savestate_name () throws Error {
+		// A list containing the names of all savestates with name of the form "New Savestate %d"
+		var list = new List<string>();
+		var regex = new Regex (_("New savestate %s").printf ("[1-9]\\d*"));
 
 		foreach (var savestate in game_savestates) {
 			if (savestate.is_automatic ())
-				counter++;
+				continue;
+
+			var savestate_name = savestate.get_name ();
+
+			if (regex.match (savestate_name))
+				list.prepend (savestate_name);
 		}
 
-		return counter;
+		list.sort (strcmp);
+
+		// Find the next available name for a new manual savestate
+		var new_savestate_name_suffix = 1;
+		foreach (var savestate_name in list) {
+			var new_savestate_name = _("New savestate %s").printf (new_savestate_name_suffix.to_string ());
+			if (savestate_name == new_savestate_name)
+				new_savestate_name_suffix++;
+			else
+				break;
+		}
+
+		return _("New savestate %s").printf (new_savestate_name_suffix.to_string ());
 	}
 
-	private void delete_last_automatic_savestate () {
-		// Delete the last automatic savestate (assume they are sorted
-		// by creation date for now)
-		Savestate last_automatic_savestate = null;
+	// Decide if there are too many automatic savestates and delete the
+	// last ones if so
+	private void trim_autosaves () {
+		// A new automatic savestate will be created right after this call,
+		// so counter starts from 1
+		int autosaves_counter = 1;
 
-		foreach (var savestate in game_savestates)
-			if (savestate.is_automatic ())
-				last_automatic_savestate = savestate;
-
-		last_automatic_savestate.delete_from_disk ();
+		foreach (var savestate in game_savestates) {
+			if (savestate.is_automatic ()) {
+				if (autosaves_counter < MAX_AUTOSAVES)
+					autosaves_counter++;
+				else
+					savestate.delete_from_disk ();
+			}
+		}
 	}
 }
 
