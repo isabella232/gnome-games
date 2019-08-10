@@ -8,6 +8,8 @@ private class Games.SavestatesList : Gtk.Box {
 	private Gtk.ListBox list_box;
 	[GtkChild]
 	private Gtk.ListBoxRow new_savestate_row;
+	[GtkChild]
+	private Gtk.ScrolledWindow scrolled_window;
 
 	public bool is_revealed {
 		get { return revealer.reveal_child; }
@@ -59,6 +61,10 @@ private class Games.SavestatesList : Gtk.Box {
 
 	construct {
 		list_box.set_header_func (update_header);
+	}
+
+	public void set_fullscreen_margin (int margin) {
+		scrolled_window.margin_top = margin;
 	}
 
 	[GtkCallback]

@@ -4,7 +4,17 @@
 private class Games.DisplayBox : Gtk.Bin {
 	public signal void back ();
 
-	public bool is_fullscreen { get; set; }
+	private bool _is_fullscreen;
+	public bool is_fullscreen {
+		get { return _is_fullscreen; }
+		set {
+			_is_fullscreen = value;
+
+			// A top margin is added to the savestates list in fullscreen mode such that
+			// the fullscreen header bar doesn't cover the savestates menu
+			savestates_list.set_margin (value ? fullscreen_header_bar_height : 0);
+		}
+	}
 
 	public DisplayHeaderBar header_bar {
 		get { return fullscreen_header_bar; }
@@ -56,6 +66,7 @@ private class Games.DisplayBox : Gtk.Bin {
 	private SavestatesList savestates_list;
 
 	private Binding fullscreen_binding;
+	private int fullscreen_header_bar_height;
 	private long timeout_id;
 
 	construct {
@@ -63,6 +74,8 @@ private class Games.DisplayBox : Gtk.Bin {
 		                                    "is-fullscreen",
 		                                    BindingFlags.BIDIRECTIONAL);
 		timeout_id = -1;
+
+		fullscreen_header_bar.size_allocate.connect (on_fullscreen_header_bar_size_allocated);
 	}
 
 	public DisplayBox (SavestatesListState savestates_list_state) {
@@ -117,5 +130,9 @@ private class Games.DisplayBox : Gtk.Bin {
 
 	public void on_savestates_list_revealed_changed () {
 		fullscreen_box.autohide = !savestates_list.state.is_revealed;
+	}
+
+	private void on_fullscreen_header_bar_size_allocated (Gtk.Allocation allocation) {
+		fullscreen_header_bar_height = allocation.height;
 	}
 }
