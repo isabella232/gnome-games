@@ -7,10 +7,13 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 
 	public bool is_fullscreen { get; set; }
 
-	private bool _autohide;
+	private bool _autohide = true;
 	public bool autohide {
 		get { return _autohide; }
 		set {
+			if (autohide == value)
+				return;
+
 			_autohide = value;
 
 			if (value) {
@@ -29,6 +32,7 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 					cursor_timeout_id = -1;
 				}
 
+				header_bar_revealer.reveal_child = true;
 				show_cursor (true);
 			}
 		}
