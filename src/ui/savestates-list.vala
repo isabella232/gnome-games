@@ -63,7 +63,7 @@ private class Games.SavestatesList : Gtk.Box {
 		list_box.set_header_func (update_header);
 	}
 
-	public void set_fullscreen_margin (int margin) {
+	public void set_margin (int margin) {
 		scrolled_window.margin_top = margin;
 	}
 
