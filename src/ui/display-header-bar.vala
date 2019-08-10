@@ -137,7 +137,7 @@ private class Games.DisplayHeaderBar : Gtk.Stack {
 	}
 
 	[GtkCallback]
-	private void on_savestates_cancel_clicked () {
+	private void on_savestates_back_clicked () {
 		savestates_list_state.is_revealed = false;
 	}
 

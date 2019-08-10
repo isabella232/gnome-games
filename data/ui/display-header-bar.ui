@@ -161,12 +161,27 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButton" id="cancel">
+          <object class="GtkButton" id="savestates_back">
             <property name="visible">True</property>
+            <property name="can_focus">False</property>
             <property name="valign">center</property>
             <property name="use-underline">True</property>
-            <property name="label" translatable="yes">_Cancel</property>
-            <signal name="clicked" handler="on_savestates_cancel_clicked"/>
+            <signal name="clicked" handler="on_savestates_back_clicked"/>
+            <style>
+              <class name="image-button"/>
+            </style>
+            <child internal-child="accessible">
+              <object class="AtkObject" id="a11y-savestates-back">
+                <property name="accessible-name" translatable="yes">Back</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">True</property>
+                <property name="icon-name">go-previous-symbolic</property>
+                <property name="icon-size">1</property>
+              </object>
+            </child>
           </object>
           <packing>
             <property name="pack-type">start</property>
@@ -195,7 +210,6 @@
     <widgets>
       <widget name="load"/>
       <widget name="delete"/>
-      <widget name="cancel"/>
     </widgets>
   </object>
 </interface>
