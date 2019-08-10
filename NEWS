@@ -1,3 +1,18 @@
+===============
+Version 3.33.90
+===============
+
+* Support multiple savestates for libretro games. Existing data is migrated
+  on the first run and and older versions will NOT see it anymore.
+
+* Only show fullscreen headerbar when cursor is nearby. Generally, sync
+  fullscreen behavior with libdazzle.
+
+* Hide cursor after a timeout in non-fullscreen mode.
+
+* Translation updates
+ Catalan
+
 ==============
 Version 3.33.4
 ==============

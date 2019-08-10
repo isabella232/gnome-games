@@ -42,6 +42,16 @@
   </screenshots>
 
   <releases>
+    <release version="3.33.90" type="development" date="2019-08-11" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>Support multiple savestates for libretro games</li>
+          <li>Only show fullscreen headerbar when cursor is nearby, sync behavior with libdazzle</li>
+          <li>Hide cursor after a timeout in non-fullscreen mode</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.33.4" type="development" date="2019-07-20" urgency="medium">
       <description>
         <p>Improvements:</p>
