@@ -9,9 +9,6 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 	public bool is_fullscreen {
 		get { return _is_fullscreen; }
 		set {
-			if (is_fullscreen == value)
-				return;
-
 			_is_fullscreen = value;
 
 			if (!autohide)
