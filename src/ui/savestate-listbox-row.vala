@@ -47,12 +47,11 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 			var thumbnail_width = screenshot_width;
 			var thumbnail_height = (int) (screenshot_width / aspect_ratio);
 
-			if (thumbnail_width > thumbnail_height && thumbnail_width != THUMBNAIL_SIZE) {
+			if (thumbnail_width > thumbnail_height) {
 				thumbnail_width = THUMBNAIL_SIZE;
 				thumbnail_height = (int) (THUMBNAIL_SIZE / aspect_ratio);
 			}
-
-			if (thumbnail_height > thumbnail_width && thumbnail_height != THUMBNAIL_SIZE) {
+			else {
 				thumbnail_height = THUMBNAIL_SIZE;
 				thumbnail_width = (int) (THUMBNAIL_SIZE * aspect_ratio);
 			}
