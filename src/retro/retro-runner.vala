@@ -471,12 +471,13 @@ public class Games.RetroRunner : Object, Runner {
 		// Populate the metadata file
 		var now_time = new DateTime.now ();
 		var platform_prefix = platform.get_uid_prefix ();
+		var ratio = get_screenshot_aspect_ratio ();
 		if (is_automatic)
-			tmp_live_savestate.set_metadata_automatic (now_time, platform_prefix, get_core_id ());
+			tmp_live_savestate.set_metadata_automatic (now_time, platform_prefix, get_core_id (), ratio);
 		else {
 			var savestate_name = create_new_savestate_name ();
 
-			tmp_live_savestate.set_metadata_manual (savestate_name, now_time, platform_prefix, get_core_id ());
+			tmp_live_savestate.set_metadata_manual (savestate_name, now_time, platform_prefix, get_core_id (), ratio);
 		}
 
 		// Save the tmp_live_savestate into the game savestates directory
@@ -485,7 +486,7 @@ public class Games.RetroRunner : Object, Runner {
 
 		// Instantiate the Savestate object
 		var savestate_path = Path.build_filename (game_savestates_dir_path, now_time.to_string ());
-		Savestate savestate = new Savestate (savestate_path);
+		var savestate = new Savestate (savestate_path);
 
 		// Update the game_savestates array
 		// Insert the new savestate at the beginning of the array since it's the latest savestate
@@ -548,6 +549,27 @@ public class Games.RetroRunner : Object, Runner {
 		core.set_memory (Retro.MemoryType.SAVE_RAM, bytes);
 	}
 
+	private double get_screenshot_aspect_ratio () {
+		var pixbuf = current_state_pixbuf;
+		if (pixbuf == null)
+			return 0;
+
+		var x_dpi = pixbuf.get_option ("x-dpi");
+		var y_dpi = pixbuf.get_option ("y-dpi");
+
+		if (x_dpi == null || y_dpi == null)
+			return 0;
+
+		float x = 0, y = 0;
+		x_dpi.scanf ("%g", out x);
+		y_dpi.scanf ("%g", out y);
+
+		if (y == 0)
+			return 0;
+
+		return (double) x / y;
+	}
+
 	private void save_screenshot_in_tmp () throws Error {
 		var pixbuf = current_state_pixbuf;
 		if (pixbuf == null)
@@ -577,6 +599,7 @@ public class Games.RetroRunner : Object, Runner {
 		             "tEXt::Creation Time", creation_time.to_string (),
 		             "tEXt::Game Title", title,
 		             "tEXt::Platform", platform_name,
+		             // FIXME: x-dpi and y-dpi are not actually being saved.
 		             "x-dpi", x_dpi,
 		             "y-dpi", y_dpi,
 		             null);

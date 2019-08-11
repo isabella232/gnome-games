@@ -40,6 +40,21 @@ public class Games.Savestate : Object {
 		}
 	}
 
+	public double get_screenshot_aspect_ratio () {
+		var metadata = new KeyFile ();
+		var metadata_file_path = Path.build_filename (path, "metadata");
+
+		try {
+			metadata.load_from_file (metadata_file_path, KeyFileFlags.NONE);
+			return metadata.get_double ("Screenshot", "Aspect Ratio");
+		}
+		catch (Error e) {
+			// Migrated savestates are not going to have the correct aspect ratio.
+			// Fail gracefully and don't print
+			return 0;
+		}
+	}
+
 	public void set_snapshot_data (Bytes snapshot_data) throws Error {
 		var buffer = snapshot_data.get_data ();
 		var snapshot_path = Path.build_filename (path, "snapshot");
@@ -132,17 +147,17 @@ public class Games.Savestate : Object {
 	}
 
 	// Set the metadata for an automatic savestate
-	public void set_metadata_automatic (DateTime creation_date, string platform, string core) throws Error {
-		set_metadata (true, null, creation_date, platform, core);
+	public void set_metadata_automatic (DateTime creation_date, string platform, string core, double aspect_ratio) throws Error {
+		set_metadata (true, null, creation_date, platform, core, aspect_ratio);
 	}
 
 	// Set the metadata for a manual savestate
-	public void set_metadata_manual (string name, DateTime creation_date, string platform, string core) throws Error {
-		set_metadata (false, name, creation_date, platform, core);
+	public void set_metadata_manual (string name, DateTime creation_date, string platform, string core, double aspect_ratio) throws Error {
+		set_metadata (false, name, creation_date, platform, core, aspect_ratio);
 	}
 
 	private void set_metadata (bool is_automatic, string? name, DateTime creation_date,
-	                           string platform, string core) throws Error {
+	                           string platform, string core, double aspect_ratio) throws Error {
 		var metadata_file_path = Path.build_filename (path, "metadata");
 		var metadata_file = File.new_for_path (metadata_file_path);
 		var metadata = new KeyFile ();
@@ -158,6 +173,7 @@ public class Games.Savestate : Object {
 		metadata.set_string ("Metadata", "Creation Date", creation_date.to_string ());
 		metadata.set_string ("Metadata", "Platform", platform);
 		metadata.set_string ("Metadata", "Core", core);
+		metadata.set_double ("Screenshot", "Aspect Ratio", aspect_ratio);
 		metadata.save_to_file (metadata_file_path);
 	}
 
