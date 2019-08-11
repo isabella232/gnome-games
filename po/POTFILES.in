@@ -23,6 +23,7 @@ data/ui/remote-display.ui
 data/ui/reset-controller-mapping-dialog.ui
 data/ui/resume-dialog.ui
 data/ui/resume-failed-dialog.ui
+data/ui/savestates-list.ui
 data/ui/shortcuts-window.ui
 plugins/desktop/src/desktop-plugin.vala
 plugins/dreamcast/src/dreamcast-header.vala
