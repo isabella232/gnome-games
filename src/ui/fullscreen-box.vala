@@ -5,7 +5,26 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 	private const uint INACTIVITY_TIME_MILLISECONDS = 3000;
 	private const int SHOW_HEADERBAR_DISTANCE = 5;
 
-	public bool is_fullscreen { get; set; }
+	private bool _is_fullscreen;
+	public bool is_fullscreen {
+		get { return _is_fullscreen; }
+		set {
+			if (is_fullscreen == value)
+				return;
+
+			_is_fullscreen = value;
+
+			if (!autohide)
+				return;
+
+			if (is_fullscreen) {
+				show_ui ();
+				on_cursor_moved ();
+			}
+			else
+				on_restore ();
+		}
+	}
 
 	private bool _autohide = true;
 	public bool autohide {
@@ -90,16 +109,6 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 		}
 		else
 			overlay.add (widget);
-	}
-
-	[GtkCallback]
-	private void on_fullscreen_changed () {
-		if (is_fullscreen) {
-			show_ui ();
-			on_cursor_moved ();
-		}
-		else
-			on_restore ();
 	}
 
 	[GtkCallback]

@@ -17,7 +17,6 @@
             <property name="transition-type">slide-down</property>
             <property name="transition-duration">500</property>
             <property name="events">pointer-motion-mask</property>
-            <signal name="notify::is-fullscreen" handler="on_fullscreen_changed"/>
             <signal name="motion-notify-event" handler="on_motion_event"/>
           </object>
         </child>
