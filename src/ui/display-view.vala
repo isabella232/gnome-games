@@ -365,8 +365,6 @@ private class Games.DisplayView : Object, UiView {
 			return true;
 		}
 
-		box.runner.capture_current_state_pixbuf ();
-
 		if (box.runner.try_create_savestate (true) != null) {
 			// Progress saved => can quit game safely
 			box.runner.stop ();

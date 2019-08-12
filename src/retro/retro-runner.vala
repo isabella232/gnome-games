@@ -348,6 +348,10 @@ public class Games.RetroRunner : Object, Runner {
 		if (!is_initialized)
 			return;
 
+		if (!running)
+			return;
+
+		current_state_pixbuf = view.get_pixbuf ();
 		loop.stop ();
 
 		//FIXME:

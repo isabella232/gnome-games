@@ -114,9 +114,7 @@ private class Games.SavestatesList : Gtk.Box {
 		revealer.reveal_child = state.is_revealed;
 
 		if (state.is_revealed) {
-			runner.capture_current_state_pixbuf ();
 			runner.pause ();
-
 			select_savestate_row (null);
 		}
 		// Runner isn't resumed here but after the revealer finishes the transition
