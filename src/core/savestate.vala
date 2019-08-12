@@ -5,12 +5,24 @@ public class Games.Savestate : Object {
 		this.path = path;
 	}
 
-	public string? get_name () {
+	protected KeyFile get_metadata () {
 		var metadata = new KeyFile ();
 		var metadata_file_path = Path.build_filename (path, "metadata");
 
 		try {
 			metadata.load_from_file (metadata_file_path, KeyFileFlags.NONE);
+		}
+		catch (Error e) {
+			critical ("Failed to load metadata for %s: %s", path, e.message);
+		}
+
+		return metadata;
+	}
+
+	public string? get_name () {
+		var metadata = get_metadata ();
+
+		try {
 			var is_automatic = metadata.get_boolean ("Metadata", "Automatic");
 
 			if (is_automatic)
@@ -18,18 +30,16 @@ public class Games.Savestate : Object {
 			else
 				return metadata.get_string ("Metadata", "Name");
 		}
-		catch (Error e) {
+		catch (KeyFileError e) {
 			critical ("Failed to get name from metadata file for savestate at %s: %s", path, e.message);
 			return null;
 		}
 	}
 
 	public DateTime? get_creation_date () {
-		var metadata = new KeyFile ();
-		var metadata_file_path = Path.build_filename (path, "metadata");
+		var metadata = get_metadata ();
 
 		try {
-			metadata.load_from_file (metadata_file_path, KeyFileFlags.NONE);
 			var creation_date_str = metadata.get_string ("Metadata", "Creation Date");
 
 			return new DateTime.from_iso8601 (creation_date_str, new TimeZone.local ());
@@ -41,11 +51,9 @@ public class Games.Savestate : Object {
 	}
 
 	public double get_screenshot_aspect_ratio () {
-		var metadata = new KeyFile ();
-		var metadata_file_path = Path.build_filename (path, "metadata");
+		var metadata = get_metadata ();
 
 		try {
-			metadata.load_from_file (metadata_file_path, KeyFileFlags.NONE);
 			return metadata.get_double ("Screenshot", "Aspect Ratio");
 		}
 		catch (Error e) {
@@ -134,9 +142,7 @@ public class Games.Savestate : Object {
 	// It names the newly created savestate using the creation date in the
 	// metadata file
 	public void save_in (string game_savestates_dir_path) throws Error {
-		var metadata = new KeyFile ();
-		var metadata_file_path = Path.build_filename (path, "metadata");
-		metadata.load_from_file (metadata_file_path, KeyFileFlags.NONE);
+		var metadata = get_metadata ();
 
 		var creation_date = metadata.get_string ("Metadata", "Creation Date");
 		var copied_dir = File.new_for_path (path);
@@ -180,11 +186,9 @@ public class Games.Savestate : Object {
 	// Automatic means whether the savestate was created automatically when
 	// quitting/loading the game or manually by the user using the Save button
 	public bool is_automatic () {
-		var metadata = new KeyFile ();
-		var metadata_file_path = Path.build_filename (path, "metadata");
+		var metadata = get_metadata ();
 
 		try {
-			metadata.load_from_file (metadata_file_path, KeyFileFlags.NONE);
 			return metadata.get_boolean ("Metadata", "Automatic");
 		}
 		catch (Error e) {
