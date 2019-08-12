@@ -101,9 +101,9 @@ private class Games.DisplayView : Object, UiView {
 		var keymap = Gdk.Keymap.get_for_display (window.get_display ());
 		keymap.translate_keyboard_state (event.hardware_keycode, event.state,
 		                                 event.group, out keyval, null, null, null);
+		var ctrl_pressed = (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK;
 
-		if ((keyval == Gdk.Key.f || keyval == Gdk.Key.F) &&
-		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK &&
+		if ((keyval == Gdk.Key.f || keyval == Gdk.Key.F) && ctrl_pressed &&
 		    header_bar.can_fullscreen && !savestates_list_state.is_revealed) {
 			is_fullscreen = !is_fullscreen;
 			settings.set_boolean ("fullscreen", is_fullscreen);
@@ -119,9 +119,8 @@ private class Games.DisplayView : Object, UiView {
 			return true;
 		}
 
-		if (keyval == Gdk.Key.Escape && header_bar.can_fullscreen) {
-			is_fullscreen = false;
-			settings.set_boolean ("fullscreen", false);
+		if (keyval == Gdk.Key.Escape) {
+			on_escape_key_pressed ();
 
 			return true;
 		}
@@ -134,7 +133,68 @@ private class Games.DisplayView : Object, UiView {
 			return true;
 		}
 
+		// Shortcuts for the Savestates manager
+		if (savestates_list_state.is_revealed)
+			return false;
+
+		if (((keyval == Gdk.Key.a || keyval == Gdk.Key.A) && ctrl_pressed) ||
+		     (keyval == Gdk.Key.F4)) {
+			savestates_list_state.is_revealed = true;
+
+			return true;
+		}
+
+		if (((keyval == Gdk.Key.s || keyval == Gdk.Key.S) && ctrl_pressed) ||
+		     (keyval == Gdk.Key.F2)){
+			create_new_savestate ();
+
+			return true;
+		}
+
+		if ((keyval == Gdk.Key.d || keyval == Gdk.Key.D) && ctrl_pressed ||
+		    (keyval == Gdk.Key.F3)) {
+			load_latest_savestate ();
+
+			return true;
+		}
+
 		return false;
+	}
+
+	private void on_escape_key_pressed () {
+		if (savestates_list_state.is_revealed)
+			on_display_back (); // Hide Savestates menu
+		else if (header_bar.can_fullscreen) {
+			is_fullscreen = false;
+			settings.set_boolean ("fullscreen", false);
+		}
+	}
+
+	private void create_new_savestate () {
+		box.runner.pause ();
+		box.runner.try_create_savestate (false);
+		box.runner.resume ();
+		box.runner.get_display ().grab_focus ();
+	}
+
+	private void load_latest_savestate () {
+		var savestates = box.runner.get_savestates ();
+
+		if (savestates.length == 0)
+			return;
+
+		box.runner.pause ();
+		box.runner.preview_savestate (savestates[0]);
+
+		try {
+			box.runner.load_previewed_savestate ();
+		}
+		catch (Error e) {
+			warning ("Failed to load savestate: %s", e.message);
+		}
+
+		box.runner.resume ();
+		box.runner.get_display ().grab_focus ();
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {
