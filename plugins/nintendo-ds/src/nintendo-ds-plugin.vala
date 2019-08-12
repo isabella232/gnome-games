@@ -6,10 +6,10 @@ private class Games.NintendoDsPlugin : Object, Plugin {
 	private const string PLATFORM_NAME = _("Nintendo DS");
 	private const string PLATFORM_UID_PREFIX = "nintendo-ds";
 
-	private static RetroPlatform platform;
+	private static NintendoDsPlatform platform;
 
 	static construct {
-		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, { MIME_TYPE }, PLATFORM_UID_PREFIX);
+		platform = new NintendoDsPlatform (PLATFORM_ID, PLATFORM_NAME, { MIME_TYPE }, PLATFORM_UID_PREFIX);
 	}
 
 	public Platform[] get_platforms () {
