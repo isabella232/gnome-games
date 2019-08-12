@@ -1,8 +1,11 @@
 public class Games.Savestate : Object {
-	private string path; // Path to the savestate directory
+	public string path { get; construct; }
+	public Platform platform { get; construct; }
 
-	public Savestate (string path) {
-		this.path = path;
+	public static Savestate load (Platform platform, string path) {
+		var type = platform.get_savestate_type ();
+
+		return Object.new (type, "path", path, "platform", platform, null) as Savestate;
 	}
 
 	protected KeyFile get_metadata () {
@@ -134,7 +137,7 @@ public class Games.Savestate : Object {
 
 		FileOperations.copy_contents (cloned_savestate_dir, tmp_savestate_dir);
 
-		return new Savestate (tmp_savestate_path);
+		return Savestate.load (platform, tmp_savestate_path);
 	}
 
 	// This method is used to save the savestate in /tmp as a regular savestate
@@ -210,7 +213,7 @@ public class Games.Savestate : Object {
 		}
 	}
 
-	public static Savestate[] get_game_savestates (Uid game_uid, string core_id) throws Error {
+	public static Savestate[] get_game_savestates (Uid game_uid, Platform platform, string core_id) throws Error {
 		var data_dir_path = Application.get_data_dir ();
 		var savestates_dir_path = Path.build_filename (data_dir_path, "savestates");
 		var uid_str = game_uid.get_uid ();
@@ -231,7 +234,7 @@ public class Games.Savestate : Object {
 
 		while ((savestate_name = game_savestates_dir.read_name ()) != null) {
 			var savestate_path = Path.build_filename (game_savestates_dir_path, savestate_name);
-			game_savestates += new Savestate (savestate_path);
+			game_savestates += Savestate.load (platform, savestate_path);
 		}
 
 		// Sort the savestates array by creation dates
@@ -255,8 +258,8 @@ public class Games.Savestate : Object {
 		return 1;
 	}
 
-	public static Savestate create_empty_in_tmp () throws Error {
-		return new Savestate (prepare_empty_savestate_in_tmp ());
+	public static Savestate create_empty_in_tmp (Platform platform) throws Error {
+		return Savestate.load (platform, prepare_empty_savestate_in_tmp ());
 	}
 
 	// Returns the path of the newly created dir in tmp

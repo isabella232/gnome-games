@@ -135,7 +135,7 @@ public class Games.RetroRunner : Object, Runner {
 
 	private void init_phase_one () throws Error {
 		// Step 1) Load the game's savestates ----------------------------------
-		game_savestates = Savestate.get_game_savestates (uid, get_core_id ());
+		game_savestates = Savestate.get_game_savestates (uid, platform, get_core_id ());
 		if (game_savestates.length != 0)
 			latest_savestate = game_savestates[0];
 
@@ -147,7 +147,7 @@ public class Games.RetroRunner : Object, Runner {
 
 		// Step 3) Instantiate the core
 		// This is needed to check if the core supports savestates
-		tmp_live_savestate = Savestate.create_empty_in_tmp ();
+		tmp_live_savestate = Savestate.create_empty_in_tmp (platform);
 		instantiate_core (tmp_live_savestate.get_save_directory_path ());
 
 		// Step 4) Preview the latest savestate --------------------------------
@@ -225,7 +225,7 @@ public class Games.RetroRunner : Object, Runner {
 			if (latest_savestate != null)
 				tmp_live_savestate = latest_savestate.clone_in_tmp ();
 			else
-				tmp_live_savestate = Savestate.create_empty_in_tmp ();
+				tmp_live_savestate = Savestate.create_empty_in_tmp (platform);
 
 			instantiate_core (tmp_live_savestate.get_save_directory_path ());
 		}
@@ -491,7 +491,7 @@ public class Games.RetroRunner : Object, Runner {
 
 		// Instantiate the Savestate object
 		var savestate_path = Path.build_filename (game_savestates_dir_path, now_time.to_string ());
-		var savestate = new Savestate (savestate_path);
+		var savestate = Savestate.load (platform, savestate_path);
 
 		// Update the game_savestates array
 		// Insert the new savestate at the beginning of the array since it's the latest savestate
