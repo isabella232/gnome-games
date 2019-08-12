@@ -206,6 +206,8 @@ public class Games.RetroRunner : Object, Runner {
 		if (previewed_savestate.has_media_data ())
 			media_set.selected_media_number = previewed_savestate.get_media_data ();
 
+		load_extra_savestate_metadata (previewed_savestate);
+
 		is_ready = true;
 	}
 
@@ -239,6 +241,9 @@ public class Games.RetroRunner : Object, Runner {
 		core.reset ();
 
 		loop.start ();
+
+		load_extra_savestate_metadata (latest_savestate);
+
 		running = true;
 	}
 
@@ -477,12 +482,20 @@ public class Games.RetroRunner : Object, Runner {
 		var now_time = new DateTime.now ();
 		var platform_prefix = platform.get_uid_prefix ();
 		var ratio = Retro.pixbuf_get_aspect_ratio (current_state_pixbuf);
+
+		// FIXME: Because of how saving metadata is done currently, saving
+		// any additional data has to be done before the keyfile is written
+		save_extra_savestate_metadata (tmp_live_savestate);
+
 		if (is_automatic)
-			tmp_live_savestate.set_metadata_automatic (now_time, platform_prefix, get_core_id (), ratio);
+			tmp_live_savestate.set_metadata_automatic (now_time, platform_prefix,
+			                                           get_core_id (), ratio);
 		else {
 			var savestate_name = create_new_savestate_name ();
 
-			tmp_live_savestate.set_metadata_manual (savestate_name, now_time, platform_prefix, get_core_id (), ratio);
+			tmp_live_savestate.set_metadata_manual (savestate_name, now_time,
+			                                        platform_prefix, get_core_id (),
+			                                        ratio);
 		}
 
 		// Save the tmp_live_savestate into the game savestates directory
@@ -648,6 +661,12 @@ public class Games.RetroRunner : Object, Runner {
 					savestate.delete_from_disk ();
 			}
 		}
+	}
+
+	protected virtual void save_extra_savestate_metadata (Savestate savestate) {
+	}
+
+	protected virtual void load_extra_savestate_metadata (Savestate savestate) {
 	}
 }
 
