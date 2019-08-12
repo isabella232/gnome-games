@@ -629,32 +629,34 @@ public class Games.RetroRunner : Object, Runner {
 
 	private string create_new_savestate_name () throws Error {
 		// A list containing the names of all savestates with name of the form "New Savestate %d"
-		var list = new List<string>();
-		var regex = new Regex (_("New savestate %s").printf ("[1-9]\\d*"));
+		var list = new List<int>();
+		var regex = new Regex (_("New savestate %s").printf ("([1-9]\\d*)"));
 
 		foreach (var savestate in game_savestates) {
 			if (savestate.is_automatic ())
 				continue;
 
 			var savestate_name = savestate.get_name ();
+			MatchInfo match_info = null;
 
-			if (regex.match (savestate_name))
-				list.prepend (savestate_name);
+			if (regex.match (savestate_name, 0, out match_info)) {
+				var number = match_info.fetch (1);
+				list.prepend (int.parse (number));
+			}
 		}
 
-		list.sort (strcmp);
+		list.sort ((a, b) => a - b);
 
 		// Find the next available name for a new manual savestate
-		var new_savestate_name_suffix = 1;
-		foreach (var savestate_name in list) {
-			var new_savestate_name = _("New savestate %s").printf (new_savestate_name_suffix.to_string ());
-			if (savestate_name == new_savestate_name)
-				new_savestate_name_suffix++;
+		var next_number = 1;
+		foreach (var number in list) {
+			if (number == next_number)
+				next_number++;
 			else
 				break;
 		}
 
-		return _("New savestate %s").printf (new_savestate_name_suffix.to_string ());
+		return _("New savestate %s").printf (next_number.to_string ());
 	}
 
 	// Decide if there are too many automatic savestates and delete the
