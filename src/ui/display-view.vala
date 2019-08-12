@@ -97,7 +97,12 @@ private class Games.DisplayView : Object, UiView {
 		if (box.on_key_press_event (event))
 			return true;
 
-		if ((event.keyval == Gdk.Key.f || event.keyval == Gdk.Key.F) &&
+		uint keyval;
+		var keymap = Gdk.Keymap.get_for_display (window.get_display ());
+		keymap.translate_keyboard_state (event.hardware_keycode, event.state,
+		                                 event.group, out keyval, null, null, null);
+
+		if ((keyval == Gdk.Key.f || keyval == Gdk.Key.F) &&
 		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK &&
 		    header_bar.can_fullscreen && !savestates_list_state.is_revealed) {
 			is_fullscreen = !is_fullscreen;
@@ -106,7 +111,7 @@ private class Games.DisplayView : Object, UiView {
 			return true;
 		}
 
-		if (event.keyval == Gdk.Key.F11 && header_bar.can_fullscreen &&
+		if (keyval == Gdk.Key.F11 && header_bar.can_fullscreen &&
 		    !savestates_list_state.is_revealed) {
 			is_fullscreen = !is_fullscreen;
 			settings.set_boolean ("fullscreen", is_fullscreen);
@@ -114,7 +119,7 @@ private class Games.DisplayView : Object, UiView {
 			return true;
 		}
 
-		if (event.keyval == Gdk.Key.Escape && header_bar.can_fullscreen) {
+		if (keyval == Gdk.Key.Escape && header_bar.can_fullscreen) {
 			is_fullscreen = false;
 			settings.set_boolean ("fullscreen", false);
 
@@ -122,8 +127,8 @@ private class Games.DisplayView : Object, UiView {
 		}
 
 		if (((event.state & default_modifiers) == Gdk.ModifierType.MOD1_MASK) &&
-		    (((window.get_direction () == Gtk.TextDirection.LTR) && event.keyval == Gdk.Key.Left) ||
-		     ((window.get_direction () == Gtk.TextDirection.RTL) && event.keyval == Gdk.Key.Right))) {
+		    (((window.get_direction () == Gtk.TextDirection.LTR) && keyval == Gdk.Key.Left) ||
+		     ((window.get_direction () == Gtk.TextDirection.RTL) && keyval == Gdk.Key.Right))) {
 			on_display_back ();
 
 			return true;
