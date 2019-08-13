@@ -6,6 +6,7 @@ vala_sources = [
   'nintendo-ds-platform.vala',
   'nintendo-ds-plugin.vala',
   'nintendo-ds-runner.vala',
+  'nintendo-ds-savestate.vala',
 ]
 
 c_sources = [
