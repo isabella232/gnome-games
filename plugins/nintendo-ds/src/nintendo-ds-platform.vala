@@ -4,4 +4,8 @@ public class Games.NintendoDsPlatform : RetroPlatform {
 	public NintendoDsPlatform (string id, string name, string[] mime_types, string prefix) {
 		base (id, name, mime_types, prefix);
 	}
+
+	public override Type get_savestate_type () {
+		return typeof (NintendoDsSavestate);
+	}
 }

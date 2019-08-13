@@ -1,9 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.NintendoDsRunner : RetroRunner {
-	private Settings settings;
-	private ulong settings_changed_id;
-
 	// Map the 1,2,3,4 key values to the 4 screen layouts of the Nintendo DS
 	private static HashTable<uint, NintendoDsLayout?> layouts;
 
@@ -14,7 +11,7 @@ private class Games.NintendoDsRunner : RetroRunner {
 		get { return _screen_layout; }
 		set {
 			_screen_layout = value;
-			settings.set_string ("screen-layout", value.get_value ());
+			update_screen_layout ();
 		}
 	}
 
@@ -23,7 +20,7 @@ private class Games.NintendoDsRunner : RetroRunner {
 		get { return _view_bottom_screen; }
 		set {
 			_view_bottom_screen = value;
-			settings.set_boolean ("view-bottom-screen", value);
+			update_screen_layout ();
 		}
 	}
 
@@ -38,7 +35,6 @@ private class Games.NintendoDsRunner : RetroRunner {
 
 	construct {
 		game_init.connect (on_init);
-		game_deinit.connect (on_deinit);
 	}
 
 	private bool core_supports_layouts () {
@@ -48,36 +44,9 @@ private class Games.NintendoDsRunner : RetroRunner {
 	}
 
 	private void on_init () {
-		settings = new Settings ("org.gnome.Games.plugins.nintendo-ds");
-		settings_changed_id = settings.changed.connect (on_changed);
-
-		_screen_layout = NintendoDsLayout.from_value (settings.get_string ("screen-layout"));
-		_view_bottom_screen = settings.get_boolean ("view-bottom-screen");
-
 		var core = get_core ();
 
 		core.options_set.connect (update_screen_layout);
-	}
-
-	private void on_deinit () {
-		if (settings_changed_id > 0) {
-			settings.disconnect (settings_changed_id);
-			settings_changed_id = 0;
-
-			settings = null;
-		}
-	}
-
-	private void on_changed (string key) {
-		if (key == "screen-layout")
-			_screen_layout = NintendoDsLayout.from_value (settings.get_string (key));
-		else
-		if (key == "view-bottom-screen")
-			_view_bottom_screen = settings.get_boolean (key);
-		else
-			return;
-
-		update_screen_layout ();
 	}
 
 	private void update_screen_layout () {
@@ -146,5 +115,23 @@ private class Games.NintendoDsRunner : RetroRunner {
 		view_bottom_screen = !view_bottom_screen;
 
 		return true;
+	}
+
+	protected override void save_extra_savestate_metadata (Savestate savestate) {
+		assert (savestate is NintendoDsSavestate);
+
+		var ds_savestate = savestate as NintendoDsSavestate;
+		ds_savestate.screen_layout = screen_layout;
+		ds_savestate.view_bottom_screen = view_bottom_screen;
+	}
+
+	protected override void load_extra_savestate_metadata (Savestate savestate) {
+		assert (savestate is NintendoDsSavestate);
+
+		var ds_savestate = savestate as NintendoDsSavestate;
+
+		ds_savestate.load_extra_metadata ();
+		screen_layout = ds_savestate.screen_layout;
+		view_bottom_screen = ds_savestate.view_bottom_screen;
 	}
 }
