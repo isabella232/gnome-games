@@ -30,31 +30,7 @@ private class Games.SavestatesList : Gtk.Box {
 		}
 	}
 
-	private Runner _runner;
-	public Runner runner {
-		get { return _runner; }
-		set {
-			_runner = value;
-
-			// Remove current savestate rows
-			var list_rows =  list_box.get_children ();
-			foreach (var row in list_rows) {
-				if (row != new_savestate_row)
-					list_box.remove (row);
-			}
-
-			if (value == null)
-				return;
-
-			// value != null
-			var savestates = _runner.get_savestates ();
-			foreach (var savestate in savestates) {
-				var list_row = new SavestateListBoxRow (savestate);
-
-				list_box.add (list_row);
-			}
-		}
-	}
+	public Runner runner { get; set; }
 
 	construct {
 		list_box.set_header_func (update_header);
@@ -87,6 +63,25 @@ private class Games.SavestatesList : Gtk.Box {
 			select_savestate_row (activated_row);
 	}
 
+	private void populate_list_box () {
+		// Remove current savestate rows
+		var list_rows =  list_box.get_children ();
+		foreach (var row in list_rows) {
+			if (row != new_savestate_row)
+				list_box.remove (row);
+		}
+
+		if (runner == null)
+			return;
+
+		var savestates = _runner.get_savestates ();
+		foreach (var savestate in savestates) {
+			var list_row = new SavestateListBoxRow (savestate);
+
+			list_box.add (list_row);
+		}
+	}
+
 	private void on_load_clicked () {
 		if (!try_runner_load_previewed_savestate ()) {
 			// TODO: Here we could show a dialog with one button like
@@ -115,6 +110,7 @@ private class Games.SavestatesList : Gtk.Box {
 
 		if (state.is_revealed) {
 			runner.pause ();
+			populate_list_box ();
 			select_savestate_row (null);
 		}
 		// Runner isn't resumed here but after the revealer finishes the transition
