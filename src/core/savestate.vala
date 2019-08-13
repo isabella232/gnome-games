@@ -165,6 +165,9 @@ public class Games.Savestate : Object {
 		set_metadata (false, name, creation_date, platform, core, aspect_ratio);
 	}
 
+	protected virtual void save_extra_metadata (KeyFile keyfile) {
+	}
+
 	private void set_metadata (bool is_automatic, string? name, DateTime creation_date,
 	                           string platform, string core, double aspect_ratio) throws Error {
 		var metadata_file_path = Path.build_filename (path, "metadata");
@@ -183,6 +186,9 @@ public class Games.Savestate : Object {
 		metadata.set_string ("Metadata", "Platform", platform);
 		metadata.set_string ("Metadata", "Core", core);
 		metadata.set_double ("Screenshot", "Aspect Ratio", aspect_ratio);
+
+		save_extra_metadata (metadata);
+
 		metadata.save_to_file (metadata_file_path);
 	}
 
