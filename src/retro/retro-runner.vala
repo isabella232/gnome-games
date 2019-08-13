@@ -182,6 +182,11 @@ public class Games.RetroRunner : Object, Runner {
 		// a critical operation
 		try {
 			pixbuf = new Gdk.Pixbuf.from_file (screenshot_path);
+
+			var aspect_ratio = savestate.get_screenshot_aspect_ratio ();
+
+			if (aspect_ratio != 0)
+				Retro.pixbuf_set_aspect_ratio (pixbuf, (float) aspect_ratio);
 		}
 		catch (Error e) {
 			warning ("Couldn't load %s: %s", screenshot_path, e.message);
