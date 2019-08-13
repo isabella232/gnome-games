@@ -32,4 +32,8 @@ public class Games.RetroPlatform : Object, Platform {
 	public PreferencesPagePlatformsRow get_row () {
 		return new PreferencesPagePlatformsRetroRow (this);
 	}
+
+	public virtual Type get_savestate_type () {
+		return typeof (Savestate);
+	}
 }

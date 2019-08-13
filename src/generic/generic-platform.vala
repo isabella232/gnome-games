@@ -26,4 +26,8 @@ public class Games.GenericPlatform : Object, Platform {
 	public PreferencesPagePlatformsRow get_row () {
 		return new PreferencesPagePlatformsGenericRow (name);
 	}
+
+	public Type get_savestate_type () {
+		return typeof (Savestate);
+	}
 }
