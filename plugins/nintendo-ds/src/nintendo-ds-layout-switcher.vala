@@ -13,15 +13,16 @@ private class Games.NintendoDsLayoutSwitcher : Gtk.Box {
 	[GtkChild]
 	private Gtk.ListBox list_box;
 
-	private Settings settings;
 	private HashTable<NintendoDsLayout, NintendoDsLayoutItem> items;
+
+	public NintendoDsRunner runner { get; construct; }
 
 	static construct {
 		var icon_theme = Gtk.IconTheme.get_default ();
 		icon_theme.add_resource_path ("/org/gnome/Games/plugins/nintendo-ds/icons");
 	}
 
-	construct {
+	public override void constructed () {
 		items = new HashTable<NintendoDsLayout, NintendoDsLayoutItem> (direct_hash, direct_equal);
 		foreach (var layout in NintendoDsLayout.get_layouts ()) {
 			var item = new NintendoDsLayoutItem (layout);
@@ -30,42 +31,45 @@ private class Games.NintendoDsLayoutSwitcher : Gtk.Box {
 			list_box.add (item);
 		}
 
-		settings = new Settings ("org.gnome.Games.plugins.nintendo-ds");
-		settings.changed.connect (update_ui);
-
 		layout_popover.show.connect (update_ui);
 
 		update_ui ();
+
+		runner.notify["screen-layout"].connect (update_ui);
+		runner.notify["view-bottom-screen"].connect (update_ui);
+
+		base.constructed ();
+	}
+
+	public NintendoDsLayoutSwitcher (NintendoDsRunner runner) {
+		Object (runner: runner);
 	}
 
 	private void update_ui () {
-		var layout_value = settings.get_string ("screen-layout");
-		var view_bottom = settings.get_boolean ("view-bottom-screen");
+		var layout = runner.screen_layout;
+		var view_bottom = runner.view_bottom_screen;
 
-		var layout = NintendoDsLayout.from_value (layout_value);
 		layout_image.icon_name = layout.get_icon ();
 
 		var item = items[layout];
 		list_box.select_row (item);
 
 		change_screen_revealer.reveal_child = (layout == NintendoDsLayout.QUICK_SWITCH);
-		change_screen_image.icon_name = view_bottom ? "view-top-screen-symbolic" : "view-bottom-screen-symbolic-symbolic";
+		change_screen_image.icon_name = view_bottom ?
+		                                "view-top-screen-symbolic" :
+		                                "view-bottom-screen-symbolic";
 	}
 
 	[GtkCallback]
 	private void on_screen_changed (Gtk.Button button) {
-		var view_bottom = settings.get_boolean ("view-bottom-screen");
-
-		settings.set_boolean ("view-bottom-screen", !view_bottom);
+		runner.view_bottom_screen = !runner.view_bottom_screen;
 	}
 
 	[GtkCallback]
 	private void on_row_activated (Gtk.ListBoxRow row) {
 		var layout_item = row as NintendoDsLayoutItem;
 
-		var layout = layout_item.layout;
-
-		settings.set_string ("screen-layout", layout.get_value ());
+		runner.screen_layout = layout_item.layout;
 
 		layout_popover.popdown ();
 	}

@@ -9,6 +9,24 @@ private class Games.NintendoDsRunner : RetroRunner {
 
 	private const string SCREENS_LAYOUT_OPTION = "desmume_screens_layout";
 
+	private NintendoDsLayout _screen_layout;
+	public NintendoDsLayout screen_layout {
+		get { return _screen_layout; }
+		set {
+			_screen_layout = value;
+			settings.set_string ("screen-layout", value.get_value ());
+		}
+	}
+
+	private bool _view_bottom_screen;
+	public bool view_bottom_screen {
+		get { return _view_bottom_screen; }
+		set {
+			_view_bottom_screen = value;
+			settings.set_boolean ("view-bottom-screen", value);
+		}
+	}
+
 	static construct {
 		layouts = new HashTable<uint, NintendoDsLayout?> (direct_hash, direct_equal);
 
@@ -33,6 +51,9 @@ private class Games.NintendoDsRunner : RetroRunner {
 		settings = new Settings ("org.gnome.Games.plugins.nintendo-ds");
 		settings_changed_id = settings.changed.connect (on_changed);
 
+		_screen_layout = NintendoDsLayout.from_value (settings.get_string ("screen-layout"));
+		_view_bottom_screen = settings.get_boolean ("view-bottom-screen");
+
 		var core = get_core ();
 
 		core.options_set.connect (update_screen_layout);
@@ -48,8 +69,15 @@ private class Games.NintendoDsRunner : RetroRunner {
 	}
 
 	private void on_changed (string key) {
-		if (key == "screen-layout" || key == "view-bottom-screen")
-			update_screen_layout ();
+		if (key == "screen-layout")
+			_screen_layout = NintendoDsLayout.from_value (settings.get_string (key));
+		else
+		if (key == "view-bottom-screen")
+			_view_bottom_screen = settings.get_boolean (key);
+		else
+			return;
+
+		update_screen_layout ();
 	}
 
 	private void update_screen_layout () {
@@ -60,14 +88,9 @@ private class Games.NintendoDsRunner : RetroRunner {
 
 		var option = core.get_option (SCREENS_LAYOUT_OPTION);
 
-		var setting_value = settings.get_string ("screen-layout");
-
-		var option_value = setting_value;
-		if (setting_value == "quick switch") {
-			var bottom = settings.get_boolean ("view-bottom-screen");
-
-			option_value = bottom ? "bottom only" : "top only";
-		}
+		var option_value = screen_layout.get_value ();
+		if (screen_layout == NintendoDsLayout.QUICK_SWITCH)
+			option_value = view_bottom_screen ? "bottom only" : "top only";
 
 		try {
 			option.set_value (option_value);
@@ -81,7 +104,7 @@ private class Games.NintendoDsRunner : RetroRunner {
 		if (!core_supports_layouts ())
 			return null;
 
-		return new NintendoDsLayoutSwitcher ();
+		return new NintendoDsLayoutSwitcher (this);
 	}
 
 	public override bool key_press_event (Gdk.EventKey event) {
@@ -93,19 +116,16 @@ private class Games.NintendoDsRunner : RetroRunner {
 
 			var shortcut_layout = layouts[event.keyval];
 			if (shortcut_layout != null) {
-				settings.set_string ("screen-layout", shortcut_layout.get_value ());
+				screen_layout = shortcut_layout;
 
 				return true;
 			}
 		}
 
-		var layout = settings.get_string ("screen-layout");
-
-		if (layout != "quick switch")
+		if (screen_layout != NintendoDsLayout.QUICK_SWITCH)
 			return false;
 
-		var view_bottom = settings.get_boolean ("view-bottom-screen");
-		var switch_keyval = view_bottom ? Gdk.Key.Page_Up : Gdk.Key.Page_Down;
+		var switch_keyval = view_bottom_screen ? Gdk.Key.Page_Up : Gdk.Key.Page_Down;
 		if (event.keyval == switch_keyval)
 			return swap_screens ();
 
@@ -120,13 +140,10 @@ private class Games.NintendoDsRunner : RetroRunner {
 	}
 
 	private bool swap_screens () {
-		var layout = settings.get_string ("screen-layout");
-
-		if (layout != "quick switch")
+		if (screen_layout != NintendoDsLayout.QUICK_SWITCH)
 			return false;
 
-		var view_bottom = settings.get_boolean ("view-bottom-screen");
-		settings.set_boolean ("view-bottom-screen", !view_bottom);
+		view_bottom_screen = !view_bottom_screen;
 
 		return true;
 	}
