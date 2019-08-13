@@ -5,17 +5,17 @@ private class Games.NintendoDsRunner : RetroRunner {
 	private ulong settings_changed_id;
 
 	// Map the 1,2,3,4 key values to the 4 screen layouts of the Nintendo DS
-	private static HashTable<uint, string> layouts;
+	private static HashTable<uint, NintendoDsLayout?> layouts;
 
 	private const string SCREENS_LAYOUT_OPTION = "desmume_screens_layout";
 
 	static construct {
-		layouts = new HashTable<uint, string> (direct_hash, direct_equal);
+		layouts = new HashTable<uint, NintendoDsLayout?> (direct_hash, direct_equal);
 
-		layouts[Gdk.Key.@1] = "top/bottom";
-		layouts[Gdk.Key.@2] = "left/right";
-		layouts[Gdk.Key.@3] = "right/left";
-		layouts[Gdk.Key.@4] = "quick switch";
+		layouts[Gdk.Key.@1] = NintendoDsLayout.TOP_BOTTOM;
+		layouts[Gdk.Key.@2] = NintendoDsLayout.LEFT_RIGHT;
+		layouts[Gdk.Key.@3] = NintendoDsLayout.RIGHT_LEFT;
+		layouts[Gdk.Key.@4] = NintendoDsLayout.QUICK_SWITCH;
 	}
 
 	construct {
@@ -93,7 +93,7 @@ private class Games.NintendoDsRunner : RetroRunner {
 
 			var shortcut_layout = layouts[event.keyval];
 			if (shortcut_layout != null) {
-				settings.set_string ("screen-layout", shortcut_layout);
+				settings.set_string ("screen-layout", shortcut_layout.get_value ());
 
 				return true;
 			}

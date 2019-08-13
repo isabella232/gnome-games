@@ -14,14 +14,7 @@ private class Games.NintendoDsLayoutSwitcher : Gtk.Box {
 	private Gtk.ListBox list_box;
 
 	private Settings settings;
-	private HashTable<string, NintendoDsLayoutItem> items;
-
-	private string[] LAYOUTS = {
-		"top/bottom",
-		"left/right",
-		"right/left",
-		"quick switch",
-	};
+	private HashTable<NintendoDsLayout, NintendoDsLayoutItem> items;
 
 	static construct {
 		var icon_theme = Gtk.IconTheme.get_default ();
@@ -29,15 +22,11 @@ private class Games.NintendoDsLayoutSwitcher : Gtk.Box {
 	}
 
 	construct {
-		items = new HashTable<string, NintendoDsLayoutItem> (str_hash, str_equal);
-		foreach (string layout in LAYOUTS) {
-			string icon = get_layout_icon (layout);
-			string title = get_layout_title (layout);
-			string subtitle = get_layout_subtitle (layout);
+		items = new HashTable<NintendoDsLayout, NintendoDsLayoutItem> (direct_hash, direct_equal);
+		foreach (var layout in NintendoDsLayout.get_layouts ()) {
+			var item = new NintendoDsLayoutItem (layout);
 
-			var item = new NintendoDsLayoutItem (layout, title, subtitle, icon);
 			items[layout] = item;
-
 			list_box.add (item);
 		}
 
@@ -50,15 +39,16 @@ private class Games.NintendoDsLayoutSwitcher : Gtk.Box {
 	}
 
 	private void update_ui () {
-		var layout = settings.get_string ("screen-layout");
+		var layout_value = settings.get_string ("screen-layout");
 		var view_bottom = settings.get_boolean ("view-bottom-screen");
 
-		layout_image.icon_name = get_layout_icon (layout);
+		var layout = NintendoDsLayout.from_value (layout_value);
+		layout_image.icon_name = layout.get_icon ();
 
 		var item = items[layout];
 		list_box.select_row (item);
 
-		change_screen_revealer.reveal_child = (layout == "quick switch");
+		change_screen_revealer.reveal_child = (layout == NintendoDsLayout.QUICK_SWITCH);
 		change_screen_image.icon_name = view_bottom ? "view-top-screen-symbolic" : "view-bottom-screen-symbolic-symbolic";
 	}
 
@@ -73,56 +63,10 @@ private class Games.NintendoDsLayoutSwitcher : Gtk.Box {
 	private void on_row_activated (Gtk.ListBoxRow row) {
 		var layout_item = row as NintendoDsLayoutItem;
 
-		var layout = layout_item.get_layout ();
+		var layout = layout_item.layout;
 
-		settings.set_string ("screen-layout", layout);
+		settings.set_string ("screen-layout", layout.get_value ());
 
 		layout_popover.popdown ();
-	}
-
-	private string get_layout_icon (string layout) {
-		switch (layout) {
-		case "top/bottom":
-			return "screen-layout-top-bottom-symbolic";
-
-		case "left/right":
-			return "screen-layout-left-right-symbolic";
-
-		case "right/left":
-			return "screen-layout-right-left-symbolic";
-
-		case "quick switch":
-			return "screen-layout-quick-switch-symbolic";
-		}
-
-		return "video-display-symbolic";
-	}
-
-	private string get_layout_title (string layout) {
-		switch (layout) {
-		case "top/bottom":
-			return _("Vertical");
-
-		case "left/right":
-		case "right/left":
-			return _("Side by side");
-
-		case "quick switch":
-			return _("Single screen");
-		}
-
-		return _("Unknown");
-	}
-
-	private string? get_layout_subtitle (string layout) {
-		switch (layout) {
-		case "left/right":
-			return _("Bottom to the right");
-
-		case "right/left":
-			return _("Bottom to the left");
-		}
-
-		return null;
 	}
 }

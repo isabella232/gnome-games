@@ -9,21 +9,21 @@ private class Games.NintendoDsLayoutItem : Gtk.ListBoxRow {
 	[GtkChild]
 	private Gtk.Label subtitle;
 
-	private string layout;
+	public NintendoDsLayout layout { get; construct; }
 
-	public NintendoDsLayoutItem (string layout, string title, string? subtitle, string icon) {
-		this.layout = layout;
-
-		this.icon.icon_name = icon;
-		this.title.label = title;
-
-		if (subtitle != null) {
-			this.subtitle.label = subtitle;
-			this.subtitle.show ();
-		}
+	public NintendoDsLayoutItem (NintendoDsLayout layout) {
+		Object (layout: layout);
 	}
 
-	public string get_layout () {
-		return layout;
+	public override void constructed () {
+		this.icon.icon_name = layout.get_icon ();
+		this.title.label = layout.get_title ();
+
+		if (subtitle != null) {
+			this.subtitle.label = layout.get_subtitle ();
+			this.subtitle.show ();
+		}
+
+		base.constructed ();
 	}
 }
