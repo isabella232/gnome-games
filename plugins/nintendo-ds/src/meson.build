@@ -1,5 +1,6 @@
 vala_sources = [
   'nintendo-ds-icon.vala',
+  'nintendo-ds-layout.vala',
   'nintendo-ds-layout-item.vala',
   'nintendo-ds-layout-switcher.vala',
   'nintendo-ds-plugin.vala',
