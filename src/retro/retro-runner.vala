@@ -277,12 +277,8 @@ public class Games.RetroRunner : Object, Runner {
 		game_deinit ();
 
 		core = null;
-		//view.set_core (null);
-
-		// FIXME: Not sure if requires fixing but:
-		// This is commented out because otherwise the screen appears freezed
-		// when loading a savestate
-		//view = null;
+		view.set_core (null);
+		view = null;
 
 		input_manager = null;
 		loop = null;
