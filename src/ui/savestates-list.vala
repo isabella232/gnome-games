@@ -196,6 +196,9 @@ private class Games.SavestatesList : Gtk.Box {
 		}
 
 		foreach (var list_child in list_box.get_children ()) {
+			if (!(list_child is SavestateListBoxRow))
+				continue; // Ignore the new savestate row;
+
 			var savestate_row = list_child as SavestateListBoxRow;
 			var savestate = savestate_row.savestate;
 
