@@ -134,12 +134,6 @@ private class Games.DisplayHeaderBar : Gtk.Stack {
 		savestates_list_state.load_clicked ();
 	}
 
-	[GtkCallback]
-	private void on_savestates_back_clicked () {
-		runner.preview_current_state ();
-		savestates_list_state.is_revealed = false;
-	}
-
 	private void on_savestates_list_revealed_changed () {
 		if (savestates_list_state.is_revealed)
 			set_visible_child (savestates_header_bar);
