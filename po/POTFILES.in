@@ -36,9 +36,9 @@ plugins/love/src/love-plugin.vala
 plugins/mame/src/mame-game-uri-adapter.vala
 plugins/mame/src/mame-plugin.vala
 plugins/ms-dos/src/ms-dos-plugin.vala
-plugins/nintendo-ds/data/org.gnome.Games.plugins.nintendo-ds.gschema.xml
 plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui
 plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala
+plugins/nintendo-ds/src/nintendo-ds-layout.vala
 plugins/nintendo-ds/src/nintendo-ds-plugin.vala
 plugins/playstation/src/playstation-header.vala
 plugins/playstation/src/playstation-plugin.vala

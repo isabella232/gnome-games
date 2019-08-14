@@ -11,6 +11,7 @@ plugins/love/src/love-plugin.c
 plugins/mame/src/mame-game-uri-adapter.c
 plugins/mame/src/mame-plugin.c
 plugins/ms-dos/src/ms-dos-plugin.c
+plugins/nintendo-ds/src/nintendo-ds-layout.c
 plugins/nintendo-ds/src/nintendo-ds-layout-switcher.c
 plugins/nintendo-ds/src/nintendo-ds-plugin.c
 plugins/playstation/data/playstation.gameinfo.xml.in
