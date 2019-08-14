@@ -587,9 +587,6 @@ public class Games.RetroRunner : Object, Runner {
 		}
 		var title = game_title.get_title ();
 
-		var x_dpi = pixbuf.get_option ("x-dpi") ?? "";
-		var y_dpi = pixbuf.get_option ("y-dpi") ?? "";
-
 		// See http://www.libpng.org/pub/png/spec/iso/index-object.html#11textinfo
 		// for description of used keys. "Game Title" and "Platform" are
 		// non-standard fields as allowed by PNG specification.
@@ -599,9 +596,6 @@ public class Games.RetroRunner : Object, Runner {
 		             "tEXt::Creation Time", creation_time.to_string (),
 		             "tEXt::Game Title", title,
 		             "tEXt::Platform", platform_name,
-		             // FIXME: x-dpi and y-dpi are not actually being saved.
-		             "x-dpi", x_dpi,
-		             "y-dpi", y_dpi,
 		             null);
 	}
 
