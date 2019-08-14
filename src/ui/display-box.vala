@@ -59,7 +59,7 @@ private class Games.DisplayBox : Gtk.Bin {
 	[GtkChild]
 	private Gtk.Overlay display_overlay;
 	[GtkChild]
-	private Gtk.EventBox display_bin;
+	private DisplayBin display_bin;
 	[GtkChild]
 	private DisplayHeaderBar fullscreen_header_bar;
 	[GtkChild]
@@ -147,11 +147,8 @@ private class Games.DisplayBox : Gtk.Bin {
 	}
 
 	private void update_margin () {
-		var width = get_allocated_width ();
-		display_bin.margin_start = 0;
-		if (width > 900)
-			display_bin.margin_end = savestates_list.get_allocated_width ();
-		else
-			display_bin.margin_end = 0;
+		var width = savestates_list.get_allocated_width ();
+
+		display_bin.horizontal_offset = -width / 2;
 	}
 }

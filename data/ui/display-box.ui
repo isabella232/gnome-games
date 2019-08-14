@@ -28,7 +28,7 @@
               <object class="GtkOverlay" id="display_overlay">
                 <property name="visible">True</property>
                 <child>
-                  <object class="GtkEventBox" id="display_bin">
+                  <object class="GamesDisplayBin" id="display_bin">
                     <property name="visible">True</property>
                     <property name="hexpand">True</property>
                   </object>
