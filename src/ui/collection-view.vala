@@ -109,16 +109,21 @@ private class Games.CollectionView : Object, UiView {
 	public bool on_key_pressed (Gdk.EventKey event) {
 		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
 
+		uint keyval;
+		var keymap = Gdk.Keymap.get_for_display (window.get_display ());
+		keymap.translate_keyboard_state (event.hardware_keycode, event.state,
+		                                 event.group, out keyval, null, null, null);
+
 		if (((event.state & default_modifiers) == Gdk.ModifierType.MOD1_MASK) &&
-		    (((window.get_direction () == Gtk.TextDirection.LTR) && event.keyval == Gdk.Key.Left) ||
-		     ((window.get_direction () == Gtk.TextDirection.RTL) && event.keyval == Gdk.Key.Right)) &&
+		    (((window.get_direction () == Gtk.TextDirection.LTR) && keyval == Gdk.Key.Left) ||
+		     ((window.get_direction () == Gtk.TextDirection.RTL) && keyval == Gdk.Key.Right)) &&
 		     adaptive_state.is_subview_open) {
 			adaptive_state.is_subview_open = false;
 
 			return true;
 		}
 
-		if ((event.keyval == Gdk.Key.f || event.keyval == Gdk.Key.F) &&
+		if ((keyval == Gdk.Key.f || keyval == Gdk.Key.F) &&
 		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK) {
 			if (!search_mode)
 				search_mode = true;
