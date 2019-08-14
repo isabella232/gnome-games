@@ -110,7 +110,7 @@ public class Games.CommandRunner : Object, Runner {
 		return { };
 	}
 
-	public bool key_press_event (Gdk.EventKey event) {
+	public bool key_press_event (uint keyval, uint state) {
 		return false;
 	}
 

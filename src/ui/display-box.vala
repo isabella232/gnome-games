@@ -111,7 +111,9 @@ private class Games.DisplayBox : Gtk.Bin {
 		if (runner == null)
 			return false;
 
-		return runner.key_press_event (event);
+		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
+
+		return runner.key_press_event (event.keyval, event.state & default_modifiers);
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {

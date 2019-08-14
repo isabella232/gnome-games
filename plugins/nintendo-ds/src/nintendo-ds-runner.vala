@@ -76,14 +76,10 @@ private class Games.NintendoDsRunner : RetroRunner {
 		return new NintendoDsLayoutSwitcher (this);
 	}
 
-	public override bool key_press_event (Gdk.EventKey event) {
-		// First check for Alt + 1|2|3|4
-		// These shortcuts change the screen layout
-		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
-		if ((event.state & default_modifiers) == Gdk.ModifierType.MOD1_MASK) {
-			// Alt key is pressed
-
-			var shortcut_layout = layouts[event.keyval];
+	public override bool key_press_event (uint keyval, uint state) {
+		if (state == Gdk.ModifierType.MOD1_MASK) {
+			// Alt + 1|2|3|4
+			var shortcut_layout = layouts[keyval];
 			if (shortcut_layout != null) {
 				screen_layout = shortcut_layout;
 
@@ -95,7 +91,7 @@ private class Games.NintendoDsRunner : RetroRunner {
 			return false;
 
 		var switch_keyval = view_bottom_screen ? Gdk.Key.Page_Up : Gdk.Key.Page_Down;
-		if (event.keyval == switch_keyval)
+		if (keyval == switch_keyval)
 			return swap_screens ();
 
 		return false;
