@@ -94,14 +94,14 @@ private class Games.DisplayView : Object, UiView {
 	public bool on_key_pressed (Gdk.EventKey event) {
 		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
 
-		if (box.on_key_press_event (event))
-			return true;
-
 		uint keyval;
 		var keymap = Gdk.Keymap.get_for_display (window.get_display ());
 		keymap.translate_keyboard_state (event.hardware_keycode, event.state,
 		                                 event.group, out keyval, null, null, null);
 		var ctrl_pressed = (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK;
+
+		if (box.on_key_press_event (keyval, event.state & default_modifiers))
+			return true;
 
 		if ((keyval == Gdk.Key.f || keyval == Gdk.Key.F) && ctrl_pressed &&
 		    header_bar.can_fullscreen && !savestates_list_state.is_revealed) {

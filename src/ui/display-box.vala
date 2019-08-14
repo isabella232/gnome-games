@@ -104,16 +104,14 @@ private class Games.DisplayBox : Gtk.Bin {
 			display_bin.remove (child);
 	}
 
-	public bool on_key_press_event (Gdk.EventKey event) {
+	public bool on_key_press_event (uint keyval, uint status) {
 		if (!get_mapped ())
 			return false;
 
 		if (runner == null)
 			return false;
 
-		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
-
-		return runner.key_press_event (event.keyval, event.state & default_modifiers);
+		return runner.key_press_event (keyval, status);
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {
