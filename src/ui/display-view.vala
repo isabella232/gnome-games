@@ -176,8 +176,12 @@ private class Games.DisplayView : Object, UiView {
 	}
 
 	private void on_display_back () {
-		if (savestates_list_state.is_revealed)
+		if (savestates_list_state.is_revealed) {
+			box.runner.preview_current_state ();
+			savestates_list_state.is_revealed = false;
+
 			return;
+		}
 
 		back ();
 	}
