@@ -471,7 +471,7 @@ public class Games.RetroRunner : Object, Runner {
 		// Populate the metadata file
 		var now_time = new DateTime.now ();
 		var platform_prefix = platform.get_uid_prefix ();
-		var ratio = get_screenshot_aspect_ratio ();
+		var ratio = Retro.pixbuf_get_aspect_ratio (current_state_pixbuf);
 		if (is_automatic)
 			tmp_live_savestate.set_metadata_automatic (now_time, platform_prefix, get_core_id (), ratio);
 		else {
@@ -547,27 +547,6 @@ public class Games.RetroRunner : Object, Runner {
 
 		var bytes = new Bytes.take (data);
 		core.set_memory (Retro.MemoryType.SAVE_RAM, bytes);
-	}
-
-	private double get_screenshot_aspect_ratio () {
-		var pixbuf = current_state_pixbuf;
-		if (pixbuf == null)
-			return 0;
-
-		var x_dpi = pixbuf.get_option ("x-dpi");
-		var y_dpi = pixbuf.get_option ("y-dpi");
-
-		if (x_dpi == null || y_dpi == null)
-			return 0;
-
-		float x = 0, y = 0;
-		x_dpi.scanf ("%g", out x);
-		y_dpi.scanf ("%g", out y);
-
-		if (y == 0)
-			return 0;
-
-		return (double) x / y;
 	}
 
 	private void save_screenshot_in_tmp () throws Error {
