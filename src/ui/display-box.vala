@@ -34,6 +34,9 @@ private class Games.DisplayBox : Gtk.Bin {
 	public Runner runner {
 		get { return _runner; }
 		set {
+			if (runner != null)
+				runner.new_savestate_created.disconnect (flash_box.flash);
+
 			stack.visible_child = display_overlay;
 
 			_runner = value;
@@ -47,6 +50,8 @@ private class Games.DisplayBox : Gtk.Bin {
 			set_display (display);
 
 			savestates_list.runner = value;
+
+			runner.new_savestate_created.connect (flash_box.flash);
 		}
 	}
 
@@ -62,6 +67,8 @@ private class Games.DisplayBox : Gtk.Bin {
 	private DisplayBin display_bin;
 	[GtkChild]
 	private DisplayHeaderBar fullscreen_header_bar;
+	[GtkChild]
+	private FlashBox flash_box;
 	[GtkChild]
 	private SavestatesList savestates_list;
 

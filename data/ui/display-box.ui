@@ -34,6 +34,11 @@
                   </object>
                 </child>
                 <child type="overlay">
+                  <object class="GamesFlashBox" id="flash_box">
+                    <property name="visible">True</property>
+                  </object>
+                </child>
+                <child type="overlay">
                   <object class="GamesSavestatesList" id="savestates_list">
                     <property name="visible">True</property>
                     <property name="halign">end</property>
