@@ -28,10 +28,9 @@
                 <property name="wrap">true</property>
                 <property name="wrap-mode">word-char</property>
                 <property name="xalign">0</property>
-                <attributes>
-                  <!-- "1.2" is the value of "large" -->
-                  <attribute name="scale" value="1.2"/>
-                </attributes>
+                <style>
+                  <class name="savestate-name"/>
+                </style>
               </object>
             </child>
             <child>
@@ -40,11 +39,8 @@
                 <property name="wrap">true</property>
                 <property name="xalign">0</property>
                 <style>
-                  <class name="dim-label"/>
+                  <class name="savestate-date"/>
                 </style>
-                <attributes>
-                  <attribute name="scale" value="0.8"/>
-                </attributes>
               </object>
             </child>
           </object>

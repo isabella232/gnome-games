@@ -18,6 +18,15 @@
   border-radius: 5px;
 }
 
+.savestate-name {
+  font-size: large;
+}
+
+.savestate-date {
+  opacity: 0.5;
+  font-size: small;
+}
+
 .savestates-list {
   border-left: none;
   border-right: none;

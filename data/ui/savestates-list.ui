@@ -49,10 +49,10 @@
                                 <property name="visible">True</property>
                                 <property name="margin">12</property>
                                 <property name="label" translatable="yes">Create new savestate</property>
-                                <attributes>
-                                  <!-- "1.2" is the value of "large" -->
-                                  <attribute name="scale" value="1.2"/>
-                                </attributes>
+                                <property name="wrap">True</property>
+                                <style>
+                                  <class name="savestate-name"/>
+                                </style>
                               </object>
                             </child>
                           </object>
