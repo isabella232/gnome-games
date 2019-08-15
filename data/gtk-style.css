@@ -8,17 +8,13 @@
 	background-color: @theme_base_color;
 }
 
-.savestate-row {
-  padding: 0px;
-}
-
 .savestate-thumbnail {
   min-width: 64px;
   min-height: 64px;
   color: rgba(255, 255, 255, 0.5);
   background: rgba (0, 0, 0, .5);
   border: 1px solid rgba (0, 0, 0, .5);
-  margin: 6px;
+  margin: 4px;
   border-radius: 5px;
 }
 
