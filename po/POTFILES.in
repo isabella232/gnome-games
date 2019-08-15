@@ -80,5 +80,6 @@ src/ui/preferences-page-video.vala
 src/ui/preferences-subpage-gamepad.vala
 src/ui/preferences-subpage-keyboard.vala
 src/ui/savestate-listbox-row.vala
+src/ui/savestates-list.vala
 src/utils/cue-sheet/cue-sheet.vala
 src/utils/file-operations.vala

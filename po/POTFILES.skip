@@ -55,5 +55,6 @@ src/ui/preferences-page-video.c
 src/ui/preferences-subpage-gamepad.c
 src/ui/preferences-subpage-keyboard.c
 src/ui/savestate-listbox-row.c
+src/ui/savestates-list.c
 src/utils/cue-sheet/cue-sheet.c
 src/utils/file-operations.c
