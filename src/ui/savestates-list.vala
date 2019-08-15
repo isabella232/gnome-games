@@ -63,6 +63,7 @@ private class Games.SavestatesList : Gtk.Box {
 
 				list_box.insert (savestate_row, 1);
 				select_savestate_row (savestate_row);
+				savestate_row.reveal ();
 			}
 			else {
 				// Savestate creation failed
@@ -89,6 +90,8 @@ private class Games.SavestatesList : Gtk.Box {
 		var savestates = _runner.get_savestates ();
 		foreach (var savestate in savestates) {
 			var list_row = new SavestateListBoxRow (savestate);
+			// Reveal it early so that it doesn't animate
+			list_row.reveal ();
 
 			list_box.add (list_row);
 		}
@@ -140,10 +143,10 @@ private class Games.SavestatesList : Gtk.Box {
 		var savestate = savestate_row.savestate;
 
 		runner.delete_savestate (savestate);
-		list_box.remove (selected_row);
+		savestate_row.remove_animated ();
 
 		// Select and preview a new row
-		var next_row = list_box.get_row_at_index (selected_row_index);
+		var next_row = list_box.get_row_at_index (selected_row_index + 1);
 
 		if (next_row == null) { // The last row in the list has been deleted
 			var nr_rows = list_box.get_children ().length ();

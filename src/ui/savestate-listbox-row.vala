@@ -4,12 +4,16 @@
 private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 	public const int THUMBNAIL_SIZE = 64;
 
+	public delegate void RemoveCallback ();
+
 	[GtkChild]
 	private Gtk.Image image;
 	[GtkChild]
 	private Gtk.Label name_label;
 	[GtkChild]
 	private Gtk.Label date_label;
+	[GtkChild]
+	private Gtk.Revealer revealer;
 
 	private Savestate _savestate;
 	public Savestate savestate {
@@ -76,6 +80,17 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 	public void set_name (string name) {
 		name_label.label = name;
 		savestate.set_name (name);
+	}
+
+	public void reveal () {
+		revealer.reveal_child = true;
+	}
+
+	public void remove_animated () {
+		revealer.reveal_child = false;
+		revealer.notify["child-revealed"].connect(() => {
+			get_parent ().remove (this);
+		});
 	}
 }
 
