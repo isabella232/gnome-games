@@ -1,6 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public interface Games.Runner : Object {
+	public signal void new_savestate_created ();
 	public signal void stopped ();
 
 	public abstract bool can_fullscreen { get; }

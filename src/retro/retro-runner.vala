@@ -455,6 +455,7 @@ public class Games.RetroRunner : Object, Runner {
 			return null;
 
 		try {
+			new_savestate_created ();
 			return create_savestate (is_automatic);
 		}
 		catch (Error e) {
