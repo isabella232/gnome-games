@@ -134,6 +134,9 @@ private class Games.DisplayView : Object, UiView {
 		}
 
 		// Shortcuts for the Savestates manager
+		if (!box.runner.supports_savestates)
+			return false;
+
 		if (savestates_list_state.is_revealed)
 			return false;
 
