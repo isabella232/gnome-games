@@ -22,9 +22,10 @@ private class Games.PreferencesWindow : Gtk.Window {
 	private Gtk.Stack stack;
 	[GtkChild]
 	private Hdy.HeaderGroup header_group;
-
 	[GtkChild]
-	private Gtk.Button back_button;
+	private Gtk.Button page_back_button;
+	[GtkChild]
+	private Gtk.Button window_back_button;
 
 	private PreferencesSubpage _subpage;
 	public PreferencesSubpage subpage {
@@ -107,6 +108,11 @@ private class Games.PreferencesWindow : Gtk.Window {
 
 	[GtkCallback]
 	private void on_back_clicked () {
+		if (content_box.visible_child == sidebar) {
+			close ();
+			return;
+		}
+
 		content_box.visible_child = sidebar;
 		titlebar_box.visible_child = left_header_bar;
 		update_header_group ();
@@ -117,7 +123,8 @@ private class Games.PreferencesWindow : Gtk.Window {
 		var folded = content_box.folded;
 
 		update_header_group ();
-		back_button.visible = folded;
+		page_back_button.visible = folded;
+		window_back_button.visible = folded;
 		sidebar.show_selection = !folded;
 
 		if (folded)
