@@ -142,6 +142,7 @@ private class Games.SavestatesList : Gtk.Box {
 		var savestate_row = selected_row as SavestateListBoxRow;
 		var savestate = savestate_row.savestate;
 
+		ensure_row_is_visible (selected_row);
 		runner.delete_savestate (savestate);
 		savestate_row.remove_animated ();
 
@@ -172,9 +173,24 @@ private class Games.SavestatesList : Gtk.Box {
 	private void on_rename_clicked () {
 		var selected_row = list_box.get_selected_row ();
 
+		ensure_row_is_visible (selected_row);
+
 		rename_entry.text = state.selected_savestate.get_name ();
 		rename_popover.relative_to = selected_row;
 		rename_popover.popup ();
+	}
+
+	// Adapted from gtklistbox.c, ensure_row_visible()
+	private void ensure_row_is_visible (Gtk.ListBoxRow row) {
+		Gtk.Allocation allocation;
+
+		row.get_allocation (out allocation);
+		var y = allocation.y;
+		var height = allocation.height;
+
+		scrolled_window.kinetic_scrolling = false;
+		scrolled_window.vadjustment.clamp_page (y, y + height);
+		scrolled_window.kinetic_scrolling = true;
 	}
 
 	[GtkCallback]
