@@ -31,9 +31,13 @@
                       <object class="GtkListBoxRow" id="new_savestate_row">
                         <property name="visible">True</property>
                         <property name="selectable">False</property>
+                        <style>
+                          <class name="savestate-row"/>
+                        </style>
                         <child>
                           <object class="GtkBox">
                             <property name="visible">True</property>
+                            <property name="margin">2</property>
                             <child>
                               <object class="GtkImage">
                                 <property name="visible">True</property>

@@ -8,6 +8,10 @@
 	background-color: @theme_base_color;
 }
 
+.savestate-row {
+  padding: 0;
+}
+
 .savestate-thumbnail {
   min-width: 64px;
   min-height: 64px;
