@@ -107,8 +107,6 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		inhibit_cookie = 0;
 		inhibit_flags = 0;
 
-		show_menubar = false; // Essential, see bug #771683
-
 		if (Config.PROFILE == "Devel")
 			get_style_context ().add_class ("devel");
 
