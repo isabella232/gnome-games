@@ -144,29 +144,18 @@ private class Games.SavestatesList : Gtk.Box {
 
 		ensure_row_is_visible (selected_row);
 		runner.delete_savestate (savestate);
-		savestate_row.remove_animated ();
 
 		// Select and preview a new row
 		var next_row = list_box.get_row_at_index (selected_row_index + 1);
 
-		if (next_row == null) { // The last row in the list has been deleted
-			var nr_rows = list_box.get_children ().length ();
-
-			if (nr_rows == 1) {
-				// The only remaining row in the list is the create savestate one
-				select_savestate_row (null);
-			}
-			else {
-				// The last row of the list has been deleted but there are still
-				// rows remaining in the list
-				var last_row = list_box.get_row_at_index (selected_row_index - 1);
-				select_savestate_row (last_row);
-			}
-
-			return;
+		if (next_row == null && list_box.get_children ().length () >= 1) {
+			// The last row of the list has been deleted but there are still
+			// rows remaining in the list
+			next_row = list_box.get_row_at_index (selected_row_index - 1);
 		}
 
 		select_savestate_row (next_row);
+		savestate_row.remove_animated ();
 	}
 
 	[GtkCallback]
@@ -258,8 +247,9 @@ private class Games.SavestatesList : Gtk.Box {
 	}
 
 	private void select_savestate_row (Gtk.ListBoxRow? row) {
+		list_box.select_row (row);
+
 		if (row == null) {
-			list_box.select_row (null);
 			runner.preview_current_state ();
 			state.selected_savestate = null;
 		}
@@ -267,7 +257,6 @@ private class Games.SavestatesList : Gtk.Box {
 			var savestate_row = row as SavestateListBoxRow;
 			var savestate = savestate_row.savestate;
 
-			list_box.select_row (row);
 			runner.preview_savestate (savestate);
 			state.selected_savestate = savestate;
 		}
