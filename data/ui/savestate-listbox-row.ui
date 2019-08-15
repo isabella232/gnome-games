@@ -9,6 +9,7 @@
         <child>
           <object class="GtkImage" id="image">
             <property name="visible">true</property>
+            <property name="valign">start</property>
             <style>
               <class name="savestate-thumbnail"/>
             </style>
@@ -25,6 +26,7 @@
               <object class="GtkLabel" id="name_label">
                 <property name="visible">true</property>
                 <property name="wrap">true</property>
+                <property name="wrap-mode">word-char</property>
                 <property name="xalign">0</property>
                 <attributes>
                   <!-- "1.2" is the value of "large" -->
