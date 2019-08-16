@@ -15,12 +15,13 @@
             <property name="visible">true</property>
             <property name="margin">2</property>
             <child>
-              <object class="GtkImage" id="image">
+              <object class="GtkDrawingArea" id="image">
                 <property name="visible">true</property>
                 <property name="valign">start</property>
                 <property name="width-request">66</property>
                 <property name="height-request">66</property>
                 <property name="margin">6</property>
+                <signal name="draw" handler="on_draw_image"/>
                 <style>
                   <class name="savestate-thumbnail"/>
                 </style>

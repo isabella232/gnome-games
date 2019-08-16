@@ -5,7 +5,7 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 	public const int THUMBNAIL_SIZE = 64;
 
 	[GtkChild]
-	private Gtk.Image image;
+	private Gtk.DrawingArea image;
 	[GtkChild]
 	private Gtk.Label name_label;
 	[GtkChild]
@@ -59,17 +59,18 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 			}
 
 			try {
-				var thumbnail = new Gdk.Pixbuf.from_file_at_scale (screenshot_path,
-				                                                   thumbnail_width,
-				                                                   thumbnail_height,
-				                                                   false);
-				image.set_from_pixbuf (thumbnail);
+				pixbuf = new Gdk.Pixbuf.from_file_at_scale (screenshot_path,
+				                                            thumbnail_width,
+				                                            thumbnail_height,
+				                                            false);
 			}
 			catch (Error e) {
 				warning ("Failed to load savestate thumbnail: %s", e.message);
 			}
 		}
 	}
+
+	private Gdk.Pixbuf pixbuf;
 
 	public SavestateListBoxRow (Savestate savestate) {
 		Object (savestate: savestate);
@@ -90,6 +91,62 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 			get_parent ().remove (this);
 		});
 		revealer.reveal_child = false;
+	}
+
+	[GtkCallback]
+	private bool on_draw_image (Cairo.Context cr) {
+		var width = image.get_allocated_width ();
+		var height = image.get_allocated_height ();
+
+		var style = image.get_style_context ();
+		style.render_background (cr, 0.0, 0.0, width, height);
+		style.render_frame (cr, 0.0, 0.0, width, height);
+
+		var mask = get_mask ();
+
+		var surface = Gdk.cairo_surface_create_from_pixbuf (pixbuf, 1, image.get_window ());
+		var x_offset = (width - pixbuf.width) / 2;
+		var y_offset = (height - pixbuf.height) / 2;
+
+		cr.set_source_surface (surface, x_offset, y_offset);
+		cr.mask_surface (mask, 0, 0);
+
+		return Gdk.EVENT_PROPAGATE;
+	}
+
+	// TODO: Share this with GameThumbnail
+	private Cairo.Surface get_mask () {
+		var width = image.get_allocated_width ();
+		var height = image.get_allocated_height ();
+
+		var mask = new Cairo.ImageSurface (Cairo.Format.A8, width, height);
+
+		var style = image.get_style_context ();
+		var flags = image.get_state_flags ();
+		var border_radius = (int) style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS, flags);
+		border_radius = border_radius.clamp (0, int.max (width / 2, height / 2));
+
+		var cr = new Cairo.Context (mask);
+		cr.set_source_rgb (0, 0, 0);
+		rounded_rectangle (cr, 0.5, 0.5, width - 1, height - 1, border_radius);
+		cr.fill ();
+
+		return mask;
+	}
+
+	// TODO: Share this with GameThumbnail
+	private void rounded_rectangle (Cairo.Context cr, double x, double y, double width, double height, double radius) {
+		const double ARC_0 = 0;
+		const double ARC_1 = Math.PI * 0.5;
+		const double ARC_2 = Math.PI;
+		const double ARC_3 = Math.PI * 1.5;
+
+		cr.new_sub_path ();
+		cr.arc (x + width - radius, y + radius,	         radius, ARC_3, ARC_0);
+		cr.arc (x + width - radius, y + height - radius, radius, ARC_0, ARC_1);
+		cr.arc (x + radius,         y + height - radius, radius, ARC_1, ARC_2);
+		cr.arc (x + radius,         y + radius,          radius, ARC_2, ARC_3);
+		cr.close_path ();
 	}
 }
 
