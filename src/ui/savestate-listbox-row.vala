@@ -4,8 +4,6 @@
 private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 	public const int THUMBNAIL_SIZE = 64;
 
-	public delegate void RemoveCallback ();
-
 	[GtkChild]
 	private Gtk.Image image;
 	[GtkChild]
