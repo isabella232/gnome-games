@@ -146,15 +146,30 @@ private class Games.SavestatesList : Gtk.Box {
 		runner.delete_savestate (savestate);
 
 		// Select and preview a new row
-		var next_row = list_box.get_row_at_index (selected_row_index + 1);
-
-		if (next_row == null && selected_row_index > 1) {
-			// The last row of the list will be deleted but there are still
-			// rows remaining in the list
-			next_row = list_box.get_row_at_index (selected_row_index - 1);
+		var next_row_index = selected_row_index + 1;
+		var new_selected_row = list_box.get_row_at_index (next_row_index);
+		while (new_selected_row != null && !new_selected_row.selectable) {
+			next_row_index++;
+			new_selected_row = list_box.get_row_at_index (next_row_index);
 		}
 
-		select_savestate_row (next_row);
+		if (new_selected_row == null) {
+			// There are no more selectable rows after the selected row
+			// Check if there are any selectable rows before the selected row
+
+			var prev_row_index = selected_row_index - 1;
+			new_selected_row = list_box.get_row_at_index (prev_row_index);
+			while (prev_row_index > 1 && !new_selected_row.selectable) {
+				prev_row_index--;
+				new_selected_row = list_box.get_row_at_index (prev_row_index);
+			}
+		}
+
+		if (new_selected_row != null && new_selected_row.selectable)
+			select_savestate_row (new_selected_row);
+		else
+			select_savestate_row (null);
+
 		savestate_row.remove_animated ();
 	}
 
