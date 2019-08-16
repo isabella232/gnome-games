@@ -158,7 +158,7 @@ public class Games.Savestate : Object {
 	// inside the savestates directory of a game
 	// It names the newly created savestate using the creation date in the
 	// metadata file
-	public void save_in (string game_savestates_dir_path) throws Error {
+	public Savestate save_in (string game_savestates_dir_path) throws Error {
 		var metadata = get_metadata ();
 
 		var creation_date = metadata.get_string ("Metadata", "Creation Date");
@@ -166,7 +166,14 @@ public class Games.Savestate : Object {
 		var new_savestate_dir_path = Path.build_filename (game_savestates_dir_path, creation_date);
 		var new_savestate_dir = File.new_for_path (new_savestate_dir_path);
 
+		while (new_savestate_dir.query_exists ()) {
+			new_savestate_dir_path += "_";
+			new_savestate_dir = File.new_for_path (new_savestate_dir_path);
+		}
+
 		FileOperations.copy_dir (copied_dir, new_savestate_dir);
+
+		return Savestate.load (platform, new_savestate_dir_path);
 	}
 
 	// Set the metadata for an automatic savestate

@@ -501,11 +501,7 @@ public class Games.RetroRunner : Object, Runner {
 
 		// Save the tmp_live_savestate into the game savestates directory
 		var game_savestates_dir_path = get_game_savestates_dir_path ();
-		tmp_live_savestate.save_in (game_savestates_dir_path);
-
-		// Instantiate the Savestate object
-		var savestate_path = Path.build_filename (game_savestates_dir_path, now_time.to_string ());
-		var savestate = Savestate.load (platform, savestate_path);
+		var savestate = tmp_live_savestate.save_in (game_savestates_dir_path);
 
 		// Update the game_savestates array
 		// Insert the new savestate at the beginning of the array since it's the latest savestate
