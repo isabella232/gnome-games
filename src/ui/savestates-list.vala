@@ -148,8 +148,8 @@ private class Games.SavestatesList : Gtk.Box {
 		// Select and preview a new row
 		var next_row = list_box.get_row_at_index (selected_row_index + 1);
 
-		if (next_row == null && list_box.get_children ().length () >= 1) {
-			// The last row of the list has been deleted but there are still
+		if (next_row == null && selected_row_index > 1) {
+			// The last row of the list will be deleted but there are still
 			// rows remaining in the list
 			next_row = list_box.get_row_at_index (selected_row_index - 1);
 		}
