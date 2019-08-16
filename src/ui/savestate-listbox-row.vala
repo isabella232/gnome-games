@@ -25,12 +25,8 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 				name_label.label = savestate.get_name ();
 
 			var creation_date = savestate.get_creation_date ();
-
-			/* Translators: this is the day number followed
-             * by the abbreviated month name followed by the year followed
-             * by a time in 24h format i.e. "3 Feb 2015 23:04:00" */
-            /* xgettext:no-c-format */
-			date_label.label = creation_date.format (_("%-e %b %Y %X"));
+			var date_format = get_date_format (creation_date);
+			date_label.label = creation_date.format (date_format);
 
 			load_thumbnail ();
 		}
@@ -169,6 +165,51 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 		cr.arc (x + radius,         y + height - radius, radius, ARC_1, ARC_2);
 		cr.arc (x + radius,         y + radius,          radius, ARC_2, ARC_3);
 		cr.close_path ();
+	}
+
+	// Get the date format such that savestates dates are presented similar to
+	// Nautilus's Modified column
+	// Adapted from nautilus-file.c, nautilus_file_get_date_as_string()
+	private string get_date_format (DateTime savestate_date) {
+		var savestate_date_midnight = new DateTime.local (savestate_date.get_year (),
+		                                                  savestate_date.get_month (),
+		                                                  savestate_date.get_day_of_month (),
+		                                                  0, 0, 0);
+		var now = new DateTime.now ();
+		var today_midnight = new DateTime.local (now.get_year (), now.get_month (), now.get_day_of_month (), 0, 0, 0);
+		var days_ago = (today_midnight.difference (savestate_date_midnight)) / GLib.TimeSpan.DAY;
+
+		if (days_ago == 0) {
+			/* Translators: Time in locale format */
+			/* xgettext:no-c-format */
+			return _("%X");
+		}
+		else if (days_ago == 1) {
+			/* Translators: this is the word Yesterday followed by
+			 * a time in locale format. i.e. "Yesterday 23:04:35" */
+			/* xgettext:no-c-format */
+			return _("Yesterday %X");
+		}
+		else if (days_ago > 1 && days_ago < 7) {
+			/* Translators: this is the abbreviated name of the week day followed by
+			 * a time in locale format. i.e. "Monday 23:04:35" */
+			/* xgettext:no-c-format */
+			return _("%a %X");
+		}
+		else if (savestate_date.get_year () == now.get_year ()) {
+			/* Translators: this is the day of the month followed
+			 * by the abbreviated month name followed by a time in
+			 * locale format i.e. "3 Feb 23:04:35" */
+			/* xgettext:no-c-format */
+			return _("%-e %b %X");
+		}
+		else {
+			/* Translators: this is the day number followed
+			 * by the abbreviated month name followed by the year followed
+			 * by a time in locale format i.e. "3 Feb 2015 23:04:00" */
+			/* xgettext:no-c-format */
+			return _("%-e %b %Y %X");
+		}
 	}
 }
 
