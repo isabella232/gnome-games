@@ -54,6 +54,19 @@ private class Games.SavestatesList : Gtk.Box {
 	}
 
 	[GtkCallback]
+	private void on_move_cursor () {
+		var row = list_box.get_selected_row ();
+
+		if (row != null && row is SavestateListBoxRow) {
+			var savestate_row = row as SavestateListBoxRow;
+			var savestate = savestate_row.savestate;
+
+			if (savestate != state.selected_savestate)
+				select_savestate_row (row);
+		}
+	}
+
+	[GtkCallback]
 	private void on_row_activated (Gtk.ListBoxRow activated_row) {
 		if (activated_row == new_savestate_row) {
 			var savestate = runner.try_create_savestate (false);
