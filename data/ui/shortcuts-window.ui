@@ -15,6 +15,13 @@
             <property name="title" translatable="yes">General</property>
             <property name="visible">True</property>
             <child>
+              <object class="GtkShortcutsShortcut" id="general_shortcut_alt_left">
+                <property name="visible">True</property>
+                <property name="title" translatable="yes" context="shortcut window">Go back</property>
+                <property name="accelerator">&lt;alt&gt;Left &lt;alt&gt;Right</property>
+              </object>
+            </child>
+            <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
                 <property name="title" translatable="yes" context="shortcut window">Quit</property>
@@ -88,6 +95,27 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
+                <property name="title" translatable="yes" context="shortcut window">Create new savestate</property>
+                <property name="accelerator">&lt;ctrl&gt;S F2</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <property name="title" translatable="yes" context="shortcut window">Load the latest savestate</property>
+                <property name="accelerator">&lt;ctrl&gt;D F3</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
+                <property name="title" translatable="yes" context="shortcut window">Show savestates</property>
+                <property name="accelerator">&lt;ctrl&gt;A F4</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
                 <property name="title" translatable="yes" context="shortcut window">Toggle fullscreen</property>
                 <property name="accelerator">&lt;Primary&gt;F F11</property>
               </object>
@@ -97,13 +125,6 @@
                 <property name="visible">True</property>
                 <property name="title" translatable="yes" context="shortcut window">Exit fullscreen</property>
                 <property name="accelerator">Escape</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkShortcutsShortcut" id="ingame_shortcut_alt_left">
-                <property name="visible">True</property>
-                <property name="title" translatable="yes" context="shortcut window">Go back to the collection</property>
-                <property name="accelerator">&lt;alt&gt;Left &lt;alt&gt;Right</property>
               </object>
             </child>
             <child>
