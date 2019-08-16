@@ -23,6 +23,7 @@
                 <child>
                   <object class="GtkListBox" id="list_box">
                     <property name="visible">True</property>
+                    <signal name="move-cursor" after="yes" handler="on_move_cursor"/>
                     <signal name="row-activated" after="yes" handler="on_row_activated"/>
                     <style>
                       <class name="sidebar"/>
