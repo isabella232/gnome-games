@@ -3,6 +3,7 @@
   <requires lib="gtk+" version="3.24"/>
   <template class="GamesSavestateListBoxRow" parent="GtkListBoxRow">
     <property name="visible">true</property>
+    <signal name="notify::scale-factor" handler="on_scale_factor_changed"/>
     <style>
       <class name="savestate-row"/>
     </style>
