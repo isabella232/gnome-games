@@ -310,12 +310,12 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 	}
 
 	private Cairo.Surface get_mask (DrawingContext context) {
-		Cairo.ImageSurface mask = new Cairo.ImageSurface (Cairo.Format.A8, context.width, context.height);
+		var mask = new Cairo.ImageSurface (Cairo.Format.A8, context.width, context.height);
 
 		var border_radius = (int) context.style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS, context.state);
 		border_radius = border_radius.clamp (0, int.max (context.width / 2, context.height / 2));
 
-		Cairo.Context cr = new Cairo.Context (mask);
+		var cr = new Cairo.Context (mask);
 		cr.set_source_rgba (0, 0, 0, 0.9);
 		rounded_rectangle (cr, 0.5, 0.5, context.width - 1, context.height - 1, border_radius);
 		cr.fill ();
