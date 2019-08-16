@@ -269,6 +269,9 @@ private class Games.SavestatesList : Gtk.Box {
 			state.selected_savestate = null;
 		}
 		else {
+			if (!(row is SavestateListBoxRow))
+				return;
+
 			var savestate_row = row as SavestateListBoxRow;
 			var savestate = savestate_row.savestate;
 
