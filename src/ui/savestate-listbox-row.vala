@@ -58,6 +58,9 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 				thumbnail_width = (int) (THUMBNAIL_SIZE * aspect_ratio);
 			}
 
+			thumbnail_width *= scale_factor;
+			thumbnail_height *= scale_factor;
+
 			try {
 				pixbuf = new Gdk.Pixbuf.from_file_at_scale (screenshot_path,
 				                                            thumbnail_width,
@@ -102,33 +105,40 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 		style.render_background (cr, 0.0, 0.0, width, height);
 		style.render_frame (cr, 0.0, 0.0, width, height);
 
+		cr.save ();
+		cr.scale (1.0 / scale_factor, 1.0 / scale_factor);
+
 		var mask = get_mask ();
 
 		var surface = Gdk.cairo_surface_create_from_pixbuf (pixbuf, 1, image.get_window ());
-		var x_offset = (width - pixbuf.width) / 2;
-		var y_offset = (height - pixbuf.height) / 2;
+		var x_offset = (width * scale_factor - pixbuf.width) / 2;
+		var y_offset = (height * scale_factor - pixbuf.height) / 2;
 
 		cr.set_source_surface (surface, x_offset, y_offset);
+
 		cr.mask_surface (mask, 0, 0);
+
+		cr.restore ();
 
 		return Gdk.EVENT_PROPAGATE;
 	}
 
 	// TODO: Share this with GameThumbnail
 	private Cairo.Surface get_mask () {
+		var scale = scale_factor;
 		var width = image.get_allocated_width ();
 		var height = image.get_allocated_height ();
 
-		var mask = new Cairo.ImageSurface (Cairo.Format.A8, width, height);
+		var mask = new Cairo.ImageSurface (Cairo.Format.A8, width * scale, height * scale);
 
 		var style = image.get_style_context ();
 		var flags = image.get_state_flags ();
-		var border_radius = (int) style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS, flags);
-		border_radius = border_radius.clamp (0, int.max (width / 2, height / 2));
+		var border_radius = (int) style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS, flags) * scale;
+		border_radius = border_radius.clamp (0, int.max (width * scale / 2, height * scale / 2));
 
 		var cr = new Cairo.Context (mask);
 		cr.set_source_rgb (0, 0, 0);
-		rounded_rectangle (cr, 0.5, 0.5, width - 1, height - 1, border_radius);
+		rounded_rectangle (cr, 0.5 * scale, 0.5 * scale, (width - 1) * scale, (height - 1) * scale, border_radius);
 		cr.fill ();
 
 		return mask;
