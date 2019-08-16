@@ -269,6 +269,8 @@ private class Games.SavestatesList : Gtk.Box {
 			state.selected_savestate = null;
 		}
 		else {
+			row.grab_focus ();
+
 			if (!(row is SavestateListBoxRow))
 				return;
 
@@ -286,5 +288,16 @@ private class Games.SavestatesList : Gtk.Box {
 
 		delete_btn.sensitive = (state.selected_savestate != null);
 		rename_btn.sensitive = (state.selected_savestate != null && !state.selected_savestate.is_automatic ());
+	}
+
+	public bool on_key_press_event (uint keyval, uint state) {
+		// FIXME: Move the other list shortcuts here
+
+		if (keyval == Gdk.Key.Delete || keyval == Gdk.Key.KP_Delete) {
+			on_delete_clicked ();
+			return true;
+		}
+
+		return false;
 	}
 }

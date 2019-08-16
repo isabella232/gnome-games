@@ -111,14 +111,17 @@ private class Games.DisplayBox : Gtk.Bin {
 			display_bin.remove (child);
 	}
 
-	public bool on_key_press_event (uint keyval, uint status) {
+	public bool on_key_press_event (uint keyval, uint state) {
 		if (!get_mapped ())
 			return false;
 
 		if (runner == null)
 			return false;
 
-		return runner.key_press_event (keyval, status);
+		if (savestates_list_state.is_revealed)
+			return savestates_list.on_key_press_event (keyval, state);
+
+		return runner.key_press_event (keyval, state);
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {
