@@ -316,7 +316,7 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 		border_radius = border_radius.clamp (0, int.max (context.width / 2, context.height / 2));
 
 		var cr = new Cairo.Context (mask);
-		cr.set_source_rgba (0, 0, 0, 0.9);
+		cr.set_source_rgb (0, 0, 0);
 		rounded_rectangle (cr, 0.5, 0.5, context.width - 1, context.height - 1, border_radius);
 		cr.fill ();
 
