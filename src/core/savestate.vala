@@ -258,24 +258,20 @@ public class Games.Savestate : Object {
 		}
 
 		// Sort the savestates array by creation dates
-		qsort_with_data (game_savestates, sizeof (Savestate), compare_savestates_creation_date);
+		qsort_with_data (game_savestates, sizeof (Savestate), compare_savestates_path);
 
 		return game_savestates;
 	}
 
-	private static int compare_savestates_creation_date (Savestate s1, Savestate s2) {
-		// We want the savestates with the latest creation dates to be the first in the array
-		var s1_creation_date_str = s1.get_creation_date ().to_string ();
-		var s2_creation_date_str = s2.get_creation_date ().to_string ();
+	private static int compare_savestates_path (Savestate s1, Savestate s2) {
+		if (s1.path < s2.path)
+			return 1;
 
-		if (s1_creation_date_str > s2_creation_date_str)
-			return -1;
-
-		if (s1_creation_date_str == s2_creation_date_str)
+		if (s1.path == s2.path)
 			return 0;
 
-		// s1_creation_date_str < s2_creation_date_str
-		return 1;
+		// s1.path > s2.path
+		return -1;
 	}
 
 	public static Savestate create_empty_in_tmp (Platform platform) throws Error {
