@@ -67,7 +67,7 @@ private class Games.SavestatesList : Gtk.Box {
 			}
 			else {
 				// Savestate creation failed
-				list_box.select_row (list_box.get_row_at_index (1));
+				select_savestate_row (list_box.get_row_at_index (1));
 
 				// TODO: Perhaps we should warn the user that the creation of
 				// the savestate failed via an in-app notification ?
