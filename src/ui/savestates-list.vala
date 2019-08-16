@@ -275,6 +275,11 @@ private class Games.SavestatesList : Gtk.Box {
 			var savestate_row = row as SavestateListBoxRow;
 			var savestate = savestate_row.savestate;
 
+			if (savestate == state.selected_savestate) {
+				on_load_clicked ();
+				return;
+			}
+
 			runner.preview_savestate (savestate);
 			state.selected_savestate = savestate;
 		}
