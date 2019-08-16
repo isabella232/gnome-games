@@ -18,6 +18,9 @@
               <object class="GtkImage" id="image">
                 <property name="visible">true</property>
                 <property name="valign">start</property>
+                <property name="width-request">66</property>
+                <property name="height-request">66</property>
+                <property name="margin">6</property>
                 <style>
                   <class name="savestate-thumbnail"/>
                 </style>

@@ -43,6 +43,9 @@
                                 <property name="visible">True</property>
                                 <property name="icon-name">list-add-symbolic</property>
                                 <property name="pixel-size">32</property>
+                                <property name="width-request">66</property>
+                                <property name="height-request">66</property>
+                                <property name="margin">6</property>
                                 <style>
                                   <class name="savestate-thumbnail"/>
                                 </style>
