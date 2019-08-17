@@ -42,6 +42,43 @@
   </screenshots>
 
   <releases>
+    <release version="3.33.91" type="development" date="2019-08-17" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>Manually created savestates can be renamed now</li>
+          <li>Nintendo DS screen layout settings are now stored inside savestates instead of dconf</li>
+          <li>Added shortcuts for saving and loading the game, and for showing savestates</li>
+          <li>Creating a new savestate briefly flashes the game, similarly to screenshots</li>
+          <li>Creation and deletion of savestate rows is now anumated</li>
+          <li>Added keyboard navigation in the savestates sidebar:
+            <ul>
+              <li>Selecting a row immediately previews the savestate</li>
+              <li>Pressing Enter loads the savestate</li>
+              <li>Pressing Delete deletes the savestate</li>
+              <li>Pressing Esc closes the sidebar</li>
+            </ul>
+          </li>
+          <li>When opening savestates sidebar, the game view cannot change height anymore</li>
+          <li>Covers and savestate thumbnails aren't blurry on HiDPI anymore</li>
+          <li>Sync fullscreen restore button style with Adwaita, making it smaller and round</li>
+          <li>Preferences window now has a Back button when the window is small</li>
+        </ul>
+        <p>Fixes:</p>
+        <ul>
+          <li>Headerbar autohide in fullscreen works properly now</li>
+          <li>Keyboard shortcuts don't depend on keyboard layout anymore</li>
+          <li>Savestate thumbnails now use correct aspect ratio for newly created savestates</li>
+          <li>Creating multiple savestates in one second doesn't result in an error anymore</li>
+          <li>Fixed a few runtime errors when working with savestates</li>
+          <li>Fixed crash when opening multliple Nintendo DS games in a row</li>
+          <li>Savestates created by closing window with savestate sidebar have correct thumbnail now</li>
+          <li>New savestate row in savestate sidebar cannot be selected anymore</li>
+          <li>Opening savestate sidebar shifts the game in the correct direction on RTL</li>
+          <li>Game covers have proper colors now instead of being 10% darker</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.33.90" type="development" date="2019-08-11" urgency="medium">
       <description>
         <p>Improvements:</p>

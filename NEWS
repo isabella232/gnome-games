@@ -1,4 +1,46 @@
 ===============
+Version 3.33.91
+===============
+
+* Manually created savestates can be renamed now
+
+* Nintendo DS screen layout settings are now stored inside savestates
+  instead of dconf
+
+* Added shortcuts for saving and loading the game, and for showing savestates
+
+* UI
+ - Creating a new savestate briefly flashes the game, similarly to screenshots
+ - Creation and deletion of savestate rows is now anumated
+ - Added keyboard navigation in the savestates sidebar:
+   - Selecting a row immediately previews the savestate
+   - Pressing Enter loads the savestate
+   - Pressing Delete deletes the savestate
+   - Pressing Esc closes the sidebar
+ - When opening savestates sidebar, the game view cannot change height anymore
+ - Covers and savestate thumbnails aren't blurry on HiDPI anymore
+ - Sync fullscreen restore button style with Adwaita, making it smaller and round
+ - Preferences window now has a Back button when the window is small
+
+* Fixes
+ - Headerbar autohide in fullscreen works properly now
+ - Keyboard shortcuts don't depend on keyboard layout anymore
+ - Savestate thumbnails now use correct aspect ratio for newly created savestates
+ - Creating multiple savestates in one second doesn't result in an error anymore
+ - Fixed a few runtime errors when working with savestates
+ - Fixed crash when opening multliple Nintendo DS games in a row
+ - Savestates created by closing window with savestate sidebar have correct
+   thumbnail now
+ - New savestate row in savestate sidebar cannot be selected anymore
+ - Opening savestate sidebar shifts the game in the correct direction on RTL
+ - Game covers have proper colors now instead of being 10% darker
+
+* Various cleanups
+
+* Translation updates
+ Polish
+
+===============
 Version 3.33.90
 ===============
 
