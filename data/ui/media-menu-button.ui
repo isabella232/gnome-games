@@ -5,6 +5,7 @@
     <child>
       <object class="GtkMenuButton" id="menu_button">
         <property name="visible">True</property>
+        <property name="can-focus">False</property>
         <property name="valign">center</property>
         <property name="use-underline">True</property>
         <property name="popover">popover</property>
