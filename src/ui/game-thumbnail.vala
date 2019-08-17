@@ -196,14 +196,14 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 	}
 
 	private Gdk.Pixbuf? get_scaled_cover (DrawingContext context) {
-		if (previous_cover_width != context.width) {
-			previous_cover_width = context.width;
+		if (previous_cover_width != context.width * scale_factor) {
+			previous_cover_width = context.width * scale_factor;
 			cover_cache = null;
 			tried_loading_cover = false;
 		}
 
-		if (previous_cover_height != context.height) {
-			previous_cover_height = context.height;
+		if (previous_cover_height != context.height * scale_factor) {
+			previous_cover_height = context.height * scale_factor;
 			cover_cache = null;
 			tried_loading_cover = false;
 		}
@@ -211,7 +211,7 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 		if (cover_cache != null)
 			return cover_cache;
 
-		var size = int.min (context.width, context.height);
+		var size = int.min (context.width, context.height) * scale_factor;
 
 		load_cover_cache_from_disk (context, size);
 		if (cover_cache != null)
@@ -253,8 +253,10 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 		}
 
 		try {
-			cover_cache = new Gdk.Pixbuf.from_file_at_scale (cover_cache_path, context.width,
-			                                                 context.height, true);
+			cover_cache = new Gdk.Pixbuf.from_file_at_scale (cover_cache_path,
+			                                                 context.width * scale_factor,
+			                                                 context.height * scale_factor,
+			                                                 true);
 		}
 		catch (Error e) {
 			debug (e.message);
@@ -300,22 +302,28 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 	private void draw_pixbuf (DrawingContext context, Gdk.Pixbuf pixbuf) {
 		var surface = Gdk.cairo_surface_create_from_pixbuf (pixbuf, 1, context.window);
 
+		context.cr.save ();
+		context.cr.scale (1.0 / scale_factor, 1.0 / scale_factor);
+
 		var mask = get_mask (context);
 
-		var x_offset = (context.width - pixbuf.width) / 2;
-		var y_offset = (context.height - pixbuf.height) / 2;
+		var x_offset = (context.width * scale_factor - pixbuf.width) / 2;
+		var y_offset = (context.height * scale_factor - pixbuf.height) / 2;
 
 		context.cr.set_source_surface (surface, x_offset, y_offset);
 		context.cr.mask_surface (mask, 0, 0);
+
+		context.cr.restore ();
 	}
 
 	private Cairo.Surface get_mask (DrawingContext context) {
-		var mask = new Cairo.ImageSurface (Cairo.Format.A8, context.width, context.height);
+		var mask = new Cairo.ImageSurface (Cairo.Format.A8, context.width * scale_factor, context.height * scale_factor);
 
 		var border_radius = (int) context.style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS, context.state);
 		border_radius = border_radius.clamp (0, int.max (context.width / 2, context.height / 2));
 
 		var cr = new Cairo.Context (mask);
+		cr.scale (scale_factor, scale_factor);
 		cr.set_source_rgb (0, 0, 0);
 		rounded_rectangle (cr, 0.5, 0.5, context.width - 1, context.height - 1, border_radius);
 		cr.fill ();
