@@ -135,20 +135,20 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 
 	// TODO: Share this with GameThumbnail
 	private Cairo.Surface get_mask () {
-		var scale = scale_factor;
 		var width = image.get_allocated_width ();
 		var height = image.get_allocated_height ();
 
-		var mask = new Cairo.ImageSurface (Cairo.Format.A8, width * scale, height * scale);
+		var mask = new Cairo.ImageSurface (Cairo.Format.A8, width * scale_factor, height * scale_factor);
 
 		var style = image.get_style_context ();
 		var flags = image.get_state_flags ();
-		var border_radius = (int) style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS, flags) * scale;
-		border_radius = border_radius.clamp (0, int.max (width * scale / 2, height * scale / 2));
+		var border_radius = (int) style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS, flags);
+		border_radius = border_radius.clamp (0, int.max (width / 2, height / 2));
 
 		var cr = new Cairo.Context (mask);
+		cr.scale (scale_factor, scale_factor);
 		cr.set_source_rgb (0, 0, 0);
-		rounded_rectangle (cr, 0.5 * scale, 0.5 * scale, (width - 1) * scale, (height - 1) * scale, border_radius);
+		rounded_rectangle (cr, 0.5, 0.5, width - 1, height - 1, border_radius);
 		cr.fill ();
 
 		return mask;
