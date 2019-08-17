@@ -16,12 +16,13 @@ private class Games.NintendoDsLayoutItem : Gtk.ListBoxRow {
 	}
 
 	public override void constructed () {
-		this.icon.icon_name = layout.get_icon ();
-		this.title.label = layout.get_title ();
+		icon.icon_name = layout.get_icon ();
+		title.label = layout.get_title ();
 
-		if (subtitle != null) {
-			this.subtitle.label = layout.get_subtitle ();
-			this.subtitle.show ();
+		var subtitle_str = layout.get_subtitle ();
+		if (subtitle_str != null) {
+			subtitle.label = subtitle_str;
+			subtitle.show ();
 		}
 
 		base.constructed ();
