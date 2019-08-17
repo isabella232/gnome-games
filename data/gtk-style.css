@@ -9,28 +9,28 @@
 }
 
 .savestate-row {
-  padding: 0;
+	padding: 0;
 }
 
 .savestate-thumbnail {
-  color: rgba(255, 255, 255, 0.5);
-  background: rgba (0, 0, 0, .5);
-  border: 1px solid rgba (0, 0, 0, .5);
-  border-radius: 5px;
+	color: rgba(255, 255, 255, 0.5);
+	background: rgba (0, 0, 0, .5);
+	border: 1px solid rgba (0, 0, 0, .5);
+	border-radius: 5px;
 }
 
 .savestate-name {
-  font-size: large;
+	font-size: large;
 }
 
 .savestate-date {
-  opacity: 0.5;
-  font-size: small;
+	opacity: 0.5;
+	font-size: small;
 }
 
 .savestates-list {
-  border-left: none;
-  border-right: none;
+	border-left: none;
+	border-right: none;
 }
 
 gamesgamethumbnail {
