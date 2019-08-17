@@ -155,7 +155,7 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 		var color = context.style.get_color (context.state);
 
 		var theme = Gtk.IconTheme.get_default ();
-		var size = int.min (context.width, context.height) * scale;
+		var size = int.min (context.width, context.height) * scale * scale_factor;
 		try {
 			var icon_info = theme.lookup_icon (icon_name, (int) size, Gtk.IconLookupFlags.FORCE_SIZE);
 			emblem = icon_info.load_symbolic (color);
@@ -167,11 +167,16 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 		if (emblem == null)
 			return;
 
-		double offset_x = context.width / 2.0 - emblem.width / 2.0;
-		double offset_y = context.height / 2.0 - emblem.height / 2.0;
+		double offset_x = context.width * scale_factor / 2.0 - emblem.width / 2.0;
+		double offset_y = context.height * scale_factor / 2.0 - emblem.height / 2.0;
+
+		context.cr.save ();
+		context.cr.scale (1.0 / scale_factor, 1.0 / scale_factor);
 
 		Gdk.cairo_set_source_pixbuf (context.cr, emblem, offset_x, offset_y);
 		context.cr.paint ();
+
+		context.cr.restore ();
 	}
 
 	private Gdk.Pixbuf? get_scaled_icon (DrawingContext context, GLib.Icon? icon, double scale) {
@@ -180,7 +185,7 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 
 		var theme = Gtk.IconTheme.get_default ();
 		var lookup_flags = Gtk.IconLookupFlags.FORCE_SIZE | Gtk.IconLookupFlags.FORCE_REGULAR;
-		var size = int.min (context.width, context.height) * scale;
+		var size = int.min (context.width, context.height) * scale * scale_factor;
 		var icon_info = theme.lookup_by_gicon (icon, (int) size, lookup_flags);
 
 		if (icon_info == null)
