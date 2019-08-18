@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-08-11 12:22+0000\n"
-"PO-Revision-Date: 2019-08-11 18:14+0200\n"
+"POT-Creation-Date: 2019-08-15 13:47+0000\n"
+"PO-Revision-Date: 2019-08-18 15:48+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -163,7 +163,8 @@ msgstr "Wyszukaj"
 
 #: data/ui/collection-header-bar.ui:128 data/ui/display-header-bar.ui:25
 #: data/ui/display-header-bar.ui:162 data/ui/preferences-subpage-gamepad.ui:83
-#: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:54
+#: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:37
+#: data/ui/preferences-window.ui:78
 msgid "Back"
 msgstr "Wstecz"
 
@@ -364,13 +365,21 @@ msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Uruchom ponownie"
 
-#: data/ui/savestates-list.ui:52
+#: data/ui/savestates-list.ui:53
 msgid "Create new savestate"
 msgstr "Nowy zapis stanu"
 
-#: data/ui/savestates-list.ui:77
+#: data/ui/savestates-list.ui:78
 msgid "_Delete"
 msgstr "_Usuń"
+
+#: data/ui/savestates-list.ui:92 data/ui/savestates-list.ui:140
+msgid "_Rename"
+msgstr "_Zmień nazwę"
+
+#: data/ui/savestates-list.ui:117
+msgid "Name"
+msgstr "Nazwa"
 
 #: data/ui/shortcuts-window.ui:11
 msgid "Shortcuts"
@@ -627,53 +636,28 @@ msgstr "Salon gier"
 msgid "MS-DOS"
 msgstr "MS-DOS"
 
-#: plugins/nintendo-ds/data/org.gnome.Games.plugins.nintendo-ds.gschema.xml:11
-msgid "Screen layout"
-msgstr "Układ ekranów"
-
-#: plugins/nintendo-ds/data/org.gnome.Games.plugins.nintendo-ds.gschema.xml:12
-msgid ""
-"Screen layout for Nintendo DS games. Allowed values are: “top/bottom”, “left/"
-"right”, “right/left” and “quick switch”."
-msgstr ""
-"Układ ekranów dla gier konsoli Nintendo DS. Dozwolone wartości: „top/"
-"bottom” (góra/dół), „left/right” (lewy/prawy), „right/left” (prawy/lewy) "
-"i „quick switch” (szybkie przełączanie)."
-
-#: plugins/nintendo-ds/data/org.gnome.Games.plugins.nintendo-ds.gschema.xml:16
-msgid "View bottom screen"
-msgstr "Wyświetlanie dolnego ekranu"
-
-#: plugins/nintendo-ds/data/org.gnome.Games.plugins.nintendo-ds.gschema.xml:17
-msgid "Whether to view top or bottom screen in quick switch mode."
-msgstr "Czy wyświetlać górny lub dolny ekran w trybie szybkiego przełączania."
-
 #: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:19
 msgid "Change Screen"
 msgstr "Zmień ekran"
 
-#: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:104
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:50
 msgid "Vertical"
 msgstr "Pionowo"
 
-#: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:108
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:53
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:56
 msgid "Side by side"
 msgstr "Obok siebie"
 
-#: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:111
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:59
 msgid "Single screen"
 msgstr "Jeden ekran"
 
-#: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:114
-#: src/dummy/dummy-platform.vala:9 src/dummy/dummy-platform.vala:17
-msgid "Unknown"
-msgstr "Nieznane"
-
-#: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:120
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:69
 msgid "Bottom to the right"
 msgstr "Dolny po prawej"
 
-#: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:123
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:72
 msgid "Bottom to the left"
 msgstr "Dolny po lewej"
 
@@ -823,7 +807,7 @@ msgstr "Wii"
 msgid "The game doesn’t have a valid command."
 msgstr "Gra nie ma prawidłowego polecenia."
 
-#: src/command/command-runner.vala:89
+#: src/command/command-runner.vala:86
 #, c-format
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "Nie można uruchomić „%s”: wykonanie się nie powiodło."
@@ -842,6 +826,10 @@ msgstr "Nieprawidłowy deskryptor wtyczki: %s"
 #, c-format
 msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr "Nie można utworzyć nowego wystąpienia wtyczki w „%s”."
+
+#: src/dummy/dummy-platform.vala:9 src/dummy/dummy-platform.vala:17
+msgid "Unknown"
+msgstr "Nieznane"
 
 #: src/gameinfo/gameinfo-disc-id-disc-title.vala:24
 #, c-format
@@ -907,27 +895,26 @@ msgstr ""
 "Ta gra do działania wymaga pliku oprogramowania sprzętowego %s o sumie "
 "kontrolnej SHA-512 „%s”."
 
-#: src/retro/retro-runner.vala:306
+#: src/retro/retro-runner.vala:312
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nie odnaleziono modułu dla „%s”."
 
-#: src/retro/retro-runner.vala:564
+#: src/retro/retro-runner.vala:583
 msgid "Unknown platform"
 msgstr "Nieznana platforma"
 
-#: src/retro/retro-runner.vala:594
+#: src/retro/retro-runner.vala:608
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Konsola „%s” nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: src/retro/retro-runner.vala:596
+#: src/retro/retro-runner.vala:610
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Konsola nie jest jeszcze obsługiwana, ale jest w planach."
 
 #. A list containing the names of all savestates with name of the form "New Savestate %d"
-#: src/retro/retro-runner.vala:606 src/retro/retro-runner.vala:623
-#: src/retro/retro-runner.vala:630
+#: src/retro/retro-runner.vala:620 src/retro/retro-runner.vala:646
 #, c-format
 msgid "New savestate %s"
 msgstr "%s. zapis stanu"
@@ -1075,7 +1062,7 @@ msgstr ""
 msgid "Playing a game"
 msgstr "W trakcie gry"
 
-#: src/ui/display-view.vala:251
+#: src/ui/display-view.vala:320
 msgid "An unexpected error occurred."
 msgstr "Wystąpił nieoczekiwany błąd."
 
@@ -1169,17 +1156,25 @@ msgstr "Testowanie klawiatury"
 msgid "Configuring Keyboard"
 msgstr "Konfigurowanie klawiatury"
 
-#: src/ui/savestate-listbox-row.vala:19
+#: src/ui/savestate-listbox-row.vala:21 src/ui/savestates-list.vala:190
 msgid "Autosave"
 msgstr "Automatyczny zapis"
 
 #. Translators: this is the day number followed
 #. * by the abbreviated month name followed by the year followed
 #. * by a time in 24h format i.e. "3 Feb 2015 23:04:00"
-#: src/ui/savestate-listbox-row.vala:30
+#: src/ui/savestate-listbox-row.vala:31
 #, no-c-format
 msgid "%-e %b %Y %X"
 msgstr "%-e %b %Y, %X"
+
+#: src/ui/savestates-list.vala:193
+msgid "Invalid name"
+msgstr "Nieprawidłowa nazwa"
+
+#: src/ui/savestates-list.vala:211
+msgid "A savestate with this name already exists"
+msgstr "Zapis stanu o tej nazwie już istnieje"
 
 #: src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
