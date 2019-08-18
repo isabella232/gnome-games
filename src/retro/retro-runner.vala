@@ -242,7 +242,8 @@ public class Games.RetroRunner : Object, Runner {
 
 		loop.start ();
 
-		load_extra_savestate_metadata (latest_savestate);
+		if (latest_savestate != null)
+			load_extra_savestate_metadata (latest_savestate);
 
 		running = true;
 	}
