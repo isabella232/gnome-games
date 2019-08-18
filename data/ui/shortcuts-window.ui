@@ -35,41 +35,46 @@
               </object>
             </child>
             <child>
-              <object class="GtkShortcutsShortcut" id="collection_shortcut_left_stick">
+              <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
                 <property name="shortcut-type">gesture</property>
+                <property name="icon">stick_icon</property>
                 <property name="title" translatable="yes" context="shortcut window">Navigate</property>
                 <property name="subtitle" translatable="yes" context="shortcut window">Left analog stick</property>
               </object>
             </child>
             <child>
-              <object class="GtkShortcutsShortcut" id="collection_shortcut_dpad">
+              <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
                 <property name="shortcut-type">gesture</property>
+                <property name="icon">dpad_icon</property>
                 <property name="title" translatable="yes" context="shortcut window">Navigate</property>
                 <property name="subtitle" translatable="yes" context="shortcut window">Directional pad</property>
               </object>
             </child>
             <child>
-              <object class="GtkShortcutsShortcut" id="collection_shortcut_shoulders_front">
+              <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
                 <property name="shortcut-type">gesture</property>
+                <property name="icon">shoulders_front_icon</property>
                 <property name="title" translatable="yes" context="shortcut window">Select view</property>
                 <property name="subtitle" translatable="yes" context="shortcut window">Front shoulder buttons</property>
               </object>
             </child>
             <child>
-              <object class="GtkShortcutsShortcut" id="collection_shortcut_start">
+              <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
                 <property name="shortcut-type">gesture</property>
+                <property name="icon">button_start_icon</property>
                 <property name="title" translatable="yes" context="shortcut window">Start game</property>
                 <property name="subtitle" translatable="yes" context="shortcut window">Start button</property>
               </object>
             </child>
             <child>
-              <object class="GtkShortcutsShortcut" id="collection_shortcut_south">
+              <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
                 <property name="shortcut-type">gesture</property>
+                <property name="icon">button_south_icon</property>
                 <property name="title" translatable="yes" context="shortcut window">Start game</property>
                 <property name="subtitle" translatable="yes" context="shortcut window">Bottom action button</property>
               </object>
@@ -102,25 +107,28 @@
               </object>
             </child>
             <child>
-              <object class="GtkShortcutsShortcut" id="ingame_shortcut_home">
+              <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
                 <property name="shortcut-type">gesture</property>
+                <property name="icon">button_home_icon</property>
                 <property name="title" translatable="yes" context="shortcut window">Go back to the collection</property>
                 <property name="subtitle" translatable="yes" context="shortcut window">Home button</property>
               </object>
             </child>
             <child>
-              <object class="GtkShortcutsShortcut" id="ingame_shortcut_south">
+              <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
                 <property name="shortcut-type">gesture</property>
+                <property name="icon">button_south_icon</property>
                 <property name="title" translatable="yes" context="shortcut window">Accept</property>
                 <property name="subtitle" translatable="yes" context="shortcut window">Bottom action button</property>
               </object>
             </child>
             <child>
-              <object class="GtkShortcutsShortcut" id="ingame_shortcut_east">
+              <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
                 <property name="shortcut-type">gesture</property>
+                <property name="icon">button_east_icon</property>
                 <property name="title" translatable="yes" context="shortcut window">Cancel</property>
                 <property name="subtitle" translatable="yes" context="shortcut window">Right action button</property>
               </object>
@@ -190,9 +198,10 @@
               </object>
             </child>
             <child>
-              <object class="GtkShortcutsShortcut" id="nintendo_ds_shortcut_right_stick">
+              <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
                 <property name="shortcut-type">gesture</property>
+                <property name="icon">stick_icon</property>
                 <property name="title" translatable="yes" context="shortcut window">Toggle screen</property>
                 <property name="subtitle" translatable="yes" context="shortcut window">Press right analog stick</property>
               </object>
@@ -223,5 +232,26 @@
       </object>
     </child>
   </template>
+  <object class="GThemedIcon" id="button_home_icon">
+    <property name="name">button-home-symbolic</property>
+  </object>
+  <object class="GThemedIcon" id="button_start_icon">
+    <property name="name">button-start-symbolic</property>
+  </object>
+  <object class="GThemedIcon" id="button_east_icon">
+    <property name="name">button-east-symbolic</property>
+  </object>
+  <object class="GThemedIcon" id="button_south_icon">
+    <property name="name">button-south-symbolic</property>
+  </object>
+  <object class="GThemedIcon" id="dpad_icon">
+    <property name="name">dpad-symbolic</property>
+  </object>
+  <object class="GThemedIcon" id="stick_icon">
+    <property name="name">stick-symbolic</property>
+  </object>
+  <object class="GThemedIcon" id="shoulders_front_icon">
+    <property name="name">shoulders-front-symbolic</property>
+  </object>
 </interface>
 
