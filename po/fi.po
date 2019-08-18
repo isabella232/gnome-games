@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2018-12-11 09:49+0000\n"
-"PO-Revision-Date: 2019-03-02 11:02+0200\n"
+"POT-Creation-Date: 2019-08-15 13:47+0000\n"
+"PO-Revision-Date: 2019-08-18 17:59+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <lokalisointi-lista@googlegroups.com>\n"
 "Language: fi\n"
@@ -19,8 +19,8 @@ msgstr ""
 "X-Generator: Poedit 2.0.6\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:6
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:40
-#: data/ui/collection-header-bar.ui:67 data/ui/display-header-bar.ui:6
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:47
+#: data/ui/collection-header-bar.ui:75 data/ui/display-header-bar.ui:11
 #: src/ui/application.vala:25
 msgid "Games"
 msgstr "Pelit"
@@ -69,7 +69,7 @@ msgstr "Pelaa pelejäsi"
 msgid "Resume your game to where you left it"
 msgstr "Jatka peliä siitä, mihin jäit"
 
-#: data/org.gnome.Games.appdata.xml.in.in:53
+#: data/org.gnome.Games.appdata.xml.in.in:152
 msgid "The GNOME Project"
 msgstr "Gnome-projekti"
 
@@ -86,12 +86,7 @@ msgstr "Selaa ja pelaa videopelejäsi"
 msgid "game;videogame;video game;player;"
 msgstr "game;videogame;video game;player;peli;"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.Games.desktop.in.in:10
-msgid "@icon@"
-msgstr "@icon@"
-
-#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:43
+#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:100
 msgid "Fullscreen"
 msgstr "Koko näyttö"
 
@@ -125,74 +120,87 @@ msgstr "Ikkunan koko"
 msgid "Window size (width and height)."
 msgstr "Ikkunan koko (leveys ja korkeus)."
 
-#: data/ui/collection-box.ui:50
-msgid "Developers"
-msgstr "Kehittäjät"
+#: data/org.gnome.Games.gschema.xml:32
+#, fuzzy
+#| msgid "Preferences"
+msgid "Preferred core"
+msgstr "Asetukset"
 
-#: data/ui/collection-box.ui:60
+#: data/org.gnome.Games.gschema.xml:33
+msgid ""
+"Preferred Libretro core to be used for running games. A different core may "
+"be used if the preferred core is missing firmware."
+msgstr ""
+
+#: data/ui/collection-box.ui:59 src/ui/preferences-page-platforms.vala:9
 msgid "Platforms"
 msgstr "Alustat"
 
-#: data/ui/collection-box.ui:83
+#: data/ui/collection-box.ui:82
 msgid "Loading"
 msgstr "Ladataan"
 
-#: data/ui/collection-header-bar.ui:17
+#: data/ui/collection-header-bar.ui:23
 msgid "Add game files…"
 msgstr "Lisää pelitiedostoja…"
 
 #. Translators: tooltip for the application menu button
-#: data/ui/collection-header-bar.ui:36
+#: data/ui/collection-header-bar.ui:42
 msgid "Menu"
 msgstr "Valikko"
 
-#: data/ui/collection-header-bar.ui:85
+#: data/ui/collection-header-bar.ui:93 data/ui/collection-header-bar.ui:150
 msgid "Search"
 msgstr "Etsi"
 
-#: data/ui/collection-header-bar.ui:111 data/ui/preferences-window.ui:6
-#: data/ui/preferences-window.ui:25
-msgid "Preferences"
-msgstr "Asetukset"
-
-#: data/ui/collection-header-bar.ui:119
-msgid "Keyboard Shortcuts"
-msgstr "Pikanäppäimet"
-
-#: data/ui/collection-header-bar.ui:127
-msgid "Help"
-msgstr "Ohje"
-
-#: data/ui/collection-header-bar.ui:135
-msgid "About Games"
-msgstr "Tietoja - Pelit"
-
-#: data/ui/display-header-bar.ui:20 data/ui/preferences-subpage-gamepad.ui:82
-#: data/ui/preferences-subpage-keyboard.ui:83
+#: data/ui/collection-header-bar.ui:128 data/ui/display-header-bar.ui:25
+#: data/ui/display-header-bar.ui:162 data/ui/preferences-subpage-gamepad.ui:83
+#: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:37
+#: data/ui/preferences-window.ui:78
 msgid "Back"
 msgstr "Takaisin"
 
-#: data/ui/display-header-bar.ui:69
+#: data/ui/collection-header-bar.ui:181
+msgid "Pr_eferences"
+msgstr "_Asetukset"
+
+#: data/ui/collection-header-bar.ui:189
+msgid "_Keyboard Shortcuts"
+msgstr "_Pikanäppäimet"
+
+#: data/ui/collection-header-bar.ui:197
+msgid "_Help"
+msgstr "_Ohje"
+
+#: data/ui/collection-header-bar.ui:205
+msgid "_About Games"
+msgstr "_Tietoja - Pelit"
+
+#: data/ui/display-header-bar.ui:51
 msgid "Restore"
 msgstr "Palauta"
 
-#: data/ui/dummy-display.ui:36
+#: data/ui/display-header-bar.ui:140
+msgid "_Load"
+msgstr "_Lataa"
+
+#: data/ui/display-header-bar.ui:188
+msgid "_Savestates"
+msgstr ""
+
+#: data/ui/dummy-display.ui:37
 msgid "This is a dummy game display"
 msgstr ""
 
-#: data/ui/dummy-display.ui:51
-msgid "If you see this, this is a bug."
-msgstr "Jos näet tämän, kyseessä on bugi."
-
-#: data/ui/dummy-display.ui:64
-msgid "Please contact the developers."
-msgstr "Ota yhteys kehittäjiin."
+#: data/ui/dummy-display.ui:53
+msgid "If you see this, this is a bug. Please contact the developers."
+msgstr "Jos näet tämän, kyseessä on bugi. Ota yhteys kehittäjiin."
 
 #: data/ui/empty-collection.ui:29
 msgid "No games found"
 msgstr "Pelejä ei löytynyt"
 
-#: data/ui/empty-collection.ui:43
+#: data/ui/empty-collection.ui:44
 msgid ""
 "Install games or add directories containing games to your search sources."
 msgstr "Asenna pelejä tai lisää pelejä sisältäviä kansioita hakulähteisiin."
@@ -205,45 +213,82 @@ msgstr "Peliohjaimen syöte"
 msgid "Keyboard Input"
 msgstr "Näppäimistön syöte"
 
-#: data/ui/media-menu-button.ui:11
+#: data/ui/media-menu-button.ui:13
 msgid "Media"
 msgstr "Media"
 
-#: data/ui/preferences-page-controllers.ui:9
+#: data/ui/preferences-page-backup-restore.ui:10
+msgid ""
+"Backup save states and in-game saves. This can be used for moving the data "
+"to another device or for restoring it later. Desktop, Steam and LÖVE games "
+"cannot be backed up."
+msgstr ""
+
+#: data/ui/preferences-page-backup-restore.ui:38
+#: src/ui/preferences-page-backup-restore.vala:34
+msgid "Back up save data"
+msgstr "Varmuuskopioi tallennustiedot"
+
+#: data/ui/preferences-page-backup-restore.ui:47
+#: src/ui/preferences-page-backup-restore.vala:36
+msgid "_Back Up"
+msgstr "_Varmuuskopioi"
+
+#: data/ui/preferences-page-backup-restore.ui:62
+msgid ""
+"Restore save data for games from existing backup. This will replace existing "
+"saves and cannot be undone."
+msgstr ""
+
+#: data/ui/preferences-page-backup-restore.ui:90
+#: src/ui/preferences-page-backup-restore.vala:12
+msgid "Restore save data"
+msgstr "Palauta tallennustiedot"
+
+#: data/ui/preferences-page-backup-restore.ui:99
+#: src/ui/preferences-page-backup-restore.vala:14
+msgid "_Restore"
+msgstr "Pala_uta"
+
+#: data/ui/preferences-page-controllers.ui:10
 msgid "Gamepads"
 msgstr "Peliohjaimet"
 
-#: data/ui/preferences-page-controllers.ui:32
-#: src/ui/preferences-page-controllers.vala:75
+#: data/ui/preferences-page-controllers.ui:30
+#: src/ui/preferences-page-controllers.vala:73
 msgid "Keyboard"
 msgstr "Näppäimistö"
 
-#: data/ui/preferences-page-video.ui:9
+#: data/ui/preferences-page-video.ui:10
 msgid "Filter"
 msgstr "Suodatin"
 
-#: data/ui/preferences-subpage-gamepad.ui:21
-#: data/ui/preferences-subpage-keyboard.ui:22
+#: data/ui/preferences-subpage-gamepad.ui:22
+#: data/ui/preferences-subpage-keyboard.ui:23
 msgctxt "Keyboard configuration factory reset"
 msgid "Reset"
 msgstr "Nollaa"
 
-#: data/ui/preferences-subpage-gamepad.ui:34
-#: data/ui/preferences-subpage-keyboard.ui:35
+#: data/ui/preferences-subpage-gamepad.ui:35
+#: data/ui/preferences-subpage-keyboard.ui:36
 msgid "Configure"
 msgstr "Määritä"
 
-#: data/ui/preferences-subpage-gamepad.ui:52
-#: data/ui/preferences-subpage-keyboard.ui:53
+#: data/ui/preferences-subpage-gamepad.ui:53
+#: data/ui/preferences-subpage-keyboard.ui:54
 msgid "Skip"
 msgstr "Ohita"
 
-#: data/ui/preferences-subpage-gamepad.ui:100
-#: data/ui/preferences-subpage-keyboard.ui:101 data/ui/quit-dialog.ui:15
+#: data/ui/preferences-subpage-gamepad.ui:101
+#: data/ui/preferences-subpage-keyboard.ui:102 data/ui/quit-dialog.ui:15
 #: data/ui/reset-controller-mapping-dialog.ui:15
 #: data/ui/resume-failed-dialog.ui:14
 msgid "Cancel"
 msgstr "Peru"
+
+#: data/ui/preferences-window.ui:5 data/ui/preferences-window.ui:26
+msgid "Preferences"
+msgstr "Asetukset"
 
 #: data/ui/quit-dialog.ui:9
 msgid "Are you sure you want to quit?"
@@ -303,112 +348,193 @@ msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Nollaa"
 
-#: data/ui/shortcuts-window.ui:10
+#: data/ui/savestates-list.ui:53
+msgid "Create new savestate"
+msgstr ""
+
+#: data/ui/savestates-list.ui:78
+msgid "_Delete"
+msgstr "_Poista"
+
+#: data/ui/savestates-list.ui:92 data/ui/savestates-list.ui:140
+msgid "_Rename"
+msgstr "_Nimeä uudelleen"
+
+#: data/ui/savestates-list.ui:117
+msgid "Name"
+msgstr "Nimi"
+
+#: data/ui/shortcuts-window.ui:11
 msgid "Shortcuts"
 msgstr "Pikanäppäimet"
 
-#: data/ui/shortcuts-window.ui:14
+#: data/ui/shortcuts-window.ui:15
 msgid "General"
 msgstr "Yleiset"
 
-#: data/ui/shortcuts-window.ui:19
+#: data/ui/shortcuts-window.ui:20
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Lopeta"
 
-#: data/ui/shortcuts-window.ui:27 data/ui/shortcuts-window.ui:139
+#: data/ui/shortcuts-window.ui:28 data/ui/shortcuts-window.ui:212
 msgid "Collection"
 msgstr "Kokoelma"
 
-#: data/ui/shortcuts-window.ui:32
+#: data/ui/shortcuts-window.ui:33
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Etsi"
 
-#: data/ui/shortcuts-window.ui:40 data/ui/shortcuts-window.ui:48
+#: data/ui/shortcuts-window.ui:41 data/ui/shortcuts-window.ui:49
 msgctxt "shortcut window"
 msgid "Navigate"
 msgstr "Liikkuminen"
 
-#: data/ui/shortcuts-window.ui:41
+#: data/ui/shortcuts-window.ui:42
 msgctxt "shortcut window"
 msgid "Left analog stick"
 msgstr ""
 
-#: data/ui/shortcuts-window.ui:49
+#: data/ui/shortcuts-window.ui:50
 msgctxt "shortcut window"
 msgid "Directional pad"
 msgstr ""
 
-#: data/ui/shortcuts-window.ui:56
+#: data/ui/shortcuts-window.ui:57
 msgctxt "shortcut window"
 msgid "Select view"
 msgstr "Valitse näkymä"
 
-#: data/ui/shortcuts-window.ui:57
+#: data/ui/shortcuts-window.ui:58
 msgctxt "shortcut window"
 msgid "Front shoulder buttons"
 msgstr ""
 
-#: data/ui/shortcuts-window.ui:64 data/ui/shortcuts-window.ui:72
+#: data/ui/shortcuts-window.ui:65 data/ui/shortcuts-window.ui:73
 msgctxt "shortcut window"
 msgid "Start game"
 msgstr "Käynnistä peli"
 
-#: data/ui/shortcuts-window.ui:65
+#: data/ui/shortcuts-window.ui:66
 msgctxt "shortcut window"
 msgid "Start button"
 msgstr "Start-painike"
 
-#: data/ui/shortcuts-window.ui:73 data/ui/shortcuts-window.ui:116
+#: data/ui/shortcuts-window.ui:74 data/ui/shortcuts-window.ui:117
 msgctxt "shortcut window"
 msgid "Bottom action button"
 msgstr ""
 
-#: data/ui/shortcuts-window.ui:80
+#: data/ui/shortcuts-window.ui:81
 msgid "In Game"
 msgstr "Pelissä"
 
-#: data/ui/shortcuts-window.ui:85
+#: data/ui/shortcuts-window.ui:86
 msgctxt "shortcut window"
 msgid "Toggle fullscreen"
 msgstr "Koko näyttö päällä/pois"
 
-#: data/ui/shortcuts-window.ui:92
+#: data/ui/shortcuts-window.ui:93
 msgctxt "shortcut window"
 msgid "Exit fullscreen"
 msgstr "Poista koko näytön tilasta"
 
-#: data/ui/shortcuts-window.ui:99 data/ui/shortcuts-window.ui:107
+#: data/ui/shortcuts-window.ui:100 data/ui/shortcuts-window.ui:108
 msgctxt "shortcut window"
 msgid "Go back to the collection"
 msgstr "Palaa takaisin kokoelmaan"
 
-#: data/ui/shortcuts-window.ui:108
+#: data/ui/shortcuts-window.ui:109
 msgctxt "shortcut window"
 msgid "Home button"
 msgstr "Home-painike"
 
-#: data/ui/shortcuts-window.ui:115
+#: data/ui/shortcuts-window.ui:116
 msgctxt "shortcut window"
 msgid "Accept"
 msgstr "Hyväksy"
 
-#: data/ui/shortcuts-window.ui:123
+#: data/ui/shortcuts-window.ui:124
 msgctxt "shortcut window"
 msgid "Cancel"
 msgstr "Peru"
 
-#: data/ui/shortcuts-window.ui:124
+#: data/ui/shortcuts-window.ui:125
 msgctxt "shortcut window"
 msgid "Right action button"
 msgstr ""
 
-#: data/ui/shortcuts-window.ui:135
+#: data/ui/shortcuts-window.ui:136
+#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:6
+msgid "Nintendo DS"
+msgstr "Nintendo DS"
+
+#: data/ui/shortcuts-window.ui:140
+#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:38
+msgid "Screen Layout"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:145
+msgctxt "shortcut window"
+msgid "Vertical"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:152 data/ui/shortcuts-window.ui:160
+msgctxt "shortcut window"
+msgid "Side by side"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:153
+msgctxt "shortcut window"
+msgid "Bottom to the right"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:161
+msgctxt "shortcut window"
+msgid "Bottom to the left"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:168
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Toggle fullscreen"
+msgctxt "shortcut window"
+msgid "Single screen"
+msgstr "Koko näyttö päällä/pois"
+
+#: data/ui/shortcuts-window.ui:176
+msgid "Screen Switching"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:181
+msgctxt "shortcut window"
+msgid "Show top screen"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:188
+msgctxt "shortcut window"
+msgid "Show bottom screen"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:196
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Toggle fullscreen"
+msgctxt "shortcut window"
+msgid "Toggle screen"
+msgstr "Koko näyttö päällä/pois"
+
+#: data/ui/shortcuts-window.ui:197
+msgctxt "shortcut window"
+msgid "Press right analog stick"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:208
 msgid "Cheats"
 msgstr "Huijaukset"
 
-#: data/ui/shortcuts-window.ui:144
+#: data/ui/shortcuts-window.ui:217
 msgctxt "shortcut window"
 msgid "Contribute"
 msgstr ""
@@ -417,44 +543,44 @@ msgstr ""
 msgid "Desktop"
 msgstr "Työpöytä"
 
-#: plugins/desktop/src/desktop-plugin.vala:56
+#: plugins/desktop/src/desktop-plugin.vala:57
 #, c-format
 msgid "Invalid command “%s”."
 msgstr "Virheellinen komento “%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:69
+#: plugins/desktop/src/desktop-plugin.vala:70
 #, c-format
 msgid "Tracker listed file not found: “%s”."
 msgstr "Tracker-listattua tiedostoa ei löydy: “%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:75
+#: plugins/desktop/src/desktop-plugin.vala:76
 #, c-format
 msgid "Couldn’t parse desktop entry “%s”."
 msgstr ""
 
-#: plugins/desktop/src/desktop-plugin.vala:85
+#: plugins/desktop/src/desktop-plugin.vala:86
 #, fuzzy, c-format
 #| msgid "File “%s” doesn’t exist."
 msgid "“%s” shouldn’t be displayed."
 msgstr "Tiedostoa “%s” ei ole olemassa."
 
-#: plugins/desktop/src/desktop-plugin.vala:88
+#: plugins/desktop/src/desktop-plugin.vala:89
 #, c-format
 msgid "“%s” is hidden."
 msgstr "“%s” on piilotettu."
 
-#: plugins/desktop/src/desktop-plugin.vala:97
+#: plugins/desktop/src/desktop-plugin.vala:98
 #, fuzzy, c-format
 #| msgid "'%s' has blacklisted executable '%s'."
 msgid "“%s” has blacklisted category “%s”."
 msgstr "'%s' sisältää mustalle listalle lisätyn suoritettavan tiedoston '%s'."
 
-#: plugins/desktop/src/desktop-plugin.vala:106
+#: plugins/desktop/src/desktop-plugin.vala:107
 #, c-format
 msgid "“%s” has blacklisted executable “%s”."
 msgstr "“%s” on asettanut mustalle listalle suoritettavan tiedoston “%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:113
+#: plugins/desktop/src/desktop-plugin.vala:114
 #, c-format
 msgid "“%s” is blacklisted."
 msgstr "“%s” on mustalla listalla."
@@ -484,26 +610,50 @@ msgstr "Libretro"
 msgid "This doesn’t represent a valid LÖVE package: “%s”."
 msgstr ""
 
-#: plugins/love/src/love-plugin.vala:7
+#: plugins/love/src/love-plugin.vala:6
 msgid "LÖVE"
 msgstr "LÖVE"
 
-#: plugins/mame/src/mame-game-uri-adapter.vala:21
+#: plugins/mame/src/mame-game-uri-adapter.vala:18
 #, c-format
 msgid "Invalid MAME game id “%s” for “%s”."
 msgstr ""
 
-#: plugins/mame/src/mame-plugin.vala:6
+#: plugins/mame/src/mame-plugin.vala:7
 msgid "Arcade"
 msgstr "Arcade"
 
-#: plugins/ms-dos/src/ms-dos-plugin.vala:7
+#: plugins/ms-dos/src/ms-dos-plugin.vala:6
 msgid "MS-DOS"
 msgstr "MS-DOS"
 
-#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:7
-msgid "Nintendo DS"
-msgstr "Nintendo DS"
+#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:19
+msgid "Change Screen"
+msgstr ""
+
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:50
+msgid "Vertical"
+msgstr ""
+
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:53
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:56
+msgid "Side by side"
+msgstr ""
+
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:59
+#, fuzzy
+#| msgctxt "shortcut window"
+#| msgid "Toggle fullscreen"
+msgid "Single screen"
+msgstr "Koko näyttö päällä/pois"
+
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:69
+msgid "Bottom to the right"
+msgstr ""
+
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:72
+msgid "Bottom to the left"
+msgstr ""
 
 #: plugins/playstation/src/playstation-header.vala:27
 #, c-format
@@ -515,7 +665,7 @@ msgstr "Ei PlayStation-levy: “%s”."
 msgid "Invalid PlayStation header: disc ID not found in “%s”."
 msgstr ""
 
-#: plugins/playstation/src/playstation-plugin.vala:6
+#: plugins/playstation/src/playstation-plugin.vala:7
 msgid "PlayStation"
 msgstr "PlayStation"
 
@@ -525,31 +675,31 @@ msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
 msgstr "Tiedostossa ei ole Genesis/Sega 32X/Sega CD/Sega Pico -otsaketta."
 
 #. translators: known as "Mega-CD" in most of the world
-#: plugins/sega-cd/src/sega-cd-plugin.vala:12
+#: plugins/sega-cd/src/sega-cd-plugin.vala:13
 msgid "Sega CD"
 msgstr "Sega CD"
 
 #. translators: known as "Mega-CD 32X" in most of the world
-#: plugins/sega-cd/src/sega-cd-plugin.vala:14
+#: plugins/sega-cd/src/sega-cd-plugin.vala:15
 msgid "Sega CD 32X"
 msgstr "Sega CD 32X"
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:108
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:87
+#: plugins/sega-cd/src/sega-cd-plugin.vala:116
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:99
 #, fuzzy, c-format
 #| msgid "The file doesn't have a Dreamcast header."
 msgid "The file “%s” doesn’t have a track."
 msgstr "Tiedostossa ei ole Dreamcast-otsaketta."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:114
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:93
+#: plugins/sega-cd/src/sega-cd-plugin.vala:122
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:105
 #, fuzzy, c-format
 #| msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
 msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr "Tiedostossa '%s' ei ole kelvollista Sega Saturn -binääritiedostoa."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:117
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:96
+#: plugins/sega-cd/src/sega-cd-plugin.vala:125
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:108
 #, fuzzy, c-format
 #| msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
@@ -563,7 +713,7 @@ msgstr "Tiedostossa ei ole Sega Saturn -otsaketta."
 msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:100
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:112
 #, fuzzy, c-format
 #| msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
@@ -573,7 +723,7 @@ msgstr "Tiedostossa '%s' ei ole kelvollista Sega Saturn -binääritiedostoa."
 msgid "Steam"
 msgstr "Steam"
 
-#: plugins/steam/src/steam-plugin.vala:80
+#: plugins/steam/src/steam-plugin.vala:85
 #, c-format
 msgid "Couldn’t get Steam appid from manifest “%s”."
 msgstr ""
@@ -600,7 +750,7 @@ msgid "Couldn’t get name from Steam registry."
 msgstr "Nimen saaminen Steam-rekisteristä epäonnistui."
 
 #. translators: known as "CD-ROM²" in eastern Asia and France
-#: plugins/turbografx-cd/src/turbografx-cd-plugin.vala:10
+#: plugins/turbografx-cd/src/turbografx-cd-plugin.vala:9
 msgid "TurboGrafx-CD"
 msgstr "TurboGrafx-CD"
 
@@ -636,7 +786,7 @@ msgstr "Tiedoston lukeminen epäonnistui: %s"
 msgid "Couldn’t read file: %s"
 msgstr "Tiedoston lukeminen epäonnistui: %s"
 
-#: plugins/virtual-boy/src/virtual-boy-plugin.vala:7
+#: plugins/virtual-boy/src/virtual-boy-plugin.vala:6
 msgid "Virtual Boy"
 msgstr "Virtual Boy"
 
@@ -653,11 +803,11 @@ msgstr "Tiedostossa ei ole Wii-otsaketta."
 msgid "Wii"
 msgstr "Wii"
 
-#: src/command/command-runner.vala:39
+#: src/command/command-runner.vala:43
 msgid "The game doesn’t have a valid command."
 msgstr "Pelillä ei ole kelvollista komentoa."
 
-#: src/command/command-runner.vala:65
+#: src/command/command-runner.vala:86
 #, c-format
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "Kohteen “%s” käynnistäminen epäonnistui: suorittaminen epäonnistui."
@@ -677,7 +827,7 @@ msgstr ""
 msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr ""
 
-#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:22
+#: src/dummy/dummy-platform.vala:9 src/dummy/dummy-platform.vala:17
 msgid "Unknown"
 msgstr "Tuntematon"
 
@@ -714,51 +864,57 @@ msgstr "Yksinpeli"
 msgid "Multi-player"
 msgstr "Moninpeli"
 
-#: src/retro/retro-core-source.vala:25 src/retro/retro-core-source.vala:39
+#: src/retro/retro-core-source.vala:29 src/retro/retro-core-source.vala:43
 #, c-format
 msgid "No module found for platform “%s” and MIME types [ “%s” ]."
 msgstr ""
 
-#: src/retro/retro-core-source.vala:25 src/retro/retro-core-source.vala:39
+#: src/retro/retro-core-source.vala:29 src/retro/retro-core-source.vala:43
 msgid "”, “"
 msgstr "”, “"
 
-#: src/retro/retro-core-source.vala:84
+#: src/retro/retro-core-source.vala:70
 #, c-format
 msgid "This game requires the %s firmware file to run."
 msgstr ""
 
-#: src/retro/retro-core-source.vala:101
+#: src/retro/retro-core-source.vala:87
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a MD5 fingerprint of %s to run."
 msgstr ""
 
-#: src/retro/retro-core-source.vala:107
+#: src/retro/retro-core-source.vala:93
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
 "run."
 msgstr ""
 
-#: src/retro/retro-runner.vala:255
+#: src/retro/retro-runner.vala:312
 #, c-format
 msgid "No module found for “%s”."
 msgstr ""
 
-#: src/retro/retro-runner.vala:561
+#: src/retro/retro-runner.vala:583
 msgid "Unknown platform"
 msgstr "Tuntematon alusta"
 
-#: src/retro/retro-runner.vala:604
+#: src/retro/retro-runner.vala:608
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
 "Järjestelmä “%s” ei ole vielä tuettu, mutta täysi tuki on suunnitelmissa."
 
-#: src/retro/retro-runner.vala:606
+#: src/retro/retro-runner.vala:610
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Järjestelmä ei ole vielä tuettu, mutta täysi tuki on suunnitelmissa."
+
+#. A list containing the names of all savestates with name of the form "New Savestate %d"
+#: src/retro/retro-runner.vala:620 src/retro/retro-runner.vala:646
+#, c-format
+msgid "New savestate %s"
+msgstr ""
 
 #: src/retro/retro-simple-type.vala:13
 msgid "Amiga"
@@ -867,41 +1023,48 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:169
+#: src/ui/application.vala:153
 msgid "Select game files"
 msgstr "Valitse pelitiedostot"
 
-#: src/ui/application.vala:170
-msgid "_Add"
-msgstr "_Lisää"
-
-#: src/ui/application.vala:170
+#: src/ui/application.vala:154 src/ui/preferences-page-backup-restore.vala:14
+#: src/ui/preferences-page-backup-restore.vala:36
 msgid "_Cancel"
 msgstr "_Peru"
 
-#: src/ui/application.vala:367
+#: src/ui/application.vala:155
+msgid "_Add"
+msgstr "_Lisää"
+
+#: src/ui/application.vala:195
+#, fuzzy, c-format
+#| msgid "An unexpected error occurred."
+msgid "An unexpected error occurred while trying to run %s"
+msgstr "Tapahtui odottamaton virhe."
+
+#: src/ui/application.vala:383
 msgid "GNOME Games"
 msgstr "Gnomen pelit"
 
-#: src/ui/application.vala:369
+#: src/ui/application.vala:385
 msgid "A video game player for GNOME"
 msgstr "Videopelitoistin Gnomelle"
 
-#: src/ui/application.vala:373
+#: src/ui/application.vala:389
 msgid "Learn more about GNOME Games"
 msgstr "Lisätietoja Gnomen peleistä"
 
-#: src/ui/application.vala:380
+#: src/ui/application.vala:396
 msgid "translator-credits"
 msgstr "Jiri Grönroos"
 
-#: src/ui/application-window.vala:383
-msgid "An unexpected error occurred."
-msgstr "Tapahtui odottamaton virhe."
-
-#: src/ui/application-window.vala:663 src/ui/application-window.vala:680
+#: src/ui/application-window.vala:273 src/ui/application-window.vala:290
 msgid "Playing a game"
 msgstr "Peli meneillään"
+
+#: src/ui/display-view.vala:320
+msgid "An unexpected error occurred."
+msgstr "Tapahtui odottamaton virhe."
 
 #: src/ui/error-display.vala:13
 #, c-format
@@ -912,34 +1075,51 @@ msgstr "Hups! Pelin “%s” käynnistäminen ei onnistu"
 msgid "Oops! Unable to run the game"
 msgstr "Hups! Pelin käynnistäminen ei onnistu"
 
-#: src/ui/gamepad-mapper.vala:125
+#: src/ui/gamepad-mapper.vala:137
 msgid "Press suitable button on your gamepad"
 msgstr "Paina soveltuvaa painiketta peliohjaimesta"
 
-#: src/ui/gamepad-mapper.vala:130
+#: src/ui/gamepad-mapper.vala:142
 msgid "Move suitable axis left/right on your gamepad"
 msgstr ""
 
-#: src/ui/gamepad-mapper.vala:132
+#: src/ui/gamepad-mapper.vala:144
 msgid "Move suitable axis up/down on your gamepad"
 msgstr ""
 
-#: src/ui/keyboard-mapper.vala:18
+#: src/ui/keyboard-mapper.vala:27
 msgid "Press suitable key on your keyboard"
 msgstr "Paina soveltuvaa näppäintä näppäimistöstä"
 
-#: src/ui/media-selector.vala:38
+#: src/ui/media-menu-button.vala:50
 #, c-format
 msgid "Media %d"
 msgstr "Media %d"
 
-#: src/ui/preferences-page-controllers.vala:24
+#: src/ui/preferences-page-backup-restore.vala:6
+msgid "Back Up & Restore"
+msgstr "Varmuuskopioi ja palauta"
+
+#: src/ui/preferences-page-backup-restore.vala:23
+#, fuzzy, c-format
+#| msgid "Couldn’t read file: %s"
+msgid "Couldn’t restore: %s"
+msgstr "Tiedoston lukeminen epäonnistui: %s"
+
+#: src/ui/preferences-page-backup-restore.vala:53
+#, fuzzy, c-format
+#| msgid "Couldn’t read file: %s"
+msgid "Couldn’t back up: %s"
+msgstr "Tiedoston lukeminen epäonnistui: %s"
+
+#: src/ui/preferences-page-controllers.vala:22
 msgid "Controllers"
 msgstr "Ohjaimet"
 
-#: src/ui/preferences-page-plugins.vala:12
-msgid "Extensions"
-msgstr "Laajennukset"
+#: src/ui/preferences-page-platforms-retro-row.vala:50
+#: src/ui/preferences-page-platforms-retro-row.vala:57
+msgid "None"
+msgstr ""
 
 #. same as video-filters in gschema
 #: src/ui/preferences-page-video.vala:22
@@ -977,6 +1157,26 @@ msgstr "Testataan näppäimistöä"
 #: src/ui/preferences-subpage-keyboard.vala:78
 msgid "Configuring Keyboard"
 msgstr "Määritetään näppäimistöä"
+
+#: src/ui/savestate-listbox-row.vala:21 src/ui/savestates-list.vala:190
+msgid "Autosave"
+msgstr "Automaattitallennus"
+
+#. Translators: this is the day number followed
+#. * by the abbreviated month name followed by the year followed
+#. * by a time in 24h format i.e. "3 Feb 2015 23:04:00"
+#: src/ui/savestate-listbox-row.vala:31
+#, no-c-format
+msgid "%-e %b %Y %X"
+msgstr ""
+
+#: src/ui/savestates-list.vala:193
+msgid "Invalid name"
+msgstr "Virheellinen nimi"
+
+#: src/ui/savestates-list.vala:211
+msgid "A savestate with this name already exists"
+msgstr ""
 
 #: src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
@@ -1027,6 +1227,28 @@ msgstr ""
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr ""
+
+#: src/utils/file-operations.vala:27
+#, c-format
+msgid "Error: %s (%d)"
+msgstr "Virhe: %s (%d)"
+
+#: src/utils/file-operations.vala:85
+#, c-format
+msgid "Error writing “%s”: %s (%d)"
+msgstr ""
+
+#~ msgid "@icon@"
+#~ msgstr "@icon@"
+
+#~ msgid "Developers"
+#~ msgstr "Kehittäjät"
+
+#~ msgid "Please contact the developers."
+#~ msgstr "Ota yhteys kehittäjiin."
+
+#~ msgid "Extensions"
+#~ msgstr "Laajennukset"
 
 #~ msgid "About"
 #~ msgstr "Tietoja"
