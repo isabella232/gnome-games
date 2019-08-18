@@ -114,6 +114,7 @@
   </template>
   <object class="GtkPopover" id="rename_popover">
     <property name="position">left</property>
+    <property name="width-request">360</property>
     <child>
       <object class="GtkBox">
         <property name="visible">true</property>
@@ -138,7 +139,7 @@
               <object class="GtkEntry" id="rename_entry">
                 <property name="visible">true</property>
                 <property name="hexpand">true</property>
-                <property name="width-chars">21</property>
+                <property name="width-chars">1</property>
                 <signal name="activate" handler="on_rename_entry_activated"/>
               </object>
             </child>
