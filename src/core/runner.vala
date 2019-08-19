@@ -28,6 +28,6 @@ public interface Games.Runner : Object {
 	public abstract Savestate[] get_savestates ();
 
 	public abstract InputMode[] get_available_input_modes ();
-	public abstract bool key_press_event (uint keyval, uint state);
+	public abstract bool key_press_event (uint keyval, Gdk.ModifierType state);
 	public abstract bool gamepad_button_press_event (uint16 button);
 }

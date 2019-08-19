@@ -387,7 +387,7 @@ public class Games.RetroRunner : Object, Runner {
 			return { InputMode.GAMEPAD };
 	}
 
-	public virtual bool key_press_event (uint keyval, uint state) {
+	public virtual bool key_press_event (uint keyval, Gdk.ModifierType state) {
 		return false;
 	}
 

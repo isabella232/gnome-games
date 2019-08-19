@@ -76,7 +76,7 @@ private class Games.DummyRunner : Object, Runner {
 		return { };
 	}
 
-	public bool key_press_event (uint keyval, uint state) {
+	public bool key_press_event (uint keyval, Gdk.ModifierType state) {
 		return false;
 	}
 

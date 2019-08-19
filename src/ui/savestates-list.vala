@@ -303,7 +303,7 @@ private class Games.SavestatesList : Gtk.Box {
 		rename_btn.sensitive = (state.selected_savestate != null && !state.selected_savestate.is_automatic ());
 	}
 
-	public bool on_key_press_event (uint keyval, uint state) {
+	public bool on_key_press_event (uint keyval, Gdk.ModifierType state) {
 		// FIXME: Move the other list shortcuts here
 
 		if (keyval == Gdk.Key.Delete || keyval == Gdk.Key.KP_Delete) {

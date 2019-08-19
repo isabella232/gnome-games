@@ -76,7 +76,7 @@ private class Games.NintendoDsRunner : RetroRunner {
 		return new NintendoDsLayoutSwitcher (this);
 	}
 
-	public override bool key_press_event (uint keyval, uint state) {
+	public override bool key_press_event (uint keyval, Gdk.ModifierType state) {
 		if (state == Gdk.ModifierType.MOD1_MASK) {
 			// Alt + 1|2|3|4
 			var shortcut_layout = layouts[keyval];

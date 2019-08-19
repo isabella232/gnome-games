@@ -111,7 +111,7 @@ private class Games.DisplayBox : Gtk.Bin {
 			display_bin.remove (child);
 	}
 
-	public bool on_key_press_event (uint keyval, uint state) {
+	public bool on_key_press_event (uint keyval, Gdk.ModifierType state) {
 		if (!get_mapped ())
 			return false;
 
