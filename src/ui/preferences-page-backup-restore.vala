@@ -8,7 +8,7 @@ private class Games.PreferencesPageBackupRestore : PreferencesPage {
 
 	[GtkCallback]
 	private void on_restore_clicked () {
-		var toplevel = get_toplevel () as Gtk.Window;
+		var toplevel = get_root () as Gtk.Window;
 		var chooser = new Gtk.FileChooserNative (_("Restore save data"), toplevel,
 		                                         Gtk.FileChooserAction.OPEN,
 		                                         _("_Restore"), _("_Cancel"));
@@ -30,7 +30,7 @@ private class Games.PreferencesPageBackupRestore : PreferencesPage {
 
 	[GtkCallback]
 	private void on_backup_clicked () {
-		var toplevel = get_toplevel () as Gtk.Window;
+		var toplevel = get_root () as Gtk.Window;
 		var chooser = new Gtk.FileChooserNative (_("Back up save data"), toplevel,
 		                                        Gtk.FileChooserAction.SAVE,
 		                                        _("_Back Up"), _("_Cancel"));

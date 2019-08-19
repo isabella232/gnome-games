@@ -54,11 +54,13 @@ private class Games.KeyboardMapper : Gtk.Bin {
 	}
 
 	private void connect_to_keyboard () {
-		get_toplevel ().add_controller (controller);
+		var window = get_root () as Gtk.Window;
+		window.add_controller (controller);
 	}
 
 	private void disconnect_from_keyboard () {
-		get_toplevel ().remove_controller (controller);
+		var window = get_root () as Gtk.Window;
+		window.remove_controller (controller);
 	}
 
 	private void on_keyboard_event (Gtk.EventControllerKey controller, uint keyval, uint keycode, Gdk.ModifierType state) {
