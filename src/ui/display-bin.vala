@@ -5,6 +5,9 @@ public class Games.DisplayBin : Gtk.Bin {
 	public int horizontal_offset {
 		get { return _horizontal_offset; }
 		set {
+			if (horizontal_offset == value)
+				return;
+
 			_horizontal_offset = value;
 			queue_allocate ();
 		}
@@ -14,6 +17,9 @@ public class Games.DisplayBin : Gtk.Bin {
 	public int vertical_offset {
 		get { return _vertical_offset; }
 		set {
+			if (vertical_offset == value)
+				return;
+
 			_vertical_offset = value;
 			queue_allocate ();
 		}
