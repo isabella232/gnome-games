@@ -180,6 +180,7 @@ private class Games.PreferencesSubpageGamepad : Gtk.Box, PreferencesSubpage {
 	private void reset_mapping () {
 		var message_dialog = new ResetControllerMappingDialog ();
 		message_dialog.transient_for = get_toplevel () as Gtk.Window;
+		message_dialog.modal = true;
 		message_dialog.response.connect ((response) => {
 			switch (response) {
 				case Gtk.ResponseType.ACCEPT:
