@@ -111,10 +111,6 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 	}
 
 	public void draw_image (Gtk.DrawingArea area, Cairo.Context cr, int width, int height) {
-		var style = image.get_style_context ();
-		style.render_background (cr, 0.0, 0.0, width, height);
-		style.render_frame (cr, 0.0, 0.0, width, height);
-
 		cr.save ();
 		cr.scale (1.0 / scale_factor, 1.0 / scale_factor);
 
