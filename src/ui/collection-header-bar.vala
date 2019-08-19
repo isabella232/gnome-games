@@ -42,6 +42,8 @@ private class Games.CollectionHeaderBar : Gtk.Bin {
 	[GtkChild]
 	private Gtk.Stack stack;
 	[GtkChild]
+	private Hdy.HeaderBar header_bar;
+	[GtkChild]
 	private Gtk.HeaderBar subview_header_bar;
 	[GtkChild]
 	private Hdy.Squeezer title_squeezer;
@@ -79,8 +81,10 @@ private class Games.CollectionHeaderBar : Gtk.Bin {
 	}
 
 	private void update_subview () {
-		bool show_subview = adaptive_state.is_subview_open && adaptive_state.is_folded;
-		stack.visible_child_name = show_subview ? "subview" : "main";
+		if (adaptive_state.is_subview_open && adaptive_state.is_folded)
+			stack.visible_child = subview_header_bar;
+		else
+			stack.visible_child = header_bar;
 	}
 
 	private void update_subview_title () {

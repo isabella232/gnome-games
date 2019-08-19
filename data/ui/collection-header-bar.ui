@@ -8,7 +8,7 @@
         <property name="visible">True</property>
         <property name="transition-type">slide-left-right</property>
         <child>
-          <object class="HdyHeaderBar">
+          <object class="HdyHeaderBar" id="header_bar">
             <property name="visible">True</property>
             <property name="show-close-button">True</property>
             <property name="centering-policy">strict</property>
@@ -109,9 +109,6 @@
               </packing>
             </child>
           </object>
-          <packing>
-            <property name="name">main</property>
-          </packing>
         </child>
         <child>
           <object class="GtkHeaderBar" id="subview_header_bar">
@@ -166,9 +163,6 @@
               </packing>
             </child>
           </object>
-          <packing>
-            <property name="name">subview</property>
-          </packing>
         </child>
       </object>
     </child>
