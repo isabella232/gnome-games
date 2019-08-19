@@ -105,7 +105,7 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 	public void remove_animated () {
 		selectable = false;
 		revealer.notify["child-revealed"].connect(() => {
-			get_parent ().remove (this);
+//			get_parent ().remove (this);
 		});
 		revealer.reveal_child = false;
 	}
