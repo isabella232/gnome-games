@@ -116,9 +116,7 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 		if (pixbuf == null)
 			return false;
 
-		draw_background (context);
 		draw_pixbuf (context, pixbuf);
-		draw_border (context);
 
 		return true;
 	}
@@ -135,15 +133,12 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 		rounded_rectangle (context.cr, 0.5, 0.5, context.width - 1, context.height - 1, border_radius);
 		context.cr.fill ();
 		draw_pixbuf (context, pixbuf);
-		draw_border (context);
 
 		return true;
 	}
 
 	public void draw_default (DrawingContext context) {
-		draw_background (context);
 		draw_emblem_icon (context, Config.APPLICATION_ID + "-symbolic", EMBLEM_SCALE);
-		draw_border (context);
 	}
 
 	private void draw_emblem_icon (DrawingContext context, string icon_name, double scale) {
@@ -329,14 +324,6 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 		cr.fill ();
 
 		return mask;
-	}
-
-	private void draw_background (DrawingContext context) {
-		context.style.render_background (context.cr, 0.0, 0.0, context.width, context.height);
-	}
-
-	private void draw_border (DrawingContext context) {
-		context.style.render_frame (context.cr, 0.0, 0.0, context.width, context.height);
 	}
 
 	private void rounded_rectangle (Cairo.Context cr, double x, double y, double width, double height, double radius) {
