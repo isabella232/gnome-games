@@ -7,7 +7,6 @@
         <property name="visible">True</property>
         <property name="can-focus">False</property>
         <property name="valign">center</property>
-        <property name="use-underline">True</property>
         <property name="popover">popover</property>
         <child internal-child="accessible">
           <object class="AtkObject" id="a11y-display-discs">
