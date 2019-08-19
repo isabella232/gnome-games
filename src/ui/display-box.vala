@@ -152,8 +152,8 @@ private class Games.DisplayBox : Gtk.Bin {
 	}
 
 	public override void size_allocate (Gtk.Allocation allocation) {
-		base.size_allocate (allocation);
 		update_margin ();
+		base.size_allocate (allocation);
 	}
 
 	private void update_margin () {
