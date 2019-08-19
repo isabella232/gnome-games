@@ -185,6 +185,7 @@ private class Games.CollectionBox : Gtk.Box {
 	}
 
 	private void update_bottom_bar () {
-		view_switcher_bar.reveal = adaptive_state.is_showing_bottom_bar && !adaptive_state.is_subview_open;
+		view_switcher_bar.reveal = adaptive_state.is_showing_bottom_bar &&
+			(!adaptive_state.is_folded || !adaptive_state.is_subview_open);
 	}
 }
