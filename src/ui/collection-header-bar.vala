@@ -33,7 +33,7 @@ private class Games.CollectionHeaderBar : Gtk.Bin {
 		get { return _adaptive_state; }
 		construct {
 			_adaptive_state = value;
-			adaptive_state.notify["is-folded"].connect (update_folded);
+			adaptive_state.notify["is-folded"].connect (update_subview);
 			adaptive_state.notify["is-subview-open"].connect (update_subview);
 			adaptive_state.notify["subview-title"].connect (update_subview_title);
 		}
@@ -81,13 +81,6 @@ private class Games.CollectionHeaderBar : Gtk.Bin {
 	private void update_subview () {
 		bool show_subview = adaptive_state.is_subview_open && adaptive_state.is_folded;
 		stack.visible_child_name = show_subview ? "subview" : "main";
-	}
-
-	private void update_folded () {
-		bool show_subview = adaptive_state.is_subview_open && adaptive_state.is_folded;
-
-		// FIXME: have a transition here. Crossfade doens't work well at the moment
-		stack.set_visible_child_full (show_subview ? "subview" : "main", Gtk.StackTransitionType.NONE);
 	}
 
 	private void update_subview_title () {
