@@ -49,23 +49,23 @@ public class Games.Application : Gtk.Application {
 	}
 
 	private void add_actions () {
-		SimpleAction preferences_action = new SimpleAction ("preferences", null);
+		var preferences_action = new SimpleAction ("preferences", null);
 		preferences_action.activate.connect (preferences);
 		add_action (preferences_action);
 
-		SimpleAction help_action = new SimpleAction ("help", null);
+		var help_action = new SimpleAction ("help", null);
 		help_action.activate.connect (help);
 		add_action (help_action);
 
-		SimpleAction about_action = new SimpleAction ("about", null);
+		var about_action = new SimpleAction ("about", null);
 		about_action.activate.connect (about);
 		add_action (about_action);
 
-		SimpleAction quit_action = new SimpleAction ("quit", null);
+		var quit_action = new SimpleAction ("quit", null);
 		quit_action.activate.connect (quit_application);
 		add_action (quit_action);
 
-		SimpleAction add_game_files_action = new SimpleAction ("add-game-files", null);
+		var add_game_files_action = new SimpleAction ("add-game-files", null);
 		add_game_files_action.activate.connect (add_game_files);
 		add_action (add_game_files_action);
 	}
