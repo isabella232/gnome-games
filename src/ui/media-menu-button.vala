@@ -22,7 +22,7 @@ private class Games.MediaMenuButton : Gtk.Bin {
 
 			if (_media_set != null) {
 				media_set_changed_id = _media_set.notify["selected-media-number"].connect (reset_media);
-				media_image.set_from_gicon (media_set.icon, Gtk.IconSize.BUTTON);
+				media_image.set_from_gicon (media_set.icon);
 			}
 
 			reset_media ();
