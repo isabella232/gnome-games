@@ -8,6 +8,9 @@ int main (string[] args) {
 	Grl.init (ref args);
 	Hdy.init (ref args);
 
+	// Needed for shortcuts window
+	typeof (GLib.ThemedIcon).ensure ();
+
 	var app = new Games.Application ();
 	var result = app.run (args);
 

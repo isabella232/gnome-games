@@ -186,7 +186,6 @@ vala_sources = [
   'ui/savestates-list.vala',
   'ui/savestates-list-state.vala',
   'ui/search-bar.vala',
-  'ui/shortcuts-window.vala',
   'ui/ui-view.vala',
 
   'utils/composite-cover.vala',

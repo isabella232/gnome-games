@@ -110,7 +110,24 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (Config.PROFILE == "Devel")
 			get_style_context ().add_class ("devel");
 
-		set_help_overlay (new ShortcutsWindow ());
+		init_help_overlay ();
+	}
+
+	private void init_help_overlay () {
+		var builder = new Gtk.Builder.from_resource ("/org/gnome/Games/gtk/help-overlay.ui");
+		var shortcuts_window = builder.get_object ("help_overlay") as Gtk.ShortcutsWindow;
+		var shortcut = builder.get_object ("ingame_shortcut_alt_left") as Gtk.ShortcutsShortcut;
+
+		shortcuts_window.direction_changed.connect (() => {
+			shortcut.accelerator = get_alt_left_right ();
+		});
+		shortcut.accelerator = get_alt_left_right ();
+
+		set_help_overlay (shortcuts_window);
+	}
+
+	private string get_alt_left_right () {
+		return get_direction () == Gtk.TextDirection.LTR ? "<alt>Left" : "<alt>Right";
 	}
 
 	public void show_error (string error_message) {
