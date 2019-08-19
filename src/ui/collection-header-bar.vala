@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/collection-header-bar.ui")]
-private class Games.CollectionHeaderBar : Gtk.Stack {
+private class Games.CollectionHeaderBar : Gtk.Bin {
 	public bool search_mode { get; set; }
 	private Gtk.Stack _viewstack;
 	public Gtk.Stack viewstack {
@@ -39,6 +39,8 @@ private class Games.CollectionHeaderBar : Gtk.Stack {
 		}
 	}
 
+	[GtkChild]
+	private Gtk.Stack stack;
 	[GtkChild]
 	private Gtk.HeaderBar subview_header_bar;
 	[GtkChild]
@@ -78,14 +80,14 @@ private class Games.CollectionHeaderBar : Gtk.Stack {
 
 	private void update_subview () {
 		bool show_subview = adaptive_state.is_subview_open && adaptive_state.is_folded;
-		visible_child_name = show_subview ? "subview" : "main";
+		stack.visible_child_name = show_subview ? "subview" : "main";
 	}
 
 	private void update_folded () {
 		bool show_subview = adaptive_state.is_subview_open && adaptive_state.is_folded;
 
 		// FIXME: have a transition here. Crossfade doens't work well at the moment
-		set_visible_child_full (show_subview ? "subview" : "main", Gtk.StackTransitionType.NONE);
+		stack.set_visible_child_full (show_subview ? "subview" : "main", Gtk.StackTransitionType.NONE);
 	}
 
 	private void update_subview_title () {
