@@ -10,6 +10,7 @@
     <file preprocess="xml-stripblanks">gesture/dpad-symbolic.svg</file>
     <file preprocess="xml-stripblanks">gesture/shoulders-front-symbolic.svg</file>
     <file preprocess="xml-stripblanks">gesture/stick-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">gtk/help-overlay.ui</file>
     <file preprocess="xml-stripblanks">ui/application-window.ui</file>
     <file preprocess="xml-stripblanks">ui/checkmark-item.ui</file>
     <file preprocess="xml-stripblanks">ui/collection-action-window.ui</file>
@@ -47,7 +48,6 @@
     <file preprocess="xml-stripblanks">ui/remote-display.ui</file>
     <file preprocess="xml-stripblanks">ui/search-bar.ui</file>
     <file preprocess="xml-stripblanks">ui/selection-action-bar.ui</file>
-    <file preprocess="xml-stripblanks">ui/shortcuts-window.ui</file>
     <file preprocess="xml-stripblanks">ui/snapshot-row.ui</file>
     <file preprocess="xml-stripblanks">ui/snapshots-list.ui</file>
     <file preprocess="xml-stripblanks">ui/undo-notification.ui</file>

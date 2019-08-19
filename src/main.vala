@@ -10,6 +10,9 @@ int main (string[] args) {
 
 	Grl.init (ref unowned_args);
 
+	// Needed for shortcuts window
+	typeof (ThemedIcon).ensure ();
+
 	var app = new Games.Application ();
 	var result = app.run (args);
 

@@ -217,8 +217,10 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		if ((keyval == Gdk.Key.question) &&
 			(event.state & default_modifiers) == (Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.SHIFT_MASK)) {
 
-			var shortcuts_window = new ShortcutsWindow ();
-			shortcuts_window.show_all();
+			var win = window as Gtk.ApplicationWindow;
+			var action = win.lookup_action ("show-help-overlay");
+
+			action.activate (null);
 
 			return true;
 		}

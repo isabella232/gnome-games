@@ -158,7 +158,6 @@ vala_sources = [
   'ui/remote-display.vala',
   'ui/search-bar.vala',
   'ui/selection-action-bar.vala',
-  'ui/shortcuts-window.vala',
   'ui/snapshot-row.vala',
   'ui/snapshot-thumbnail.vala',
   'ui/snapshots-list.vala',
