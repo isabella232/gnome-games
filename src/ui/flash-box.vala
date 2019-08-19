@@ -15,15 +15,6 @@ private class Games.FlashBox : Gtk.Widget {
 	private int64 flash_start_time;
 	private uint tick_callback_id;
 
-	public override bool draw (Cairo.Context cr) {
-		var width = get_allocated_width ();
-		var height = get_allocated_height ();
-
-		get_style_context ().render_background (cr, 0, 0, width, height);
-
-		return true;
-	}
-
 	public void flash () {
 		if (tick_callback_id == 0) {
 			tick_callback_id = add_tick_callback (on_tick);
