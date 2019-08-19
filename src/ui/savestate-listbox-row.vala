@@ -120,11 +120,10 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 
 		var mask = get_mask ();
 
-		var surface = Gdk.cairo_surface_create_from_pixbuf (pixbuf, 1, image.get_window ());
 		var x_offset = (width * scale_factor - pixbuf.width) / 2;
 		var y_offset = (height * scale_factor - pixbuf.height) / 2;
 
-		cr.set_source_surface (surface, x_offset, y_offset);
+		Gdk.cairo_set_source_pixbuf (cr, pixbuf, x_offset, y_offset);
 
 		cr.mask_surface (mask, 0, 0);
 
