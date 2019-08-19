@@ -110,7 +110,7 @@ private class Games.FullscreenBox : Gtk.Bin, Gtk.Buildable {
 		if (!autohide)
 			return;
 
-		if (event.y_root <= SHOW_HEADERBAR_DISTANCE)
+		if (y <= SHOW_HEADERBAR_DISTANCE)
 			show_ui ();
 
 		on_cursor_moved ();
