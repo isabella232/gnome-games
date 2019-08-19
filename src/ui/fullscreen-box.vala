@@ -175,19 +175,13 @@ private class Games.FullscreenBox : Gtk.Bin, Gtk.Buildable {
 	}
 
 	private void show_cursor (bool show) {
-		var window = get_window ();
-		if (window == null)
+		if ((show && cursor == null) ||
+		    (!show && cursor != null))
 			return;
 
-		if ((show && window.cursor == null) ||
-		    (!show && window.cursor != null))
-			return;
-
-		if (!show) {
-			var display = window.get_display ();
-			window.cursor = new Gdk.Cursor.from_name (display, "none");
-		}
+		if (!show)
+			cursor = new Gdk.Cursor.from_name ("none", null);
 		else
-			window.cursor = null;
+			cursor = null;
 	}
 }
