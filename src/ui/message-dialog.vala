@@ -28,12 +28,6 @@ private class Games.MessageDialog : Gtk.Dialog {
 		}
 	}
 
-	construct {
-		// FIXME: There's no way to avoid this in GTK3
-		var action_area = get_action_area () as Gtk.ButtonBox;
-		action_area.set_layout (Gtk.ButtonBoxStyle.EXPAND);
-	}
-
 	static construct {
 		set_css_name ("messagedialog");
 	}
