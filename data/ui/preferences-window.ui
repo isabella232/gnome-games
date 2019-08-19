@@ -5,7 +5,6 @@
     <property name="title" translatable="yes">Preferences</property>
     <property name="default-width">800</property>
     <property name="default-height">500</property>
-    <property name="window-position">center-on-parent</property>
     <child type="titlebar">
       <object class="GtkBox" id="titlebar">
         <property name="visible">True</property>
