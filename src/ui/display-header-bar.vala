@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/display-header-bar.ui")]
-private class Games.DisplayHeaderBar : Gtk.Stack {
+private class Games.DisplayHeaderBar : Gtk.Bin {
 	public signal void back ();
 
 	[GtkChild]
@@ -75,6 +75,8 @@ private class Games.DisplayHeaderBar : Gtk.Stack {
 	}
 
 	[GtkChild]
+	private Gtk.Stack stack;
+	[GtkChild]
 	private Gtk.HeaderBar ingame_header_bar;
 	[GtkChild]
 	private Gtk.Button fullscreen;
@@ -136,9 +138,9 @@ private class Games.DisplayHeaderBar : Gtk.Stack {
 
 	private void on_savestates_list_revealed_changed () {
 		if (savestates_list_state.is_revealed)
-			set_visible_child (savestates_header_bar);
+			stack.visible_child = savestates_header_bar;
 		else
-			set_visible_child (ingame_header_bar);
+			stack.visible_child = ingame_header_bar;
 	}
 
 	private void on_selected_savestate_changed () {
