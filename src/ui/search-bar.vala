@@ -1,14 +1,17 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/search-bar.ui")]
-private class Games.SearchBar : Hdy.SearchBar {
+private class Games.SearchBar : Gtk.Bin {
 	public string text { get; private set; }
+	public bool search_mode_enabled { get; set; }
 
+	[GtkChild]
+	private Hdy.SearchBar search_bar;
 	[GtkChild]
 	private Gtk.SearchEntry entry;
 
 	construct {
-		connect_entry (entry);
+		search_bar.connect_entry (entry);
 	}
 
 	[GtkCallback]
@@ -23,5 +26,9 @@ private class Games.SearchBar : Hdy.SearchBar {
 
 	public void focus_entry () {
 		entry.grab_focus_without_selecting ();
+	}
+
+	public bool handle_event (Gdk.Event event) {
+		return search_bar.handle_event (event);
 	}
 }
