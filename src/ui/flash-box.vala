@@ -8,7 +8,6 @@ private class Games.FlashBox : Gtk.Widget {
 	}
 
 	construct {
-		set_has_window (false);
 		opacity = 0;
 	}
 
