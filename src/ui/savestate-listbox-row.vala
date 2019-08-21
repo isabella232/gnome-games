@@ -115,6 +115,9 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 		style.render_background (cr, 0.0, 0.0, width, height);
 		style.render_frame (cr, 0.0, 0.0, width, height);
 
+		if (pixbuf == null)
+			return Gdk.EVENT_PROPAGATE;
+
 		cr.save ();
 		cr.scale (1.0 / scale_factor, 1.0 / scale_factor);
 
