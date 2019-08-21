@@ -73,11 +73,6 @@ private class Games.DisplayBox : Gtk.Bin {
 	private SavestatesList savestates_list;
 
 	private int fullscreen_header_bar_height;
-	private long timeout_id;
-
-	construct {
-		timeout_id = -1;
-	}
 
 	public DisplayBox (SavestatesListState savestates_list_state) {
 		Object (savestates_list_state: savestates_list_state);
