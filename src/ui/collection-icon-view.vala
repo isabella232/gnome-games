@@ -46,9 +46,7 @@ private class Games.CollectionIconView : Gtk.Bin {
 	private Binding window_active_binding;
 	private bool _is_active;
 	public bool is_active {
-		get {
-			return _is_active;
-		}
+		get { return _is_active; }
 		set {
 			if (_is_active == value)
 				return;
