@@ -36,7 +36,7 @@ private class Games.DisplayView : Object, UiView {
 		}
 	}
 
-	public Gtk.Window window { get; construct set; }
+	public Gtk.Window window { get; construct; }
 
 	public bool is_fullscreen { get; set; }
 

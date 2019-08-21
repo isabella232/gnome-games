@@ -32,7 +32,7 @@ private class Games.CollectionView : Object, UiView {
 		}
 	}
 
-	public Gtk.Window window { get; construct set; }
+	public Gtk.Window window { get; construct; }
 	public ListModel collection { get; construct; }
 
 	public bool loading_notification { get; set; }

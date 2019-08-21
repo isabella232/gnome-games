@@ -5,7 +5,6 @@ private class Games.PreferencesPage : Gtk.Bin, Gtk.Buildable {
 	public PreferencesSubpage subpage { get; protected set; }
 	public string title { get; construct set; }
 
-
 	[GtkChild]
 	private Gtk.Label error_label;
 	[GtkChild]

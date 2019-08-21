@@ -4,7 +4,7 @@
 private class Games.CollectionBox : Gtk.Box {
 	public signal void game_activated (Game game);
 
-	public ListModel collection { get; construct set; }
+	public ListModel collection { get; construct; }
 	public bool search_mode { get; set; }
 	public bool loading_notification { get; set; }
 
