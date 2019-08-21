@@ -6,6 +6,9 @@ private class Games.InputModeSwitcher : Gtk.Box {
 	public Runner runner {
 		get { return _runner; }
 		set {
+			if (runner != null)
+				runner.notify["input-mode"].disconnect (on_input_mode_changed);
+
 			_runner = value;
 
 			if (value == null) {

@@ -6,7 +6,6 @@ private class Games.EmptyCollection : Gtk.Box {
 	private Gtk.Image icon;
 
 	construct {
-		var icon_name = Config.APPLICATION_ID + "-symbolic";
-		icon.icon_name = icon_name;
+		icon.icon_name = Config.APPLICATION_ID + "-symbolic";
 	}
 }
