@@ -33,19 +33,7 @@ private class Games.CollectionView : Object, UiView {
 	}
 
 	public Gtk.Window window { get; construct set; }
-
-	private ListModel _collection;
-	public ListModel collection {
-		get { return _collection; }
-		construct set {
-			_collection = value;
-
-			collection.items_changed.connect (() => {
-				is_collection_empty = collection.get_n_items () == 0;
-			});
-			is_collection_empty = collection.get_n_items () == 0;
-		}
-	}
+	public ListModel collection { get; construct; }
 
 	public bool loading_notification { get; set; }
 	public bool search_mode { get; set; }
@@ -68,6 +56,11 @@ private class Games.CollectionView : Object, UiView {
 		box.game_activated.connect (game => {
 			game_activated (game);
 		});
+
+		collection.items_changed.connect (() => {
+			is_collection_empty = collection.get_n_items () == 0;
+		});
+		is_collection_empty = collection.get_n_items () == 0;
 
 		header_bar.viewstack = box.viewstack;
 		is_collection_empty = true;

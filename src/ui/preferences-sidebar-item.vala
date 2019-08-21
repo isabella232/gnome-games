@@ -5,13 +5,10 @@ private class Games.PreferencesSidebarItem : Gtk.ListBoxRow {
 	[GtkChild]
 	private Gtk.Label label;
 
-	private PreferencesPage _preferences_page;
-	public PreferencesPage preferences_page {
-		get { return _preferences_page; }
-		construct {
-			_preferences_page = value;
-			label.label = value.title;
-		}
+	public PreferencesPage preferences_page { get; construct; }
+
+	construct {
+		label.label = preferences_page.title;
 	}
 
 	public PreferencesSidebarItem (PreferencesPage preferences_page) {

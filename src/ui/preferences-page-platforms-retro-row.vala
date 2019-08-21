@@ -18,24 +18,19 @@ private class Games.PreferencesPagePlatformsRetroRow : PreferencesPagePlatformsR
 	private HashTable<Gtk.Widget, Retro.CoreDescriptor> row_cores;
 	private int num_cores;
 
-	private RetroPlatform _platform;
-	public RetroPlatform platform {
-		get { return _platform; }
-		construct {
-			_platform = value;
-			name_label.label = value.get_name ();
-
-			refresh_cores ();
-
-			var path = "/org/gnome/Games/platforms/%s/".printf (value.get_id ());
-			settings = new Settings.with_path ("org.gnome.Games.platforms", path);
-
-			settings.changed.connect (update_label);
-		}
-	}
+	public RetroPlatform platform { get; construct; }
 
 	construct {
 		list_box.set_header_func (update_header);
+
+		name_label.label = platform.get_name ();
+
+		refresh_cores ();
+
+		var path = "/org/gnome/Games/platforms/%s/".printf (platform.get_id ());
+		settings = new Settings.with_path ("org.gnome.Games.platforms", path);
+
+		settings.changed.connect (update_label);
 	}
 
 	public PreferencesPagePlatformsRetroRow (RetroPlatform platform) {

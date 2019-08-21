@@ -5,13 +5,10 @@ private class Games.PlatformListItem : Gtk.ListBoxRow {
 	[GtkChild]
 	protected Gtk.Label label;
 
-	private Platform _platform;
-	public Platform platform {
-		get { return _platform; }
-		construct {
-			_platform = value;
-			label.label = value.get_name ();
-		}
+	public Platform platform { get; construct; }
+
+	construct {
+		label.label = platform.get_name ();
 	}
 
 	public PlatformListItem (Platform platform) {

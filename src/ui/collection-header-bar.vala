@@ -27,16 +27,7 @@ private class Games.CollectionHeaderBar : Gtk.Bin {
 		}
 	}
 
-	private AdaptiveState _adaptive_state;
-	public AdaptiveState adaptive_state {
-		get { return _adaptive_state; }
-		construct {
-			_adaptive_state = value;
-			adaptive_state.notify["is-folded"].connect (update_subview);
-			adaptive_state.notify["is-subview-open"].connect (update_subview);
-			adaptive_state.notify["subview-title"].connect (update_subview_title);
-		}
-	}
+	public AdaptiveState adaptive_state { get; construct; }
 
 	[GtkChild]
 	private Gtk.Stack stack;
@@ -50,6 +41,12 @@ private class Games.CollectionHeaderBar : Gtk.Bin {
 	private Hdy.ViewSwitcher view_switcher;
 
 	private ulong viewstack_child_changed_id;
+
+	construct {
+		adaptive_state.notify["is-folded"].connect (update_subview);
+		adaptive_state.notify["is-subview-open"].connect (update_subview);
+		adaptive_state.notify["subview-title"].connect (update_subview_title);
+	}
 
 	public CollectionHeaderBar (AdaptiveState adaptive_state) {
 		Object (adaptive_state: adaptive_state);
