@@ -9,15 +9,16 @@
         <property name="spacing">12</property>
         <property name="visible">true</property>
         <child>
-          <object class="GtkLabel" id="title_label">
+          <object class="GtkLabel">
             <property name="visible">true</property>
             <property name="vexpand">true</property>
             <property name="wrap">true</property>
+            <property name="label" bind-source="GamesCheckmarkItem" bind-property="label" bind-flags="default"/>
           </object>
         </child>
         <child>
-          <object class="GtkImage" id="checkmark_image">
-            <property name="visible">False</property>
+          <object class="GtkImage">
+            <property name="visible" bind-source="GamesCheckmarkItem" bind-property="checkmark-visible" bind-flags="default">False</property>
             <property name="icon-name">object-select-symbolic</property>
             <property name="valign">center</property>
           </object>

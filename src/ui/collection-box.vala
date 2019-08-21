@@ -13,8 +13,6 @@ private class Games.CollectionBox : Gtk.Box {
 	[GtkChild]
 	private SearchBar search_bar;
 	[GtkChild]
-	private Gtk.Revealer loading_notification_revealer;
-	[GtkChild]
 	private EmptyCollection empty_collection;
 	[GtkChild]
 	private CollectionIconView collection_view;
@@ -41,43 +39,22 @@ private class Games.CollectionBox : Gtk.Box {
 		}
 	}
 
-	private AdaptiveState _adaptive_state;
-	public AdaptiveState adaptive_state {
-		get { return _adaptive_state; }
-		construct {
-			_adaptive_state = value;
+	public AdaptiveState adaptive_state { get; construct; }
 
-			platform_view.adaptive_state = adaptive_state;
+	construct {
+		var icon_name = Config.APPLICATION_ID + "-symbolic";
+		viewstack.child_set (collection_view, "icon-name", icon_name);
 
-			adaptive_state.notify["is-showing-bottom-bar"].connect (update_bottom_bar);
-			adaptive_state.notify["is-subview-open"].connect (update_bottom_bar);
-		}
+		collection_view.model = collection;
+		platform_view.model = collection;
+		platform_view.adaptive_state = adaptive_state;
+
+		adaptive_state.notify["is-showing-bottom-bar"].connect (update_bottom_bar);
+		adaptive_state.notify["is-subview-open"].connect (update_bottom_bar);
 	}
-
-	private Binding collection_binding;
-	private Binding platform_collection_binding;
-	private Binding search_binding;
-	private Binding loading_notification_binding;
 
 	public CollectionBox (ListModel collection, AdaptiveState adaptive_state) {
 		Object (collection: collection, adaptive_state: adaptive_state);
-	}
-
-	construct {
-		collection_binding = bind_property ("collection", collection_view, "model",
-		                                    BindingFlags.BIDIRECTIONAL);
-
-		platform_collection_binding = bind_property ("collection", platform_view,
-		                                             "model", BindingFlags.BIDIRECTIONAL);
-
-		search_binding = bind_property ("search-mode", search_bar, "search-mode-enabled",
-		                                BindingFlags.BIDIRECTIONAL);
-		loading_notification_binding = bind_property ("loading-notification",
-		                                              loading_notification_revealer,
-		                                              "reveal-child", BindingFlags.DEFAULT);
-
-		var icon_name = Config.APPLICATION_ID + "-symbolic";
-		viewstack.child_set (collection_view, "icon-name", icon_name);
 	}
 
 	public void show_error (string error_message) {
@@ -146,7 +123,7 @@ private class Games.CollectionBox : Gtk.Box {
 
 	[GtkCallback]
 	private void on_loading_notification_closed () {
-		loading_notification_revealer.set_reveal_child (false);
+		loading_notification = false;
 	}
 
 	[GtkCallback]

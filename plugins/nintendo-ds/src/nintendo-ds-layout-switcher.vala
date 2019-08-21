@@ -31,8 +31,6 @@ private class Games.NintendoDsLayoutSwitcher : Gtk.Box {
 			list_box.add (item);
 		}
 
-		layout_popover.show.connect (update_ui);
-
 		update_ui ();
 
 		runner.notify["screen-layout"].connect (update_ui);
@@ -45,6 +43,7 @@ private class Games.NintendoDsLayoutSwitcher : Gtk.Box {
 		Object (runner: runner);
 	}
 
+	[GtkCallback]
 	private void update_ui () {
 		var layout = runner.screen_layout;
 		var view_bottom = runner.view_bottom_screen;

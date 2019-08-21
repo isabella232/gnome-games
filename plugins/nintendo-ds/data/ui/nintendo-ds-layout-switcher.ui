@@ -60,6 +60,7 @@
   </template>
   <object class="GtkPopover" id="layout_popover">
     <property name="visible">False</property>
+    <signal name="show" handler="update_ui"/>
     <child>
       <object class="GtkFrame">
         <property name="visible">True</property>

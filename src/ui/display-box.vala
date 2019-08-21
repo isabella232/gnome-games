@@ -72,17 +72,11 @@ private class Games.DisplayBox : Gtk.Bin {
 	[GtkChild]
 	private SavestatesList savestates_list;
 
-	private Binding fullscreen_binding;
 	private int fullscreen_header_bar_height;
 	private long timeout_id;
 
 	construct {
-		fullscreen_binding = bind_property ("is-fullscreen", fullscreen_box,
-		                                    "is-fullscreen",
-		                                    BindingFlags.BIDIRECTIONAL);
 		timeout_id = -1;
-
-		fullscreen_header_bar.size_allocate.connect (on_fullscreen_header_bar_size_allocated);
 	}
 
 	public DisplayBox (SavestatesListState savestates_list_state) {
@@ -142,6 +136,7 @@ private class Games.DisplayBox : Gtk.Bin {
 		fullscreen_box.autohide = !savestates_list.state.is_revealed;
 	}
 
+	[GtkCallback]
 	private void on_fullscreen_header_bar_size_allocated (Gtk.Allocation allocation) {
 		fullscreen_header_bar_height = allocation.height;
 	}

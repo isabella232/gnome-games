@@ -10,7 +10,7 @@
         <property name="visible">True</property>
         <child type="overlay">
           <object class="GtkRevealer" id="header_bar_revealer">
-            <property name="visible">True</property>
+            <property name="visible" bind-source="GamesFullscreenBox" bind-property="is-fullscreen" bind-flags="bidirectional">True</property>
             <property name="valign">start</property>
             <property name="hexpand">True</property>
             <property name="transition-type">slide-down</property>

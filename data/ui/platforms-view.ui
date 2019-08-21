@@ -32,6 +32,7 @@
           <object class="GamesCollectionIconView" id="collection_view">
             <property name="visible">True</property>
             <property name="expand">True</property>
+            <signal name="game-activated" handler="on_game_activated"/>
           </object>
         </child>
       </object>

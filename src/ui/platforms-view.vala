@@ -97,13 +97,7 @@ private class Games.PlatformsView : Gtk.Bin {
 
 		list_box.set_sort_func (sort_rows);
 
-		collection_view.game_activated.connect ((game) => {
-			game_activated (game);
-		});
-
 		collection_view.set_game_filter (filter_game);
-
-		has_used_gamepad = false;
 	}
 
 	private int sort_rows (Gtk.ListBoxRow row1, Gtk.ListBoxRow row2) {
@@ -330,6 +324,11 @@ private class Games.PlatformsView : Gtk.Bin {
 	[GtkCallback]
 	private void on_leaflet_folded_changed () {
 		adaptive_state.is_folded = leaflet.folded;
+	}
+
+	[GtkCallback]
+	public void on_game_activated (Game game) {
+		game_activated (game);
 	}
 
 	private void update_subview () {

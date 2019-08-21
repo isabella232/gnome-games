@@ -10,6 +10,7 @@
     <child>
       <object class="GamesSearchBar" id="search_bar">
         <property name="visible">True</property>
+        <property name="search-mode-enabled" bind-source="GamesCollectionBox" bind-property="search-mode" bind-flags="bidirectional"/>
         <signal name="notify::text" handler="on_search_text_notify"/>
       </object>
     </child>
@@ -66,6 +67,7 @@
             <property name="visible">True</property>
             <property name="halign">center</property>
             <property name="valign">start</property>
+            <property name="reveal-child" bind-source="GamesCollectionBox" bind-property="loading-notification" bind-flags="bidirectional"/>
             <child>
               <object class="GtkBox">
                 <property name="visible">True</property>

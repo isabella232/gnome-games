@@ -85,6 +85,8 @@
               <object class="GtkToggleButton" id="search">
                 <property name="visible">True</property>
                 <property name="valign">center</property>
+                <property name="active" bind-source="GamesCollectionHeaderBar" bind-property="search-mode" bind-flags="bidirectional"/>
+                <property name="sensitive" bind-source="GamesCollectionHeaderBar" bind-property="is-collection-empty" bind-flags="bidirectional|invert-boolean"/>
                 <style>
                   <class name="image-button"/>
                 </style>
@@ -137,6 +139,8 @@
               <object class="GtkToggleButton" id="search_subview">
                 <property name="visible">True</property>
                 <property name="valign">center</property>
+                <property name="active" bind-source="GamesCollectionHeaderBar" bind-property="search-mode" bind-flags="bidirectional"/>
+                <property name="sensitive" bind-source="GamesCollectionHeaderBar" bind-property="is-collection-empty" bind-flags="bidirectional|invert-boolean"/>
                 <style>
                   <class name="image-button"/>
                 </style>

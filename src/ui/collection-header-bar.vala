@@ -23,7 +23,6 @@ private class Games.CollectionHeaderBar : Gtk.Bin {
 		set {
 			_is_collection_empty = value;
 			title_squeezer.set_child_enabled (view_switcher, !value);
-			search.sensitive = !_is_collection_empty;
 			update_adaptive_state ();
 		}
 	}
@@ -49,22 +48,8 @@ private class Games.CollectionHeaderBar : Gtk.Bin {
 	private Hdy.Squeezer title_squeezer;
 	[GtkChild]
 	private Hdy.ViewSwitcher view_switcher;
-	[GtkChild]
-	private Gtk.ToggleButton search;
-	[GtkChild]
-	private Gtk.ToggleButton search_subview;
-
-	private Binding search_binding;
-	private Binding search_subview_binding;
 
 	private ulong viewstack_child_changed_id;
-
-	construct {
-		search_binding = bind_property ("search-mode", search, "active",
-		                                BindingFlags.BIDIRECTIONAL);
-		search_subview_binding = bind_property ("search-mode", search_subview,
-		                                        "active", BindingFlags.BIDIRECTIONAL);
-	}
 
 	public CollectionHeaderBar (AdaptiveState adaptive_state) {
 		Object (adaptive_state: adaptive_state);

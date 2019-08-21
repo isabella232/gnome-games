@@ -6,11 +6,13 @@
     <child>
       <object class="GamesFullscreenBox" id="fullscreen_box">
         <property name="visible">True</property>
+        <property name="is-fullscreen" bind-source="GamesDisplayBox" bind-property="is-fullscreen" bind-flags="bidirectional"/>
         <child type="titlebar">
           <object class="GamesDisplayHeaderBar" id="fullscreen_header_bar">
             <property name="visible">True</property>
             <property name="show-title-buttons">False</property>
             <signal name="back" handler="on_fullscreen_header_bar_back"/>
+            <signal name="size-allocate" handler="on_fullscreen_header_bar_size_allocated"/>
           </object>
         </child>
         <child>

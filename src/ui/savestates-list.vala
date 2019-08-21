@@ -45,8 +45,6 @@ private class Games.SavestatesList : Gtk.Box {
 
 	construct {
 		list_box.set_header_func (update_header);
-		revealer.notify["child-revealed"].connect (on_revealer_transition_end);
-		rename_entry.notify["text"].connect (on_rename_entry_text_changed);
 	}
 
 	public void set_margin (int margin) {
@@ -144,6 +142,7 @@ private class Games.SavestatesList : Gtk.Box {
 		// Runner isn't resumed here but after the revealer finishes the transition
 	}
 
+	[GtkCallback]
 	private void on_revealer_transition_end () {
 		state.on_revealer_transition_end ();
 	}
@@ -216,6 +215,7 @@ private class Games.SavestatesList : Gtk.Box {
 			apply_rename ();
 	}
 
+	[GtkCallback]
 	private void on_rename_entry_text_changed () {
 		check_rename_is_valid ();
 	}

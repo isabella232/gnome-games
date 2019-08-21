@@ -79,15 +79,12 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 	private Gtk.Overlay overlay;
 	[GtkChild]
 	private Gtk.Revealer header_bar_revealer;
-	private Binding visible_binding;
 	private Binding fullscreen_binding;
 
 	private uint ui_timeout_id;
 	private uint cursor_timeout_id;
 
 	construct {
-		visible_binding = bind_property ("is-fullscreen", header_bar_revealer,
-		                                 "visible", BindingFlags.BIDIRECTIONAL);
 		ui_timeout_id = -1;
 		cursor_timeout_id = -1;
 	}
