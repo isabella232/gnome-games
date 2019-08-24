@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-06-15 10:55+0000\n"
-"PO-Revision-Date: 2019-06-19 23:27+0200\n"
+"POT-Creation-Date: 2019-08-15 13:47+0000\n"
+"PO-Revision-Date: 2019-08-24 20:57+0200\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
@@ -22,8 +22,8 @@ msgstr ""
 
 #: data/org.gnome.Games.appdata.xml.in.in:6
 #: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:47
-#: data/ui/display-header-bar.ui:11 src/ui/application.vala:25
-#: src/ui/collection-header-bar.vala:87
+#: data/ui/collection-header-bar.ui:75 data/ui/display-header-bar.ui:11
+#: src/ui/application.vala:25
 msgid "Games"
 msgstr "Játékok"
 
@@ -72,7 +72,7 @@ msgstr "Játékok elindítása"
 msgid "Resume your game to where you left it"
 msgstr "Játék folytatása, ahol abbahagyta"
 
-#: data/org.gnome.Games.appdata.xml.in.in:115
+#: data/org.gnome.Games.appdata.xml.in.in:152
 msgid "The GNOME Project"
 msgstr "A GNOME projekt"
 
@@ -89,7 +89,7 @@ msgstr "Videojáték-gyűjtemény elindítása és megtekintése"
 msgid "game;videogame;video game;player;"
 msgstr "játék;videojáték;videó játék;lejátszó;"
 
-#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:49
+#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:100
 msgid "Fullscreen"
 msgstr "Teljes képernyő"
 
@@ -146,44 +146,54 @@ msgstr "Platformok"
 msgid "Loading"
 msgstr "Betöltés"
 
-#: data/ui/collection-header-bar.ui:22
+#: data/ui/collection-header-bar.ui:23
 msgid "Add game files…"
 msgstr "Játékfájlok hozzáadása…"
 
 #. Translators: tooltip for the application menu button
-#: data/ui/collection-header-bar.ui:41
+#: data/ui/collection-header-bar.ui:42
 msgid "Menu"
 msgstr "Menü"
 
-#: data/ui/collection-header-bar.ui:91 data/ui/collection-header-bar.ui:148
+#: data/ui/collection-header-bar.ui:93 data/ui/collection-header-bar.ui:150
 msgid "Search"
 msgstr "Keresés"
 
-#: data/ui/collection-header-bar.ui:126 data/ui/display-header-bar.ui:25
-#: data/ui/preferences-subpage-gamepad.ui:83
-#: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:54
+#: data/ui/collection-header-bar.ui:128 data/ui/display-header-bar.ui:25
+#: data/ui/display-header-bar.ui:162 data/ui/preferences-subpage-gamepad.ui:83
+#: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:37
+#: data/ui/preferences-window.ui:78
 msgid "Back"
 msgstr "Vissza"
 
-#: data/ui/collection-header-bar.ui:179
+#: data/ui/collection-header-bar.ui:181
 msgid "Pr_eferences"
 msgstr "_Beállítások"
 
-#: data/ui/collection-header-bar.ui:187
+#: data/ui/collection-header-bar.ui:189
 msgid "_Keyboard Shortcuts"
 msgstr "_Gyorsbillentyűk"
 
-#: data/ui/collection-header-bar.ui:195
+#: data/ui/collection-header-bar.ui:197
 msgid "_Help"
 msgstr "_Súgó"
 
-#: data/ui/collection-header-bar.ui:203
+#: data/ui/collection-header-bar.ui:205
 msgid "_About Games"
 msgstr "A Játékok _névjegye"
 
-#: data/ui/display-header-bar.ui:76
+#: data/ui/display-header-bar.ui:51
 msgid "Restore"
 msgstr "Helyreállítás"
+
+#: data/ui/display-header-bar.ui:140
+#| msgid "Loading"
+msgid "_Load"
+msgstr "_Betöltés"
+
+#: data/ui/display-header-bar.ui:188
+msgid "_Savestates"
+msgstr "Állapot_mentések"
 
 #: data/ui/dummy-display.ui:37
 msgid "This is a dummy game display"
@@ -353,6 +363,22 @@ msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Visszaállítás"
 
+#: data/ui/savestates-list.ui:53
+msgid "Create new savestate"
+msgstr "Új állapotmentés létrehozása"
+
+#: data/ui/savestates-list.ui:78
+msgid "_Delete"
+msgstr "_Törlés"
+
+#: data/ui/savestates-list.ui:92 data/ui/savestates-list.ui:140
+msgid "_Rename"
+msgstr "Át_nevezés"
+
+#: data/ui/savestates-list.ui:117
+msgid "Name"
+msgstr "Név"
+
 #: data/ui/shortcuts-window.ui:11
 msgid "Shortcuts"
 msgstr "Gyorsbillentyűk"
@@ -455,7 +481,7 @@ msgid "Right action button"
 msgstr "Jobb műveleti gomb"
 
 #: data/ui/shortcuts-window.ui:136
-#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:7
+#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:6
 msgid "Nintendo DS"
 msgstr "Nintendo DS"
 
@@ -526,42 +552,42 @@ msgstr "Közreműködés"
 msgid "Desktop"
 msgstr "Asztal"
 
-#: plugins/desktop/src/desktop-plugin.vala:56
+#: plugins/desktop/src/desktop-plugin.vala:57
 #, c-format
 msgid "Invalid command “%s”."
 msgstr "Érvénytelen parancs: „%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:69
+#: plugins/desktop/src/desktop-plugin.vala:70
 #, c-format
 msgid "Tracker listed file not found: “%s”."
 msgstr "A követő által listázott fájl nem található: „%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:75
+#: plugins/desktop/src/desktop-plugin.vala:76
 #, c-format
 msgid "Couldn’t parse desktop entry “%s”."
 msgstr "Nem sikerült feldolgozni a(z) „%s” asztalbejegyzést."
 
-#: plugins/desktop/src/desktop-plugin.vala:85
+#: plugins/desktop/src/desktop-plugin.vala:86
 #, c-format
 msgid "“%s” shouldn’t be displayed."
 msgstr "A(z) „%s” nem jeleníthető meg."
 
-#: plugins/desktop/src/desktop-plugin.vala:88
+#: plugins/desktop/src/desktop-plugin.vala:89
 #, c-format
 msgid "“%s” is hidden."
 msgstr "A(z) „%s” rejtett."
 
-#: plugins/desktop/src/desktop-plugin.vala:97
+#: plugins/desktop/src/desktop-plugin.vala:98
 #, c-format
 msgid "“%s” has blacklisted category “%s”."
 msgstr "A(z) „%s” „%s” kategóriája feketelistán van."
 
-#: plugins/desktop/src/desktop-plugin.vala:106
+#: plugins/desktop/src/desktop-plugin.vala:107
 #, c-format
 msgid "“%s” has blacklisted executable “%s”."
 msgstr "A(z) „%s” „%s” futtatható állománya feketelistán van."
 
-#: plugins/desktop/src/desktop-plugin.vala:113
+#: plugins/desktop/src/desktop-plugin.vala:114
 #, c-format
 msgid "“%s” is blacklisted."
 msgstr "A(z) „%s” feketelistán van."
@@ -591,7 +617,7 @@ msgstr "Libretro"
 msgid "This doesn’t represent a valid LÖVE package: “%s”."
 msgstr "Ez nem egy érvényes LÖVE csomagot képvisel: „%s”."
 
-#: plugins/love/src/love-plugin.vala:7
+#: plugins/love/src/love-plugin.vala:6
 msgid "LÖVE"
 msgstr "LÖVE"
 
@@ -604,57 +630,32 @@ msgstr "A(z) „%s” egy érvénytelen MAME játékazonosító ehhez: „%s”.
 msgid "Arcade"
 msgstr "Játékterem"
 
-#: plugins/ms-dos/src/ms-dos-plugin.vala:7
+#: plugins/ms-dos/src/ms-dos-plugin.vala:6
 msgid "MS-DOS"
 msgstr "MS-DOS"
-
-#: plugins/nintendo-ds/data/org.gnome.Games.plugins.nintendo-ds.gschema.xml:11
-msgid "Screen layout"
-msgstr "Képernyő-elrendezés"
-
-#: plugins/nintendo-ds/data/org.gnome.Games.plugins.nintendo-ds.gschema.xml:12
-msgid ""
-"Screen layout for Nintendo DS games. Allowed values are: “top/bottom”, “left/"
-"right”, “right/left” and “quick switch”."
-msgstr ""
-"Képernyő-elrendezés a Nintendo DS játékokhoz. A megengedett értékek: „top/"
-"bottom” (felül/alul), „right/left” (balra/jobbra) és „quick switch” (gyors "
-"váltás)."
-
-#: plugins/nintendo-ds/data/org.gnome.Games.plugins.nintendo-ds.gschema.xml:16
-msgid "View bottom screen"
-msgstr "Alsó képernyő megtekintése"
-
-#: plugins/nintendo-ds/data/org.gnome.Games.plugins.nintendo-ds.gschema.xml:17
-msgid "Whether to view top or bottom screen in quick switch mode."
-msgstr "A felső vagy az alsó képernyő megtekintése gyors váltási módban."
 
 #: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:19
 msgid "Change Screen"
 msgstr "Kijelző váltása"
 
-#: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:104
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:50
 msgid "Vertical"
 msgstr "Függőleges"
 
-#: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:108
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:53
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:56
 msgid "Side by side"
 msgstr "Egymás mellett"
 
-#: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:111
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:59
 msgid "Single screen"
 msgstr "Egy képernyő"
 
-#: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:114
-#: src/dummy/dummy-platform.vala:9 src/dummy/dummy-platform.vala:13
-msgid "Unknown"
-msgstr "Ismeretlen"
-
-#: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:120
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:69
 msgid "Bottom to the right"
 msgstr "Alsó jobbra"
 
-#: plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala:123
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:72
 msgid "Bottom to the left"
 msgstr "Alsó balra"
 
@@ -679,29 +680,29 @@ msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
 msgstr "A fájlnak nincs Genesis/Sega 32X/Sega CD/Sega Pico fejléce."
 
 #. translators: known as "Mega-CD" in most of the world
-#: plugins/sega-cd/src/sega-cd-plugin.vala:12
+#: plugins/sega-cd/src/sega-cd-plugin.vala:13
 msgid "Sega CD"
 msgstr "Sega CD"
 
 #. translators: known as "Mega-CD 32X" in most of the world
-#: plugins/sega-cd/src/sega-cd-plugin.vala:14
+#: plugins/sega-cd/src/sega-cd-plugin.vala:15
 msgid "Sega CD 32X"
 msgstr "Sega CD 32X"
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:115
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:98
+#: plugins/sega-cd/src/sega-cd-plugin.vala:116
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:99
 #, c-format
 msgid "The file “%s” doesn’t have a track."
 msgstr "A(z) „%s” fájlnak nincs sávja."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:121
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:104
+#: plugins/sega-cd/src/sega-cd-plugin.vala:122
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:105
 #, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr "A(z) „%s” fájlnak nincs érvényes bináris fájlformátuma."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:124
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:107
+#: plugins/sega-cd/src/sega-cd-plugin.vala:125
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:108
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
 msgstr "A(z) „%s” fájlnak nincs érvényes sáv módja a(z) %d. sávhoz."
@@ -714,7 +715,7 @@ msgstr "A fájlnak nincs Sega Saturn fejléce."
 msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:111
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:112
 #, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "A(z) „%s” fájlnak nincs érvényes Sega Saturn bináris fájlja."
@@ -723,7 +724,7 @@ msgstr "A(z) „%s” fájlnak nincs érvényes Sega Saturn bináris fájlja."
 msgid "Steam"
 msgstr "Steam"
 
-#: plugins/steam/src/steam-plugin.vala:84
+#: plugins/steam/src/steam-plugin.vala:85
 #, c-format
 msgid "Couldn’t get Steam appid from manifest “%s”."
 msgstr "Nem sikerült lekérni a Steam alkalmazásazonosítót a(z) „%s” leíróból."
@@ -750,7 +751,7 @@ msgid "Couldn’t get name from Steam registry."
 msgstr "Nem sikerült lekérni a nevet a Steam nyilvántartásból."
 
 #. translators: known as "CD-ROM²" in eastern Asia and France
-#: plugins/turbografx-cd/src/turbografx-cd-plugin.vala:10
+#: plugins/turbografx-cd/src/turbografx-cd-plugin.vala:9
 msgid "TurboGrafx-CD"
 msgstr "TurboGrafx-CD"
 
@@ -782,7 +783,7 @@ msgstr "Nem sikerült lekérni a fájlméretet: %s"
 msgid "Couldn’t read file: %s"
 msgstr "Nem sikerült olvasni a fájlt: %s"
 
-#: plugins/virtual-boy/src/virtual-boy-plugin.vala:7
+#: plugins/virtual-boy/src/virtual-boy-plugin.vala:6
 msgid "Virtual Boy"
 msgstr "Virtual Boy"
 
@@ -799,11 +800,11 @@ msgstr "A fájlnak nincs Wii fejléce."
 msgid "Wii"
 msgstr "Wii"
 
-#: src/command/command-runner.vala:39
+#: src/command/command-runner.vala:43
 msgid "The game doesn’t have a valid command."
 msgstr "A fájlnak nincs Wii fejléce."
 
-#: src/command/command-runner.vala:69
+#: src/command/command-runner.vala:86
 #, c-format
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "Nem sikerült a(z) „%s” futtatása: a végrehajtás sikertelen."
@@ -822,6 +823,10 @@ msgstr "Érvénytelen bővítményleíró: %s"
 #, c-format
 msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr "Nem sikerült létrehozni a bővítmény új példányát itt: „%s”."
+
+#: src/dummy/dummy-platform.vala:9 src/dummy/dummy-platform.vala:17
+msgid "Unknown"
+msgstr "Ismeretlen"
 
 #: src/gameinfo/gameinfo-disc-id-disc-title.vala:24
 #, c-format
@@ -856,22 +861,22 @@ msgstr "Egyjátékos"
 msgid "Multi-player"
 msgstr "Többjátékos"
 
-#: src/retro/retro-core-source.vala:23 src/retro/retro-core-source.vala:37
+#: src/retro/retro-core-source.vala:29 src/retro/retro-core-source.vala:43
 #, c-format
 msgid "No module found for platform “%s” and MIME types [ “%s” ]."
 msgstr ""
 "Nem található modul a(z) „%s” platformhoz és a(z) [ „%s” ] MIME típusokhoz."
 
-#: src/retro/retro-core-source.vala:23 src/retro/retro-core-source.vala:37
+#: src/retro/retro-core-source.vala:29 src/retro/retro-core-source.vala:43
 msgid "”, “"
 msgstr "”, “"
 
-#: src/retro/retro-core-source.vala:64
+#: src/retro/retro-core-source.vala:70
 #, c-format
 msgid "This game requires the %s firmware file to run."
 msgstr "Ennek a játéknak a futtatásához a(z) %s firmware fájl szükséges."
 
-#: src/retro/retro-core-source.vala:81
+#: src/retro/retro-core-source.vala:87
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a MD5 fingerprint of %s to run."
@@ -879,7 +884,7 @@ msgstr ""
 "Ennek a játéknak a futtatásához a(z) %s, %s MD5 ujjlenyomattal ellátott "
 "firmware fájl szükséges."
 
-#: src/retro/retro-core-source.vala:87
+#: src/retro/retro-core-source.vala:93
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
@@ -888,24 +893,30 @@ msgstr ""
 "Ennek a játéknak a futtatásához a(z) %s, %s SHA-512 ujjlenyomattal ellátott "
 "firmware fájl szükséges."
 
-#: src/retro/retro-runner.vala:233
+#: src/retro/retro-runner.vala:312
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nem található modul ehhez: „%s”."
 
-#: src/retro/retro-runner.vala:546
+#: src/retro/retro-runner.vala:583
 msgid "Unknown platform"
 msgstr "Ismeretlen platform"
 
-#: src/retro/retro-runner.vala:589
+#: src/retro/retro-runner.vala:608
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
 "A(z) „%s” rendszer még nem támogatott, de a teljes támogatás tervezett."
 
-#: src/retro/retro-runner.vala:591
+#: src/retro/retro-runner.vala:610
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "A rendszer még nem támogatott, de a teljes támogatás tervezett."
+
+#. A list containing the names of all savestates with name of the form "New Savestate %d"
+#: src/retro/retro-runner.vala:620 src/retro/retro-runner.vala:646
+#, c-format
+msgid "New savestate %s"
+msgstr "Új %s állapotmentés"
 
 #: src/retro/retro-simple-type.vala:13
 msgid "Amiga"
@@ -1010,37 +1021,37 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:171
+#: src/ui/application.vala:153
 msgid "Select game files"
 msgstr "Játékfájlok kiválasztása"
 
-#: src/ui/application.vala:172 src/ui/preferences-page-backup-restore.vala:14
+#: src/ui/application.vala:154 src/ui/preferences-page-backup-restore.vala:14
 #: src/ui/preferences-page-backup-restore.vala:36
 msgid "_Cancel"
 msgstr "_Mégse"
 
-#: src/ui/application.vala:173
+#: src/ui/application.vala:155
 msgid "_Add"
 msgstr "_Hozzáadás"
 
-#: src/ui/application.vala:213
+#: src/ui/application.vala:195
 #, c-format
 msgid "An unexpected error occurred while trying to run %s"
 msgstr "Váratlan hiba történt a(z) %s futtatásának kísérletekor"
 
-#: src/ui/application.vala:396
+#: src/ui/application.vala:383
 msgid "GNOME Games"
 msgstr "GNOME Játékok"
 
-#: src/ui/application.vala:398
+#: src/ui/application.vala:385
 msgid "A video game player for GNOME"
 msgstr "Egy videojáték-lejátszó a GNOME-hoz"
 
-#: src/ui/application.vala:402
+#: src/ui/application.vala:389
 msgid "Learn more about GNOME Games"
 msgstr "Tudjon meg többet a GNOME Játékokról"
 
-#: src/ui/application.vala:409
+#: src/ui/application.vala:396
 msgid "translator-credits"
 msgstr ""
 "Meskó Balázs <mesko.balazs at fsf dot hu>\n"
@@ -1050,7 +1061,7 @@ msgstr ""
 msgid "Playing a game"
 msgstr "Játék elindítása"
 
-#: src/ui/display-view.vala:242
+#: src/ui/display-view.vala:320
 msgid "An unexpected error occurred."
 msgstr "Váratlan hiba történt."
 
@@ -1144,6 +1155,26 @@ msgstr "Billentyűzet tesztelése"
 msgid "Configuring Keyboard"
 msgstr "Billentyűzet beállítása"
 
+#: src/ui/savestate-listbox-row.vala:21 src/ui/savestates-list.vala:190
+msgid "Autosave"
+msgstr "Automatikus mentés"
+
+#. Translators: this is the day number followed
+#. * by the abbreviated month name followed by the year followed
+#. * by a time in 24h format i.e. "3 Feb 2015 23:04:00"
+#: src/ui/savestate-listbox-row.vala:31
+#, no-c-format
+msgid "%-e %b %Y %X"
+msgstr "%Y. %b. %-e. %X"
+
+#: src/ui/savestates-list.vala:193
+msgid "Invalid name"
+msgstr "Érvénytelen név"
+
+#: src/ui/savestates-list.vala:211
+msgid "A savestate with this name already exists"
+msgstr "Már létezik ilyen nevű állapotmentés"
+
 #: src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
 msgid "“%s” doesn’t have a track for index %u."
@@ -1195,12 +1226,12 @@ msgstr "%s:%lu: Váratlan sorvég, egy token várt."
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr "%s:%lu: Váratlan %s token, sorvég várt."
 
-#: src/utils/file-operations.vala:26
+#: src/utils/file-operations.vala:27
 #, c-format
 msgid "Error: %s (%d)"
 msgstr "Hiba: %s (%d)"
 
-#: src/utils/file-operations.vala:78
+#: src/utils/file-operations.vala:85
 #, c-format
 msgid "Error writing “%s”: %s (%d)"
 msgstr "Hiba a(z) „%s” írásakor: %s (%d)"
