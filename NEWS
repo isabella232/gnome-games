@@ -1,4 +1,23 @@
 ===============
+Version 3.33.92
+===============
+
+* Fixes
+ - Missing savestate thumbnails don't corrupt UI anymore
+ - Media button doesn't steal focus from the game anymore
+ - Miscellaneous UI fixes
+
+* Various cleanups
+
+* Translation updates
+ British English
+ Finnish
+ Greek
+ Hungarian
+ Polish
+ Spanish
+
+===============
 Version 3.33.91
 ===============
 

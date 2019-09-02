@@ -42,6 +42,16 @@
   </screenshots>
 
   <releases>
+    <release version="3.33.92" type="development" date="2019-09-02" urgency="medium">
+      <description>
+        <p>Fixes:</p>
+        <ul>
+          <li>Missing savestate thumbnails don't corrupt UI anymore</li>
+          <li>Media button doesn't steal focus from the game anymore</li>
+          <li>Miscellaneous UI fixes</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.33.91" type="development" date="2019-08-17" urgency="medium">
       <description>
         <p>Improvements:</p>
