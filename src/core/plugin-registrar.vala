@@ -58,7 +58,7 @@ private class Games.PluginRegistrar : TypeModule {
 		if (loaded)
 			return true;
 
-		module = Module.open (module_path, ModuleFlags.BIND_LAZY);
+		module = Module.open (module_path, ModuleFlags.LAZY);
 		if (module == null)
 			return false;
 
