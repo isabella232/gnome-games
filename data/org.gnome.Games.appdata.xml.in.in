@@ -42,6 +42,11 @@
   </screenshots>
 
   <releases>
+    <release version="3.34.0" type="stable" date="2019-09-09" urgency="medium">
+      <description>
+        <p>Translation updates.</p>
+      </description>
+    </release>
     <release version="3.33.92" type="development" date="2019-09-02" urgency="medium">
       <description>
         <p>Fixes:</p>
