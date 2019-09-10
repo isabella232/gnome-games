@@ -17,7 +17,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/libretro/stella2014-libretro"
+                    "url": "https://github.com/libretro/stella2014-libretro",
+                    "commit": "a181878b283fc02c26c0474c41bde418c052c853"
                 },
                 {
                     "type": "file",

@@ -17,7 +17,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/libretro/prosystem-libretro"
+                    "url": "https://github.com/libretro/prosystem-libretro",
+                    "commit": "108d9950881d487a7215c045e7cb2c30824ac286"
                 },
                 {
                     "type": "file",

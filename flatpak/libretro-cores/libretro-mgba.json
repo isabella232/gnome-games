@@ -17,7 +17,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/libretro/mgba"
+                    "url": "https://github.com/libretro/mgba",
+                    "commit": "8cf7b434fefb52be8bb3effe61e8fb16e9297733"
                 },
                 {
                     "type": "file",
