@@ -33,7 +33,6 @@ cleanup:
   - /share/doc
   - /share/gir-1.0
 modules:
-  - libretro-cores/libretro-blastem.json
   - libretro-cores/libretro-bsnes-mercury.json
   - libretro-cores/libretro-desmume2015.json
   - libretro-cores/libretro-gambatte.json
@@ -61,7 +60,6 @@ modules:
     sources:
       - type: script
         commands:
-          - /app/libexec/installed-tests/retro-gtk-0.14/retro-reftest /app/tests/blastem.240pSuite.test 2>&1 | diff /app/tests/blastem.240pSuite.expected -
           - /app/libexec/installed-tests/retro-gtk-0.14/retro-reftest /app/tests/bsnes_mercury_balanced.240pSuite.test 2>&1 | diff /app/tests/bsnes_mercury_balanced.240pSuite.expected -
           - /app/libexec/installed-tests/retro-gtk-0.14/retro-reftest /app/tests/desmume2015.pong-ds.test 2>&1 | diff /app/tests/desmume2015.pong-ds.expected -
           - /app/libexec/installed-tests/retro-gtk-0.14/retro-reftest /app/tests/gambatte.OpenMAZE.test 2>&1 | diff /app/tests/gambatte.OpenMAZE.expected -

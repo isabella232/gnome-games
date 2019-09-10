@@ -8,21 +8,6 @@
             "sources" : [
                 {
                     "type" : "file",
-                    "path" : "blastem.240pSuite.150.png",
-                    "dest-filename" : "blastem.240pSuite.150.png"
-                },
-                {
-                    "type" : "file",
-                    "path" : "blastem.240pSuite.expected",
-                    "dest-filename" : "blastem.240pSuite.expected"
-                },
-                {
-                    "type" : "file",
-                    "path" : "blastem.240pSuite.test",
-                    "dest-filename" : "blastem.240pSuite.test"
-                },
-                {
-                    "type" : "file",
                     "path" : "bsnes_mercury_balanced.240pSuite.120.png",
                     "dest-filename" : "bsnes_mercury_balanced.240pSuite.120.png"
                 },
