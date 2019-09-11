@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-08-15 13:47+0000\n"
-"PO-Revision-Date: 2019-08-24 20:57+0200\n"
+"POT-Creation-Date: 2019-09-10 10:50+0000\n"
+"PO-Revision-Date: 2019-09-11 07:19+0200\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
@@ -21,8 +21,8 @@ msgstr ""
 "X-Generator: Lokalize 18.12.3\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:6
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:47
-#: data/ui/collection-header-bar.ui:75 data/ui/display-header-bar.ui:11
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:48
+#: data/ui/collection-header-bar.ui:76 data/ui/display-header-bar.ui:16
 #: src/ui/application.vala:25
 msgid "Games"
 msgstr "Játékok"
@@ -72,7 +72,7 @@ msgstr "Játékok elindítása"
 msgid "Resume your game to where you left it"
 msgstr "Játék folytatása, ahol abbahagyta"
 
-#: data/org.gnome.Games.appdata.xml.in.in:152
+#: data/org.gnome.Games.appdata.xml.in.in:204
 msgid "The GNOME Project"
 msgstr "A GNOME projekt"
 
@@ -89,7 +89,7 @@ msgstr "Videojáték-gyűjtemény elindítása és megtekintése"
 msgid "game;videogame;video game;player;"
 msgstr "játék;videojáték;videó játék;lejátszó;"
 
-#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:100
+#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:101
 msgid "Fullscreen"
 msgstr "Teljes képernyő"
 
@@ -138,60 +138,59 @@ msgstr ""
 "Lehet, hogy más központi összetevő lesz használva, ha az előnyben "
 "részesítettből hiányzik egy firmware."
 
-#: data/ui/collection-box.ui:59 src/ui/preferences-page-platforms.vala:9
+#: data/ui/collection-box.ui:60 src/ui/preferences-page-platforms.vala:9
 msgid "Platforms"
 msgstr "Platformok"
 
-#: data/ui/collection-box.ui:82
+#: data/ui/collection-box.ui:84
 msgid "Loading"
 msgstr "Betöltés"
 
-#: data/ui/collection-header-bar.ui:23
+#: data/ui/collection-header-bar.ui:25
 msgid "Add game files…"
 msgstr "Játékfájlok hozzáadása…"
 
 #. Translators: tooltip for the application menu button
-#: data/ui/collection-header-bar.ui:42
+#: data/ui/collection-header-bar.ui:44
 msgid "Menu"
 msgstr "Menü"
 
-#: data/ui/collection-header-bar.ui:93 data/ui/collection-header-bar.ui:150
+#: data/ui/collection-header-bar.ui:95 data/ui/collection-header-bar.ui:149
 msgid "Search"
 msgstr "Keresés"
 
-#: data/ui/collection-header-bar.ui:128 data/ui/display-header-bar.ui:25
+#: data/ui/collection-header-bar.ui:126 data/ui/display-header-bar.ui:29
 #: data/ui/display-header-bar.ui:162 data/ui/preferences-subpage-gamepad.ui:83
 #: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:37
 #: data/ui/preferences-window.ui:78
 msgid "Back"
 msgstr "Vissza"
 
-#: data/ui/collection-header-bar.ui:181
+#: data/ui/collection-header-bar.ui:179
 msgid "Pr_eferences"
 msgstr "_Beállítások"
 
-#: data/ui/collection-header-bar.ui:189
+#: data/ui/collection-header-bar.ui:187
 msgid "_Keyboard Shortcuts"
 msgstr "_Gyorsbillentyűk"
 
-#: data/ui/collection-header-bar.ui:197
+#: data/ui/collection-header-bar.ui:195
 msgid "_Help"
 msgstr "_Súgó"
 
-#: data/ui/collection-header-bar.ui:205
+#: data/ui/collection-header-bar.ui:203
 msgid "_About Games"
 msgstr "A Játékok _névjegye"
 
-#: data/ui/display-header-bar.ui:51
+#: data/ui/display-header-bar.ui:54
 msgid "Restore"
 msgstr "Helyreállítás"
 
-#: data/ui/display-header-bar.ui:140
-#| msgid "Loading"
+#: data/ui/display-header-bar.ui:141
 msgid "_Load"
 msgstr "_Betöltés"
 
-#: data/ui/display-header-bar.ui:188
+#: data/ui/display-header-bar.ui:190
 msgid "_Savestates"
 msgstr "Állapot_mentések"
 
@@ -363,19 +362,19 @@ msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Visszaállítás"
 
-#: data/ui/savestates-list.ui:53
+#: data/ui/savestates-list.ui:63
 msgid "Create new savestate"
 msgstr "Új állapotmentés létrehozása"
 
-#: data/ui/savestates-list.ui:78
+#: data/ui/savestates-list.ui:88
 msgid "_Delete"
 msgstr "_Törlés"
 
-#: data/ui/savestates-list.ui:92 data/ui/savestates-list.ui:140
+#: data/ui/savestates-list.ui:102 data/ui/savestates-list.ui:152
 msgid "_Rename"
 msgstr "Át_nevezés"
 
-#: data/ui/savestates-list.ui:117
+#: data/ui/savestates-list.ui:128
 msgid "Name"
 msgstr "Név"
 
@@ -389,161 +388,184 @@ msgstr "Általános"
 
 #: data/ui/shortcuts-window.ui:20
 msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Vissza"
+
+#: data/ui/shortcuts-window.ui:27
+msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Kilépés"
 
-#: data/ui/shortcuts-window.ui:28 data/ui/shortcuts-window.ui:212
+#: data/ui/shortcuts-window.ui:35 data/ui/shortcuts-window.ui:242
 msgid "Collection"
 msgstr "Gyűjtemény"
 
-#: data/ui/shortcuts-window.ui:33
+#: data/ui/shortcuts-window.ui:40
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Keresés"
 
-#: data/ui/shortcuts-window.ui:41 data/ui/shortcuts-window.ui:49
+#: data/ui/shortcuts-window.ui:49 data/ui/shortcuts-window.ui:58
 msgctxt "shortcut window"
 msgid "Navigate"
 msgstr "Navigálás"
 
-#: data/ui/shortcuts-window.ui:42
+#: data/ui/shortcuts-window.ui:50
 msgctxt "shortcut window"
 msgid "Left analog stick"
 msgstr "Bal analóg kar"
 
-#: data/ui/shortcuts-window.ui:50
+#: data/ui/shortcuts-window.ui:59
 msgctxt "shortcut window"
 msgid "Directional pad"
 msgstr "D-pad"
 
-#: data/ui/shortcuts-window.ui:57
+#: data/ui/shortcuts-window.ui:67
 msgctxt "shortcut window"
 msgid "Select view"
 msgstr "Nézet kiválasztása"
 
-#: data/ui/shortcuts-window.ui:58
+#: data/ui/shortcuts-window.ui:68
 msgctxt "shortcut window"
 msgid "Front shoulder buttons"
 msgstr "Elülső markolatváll gombok"
 
-#: data/ui/shortcuts-window.ui:65 data/ui/shortcuts-window.ui:73
+#: data/ui/shortcuts-window.ui:76 data/ui/shortcuts-window.ui:85
 msgctxt "shortcut window"
 msgid "Start game"
 msgstr "Játék indítása"
 
-#: data/ui/shortcuts-window.ui:66
+#: data/ui/shortcuts-window.ui:77
 msgctxt "shortcut window"
 msgid "Start button"
 msgstr "Start gomb"
 
-#: data/ui/shortcuts-window.ui:74 data/ui/shortcuts-window.ui:117
+#: data/ui/shortcuts-window.ui:86 data/ui/shortcuts-window.ui:145
 msgctxt "shortcut window"
 msgid "Bottom action button"
 msgstr "Alsó műveleti gomb"
 
-#: data/ui/shortcuts-window.ui:81
+#: data/ui/shortcuts-window.ui:93
 msgid "In Game"
 msgstr "Játékban"
 
-#: data/ui/shortcuts-window.ui:86
+#: data/ui/shortcuts-window.ui:98
+#| msgid "Create new savestate"
+msgctxt "shortcut window"
+msgid "Create new savestate"
+msgstr "Új állapotmentés létrehozása"
+
+#: data/ui/shortcuts-window.ui:105
+#| msgid "Create new savestate"
+msgctxt "shortcut window"
+msgid "Load the latest savestate"
+msgstr "Legújabb állapotmentés betöltése"
+
+#: data/ui/shortcuts-window.ui:112
+#| msgid "New savestate %s"
+msgctxt "shortcut window"
+msgid "Show savestates"
+msgstr "Állapotmentések megjelenítése"
+
+#: data/ui/shortcuts-window.ui:119
 msgctxt "shortcut window"
 msgid "Toggle fullscreen"
 msgstr "Teljes képernyő be/ki"
 
-#: data/ui/shortcuts-window.ui:93
+#: data/ui/shortcuts-window.ui:126
 msgctxt "shortcut window"
 msgid "Exit fullscreen"
 msgstr "Kilépés a teljes képernyős módból"
 
-#: data/ui/shortcuts-window.ui:100 data/ui/shortcuts-window.ui:108
+#: data/ui/shortcuts-window.ui:135
 msgctxt "shortcut window"
 msgid "Go back to the collection"
 msgstr "Vissza a gyűjteményhez"
 
-#: data/ui/shortcuts-window.ui:109
+#: data/ui/shortcuts-window.ui:136
 msgctxt "shortcut window"
 msgid "Home button"
 msgstr "Kezdőoldal gomb"
 
-#: data/ui/shortcuts-window.ui:116
+#: data/ui/shortcuts-window.ui:144
 msgctxt "shortcut window"
 msgid "Accept"
 msgstr "Elfogadás"
 
-#: data/ui/shortcuts-window.ui:124
+#: data/ui/shortcuts-window.ui:153
 msgctxt "shortcut window"
 msgid "Cancel"
 msgstr "Mégse"
 
-#: data/ui/shortcuts-window.ui:125
+#: data/ui/shortcuts-window.ui:154
 msgctxt "shortcut window"
 msgid "Right action button"
 msgstr "Jobb műveleti gomb"
 
-#: data/ui/shortcuts-window.ui:136
+#: data/ui/shortcuts-window.ui:165
 #: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:6
 msgid "Nintendo DS"
 msgstr "Nintendo DS"
 
-#: data/ui/shortcuts-window.ui:140
+#: data/ui/shortcuts-window.ui:169
 #: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:38
 msgid "Screen Layout"
 msgstr "Képernyő-elrendezés"
 
-#: data/ui/shortcuts-window.ui:145
+#: data/ui/shortcuts-window.ui:174
 msgctxt "shortcut window"
 msgid "Vertical"
 msgstr "Függőleges"
 
-#: data/ui/shortcuts-window.ui:152 data/ui/shortcuts-window.ui:160
+#: data/ui/shortcuts-window.ui:181 data/ui/shortcuts-window.ui:189
 msgctxt "shortcut window"
 msgid "Side by side"
 msgstr "Egymás mellett"
 
-#: data/ui/shortcuts-window.ui:153
+#: data/ui/shortcuts-window.ui:182
 msgctxt "shortcut window"
 msgid "Bottom to the right"
 msgstr "Alsó jobbra"
 
-#: data/ui/shortcuts-window.ui:161
+#: data/ui/shortcuts-window.ui:190
 msgctxt "shortcut window"
 msgid "Bottom to the left"
 msgstr "Alsó balra"
 
-#: data/ui/shortcuts-window.ui:168
+#: data/ui/shortcuts-window.ui:197
 msgctxt "shortcut window"
 msgid "Single screen"
 msgstr "Egy képernyő"
 
-#: data/ui/shortcuts-window.ui:176
+#: data/ui/shortcuts-window.ui:205
 msgid "Screen Switching"
 msgstr "Képernyőváltás"
 
-#: data/ui/shortcuts-window.ui:181
+#: data/ui/shortcuts-window.ui:210
 msgctxt "shortcut window"
 msgid "Show top screen"
 msgstr "Felső képernyő megtekintése"
 
-#: data/ui/shortcuts-window.ui:188
+#: data/ui/shortcuts-window.ui:217
 msgctxt "shortcut window"
 msgid "Show bottom screen"
 msgstr "Alsó képernyő megtekintése"
 
-#: data/ui/shortcuts-window.ui:196
+#: data/ui/shortcuts-window.ui:226
 msgctxt "shortcut window"
 msgid "Toggle screen"
 msgstr "Képernyő be/ki"
 
-#: data/ui/shortcuts-window.ui:197
+#: data/ui/shortcuts-window.ui:227
 msgctxt "shortcut window"
 msgid "Press right analog stick"
 msgstr "Nyomja meg a jobb analóg kart"
 
-#: data/ui/shortcuts-window.ui:208
+#: data/ui/shortcuts-window.ui:238
 msgid "Cheats"
 msgstr "Csalások"
 
-#: data/ui/shortcuts-window.ui:217
+#: data/ui/shortcuts-window.ui:247
 msgctxt "shortcut window"
 msgid "Contribute"
 msgstr "Közreműködés"
@@ -893,27 +915,27 @@ msgstr ""
 "Ennek a játéknak a futtatásához a(z) %s, %s SHA-512 ujjlenyomattal ellátott "
 "firmware fájl szükséges."
 
-#: src/retro/retro-runner.vala:312
+#: src/retro/retro-runner.vala:313
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nem található modul ehhez: „%s”."
 
-#: src/retro/retro-runner.vala:583
+#: src/retro/retro-runner.vala:581
 msgid "Unknown platform"
 msgstr "Ismeretlen platform"
 
-#: src/retro/retro-runner.vala:608
+#: src/retro/retro-runner.vala:606
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
 "A(z) „%s” rendszer még nem támogatott, de a teljes támogatás tervezett."
 
-#: src/retro/retro-runner.vala:610
+#: src/retro/retro-runner.vala:608
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "A rendszer még nem támogatott, de a teljes támogatás tervezett."
 
 #. A list containing the names of all savestates with name of the form "New Savestate %d"
-#: src/retro/retro-runner.vala:620 src/retro/retro-runner.vala:646
+#: src/retro/retro-runner.vala:618 src/retro/retro-runner.vala:644
 #, c-format
 msgid "New savestate %s"
 msgstr "Új %s állapotmentés"
@@ -1039,29 +1061,29 @@ msgstr "_Hozzáadás"
 msgid "An unexpected error occurred while trying to run %s"
 msgstr "Váratlan hiba történt a(z) %s futtatásának kísérletekor"
 
-#: src/ui/application.vala:383
+#: src/ui/application.vala:386
 msgid "GNOME Games"
 msgstr "GNOME Játékok"
 
-#: src/ui/application.vala:385
+#: src/ui/application.vala:388
 msgid "A video game player for GNOME"
 msgstr "Egy videojáték-lejátszó a GNOME-hoz"
 
-#: src/ui/application.vala:389
+#: src/ui/application.vala:392
 msgid "Learn more about GNOME Games"
 msgstr "Tudjon meg többet a GNOME Játékokról"
 
-#: src/ui/application.vala:396
+#: src/ui/application.vala:399
 msgid "translator-credits"
 msgstr ""
 "Meskó Balázs <mesko.balazs at fsf dot hu>\n"
 "Úr Balázs <ur.balazs at fsf dot hu>"
 
-#: src/ui/application-window.vala:273 src/ui/application-window.vala:290
+#: src/ui/application-window.vala:271 src/ui/application-window.vala:288
 msgid "Playing a game"
 msgstr "Játék elindítása"
 
-#: src/ui/display-view.vala:320
+#: src/ui/display-view.vala:323
 msgid "An unexpected error occurred."
 msgstr "Váratlan hiba történt."
 
@@ -1113,8 +1135,8 @@ msgstr "Nem sikerült biztonsági mentést készíteni: %s"
 msgid "Controllers"
 msgstr "Vezérlők"
 
-#: src/ui/preferences-page-platforms-retro-row.vala:50
-#: src/ui/preferences-page-platforms-retro-row.vala:57
+#: src/ui/preferences-page-platforms-retro-row.vala:45
+#: src/ui/preferences-page-platforms-retro-row.vala:52
 msgid "None"
 msgstr "Nincs"
 
@@ -1155,23 +1177,23 @@ msgstr "Billentyűzet tesztelése"
 msgid "Configuring Keyboard"
 msgstr "Billentyűzet beállítása"
 
-#: src/ui/savestate-listbox-row.vala:21 src/ui/savestates-list.vala:190
+#: src/ui/savestate-listbox-row.vala:23 src/ui/savestates-list.vala:226
 msgid "Autosave"
 msgstr "Automatikus mentés"
 
 #. Translators: this is the day number followed
 #. * by the abbreviated month name followed by the year followed
 #. * by a time in 24h format i.e. "3 Feb 2015 23:04:00"
-#: src/ui/savestate-listbox-row.vala:31
+#: src/ui/savestate-listbox-row.vala:33
 #, no-c-format
 msgid "%-e %b %Y %X"
 msgstr "%Y. %b. %-e. %X"
 
-#: src/ui/savestates-list.vala:193
+#: src/ui/savestates-list.vala:229
 msgid "Invalid name"
 msgstr "Érvénytelen név"
 
-#: src/ui/savestates-list.vala:211
+#: src/ui/savestates-list.vala:247
 msgid "A savestate with this name already exists"
 msgstr "Már létezik ilyen nevű állapotmentés"
 
