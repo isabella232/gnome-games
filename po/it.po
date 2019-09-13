@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-09-02 20:12+0000\n"
-"PO-Revision-Date: 2019-09-04 17:49+0200\n"
+"POT-Creation-Date: 2019-09-10 11:36+0000\n"
+"PO-Revision-Date: 2019-09-13 14:54+0200\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -70,7 +70,7 @@ msgstr "Gioca con tutti i tuoi giochi"
 msgid "Resume your game to where you left it"
 msgstr "Riprendi il gioco da dove l'hai abbandonato"
 
-#: data/org.gnome.Games.appdata.xml.in.in:199
+#: data/org.gnome.Games.appdata.xml.in.in:204
 msgid "The GNOME Project"
 msgstr "Il progetto GNOME"
 
@@ -363,7 +363,7 @@ msgstr "Ripristina"
 
 #: data/ui/savestates-list.ui:63
 msgid "Create new savestate"
-msgstr "Create nuovo salvataggio"
+msgstr "Crea nuovo salvataggio"
 
 #: data/ui/savestates-list.ui:88
 msgid "_Delete"
