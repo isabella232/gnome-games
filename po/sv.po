@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-08-21 21:22+0000\n"
-"PO-Revision-Date: 2019-09-08 14:11+0200\n"
+"POT-Creation-Date: 2019-09-12 15:02+0000\n"
+"PO-Revision-Date: 2019-09-13 17:50+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -70,7 +70,7 @@ msgstr "Spela dina spel"
 msgid "Resume your game to where you left it"
 msgstr "Återuppta ditt spel där du lämnade det"
 
-#: data/org.gnome.Games.appdata.xml.in.in:189
+#: data/org.gnome.Games.appdata.xml.in.in:204
 msgid "The GNOME Project"
 msgstr "GNOME-projektet"
 
@@ -384,161 +384,181 @@ msgstr "Allmänt"
 
 #: data/ui/shortcuts-window.ui:20
 msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Gå tillbaka"
+
+#: data/ui/shortcuts-window.ui:27
+msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Avsluta"
 
-#: data/ui/shortcuts-window.ui:28 data/ui/shortcuts-window.ui:221
+#: data/ui/shortcuts-window.ui:35 data/ui/shortcuts-window.ui:242
 msgid "Collection"
 msgstr "Samling"
 
-#: data/ui/shortcuts-window.ui:33
+#: data/ui/shortcuts-window.ui:40
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Sök"
 
-#: data/ui/shortcuts-window.ui:42 data/ui/shortcuts-window.ui:51
+#: data/ui/shortcuts-window.ui:49 data/ui/shortcuts-window.ui:58
 msgctxt "shortcut window"
 msgid "Navigate"
 msgstr "Navigera"
 
-#: data/ui/shortcuts-window.ui:43
+#: data/ui/shortcuts-window.ui:50
 msgctxt "shortcut window"
 msgid "Left analog stick"
 msgstr "Vänster analog spak"
 
-#: data/ui/shortcuts-window.ui:52
+#: data/ui/shortcuts-window.ui:59
 msgctxt "shortcut window"
 msgid "Directional pad"
 msgstr "Styrkors"
 
-#: data/ui/shortcuts-window.ui:60
+#: data/ui/shortcuts-window.ui:67
 msgctxt "shortcut window"
 msgid "Select view"
 msgstr "Välj vy"
 
-#: data/ui/shortcuts-window.ui:61
+#: data/ui/shortcuts-window.ui:68
 msgctxt "shortcut window"
 msgid "Front shoulder buttons"
 msgstr "Främre axelknappar"
 
-#: data/ui/shortcuts-window.ui:69 data/ui/shortcuts-window.ui:78
+#: data/ui/shortcuts-window.ui:76 data/ui/shortcuts-window.ui:85
 msgctxt "shortcut window"
 msgid "Start game"
 msgstr "Starta spel"
 
-#: data/ui/shortcuts-window.ui:70
+#: data/ui/shortcuts-window.ui:77
 msgctxt "shortcut window"
 msgid "Start button"
 msgstr "Startknapp"
 
-#: data/ui/shortcuts-window.ui:79 data/ui/shortcuts-window.ui:124
+#: data/ui/shortcuts-window.ui:86 data/ui/shortcuts-window.ui:145
 msgctxt "shortcut window"
 msgid "Bottom action button"
 msgstr "Nedre åtgärdsknapp"
 
-#: data/ui/shortcuts-window.ui:86
+#: data/ui/shortcuts-window.ui:93
 msgid "In Game"
 msgstr "I spel"
 
-#: data/ui/shortcuts-window.ui:91
+#: data/ui/shortcuts-window.ui:98
+msgctxt "shortcut window"
+msgid "Create new savestate"
+msgstr "Skapa nytt sparningstillstånd"
+
+#: data/ui/shortcuts-window.ui:105
+msgctxt "shortcut window"
+msgid "Load the latest savestate"
+msgstr "Läs in det senaste sparningstillståndet"
+
+#: data/ui/shortcuts-window.ui:112
+msgctxt "shortcut window"
+msgid "Show savestates"
+msgstr "Visa sparningstillstånd"
+
+#: data/ui/shortcuts-window.ui:119
 msgctxt "shortcut window"
 msgid "Toggle fullscreen"
 msgstr "Växla helskärm"
 
-#: data/ui/shortcuts-window.ui:98
+#: data/ui/shortcuts-window.ui:126
 msgctxt "shortcut window"
 msgid "Exit fullscreen"
 msgstr "Lämna helskärmsläge"
 
-#: data/ui/shortcuts-window.ui:105 data/ui/shortcuts-window.ui:114
+#: data/ui/shortcuts-window.ui:135
 msgctxt "shortcut window"
 msgid "Go back to the collection"
 msgstr "Gå tillbaka till samlingen"
 
-#: data/ui/shortcuts-window.ui:115
+#: data/ui/shortcuts-window.ui:136
 msgctxt "shortcut window"
 msgid "Home button"
 msgstr "Hemknapp"
 
-#: data/ui/shortcuts-window.ui:123
+#: data/ui/shortcuts-window.ui:144
 msgctxt "shortcut window"
 msgid "Accept"
 msgstr "Acceptera"
 
-#: data/ui/shortcuts-window.ui:132
+#: data/ui/shortcuts-window.ui:153
 msgctxt "shortcut window"
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: data/ui/shortcuts-window.ui:133
+#: data/ui/shortcuts-window.ui:154
 msgctxt "shortcut window"
 msgid "Right action button"
 msgstr "Höger åtgärdsknapp"
 
-#: data/ui/shortcuts-window.ui:144
+#: data/ui/shortcuts-window.ui:165
 #: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:6
 msgid "Nintendo DS"
 msgstr "Nintendo DS"
 
-#: data/ui/shortcuts-window.ui:148
+#: data/ui/shortcuts-window.ui:169
 #: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:38
 msgid "Screen Layout"
 msgstr "Skärmlayout"
 
-#: data/ui/shortcuts-window.ui:153
+#: data/ui/shortcuts-window.ui:174
 msgctxt "shortcut window"
 msgid "Vertical"
 msgstr "Vertikal"
 
-#: data/ui/shortcuts-window.ui:160 data/ui/shortcuts-window.ui:168
+#: data/ui/shortcuts-window.ui:181 data/ui/shortcuts-window.ui:189
 msgctxt "shortcut window"
 msgid "Side by side"
 msgstr "Sida vid sida"
 
-#: data/ui/shortcuts-window.ui:161
+#: data/ui/shortcuts-window.ui:182
 msgctxt "shortcut window"
 msgid "Bottom to the right"
 msgstr "Nedre till höger"
 
-#: data/ui/shortcuts-window.ui:169
+#: data/ui/shortcuts-window.ui:190
 msgctxt "shortcut window"
 msgid "Bottom to the left"
 msgstr "Nedre till vänster"
 
-#: data/ui/shortcuts-window.ui:176
+#: data/ui/shortcuts-window.ui:197
 msgctxt "shortcut window"
 msgid "Single screen"
 msgstr "Ensam skärm"
 
-#: data/ui/shortcuts-window.ui:184
+#: data/ui/shortcuts-window.ui:205
 msgid "Screen Switching"
 msgstr "Skärmväxling"
 
-#: data/ui/shortcuts-window.ui:189
+#: data/ui/shortcuts-window.ui:210
 msgctxt "shortcut window"
 msgid "Show top screen"
 msgstr "Visa övre skärm"
 
-#: data/ui/shortcuts-window.ui:196
+#: data/ui/shortcuts-window.ui:217
 msgctxt "shortcut window"
 msgid "Show bottom screen"
 msgstr "Visa nedre skärm"
 
-#: data/ui/shortcuts-window.ui:205
+#: data/ui/shortcuts-window.ui:226
 msgctxt "shortcut window"
 msgid "Toggle screen"
 msgstr "Växla skärm"
 
-#: data/ui/shortcuts-window.ui:206
+#: data/ui/shortcuts-window.ui:227
 msgctxt "shortcut window"
 msgid "Press right analog stick"
 msgstr "Tryck höger analog spak"
 
-#: data/ui/shortcuts-window.ui:217
+#: data/ui/shortcuts-window.ui:238
 msgid "Cheats"
 msgstr "Fusk"
 
-#: data/ui/shortcuts-window.ui:226
+#: data/ui/shortcuts-window.ui:247
 msgctxt "shortcut window"
 msgid "Contribute"
 msgstr "Bidra"
@@ -1152,10 +1172,39 @@ msgstr "Konfigurerar tangentbord"
 msgid "Autosave"
 msgstr "Automatisk sparning"
 
+#. Translators: Time in locale format
+#: src/ui/savestate-listbox-row.vala:185
+#, no-c-format
+msgid "%X"
+msgstr "%X"
+
+#. Translators: this is the word Yesterday followed by
+#. * a time in locale format. i.e. "Yesterday 23:04:35"
+#: src/ui/savestate-listbox-row.vala:191
+#, no-c-format
+msgid "Yesterday %X"
+msgstr "Igår %X"
+
+#. Translators: this is the abbreviated name of the week day followed by
+#. * a time in locale format. i.e. "Monday 23:04:35"
+#: src/ui/savestate-listbox-row.vala:197
+#, no-c-format
+msgid "%a %X"
+msgstr "%a %X"
+
+#. Translators: this is the day of the month followed
+#. * by the abbreviated month name followed by a time in
+#. * locale format i.e. "3 Feb 23:04:35"
+#: src/ui/savestate-listbox-row.vala:204
+#, no-c-format
+#| msgid "%-e %b %Y %X"
+msgid "%-e %b %X"
+msgstr "%-e %b %X"
+
 #. Translators: this is the day number followed
 #. * by the abbreviated month name followed by the year followed
-#. * by a time in 24h format i.e. "3 Feb 2015 23:04:00"
-#: src/ui/savestate-listbox-row.vala:33
+#. * by a time in locale format i.e. "3 Feb 2015 23:04:00"
+#: src/ui/savestate-listbox-row.vala:211
 #, no-c-format
 msgid "%-e %b %Y %X"
 msgstr "%-e %b %Y %X"
