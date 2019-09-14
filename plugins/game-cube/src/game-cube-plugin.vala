@@ -44,7 +44,6 @@ private class Games.GameCubePlugin : Object, Plugin {
 		var genre = new GriloGenre (media);
 		var players = new GriloPlayers (media);
 		var developer = new GriloDeveloper (media);
-		var publisher = new GriloPublisher (media);
 		var description = new GriloDescription (media);
 		var rating = new GriloRating (media);
 		var core_source = new RetroCoreSource (platform);
@@ -63,7 +62,6 @@ private class Games.GameCubePlugin : Object, Plugin {
 		game.set_genre (genre);
 		game.set_players (players);
 		game.set_developer (developer);
-		game.set_publisher (publisher);
 		game.set_description (description);
 		game.set_rating (rating);
 

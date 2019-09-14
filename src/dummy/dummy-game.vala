@@ -50,10 +50,6 @@ private class Games.DummyGame : Object, Game {
 		return new DummyDeveloper ();
 	}
 
-	public Publisher get_publisher () {
-		return new DummyPublisher ();
-	}
-
 	public Description get_description () {
 		return new DummyDescription ();
 	}
