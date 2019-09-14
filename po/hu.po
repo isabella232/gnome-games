@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-09-10 10:50+0000\n"
-"PO-Revision-Date: 2019-09-11 07:19+0200\n"
+"POT-Creation-Date: 2019-09-13 15:50+0000\n"
+"PO-Revision-Date: 2019-09-14 18:00+0200\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
@@ -450,19 +450,16 @@ msgid "In Game"
 msgstr "Játékban"
 
 #: data/ui/shortcuts-window.ui:98
-#| msgid "Create new savestate"
 msgctxt "shortcut window"
 msgid "Create new savestate"
 msgstr "Új állapotmentés létrehozása"
 
 #: data/ui/shortcuts-window.ui:105
-#| msgid "Create new savestate"
 msgctxt "shortcut window"
 msgid "Load the latest savestate"
 msgstr "Legújabb állapotmentés betöltése"
 
 #: data/ui/shortcuts-window.ui:112
-#| msgid "New savestate %s"
 msgctxt "shortcut window"
 msgid "Show savestates"
 msgstr "Állapotmentések megjelenítése"
@@ -1181,10 +1178,39 @@ msgstr "Billentyűzet beállítása"
 msgid "Autosave"
 msgstr "Automatikus mentés"
 
+#. Translators: Time in locale format
+#: src/ui/savestate-listbox-row.vala:185
+#, no-c-format
+msgid "%X"
+msgstr "%X"
+
+#. Translators: this is the word Yesterday followed by
+#. * a time in locale format. i.e. "Yesterday 23:04:35"
+#: src/ui/savestate-listbox-row.vala:191
+#, no-c-format
+msgid "Yesterday %X"
+msgstr "Tegnap %X"
+
+#. Translators: this is the abbreviated name of the week day followed by
+#. * a time in locale format. i.e. "Monday 23:04:35"
+#: src/ui/savestate-listbox-row.vala:197
+#, no-c-format
+msgid "%a %X"
+msgstr "%a %X"
+
+#. Translators: this is the day of the month followed
+#. * by the abbreviated month name followed by a time in
+#. * locale format i.e. "3 Feb 23:04:35"
+#: src/ui/savestate-listbox-row.vala:204
+#, no-c-format
+#| msgid "%-e %b %Y %X"
+msgid "%-e %b %X"
+msgstr "%b. %-e. %X"
+
 #. Translators: this is the day number followed
 #. * by the abbreviated month name followed by the year followed
-#. * by a time in 24h format i.e. "3 Feb 2015 23:04:00"
-#: src/ui/savestate-listbox-row.vala:33
+#. * by a time in locale format i.e. "3 Feb 2015 23:04:00"
+#: src/ui/savestate-listbox-row.vala:211
 #, no-c-format
 msgid "%-e %b %Y %X"
 msgstr "%Y. %b. %-e. %X"
