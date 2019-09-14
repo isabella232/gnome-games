@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-08-31 20:46+0000\n"
-"PO-Revision-Date: 2019-09-07 17:40+0300\n"
+"POT-Creation-Date: 2019-09-12 15:02+0000\n"
+"PO-Revision-Date: 2019-09-14 14:18+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <lokalisointi-lista@googlegroups.com>\n"
 "Language: fi\n"
@@ -69,7 +69,7 @@ msgstr "Pelaa pelejäsi"
 msgid "Resume your game to where you left it"
 msgstr "Jatka peliä siitä, mihin jäit"
 
-#: data/org.gnome.Games.appdata.xml.in.in:189
+#: data/org.gnome.Games.appdata.xml.in.in:204
 msgid "The GNOME Project"
 msgstr "Gnome-projekti"
 
@@ -374,128 +374,148 @@ msgstr "Yleiset"
 
 #: data/ui/shortcuts-window.ui:20
 msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Takaisin"
+
+#: data/ui/shortcuts-window.ui:27
+msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Lopeta"
 
-#: data/ui/shortcuts-window.ui:28 data/ui/shortcuts-window.ui:221
+#: data/ui/shortcuts-window.ui:35 data/ui/shortcuts-window.ui:242
 msgid "Collection"
 msgstr "Kokoelma"
 
-#: data/ui/shortcuts-window.ui:33
+#: data/ui/shortcuts-window.ui:40
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Etsi"
 
-#: data/ui/shortcuts-window.ui:42 data/ui/shortcuts-window.ui:51
+#: data/ui/shortcuts-window.ui:49 data/ui/shortcuts-window.ui:58
 msgctxt "shortcut window"
 msgid "Navigate"
 msgstr "Liikkuminen"
 
-#: data/ui/shortcuts-window.ui:43
+#: data/ui/shortcuts-window.ui:50
 msgctxt "shortcut window"
 msgid "Left analog stick"
 msgstr ""
 
-#: data/ui/shortcuts-window.ui:52
+#: data/ui/shortcuts-window.ui:59
 msgctxt "shortcut window"
 msgid "Directional pad"
 msgstr ""
 
-#: data/ui/shortcuts-window.ui:60
+#: data/ui/shortcuts-window.ui:67
 msgctxt "shortcut window"
 msgid "Select view"
 msgstr "Valitse näkymä"
 
-#: data/ui/shortcuts-window.ui:61
+#: data/ui/shortcuts-window.ui:68
 msgctxt "shortcut window"
 msgid "Front shoulder buttons"
 msgstr ""
 
-#: data/ui/shortcuts-window.ui:69 data/ui/shortcuts-window.ui:78
+#: data/ui/shortcuts-window.ui:76 data/ui/shortcuts-window.ui:85
 msgctxt "shortcut window"
 msgid "Start game"
 msgstr "Käynnistä peli"
 
-#: data/ui/shortcuts-window.ui:70
+#: data/ui/shortcuts-window.ui:77
 msgctxt "shortcut window"
 msgid "Start button"
 msgstr "Start-painike"
 
-#: data/ui/shortcuts-window.ui:79 data/ui/shortcuts-window.ui:124
+#: data/ui/shortcuts-window.ui:86 data/ui/shortcuts-window.ui:145
 msgctxt "shortcut window"
 msgid "Bottom action button"
-msgstr ""
+msgstr "Alatoimintopainike"
 
-#: data/ui/shortcuts-window.ui:86
+#: data/ui/shortcuts-window.ui:93
 msgid "In Game"
 msgstr "Pelissä"
 
-#: data/ui/shortcuts-window.ui:91
+#: data/ui/shortcuts-window.ui:98
+msgctxt "shortcut window"
+msgid "Create new savestate"
+msgstr "Luo uusi tallennustilanne"
+
+#: data/ui/shortcuts-window.ui:105
+msgctxt "shortcut window"
+msgid "Load the latest savestate"
+msgstr "Lataa viimeisin tallennustilanne"
+
+#: data/ui/shortcuts-window.ui:112
+msgctxt "shortcut window"
+msgid "Show savestates"
+msgstr "Näytä tallennustilanteet"
+
+#: data/ui/shortcuts-window.ui:119
 msgctxt "shortcut window"
 msgid "Toggle fullscreen"
 msgstr "Koko näyttö päällä/pois"
 
-#: data/ui/shortcuts-window.ui:98
+#: data/ui/shortcuts-window.ui:126
 msgctxt "shortcut window"
 msgid "Exit fullscreen"
-msgstr "Poista koko näytön tilasta"
+msgstr "Poistu koko näytön tilasta"
 
-#: data/ui/shortcuts-window.ui:105 data/ui/shortcuts-window.ui:114
+#: data/ui/shortcuts-window.ui:135
 msgctxt "shortcut window"
 msgid "Go back to the collection"
 msgstr "Palaa takaisin kokoelmaan"
 
-#: data/ui/shortcuts-window.ui:115
+#: data/ui/shortcuts-window.ui:136
 msgctxt "shortcut window"
 msgid "Home button"
 msgstr "Home-painike"
 
-#: data/ui/shortcuts-window.ui:123
+#: data/ui/shortcuts-window.ui:144
 msgctxt "shortcut window"
 msgid "Accept"
 msgstr "Hyväksy"
 
-#: data/ui/shortcuts-window.ui:132
+#: data/ui/shortcuts-window.ui:153
 msgctxt "shortcut window"
 msgid "Cancel"
 msgstr "Peru"
 
-#: data/ui/shortcuts-window.ui:133
+#: data/ui/shortcuts-window.ui:154
 msgctxt "shortcut window"
 msgid "Right action button"
-msgstr ""
+msgstr "Oikea toimintopainike"
 
-#: data/ui/shortcuts-window.ui:144
+#: data/ui/shortcuts-window.ui:165
 #: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:6
 msgid "Nintendo DS"
 msgstr "Nintendo DS"
 
-#: data/ui/shortcuts-window.ui:148
+#: data/ui/shortcuts-window.ui:169
 #: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:38
 msgid "Screen Layout"
 msgstr "Näytön asettelu"
 
-#: data/ui/shortcuts-window.ui:153
+#: data/ui/shortcuts-window.ui:174
 msgctxt "shortcut window"
 msgid "Vertical"
 msgstr ""
 
-#: data/ui/shortcuts-window.ui:160 data/ui/shortcuts-window.ui:168
+#: data/ui/shortcuts-window.ui:181 data/ui/shortcuts-window.ui:189
 msgctxt "shortcut window"
 msgid "Side by side"
 msgstr ""
 
-#: data/ui/shortcuts-window.ui:161
+#: data/ui/shortcuts-window.ui:182
 msgctxt "shortcut window"
 msgid "Bottom to the right"
 msgstr ""
 
-#: data/ui/shortcuts-window.ui:169
+#: data/ui/shortcuts-window.ui:190
 msgctxt "shortcut window"
 msgid "Bottom to the left"
 msgstr ""
 
-#: data/ui/shortcuts-window.ui:176
+#: data/ui/shortcuts-window.ui:197
 #, fuzzy
 #| msgctxt "shortcut window"
 #| msgid "Toggle fullscreen"
@@ -503,21 +523,21 @@ msgctxt "shortcut window"
 msgid "Single screen"
 msgstr "Koko näyttö päällä/pois"
 
-#: data/ui/shortcuts-window.ui:184
+#: data/ui/shortcuts-window.ui:205
 msgid "Screen Switching"
 msgstr ""
 
-#: data/ui/shortcuts-window.ui:189
+#: data/ui/shortcuts-window.ui:210
 msgctxt "shortcut window"
 msgid "Show top screen"
 msgstr ""
 
-#: data/ui/shortcuts-window.ui:196
+#: data/ui/shortcuts-window.ui:217
 msgctxt "shortcut window"
 msgid "Show bottom screen"
 msgstr ""
 
-#: data/ui/shortcuts-window.ui:205
+#: data/ui/shortcuts-window.ui:226
 #, fuzzy
 #| msgctxt "shortcut window"
 #| msgid "Toggle fullscreen"
@@ -525,16 +545,16 @@ msgctxt "shortcut window"
 msgid "Toggle screen"
 msgstr "Koko näyttö päällä/pois"
 
-#: data/ui/shortcuts-window.ui:206
+#: data/ui/shortcuts-window.ui:227
 msgctxt "shortcut window"
 msgid "Press right analog stick"
 msgstr ""
 
-#: data/ui/shortcuts-window.ui:217
+#: data/ui/shortcuts-window.ui:238
 msgid "Cheats"
 msgstr "Huijaukset"
 
-#: data/ui/shortcuts-window.ui:226
+#: data/ui/shortcuts-window.ui:247
 msgctxt "shortcut window"
 msgid "Contribute"
 msgstr ""
@@ -776,7 +796,6 @@ msgstr "Tiedostossa ei ole Virtual Boy ROM -otsaketta."
 
 #: plugins/virtual-boy/src/virtual-boy-header.vala:51
 #, c-format
-#| msgid "Couldn’t read file: %s"
 msgid "Couldn’t get file size: %s"
 msgstr "Ei saatu tiedoston kokoa: %s"
 
@@ -959,7 +978,6 @@ msgstr "Game Gear"
 
 #. translators: also known as "Sega Mark III" in eastern asia
 #: src/retro/retro-simple-type.vala:35
-#| msgid "Sega Master System"
 msgid "Master System"
 msgstr "Master System"
 
@@ -1101,13 +1119,11 @@ msgstr "Varmuuskopioi ja palauta"
 
 #: src/ui/preferences-page-backup-restore.vala:23
 #, c-format
-#| msgid "Couldn’t read file: %s"
 msgid "Couldn’t restore: %s"
 msgstr "Ei voitu palauttaa: %s"
 
 #: src/ui/preferences-page-backup-restore.vala:53
 #, c-format
-#| msgid "Couldn’t read file: %s"
 msgid "Couldn’t back up: %s"
 msgstr "Ei voitu varmuuskopioida: %s"
 
@@ -1131,7 +1147,7 @@ msgstr "Terävä"
 
 #: src/ui/preferences-page-video.vala:22
 msgid "CRT"
-msgstr ""
+msgstr "Kuvaputki (CRT)"
 
 #: src/ui/preferences-page-video.vala:36
 msgid "Video"
@@ -1161,10 +1177,38 @@ msgstr "Määritetään näppäimistöä"
 msgid "Autosave"
 msgstr "Automaattitallennus"
 
+#. Translators: Time in locale format
+#: src/ui/savestate-listbox-row.vala:185
+#, no-c-format
+msgid "%X"
+msgstr ""
+
+#. Translators: this is the word Yesterday followed by
+#. * a time in locale format. i.e. "Yesterday 23:04:35"
+#: src/ui/savestate-listbox-row.vala:191
+#, no-c-format
+msgid "Yesterday %X"
+msgstr ""
+
+#. Translators: this is the abbreviated name of the week day followed by
+#. * a time in locale format. i.e. "Monday 23:04:35"
+#: src/ui/savestate-listbox-row.vala:197
+#, no-c-format
+msgid "%a %X"
+msgstr ""
+
+#. Translators: this is the day of the month followed
+#. * by the abbreviated month name followed by a time in
+#. * locale format i.e. "3 Feb 23:04:35"
+#: src/ui/savestate-listbox-row.vala:204
+#, no-c-format
+msgid "%-e %b %X"
+msgstr ""
+
 #. Translators: this is the day number followed
 #. * by the abbreviated month name followed by the year followed
-#. * by a time in 24h format i.e. "3 Feb 2015 23:04:00"
-#: src/ui/savestate-listbox-row.vala:33
+#. * by a time in locale format i.e. "3 Feb 2015 23:04:00"
+#: src/ui/savestate-listbox-row.vala:211
 #, no-c-format
 msgid "%-e %b %Y %X"
 msgstr ""
