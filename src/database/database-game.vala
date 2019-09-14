@@ -41,10 +41,6 @@ private class Games.DatabaseGame : Object, Game {
 		return database.get_developer (game.get_developer (), get_uid ());
 	}
 
-	public Description get_description () {
-		return game.get_description ();
-	}
-
 	public Rating get_rating () {
 		return game.get_rating ();
 	}

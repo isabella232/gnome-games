@@ -10,7 +10,6 @@ public interface Games.Game : Object {
 	public abstract Genre get_genre ();
 	public abstract Players get_players ();
 	public abstract Developer get_developer ();
-	public abstract Description get_description ();
 	public abstract Rating get_rating ();
 	public abstract Platform get_platform ();
 	public abstract Runner get_runner () throws Error;

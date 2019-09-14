@@ -67,7 +67,6 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 		var genre = new GriloGenre (media);
 		var players = new GriloPlayers (media);
 		var developer = new GriloDeveloper (media);
-		var description = new GriloDescription (media);
 		var rating = new GriloRating (media);
 		var core_source = new RetroCoreSource (platform);
 
@@ -84,7 +83,6 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 		game.set_genre (genre);
 		game.set_players (players);
 		game.set_developer (developer);
-		game.set_description (description);
 		game.set_rating (rating);
 
 		return game;

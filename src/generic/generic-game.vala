@@ -22,7 +22,6 @@ public class Games.GenericGame : Object, Game {
 	private Title game_title;
 	private Icon game_icon;
 	private Developer game_developer;
-	private Description game_description;
 	private Rating game_rating;
 	private Cover game_cover;
 	private ReleaseDate game_release_date;
@@ -106,17 +105,6 @@ public class Games.GenericGame : Object, Game {
 
 	public void set_developer (Developer developer) {
 		game_developer = developer;
-	}
-
-	public Description get_description () {
-		if (game_description == null)
-			game_description = new DummyDescription ();
-
-		return game_description;
-	}
-
-	public void set_description (Description description) {
-		game_description = description;
 	}
 
 	public Rating get_rating () {

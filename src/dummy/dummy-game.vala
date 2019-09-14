@@ -46,10 +46,6 @@ private class Games.DummyGame : Object, Game {
 		return new DummyDeveloper ();
 	}
 
-	public Description get_description () {
-		return new DummyDescription ();
-	}
-
 	public Rating get_rating () {
 		return new DummyRating ();
 	}
