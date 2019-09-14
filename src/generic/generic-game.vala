@@ -26,7 +26,6 @@ public class Games.GenericGame : Object, Game {
 	private Rating game_rating;
 	private Cover game_cover;
 	private ReleaseDate game_release_date;
-	private Cooperative game_cooperative;
 	private Genre game_genre;
 	private Players game_players;
 	private Platform game_platform;
@@ -74,17 +73,6 @@ public class Games.GenericGame : Object, Game {
 
 	public void set_release_date (ReleaseDate release_date) {
 		game_release_date = release_date;
-	}
-
-	public Cooperative get_cooperative () {
-		if (game_cooperative == null)
-			game_cooperative = new DummyCooperative ();
-
-		return game_cooperative;
-	}
-
-	public void set_cooperative (Cooperative cooperative) {
-		game_cooperative = cooperative;
 	}
 
 	public Genre get_genre () {

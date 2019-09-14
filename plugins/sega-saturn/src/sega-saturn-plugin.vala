@@ -64,7 +64,6 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
 		var release_date = new GriloReleaseDate (media);
-		var cooperative = new GriloCooperative (media);
 		var genre = new GriloGenre (media);
 		var players = new GriloPlayers (media);
 		var developer = new GriloDeveloper (media);
@@ -82,7 +81,6 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 		var game = new GenericGame (uid, title, platform, runner);
 		game.set_cover (cover);
 		game.set_release_date (release_date);
-		game.set_cooperative (cooperative);
 		game.set_genre (genre);
 		game.set_players (players);
 		game.set_developer (developer);

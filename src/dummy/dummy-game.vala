@@ -34,10 +34,6 @@ private class Games.DummyGame : Object, Game {
 		return new DummyReleaseDate ();
 	}
 
-	public Cooperative get_cooperative () {
-		return new DummyCooperative ();
-	}
-
 	public Genre get_genre () {
 		return new DummyGenre ();
 	}
