@@ -34,7 +34,6 @@ vala_sources = [
   'core/plugin-register.vala',
   'core/plugin-register-iterator.vala',
   'core/plugin-registrar.vala',
-  'core/release-date.vala',
   'core/runner.vala',
   'core/savestate.vala',
   'core/title.vala',
@@ -56,7 +55,6 @@ vala_sources = [
   'dummy/dummy-game.vala',
   'dummy/dummy-icon.vala',
   'dummy/dummy-platform.vala',
-  'dummy/dummy-release-date.vala',
   'dummy/dummy-runner.vala',
   'dummy/dummy-uid.vala',
 
@@ -74,7 +72,6 @@ vala_sources = [
   'generic/generic-game.vala',
   'generic/generic-game-uri-adapter.vala',
   'generic/generic-platform.vala',
-  'generic/generic-release-date.vala',
   'generic/generic-title.vala',
   'generic/generic-uid.vala',
   'generic/generic-uri-game-factory.vala',
@@ -82,7 +79,6 @@ vala_sources = [
   'grilo/grilo-cover.vala',
   'grilo/grilo-developer.vala',
   'grilo/grilo-media.vala',
-  'grilo/grilo-release-date.vala',
 
   'keyboard/keyboard-mapping-builder.vala',
   'keyboard/keyboard-mapping-manager.vala',

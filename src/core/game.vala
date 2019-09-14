@@ -6,7 +6,6 @@ public interface Games.Game : Object {
 	public abstract Uid get_uid ();
 	public abstract Icon get_icon ();
 	public abstract Cover get_cover ();
-	public abstract ReleaseDate get_release_date ();
 	public abstract Developer get_developer ();
 	public abstract Platform get_platform ();
 	public abstract Runner get_runner () throws Error;

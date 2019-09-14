@@ -30,10 +30,6 @@ private class Games.DummyGame : Object, Game {
 		return new DummyCover ();
 	}
 
-	public ReleaseDate get_release_date () {
-		return new DummyReleaseDate ();
-	}
-
 	public Developer get_developer () {
 		return new DummyDeveloper ();
 	}

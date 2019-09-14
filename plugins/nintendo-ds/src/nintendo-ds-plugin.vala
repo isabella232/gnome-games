@@ -33,7 +33,6 @@ private class Games.NintendoDsPlugin : Object, Plugin {
 		var title = new FilenameTitle (uri);
 		var icon = new NintendoDsIcon (uri);
 		var media = new GriloMedia (title, MIME_TYPE);
-		var release_date = new GriloReleaseDate (media);
 		var developer = new GriloDeveloper (media);
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
@@ -50,7 +49,6 @@ private class Games.NintendoDsPlugin : Object, Plugin {
 		var game = new GenericGame (uid, title, platform, runner);
 		game.set_icon (icon);
 		game.set_cover (cover);
-		game.set_release_date (release_date);
 		game.set_developer (developer);
 
 		return game;

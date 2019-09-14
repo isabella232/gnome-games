@@ -23,7 +23,6 @@ public class Games.GenericGame : Object, Game {
 	private Icon game_icon;
 	private Developer game_developer;
 	private Cover game_cover;
-	private ReleaseDate game_release_date;
 	private Platform game_platform;
 	private Runner game_runner;
 
@@ -58,17 +57,6 @@ public class Games.GenericGame : Object, Game {
 
 	public void set_cover (Cover cover) {
 		game_cover = cover;
-	}
-
-	public ReleaseDate get_release_date () {
-		if (game_release_date == null)
-			game_release_date = new DummyReleaseDate ();
-
-		return game_release_date;
-	}
-
-	public void set_release_date (ReleaseDate release_date) {
-		game_release_date = release_date;
 	}
 
 	public Developer get_developer () {
