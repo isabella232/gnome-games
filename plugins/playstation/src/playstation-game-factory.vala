@@ -144,7 +144,6 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 			new GriloCover (media, uid)});
 		var release_date = new GriloReleaseDate (media);
 		var developer = new GriloDeveloper (media);
-		var rating = new GriloRating (media);
 		var input_capabilities = new GameinfoDiscIdInputCapabilities (gameinfo, disc_set_id);
 		var core_source = new RetroCoreSource (platform);
 
@@ -160,7 +159,6 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		game.set_cover (cover);
 		game.set_release_date (release_date);
 		game.set_developer (developer);
-		game.set_rating (rating);
 
 		return game;
 	}

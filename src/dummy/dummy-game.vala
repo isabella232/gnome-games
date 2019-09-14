@@ -38,10 +38,6 @@ private class Games.DummyGame : Object, Game {
 		return new DummyDeveloper ();
 	}
 
-	public Rating get_rating () {
-		return new DummyRating ();
-	}
-
 	public Platform get_platform () {
 		return new DummyPlatform ();
 	}

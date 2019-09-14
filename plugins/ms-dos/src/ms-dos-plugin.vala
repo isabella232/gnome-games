@@ -30,7 +30,6 @@ private class Games.MsDosPlugin : Object, Plugin {
 		var media = new GriloMedia (title, MIME_TYPE);
 		var release_date = new GriloReleaseDate (media);
 		var developer = new GriloDeveloper (media);
-		var rating = new GriloRating (media);
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
@@ -50,7 +49,6 @@ private class Games.MsDosPlugin : Object, Plugin {
 		game.set_cover (cover);
 		game.set_release_date (release_date);
 		game.set_developer (developer);
-		game.set_rating (rating);
 
 		return game;
 	}

@@ -41,7 +41,6 @@ private class Games.DreamcastPlugin : Object, Plugin {
 			new GriloCover (media, uid)});
 		var release_date = new GriloReleaseDate (media);
 		var developer = new GriloDeveloper (media);
-		var rating = new GriloRating (media);
 		var core_source = new RetroCoreSource (platform);
 
 		var builder = new RetroRunnerBuilder ();
@@ -55,7 +54,6 @@ private class Games.DreamcastPlugin : Object, Plugin {
 		game.set_cover (cover);
 		game.set_release_date (release_date);
 		game.set_developer (developer);
-		game.set_rating (rating);
 
 		return game;
 	}

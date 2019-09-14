@@ -8,7 +8,6 @@ public interface Games.Game : Object {
 	public abstract Cover get_cover ();
 	public abstract ReleaseDate get_release_date ();
 	public abstract Developer get_developer ();
-	public abstract Rating get_rating ();
 	public abstract Platform get_platform ();
 	public abstract Runner get_runner () throws Error;
 
