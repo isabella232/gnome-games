@@ -60,7 +60,6 @@ src/core/plugin-registrar.vala
 src/dummy/dummy-platform.vala
 src/gameinfo/gameinfo-disc-id-disc-title.vala
 src/gameinfo/gameinfo-doc.vala
-src/grilo/grilo-players.vala
 src/retro/retro-core-source.vala
 src/retro/retro-runner.vala
 src/retro/retro-simple-type.vala

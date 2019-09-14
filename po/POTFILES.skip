@@ -35,7 +35,6 @@ src/core/plugin-registrar.c
 src/dummy/dummy-platform.c
 src/gameinfo/gameinfo-disc-id-disc-title.c
 src/gameinfo/gameinfo-doc.c
-src/grilo/grilo-players.c
 src/retro/retro-core-source.c
 src/retro/retro-runner.c
 src/retro/retro-simple-type.c

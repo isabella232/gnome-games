@@ -29,7 +29,6 @@ private class Games.MsDosPlugin : Object, Plugin {
 		var title = new FilenameTitle (uri);
 		var media = new GriloMedia (title, MIME_TYPE);
 		var release_date = new GriloReleaseDate (media);
-		var players = new GriloPlayers (media);
 		var developer = new GriloDeveloper (media);
 		var rating = new GriloRating (media);
 		var cover = new CompositeCover ({
@@ -50,7 +49,6 @@ private class Games.MsDosPlugin : Object, Plugin {
 		var game = new GenericGame (uid, title, platform, runner);
 		game.set_cover (cover);
 		game.set_release_date (release_date);
-		game.set_players (players);
 		game.set_developer (developer);
 		game.set_rating (rating);
 

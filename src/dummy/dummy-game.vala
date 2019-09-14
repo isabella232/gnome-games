@@ -34,10 +34,6 @@ private class Games.DummyGame : Object, Game {
 		return new DummyReleaseDate ();
 	}
 
-	public Players get_players () {
-		return new DummyPlayers ();
-	}
-
 	public Developer get_developer () {
 		return new DummyDeveloper ();
 	}

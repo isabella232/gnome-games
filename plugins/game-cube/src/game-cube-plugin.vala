@@ -40,7 +40,6 @@ private class Games.GameCubePlugin : Object, Plugin {
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
 		var release_date = new GriloReleaseDate (media);
-		var players = new GriloPlayers (media);
 		var developer = new GriloDeveloper (media);
 		var rating = new GriloRating (media);
 		var core_source = new RetroCoreSource (platform);
@@ -55,7 +54,6 @@ private class Games.GameCubePlugin : Object, Plugin {
 		var game = new GenericGame (uid, title, platform, runner);
 		game.set_cover (cover);
 		game.set_release_date (release_date);
-		game.set_players (players);
 		game.set_developer (developer);
 		game.set_rating (rating);
 

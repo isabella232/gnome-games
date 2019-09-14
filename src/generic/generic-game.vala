@@ -25,7 +25,6 @@ public class Games.GenericGame : Object, Game {
 	private Rating game_rating;
 	private Cover game_cover;
 	private ReleaseDate game_release_date;
-	private Players game_players;
 	private Platform game_platform;
 	private Runner game_runner;
 
@@ -71,17 +70,6 @@ public class Games.GenericGame : Object, Game {
 
 	public void set_release_date (ReleaseDate release_date) {
 		game_release_date = release_date;
-	}
-
-	public Players get_players () {
-		if (game_players == null)
-			game_players = new DummyPlayers ();
-
-		return game_players;
-	}
-
-	public void set_players (Players players) {
-		game_players = players;
 	}
 
 	public Developer get_developer () {
