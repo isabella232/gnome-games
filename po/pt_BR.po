@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-08-31 20:46+0000\n"
-"PO-Revision-Date: 2019-09-08 08:53-0300\n"
+"POT-Creation-Date: 2019-09-12 15:02+0000\n"
+"PO-Revision-Date: 2019-09-14 04:55-0300\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
@@ -74,7 +74,7 @@ msgstr "Rodar seus jogos"
 msgid "Resume your game to where you left it"
 msgstr "Continuar seu jogo de onde você parou"
 
-#: data/org.gnome.Games.appdata.xml.in.in:189
+#: data/org.gnome.Games.appdata.xml.in.in:204
 msgid "The GNOME Project"
 msgstr "O Projeto GNOME"
 
@@ -189,7 +189,6 @@ msgid "Restore"
 msgstr "Restaurar"
 
 #: data/ui/display-header-bar.ui:141
-#| msgid "Loading"
 msgid "_Load"
 msgstr "_Carregar"
 
@@ -391,161 +390,184 @@ msgstr "Geral"
 
 #: data/ui/shortcuts-window.ui:20
 msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Volta"
+
+#: data/ui/shortcuts-window.ui:27
+msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Sai"
 
-#: data/ui/shortcuts-window.ui:28 data/ui/shortcuts-window.ui:221
+#: data/ui/shortcuts-window.ui:35 data/ui/shortcuts-window.ui:242
 msgid "Collection"
 msgstr "Coleção"
 
-#: data/ui/shortcuts-window.ui:33
+#: data/ui/shortcuts-window.ui:40
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Pesquisa"
 
-#: data/ui/shortcuts-window.ui:42 data/ui/shortcuts-window.ui:51
+#: data/ui/shortcuts-window.ui:49 data/ui/shortcuts-window.ui:58
 msgctxt "shortcut window"
 msgid "Navigate"
 msgstr "Navegação"
 
-#: data/ui/shortcuts-window.ui:43
+#: data/ui/shortcuts-window.ui:50
 msgctxt "shortcut window"
 msgid "Left analog stick"
 msgstr "Direcional analógico esquerdo"
 
-#: data/ui/shortcuts-window.ui:52
+#: data/ui/shortcuts-window.ui:59
 msgctxt "shortcut window"
 msgid "Directional pad"
 msgstr "Botão direcional"
 
-#: data/ui/shortcuts-window.ui:60
+#: data/ui/shortcuts-window.ui:67
 msgctxt "shortcut window"
 msgid "Select view"
 msgstr "Seleciona a visão"
 
-#: data/ui/shortcuts-window.ui:61
+#: data/ui/shortcuts-window.ui:68
 msgctxt "shortcut window"
 msgid "Front shoulder buttons"
 msgstr "Botões superiores frontais"
 
-#: data/ui/shortcuts-window.ui:69 data/ui/shortcuts-window.ui:78
+#: data/ui/shortcuts-window.ui:76 data/ui/shortcuts-window.ui:85
 msgctxt "shortcut window"
 msgid "Start game"
 msgstr "Inicia o jogo"
 
-#: data/ui/shortcuts-window.ui:70
+#: data/ui/shortcuts-window.ui:77
 msgctxt "shortcut window"
 msgid "Start button"
 msgstr "Botão de iniciar"
 
-#: data/ui/shortcuts-window.ui:79 data/ui/shortcuts-window.ui:124
+#: data/ui/shortcuts-window.ui:86 data/ui/shortcuts-window.ui:145
 msgctxt "shortcut window"
 msgid "Bottom action button"
 msgstr "Botão de ação inferior"
 
-#: data/ui/shortcuts-window.ui:86
+#: data/ui/shortcuts-window.ui:93
 msgid "In Game"
 msgstr "No jogo"
 
-#: data/ui/shortcuts-window.ui:91
+#: data/ui/shortcuts-window.ui:98
+#| msgid "Create new savestate"
+msgctxt "shortcut window"
+msgid "Create new savestate"
+msgstr "Cria um novo estado salvo"
+
+#: data/ui/shortcuts-window.ui:105
+#| msgid "Create new savestate"
+msgctxt "shortcut window"
+msgid "Load the latest savestate"
+msgstr "Carregar o estado salvo mais recente"
+
+#: data/ui/shortcuts-window.ui:112
+#| msgid "New savestate %s"
+msgctxt "shortcut window"
+msgid "Show savestates"
+msgstr "Mostra estados salvos"
+
+#: data/ui/shortcuts-window.ui:119
 msgctxt "shortcut window"
 msgid "Toggle fullscreen"
 msgstr "Ativa/desativa a tela cheia"
 
-#: data/ui/shortcuts-window.ui:98
+#: data/ui/shortcuts-window.ui:126
 msgctxt "shortcut window"
 msgid "Exit fullscreen"
 msgstr "Sai da tela cheia"
 
-#: data/ui/shortcuts-window.ui:105 data/ui/shortcuts-window.ui:114
+#: data/ui/shortcuts-window.ui:135
 msgctxt "shortcut window"
 msgid "Go back to the collection"
 msgstr "Retorna à coleção"
 
-#: data/ui/shortcuts-window.ui:115
+#: data/ui/shortcuts-window.ui:136
 msgctxt "shortcut window"
 msgid "Home button"
 msgstr "Botão de Home"
 
-#: data/ui/shortcuts-window.ui:123
+#: data/ui/shortcuts-window.ui:144
 msgctxt "shortcut window"
 msgid "Accept"
 msgstr "Aceita"
 
-#: data/ui/shortcuts-window.ui:132
+#: data/ui/shortcuts-window.ui:153
 msgctxt "shortcut window"
 msgid "Cancel"
 msgstr "Cancela"
 
-#: data/ui/shortcuts-window.ui:133
+#: data/ui/shortcuts-window.ui:154
 msgctxt "shortcut window"
 msgid "Right action button"
 msgstr "Botão de ação direito"
 
-#: data/ui/shortcuts-window.ui:144
+#: data/ui/shortcuts-window.ui:165
 #: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:6
 msgid "Nintendo DS"
 msgstr "Nintendo DS"
 
-#: data/ui/shortcuts-window.ui:148
+#: data/ui/shortcuts-window.ui:169
 #: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:38
 msgid "Screen Layout"
 msgstr "Layout da tela"
 
-#: data/ui/shortcuts-window.ui:153
+#: data/ui/shortcuts-window.ui:174
 msgctxt "shortcut window"
 msgid "Vertical"
 msgstr "Vertical"
 
-#: data/ui/shortcuts-window.ui:160 data/ui/shortcuts-window.ui:168
+#: data/ui/shortcuts-window.ui:181 data/ui/shortcuts-window.ui:189
 msgctxt "shortcut window"
 msgid "Side by side"
 msgstr "Lado a lado"
 
-#: data/ui/shortcuts-window.ui:161
+#: data/ui/shortcuts-window.ui:182
 msgctxt "shortcut window"
 msgid "Bottom to the right"
 msgstr "Parte inferior para a direita"
 
-#: data/ui/shortcuts-window.ui:169
+#: data/ui/shortcuts-window.ui:190
 msgctxt "shortcut window"
 msgid "Bottom to the left"
 msgstr "Parte inferior para a esquerda"
 
-#: data/ui/shortcuts-window.ui:176
+#: data/ui/shortcuts-window.ui:197
 msgctxt "shortcut window"
 msgid "Single screen"
 msgstr "Tela única"
 
-#: data/ui/shortcuts-window.ui:184
+#: data/ui/shortcuts-window.ui:205
 msgid "Screen Switching"
 msgstr "Troca de tela"
 
-#: data/ui/shortcuts-window.ui:189
+#: data/ui/shortcuts-window.ui:210
 msgctxt "shortcut window"
 msgid "Show top screen"
 msgstr "Mostra a tela de cima"
 
-#: data/ui/shortcuts-window.ui:196
+#: data/ui/shortcuts-window.ui:217
 msgctxt "shortcut window"
 msgid "Show bottom screen"
 msgstr "Mostra a tela de baixo"
 
-#: data/ui/shortcuts-window.ui:205
+#: data/ui/shortcuts-window.ui:226
 msgctxt "shortcut window"
 msgid "Toggle screen"
 msgstr "Ativa/desativa a tela cheia"
 
-#: data/ui/shortcuts-window.ui:206
+#: data/ui/shortcuts-window.ui:227
 msgctxt "shortcut window"
 msgid "Press right analog stick"
 msgstr "Pressiona o direcional analógico direito"
 
-#: data/ui/shortcuts-window.ui:217
+#: data/ui/shortcuts-window.ui:238
 msgid "Cheats"
 msgstr "Macetes"
 
-#: data/ui/shortcuts-window.ui:226
+#: data/ui/shortcuts-window.ui:247
 msgctxt "shortcut window"
 msgid "Contribute"
 msgstr "Contribuir"
@@ -1159,10 +1181,39 @@ msgstr "Configurando teclado"
 msgid "Autosave"
 msgstr "Salvar automaticamente"
 
+#. Translators: Time in locale format
+#: src/ui/savestate-listbox-row.vala:185
+#, no-c-format
+msgid "%X"
+msgstr "%X"
+
+#. Translators: this is the word Yesterday followed by
+#. * a time in locale format. i.e. "Yesterday 23:04:35"
+#: src/ui/savestate-listbox-row.vala:191
+#, no-c-format
+msgid "Yesterday %X"
+msgstr "Ontem %X"
+
+#. Translators: this is the abbreviated name of the week day followed by
+#. * a time in locale format. i.e. "Monday 23:04:35"
+#: src/ui/savestate-listbox-row.vala:197
+#, no-c-format
+msgid "%a %X"
+msgstr "%a %X"
+
+#. Translators: this is the day of the month followed
+#. * by the abbreviated month name followed by a time in
+#. * locale format i.e. "3 Feb 23:04:35"
+#: src/ui/savestate-listbox-row.vala:204
+#, no-c-format
+#| msgid "%-e %b %Y %X"
+msgid "%-e %b %X"
+msgstr "%-e %b %X"
+
 #. Translators: this is the day number followed
 #. * by the abbreviated month name followed by the year followed
-#. * by a time in 24h format i.e. "3 Feb 2015 23:04:00"
-#: src/ui/savestate-listbox-row.vala:33
+#. * by a time in locale format i.e. "3 Feb 2015 23:04:00"
+#: src/ui/savestate-listbox-row.vala:211
 #, no-c-format
 msgid "%-e %b %Y %X"
 msgstr "%-e %b %Y %X"
