@@ -21,7 +21,6 @@ public class Games.GenericGame : Object, Game {
 	private Uid game_uid;
 	private Title game_title;
 	private Icon game_icon;
-	private Developer game_developer;
 	private Cover game_cover;
 	private Platform game_platform;
 	private Runner game_runner;
@@ -57,17 +56,6 @@ public class Games.GenericGame : Object, Game {
 
 	public void set_cover (Cover cover) {
 		game_cover = cover;
-	}
-
-	public Developer get_developer () {
-		if (game_developer == null)
-			game_developer = new DummyDeveloper ();
-
-		return game_developer;
-	}
-
-	public void set_developer (Developer developer) {
-		game_developer = developer;
 	}
 
 	public Platform get_platform () {

@@ -67,10 +67,6 @@ private class Games.Database : Object {
 		return new DatabaseUid (database, uid);
 	}
 
-	public DatabaseDeveloper get_developer (Developer developer, Uid uid) {
-		return new DatabaseDeveloper (database, developer, uid);
-	}
-
 	private void create_tables () throws Error {
 		exec (CREATE_RESOURCES_TABLE_QUERY, null);
 		exec (CREATE_METADATA_TABLE_QUERY, null);

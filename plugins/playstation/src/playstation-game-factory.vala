@@ -142,7 +142,6 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
-		var developer = new GriloDeveloper (media);
 		var input_capabilities = new GameinfoDiscIdInputCapabilities (gameinfo, disc_set_id);
 		var core_source = new RetroCoreSource (platform);
 
@@ -156,7 +155,6 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 
 		var game = new GenericGame (uid, title, platform, runner);
 		game.set_cover (cover);
-		game.set_developer (developer);
 
 		return game;
 	}

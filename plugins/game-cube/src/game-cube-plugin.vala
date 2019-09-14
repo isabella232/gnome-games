@@ -39,7 +39,6 @@ private class Games.GameCubePlugin : Object, Plugin {
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
-		var developer = new GriloDeveloper (media);
 		var core_source = new RetroCoreSource (platform);
 
 		var builder = new RetroRunnerBuilder ();
@@ -51,7 +50,6 @@ private class Games.GameCubePlugin : Object, Plugin {
 
 		var game = new GenericGame (uid, title, platform, runner);
 		game.set_cover (cover);
-		game.set_developer (developer);
 
 		return game;
 	}

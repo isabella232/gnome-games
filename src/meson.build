@@ -15,7 +15,6 @@ vala_sources = [
   'command/command-runner.vala',
 
   'core/cover.vala',
-  'core/developer.vala',
   'core/game.vala',
   'core/game-callback.vala',
   'core/game-collection.vala',
@@ -43,7 +42,6 @@ vala_sources = [
   'core/uri-source.vala',
 
   'database/database.vala',
-  'database/database-developer.vala',
   'database/database-error.vala',
   'database/database-game.vala',
   'database/database-uid.vala',
@@ -51,7 +49,6 @@ vala_sources = [
   'database/database-uri-source.vala',
 
   'dummy/dummy-cover.vala',
-  'dummy/dummy-developer.vala',
   'dummy/dummy-game.vala',
   'dummy/dummy-icon.vala',
   'dummy/dummy-platform.vala',
@@ -68,7 +65,6 @@ vala_sources = [
   'gamepad/gamepad-input.vala',
   'gamepad/gamepad-mapping-builder.vala',
 
-  'generic/generic-developer.vala',
   'generic/generic-game.vala',
   'generic/generic-game-uri-adapter.vala',
   'generic/generic-platform.vala',
@@ -77,7 +73,6 @@ vala_sources = [
   'generic/generic-uri-game-factory.vala',
 
   'grilo/grilo-cover.vala',
-  'grilo/grilo-developer.vala',
   'grilo/grilo-media.vala',
 
   'keyboard/keyboard-mapping-builder.vala',

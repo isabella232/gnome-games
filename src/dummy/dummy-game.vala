@@ -30,10 +30,6 @@ private class Games.DummyGame : Object, Game {
 		return new DummyCover ();
 	}
 
-	public Developer get_developer () {
-		return new DummyDeveloper ();
-	}
-
 	public Platform get_platform () {
 		return new DummyPlatform ();
 	}

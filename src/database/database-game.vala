@@ -25,10 +25,6 @@ private class Games.DatabaseGame : Object, Game {
 		return game.get_cover ();
 	}
 
-	public Developer get_developer () {
-		return database.get_developer (game.get_developer (), get_uid ());
-	}
-
 	public Platform get_platform () {
 		return game.get_platform ();
 	}

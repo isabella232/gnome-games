@@ -27,7 +27,6 @@ private class Games.MameGameUriAdapter : GameUriAdapter, Object {
 		var title = new GenericTitle (title_string);
 
 		var cover = new LocalCover (uri);
-		var developer = new GenericDeveloper (info.company);
 		var core_source = new RetroCoreSource (platform);
 
 		var builder = new RetroRunnerBuilder ();
@@ -42,7 +41,6 @@ private class Games.MameGameUriAdapter : GameUriAdapter, Object {
 
 		var game = new GenericGame (uid, title, platform, runner);
 		game.set_cover (cover);
-		game.set_developer (developer);
 
 		return game;
 	}
