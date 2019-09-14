@@ -29,10 +29,6 @@ private class Games.DatabaseGame : Object, Game {
 		return game.get_release_date ();
 	}
 
-	public Genre get_genre () {
-		return game.get_genre ();
-	}
-
 	public Players get_players () {
 		return game.get_players ();
 	}

@@ -7,7 +7,6 @@ public interface Games.Game : Object {
 	public abstract Icon get_icon ();
 	public abstract Cover get_cover ();
 	public abstract ReleaseDate get_release_date ();
-	public abstract Genre get_genre ();
 	public abstract Players get_players ();
 	public abstract Developer get_developer ();
 	public abstract Rating get_rating ();

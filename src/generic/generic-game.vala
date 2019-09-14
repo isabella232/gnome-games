@@ -25,7 +25,6 @@ public class Games.GenericGame : Object, Game {
 	private Rating game_rating;
 	private Cover game_cover;
 	private ReleaseDate game_release_date;
-	private Genre game_genre;
 	private Players game_players;
 	private Platform game_platform;
 	private Runner game_runner;
@@ -72,17 +71,6 @@ public class Games.GenericGame : Object, Game {
 
 	public void set_release_date (ReleaseDate release_date) {
 		game_release_date = release_date;
-	}
-
-	public Genre get_genre () {
-		if (game_genre == null)
-			game_genre = new DummyGenre ();
-
-		return game_genre;
-	}
-
-	public void set_genre (Genre genre) {
-		game_genre = genre;
 	}
 
 	public Players get_players () {
