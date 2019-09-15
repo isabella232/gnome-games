@@ -5,12 +5,13 @@ private class Games.MamePlugin : Object, Plugin {
 	private const string SPECIFIC_MIME_TYPE = "application/x-mame-rom";
 	private const string PLATFORM_ID = "MAME";
 	private const string PLATFORM_NAME = _("Arcade");
+	private const string PLATFORM_UID_PREFIX = "mame";
 
 	private static RetroPlatform platform;
 
 	static construct {
 		string[] mime_types = { SEARCHED_MIME_TYPE, SPECIFIC_MIME_TYPE };
-		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, mime_types);
+		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, mime_types, PLATFORM_UID_PREFIX);
 	}
 
 	public Platform[] get_platforms () {
