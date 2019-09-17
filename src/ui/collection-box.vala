@@ -51,6 +51,7 @@ private class Games.CollectionBox : Gtk.Box {
 
 		adaptive_state.notify["is-showing-bottom-bar"].connect (update_bottom_bar);
 		adaptive_state.notify["is-subview-open"].connect (update_bottom_bar);
+		adaptive_state.notify["is-folded"].connect (update_bottom_bar);
 	}
 
 	public CollectionBox (ListModel collection, AdaptiveState adaptive_state) {
