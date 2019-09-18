@@ -83,6 +83,13 @@
         "libretro-cores/libretro-prboom.json",
         "libretro-cores/libretro-prosystem.json",
         "libretro-cores/libretro-stella2014.json",
+        {
+            "name" : "libretro-extra",
+            "buildsystem" : "simple",
+            "build-commands": [
+                "mkdir -p /app/lib/libretro/extra.d"
+            ]
+        },
         /* End libretro cores */
         "org.lua.modules.json",
         {
@@ -221,9 +228,6 @@
             "builddir" : true,
             "config-opts" : [
                 "-Dprofile=development"
-            ],
-            "post-install" : [
-                "mkdir -p /app/lib/libretro/extra.d"
             ],
             "sources" : [
                 {
