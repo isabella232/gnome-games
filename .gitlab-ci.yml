@@ -1,77 +1,41 @@
+include: 'https://gitlab.gnome.org/GNOME/citemplates/raw/master/flatpak/flatpak_ci_initiative.yml'
+
 stages:
-  - build
   - test
-  - review
+  - deploy
 
 variables:
-  BUNDLE: "gnome-games-git.flatpak"
+  BUNDLE: 'gnome-games-git.flatpak'
 
-flatpak:tests:
+tests:
   image: registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:master
   stage: test
   variables:
-    MANIFEST_PATH: "flatpak/org.gnome.Games.UnitTests.yml"
+    MANIFEST_PATH: 'flatpak/org.gnome.Games.UnitTests.yml'
   script:
     - flatpak-builder unit-tests ${MANIFEST_PATH}
-    - xvfb-run -a -s "-screen 0 1024x768x24" flatpak-builder --run unit-tests ${MANIFEST_PATH} games-unit-tests
+    - xvfb-run -a -s '-screen 0 1024x768x24' flatpak-builder --run unit-tests ${MANIFEST_PATH} games-unit-tests
   cache:
     paths:
       - .flatpak-builder/downloads
       - .flatpak-builder/git
 
-flatpak:app:
-  image: registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:master
-  stage: build
+flatpak:
+  extends: '.flatpak'
   variables:
-    MANIFEST_PATH: "flatpak/org.gnome.Games.json"
-    RUNTIME_REPO: "https://sdk.gnome.org/gnome-nightly.flatpakrepo"
-    FLATPAK_MODULE: "gnome-games"
-  script:
-    - flatpak-builder --stop-at=${FLATPAK_MODULE} app ${MANIFEST_PATH}
-    - flatpak build app meson --prefix=/app -Dprofile=development ${MESON_ARGS} _build
-    - flatpak build app ninja -C _build install
-    - flatpak build app ninja -C _build test
-    - flatpak build app mkdir -p /app/lib/libretro/extra.d
-    - flatpak-builder --finish-only --repo=repo app ${MANIFEST_PATH}
-    - flatpak build-bundle repo ${BUNDLE} --runtime-repo=${RUNTIME_REPO} org.gnome.GamesDevel
-
-  artifacts:
-    paths:
-      - ${BUNDLE}
-      - _build/meson-logs/meson-log.txt
-    expire_in: 30 days
-  cache:
-    paths:
-      - .flatpak-builder/downloads
-      - .flatpak-builder/git
+    MANIFEST_PATH: 'flatpak/org.gnome.Games.json'
+    RUNTIME_REPO: 'https://nightly.gnome.org/gnome-nightly.flatpakrepo'
+    FLATPAK_MODULE: 'gnome-games'
+    APP_ID: 'org.gnome.GamesDevel'
+    MESON_ARGS: '-Dprofile=development'
 
 review:
-  stage: review
   dependencies:
-    - flatpak:app
-    - flatpak:tests
-  script:
-    - echo "Generating flatpak deployment"
-  artifacts:
-    paths:
-      - ${BUNDLE}
-    expire_in: 30 days
-  environment:
-    name: review/$CI_COMMIT_REF_NAME
-    url: https://gitlab.gnome.org/$CI_PROJECT_PATH/-/jobs/$CI_JOB_ID/artifacts/raw/${BUNDLE}
-    on_stop: stop_review
-  except:
-    - master@GNOME/gnome-games
-    - tags
+    - 'flatpak'
+  extends: '.review'
 
 stop_review:
-  stage: review
-  script:
-    - echo "Stopping flatpak deployment"
-  when: manual
-  environment:
-    name: review/$CI_COMMIT_REF_NAME
-    action: stop
-  except:
-    - master@GNOME/gnome-games
-    - tags
+  extends: '.stop_review'
+
+nightly:
+  extends: '.publish_nightly'
