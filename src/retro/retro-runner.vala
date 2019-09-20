@@ -147,13 +147,15 @@ public class Games.RetroRunner : Object, Runner {
 
 		// Step 3) Instantiate the core
 		// This is needed to check if the core supports savestates
-		tmp_live_savestate = Savestate.create_empty_in_tmp (platform);
+		if (latest_savestate != null)
+			tmp_live_savestate = latest_savestate.clone_in_tmp ();
+		else
+			tmp_live_savestate = Savestate.create_empty_in_tmp (platform);
 		instantiate_core (tmp_live_savestate.get_save_directory_path ());
 
 		// Step 4) Preview the latest savestate --------------------------------
 		if (latest_savestate != null)
 			preview_savestate (latest_savestate);
-
 	}
 
 	public Gtk.Widget get_display () {
