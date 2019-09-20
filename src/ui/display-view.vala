@@ -350,15 +350,10 @@ private class Games.DisplayView : Object, UiView {
 		return (Gtk.ResponseType) response;
 	}
 
-	private bool try_run_with_cancellable (Runner runner, bool use_latest_savestate, Cancellable cancellable) {
+	private bool try_run_with_cancellable (Runner runner, bool resume, Cancellable cancellable) {
 		try {
-			if (use_latest_savestate) {
-				var savestates = box.runner.get_savestates ();
-				var latest_savestate = savestates[0];
-
-				box.runner.preview_savestate (latest_savestate);
+			if (resume)
 				box.runner.load_previewed_savestate ();
-			}
 			else
 				runner.start ();
 
