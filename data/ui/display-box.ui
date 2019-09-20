@@ -36,9 +36,7 @@
                   </object>
                 </child>
                 <child type="overlay">
-                  <object class="GamesFlashBox" id="flash_box">
-                    <property name="visible">True</property>
-                  </object>
+                  <object class="GamesFlashBox" id="flash_box"/>
                   <packing>
                     <property name="pass-through">True</property>
                   </packing>
