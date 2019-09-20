@@ -121,7 +121,13 @@ private class Games.NintendoDsRunner : RetroRunner {
 		ds_savestate.view_bottom_screen = view_bottom_screen;
 	}
 
-	protected override void load_extra_savestate_metadata (Savestate savestate) {
+	protected override void load_extra_savestate_metadata (Savestate savestate, bool reset) {
+		if (reset) {
+			screen_layout = NintendoDsLayout.TOP_BOTTOM;
+			view_bottom_screen = false;
+			return;
+		}
+
 		assert (savestate is NintendoDsSavestate);
 
 		var ds_savestate = savestate as NintendoDsSavestate;
