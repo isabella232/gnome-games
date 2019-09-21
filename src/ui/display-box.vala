@@ -138,17 +138,6 @@ private class Games.DisplayBox : Gtk.Bin {
 
 	[GtkCallback]
 	private void on_savestates_list_size_allocate (Gtk.Allocation allocation) {
-		update_margin ();
-	}
-
-	public override void size_allocate (Gtk.Allocation allocation) {
-		update_margin ();
-		base.size_allocate (allocation);
-	}
-
-	private void update_margin () {
-		var width = savestates_list.get_allocated_width ();
-
-		display_bin.horizontal_offset = -width / 2;
+		display_bin.horizontal_offset = -allocation.width / 2;
 	}
 }
