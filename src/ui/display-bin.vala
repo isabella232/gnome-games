@@ -9,7 +9,7 @@ public class Games.DisplayBin : Gtk.Bin {
 				return;
 
 			_horizontal_offset = value;
-			queue_allocate ();
+			queue_draw ();
 		}
 	}
 
@@ -21,26 +21,18 @@ public class Games.DisplayBin : Gtk.Bin {
 				return;
 
 			_vertical_offset = value;
-			queue_allocate ();
+			queue_draw ();
 		}
 	}
 
-	public override void size_allocate (Gtk.Allocation allocation) {
-		set_allocation (allocation);
+	public override bool draw (Cairo.Context cr) {
+		if (get_direction () == Gtk.TextDirection.RTL)
+			cr.translate (-horizontal_offset, vertical_offset);
+		else
+			cr.translate (horizontal_offset, vertical_offset);
 
-		var child = get_child ();
-		if (child != null && child.visible) {
-			Gtk.Allocation child_allocation = {};
+		base.draw (cr);
 
-			if (get_direction () == Gtk.TextDirection.RTL)
-				child_allocation.x = allocation.x - horizontal_offset;
-			else
-				child_allocation.x = allocation.x + horizontal_offset;
-			child_allocation.y = allocation.y + vertical_offset;
-			child_allocation.width = allocation.width;
-			child_allocation.height = allocation.height;
-
-			child.size_allocate (child_allocation);
-		}
+		return true;
 	}
 }
