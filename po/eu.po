@@ -6,8 +6,8 @@
 msgid ""
 msgstr "Project-Id-Version: gnome-games gnome-3-32\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-04-10 16:06+0000\n"
-"PO-Revision-Date: 2019-05-25 10:00+0100\n"
+"POT-Creation-Date: 2019-09-20 10:58+0000\n"
+"PO-Revision-Date: 2019-09-26 10:00+0100\n"
 "Last-Translator: Asier Sarasua Garmendia <asier.sarasua@gmail.com>\n"
 "Language-Team: Basque <librezale@librezale.eus>\n"
 "Language: eu\n"
@@ -16,8 +16,8 @@ msgstr "Project-Id-Version: gnome-games gnome-3-32\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:6
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:40
-#: data/ui/collection-header-bar.ui:67 data/ui/display-header-bar.ui:6
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:48
+#: data/ui/collection-header-bar.ui:76 data/ui/display-header-bar.ui:16
 #: src/ui/application.vala:25
 msgid "Games"
 msgstr "Jokoak"
@@ -31,14 +31,14 @@ msgid ""
 "Games is a GNOME 3 application to browse your video games library and to "
 "easily pick and play a game from it. It aims to do for games what Music "
 "already does for your music library."
-msgstr ""
+msgstr "Jokoak aplikazioa zure bideojokoen liburutegia arakatzeko eta bertako joko bat aukeratu eta jokatzeko balio duen GNOME 3 aplikazioa da. GNOME Musika aplikazioak musika-liburutegiarekin betetzen duen zeregin bera bete nahi du jokoekin."
 
 #: data/org.gnome.Games.appdata.xml.in.in:15
 msgid ""
 "You want to install Games if you just want a very simple and comfortable way "
 "to play your games and you don’t need advanced features such as speedrunning "
 "tools or video game development tools."
-msgstr ""
+msgstr "Instalatu Jokoak aplikazioa zure jokoak erabiltzeko modu sinple eta erosoa nahi baduzu eta eginbide aurreratuak behar ez badituzu, adibidez abiadura azkartzeko tresnak edo bideojokoak garatzeko tresnak."
 
 #: data/org.gnome.Games.appdata.xml.in.in:20
 msgid "Features:"
@@ -46,7 +46,7 @@ msgstr "Eginbideak:"
 
 #: data/org.gnome.Games.appdata.xml.in.in:22
 msgid "List your installed games, your Steam games, your game ROMs…"
-msgstr "Zerrendatu instalatuta dituzun jokoak, zure Steam jokoak, zure ROM jokoak..."
+msgstr "Zerrendatu instalatuta dituzun jokoak, zure Steam jokoak, zure ROM jokoak…"
 
 #: data/org.gnome.Games.appdata.xml.in.in:23
 msgid "Search in your games collection"
@@ -60,7 +60,7 @@ msgstr "Jokatu zure jokoak"
 msgid "Resume your game to where you left it"
 msgstr "Berekin jokoari utzi zenion tokian"
 
-#: data/org.gnome.Games.appdata.xml.in.in:91
+#: data/org.gnome.Games.appdata.xml.in.in:204
 msgid "The GNOME Project"
 msgstr "GNOME proiektua"
 
@@ -70,30 +70,30 @@ msgstr "Bideojokoen erreproduzitzailea"
 
 #: data/org.gnome.Games.desktop.in.in:5
 msgid "View and play your video games collection"
-msgstr ""
+msgstr "Bistaratu eta erabili zure bideojokoen bilduma"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Games.desktop.in.in:7
 msgid "game;videogame;video game;player;"
 msgstr "jokoa;bideojokoa;bideo jokoa;erreproduzitzailea;"
 
-#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:43
+#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:101
 msgid "Fullscreen"
 msgstr "Pantaila osoa"
 
 #: data/org.gnome.Games.gschema.xml:11
 msgid "Whether the games should be displayed in full screen or not."
-msgstr ""
+msgstr "Jokoak pantaila osoan bistaratuko diren ala ez."
 
 #: data/org.gnome.Games.gschema.xml:15
 msgid "Video filter"
-msgstr ""
+msgstr "Bideo-iragazkia"
 
 #: data/org.gnome.Games.gschema.xml:16
 msgid ""
 "Filter for the game video output. Allowed values are: “smooth” (blurry "
 "pixels), “sharp” (blocky pixels), “crt” (CRT emulation)."
-msgstr ""
+msgstr "Jokoen bideo-irteerarako iragazkia. Onartutako balioak: “smooth” (pixel leunak), “sharp” (pixel zorrotzak), “crt” (CRT emulazioa)."
 
 #: data/org.gnome.Games.gschema.xml:20
 msgid "Window maximized"
@@ -111,125 +111,173 @@ msgstr "Leihoaren tamaina"
 msgid "Window size (width and height)."
 msgstr "Leihoaren tamaina (zabalera eta altuera)."
 
-#: data/ui/collection-box.ui:50
-msgid "Developers"
-msgstr "Garatzaileak"
+#: data/org.gnome.Games.gschema.xml:32
+msgid "Preferred core"
+msgstr "Hobetsitako nukleoa"
 
-#: data/ui/collection-box.ui:60
+#: data/org.gnome.Games.gschema.xml:33
+msgid ""
+"Preferred Libretro core to be used for running games. A different core may "
+"be used if the preferred core is missing firmware."
+msgstr "Jokoak exekutatzeko hobetsitako Libretro nukleoa. Beste nukleo bat erabili daiteke hobetsitakoak firmware-rik ez badu."
+
+#: data/ui/collection-box.ui:60 src/ui/preferences-page-platforms.vala:9
 msgid "Platforms"
 msgstr "Plataformak"
 
-#: data/ui/collection-box.ui:83
+#: data/ui/collection-box.ui:84
 msgid "Loading"
 msgstr "Kargatzen"
 
-#: data/ui/collection-header-bar.ui:17
+#: data/ui/collection-header-bar.ui:25
 msgid "Add game files…"
-msgstr "Gehitu jokoen fitxategiak..."
+msgstr "Gehitu jokoen fitxategiak…"
 
 #. Translators: tooltip for the application menu button
-#: data/ui/collection-header-bar.ui:36
+#: data/ui/collection-header-bar.ui:44
 msgid "Menu"
 msgstr "Menua"
 
-#: data/ui/collection-header-bar.ui:85
+#: data/ui/collection-header-bar.ui:95 data/ui/collection-header-bar.ui:149
 msgid "Search"
 msgstr "Bilatu"
 
-#: data/ui/collection-header-bar.ui:111 data/ui/preferences-window.ui:5
-#: data/ui/preferences-window.ui:26
-msgid "Preferences"
-msgstr "Hobespenak"
-
-#: data/ui/collection-header-bar.ui:119
-msgid "Keyboard Shortcuts"
-msgstr "Laster-teklak"
-
-#: data/ui/collection-header-bar.ui:127
-msgid "Help"
-msgstr "Laguntza"
-
-#: data/ui/collection-header-bar.ui:135
-msgid "About Games"
-msgstr "Jokoak aplikazioari buruz"
-
-#: data/ui/display-header-bar.ui:20 data/ui/preferences-subpage-gamepad.ui:82
-#: data/ui/preferences-subpage-keyboard.ui:83 data/ui/preferences-window.ui:54
+#: data/ui/collection-header-bar.ui:126 data/ui/display-header-bar.ui:29
+#: data/ui/display-header-bar.ui:162 data/ui/preferences-subpage-gamepad.ui:83
+#: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:37
+#: data/ui/preferences-window.ui:78
 msgid "Back"
 msgstr "Atzera"
 
-#: data/ui/display-header-bar.ui:69
+#: data/ui/collection-header-bar.ui:179
+msgid "Pr_eferences"
+msgstr "_Hobespenak"
+
+#: data/ui/collection-header-bar.ui:187
+msgid "_Keyboard Shortcuts"
+msgstr "Las_ter-teklak"
+
+#: data/ui/collection-header-bar.ui:195
+msgid "_Help"
+msgstr "_Laguntza"
+
+#: data/ui/collection-header-bar.ui:203
+msgid "_About Games"
+msgstr "Jokoak aplikazioari _buruz"
+
+#: data/ui/display-header-bar.ui:54
 msgid "Restore"
 msgstr "Leheneratu"
 
-#: data/ui/dummy-display.ui:36
+#: data/ui/display-header-bar.ui:141
+msgid "_Load"
+msgstr "_Kargatu"
+
+#: data/ui/display-header-bar.ui:190
+msgid "_Savestates"
+msgstr "_Gordetze-egoerak"
+
+#: data/ui/dummy-display.ui:37
 msgid "This is a dummy game display"
-msgstr ""
+msgstr "Probako joko-bistaratze bat da hau"
 
-#: data/ui/dummy-display.ui:51
-msgid "If you see this, this is a bug."
-msgstr "Hau ikusten baduzu, akats bat da."
-
-#: data/ui/dummy-display.ui:64
-msgid "Please contact the developers."
-msgstr "Eman horren berri garatzaileei."
+#: data/ui/dummy-display.ui:53
+msgid "If you see this, this is a bug. Please contact the developers."
+msgstr "Hau ikusten baduzu, akats bat dago. Eman horren berri garatzaileei."
 
 #: data/ui/empty-collection.ui:29
 msgid "No games found"
 msgstr "Ez da jokorik aurkitu"
 
-#: data/ui/empty-collection.ui:43
+#: data/ui/empty-collection.ui:44
 msgid ""
 "Install games or add directories containing games to your search sources."
-msgstr ""
+msgstr "Instalatu jokoak edo gehitu jokoak dituzten direktorioak zure bilaketa-iturburuei."
 
 #: data/ui/input-mode-switcher.ui:16
 msgid "Gamepad Input"
-msgstr ""
+msgstr "Joko-aginte bidezko sarrera"
 
 #: data/ui/input-mode-switcher.ui:36
 msgid "Keyboard Input"
-msgstr ""
+msgstr "Teklatu bidezko sarrera"
 
-#: data/ui/media-menu-button.ui:11
+#: data/ui/media-menu-button.ui:13
 msgid "Media"
 msgstr "Euskarria"
 
-#: data/ui/preferences-page-controllers.ui:9
-msgid "Gamepads"
+#: data/ui/preferences-page-backup-restore.ui:10
+msgid ""
+"Backup save states and in-game saves. This can be used for moving the data "
+"to another device or for restoring it later. Desktop, Steam and LÖVE games "
+"cannot be backed up."
 msgstr ""
 
-#: data/ui/preferences-page-controllers.ui:32
-#: src/ui/preferences-page-controllers.vala:75
+#: data/ui/preferences-page-backup-restore.ui:38
+#: src/ui/preferences-page-backup-restore.vala:34
+msgid "Back up save data"
+msgstr ""
+
+#: data/ui/preferences-page-backup-restore.ui:47
+#: src/ui/preferences-page-backup-restore.vala:36
+msgid "_Back Up"
+msgstr "_Babeskopia"
+
+#: data/ui/preferences-page-backup-restore.ui:62
+msgid ""
+"Restore save data for games from existing backup. This will replace existing "
+"saves and cannot be undone."
+msgstr ""
+
+#: data/ui/preferences-page-backup-restore.ui:90
+#: src/ui/preferences-page-backup-restore.vala:12
+msgid "Restore save data"
+msgstr ""
+
+#: data/ui/preferences-page-backup-restore.ui:99
+#: src/ui/preferences-page-backup-restore.vala:14
+msgid "_Restore"
+msgstr "_Berrezarri"
+
+#: data/ui/preferences-page-controllers.ui:10
+msgid "Gamepads"
+msgstr "Joko-aginteak"
+
+#: data/ui/preferences-page-controllers.ui:30
+#: src/ui/preferences-page-controllers.vala:73
 msgid "Keyboard"
 msgstr "Teklatua"
 
-#: data/ui/preferences-page-video.ui:9
+#: data/ui/preferences-page-video.ui:10
 msgid "Filter"
 msgstr "Iragazi"
 
-#: data/ui/preferences-subpage-gamepad.ui:21
-#: data/ui/preferences-subpage-keyboard.ui:22
+#: data/ui/preferences-subpage-gamepad.ui:22
+#: data/ui/preferences-subpage-keyboard.ui:23
 msgctxt "Keyboard configuration factory reset"
 msgid "Reset"
 msgstr "Berrezarri"
 
-#: data/ui/preferences-subpage-gamepad.ui:34
-#: data/ui/preferences-subpage-keyboard.ui:35
+#: data/ui/preferences-subpage-gamepad.ui:35
+#: data/ui/preferences-subpage-keyboard.ui:36
 msgid "Configure"
 msgstr "Konfiguratu"
 
-#: data/ui/preferences-subpage-gamepad.ui:52
-#: data/ui/preferences-subpage-keyboard.ui:53
+#: data/ui/preferences-subpage-gamepad.ui:53
+#: data/ui/preferences-subpage-keyboard.ui:54
 msgid "Skip"
 msgstr "Saltatu"
 
-#: data/ui/preferences-subpage-gamepad.ui:100
-#: data/ui/preferences-subpage-keyboard.ui:101 data/ui/quit-dialog.ui:15
+#: data/ui/preferences-subpage-gamepad.ui:101
+#: data/ui/preferences-subpage-keyboard.ui:102 data/ui/quit-dialog.ui:15
 #: data/ui/reset-controller-mapping-dialog.ui:15
 #: data/ui/resume-failed-dialog.ui:14
 msgid "Cancel"
 msgstr "Utzi"
+
+#: data/ui/preferences-window.ui:5 data/ui/preferences-window.ui:26
+msgid "Preferences"
+msgstr "Hobespenak"
 
 #: data/ui/quit-dialog.ui:9
 msgid "Are you sure you want to quit?"
@@ -289,112 +337,187 @@ msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Berrezarri"
 
-#: data/ui/shortcuts-window.ui:10
+#: data/ui/savestates-list.ui:63
+msgid "Create new savestate"
+msgstr "Sortu gordetze-egoera berria"
+
+#: data/ui/savestates-list.ui:88
+msgid "_Delete"
+msgstr "Ez_abatu"
+
+#: data/ui/savestates-list.ui:102 data/ui/savestates-list.ui:152
+msgid "_Rename"
+msgstr "_Aldatu izena"
+
+#: data/ui/savestates-list.ui:128
+msgid "Name"
+msgstr "Izena"
+
+#: data/ui/shortcuts-window.ui:11
 msgid "Shortcuts"
 msgstr "Lasterbideak"
 
-#: data/ui/shortcuts-window.ui:14
+#: data/ui/shortcuts-window.ui:15
 msgid "General"
 msgstr "Orokorra"
 
-#: data/ui/shortcuts-window.ui:19
+#: data/ui/shortcuts-window.ui:20
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Irten"
 
-#: data/ui/shortcuts-window.ui:27 data/ui/shortcuts-window.ui:139
+#: data/ui/shortcuts-window.ui:28 data/ui/shortcuts-window.ui:221
 msgid "Collection"
 msgstr "Bilduma"
 
-#: data/ui/shortcuts-window.ui:32
+#: data/ui/shortcuts-window.ui:33
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Bilatu"
 
-#: data/ui/shortcuts-window.ui:40 data/ui/shortcuts-window.ui:48
+#: data/ui/shortcuts-window.ui:42 data/ui/shortcuts-window.ui:51
 msgctxt "shortcut window"
 msgid "Navigate"
 msgstr "Nabigatu"
 
-#: data/ui/shortcuts-window.ui:41
+#: data/ui/shortcuts-window.ui:43
 msgctxt "shortcut window"
 msgid "Left analog stick"
 msgstr ""
 
-#: data/ui/shortcuts-window.ui:49
+#: data/ui/shortcuts-window.ui:52
 msgctxt "shortcut window"
 msgid "Directional pad"
 msgstr ""
 
-#: data/ui/shortcuts-window.ui:56
+#: data/ui/shortcuts-window.ui:60
 msgctxt "shortcut window"
 msgid "Select view"
 msgstr "Hautatu ikuspegia"
 
-#: data/ui/shortcuts-window.ui:57
+#: data/ui/shortcuts-window.ui:61
 msgctxt "shortcut window"
 msgid "Front shoulder buttons"
 msgstr ""
 
-#: data/ui/shortcuts-window.ui:64 data/ui/shortcuts-window.ui:72
+#: data/ui/shortcuts-window.ui:69 data/ui/shortcuts-window.ui:78
 msgctxt "shortcut window"
 msgid "Start game"
 msgstr "Hasi jokoa"
 
-#: data/ui/shortcuts-window.ui:65
+#: data/ui/shortcuts-window.ui:70
 msgctxt "shortcut window"
 msgid "Start button"
 msgstr "Hasierako botoia"
 
-#: data/ui/shortcuts-window.ui:73 data/ui/shortcuts-window.ui:116
+#: data/ui/shortcuts-window.ui:79 data/ui/shortcuts-window.ui:124
 msgctxt "shortcut window"
 msgid "Bottom action button"
 msgstr ""
 
-#: data/ui/shortcuts-window.ui:80
+#: data/ui/shortcuts-window.ui:86
 msgid "In Game"
 msgstr "Jokoan"
 
-#: data/ui/shortcuts-window.ui:85
+#: data/ui/shortcuts-window.ui:91
 msgctxt "shortcut window"
 msgid "Toggle fullscreen"
 msgstr "Txandakatu pantaila osoa"
 
-#: data/ui/shortcuts-window.ui:92
+#: data/ui/shortcuts-window.ui:98
 msgctxt "shortcut window"
 msgid "Exit fullscreen"
 msgstr "Irten pantaila osotik"
 
-#: data/ui/shortcuts-window.ui:99 data/ui/shortcuts-window.ui:107
+#: data/ui/shortcuts-window.ui:105 data/ui/shortcuts-window.ui:114
 msgctxt "shortcut window"
 msgid "Go back to the collection"
 msgstr "Itzuli bildumara"
 
-#: data/ui/shortcuts-window.ui:108
+#: data/ui/shortcuts-window.ui:115
 msgctxt "shortcut window"
 msgid "Home button"
 msgstr ""
 
-#: data/ui/shortcuts-window.ui:115
+#: data/ui/shortcuts-window.ui:123
 msgctxt "shortcut window"
 msgid "Accept"
 msgstr "Onartu"
 
-#: data/ui/shortcuts-window.ui:123
+#: data/ui/shortcuts-window.ui:132
 msgctxt "shortcut window"
 msgid "Cancel"
 msgstr "Utzi"
 
-#: data/ui/shortcuts-window.ui:124
+#: data/ui/shortcuts-window.ui:133
 msgctxt "shortcut window"
 msgid "Right action button"
+msgstr "Eskuineko ekintzaren botoia"
+
+#: data/ui/shortcuts-window.ui:144
+#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:6
+msgid "Nintendo DS"
+msgstr "Nintendo DS"
+
+#: data/ui/shortcuts-window.ui:148
+#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:38
+msgid "Screen Layout"
+msgstr "Pantailaren diseinua"
+
+#: data/ui/shortcuts-window.ui:153
+msgctxt "shortcut window"
+msgid "Vertical"
+msgstr "Bertikala"
+
+#: data/ui/shortcuts-window.ui:160 data/ui/shortcuts-window.ui:168
+msgctxt "shortcut window"
+msgid "Side by side"
+msgstr "Alboz albo"
+
+#: data/ui/shortcuts-window.ui:161
+msgctxt "shortcut window"
+msgid "Bottom to the right"
+msgstr "Behea eskuinera"
+
+#: data/ui/shortcuts-window.ui:169
+msgctxt "shortcut window"
+msgid "Bottom to the left"
+msgstr "Behea ezkerrera"
+
+#: data/ui/shortcuts-window.ui:176
+msgctxt "shortcut window"
+msgid "Single screen"
+msgstr "Pantaila bakarra"
+
+#: data/ui/shortcuts-window.ui:184
+msgid "Screen Switching"
 msgstr ""
 
-#: data/ui/shortcuts-window.ui:135
+#: data/ui/shortcuts-window.ui:189
+msgctxt "shortcut window"
+msgid "Show top screen"
+msgstr "Erakutsi goiko pantaila"
+
+#: data/ui/shortcuts-window.ui:196
+msgctxt "shortcut window"
+msgid "Show bottom screen"
+msgstr "Erakutsi beheko pantaila"
+
+#: data/ui/shortcuts-window.ui:205
+msgctxt "shortcut window"
+msgid "Toggle screen"
+msgstr "Txandakatu pantaila"
+
+#: data/ui/shortcuts-window.ui:206
+msgctxt "shortcut window"
+msgid "Press right analog stick"
+msgstr ""
+
+#: data/ui/shortcuts-window.ui:217
 msgid "Cheats"
 msgstr ""
 
-#: data/ui/shortcuts-window.ui:144
+#: data/ui/shortcuts-window.ui:226
 msgctxt "shortcut window"
 msgid "Contribute"
 msgstr "Lagundu"
@@ -403,49 +526,49 @@ msgstr "Lagundu"
 msgid "Desktop"
 msgstr "Mahaigaina"
 
-#: plugins/desktop/src/desktop-plugin.vala:52
+#: plugins/desktop/src/desktop-plugin.vala:57
 #, c-format
 msgid "Invalid command “%s”."
-msgstr ""
+msgstr "Baliogabeko komandoa: “%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:65
+#: plugins/desktop/src/desktop-plugin.vala:70
 #, c-format
 msgid "Tracker listed file not found: “%s”."
 msgstr ""
 
-#: plugins/desktop/src/desktop-plugin.vala:71
+#: plugins/desktop/src/desktop-plugin.vala:76
 #, c-format
 msgid "Couldn’t parse desktop entry “%s”."
 msgstr ""
 
-#: plugins/desktop/src/desktop-plugin.vala:81
+#: plugins/desktop/src/desktop-plugin.vala:86
 #, c-format
 msgid "“%s” shouldn’t be displayed."
-msgstr ""
+msgstr "“%s” ez litzateke bistaratu behar."
 
-#: plugins/desktop/src/desktop-plugin.vala:84
+#: plugins/desktop/src/desktop-plugin.vala:89
 #, c-format
 msgid "“%s” is hidden."
-msgstr ""
+msgstr "“%s” ezkutuan dago."
 
-#: plugins/desktop/src/desktop-plugin.vala:93
+#: plugins/desktop/src/desktop-plugin.vala:98
 #, c-format
 msgid "“%s” has blacklisted category “%s”."
 msgstr ""
 
-#: plugins/desktop/src/desktop-plugin.vala:102
+#: plugins/desktop/src/desktop-plugin.vala:107
 #, c-format
 msgid "“%s” has blacklisted executable “%s”."
 msgstr ""
 
-#: plugins/desktop/src/desktop-plugin.vala:109
+#: plugins/desktop/src/desktop-plugin.vala:114
 #, c-format
 msgid "“%s” is blacklisted."
-msgstr ""
+msgstr "“%s” zerrenda beltzean dago."
 
 #: plugins/dreamcast/src/dreamcast-header.vala:54
 msgid "The file doesn’t have a Dreamcast header."
-msgstr ""
+msgstr "Fitxategiak ez du Dreamcast goiburu bat."
 
 #: plugins/dreamcast/src/dreamcast-plugin.vala:6
 msgid "Dreamcast"
@@ -453,7 +576,7 @@ msgstr "Dreamcast"
 
 #: plugins/game-cube/src/game-cube-header.vala:20
 msgid "The file doesn’t have a Game Cube header."
-msgstr ""
+msgstr "Fitxategiak ez du GameCube goiburu bat."
 
 #: plugins/game-cube/src/game-cube-plugin.vala:6
 msgid "Nintendo GameCube"
@@ -468,70 +591,91 @@ msgstr "Libretro"
 msgid "This doesn’t represent a valid LÖVE package: “%s”."
 msgstr ""
 
-#: plugins/love/src/love-plugin.vala:7
+#: plugins/love/src/love-plugin.vala:6
 msgid "LÖVE"
 msgstr "LÖVE"
 
-#: plugins/mame/src/mame-game-uri-adapter.vala:21
+#: plugins/mame/src/mame-game-uri-adapter.vala:18
 #, c-format
 msgid "Invalid MAME game id “%s” for “%s”."
 msgstr ""
 
-#: plugins/mame/src/mame-plugin.vala:6
+#: plugins/mame/src/mame-plugin.vala:7
 msgid "Arcade"
 msgstr "Arkade-jokoak"
 
-#: plugins/ms-dos/src/ms-dos-plugin.vala:7
+#: plugins/ms-dos/src/ms-dos-plugin.vala:6
 msgid "MS-DOS"
 msgstr "MS-DOS"
 
-#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:7
-msgid "Nintendo DS"
-msgstr "Nintendo DS"
+#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:19
+msgid "Change Screen"
+msgstr "Aldatu pantaila"
+
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:50
+msgid "Vertical"
+msgstr "Bertikala"
+
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:53
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:56
+msgid "Side by side"
+msgstr "Alboz albo"
+
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:59
+msgid "Single screen"
+msgstr "Pantaila bakarra"
+
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:69
+msgid "Bottom to the right"
+msgstr "Behea eskuinera"
+
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:72
+msgid "Bottom to the left"
+msgstr "Behea ezkerrera"
 
 #: plugins/playstation/src/playstation-header.vala:27
 #, c-format
 msgid "Not a PlayStation disc: “%s”."
-msgstr ""
+msgstr "Ez da PlayStation diskoa: “%s”."
 
 #: plugins/playstation/src/playstation-header.vala:37
 #, c-format
 msgid "Invalid PlayStation header: disc ID not found in “%s”."
 msgstr ""
 
-#: plugins/playstation/src/playstation-plugin.vala:6
+#: plugins/playstation/src/playstation-plugin.vala:7
 msgid "PlayStation"
 msgstr "PlayStation"
 
 #: plugins/sega-cd/src/sega-cd-header.vala:44
 #: plugins/sega-cd/src/sega-cd-header.vala:63
 msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
-msgstr ""
+msgstr "Fitxategiak ez du Genesis/Sega 32X/Sega CD/Sega Pico goibururik."
 
 #. translators: known as "Mega-CD" in most of the world
-#: plugins/sega-cd/src/sega-cd-plugin.vala:12
+#: plugins/sega-cd/src/sega-cd-plugin.vala:13
 msgid "Sega CD"
 msgstr "Sega CD"
 
 #. translators: known as "Mega-CD 32X" in most of the world
-#: plugins/sega-cd/src/sega-cd-plugin.vala:14
+#: plugins/sega-cd/src/sega-cd-plugin.vala:15
 msgid "Sega CD 32X"
 msgstr "Sega CD 32X"
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:114
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:93
+#: plugins/sega-cd/src/sega-cd-plugin.vala:116
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:99
 #, c-format
 msgid "The file “%s” doesn’t have a track."
-msgstr ""
+msgstr "“%s” fitxategiak ez du pista bat."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:120
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:99
+#: plugins/sega-cd/src/sega-cd-plugin.vala:122
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:105
 #, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr ""
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:123
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:102
+#: plugins/sega-cd/src/sega-cd-plugin.vala:125
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:108
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
 msgstr ""
@@ -544,7 +688,7 @@ msgstr ""
 msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:106
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:112
 #, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr ""
@@ -553,7 +697,7 @@ msgstr ""
 msgid "Steam"
 msgstr "Steam"
 
-#: plugins/steam/src/steam-plugin.vala:80
+#: plugins/steam/src/steam-plugin.vala:85
 #, c-format
 msgid "Couldn’t get Steam appid from manifest “%s”."
 msgstr ""
@@ -561,32 +705,32 @@ msgstr ""
 #: plugins/steam/src/steam-registry.vala:68
 #, c-format
 msgid "File “%s” doesn’t exist."
-msgstr ""
+msgstr "“%s” fitxategia ez da existitzen."
 
 #: plugins/steam/src/steam-registry.vala:96
 msgid "Unexpected token '{'."
-msgstr ""
+msgstr "Ustekabeko tokena: '{'."
 
 #: plugins/steam/src/steam-registry.vala:110
 msgid "Unexpected end of tokens."
-msgstr ""
+msgstr "Tokenen ustekabeko amaiera"
 
 #: plugins/steam/src/steam-registry.vala:113
 msgid "Unexpected token '}'."
-msgstr ""
+msgstr "Ustekabeko tokena: '}'."
 
 #: plugins/steam/src/steam-title.vala:17
 msgid "Couldn’t get name from Steam registry."
-msgstr ""
+msgstr "Ezin izan da izena eskuratu Steam erregistrotik."
 
 #. translators: known as "CD-ROM²" in eastern Asia and France
-#: plugins/turbografx-cd/src/turbografx-cd-plugin.vala:10
+#: plugins/turbografx-cd/src/turbografx-cd-plugin.vala:9
 msgid "TurboGrafx-CD"
 msgstr "TurboGrafx-CD"
 
 #: plugins/virtual-boy/src/virtual-boy-header.vala:20
 msgid "The file is too short."
-msgstr ""
+msgstr "Fitxategia laburregia da."
 
 #: plugins/virtual-boy/src/virtual-boy-header.vala:26
 #, c-format
@@ -604,15 +748,15 @@ msgstr ""
 #: plugins/virtual-boy/src/virtual-boy-header.vala:51
 #, c-format
 msgid "Couldn’t get file size: %s"
-msgstr ""
+msgstr "Ezin izan da fitxategi-tamaina eskuratu: %s"
 
 #: plugins/virtual-boy/src/virtual-boy-header.vala:60
 #: plugins/wii/src/wii-header.vala:55
 #, c-format
 msgid "Couldn’t read file: %s"
-msgstr ""
+msgstr "Ezin izan da fitxategia irakurri: %s"
 
-#: plugins/virtual-boy/src/virtual-boy-plugin.vala:7
+#: plugins/virtual-boy/src/virtual-boy-plugin.vala:6
 msgid "Virtual Boy"
 msgstr "Virtual Boy"
 
@@ -623,20 +767,20 @@ msgstr ""
 
 #: plugins/wii/src/wii-header.vala:33 plugins/wii/src/wii-header.vala:44
 msgid "The file doesn’t have a Wii header."
-msgstr ""
+msgstr "Fitxategiak ez du Wii goiburu bat."
 
 #: plugins/wii/src/wii-plugin.vala:6
 msgid "Wii"
 msgstr "Wii"
 
-#: src/command/command-runner.vala:39
+#: src/command/command-runner.vala:43
 msgid "The game doesn’t have a valid command."
-msgstr ""
+msgstr "Jokoak ez du baliozko komandorik."
 
-#: src/command/command-runner.vala:65
+#: src/command/command-runner.vala:86
 #, c-format
 msgid "Couldn’t run “%s”: execution failed."
-msgstr ""
+msgstr "Ezin izan da “%s” exekutatu: exekuzioark huts egin du."
 
 #: src/core/media-set/media-set.vala:30
 #, c-format
@@ -653,7 +797,7 @@ msgstr ""
 msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr ""
 
-#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:26
+#: src/dummy/dummy-platform.vala:9 src/dummy/dummy-platform.vala:17
 msgid "Unknown"
 msgstr "Ezezaguna"
 
@@ -684,56 +828,62 @@ msgstr ""
 
 #: src/grilo/grilo-players.vala:40
 msgid "Single-player"
-msgstr ""
+msgstr "Jokalari bakarra"
 
 #: src/grilo/grilo-players.vala:42
 msgid "Multi-player"
-msgstr ""
+msgstr "Jokalari anitz"
 
-#: src/retro/retro-core-source.vala:25 src/retro/retro-core-source.vala:39
+#: src/retro/retro-core-source.vala:29 src/retro/retro-core-source.vala:43
 #, c-format
 msgid "No module found for platform “%s” and MIME types [ “%s” ]."
 msgstr ""
 
-#: src/retro/retro-core-source.vala:25 src/retro/retro-core-source.vala:39
+#: src/retro/retro-core-source.vala:29 src/retro/retro-core-source.vala:43
 msgid "”, “"
 msgstr "”, “"
 
-#: src/retro/retro-core-source.vala:84
+#: src/retro/retro-core-source.vala:70
 #, c-format
 msgid "This game requires the %s firmware file to run."
 msgstr ""
 
-#: src/retro/retro-core-source.vala:101
+#: src/retro/retro-core-source.vala:87
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a MD5 fingerprint of %s to run."
 msgstr ""
 
-#: src/retro/retro-core-source.vala:107
+#: src/retro/retro-core-source.vala:93
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
 "run."
 msgstr ""
 
-#: src/retro/retro-runner.vala:224
+#: src/retro/retro-runner.vala:313
 #, c-format
 msgid "No module found for “%s”."
 msgstr ""
 
-#: src/retro/retro-runner.vala:527
+#: src/retro/retro-runner.vala:581
 msgid "Unknown platform"
 msgstr "Plataforma ezezaguna"
 
-#: src/retro/retro-runner.vala:570
+#: src/retro/retro-runner.vala:606
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
-msgstr ""
+msgstr "“%s” sistema ez da onartzen oraindik, baina hura osorik onartzea planifikatuta daukagu."
 
-#: src/retro/retro-runner.vala:572
+#: src/retro/retro-runner.vala:608
 msgid "The system isn’t supported yet, but full support is planned."
-msgstr ""
+msgstr "Sistema ez da onartzen oraindik, baina hura osorik onartzea planifikatuta daukagu."
+
+#. A list containing the names of all savestates with name of the form "New Savestate %d"
+#: src/retro/retro-runner.vala:618 src/retro/retro-runner.vala:644
+#, c-format
+msgid "New savestate %s"
+msgstr "Gordetze-egoera berria: %s"
 
 #: src/retro/retro-simple-type.vala:13
 msgid "Amiga"
@@ -838,50 +988,56 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:171
+#: src/ui/application.vala:153
 msgid "Select game files"
 msgstr "Hautatu jokoen fitxategiak"
 
-#: src/ui/application.vala:172
+#: src/ui/application.vala:154 src/ui/preferences-page-backup-restore.vala:14
+#: src/ui/preferences-page-backup-restore.vala:36
 msgid "_Cancel"
 msgstr "_Utzi"
 
-#: src/ui/application.vala:173
+#: src/ui/application.vala:155
 msgid "_Add"
 msgstr "_Gehitu"
 
-#: src/ui/application.vala:382
+#: src/ui/application.vala:195
+#, c-format
+msgid "An unexpected error occurred while trying to run %s"
+msgstr "Ustekabeko errorea gertatu da %s exekutatzen saiatzean"
+
+#: src/ui/application.vala:386
 msgid "GNOME Games"
 msgstr "GNOME Jokoak"
 
-#: src/ui/application.vala:384
-msgid "A video game player for GNOME"
-msgstr ""
-
 #: src/ui/application.vala:388
+msgid "A video game player for GNOME"
+msgstr "Bideojokoen erreproduzitzailea GNOMErako"
+
+#: src/ui/application.vala:392
 msgid "Learn more about GNOME Games"
 msgstr "Ikasi gehiago GNOME Jokoak aplikazioari buruz"
 
-#: src/ui/application.vala:395
+#: src/ui/application.vala:399
 msgid "translator-credits"
 msgstr "Asier Sarasua Garmendia <asier.sarasua@gmail.com>"
 
-#: src/ui/application-window.vala:403
-msgid "An unexpected error occurred."
-msgstr "Espero gabeko errorea gertatu da."
-
-#: src/ui/application-window.vala:690 src/ui/application-window.vala:707
+#: src/ui/application-window.vala:271 src/ui/application-window.vala:288
 msgid "Playing a game"
 msgstr "Joko bat jokatzen"
+
+#: src/ui/display-view.vala:323
+msgid "An unexpected error occurred."
+msgstr "Espero gabeko errorea gertatu da."
 
 #: src/ui/error-display.vala:13
 #, c-format
 msgid "Oops! Unable to run “%s”"
-msgstr ""
+msgstr "Ezin izan da “%s” exekutatu"
 
 #: src/ui/error-display.vala:15
 msgid "Oops! Unable to run the game"
-msgstr ""
+msgstr "Ezin izan da jokoa exekutatu"
 
 #: src/ui/gamepad-mapper.vala:137
 msgid "Press suitable button on your gamepad"
@@ -899,18 +1055,33 @@ msgstr ""
 msgid "Press suitable key on your keyboard"
 msgstr ""
 
-#: src/ui/media-selector.vala:38
+#: src/ui/media-menu-button.vala:50
 #, c-format
 msgid "Media %d"
 msgstr ""
 
-#: src/ui/preferences-page-controllers.vala:24
+#: src/ui/preferences-page-backup-restore.vala:6
+msgid "Back Up & Restore"
+msgstr "Babeskopia eta leheneratzea"
+
+#: src/ui/preferences-page-backup-restore.vala:23
+#, c-format
+msgid "Couldn’t restore: %s"
+msgstr "Ezin izan da leheneratu: %s"
+
+#: src/ui/preferences-page-backup-restore.vala:53
+#, c-format
+msgid "Couldn’t back up: %s"
+msgstr "Ezin izan da babeskopia egin: %s"
+
+#: src/ui/preferences-page-controllers.vala:22
 msgid "Controllers"
 msgstr "Kontrolatzaileak"
 
-#: src/ui/preferences-page-plugins.vala:12
-msgid "Extensions"
-msgstr "Hedapenak"
+#: src/ui/preferences-page-platforms-retro-row.vala:45
+#: src/ui/preferences-page-platforms-retro-row.vala:52
+msgid "None"
+msgstr "Bat ere ez"
 
 #. same as video-filters in gschema
 #: src/ui/preferences-page-video.vala:22
@@ -948,6 +1119,26 @@ msgstr "Teklatua probatzen"
 #: src/ui/preferences-subpage-keyboard.vala:78
 msgid "Configuring Keyboard"
 msgstr "Teklatua konfiguratzen"
+
+#: src/ui/savestate-listbox-row.vala:23 src/ui/savestates-list.vala:226
+msgid "Autosave"
+msgstr "Gorde automatikoki"
+
+#. Translators: this is the day number followed
+#. * by the abbreviated month name followed by the year followed
+#. * by a time in 24h format i.e. "3 Feb 2015 23:04:00"
+#: src/ui/savestate-listbox-row.vala:33
+#, no-c-format
+msgid "%-e %b %Y %X"
+msgstr "%-e %b %Y %X"
+
+#: src/ui/savestates-list.vala:229
+msgid "Invalid name"
+msgstr "Izen baliogabea"
+
+#: src/ui/savestates-list.vala:247
+msgid "A savestate with this name already exists"
+msgstr "Izen hori duen gordetze-egoera badago lehendik"
 
 #: src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
@@ -998,3 +1189,22 @@ msgstr ""
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
 msgstr ""
+
+#: src/utils/file-operations.vala:27
+#, c-format
+msgid "Error: %s (%d)"
+msgstr "Errorea: %s (%d)"
+
+#: src/utils/file-operations.vala:85
+#, c-format
+msgid "Error writing “%s”: %s (%d)"
+msgstr "Errorera “%s” idaztean: %s (%d)"
+
+#~ msgid "Developers"
+#~ msgstr "Garatzaileak"
+
+#~ msgid "Please contact the developers."
+#~ msgstr "Eman horren berri garatzaileei."
+
+#~ msgid "Extensions"
+#~ msgstr "Hedapenak"
