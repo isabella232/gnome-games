@@ -40,8 +40,20 @@
       <image width="800" height="450">https://gitlab.gnome.org/GNOME/gnome-games/raw/master/data/appdata/3-30-gamepad-test.png</image>
     </screenshot>
   </screenshots>
-
   <releases>
+    <release version="3.34.1" type="stable" date="2019-10-05" urgency="medium">
+      <description>
+        <p>Fixes:</p>
+        <ul>
+          <li>Fixed pointer input not working until saving the game</li>
+          <li>Save directory is now properly loaded after a reset</li>
+          <li>Nintendo DS screen mode is now reset to vertical after a reset</li>
+          <li>Fixed opening savestate manager with GTK animations disabled</li>
+          <li>Ensure bottom bar is always shown or hidden correctly on mobile</li>
+        </ul>
+        <p>Translation updates.</p>
+      </description>
+    </release>
     <release version="3.34.0" type="stable" date="2019-09-09" urgency="medium">
       <description>
         <p>Translation updates.</p>

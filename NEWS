@@ -1,4 +1,22 @@
 ==============
+Version 3.34.1
+==============
+
+* Fixes
+ - MAME plugin now builds
+ - Fixed pointer input not working until saving the game
+ - Save directory is now properly loaded after a reset
+ - Nintendo DS screen mode is now reset to vertical after a reset
+ - Fixed opening savestate manager with GTK animations disabled
+ - Ensure bottom bar is always shown or hidden correctly on mobile
+
+* Translation updates
+ Basque
+ Czech
+ Italian
+ Turkish
+
+==============
 Version 3.34.0
 ==============
 
