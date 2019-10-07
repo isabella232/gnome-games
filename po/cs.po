@@ -132,7 +132,7 @@ msgid ""
 "be used if the preferred core is missing firmware."
 msgstr ""
 "Upřednostňované herní jádro Libretro, které se má používat k hraní her. "
-"Pokud k němu bude sházet firmware, může se použít jiné."
+"Pokud k němu bude scházet firmware, může se použít jiné."
 
 #: data/ui/collection-box.ui:60 src/ui/preferences-page-platforms.vala:9
 msgid "Platforms"
