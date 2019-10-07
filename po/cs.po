@@ -132,7 +132,7 @@ msgid ""
 "be used if the preferred core is missing firmware."
 msgstr ""
 "Upřednostňované herní jádro Libretro, které se má používat k hraní her. "
-"Pokud k němu bude sházet firmware, může se použít jiné."
+"Pokud k němu bude scházet firmware, může se použít jiné."
 
 #: data/ui/collection-box.ui:60 src/ui/preferences-page-platforms.vala:9
 msgid "Platforms"
@@ -1181,7 +1181,7 @@ msgstr "%-k∶%M∶%S"
 #: src/ui/savestate-listbox-row.vala:191
 #, no-c-format
 msgid "Yesterday %X"
-msgstr "včery %-k∶%M∶%S"
+msgstr "včera %-k∶%M∶%S"
 
 #. Translators: this is the abbreviated name of the week day followed by
 #. * a time in locale format. i.e. "Monday 23:04:35"
@@ -1276,15 +1276,3 @@ msgstr "Chyba: %s (%d)"
 #, c-format
 msgid "Error writing “%s”: %s (%d)"
 msgstr "Chyba při zápisu „%s“: %s (%d)"
-
-#~ msgid "@icon@"
-#~ msgstr "@icon@"
-
-#~ msgid "Developers"
-#~ msgstr "Vývojáři"
-
-#~ msgid "Please contact the developers."
-#~ msgstr "Kontaktujte prosím vývojáře."
-
-#~ msgid "Extensions"
-#~ msgstr "Rozšíření"
