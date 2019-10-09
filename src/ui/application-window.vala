@@ -22,8 +22,10 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			if (current_view != null)
 				current_view.is_view_active = true;
 
-			assert (application is Application);
-			(application as Application).set_pause_loading (current_view != collection_view);
+			var app = application as Application;
+			assert (app != null);
+
+			app.set_pause_loading (current_view != collection_view);
 		}
 	}
 
