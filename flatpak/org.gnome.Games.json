@@ -121,7 +121,7 @@
                 "-Denable-grl-net=true",
                 "-Denable-grl-pls=false",
                 "-Denable-gtk-doc=false",
-                "-Denable-static=false"
+                "-Denable-test-ui=false"
             ],
             "sources" : [
                 {
@@ -139,7 +139,6 @@
             "name" : "grilo-plugins",
             "buildsystem" : "meson",
             "config-opts" : [
-                "-Denable-goa=no",
                 "-Denable-filesystem=no",
                 "-Denable-optical-media=no",
                 "-Denable-youtube=no",
@@ -162,7 +161,8 @@
                 "-Denable-flickr=no",
                 "-Denable-podcasts=no",
                 "-Denable-chromaprint=no",
-                "-Denable-lua-factory=yes"
+                "-Denable-lua-factory=yes",
+                "--wrap-mode=nodownload"
             ],
             "sources" : [
                 {
