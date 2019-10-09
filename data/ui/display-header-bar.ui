@@ -43,11 +43,9 @@
                 <property name="visible">False</property>
                 <property name="can_focus">False</property>
                 <property name="valign">center</property>
-                <property name="margin-start">7</property>
                 <signal name="clicked" handler="on_restore_clicked"/>
                 <style>
                   <class name="image-button"/>
-                  <class name="titlebutton"/>
                 </style>
                 <child internal-child="accessible">
                   <object class="AtkObject" id="a11y-restore">
