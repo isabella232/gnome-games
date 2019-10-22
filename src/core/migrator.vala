@@ -80,12 +80,11 @@ public class Games.Migrator : Object {
 		var snapshots_dir = Dir.open (snapshots_dir_path, 0);
 		var file_name = "";
 		while ((file_name = snapshots_dir.read_name ()) != null) {
-			var file_name_tokens = file_name.split (".snapshot");
-
-			if (file_name_tokens.length != 2)
+			if (!file_name.has_suffix (".snapshot"))
 				continue; // Not a snapshot file
 
 			// The snapshot files are curently named "[game_uid].snapshot"
+			var file_name_tokens = file_name.split (".snapshot");
 			var game_uid = file_name_tokens[0];
 			create_first_game_savestate (game_uid);
 		}
