@@ -6,8 +6,8 @@
 msgid ""
 msgstr "Project-Id-Version: gnome-games gnome-3-32\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-09-20 10:58+0000\n"
-"PO-Revision-Date: 2019-09-26 10:00+0100\n"
+"POT-Creation-Date: 2019-09-26 17:17+0000\n"
+"PO-Revision-Date: 2019-10-26 10:00+0100\n"
 "Last-Translator: Asier Sarasua Garmendia <asier.sarasua@gmail.com>\n"
 "Language-Team: Basque <librezale@librezale.eus>\n"
 "Language: eu\n"
@@ -211,12 +211,12 @@ msgid ""
 "Backup save states and in-game saves. This can be used for moving the data "
 "to another device or for restoring it later. Desktop, Steam and LÖVE games "
 "cannot be backed up."
-msgstr ""
+msgstr "Egin gordetze-egoeren eta joko barruko gordetzeen babeskopia. Datuak beste gailu batera eramateko eta geroaro datuek leheneratzeak egiteko erabili daiteke. Mahaigaineko, Steam eta LÖVE jokoen babeskopia ezin da egin."
 
 #: data/ui/preferences-page-backup-restore.ui:38
 #: src/ui/preferences-page-backup-restore.vala:34
 msgid "Back up save data"
-msgstr ""
+msgstr "Egin gordetze-datuen babeskopia"
 
 #: data/ui/preferences-page-backup-restore.ui:47
 #: src/ui/preferences-page-backup-restore.vala:36
@@ -227,12 +227,12 @@ msgstr "_Babeskopia"
 msgid ""
 "Restore save data for games from existing backup. This will replace existing "
 "saves and cannot be undone."
-msgstr ""
+msgstr "Leheneratu jokoen gordetze-datuak lehenago sortutako babeskopietatik. Horrek lehendik dauden gordetzeak ordeztuko ditu eta ezin da desegin."
 
 #: data/ui/preferences-page-backup-restore.ui:90
 #: src/ui/preferences-page-backup-restore.vala:12
 msgid "Restore save data"
-msgstr ""
+msgstr "Leheneratu gordetze-datuak"
 
 #: data/ui/preferences-page-backup-restore.ui:99
 #: src/ui/preferences-page-backup-restore.vala:14
@@ -305,7 +305,7 @@ msgstr "Bere berezko leihoa erabili behar duzu hura erreproduzitzeko."
 
 #: data/ui/reset-controller-mapping-dialog.ui:9
 msgid "Factory reset mapping for this controller?"
-msgstr ""
+msgstr "Berrezarri fabrikako mapatzea kontrolagailu honetarako?"
 
 #: data/ui/reset-controller-mapping-dialog.ui:10
 msgid "Your mapping will be lost."
@@ -383,12 +383,12 @@ msgstr "Nabigatu"
 #: data/ui/shortcuts-window.ui:43
 msgctxt "shortcut window"
 msgid "Left analog stick"
-msgstr ""
+msgstr "Ezkerreko palanka analogikoa"
 
 #: data/ui/shortcuts-window.ui:52
 msgctxt "shortcut window"
 msgid "Directional pad"
-msgstr ""
+msgstr "Norabideen agintea"
 
 #: data/ui/shortcuts-window.ui:60
 msgctxt "shortcut window"
@@ -398,7 +398,7 @@ msgstr "Hautatu ikuspegia"
 #: data/ui/shortcuts-window.ui:61
 msgctxt "shortcut window"
 msgid "Front shoulder buttons"
-msgstr ""
+msgstr "Sorbaldako aurreko botoiak"
 
 #: data/ui/shortcuts-window.ui:69 data/ui/shortcuts-window.ui:78
 msgctxt "shortcut window"
@@ -413,7 +413,7 @@ msgstr "Hasierako botoia"
 #: data/ui/shortcuts-window.ui:79 data/ui/shortcuts-window.ui:124
 msgctxt "shortcut window"
 msgid "Bottom action button"
-msgstr ""
+msgstr "Ekintzako beheko botoia"
 
 #: data/ui/shortcuts-window.ui:86
 msgid "In Game"
@@ -437,7 +437,7 @@ msgstr "Itzuli bildumara"
 #: data/ui/shortcuts-window.ui:115
 msgctxt "shortcut window"
 msgid "Home button"
-msgstr ""
+msgstr "Botoi nagusia"
 
 #: data/ui/shortcuts-window.ui:123
 msgctxt "shortcut window"
@@ -491,7 +491,7 @@ msgstr "Pantaila bakarra"
 
 #: data/ui/shortcuts-window.ui:184
 msgid "Screen Switching"
-msgstr ""
+msgstr "Pantailaz aldatzea"
 
 #: data/ui/shortcuts-window.ui:189
 msgctxt "shortcut window"
@@ -511,11 +511,11 @@ msgstr "Txandakatu pantaila"
 #: data/ui/shortcuts-window.ui:206
 msgctxt "shortcut window"
 msgid "Press right analog stick"
-msgstr ""
+msgstr "Sakatu eskuineko palanka analogikoa"
 
 #: data/ui/shortcuts-window.ui:217
 msgid "Cheats"
-msgstr ""
+msgstr "Trikimailuak"
 
 #: data/ui/shortcuts-window.ui:226
 msgctxt "shortcut window"
@@ -534,12 +534,12 @@ msgstr "Baliogabeko komandoa: “%s”."
 #: plugins/desktop/src/desktop-plugin.vala:70
 #, c-format
 msgid "Tracker listed file not found: “%s”."
-msgstr ""
+msgstr "Aztarnariak zerrendatutako fitxategia ez da aurkitu: “%s”."
 
 #: plugins/desktop/src/desktop-plugin.vala:76
 #, c-format
 msgid "Couldn’t parse desktop entry “%s”."
-msgstr ""
+msgstr "Ezin da analizatu mahaigaineko “%s” sarrera."
 
 #: plugins/desktop/src/desktop-plugin.vala:86
 #, c-format
@@ -554,12 +554,12 @@ msgstr "“%s” ezkutuan dago."
 #: plugins/desktop/src/desktop-plugin.vala:98
 #, c-format
 msgid "“%s” has blacklisted category “%s”."
-msgstr ""
+msgstr "“%s”(e)k zerrenda beltzean du “%s” kategoria."
 
 #: plugins/desktop/src/desktop-plugin.vala:107
 #, c-format
 msgid "“%s” has blacklisted executable “%s”."
-msgstr ""
+msgstr "“%s”(e)k zerrenda beltzean du “%s” exekutagarria."
 
 #: plugins/desktop/src/desktop-plugin.vala:114
 #, c-format
@@ -589,7 +589,7 @@ msgstr "Libretro"
 #: plugins/love/src/love-package.vala:13 plugins/love/src/love-package.vala:17
 #, c-format
 msgid "This doesn’t represent a valid LÖVE package: “%s”."
-msgstr ""
+msgstr "Horrek ez du ordezkatzen baliozko LÖVE pakete bat: “%s”."
 
 #: plugins/love/src/love-plugin.vala:6
 msgid "LÖVE"
@@ -598,7 +598,7 @@ msgstr "LÖVE"
 #: plugins/mame/src/mame-game-uri-adapter.vala:18
 #, c-format
 msgid "Invalid MAME game id “%s” for “%s”."
-msgstr ""
+msgstr "MAME jokoaren “%s” ID baliogabea honetarako: “%s”."
 
 #: plugins/mame/src/mame-plugin.vala:7
 msgid "Arcade"
@@ -641,7 +641,7 @@ msgstr "Ez da PlayStation diskoa: “%s”."
 #: plugins/playstation/src/playstation-header.vala:37
 #, c-format
 msgid "Invalid PlayStation header: disc ID not found in “%s”."
-msgstr ""
+msgstr "PlayStation goiburu baliogabea: dizkoaren IDa ez da aurkitu hemen: “%s”."
 
 #: plugins/playstation/src/playstation-plugin.vala:7
 msgid "PlayStation"
@@ -672,17 +672,17 @@ msgstr "“%s” fitxategiak ez du pista bat."
 #: plugins/sega-saturn/src/sega-saturn-plugin.vala:105
 #, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
-msgstr ""
+msgstr "“%s” fitxategiak ez du baliozko fitxategi-formatu bitarra."
 
 #: plugins/sega-cd/src/sega-cd-plugin.vala:125
 #: plugins/sega-saturn/src/sega-saturn-plugin.vala:108
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
-msgstr ""
+msgstr "“%s” fitxategiak ez du baliozko pista-modua %d pistarako."
 
 #: plugins/sega-saturn/src/sega-saturn-header.vala:54
 msgid "The file doesn’t have a Sega Saturn header."
-msgstr ""
+msgstr "Fitxategiak ez du Sega Saturn goibururik."
 
 #: plugins/sega-saturn/src/sega-saturn-plugin.vala:7
 msgid "Sega Saturn"
@@ -691,7 +691,7 @@ msgstr "Sega Saturn"
 #: plugins/sega-saturn/src/sega-saturn-plugin.vala:112
 #, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
-msgstr ""
+msgstr "“%s” fitxategiak ez du baliozko Sega Saturn fitxategi bitarra."
 
 #: plugins/steam/src/steam-plugin.vala:10
 msgid "Steam"
@@ -700,7 +700,7 @@ msgstr "Steam"
 #: plugins/steam/src/steam-plugin.vala:85
 #, c-format
 msgid "Couldn’t get Steam appid from manifest “%s”."
-msgstr ""
+msgstr "Ezin da Steam appid-a eskuratu “%s” manifestutik."
 
 #: plugins/steam/src/steam-registry.vala:68
 #, c-format
@@ -735,15 +735,15 @@ msgstr "Fitxategia laburregia da."
 #: plugins/virtual-boy/src/virtual-boy-header.vala:26
 #, c-format
 msgid "Invalid Virtual Boy ROM header size: %s"
-msgstr ""
+msgstr "Virtual Boy ROM goiburuaren tamaina baliogabea: %s"
 
 #: plugins/virtual-boy/src/virtual-boy-header.vala:38
 msgid "Invalid Virtual Boy ROM header size."
-msgstr ""
+msgstr "Virtual Boy ROM goiburuaren tamaina baliogabea."
 
 #: plugins/virtual-boy/src/virtual-boy-header.vala:42
 msgid "The file doesn’t have a Virtual Boy ROM header."
-msgstr ""
+msgstr "Fitxategiak ez du Virtual Boy ROM goibururik."
 
 #: plugins/virtual-boy/src/virtual-boy-header.vala:51
 #, c-format
@@ -763,7 +763,7 @@ msgstr "Virtual Boy"
 #: plugins/wii/src/wii-header.vala:20
 #, c-format
 msgid "Invalid Wii header size: %s"
-msgstr ""
+msgstr "Wii goiburuaren tamaina baliogabea: %s"
 
 #: plugins/wii/src/wii-header.vala:33 plugins/wii/src/wii-header.vala:44
 msgid "The file doesn’t have a Wii header."
@@ -785,17 +785,17 @@ msgstr "Ezin izan da “%s” exekutatu: exekuzioark huts egin du."
 #: src/core/media-set/media-set.vala:30
 #, c-format
 msgid "Invalid media index %u."
-msgstr ""
+msgstr "Multimedia-indize baliogabea: %u."
 
 #: src/core/plugin-registrar.vala:27
 #, c-format
 msgid "Invalid plugin descriptor: %s"
-msgstr ""
+msgstr "Pluginaren deskriptore baliogabea: %s"
 
 #: src/core/plugin-registrar.vala:48 src/core/plugin-registrar.vala:52
 #, c-format
 msgid "Couldn’t create a new instance of plugin in “%s”."
-msgstr ""
+msgstr "Ezin izan da sortu pluginaren instantzia berria sortu “%s” kokalekuan."
 
 #: src/dummy/dummy-platform.vala:9 src/dummy/dummy-platform.vala:17
 msgid "Unknown"
@@ -809,22 +809,22 @@ msgstr "%d diskoa"
 #: src/gameinfo/gameinfo-doc.vala:15
 #, c-format
 msgid "No game title found for disc ID “%s”."
-msgstr ""
+msgstr "Ez da jokoaren titulurik aurkitu “%s” IDa duen diskorako."
 
 #: src/gameinfo/gameinfo-doc.vala:31
 #, c-format
 msgid "No disc title found for disc ID “%s”."
-msgstr ""
+msgstr "Ez da diskoaren titulurik aurkitu “%s” IDa duen diskorako."
 
 #: src/gameinfo/gameinfo-doc.vala:41
 #, c-format
 msgid "No disc set ID found for disc ID “%s”."
-msgstr ""
+msgstr "Ez da disko multzoaren IDrik aurkitu “%s” IDa duen diskorako."
 
 #: src/gameinfo/gameinfo-doc.vala:49 src/gameinfo/gameinfo-doc.vala:59
 #, c-format
 msgid "No disc found for disc ID “%s”."
-msgstr ""
+msgstr "Ez da diskorik aurkitu “%s” IDa duen diskorako."
 
 #: src/grilo/grilo-players.vala:40
 msgid "Single-player"
@@ -837,7 +837,7 @@ msgstr "Jokalari anitz"
 #: src/retro/retro-core-source.vala:29 src/retro/retro-core-source.vala:43
 #, c-format
 msgid "No module found for platform “%s” and MIME types [ “%s” ]."
-msgstr ""
+msgstr "Ez da modulurik aurkitu “%s” plataformarako eta [ “%s” ] MIME motetarako."
 
 #: src/retro/retro-core-source.vala:29 src/retro/retro-core-source.vala:43
 msgid "”, “"
@@ -846,41 +846,41 @@ msgstr "”, “"
 #: src/retro/retro-core-source.vala:70
 #, c-format
 msgid "This game requires the %s firmware file to run."
-msgstr ""
+msgstr "Joko honek %s firmwarea behar du exekutatzeko."
 
 #: src/retro/retro-core-source.vala:87
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a MD5 fingerprint of %s to run."
-msgstr ""
+msgstr "Joko honek %s firmware-fitxategia behar du, %s(r)en MD5 hatz-marka duena, exekutatzeko."
 
 #: src/retro/retro-core-source.vala:93
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
 "run."
-msgstr ""
+msgstr "Joko honek %s firmware-fitxategia behar du, %s(r)en SHA-512 hatz-marka duena, exekutatzeko."
 
-#: src/retro/retro-runner.vala:313
+#: src/retro/retro-runner.vala:315
 #, c-format
 msgid "No module found for “%s”."
-msgstr ""
+msgstr "Ez da modulurik aurkitu “%s”(e)rako."
 
-#: src/retro/retro-runner.vala:581
+#: src/retro/retro-runner.vala:583
 msgid "Unknown platform"
 msgstr "Plataforma ezezaguna"
 
-#: src/retro/retro-runner.vala:606
+#: src/retro/retro-runner.vala:608
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "“%s” sistema ez da onartzen oraindik, baina hura osorik onartzea planifikatuta daukagu."
 
-#: src/retro/retro-runner.vala:608
+#: src/retro/retro-runner.vala:610
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Sistema ez da onartzen oraindik, baina hura osorik onartzea planifikatuta daukagu."
 
 #. A list containing the names of all savestates with name of the form "New Savestate %d"
-#: src/retro/retro-runner.vala:618 src/retro/retro-runner.vala:644
+#: src/retro/retro-runner.vala:620 src/retro/retro-runner.vala:646
 #, c-format
 msgid "New savestate %s"
 msgstr "Gordetze-egoera berria: %s"
@@ -1041,24 +1041,24 @@ msgstr "Ezin izan da jokoa exekutatu"
 
 #: src/ui/gamepad-mapper.vala:137
 msgid "Press suitable button on your gamepad"
-msgstr ""
+msgstr "Sakatu zure joko-aginteko botoi egokia"
 
 #: src/ui/gamepad-mapper.vala:142
 msgid "Move suitable axis left/right on your gamepad"
-msgstr ""
+msgstr "Mugitu ardatz egokia zure joko-aginteko ezkerrera/eskuinera"
 
 #: src/ui/gamepad-mapper.vala:144
 msgid "Move suitable axis up/down on your gamepad"
-msgstr ""
+msgstr "Mugitu ardatz egokia zure joko-aginteko goiko/beheko aldera"
 
 #: src/ui/keyboard-mapper.vala:27
 msgid "Press suitable key on your keyboard"
-msgstr ""
+msgstr "Sakatu zure joko-aginteko botoi egokia"
 
 #: src/ui/media-menu-button.vala:50
 #, c-format
 msgid "Media %d"
-msgstr ""
+msgstr "%d multimedia"
 
 #: src/ui/preferences-page-backup-restore.vala:6
 msgid "Back Up & Restore"
@@ -1143,52 +1143,52 @@ msgstr "Izen hori duen gordetze-egoera badago lehendik"
 #: src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
 msgid "“%s” doesn’t have a track for index %u."
-msgstr ""
+msgstr "“%s”(e)k ez du pista bat %u indizerako."
 
 #: src/utils/cue-sheet/cue-sheet.vala:114
 #, c-format
 msgid "%s:%lu: Invalid file format %s, expected a valid file format or none."
-msgstr ""
+msgstr "%s:%lu: %s fitxategi-formatu baliogabea, baliozko fitxategi-formatua edo ezer ere ez espero zen."
 
 #: src/utils/cue-sheet/cue-sheet.vala:121
 #, c-format
 msgid "%s:%lu: Unexpected token TRACK before a FILE token."
-msgstr ""
+msgstr "%s:%lu: Espero gabeko PISTA tokena FITXATEGI token baten aurretik."
 
 #: src/utils/cue-sheet/cue-sheet.vala:130
 #, c-format
 msgid "%s:%lu: Invalid track number %s, expected a number in the 1-99 range."
-msgstr ""
+msgstr "%s:%lu: %s pista-zenbaki baliogabea, 1-99 barrutiko zenbaki bat espero zen."
 
 #: src/utils/cue-sheet/cue-sheet.vala:134
 #, c-format
 msgid "%s:%lu: Invalid track mode %s, expected a valid track mode."
-msgstr ""
+msgstr "%s:%lu: %s pista modu baliogabea, baliozko pista modua espero zen."
 
 #: src/utils/cue-sheet/cue-sheet.vala:141
 #, c-format
 msgid "%s:%lu: Unexpected end of file, expected %s."
-msgstr ""
+msgstr "%s:%lu: Espero gabeko fitxategi-amaiera, %s espero zen."
 
 #: src/utils/cue-sheet/cue-sheet.vala:144
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected %s."
-msgstr ""
+msgstr "%s:%lu: Espero gabeko %s tokena, %s espero zen."
 
 #: src/utils/cue-sheet/cue-sheet.vala:151
 #, c-format
 msgid "%s:%lu: Unexpected end of file, expected a token."
-msgstr ""
+msgstr "%s:%lu: Espero gabeko fitxategi-amaiera, tokena espero zen."
 
 #: src/utils/cue-sheet/cue-sheet.vala:154
 #, c-format
 msgid "%s:%lu: Unexpected end of line, expected a token."
-msgstr ""
+msgstr "%s:%lu: Espero gabeko lerro-amaiera, tokena espero zen."
 
 #: src/utils/cue-sheet/cue-sheet.vala:177
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
-msgstr ""
+msgstr "%s:%lu: Espero gabeko %s tokena, lerro-amaiera espero zen."
 
 #: src/utils/file-operations.vala:27
 #, c-format
