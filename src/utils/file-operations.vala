@@ -70,10 +70,10 @@ public class Games.FileOperations {
 		var file_type = export_dir.query_file_type (FileQueryInfoFlags.NOFOLLOW_SYMLINKS);
 
 		var entry = new Archive.Entry ();
-		var timeval = export_info.get_modification_time ();
+		var datetime = export_info.get_modification_date_time ();
 		entry.set_pathname (parent_working_dir.get_relative_path (export_dir));
 		entry.set_size ((Archive.int64_t) export_info.get_size ());
-		entry.set_mtime ((time_t) timeval.tv_sec, 0);
+		entry.set_mtime ((time_t) datetime.to_unix (), 0);
 		entry.set_perm (export_info.get_attribute_uint32 (FileAttribute.UNIX_MODE));
 
 		if (file_type == FileType.DIRECTORY)
