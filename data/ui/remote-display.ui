@@ -48,7 +48,7 @@
             <property name="use-markup">True</property>
             <property name="halign">center</property>
             <property name="vexpand">True</property>
-            <property name="label" translatable="yes">This game isn’t integrated to GNOME Games.</property>
+            <property name="label" translatable="yes">This game isn’t integrated with GNOME Games.</property>
             <style>
               <class name="dim-label"/>
             </style>
