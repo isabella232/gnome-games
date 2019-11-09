@@ -1,6 +1,12 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public class Games.SteamCover : Object, Cover {
+	private const string[] URIS = {
+		"http://cdn.akamai.steamstatic.com/steam/apps/%s/library_600x900_2x.jpg",
+		"http://cdn.akamai.steamstatic.com/steam/apps/%s/library_600x900.jpg",
+		"http://cdn.akamai.steamstatic.com/steam/apps/%s/header.jpg"
+	};
+
 	private string game_id;
 	private GLib.Icon icon;
 	private bool resolving;
@@ -23,8 +29,7 @@ public class Games.SteamCover : Object, Cover {
 
 		resolving = true;
 
-		var uri = @"http://cdn.akamai.steamstatic.com/steam/apps/$game_id/header.jpg";
-		fetch_cover.begin (uri);
+		fetch_covers.begin ();
 
 		return null;
 	}
@@ -35,7 +40,13 @@ public class Games.SteamCover : Object, Cover {
 		return @"$dir/steam-$game_id.jpg";
 	}
 
-	private async void fetch_cover (string uri) {
+	private async void fetch_covers () {
+		foreach (var uri in URIS)
+			if (yield fetch_cover (uri.printf (game_id)))
+				break;
+	}
+
+	private async bool fetch_cover (string uri) {
 		var dir = Application.get_covers_dir ();
 		Application.try_make_dir (dir);
 
@@ -43,21 +54,27 @@ public class Games.SteamCover : Object, Cover {
 
 		var session = new Soup.Session ();
 		var message = new Soup.Message ("GET", uri);
+		var success = false;
 
 		session.queue_message (message, (sess, mess) => {
 			if (mess.status_code != Soup.Status.OK) {
 				debug ("Failed to load %s: %u %s.", uri, mess.status_code, mess.reason_phrase);
-
+				fetch_cover.callback ();
 				return;
 			}
 
 			try {
 				FileUtils.set_data (cover_path, mess.response_body.data);
 				load_cover ();
+				success = true;
 			} catch (Error e) {
 				warning (e.message);
 			}
+
+			fetch_cover.callback ();
 		});
+		yield;
+		return success;
 	}
 
 	private void load_cover () {
