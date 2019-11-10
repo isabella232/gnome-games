@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-09-12 15:02+0000\n"
-"PO-Revision-Date: 2019-09-15 11:40+0200\n"
+"POT-Creation-Date: 2019-11-06 14:48+0000\n"
+"PO-Revision-Date: 2019-11-10 13:03+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -19,18 +19,18 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: data/org.gnome.Games.appdata.xml.in.in:6
+#: data/org.gnome.Games.appdata.xml.in.in:7
 #: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:48
 #: data/ui/collection-header-bar.ui:76 data/ui/display-header-bar.ui:16
 #: src/ui/application.vala:25
 msgid "Games"
 msgstr "Gry"
 
-#: data/org.gnome.Games.appdata.xml.in.in:7
+#: data/org.gnome.Games.appdata.xml.in.in:8
 msgid "Simple game launcher for GNOME"
 msgstr "Proste uruchamianie gier w środowisku GNOME"
 
-#: data/org.gnome.Games.appdata.xml.in.in:10
+#: data/org.gnome.Games.appdata.xml.in.in:11
 msgid ""
 "Games is a GNOME 3 application to browse your video games library and to "
 "easily pick and play a game from it. It aims to do for games what Music "
@@ -40,7 +40,7 @@ msgstr ""
 "i szybkie ich uruchamianie — podobnie jak Odtwarzacz muzyki GNOME umożliwia "
 "przeglądanie i odtwarzanie kolekcji muzyki."
 
-#: data/org.gnome.Games.appdata.xml.in.in:15
+#: data/org.gnome.Games.appdata.xml.in.in:16
 msgid ""
 "You want to install Games if you just want a very simple and comfortable way "
 "to play your games and you don’t need advanced features such as speedrunning "
@@ -50,27 +50,27 @@ msgstr ""
 "na uruchamianie gier bez specjalnych wodotrysków, takich jak narzędzia "
 "wspomagające speedrunning lub narzędzia dla programistów gier."
 
-#: data/org.gnome.Games.appdata.xml.in.in:20
+#: data/org.gnome.Games.appdata.xml.in.in:21
 msgid "Features:"
 msgstr "Funkcje:"
 
-#: data/org.gnome.Games.appdata.xml.in.in:22
+#: data/org.gnome.Games.appdata.xml.in.in:23
 msgid "List your installed games, your Steam games, your game ROMs…"
 msgstr "Lista zainstalowanych gier, gier na platformie Steam, ROM-ów itp."
 
-#: data/org.gnome.Games.appdata.xml.in.in:23
+#: data/org.gnome.Games.appdata.xml.in.in:24
 msgid "Search in your games collection"
 msgstr "Wyszukiwanie w kolekcji gier"
 
-#: data/org.gnome.Games.appdata.xml.in.in:24
+#: data/org.gnome.Games.appdata.xml.in.in:25
 msgid "Play your games"
 msgstr "Uruchamianie gier"
 
-#: data/org.gnome.Games.appdata.xml.in.in:25
+#: data/org.gnome.Games.appdata.xml.in.in:26
 msgid "Resume your game to where you left it"
 msgstr "Wstrzymywanie i wznawianie gier"
 
-#: data/org.gnome.Games.appdata.xml.in.in:204
+#: data/org.gnome.Games.appdata.xml.in.in:205
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
@@ -92,7 +92,7 @@ msgstr ""
 "pocket;neogeopocket;nes;nintendo;pegasus;pegazus;pico;playstation;psp;saturn;"
 "sega;sg-1000;snes;sony;turbografx;vita;wii;wii u;wiiu;wiiware;"
 
-#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:101
+#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:99
 msgid "Fullscreen"
 msgstr "Pełny ekran"
 
@@ -162,7 +162,7 @@ msgid "Search"
 msgstr "Wyszukaj"
 
 #: data/ui/collection-header-bar.ui:126 data/ui/display-header-bar.ui:29
-#: data/ui/display-header-bar.ui:162 data/ui/preferences-subpage-gamepad.ui:83
+#: data/ui/display-header-bar.ui:160 data/ui/preferences-subpage-gamepad.ui:83
 #: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:37
 #: data/ui/preferences-window.ui:78
 msgid "Back"
@@ -184,15 +184,15 @@ msgstr "Pomo_c"
 msgid "_About Games"
 msgstr "_O programie"
 
-#: data/ui/display-header-bar.ui:54
+#: data/ui/display-header-bar.ui:52
 msgid "Restore"
 msgstr "Przywróć"
 
-#: data/ui/display-header-bar.ui:141
+#: data/ui/display-header-bar.ui:139
 msgid "_Load"
 msgstr "_Wczytaj"
 
-#: data/ui/display-header-bar.ui:190
+#: data/ui/display-header-bar.ui:188
 msgid "_Savestates"
 msgstr "_Zapisy stanu"
 
@@ -324,7 +324,7 @@ msgid "Use the game’s own window to play it"
 msgstr "Należy użyć okna gry"
 
 #: data/ui/remote-display.ui:51
-msgid "This game isn’t integrated to GNOME Games."
+msgid "This game isn’t integrated with GNOME Games."
 msgstr "Ta gra nie jest zintegrowana z Grami GNOME."
 
 #: data/ui/remote-display.ui:64
@@ -712,20 +712,20 @@ msgstr "Mega-CD"
 msgid "Sega CD 32X"
 msgstr "Mega-CD 32X"
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:116
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:99
+#: plugins/sega-cd/src/sega-cd-plugin.vala:100
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:83
 #, c-format
 msgid "The file “%s” doesn’t have a track."
 msgstr "Plik „%s” nie ma ścieżki."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:122
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:105
+#: plugins/sega-cd/src/sega-cd-plugin.vala:106
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:89
 #, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr "Plik „%s” nie ma prawidłowego formatu pliku binarnego."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:125
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:108
+#: plugins/sega-cd/src/sega-cd-plugin.vala:109
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:92
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
 msgstr "Plik „%s” nie ma prawidłowego trybu ścieżki dla %d. ścieżki."
@@ -738,7 +738,7 @@ msgstr "Plik nie ma nagłówka konsoli Sega Saturn."
 msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:112
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:96
 #, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "Plik „%s” nie ma prawidłowego pliku binarnego konsoli Sega Saturn."
@@ -876,14 +876,6 @@ msgstr "Nie odnaleziono identyfikatora zestawu płyt dla identyfikatora „%s”
 msgid "No disc found for disc ID “%s”."
 msgstr "Nie odnaleziono płyty dla identyfikatora „%s”."
 
-#: src/grilo/grilo-players.vala:40
-msgid "Single-player"
-msgstr "Jednoosobowe"
-
-#: src/grilo/grilo-players.vala:42
-msgid "Multi-player"
-msgstr "Wieloosobowe"
-
 #: src/retro/retro-core-source.vala:29 src/retro/retro-core-source.vala:43
 #, c-format
 msgid "No module found for platform “%s” and MIME types [ “%s” ]."
@@ -915,26 +907,26 @@ msgstr ""
 "Ta gra do działania wymaga pliku oprogramowania sprzętowego %s o sumie "
 "kontrolnej SHA-512 „%s”."
 
-#: src/retro/retro-runner.vala:313
+#: src/retro/retro-runner.vala:315
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nie odnaleziono modułu dla „%s”."
 
-#: src/retro/retro-runner.vala:581
+#: src/retro/retro-runner.vala:583
 msgid "Unknown platform"
 msgstr "Nieznana platforma"
 
-#: src/retro/retro-runner.vala:606
+#: src/retro/retro-runner.vala:608
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Konsola „%s” nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: src/retro/retro-runner.vala:608
+#: src/retro/retro-runner.vala:610
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Konsola nie jest jeszcze obsługiwana, ale jest w planach."
 
 #. A list containing the names of all savestates with name of the form "New Savestate %d"
-#: src/retro/retro-runner.vala:618 src/retro/retro-runner.vala:644
+#: src/retro/retro-runner.vala:620 src/retro/retro-runner.vala:646
 #, c-format
 msgid "New savestate %s"
 msgstr "%s. zapis stanu"
@@ -1078,7 +1070,7 @@ msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2016-2019\n"
 "Aviary.pl <community-poland@mozilla.org>, 2016-2019"
 
-#: src/ui/application-window.vala:271 src/ui/application-window.vala:288
+#: src/ui/application-window.vala:273 src/ui/application-window.vala:290
 msgid "Playing a game"
 msgstr "W trakcie gry"
 
