@@ -283,6 +283,10 @@ public class Games.Application : Gtk.Application {
 			factory.add_mime_type (simple_type.mime_type);
 
 			game_collection.add_factory (factory);
+
+			var runner_factory = new RetroRunnerFactory (platform);
+
+			game_collection.add_runner_factory (runner_factory);
 		}
 
 		/* Register game types from the plugins */
