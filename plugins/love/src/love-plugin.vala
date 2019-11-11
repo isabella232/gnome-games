@@ -28,6 +28,13 @@ private class Games.LovePlugin : Object, Plugin {
 		return { factory };
 	}
 
+	public RunnerFactory[] get_runner_factories () {
+		var factory = new GenericRunnerFactory (create_runner);
+		factory.add_platform (platform);
+
+		return { factory };
+	}
+
 	private static Game game_for_uri (Uri uri) throws Error {
 		var uid = new FingerprintUid (uri, PLATFORM_UID_PREFIX);
 		var package = new LovePackage (uri);
@@ -42,6 +49,12 @@ private class Games.LovePlugin : Object, Plugin {
 		game.set_cover (cover);
 
 		return game;
+	}
+
+	private static Runner? create_runner (Game game) throws Error {
+		var uri = game.get_uri ();
+		string[] args = { "love", uri.to_string () };
+		return new CommandRunner (args);
 	}
 }
 
