@@ -32,6 +32,12 @@ private class Games.TurboGrafxCDPlugin : Object, Plugin {
 		return { factory };
 	}
 
+	public RunnerFactory[] get_runner_factories () {
+		var factory = new RetroRunnerFactory (platform);
+
+		return { factory };
+	}
+
 	private static Game game_for_uri (Uri uri) throws Error {
 		if (!is_valid_disc (uri))
 			throw new TurboGrafxCDError.INVALID_DISC ("“%s” isn’t a valid TurboGrafx-CD disc.", uri.to_string ());
