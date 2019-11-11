@@ -24,6 +24,13 @@ private class Games.MsDosPlugin : Object, Plugin {
 		return { factory };
 	}
 
+	public RunnerFactory[] get_runner_factories () {
+		var factory = new GenericRunnerFactory (create_runner);
+		factory.add_platform (platform);
+
+		return { factory };
+	}
+
 	private static Game game_for_uri (Uri uri) throws Error {
 		var uid = new FingerprintUid (uri, PLATFORM_UID_PREFIX);
 		var title = new FilenameTitle (uri);
@@ -47,6 +54,21 @@ private class Games.MsDosPlugin : Object, Plugin {
 		game.set_cover (cover);
 
 		return game;
+	}
+
+	private static Runner? create_runner (Game game) throws Error {
+		var core_source = new RetroCoreSource (platform);
+		var input_capabilities = new MsDosInputCapabilities ();
+
+		var builder = new RetroRunnerBuilder ();
+		builder.core_source = core_source;
+		builder.uri = game.get_uri ();
+		builder.uid = game.get_uid ();
+		builder.title = game.name;
+		builder.input_capabilities = input_capabilities;
+		var runner = builder.to_runner ();
+
+		return runner;
 	}
 }
 
