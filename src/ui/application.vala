@@ -457,4 +457,12 @@ public class Games.Application : Gtk.Application {
 
 		FileOperations.compress_dir (file_path, data_dir, database);
 	}
+
+	internal GameCollection get_collection () {
+		return game_collection;
+	}
+
+	internal new static Application get_default () {
+		return GLib.Application.get_default () as Application;
+	}
 }
