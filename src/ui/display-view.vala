@@ -306,24 +306,23 @@ private class Games.DisplayView : Object, UiView {
 	}
 
 	private Runner? try_get_runner (Game game) {
-		try {
-			var runner = game.get_runner ();
-			string error_message;
-			if (runner.try_init_phase_one (out error_message))
-				return runner;
-
+		var collection = Application.get_default ().get_collection ();
+		var runner = collection.create_runner (game);
+		if (runner == null) {
 			reset_display_page ();
-			box.display_running_game_failed (game, error_message);
+			box.display_running_game_failed (game, _("No runner found"));
 
 			return null;
 		}
-		catch (Error e) {
-			warning (e.message);
-			reset_display_page ();
-			box.display_running_game_failed (game, _("An unexpected error occurred."));
 
-			return null;
-		}
+		string error_message;
+		if (runner.try_init_phase_one (out error_message))
+			return runner;
+
+		reset_display_page ();
+		box.display_running_game_failed (game, error_message);
+
+		return null;
 	}
 
 	private Gtk.ResponseType prompt_resume_with_cancellable (Cancellable cancellable) {
