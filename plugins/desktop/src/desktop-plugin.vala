@@ -40,6 +40,13 @@ private class Games.DesktopPlugin : Object, Plugin {
 		return { factory };
 	}
 
+	public RunnerFactory[] get_runner_factories () {
+		var factory = new GenericRunnerFactory (create_runner);
+		factory.add_platform (platform);
+
+		return { factory };
+	}
+
 	private static Game game_for_uri (Uri uri) throws Error {
 		check_uri (uri);
 
@@ -61,6 +68,21 @@ private class Games.DesktopPlugin : Object, Plugin {
 		game.set_icon (icon);
 
 		return game;
+	}
+
+	private static Runner? create_runner (Game game) throws Error {
+		var uri = game.get_uri ();
+		var file = uri.to_file ();
+		var path = file.get_path ();
+
+		var app_info = new DesktopAppInfo.from_filename (path);
+
+		string[] args;
+		var command = app_info.get_commandline ();
+		if (!Shell.parse_argv (command, out args))
+			throw new CommandError.INVALID_COMMAND (_("Invalid command “%s”."), command);
+
+		return new CommandRunner (args);
 	}
 
 	private static void check_uri (Uri uri) throws Error {
