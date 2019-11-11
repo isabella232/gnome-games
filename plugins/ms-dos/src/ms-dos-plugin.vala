@@ -39,18 +39,7 @@ private class Games.MsDosPlugin : Object, Plugin {
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
 
-		var core_source = new RetroCoreSource (platform);
-		var input_capabilities = new MsDosInputCapabilities ();
-
-		var builder = new RetroRunnerBuilder ();
-		builder.core_source = core_source;
-		builder.uri = uri;
-		builder.uid = uid;
-		builder.title = title.get_title ();
-		builder.input_capabilities = input_capabilities;
-		var runner = builder.to_runner ();
-
-		var game = new GenericGame (uid, uri, title, platform, runner);
+		var game = new GenericGame (uid, uri, title, platform);
 		game.set_cover (cover);
 
 		return game;

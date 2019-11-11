@@ -24,13 +24,11 @@ public class Games.GenericGame : Object, Game {
 	private Icon game_icon;
 	private Cover game_cover;
 	private Platform game_platform;
-	private Runner game_runner;
 
-	public GenericGame (Uid uid, Uri uri, Title title, Platform platform, Runner runner) {
+	public GenericGame (Uid uid, Uri uri, Title title, Platform platform) {
 		game_uid = uid;
 		game_uri = uri;
 		game_title = title;
-		game_runner = runner;
 		game_platform = platform;
 	}
 
@@ -66,9 +64,5 @@ public class Games.GenericGame : Object, Game {
 
 	public Platform get_platform () {
 		return game_platform;
-	}
-
-	public Runner get_runner () throws Error {
-		return game_runner;
 	}
 }

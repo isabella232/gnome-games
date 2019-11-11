@@ -32,8 +32,4 @@ private class Games.DatabaseGame : Object, Game {
 	public Platform get_platform () {
 		return game.get_platform ();
 	}
-
-	public Runner get_runner () throws Error {
-		return game.get_runner ();
-	}
 }

@@ -19,16 +19,8 @@ private class Games.RetroSimpleGameUriAdapter : GameUriAdapter, Object {
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
-		var core_source = new RetroCoreSource (platform);
 
-		var builder = new RetroRunnerBuilder ();
-		builder.core_source = core_source;
-		builder.uri = uri;
-		builder.uid = uid;
-		builder.title = title.get_title ();
-		var runner = builder.to_runner ();
-
-		var game = new GenericGame (uid, uri, title, platform, runner);
+		var game = new GenericGame (uid, uri, title, platform);
 		game.set_cover (cover);
 
 		return game;

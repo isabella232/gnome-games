@@ -25,21 +25,12 @@ private class Games.MameGameUriAdapter : GameUriAdapter, Object {
 		title_string = title_string.split ("(")[0];
 		title_string = title_string.strip ();
 		var title = new GenericTitle (title_string);
-
 		var cover = new LocalCover (uri);
-		var core_source = new RetroCoreSource (platform);
-
-		var builder = new RetroRunnerBuilder ();
-		builder.core_source = core_source;
-		builder.uri = uri;
-		builder.uid = uid;
-		builder.title = title.get_title ();
-		var runner = builder.to_runner ();
 
 		Idle.add (this.game_for_uri.callback);
 		yield;
 
-		var game = new GenericGame (uid, uri, title, platform, runner);
+		var game = new GenericGame (uid, uri, title, platform);
 		game.set_cover (cover);
 
 		return game;

@@ -58,13 +58,7 @@ private class Games.DesktopPlugin : Object, Plugin {
 		var title = new DesktopTitle (app_info);
 		var icon = new DesktopIcon (app_info);
 
-		string[] args;
-		var command = app_info.get_commandline ();
-		if (!Shell.parse_argv (command, out args))
-			throw new CommandError.INVALID_COMMAND (_("Invalid command “%s”."), command);
-		var runner = new CommandRunner (args);
-
-		var game = new GenericGame (uid, uri, title, platform, runner);
+		var game = new GenericGame (uid, uri, title, platform);
 		game.set_icon (icon);
 
 		return game;

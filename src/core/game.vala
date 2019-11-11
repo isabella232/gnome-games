@@ -8,7 +8,6 @@ public interface Games.Game : Object {
 	public abstract Icon get_icon ();
 	public abstract Cover get_cover ();
 	public abstract Platform get_platform ();
-	public abstract Runner get_runner () throws Error;
 
 	public bool matches_search_terms (string[] search_terms) {
 		if (search_terms.length != 0)

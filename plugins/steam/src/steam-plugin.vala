@@ -70,14 +70,14 @@ private class Games.SteamPlugin : Object, Plugin {
 	}
 
 	private static Game game_for_steam_uri (Uri uri) throws Error {
-		return create_game (uri, "steam", "", { "steam" });
+		return create_game (uri, "steam", "");
 	}
 
 	private static Game game_for_flatpak_steam_uri (Uri uri) throws Error {
-		return create_game (uri, STEAM_APPID, "flatpak", { "flatpak", "run", STEAM_APPID });
+		return create_game (uri, STEAM_APPID, "flatpak");
 	}
 
-	private static Game create_game (Uri uri, string app_id, string prefix, string[] command) throws Error {
+	private static Game create_game (Uri uri, string app_id, string prefix) throws Error {
 		var file_uri = new Uri.from_uri_and_scheme (uri, "file");
 		var file = file_uri.to_file ();
 		var appmanifest_path = file.get_path ();
@@ -96,13 +96,7 @@ private class Games.SteamPlugin : Object, Plugin {
 		var icon = new SteamIcon (app_id, game_id);
 		var cover = new SteamCover (game_id);
 
-		string[] args = {};
-		foreach (var part in command)
-			args += part;
-		args += @"steam://rungameid/$game_id";
-		var runner = new CommandRunner (args);
-
-		var game = new GenericGame (uid, uri, title, platform, runner);
+		var game = new GenericGame (uid, uri, title, platform);
 		game.set_icon (icon);
 		game.set_cover (cover);
 

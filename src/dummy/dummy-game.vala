@@ -41,8 +41,4 @@ private class Games.DummyGame : Object, Game {
 	public Platform get_platform () {
 		return new DummyPlatform ();
 	}
-
-	public Runner get_runner () throws Error {
-		return new DummyRunner ();
-	}
 }
