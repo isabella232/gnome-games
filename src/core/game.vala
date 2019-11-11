@@ -4,6 +4,7 @@ public interface Games.Game : Object {
 	public abstract string name { get; }
 
 	public abstract Uid get_uid ();
+	public abstract Uri get_uri ();
 	public abstract Icon get_icon ();
 	public abstract Cover get_cover ();
 	public abstract Platform get_platform ();

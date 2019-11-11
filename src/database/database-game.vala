@@ -17,6 +17,10 @@ private class Games.DatabaseGame : Object, Game {
 		return database.get_uid (game.get_uid ());
 	}
 
+	public Uri get_uri () {
+		return game.get_uri ();
+	}
+
 	public Icon get_icon () {
 		return game.get_icon ();
 	}

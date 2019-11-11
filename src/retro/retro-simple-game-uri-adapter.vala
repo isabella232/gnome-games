@@ -28,7 +28,7 @@ private class Games.RetroSimpleGameUriAdapter : GameUriAdapter, Object {
 		builder.title = title.get_title ();
 		var runner = builder.to_runner ();
 
-		var game = new GenericGame (uid, title, platform, runner);
+		var game = new GenericGame (uid, uri, title, platform, runner);
 		game.set_cover (cover);
 
 		return game;

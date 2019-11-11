@@ -57,7 +57,7 @@ private class Games.DesktopPlugin : Object, Plugin {
 			throw new CommandError.INVALID_COMMAND (_("Invalid command “%s”."), command);
 		var runner = new CommandRunner (args);
 
-		var game = new GenericGame (uid, title, platform, runner);
+		var game = new GenericGame (uid, uri, title, platform, runner);
 		game.set_icon (icon);
 
 		return game;

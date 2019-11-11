@@ -19,14 +19,16 @@ public class Games.GenericGame : Object, Game {
 	}
 
 	private Uid game_uid;
+	private Uri game_uri;
 	private Title game_title;
 	private Icon game_icon;
 	private Cover game_cover;
 	private Platform game_platform;
 	private Runner game_runner;
 
-	public GenericGame (Uid uid, Title title, Platform platform, Runner runner) {
+	public GenericGame (Uid uid, Uri uri, Title title, Platform platform, Runner runner) {
 		game_uid = uid;
+		game_uri = uri;
 		game_title = title;
 		game_runner = runner;
 		game_platform = platform;
@@ -34,6 +36,10 @@ public class Games.GenericGame : Object, Game {
 
 	public Uid get_uid () {
 		return game_uid;
+	}
+
+	public Uri get_uri () {
+		return game_uri;
 	}
 
 	public Icon get_icon () {

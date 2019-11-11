@@ -39,7 +39,7 @@ private class Games.MameGameUriAdapter : GameUriAdapter, Object {
 		Idle.add (this.game_for_uri.callback);
 		yield;
 
-		var game = new GenericGame (uid, title, platform, runner);
+		var game = new GenericGame (uid, uri, title, platform, runner);
 		game.set_cover (cover);
 
 		return game;

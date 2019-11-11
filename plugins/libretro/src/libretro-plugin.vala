@@ -54,7 +54,7 @@ private class Games.LibretroPlugin : Object, Plugin {
 		builder.input_capabilities = input_capabilities;
 		var runner = builder.to_runner ();
 
-		var game = new GenericGame (uid, title, platform, runner);
+		var game = new GenericGame (uid, uri, title, platform, runner);
 		game.set_icon (icon);
 
 		return game;
