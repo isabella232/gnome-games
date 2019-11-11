@@ -62,6 +62,13 @@ private class Games.SteamPlugin : Object, Plugin {
 		return { factory, factory_flatpak };
 	}
 
+	public RunnerFactory[] get_runner_factories () {
+		var factory = new GenericRunnerFactory (create_runner);
+		factory.add_platform (platform);
+
+		return { factory };
+	}
+
 	private static Game game_for_steam_uri (Uri uri) throws Error {
 		return create_game (uri, "steam", "", { "steam" });
 	}
@@ -100,6 +107,43 @@ private class Games.SteamPlugin : Object, Plugin {
 		game.set_cover (cover);
 
 		return game;
+	}
+
+	private static Runner? create_runner (Game game) throws Error {
+		var uri = game.get_uri ();
+		var scheme = uri.get_scheme ();
+
+		string[] command;
+		switch (scheme) {
+		case STEAM_FILE_SCHEME:
+			command = { "steam" };
+			break;
+
+		case FLATPAK_STEAM_FILE_SCHEME:
+			command = { "flatpak", "run", STEAM_APPID };
+			break;
+
+		default:
+			assert_not_reached ();
+		}
+
+		/* FIXME: Deduplicate the following code with create_game() */
+		var file_uri = new Uri.from_uri_and_scheme (uri, "file");
+		var file = file_uri.to_file ();
+		var appmanifest_path = file.get_path ();
+		var registry = new SteamRegistry (appmanifest_path);
+		var game_id = registry.get_data ({"AppState", "appid"});
+		/* The gamegames_id sometimes is identified by appID
+		 * see issue https://github.com/Kekun/gnome-games/issues/169 */
+		if (game_id == null)
+			game_id = registry.get_data ({"AppState", "appID"});
+
+		if (game_id == null)
+			throw new SteamError.NO_APPID (_("Couldn’t get Steam appid from manifest “%s”."), appmanifest_path);
+
+		command += @"steam://rungameid/$game_id";
+		print(@"WTF $game_id\n");
+		return new CommandRunner (command);
 	}
 }
 
