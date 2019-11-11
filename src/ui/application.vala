@@ -313,6 +313,9 @@ public class Games.Application : Gtk.Application {
 
 				foreach (var factory in plugin.get_uri_game_factories ())
 					game_collection.add_factory (factory);
+
+				foreach (var factory in plugin.get_runner_factories ())
+					game_collection.add_runner_factory (factory);
 			}
 			catch (Error e) {
 				debug ("Error: %s", e.message);
