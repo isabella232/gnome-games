@@ -30,7 +30,14 @@ private class Games.LibretroPlugin : Object, Plugin {
 		return { factory };
 	}
 
-	private static Game game_for_uri (Uri uri) throws Error {
+	public RunnerFactory[] get_runner_factories () {
+		var factory = new GenericRunnerFactory (create_runner);
+		factory.add_platform (platform);
+
+		return { factory };
+	}
+
+	private static Retro.CoreDescriptor get_core_descriptor (Uri uri) throws Error {
 		var file_uri = new Uri.from_uri_and_scheme (uri, "file");
 		var file = file_uri.to_file ();
 		if (!file.query_exists ())
@@ -40,6 +47,12 @@ private class Games.LibretroPlugin : Object, Plugin {
 		var core_descriptor = new Retro.CoreDescriptor (path);
 		if (!core_descriptor.get_is_game ())
 			throw new LibretroError.NOT_A_GAME ("This Libretro core descriptor doesn't isn’t a game: %s", uri.to_string ());
+
+		return core_descriptor;
+	}
+
+	private static Game game_for_uri (Uri uri) throws Error {
+		var core_descriptor = get_core_descriptor (uri);
 
 		var uid = new LibretroUid (core_descriptor);
 		var title = new LibretroTitle (core_descriptor);
@@ -58,6 +71,20 @@ private class Games.LibretroPlugin : Object, Plugin {
 		game.set_icon (icon);
 
 		return game;
+	}
+
+	private static Runner? create_runner (Game game) throws Error {
+		var uri = game.get_uri ();
+		var core_descriptor = get_core_descriptor (uri);
+		var input_capabilities = new LibretroInputCapabilities ();
+
+		var builder = new RetroRunnerBuilder ();
+		builder.core_descriptor = core_descriptor;
+		builder.platform = platform;
+		builder.uid = game.get_uid ();
+		builder.title = game.name;
+		builder.input_capabilities = input_capabilities;
+		return builder.to_runner ();
 	}
 }
 
