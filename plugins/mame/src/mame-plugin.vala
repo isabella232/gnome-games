@@ -29,6 +29,12 @@ private class Games.MamePlugin : Object, Plugin {
 
 		return { factory };
 	}
+
+	public RunnerFactory[] get_runner_factories () {
+		var factory = new RetroRunnerFactory (platform);
+
+		return { factory };
+	}
 }
 
 [ModuleInit]
