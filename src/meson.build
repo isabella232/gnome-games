@@ -53,7 +53,6 @@ vala_sources = [
   'dummy/dummy-game.vala',
   'dummy/dummy-icon.vala',
   'dummy/dummy-platform.vala',
-  'dummy/dummy-runner.vala',
   'dummy/dummy-uid.vala',
 
   'gameinfo/gameinfo-doc.vala',
