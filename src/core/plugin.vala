@@ -16,4 +16,8 @@ public interface Games.Plugin : Object {
 	public virtual UriGameFactory[] get_uri_game_factories () {
 		return {};
 	}
+
+	public virtual RunnerFactory[] get_runner_factories () {
+		return {};
+	}
 }
