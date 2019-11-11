@@ -88,6 +88,7 @@ vala_sources = [
   'retro/retro-platform.vala',
   'retro/retro-runner.vala',
   'retro/retro-runner-builder.vala',
+  'retro/retro-runner-factory.vala',
   'retro/retro-simple-game-uri-adapter.vala',
   'retro/retro-simple-type.vala',
   'retro/retro-simple-types.vala',
