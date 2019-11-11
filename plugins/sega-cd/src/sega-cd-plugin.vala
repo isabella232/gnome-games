@@ -41,6 +41,13 @@ private class Games.SegaCDPlugin : Object, Plugin {
 		return { factory };
 	}
 
+	public RunnerFactory[] get_runner_factories () {
+		var factory_sega_cd = new RetroRunnerFactory (platform_sega_cd);
+		var factory_sega_cd_32x = new RetroRunnerFactory (platform_sega_cd_32x);
+
+		return { factory_sega_cd, factory_sega_cd_32x };
+	}
+
 	private static Game game_for_uri (Uri uri) throws Error {
 		var file = uri.to_file ();
 		var file_info = file.query_info (FileAttribute.STANDARD_CONTENT_TYPE, FileQueryInfoFlags.NONE);
