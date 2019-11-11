@@ -28,6 +28,12 @@ private class Games.GameCubePlugin : Object, Plugin {
 		return { factory };
 	}
 
+	public RunnerFactory[] get_runner_factories () {
+		var factory = new RetroRunnerFactory (platform);
+
+		return { factory };
+	}
+
 	private static Game game_for_uri (Uri uri) throws Error {
 		var file = uri.to_file ();
 		var header = new GameCubeHeader (file);
