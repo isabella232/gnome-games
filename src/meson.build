@@ -69,6 +69,7 @@ vala_sources = [
   'generic/generic-game.vala',
   'generic/generic-game-uri-adapter.vala',
   'generic/generic-platform.vala',
+  'generic/generic-runner-factory.vala',
   'generic/generic-title.vala',
   'generic/generic-uid.vala',
   'generic/generic-uri-game-factory.vala',
