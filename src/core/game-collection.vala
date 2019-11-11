@@ -88,6 +88,30 @@ private class Games.GameCollection : Object {
 		return true;
 	}
 
+	public Runner? create_runner (Game game) {
+		var platform = game.get_platform ();
+
+		if (!runner_factories_for_platforms.contains (platform))
+			return null;
+
+		var factories = runner_factories_for_platforms[platform];
+		if (factories == null)
+			return null;
+
+		foreach (var factory in factories.data) {
+			try {
+				var runner = factory.create_runner (game);
+				if (runner != null)
+					return runner;
+			}
+			catch (Error e) {
+				critical ("Couldn't create runner: %s", e.message);
+			}
+		}
+
+		return null;
+	}
+
 	private async UriGameFactory[] get_factories_for_uri (Uri uri) {
 		Idle.add (get_factories_for_uri.callback);
 		yield;
