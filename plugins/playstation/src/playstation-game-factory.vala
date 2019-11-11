@@ -7,6 +7,7 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 	private const string GAMEINFO = "resource:///org/gnome/Games/plugin/playstation/playstation.gameinfo.xml";
 
 	private static GameinfoDoc gameinfo;
+	private PlaystationGameinfoCache gameinfo_cache;
 
 	private HashTable<string, Media> media_for_disc_id;
 	private HashTable<Uri, Game> game_for_uri;
@@ -14,12 +15,13 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 	private GenericSet<Game> games;
 	private RetroPlatform platform;
 
-	public PlayStationGameFactory (RetroPlatform platform) {
+	public PlayStationGameFactory (RetroPlatform platform, PlaystationGameinfoCache gameinfo_cache) {
 		media_for_disc_id = new HashTable<string, Media> (str_hash, str_equal);
 		game_for_uri = new HashTable<Uri, Game> (Uri.hash, Uri.equal);
 		game_for_disc_set_id = new HashTable<string, Game> (GLib.str_hash, GLib.str_equal);
 		games = new GenericSet<Game> (direct_hash, direct_equal);
 		this.platform = platform;
+		this.gameinfo_cache = gameinfo_cache;
 	}
 
 	public string[] get_mime_types () {
@@ -125,6 +127,9 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		game_for_disc_set_id[disc_set_id] = game;
 		games.add (game);
 		game_added (game);
+
+		var input_capabilities = new GameinfoDiscIdInputCapabilities (gameinfo, disc_set_id);
+		gameinfo_cache.store_info (uri, media_set, input_capabilities);
 	}
 
 	public async void foreach_game (GameCallback game_callback) {
