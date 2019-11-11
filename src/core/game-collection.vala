@@ -6,9 +6,11 @@ private class Games.GameCollection : Object {
 	private GenericSet<Game> games;
 	private UriSource[] sources;
 	private UriGameFactory[] factories;
+	private RunnerFactory[] runner_factories;
 
 	private HashTable<string, Array<UriGameFactory>> factories_for_mime_type;
 	private HashTable<string, Array<UriGameFactory>> factories_for_scheme;
+	private HashTable<Platform, Array<RunnerFactory>> runner_factories_for_platforms;
 
 	public bool paused { get; set; }
 
@@ -16,6 +18,7 @@ private class Games.GameCollection : Object {
 		games = new GenericSet<Game> (Game.hash, Game.equal);
 		factories_for_mime_type = new HashTable<string, Array<UriGameFactory>> (str_hash, str_equal);
 		factories_for_scheme = new HashTable<string, Array<UriGameFactory>> (str_hash, str_equal);
+		runner_factories_for_platforms = new HashTable<Platform, Array<RunnerFactory>> (Platform.hash, Platform.equal);
 	}
 
 	public void add_source (UriSource source) {
@@ -38,6 +41,16 @@ private class Games.GameCollection : Object {
 		}
 
 		factory.game_added.connect ((game) => store_game (game));
+	}
+
+	public void add_runner_factory (RunnerFactory factory) {
+		runner_factories += factory;
+
+		foreach (var platform in factory.get_platforms ()) {
+			if (!runner_factories_for_platforms.contains (platform))
+				runner_factories_for_platforms[platform] = new Array<RunnerFactory> ();
+			runner_factories_for_platforms[platform].append_val (factory);
+		}
 	}
 
 	public string[] get_accepted_mime_types () {
