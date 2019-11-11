@@ -48,7 +48,7 @@ private class Games.TurboGrafxCDPlugin : Object, Plugin {
 		builder.core_source = core_source;
 		builder.uri = uri;
 		builder.uid = uid;
-		builder.title = title;
+		builder.title = title.get_title ();
 		var runner = builder.to_runner ();
 
 		var game = new GenericGame (uid, title, platform, runner);

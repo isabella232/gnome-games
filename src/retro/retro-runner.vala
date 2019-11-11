@@ -46,7 +46,7 @@ public class Games.RetroRunner : Object, Runner {
 	private Uid uid;
 	private InputCapabilities input_capabilities;
 	private Settings settings;
-	private Title game_title;
+	private string game_title;
 
 	private Savestate[] game_savestates;
 	private Savestate latest_savestate;
@@ -582,16 +582,15 @@ public class Games.RetroRunner : Object, Runner {
 			critical ("Unknown name for platform %s", platform_id);
 			platform_name = _("Unknown platform");
 		}
-		var title = game_title.get_title ();
 
 		// See http://www.libpng.org/pub/png/spec/iso/index-object.html#11textinfo
 		// for description of used keys. "Game Title" and "Platform" are
 		// non-standard fields as allowed by PNG specification.
 		pixbuf.save (screenshot_path, "png",
 		             "tEXt::Software", "GNOME Games",
-		             "tEXt::Title", @"Screenshot of $title on $platform_name",
+		             "tEXt::Title", @"Screenshot of $game_title on $platform_name",
 		             "tEXt::Creation Time", creation_time.to_string (),
-		             "tEXt::Game Title", title,
+		             "tEXt::Game Title", game_title,
 		             "tEXt::Platform", platform_name,
 		             null);
 	}

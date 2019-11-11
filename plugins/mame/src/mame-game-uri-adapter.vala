@@ -33,7 +33,7 @@ private class Games.MameGameUriAdapter : GameUriAdapter, Object {
 		builder.core_source = core_source;
 		builder.uri = uri;
 		builder.uid = uid;
-		builder.title = title;
+		builder.title = title.get_title ();
 		var runner = builder.to_runner ();
 
 		Idle.add (this.game_for_uri.callback);

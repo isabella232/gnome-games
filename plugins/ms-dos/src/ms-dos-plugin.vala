@@ -39,7 +39,7 @@ private class Games.MsDosPlugin : Object, Plugin {
 		builder.core_source = core_source;
 		builder.uri = uri;
 		builder.uid = uid;
-		builder.title = title;
+		builder.title = title.get_title ();
 		builder.input_capabilities = input_capabilities;
 		var runner = builder.to_runner ();
 

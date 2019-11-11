@@ -149,7 +149,7 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		builder.core_source = core_source;
 		builder.media_set = media_set;
 		builder.uid = uid;
-		builder.title = title;
+		builder.title = title.get_title ();
 		builder.input_capabilities = input_capabilities;
 		var runner = builder.to_runner ();
 

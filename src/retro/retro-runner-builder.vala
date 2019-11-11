@@ -2,7 +2,7 @@
 
 public class Games.RetroRunnerBuilder : Object {
 	public Uid uid { get; set; }
-	public Title title { get; set; }
+	public string title { get; set; }
 
 	private RetroCoreSource _core_source;
 	public RetroCoreSource core_source {

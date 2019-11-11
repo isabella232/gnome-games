@@ -50,7 +50,7 @@ private class Games.LibretroPlugin : Object, Plugin {
 		builder.core_descriptor = core_descriptor;
 		builder.platform = platform;
 		builder.uid = uid;
-		builder.title = title;
+		builder.title = title.get_title ();
 		builder.input_capabilities = input_capabilities;
 		var runner = builder.to_runner ();
 
