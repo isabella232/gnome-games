@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-11-06 14:48+0000\n"
-"PO-Revision-Date: 2019-11-08 12:30+0100\n"
+"POT-Creation-Date: 2019-11-11 22:07+0000\n"
+"PO-Revision-Date: 2019-11-13 12:59+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
@@ -322,7 +322,6 @@ msgid "Use the game’s own window to play it"
 msgstr "Use la propia ventana del juego para jugar."
 
 #: data/ui/remote-display.ui:51
-#| msgid "This game isn’t integrated to GNOME Games."
 msgid "This game isn’t integrated with GNOME Games."
 msgstr "Este juego no está integrado con Juegos de GNOME."
 
@@ -574,42 +573,42 @@ msgstr "Contribuir"
 msgid "Desktop"
 msgstr "Escritorio"
 
-#: plugins/desktop/src/desktop-plugin.vala:57
+#: plugins/desktop/src/desktop-plugin.vala:77
 #, c-format
 msgid "Invalid command “%s”."
 msgstr "Comando «%s» no válido."
 
-#: plugins/desktop/src/desktop-plugin.vala:70
+#: plugins/desktop/src/desktop-plugin.vala:86
 #, c-format
 msgid "Tracker listed file not found: “%s”."
 msgstr "Archivo listado del rastreador no encontrado: «%s»."
 
-#: plugins/desktop/src/desktop-plugin.vala:76
+#: plugins/desktop/src/desktop-plugin.vala:92
 #, c-format
 msgid "Couldn’t parse desktop entry “%s”."
 msgstr "No se pudo analizar la entrada del escritorio «%s»."
 
-#: plugins/desktop/src/desktop-plugin.vala:86
+#: plugins/desktop/src/desktop-plugin.vala:102
 #, c-format
 msgid "“%s” shouldn’t be displayed."
 msgstr "no se debe mostrar «%s»."
 
-#: plugins/desktop/src/desktop-plugin.vala:89
+#: plugins/desktop/src/desktop-plugin.vala:105
 #, c-format
 msgid "“%s” is hidden."
 msgstr "«%s» está oculto."
 
-#: plugins/desktop/src/desktop-plugin.vala:98
+#: plugins/desktop/src/desktop-plugin.vala:114
 #, c-format
 msgid "“%s” has blacklisted category “%s”."
 msgstr "«%s» tiene en lista negra la categoría «%s»."
 
-#: plugins/desktop/src/desktop-plugin.vala:107
+#: plugins/desktop/src/desktop-plugin.vala:123
 #, c-format
 msgid "“%s” has blacklisted executable “%s”."
 msgstr "«%s» tiene en lista negra el ejecutable «%s»."
 
-#: plugins/desktop/src/desktop-plugin.vala:114
+#: plugins/desktop/src/desktop-plugin.vala:130
 #, c-format
 msgid "“%s” is blacklisted."
 msgstr "«%s» está en lista negra."
@@ -711,20 +710,20 @@ msgstr "Sega CD"
 msgid "Sega CD 32X"
 msgstr "Sega CD 32X"
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:100
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:83
+#: plugins/sega-cd/src/sega-cd-plugin.vala:99
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:81
 #, c-format
 msgid "The file “%s” doesn’t have a track."
 msgstr "El archivo «%s» no tiene ninguna pista."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:106
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:89
+#: plugins/sega-cd/src/sega-cd-plugin.vala:105
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:87
 #, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr "El archivo «%s» no tiene un formato binario válido."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:109
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:92
+#: plugins/sega-cd/src/sega-cd-plugin.vala:108
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:90
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
 msgstr "El archivo «%s» no tiene ningún modo de pista válido para la pista %d."
@@ -737,7 +736,7 @@ msgstr "El archivo no tiene una cabecera de Sega Saturn."
 msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:96
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:94
 #, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "El archivo «%s» no tiene un archivo binario de Sega Saturn válido."
@@ -746,7 +745,8 @@ msgstr "El archivo «%s» no tiene un archivo binario de Sega Saturn válido."
 msgid "Steam"
 msgstr "Steam"
 
-#: plugins/steam/src/steam-plugin.vala:85
+#: plugins/steam/src/steam-plugin.vala:92
+#: plugins/steam/src/steam-plugin.vala:136
 #, c-format
 msgid "Couldn’t get Steam appid from manifest “%s”."
 msgstr "No se pudo obtener el appid de Steam del manifiesto «%s»."
@@ -917,17 +917,17 @@ msgstr "No se pudo encontrar un módulo apropiado para «%s»."
 msgid "Unknown platform"
 msgstr "Plataforma desconocida"
 
-#: src/retro/retro-runner.vala:608
+#: src/retro/retro-runner.vala:607
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "El sistema «%s» todavía no está soportado, pero llegará pronto."
 
-#: src/retro/retro-runner.vala:610
+#: src/retro/retro-runner.vala:609
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "El sistema todavía no está soportado, pero llegará pronto."
 
 #. A list containing the names of all savestates with name of the form "New Savestate %d"
-#: src/retro/retro-runner.vala:620 src/retro/retro-runner.vala:646
+#: src/retro/retro-runner.vala:619 src/retro/retro-runner.vala:645
 #, c-format
 msgid "New savestate %s"
 msgstr "Nuevo estado guardado %s"
@@ -1053,19 +1053,19 @@ msgstr "_Añadir"
 msgid "An unexpected error occurred while trying to run %s"
 msgstr "Ha ocurrido un error inesperado al intentar ejecutar %s"
 
-#: src/ui/application.vala:386
+#: src/ui/application.vala:393
 msgid "GNOME Games"
 msgstr "Juegos de GNOME"
 
-#: src/ui/application.vala:388
+#: src/ui/application.vala:395
 msgid "A video game player for GNOME"
 msgstr "Un reproductor de videojuegos para GNOME"
 
-#: src/ui/application.vala:392
+#: src/ui/application.vala:399
 msgid "Learn more about GNOME Games"
 msgstr "Más información acerca de Juegos de GNOME"
 
-#: src/ui/application.vala:399
+#: src/ui/application.vala:406
 msgid "translator-credits"
 msgstr ""
 "Daniel Mustieles <daniel.mustieles@gmail.com>, 2016, 2018, 2019\n"
@@ -1075,9 +1075,10 @@ msgstr ""
 msgid "Playing a game"
 msgstr "Jugando a un juego"
 
-#: src/ui/display-view.vala:323
-msgid "An unexpected error occurred."
-msgstr "Ha ocurrido un error inesperado."
+#: src/ui/display-view.vala:313
+#| msgid "No games found"
+msgid "No runner found"
+msgstr "No se encontró ningún corredor"
 
 #: src/ui/error-display.vala:13
 #, c-format
@@ -1280,6 +1281,9 @@ msgstr "Error: %s (%d)"
 #, c-format
 msgid "Error writing “%s”: %s (%d)"
 msgstr "Error al escribir «%s»: %s (%d)"
+
+#~ msgid "An unexpected error occurred."
+#~ msgstr "Ha ocurrido un error inesperado."
 
 #~ msgid "Single-player"
 #~ msgstr "Un jugador"
