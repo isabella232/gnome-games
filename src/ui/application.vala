@@ -349,6 +349,9 @@ public class Games.Application : Gtk.Application {
 	}
 
 	public void set_pause_loading (bool paused) {
+		if (game_collection.paused == paused)
+			return;
+
 		game_collection.paused = paused;
 
 		if (!paused)

@@ -13,6 +13,7 @@ private class Games.GameCollection : Object {
 	private HashTable<Platform, Array<RunnerFactory>> runner_factories_for_platforms;
 
 	public bool paused { get; set; }
+	private SourceFunc search_games_cb;
 
 	construct {
 		games = new GenericSet<Game> (Game.hash, Game.equal);
@@ -77,26 +78,31 @@ private class Games.GameCollection : Object {
 	}
 
 	public async void search_games () {
-		SourceFunc callback = search_games.callback;
+		if (search_games_cb != null)
+			return;
+
+		search_games_cb = search_games.callback;
 
 		ThreadFunc<void*> run = () => {
 			foreach (var source in sources)
 				foreach (var uri in source) {
 					if (paused) {
-						Idle.add ((owned) callback);
+						Idle.add ((owned) search_games_cb);
 						return null;
 					}
 
 					add_uri (uri);
 				}
 
-			Idle.add ((owned) callback);
+			Idle.add ((owned) search_games_cb);
 			return null;
 		};
 
 		new Thread<void*> (null, (owned) run);
 
 		yield;
+
+		search_games_cb = null;
 	}
 
 	public Runner? create_runner (Game game) {
