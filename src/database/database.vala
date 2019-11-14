@@ -18,13 +18,6 @@ private class Games.Database : Object {
 		SELECT EXISTS (SELECT 1 FROM game_resources WHERE uri=$URI LIMIT 1);
 	""";
 
-	private const string CREATE_METADATA_TABLE_QUERY = """
-		CREATE TABLE IF NOT EXISTS game_metadata (
-			uid TEXT PRIMARY KEY NOT NULL,
-			developer TEXT
-		) WITHOUT ROWID;
-	""";
-
 	public Database (string path) throws Error {
 		if (Sqlite.Database.open (path, out database) != Sqlite.OK)
 			throw new DatabaseError.COULDNT_OPEN ("Couldn’t open the database for “%s”.", path);
@@ -63,13 +56,8 @@ private class Games.Database : Object {
 		return new DatabaseUriSource (database);
 	}
 
-	public DatabaseUid get_uid (Uid uid) {
-		return new DatabaseUid (database, uid);
-	}
-
 	private void create_tables () throws Error {
 		exec (CREATE_RESOURCES_TABLE_QUERY, null);
-		exec (CREATE_METADATA_TABLE_QUERY, null);
 	}
 
 	private void exec (string query, Sqlite.Callback? callback) throws Error {

@@ -209,12 +209,7 @@ public class Games.Application : Gtk.Application {
 		init_game_sources ();
 		load_game_list.begin ();
 		ListStore list_store = new ListStore (typeof (Game));
-		game_collection.game_added.connect ((game) => {
-			if (database != null)
-				list_store.append (new DatabaseGame (database, game));
-			else
-				list_store.append (game);
-		});
+		game_collection.game_added.connect (game => list_store.append (game));
 
 		if (window != null) {
 			window.present_with_time (Gtk.get_current_event_time ());
