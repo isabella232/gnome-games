@@ -145,10 +145,6 @@ public class Games.Application : Gtk.Application {
 	}
 
 	public void add_game_files () {
-		add_game_files_async.begin ();
-	}
-
-	public async void add_game_files_async () {
 		var chooser = new Gtk.FileChooserDialog (
 			_("Select game files"), window, Gtk.FileChooserAction.OPEN,
 			_("_Cancel"), Gtk.ResponseType.CANCEL,
@@ -165,7 +161,7 @@ public class Games.Application : Gtk.Application {
 		if (chooser.run () == Gtk.ResponseType.ACCEPT)
 			foreach (unowned string uri_string in chooser.get_uris ()) {
 				var uri = new Uri (uri_string);
-				yield add_cached_uri (uri);
+				add_cached_uri (uri);
 			}
 
 		chooser.close ();
@@ -188,7 +184,7 @@ public class Games.Application : Gtk.Application {
 
 		// FIXME: This is done because files[0] gets freed after yield
 		var file = files[0];
-		var game = yield game_for_uris (uris);
+		var game = game_for_uris (uris);
 
 		if (game == null) {
 			var filename = file.get_basename ();
@@ -328,16 +324,16 @@ public class Games.Application : Gtk.Application {
 		Migrator.apply_migration_if_necessary ();
 	}
 
-	private async Game? game_for_uris (Uri[] uris) {
+	private Game? game_for_uris (Uri[] uris) {
 		init_game_sources ();
 
 		foreach (var uri in uris)
-			yield add_cached_uri (uri);
+			add_cached_uri (uri);
 
-		return yield game_collection.query_game_for_uri (uris[0]);
+		return game_collection.query_game_for_uri (uris[0]);
 	}
 
-	private async void add_cached_uri (Uri uri) {
+	private void add_cached_uri (Uri uri) {
 		try {
 			if (database != null)
 					database.add_uri (uri);
@@ -346,12 +342,11 @@ public class Games.Application : Gtk.Application {
 			debug (e.message);
 		}
 
-		yield game_collection.add_uri (uri);
+		game_collection.add_uri (uri);
 	}
 
 	internal async void load_game_list () {
-		if (!yield game_collection.search_games ())
-			return;
+		yield game_collection.search_games ();
 
 		game_list_loaded = true;
 		if (window != null)
@@ -361,7 +356,8 @@ public class Games.Application : Gtk.Application {
 	public void set_pause_loading (bool paused) {
 		game_collection.paused = paused;
 
-		load_game_list.begin ();
+		if (!paused)
+			load_game_list.begin ();
 	}
 
 	private void preferences () {

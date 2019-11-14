@@ -8,7 +8,7 @@ private struct Games.MameGameInfo {
 	public string company;
 	public string name;
 
-	public static async HashTable<string, MameGameInfo?> get_supported_games () throws Error {
+	public static HashTable<string, MameGameInfo?> get_supported_games () throws Error {
 		if (supported_games != null)
 			return supported_games;
 
@@ -23,9 +23,6 @@ private struct Games.MameGameInfo {
 			var quoted = " *\" *(.*?) *\" *";
 			var pattern = @"$simple,$simple,$simple,$simple,$simple,$simple,$simple,$simple,$quoted,$quoted,$simple(?:,$simple)?";
 			game_regex = new Regex ("^GAMEL?\\(" + pattern + "\\) *$");
-
-			Idle.add (get_supported_games.callback);
-			yield;
 		}
 
 		var lines = text.split ("\n");
@@ -40,9 +37,6 @@ private struct Games.MameGameInfo {
 				name = cleanup_string (match_info.fetch (10)) // FULLNAME
 			};
 			supported_games[game_info.id] = game_info;
-
-			Idle.add (get_supported_games.callback);
-			yield;
 		}
 
 		return supported_games;

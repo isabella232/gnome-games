@@ -40,7 +40,7 @@ private class Games.GameCollection : Object {
 			factories_for_scheme[scheme].append_val (factory);
 		}
 
-		factory.game_added.connect ((game) => store_game (game));
+		factory.set_game_added_callback (store_game);
 	}
 
 	public void add_runner_factory (RunnerFactory factory) {
@@ -57,15 +57,15 @@ private class Games.GameCollection : Object {
 		return factories_for_mime_type.get_keys_as_array ();
 	}
 
-	public async void add_uri (Uri uri) {
-		foreach (var factory in yield get_factories_for_uri (uri))
-			yield factory.add_uri (uri);
+	public void add_uri (Uri uri) {
+		foreach (var factory in get_factories_for_uri (uri))
+			factory.add_uri (uri);
 	}
 
-	public async Game? query_game_for_uri (Uri uri) {
+	public Game? query_game_for_uri (Uri uri) {
 		Game[] games = {};
-		foreach (var factory in yield get_factories_for_uri (uri)) {
-			var game = yield factory.query_game_for_uri (uri);
+		foreach (var factory in get_factories_for_uri (uri)) {
+			var game = factory.query_game_for_uri (uri);
 			if (game != null)
 				games += game;
 		}
@@ -76,16 +76,27 @@ private class Games.GameCollection : Object {
 		return games[0];
 	}
 
-	public async bool search_games () {
-		foreach (var source in sources)
-			foreach (var uri in source) {
-				if (paused)
-					return false;
+	public async void search_games () {
+		SourceFunc callback = search_games.callback;
 
-				yield add_uri (uri);
-			}
+		ThreadFunc<void*> run = () => {
+			foreach (var source in sources)
+				foreach (var uri in source) {
+					if (paused) {
+						Idle.add ((owned) callback);
+						return null;
+					}
 
-		return true;
+					add_uri (uri);
+				}
+
+			Idle.add ((owned) callback);
+			return null;
+		};
+
+		new Thread<void*> (null, (owned) run);
+
+		yield;
 	}
 
 	public Runner? create_runner (Game game) {
@@ -112,10 +123,7 @@ private class Games.GameCollection : Object {
 		return null;
 	}
 
-	private async UriGameFactory[] get_factories_for_uri (Uri uri) {
-		Idle.add (get_factories_for_uri.callback);
-		yield;
-
+	private UriGameFactory[] get_factories_for_uri (Uri uri) {
 		UriGameFactory[] factories = {};
 
 		string scheme;
@@ -131,7 +139,7 @@ private class Games.GameCollection : Object {
 		if (scheme == "file") {
 			try {
 				var file = uri.to_file ();
-				foreach (var factory in yield get_factories_for_file (file))
+				foreach (var factory in get_factories_for_file (file))
 					factories += factory;
 			}
 			catch (Error e) {
@@ -146,7 +154,7 @@ private class Games.GameCollection : Object {
 		return factories;
 	}
 
-	private async UriGameFactory[] get_factories_for_file (File file) throws Error {
+	private UriGameFactory[] get_factories_for_file (File file) throws Error {
 		if (!file.query_exists ())
 			return {};
 
@@ -163,6 +171,9 @@ private class Games.GameCollection : Object {
 			return;
 
 		games.add (game);
-		game_added (game);
+		Idle.add (() => {
+			game_added (game);
+			return Source.REMOVE;
+		});
 	}
 }

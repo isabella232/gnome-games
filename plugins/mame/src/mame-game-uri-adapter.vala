@@ -7,8 +7,8 @@ private class Games.MameGameUriAdapter : GameUriAdapter, Object {
 		this.platform = platform;
 	}
 
-	public async Game game_for_uri (Uri uri) throws Error {
-		var supported_games = yield MameGameInfo.get_supported_games ();
+	public Game game_for_uri (Uri uri) throws Error {
+		var supported_games = MameGameInfo.get_supported_games ();
 
 		var file = uri.to_file ();
 		var game_id = file.get_basename ();
@@ -26,9 +26,6 @@ private class Games.MameGameUriAdapter : GameUriAdapter, Object {
 		title_string = title_string.strip ();
 		var title = new GenericTitle (title_string);
 		var cover = new LocalCover (uri);
-
-		Idle.add (this.game_for_uri.callback);
-		yield;
 
 		var game = new GenericGame (uid, uri, title, platform);
 		game.set_cover (cover);

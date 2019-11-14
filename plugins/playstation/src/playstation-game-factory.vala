@@ -14,6 +14,7 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 	private HashTable<string, Game> game_for_disc_set_id;
 	private GenericSet<Game> games;
 	private RetroPlatform platform;
+	private unowned GameCallback game_added_callback;
 
 	public PlayStationGameFactory (RetroPlatform platform, PlaystationGameinfoCache gameinfo_cache) {
 		media_for_disc_id = new HashTable<string, Media> (str_hash, str_equal);
@@ -28,17 +29,14 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		return { CUE_MIME_TYPE };
 	}
 
-	public async Game? query_game_for_uri (Uri uri) {
-		Idle.add (this.query_game_for_uri.callback);
-		yield;
-
+	public Game? query_game_for_uri (Uri uri) {
 		if (game_for_uri.contains (uri))
 			return game_for_uri[uri];
 
 		return null;
 	}
 
-	public async void add_uri (Uri uri) {
+	public void add_uri (Uri uri) {
 		try {
 			add_uri_with_error (uri);
 		}
@@ -126,13 +124,14 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		game_for_uri[uri] = game;
 		game_for_disc_set_id[disc_set_id] = game;
 		games.add (game);
-		game_added (game);
+		if (game_added_callback != null)
+			game_added_callback (game);
 
 		var input_capabilities = new GameinfoDiscIdInputCapabilities (gameinfo, disc_set_id);
 		gameinfo_cache.store_info (uri, media_set, input_capabilities);
 	}
 
-	public async void foreach_game (GameCallback game_callback) {
+	public void foreach_game (GameCallback game_callback) {
 		games.foreach ((game) => game_callback (game));
 	}
 
@@ -173,5 +172,9 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		gameinfo = new GameinfoDoc.from_data (buffer);
 
 		return gameinfo;
+	}
+
+	public void set_game_added_callback (GameCallback game_callback) {
+		game_added_callback = game_callback;
 	}
 }

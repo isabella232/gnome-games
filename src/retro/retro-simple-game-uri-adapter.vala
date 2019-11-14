@@ -9,10 +9,7 @@ private class Games.RetroSimpleGameUriAdapter : GameUriAdapter, Object {
 		this.platform = platform;
 	}
 
-	public async Game game_for_uri (Uri uri) throws Error {
-		Idle.add (this.game_for_uri.callback);
-		yield;
-
+	public Game game_for_uri (Uri uri) throws Error {
 		var uid = new FingerprintUid (uri, simple_type.prefix);
 		var title = new FilenameTitle (uri);
 		var media = new GriloMedia (title, simple_type.mime_type);

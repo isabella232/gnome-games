@@ -1,8 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public interface Games.UriGameFactory : Object {
-	public signal void game_added (Game game);
-
 	public virtual string[] get_mime_types () {
 		return {};
 	}
@@ -11,7 +9,8 @@ public interface Games.UriGameFactory : Object {
 		return {};
 	}
 
-	public abstract async void add_uri (Uri uri);
-	public abstract async Game? query_game_for_uri (Uri uri);
-	public abstract async void foreach_game (Games.GameCallback game_callback);
+	public abstract void add_uri (Uri uri);
+	public abstract Game? query_game_for_uri (Uri uri);
+	public abstract void foreach_game (GameCallback game_callback);
+	public abstract void set_game_added_callback (GameCallback game_callback);
 }
