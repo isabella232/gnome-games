@@ -3,15 +3,15 @@
 public class Games.LocalCover : Object, Cover {
 	private Uri uri;
 	private bool resolved;
-	private GLib.Icon? icon;
+	private File? file;
 
 	public LocalCover (Uri uri) {
 		this.uri = uri;
 	}
 
-	public GLib.Icon? get_cover () {
+	public File? get_cover () {
 		if (resolved)
-			return icon;
+			return file;
 
 		resolved = true;
 
@@ -28,10 +28,9 @@ public class Games.LocalCover : Object, Cover {
 		if (cover_path == null)
 			return null;
 
-		var file = File.new_for_path (cover_path);
-		icon = new FileIcon (file);
+		file = File.new_for_path (cover_path);
 
-		return icon;
+		return file;
 	}
 
 	private string? get_cover_path () throws Error {

@@ -24,6 +24,25 @@ public class Games.CoverLoader : Object {
 		});
 	}
 
+	private void get_dimensions (File file, int size, out int width, out int height) {
+		int w, h;
+		Gdk.Pixbuf.get_file_info (file.get_path (), out w, out h);
+
+		double aspect_ratio = (double) w / h;
+
+		width = w;
+		height = (int) (w / aspect_ratio);
+
+		if (width > h) {
+			width = size;
+			height = (int) (size / aspect_ratio);
+		}
+		else {
+			height = size;
+			width = (int) (size * aspect_ratio);
+		}
+	}
+
 	private void run_loader_thread () {
 		while (true) {
 			var request = request_queue.pop ();
@@ -36,18 +55,17 @@ public class Games.CoverLoader : Object {
 				continue;
 			}
 
-			var g_icon = game.get_cover ().get_cover ();
-			if (g_icon == null) {
+			var file = game.get_cover ().get_cover ();
+			if (file == null) {
 				run_callback (request, size, null);
 				continue;
 			}
 
-			var theme = Gtk.IconTheme.get_default ();
-			var lookup_flags = Gtk.IconLookupFlags.FORCE_SIZE | Gtk.IconLookupFlags.FORCE_REGULAR;
-			var icon_info = theme.lookup_by_gicon (g_icon, (int) size, lookup_flags);
+			int width, height;
+			get_dimensions (file, size, out width, out height);
 
 			try {
-				pixbuf = icon_info.load_icon ();
+				pixbuf = new Gdk.Pixbuf.from_file_at_scale (file.get_path (), width, height, false);
 				save_cover_cache_to_disk (game, pixbuf, size);
 			}
 			catch (Error e) {

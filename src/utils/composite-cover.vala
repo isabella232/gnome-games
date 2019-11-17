@@ -9,7 +9,7 @@ public class Games.CompositeCover : Object, Cover {
 			cover.changed.connect (on_cover_changed);
 	}
 
-	public GLib.Icon? get_cover () {
+	public GLib.File? get_cover () {
 		foreach (var cover in covers) {
 			var result_cover = cover.get_cover ();
 			if (result_cover != null)

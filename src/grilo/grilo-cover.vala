@@ -3,7 +3,7 @@
 public class Games.GriloCover : Object, Cover {
 	private GriloMedia media;
 	private Uid uid;
-	private GLib.Icon icon;
+	private File? file;
 	private bool resolving;
 	private string cover_path;
 
@@ -14,12 +14,12 @@ public class Games.GriloCover : Object, Cover {
 		resolving = false;
 	}
 
-	public GLib.Icon? get_cover () {
+	public GLib.File? get_cover () {
 		if (resolving)
-			return icon;
+			return file;
 
-		if (icon != null)
-			return icon;
+		if (file != null)
+			return file;
 
 		try {
 			load_cover ();
@@ -27,17 +27,15 @@ public class Games.GriloCover : Object, Cover {
 		catch (Error e) {
 			warning (e.message);
 
-			return icon;
+			return file;
 		}
 
-		if (icon != null)
-			return icon;
-
-		resolving = true;
+		if (file != null)
+			return file;
 
 		media.try_resolve_media ();
 
-		return icon;
+		return file;
 	}
 
 	private void on_media_resolved () {
@@ -106,8 +104,7 @@ public class Games.GriloCover : Object, Cover {
 		if (!FileUtils.test (cover_path, FileTest.EXISTS))
 			return;
 
-		var file = File.new_for_path (cover_path);
-		icon = new FileIcon (file);
+		file = File.new_for_path (cover_path);
 
 		changed ();
 	}

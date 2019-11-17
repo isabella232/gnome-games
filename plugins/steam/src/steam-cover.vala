@@ -8,7 +8,7 @@ public class Games.SteamCover : Object, Cover {
 	};
 
 	private string game_id;
-	private GLib.Icon icon;
+	private File? file;
 	private bool resolving;
 
 	public SteamCover (string game_id) {
@@ -16,16 +16,16 @@ public class Games.SteamCover : Object, Cover {
 		resolving = false;
 	}
 
-	public GLib.Icon? get_cover () {
+	public File? get_cover () {
 		if (resolving)
-			return icon;
+			return file;
 
-		if (icon != null)
-			return icon;
+		if (file != null)
+			return file;
 
 		load_cover ();
-		if (icon != null)
-			return icon;
+		if (file != null)
+			return file;
 
 		resolving = true;
 
@@ -83,8 +83,7 @@ public class Games.SteamCover : Object, Cover {
 		if (!FileUtils.test (cover_path, FileTest.EXISTS))
 			return;
 
-		var file = File.new_for_path (cover_path);
-		icon = new FileIcon (file);
+		file = File.new_for_path (cover_path);
 
 		changed ();
 	}

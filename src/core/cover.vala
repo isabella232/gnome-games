@@ -3,5 +3,5 @@
 public interface Games.Cover : Object {
 	public signal void changed ();
 
-	public abstract GLib.Icon? get_cover ();
+	public abstract File? get_cover ();
 }
