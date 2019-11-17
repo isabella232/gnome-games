@@ -7,47 +7,28 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 	private const double EMBLEM_SCALE = 0.125;
 	private const double ICON_SCALE = 0.75;
 
-	private Uid _uid;
-	public Uid uid {
-		get { return _uid; }
-		set {
-			if (_uid == value)
-				return;
-
-			_uid = value;
-
-			queue_draw ();
-		}
-	}
-
-	private Icon _icon;
-	public Icon icon {
-		get { return _icon; }
-		set {
-			if (_icon == value)
-				return;
-
-			_icon = value;
-
-			queue_draw ();
-		}
-	}
-
 	private ulong cover_changed_id;
-	private Cover _cover;
-	public Cover cover {
-		get { return _cover; }
+	private Uid uid;
+	private Icon icon;
+	private Cover cover;
+
+	private Game _game;
+	public Game game {
+		get { return _game; }
 		set {
-			if (_cover == value)
+			if (_game == value)
 				return;
 
-			if (_cover != null)
-				_cover.disconnect (cover_changed_id);
+			if (cover != null)
+				cover.disconnect (cover_changed_id);
 
-			_cover = value;
+			_game = value;
+			uid = game.get_uid ();
+			icon = game.get_icon ();
+			cover = game.get_cover ();
 
-			if (_cover != null)
-				cover_changed_id = _cover.changed.connect (invalidate_cover);
+			if (cover != null)
+				cover_changed_id = cover.changed.connect (invalidate_cover);
 
 			invalidate_cover ();
 		}

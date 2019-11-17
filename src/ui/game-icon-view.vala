@@ -10,9 +10,7 @@ private class Games.GameIconView : Gtk.Box {
 	public Game game { get; construct; }
 
 	construct {
-		thumbnail.uid = game.get_uid ();
-		thumbnail.icon = game.get_icon ();
-		thumbnail.cover = game.get_cover ();
+		thumbnail.game = game;
 		title.label = game.name;
 	}
 
