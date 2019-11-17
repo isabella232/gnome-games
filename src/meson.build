@@ -15,6 +15,7 @@ vala_sources = [
   'command/command-runner.vala',
 
   'core/cover.vala',
+  'core/cover-loader.vala',
   'core/game.vala',
   'core/game-callback.vala',
   'core/game-collection.vala',
