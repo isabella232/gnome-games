@@ -25,16 +25,19 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 			cover = game.get_cover ();
 
 			if (cover != null)
-				cover_changed_id = cover.changed.connect (invalidate_cover);
+				cover_changed_id = cover.changed.connect (() => {
+					try_load_cover = true;
+					queue_draw ();
+				});
 
-			invalidate_cover ();
+			queue_draw ();
 		}
 	}
 
-	private bool tried_loading_cover;
-	private Gdk.Pixbuf? cover_cache;
-	private int previous_cover_width;
-	private int previous_cover_height;
+	private Gdk.Pixbuf? cover_pixbuf;
+	private bool loading_cover;
+	private bool try_load_cover;
+	private int last_size;
 
 	public struct DrawingContext {
 		Cairo.Context cr;
@@ -42,6 +45,10 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 		Gtk.StateFlags state;
 		int width;
 		int height;
+	}
+
+	construct {
+		try_load_cover = true;
 	}
 
 	static construct {
@@ -177,107 +184,35 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 	}
 
 	private Gdk.Pixbuf? get_scaled_cover (DrawingContext context) {
-		if (previous_cover_width != context.width * scale_factor) {
-			previous_cover_width = context.width * scale_factor;
-			cover_cache = null;
-			tried_loading_cover = false;
-		}
-
-		if (previous_cover_height != context.height * scale_factor) {
-			previous_cover_height = context.height * scale_factor;
-			cover_cache = null;
-			tried_loading_cover = false;
-		}
-
-		if (cover_cache != null)
-			return cover_cache;
-
 		var size = int.min (context.width, context.height) * scale_factor;
 
-		load_cover_cache_from_disk (context, size);
-		if (cover_cache != null)
-			return cover_cache;
-
-		var g_icon = cover.get_cover ();
-		if (g_icon == null)
-			return null;
-
-		var theme = Gtk.IconTheme.get_default ();
-		var lookup_flags = Gtk.IconLookupFlags.FORCE_SIZE | Gtk.IconLookupFlags.FORCE_REGULAR;
-		var icon_info = theme.lookup_by_gicon (g_icon, (int) size, lookup_flags);
-
-		try {
-			cover_cache = icon_info.load_icon ();
-			save_cover_cache_to_disk (size);
-		}
-		catch (Error e) {
-			warning (@"Couldn’t load the icon: $(e.message)\n");
+		if (size != last_size) {
+			cover_pixbuf = null;
+			try_load_cover = true;
 		}
 
-		return cover_cache;
-	}
+		if (!try_load_cover)
+			return cover_pixbuf;
 
-	private void load_cover_cache_from_disk (DrawingContext context, int size) {
-		if (tried_loading_cover)
-			return;
+		var loader = Application.get_default ().get_cover_loader ();
 
-		tried_loading_cover = true;
+		last_size = size;
 
-		string cover_cache_path;
-		try {
-			cover_cache_path = get_cover_cache_path (size);
-		}
-		catch (Error e) {
-			critical (e.message);
+		try_load_cover = false;
+		loading_cover = true;
+		loader.fetch_cover (game, size, (s, pixbuf) => {
+			if (s != last_size) {
+				cover_pixbuf = null;
+				try_load_cover = true;
+			} else
+			if (pixbuf != null)
+				cover_pixbuf = pixbuf;
 
-			return;
-		}
+			loading_cover = false;
+			queue_draw ();
+		});
 
-		try {
-			cover_cache = new Gdk.Pixbuf.from_file_at_scale (cover_cache_path,
-			                                                 context.width * scale_factor,
-			                                                 context.height * scale_factor,
-			                                                 true);
-		}
-		catch (Error e) {
-			debug (e.message);
-		}
-	}
-
-	private void save_cover_cache_to_disk (int size) {
-		if (cover_cache == null)
-			return;
-
-		Application.try_make_dir (Application.get_covers_cache_dir (size));
-		var now = new GLib.DateTime.now_local ();
-		var creation_time = now.to_string ();
-
-		try {
-			var cover_cache_path = get_cover_cache_path (size);
-			cover_cache.save (cover_cache_path, "png",
-			                  "tEXt::Software", "GNOME Games",
-			                  "tEXt::Creation Time", creation_time.to_string (),
-			                  null);
-		}
-		catch (Error e) {
-			critical (e.message);
-		}
-	}
-
-	private string get_cover_cache_path (int size) throws Error {
-		var dir = Application.get_covers_cache_dir (size);
-
-		assert (uid != null);
-
-		var uid = uid.get_uid ();
-
-		return @"$dir/$uid.png";
-	}
-
-	private void invalidate_cover () {
-		cover_cache = null;
-		tried_loading_cover = false;
-		queue_draw ();
+		return cover_pixbuf;
 	}
 
 	private void draw_pixbuf (DrawingContext context, Gdk.Pixbuf pixbuf) {
