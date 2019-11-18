@@ -51,7 +51,6 @@ private class Games.SteamUriIterator : Object, UriIterator {
 			enumerator = file.enumerate_children (FileAttribute.STANDARD_NAME, 0);
 		}
 
-
 		FileInfo info = null;
 		do {
 			info = enumerator.next_file ();
