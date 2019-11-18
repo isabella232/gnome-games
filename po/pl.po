@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-11-06 14:48+0000\n"
-"PO-Revision-Date: 2019-11-10 13:03+0100\n"
+"POT-Creation-Date: 2019-11-11 22:07+0000\n"
+"PO-Revision-Date: 2019-11-18 14:33+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -574,42 +574,42 @@ msgstr "Dołącz do nas!"
 msgid "Desktop"
 msgstr "Gry komputerowe"
 
-#: plugins/desktop/src/desktop-plugin.vala:57
+#: plugins/desktop/src/desktop-plugin.vala:77
 #, c-format
 msgid "Invalid command “%s”."
 msgstr "Nieprawidłowe polecenie „%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:70
+#: plugins/desktop/src/desktop-plugin.vala:86
 #, c-format
 msgid "Tracker listed file not found: “%s”."
 msgstr "Nie odnaleziono pliku: „%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:76
+#: plugins/desktop/src/desktop-plugin.vala:92
 #, c-format
 msgid "Couldn’t parse desktop entry “%s”."
 msgstr "Nie można przetworzyć wpisu .desktop: „%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:86
+#: plugins/desktop/src/desktop-plugin.vala:102
 #, c-format
 msgid "“%s” shouldn’t be displayed."
 msgstr "Gra „%s” nie powinna być wyświetlana."
 
-#: plugins/desktop/src/desktop-plugin.vala:89
+#: plugins/desktop/src/desktop-plugin.vala:105
 #, c-format
 msgid "“%s” is hidden."
 msgstr "Gra „%s” jest ukryta."
 
-#: plugins/desktop/src/desktop-plugin.vala:98
+#: plugins/desktop/src/desktop-plugin.vala:114
 #, c-format
 msgid "“%s” has blacklisted category “%s”."
 msgstr "„%s” umieścił kategorię „%s” na czarnej liście."
 
-#: plugins/desktop/src/desktop-plugin.vala:107
+#: plugins/desktop/src/desktop-plugin.vala:123
 #, c-format
 msgid "“%s” has blacklisted executable “%s”."
 msgstr "„%s” umieścił plik wykonywalny „%s” na czarnej liście."
 
-#: plugins/desktop/src/desktop-plugin.vala:114
+#: plugins/desktop/src/desktop-plugin.vala:130
 #, c-format
 msgid "“%s” is blacklisted."
 msgstr "„%s” jest na czarnej liście."
@@ -712,20 +712,20 @@ msgstr "Mega-CD"
 msgid "Sega CD 32X"
 msgstr "Mega-CD 32X"
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:100
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:83
+#: plugins/sega-cd/src/sega-cd-plugin.vala:99
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:81
 #, c-format
 msgid "The file “%s” doesn’t have a track."
 msgstr "Plik „%s” nie ma ścieżki."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:106
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:89
+#: plugins/sega-cd/src/sega-cd-plugin.vala:105
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:87
 #, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr "Plik „%s” nie ma prawidłowego formatu pliku binarnego."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:109
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:92
+#: plugins/sega-cd/src/sega-cd-plugin.vala:108
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:90
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
 msgstr "Plik „%s” nie ma prawidłowego trybu ścieżki dla %d. ścieżki."
@@ -738,7 +738,7 @@ msgstr "Plik nie ma nagłówka konsoli Sega Saturn."
 msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:96
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:94
 #, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "Plik „%s” nie ma prawidłowego pliku binarnego konsoli Sega Saturn."
@@ -747,7 +747,8 @@ msgstr "Plik „%s” nie ma prawidłowego pliku binarnego konsoli Sega Saturn."
 msgid "Steam"
 msgstr "Steam"
 
-#: plugins/steam/src/steam-plugin.vala:85
+#: plugins/steam/src/steam-plugin.vala:92
+#: plugins/steam/src/steam-plugin.vala:136
 #, c-format
 msgid "Couldn’t get Steam appid from manifest “%s”."
 msgstr "Nie można uzyskać identyfikatora programu Steam z manifestu „%s”."
@@ -916,17 +917,17 @@ msgstr "Nie odnaleziono modułu dla „%s”."
 msgid "Unknown platform"
 msgstr "Nieznana platforma"
 
-#: src/retro/retro-runner.vala:608
+#: src/retro/retro-runner.vala:607
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Konsola „%s” nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: src/retro/retro-runner.vala:610
+#: src/retro/retro-runner.vala:609
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Konsola nie jest jeszcze obsługiwana, ale jest w planach."
 
 #. A list containing the names of all savestates with name of the form "New Savestate %d"
-#: src/retro/retro-runner.vala:620 src/retro/retro-runner.vala:646
+#: src/retro/retro-runner.vala:619 src/retro/retro-runner.vala:645
 #, c-format
 msgid "New savestate %s"
 msgstr "%s. zapis stanu"
@@ -1052,19 +1053,19 @@ msgstr "_Dodaj"
 msgid "An unexpected error occurred while trying to run %s"
 msgstr "Wystąpił nieoczekiwany błąd podczas uruchamiania „%s”"
 
-#: src/ui/application.vala:386
+#: src/ui/application.vala:393
 msgid "GNOME Games"
 msgstr "Gry GNOME"
 
-#: src/ui/application.vala:388
+#: src/ui/application.vala:395
 msgid "A video game player for GNOME"
 msgstr "Uruchamianie gier w środowisku GNOME"
 
-#: src/ui/application.vala:392
+#: src/ui/application.vala:399
 msgid "Learn more about GNOME Games"
 msgstr "Więcej informacji o Grach GNOME"
 
-#: src/ui/application.vala:399
+#: src/ui/application.vala:406
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2016-2019\n"
@@ -1074,9 +1075,9 @@ msgstr ""
 msgid "Playing a game"
 msgstr "W trakcie gry"
 
-#: src/ui/display-view.vala:323
-msgid "An unexpected error occurred."
-msgstr "Wystąpił nieoczekiwany błąd."
+#: src/ui/display-view.vala:313
+msgid "No runner found"
+msgstr "Nie odnaleziono programu uruchamiającego"
 
 #: src/ui/error-display.vala:13
 #, c-format
