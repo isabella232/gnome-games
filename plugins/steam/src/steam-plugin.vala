@@ -4,16 +4,20 @@ private class Games.SteamPlugin : Object, Plugin {
 	private const string STEAM_APPID = "com.valvesoftware.Steam";
 	private const string STEAM_FLATPAK_DIR = "/.var/app/" + STEAM_APPID;
 
-	private const string STEAM_FILE_SCHEME = "steam+file";
-	private const string FLATPAK_STEAM_FILE_SCHEME = "flatpak+steam+file";
+	private const string STEAM_SCHEME = "steam";
+	private const string FLATPAK_STEAM_SCHEME = "flatpak+steam";
 	private const string PLATFORM_ID = "Steam";
 	private const string PLATFORM_NAME = _("Steam");
 	private const string PLATFORM_UID_PREFIX = "steam";
 
 	private static Platform platform;
+	private static SteamGameData game_data;
+	private static SteamGameData flatpak_game_data;
 
 	static construct {
 		platform = new GenericPlatform (PLATFORM_ID, PLATFORM_NAME, PLATFORM_UID_PREFIX);
+		game_data = new SteamGameData ();
+		flatpak_game_data = new SteamGameData ();
 
 		// Add directories where Steam installs icons
 		var home = Environment.get_home_dir ();
@@ -34,14 +38,14 @@ private class Games.SteamPlugin : Object, Plugin {
 		UriSource[] sources = {};
 
 		try {
-			sources += new SteamUriSource (home, STEAM_FILE_SCHEME);
+			sources += new SteamUriSource (home, STEAM_SCHEME, game_data);
 		}
 		catch (Error e) {
 			debug (e.message);
 		}
 
 		try {
-			sources += new SteamUriSource (home + STEAM_FLATPAK_DIR, FLATPAK_STEAM_FILE_SCHEME);
+			sources += new SteamUriSource (home + STEAM_FLATPAK_DIR, FLATPAK_STEAM_SCHEME, flatpak_game_data);
 		}
 		catch (Error e) {
 			debug (e.message);
@@ -53,11 +57,11 @@ private class Games.SteamPlugin : Object, Plugin {
 	public UriGameFactory[] get_uri_game_factories () {
 		var game_uri_adapter = new GenericGameUriAdapter (game_for_steam_uri);
 		var factory = new GenericUriGameFactory (game_uri_adapter);
-		factory.add_scheme (STEAM_FILE_SCHEME);
+		factory.add_scheme (STEAM_SCHEME);
 
 		var game_uri_adapter_flatpak = new GenericGameUriAdapter (game_for_flatpak_steam_uri);
 		var factory_flatpak = new GenericUriGameFactory (game_uri_adapter_flatpak);
-		factory_flatpak.add_scheme (FLATPAK_STEAM_FILE_SCHEME);
+		factory_flatpak.add_scheme (FLATPAK_STEAM_SCHEME);
 
 		return { factory, factory_flatpak };
 	}
@@ -78,21 +82,28 @@ private class Games.SteamPlugin : Object, Plugin {
 	}
 
 	private static Game create_game (Uri uri, string app_id, string prefix) throws Error {
-		var file_uri = new Uri.from_uri_and_scheme (uri, "file");
-		var file = file_uri.to_file ();
-		var appmanifest_path = file.get_path ();
-		var registry = new SteamRegistry (appmanifest_path);
-		var game_id = registry.get_data ({"AppState", "appid"});
-		/* The gamegames_id sometimes is identified by appID
-		 * see issue https://github.com/Kekun/gnome-games/issues/169 */
-		if (game_id == null)
-			game_id = registry.get_data ({"AppState", "appID"});
+		var scheme = uri.get_scheme ();
 
-		if (game_id == null)
-			throw new SteamError.NO_APPID (_("Couldn’t get Steam appid from manifest “%s”."), appmanifest_path);
+		var uri_string = uri.to_string ();
+		var pos = uri_string.last_index_of ("/");
+		var game_id = uri_string.substring (pos + 1);
+
+		string game_title;
+		switch (scheme) {
+		case STEAM_SCHEME:
+			game_title = game_data.get_title (game_id);
+			break;
+
+		case FLATPAK_STEAM_SCHEME:
+			game_title = flatpak_game_data.get_title (game_id);
+			break;
+
+		default:
+			assert_not_reached ();
+		}
 
 		var uid = new SteamUid (prefix, game_id);
-		var title = new SteamTitle (registry);
+		var title = new GenericTitle (game_title);
 		var icon = new SteamIcon (app_id, game_id);
 		var cover = new SteamCover (game_id);
 
@@ -106,14 +117,15 @@ private class Games.SteamPlugin : Object, Plugin {
 	private static Runner? create_runner (Game game) throws Error {
 		var uri = game.get_uri ();
 		var scheme = uri.get_scheme ();
+		var steam_uri = new Uri.from_uri_and_scheme (uri, STEAM_SCHEME);
 
 		string[] command;
 		switch (scheme) {
-		case STEAM_FILE_SCHEME:
+		case STEAM_SCHEME:
 			command = { "steam" };
 			break;
 
-		case FLATPAK_STEAM_FILE_SCHEME:
+		case FLATPAK_STEAM_SCHEME:
 			command = { "flatpak", "run", STEAM_APPID };
 			break;
 
@@ -121,22 +133,7 @@ private class Games.SteamPlugin : Object, Plugin {
 			assert_not_reached ();
 		}
 
-		/* FIXME: Deduplicate the following code with create_game() */
-		var file_uri = new Uri.from_uri_and_scheme (uri, "file");
-		var file = file_uri.to_file ();
-		var appmanifest_path = file.get_path ();
-		var registry = new SteamRegistry (appmanifest_path);
-		var game_id = registry.get_data ({"AppState", "appid"});
-		/* The gamegames_id sometimes is identified by appID
-		 * see issue https://github.com/Kekun/gnome-games/issues/169 */
-		if (game_id == null)
-			game_id = registry.get_data ({"AppState", "appID"});
-
-		if (game_id == null)
-			throw new SteamError.NO_APPID (_("Couldn’t get Steam appid from manifest “%s”."), appmanifest_path);
-
-		command += @"steam://rungameid/$game_id";
-		print(@"WTF $game_id\n");
+		command += steam_uri.to_string ();
 		return new CommandRunner (command);
 	}
 }

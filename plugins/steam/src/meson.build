@@ -1,10 +1,10 @@
 vala_sources = [
   'steam-cover.vala',
   'steam-error.vala',
+  'steam-game-data.vala',
   'steam-icon.vala',
   'steam-plugin.vala',
   'steam-registry.vala',
-  'steam-title.vala',
   'steam-uri-iterator.vala',
   'steam-uri-source.vala',
   'steam-uid.vala',

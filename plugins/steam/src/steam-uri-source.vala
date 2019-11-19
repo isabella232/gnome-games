@@ -5,65 +5,57 @@ private class Games.SteamUriSource : Object, UriSource {
 	private const string STEAM_DIR = "/.steam";
 	// From the home directory.
 	private const string REGISTRY_PATH = "/.steam/registry.vdf";
-	// From the home directory.
-	private const string DEFAULT_INSTALL_DIR = "/.local/share/Steam";
-	// From an install directory.
-	private const string[] STEAMAPPS_DIRS = { "/SteamApps", "/steamapps" };
-	// From the default SteamApp directory.
-	private const string LIBRARY_DIRS_REG = "/libraryfolders.vdf";
 
-	private const string[] INSTALL_PATH_REGISTRY_PATH =
-		{ "Registry", "HKLM", "Software", "Valve", "Steam", "InstallPath" };
+	private const string[] APPS_REGISTRY_PATH =
+		{ "Registry", "HKCU", "Software", "Valve", "Steam", "Apps" };
 
-	private string[] directories;
 	private string uri_scheme;
+	private SteamGameData game_data;
 
-	public SteamUriSource (string base_dir, string uri_scheme) throws Error {
-		directories = {};
-
+	public SteamUriSource (string base_dir, string uri_scheme, SteamGameData game_data) throws Error {
 		this.uri_scheme = uri_scheme;
+		this.game_data = game_data;
 
 		var registry_path = base_dir + REGISTRY_PATH;
 		var registry = new SteamRegistry (registry_path);
-		var install_path = registry.get_data (INSTALL_PATH_REGISTRY_PATH);
 
 		// If `.steam` dir is a symlink, it could be pointing to another Steam
 		// installation, so skip it altogether to avoid duplicating games
 		if (FileUtils.test (base_dir + STEAM_DIR, FileTest.IS_SYMLINK))
 			return;
 
-		add_library (base_dir + DEFAULT_INSTALL_DIR);
+		var children = registry.get_children (APPS_REGISTRY_PATH);
+		foreach (var appid in children) {
+			var path = APPS_REGISTRY_PATH;
+			path += appid;
 
-		if (install_path == null)
-			return;
+			string name = null;
+			var installed = false;
 
-		add_library (install_path);
+			var app_children = registry.get_children (path);
+			foreach (var child in app_children) {
+				var lowercase = child.ascii_down ();
+				var child_path = path;
+				child_path += child;
+				if (lowercase == "name") {
+					name = registry.get_data (child_path).strip ();
+				}
+				else if (lowercase == "installed") {
+					var installed_value = registry.get_data (child_path);
+					installed = (installed_value == "1");
+				}
+			}
 
-		// `/LibraryFolders/$NUMBER` entries in the libraryfolders.vdf registry
-		// file are library directories.
-		foreach (var steamapps_dir in STEAMAPPS_DIRS) {
-			var install_steamapps_dir = install_path + steamapps_dir;
-			var file = File.new_for_path (install_steamapps_dir);
-			if (!file.query_exists ())
+			// Only entries that contain names are actual games.
+			// Others are DLC or tools like Proton.
+			if (name == null || !installed)
 				continue;
 
-			var library_reg_path = install_steamapps_dir + LIBRARY_DIRS_REG;
-			var library_reg = new SteamRegistry (library_reg_path);
-			foreach (var child in library_reg.get_children ({ "LibraryFolders" }))
-				if (/^\d+$/.match (child))
-					add_library (library_reg.get_data ({ "LibraryFolders", child }));
+			game_data.add_game (appid, name);
 		}
 	}
 
 	public UriIterator iterator () {
-		return new SteamUriIterator (directories, uri_scheme);
-	}
-
-	private void add_library (string library) {
-		foreach (var steamapps_dir in STEAMAPPS_DIRS) {
-			var library_steamapps_dir = library + steamapps_dir;
-			if (FileUtils.test (library_steamapps_dir, FileTest.EXISTS))
-				directories += library_steamapps_dir;
-		}
+		return new SteamUriIterator (uri_scheme, game_data);
 	}
 }
