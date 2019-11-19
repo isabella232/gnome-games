@@ -24,7 +24,7 @@ public class Games.CoverLoader : Object {
 		});
 	}
 
-	private void get_dimensions (File file, int size, out int width, out int height) {
+	private void get_dimensions (File file, int size, out int width, out int height, out int x, out int y) {
 		int w, h;
 		Gdk.Pixbuf.get_file_info (file.get_path (), out w, out h);
 
@@ -32,14 +32,18 @@ public class Games.CoverLoader : Object {
 
 		width = w;
 		height = (int) (w / aspect_ratio);
+		x = 0;
+		y = 0;
 
-		if (width > h) {
+		if (h > w) {
 			width = size;
 			height = (int) (size / aspect_ratio);
+			y = (height - size) / 2;
 		}
 		else {
 			height = size;
 			width = (int) (size * aspect_ratio);
+			x = (width - size) / 2;
 		}
 	}
 
@@ -61,11 +65,12 @@ public class Games.CoverLoader : Object {
 				continue;
 			}
 
-			int width, height;
-			get_dimensions (file, size, out width, out height);
+			int x, y, width, height;
+			get_dimensions (file, size, out width, out height, out x, out y);
 
 			try {
 				pixbuf = new Gdk.Pixbuf.from_file_at_scale (file.get_path (), width, height, false);
+				pixbuf = new Gdk.Pixbuf.subpixbuf (pixbuf, x, y, size, size);
 				save_cover_cache_to_disk (game, pixbuf, size);
 			}
 			catch (Error e) {
