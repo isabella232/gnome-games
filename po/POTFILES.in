@@ -48,7 +48,6 @@ plugins/sega-saturn/src/sega-saturn-header.vala
 plugins/sega-saturn/src/sega-saturn-plugin.vala
 plugins/steam/src/steam-plugin.vala
 plugins/steam/src/steam-registry.vala
-plugins/steam/src/steam-title.vala
 plugins/turbografx-cd/src/turbografx-cd-plugin.vala
 plugins/virtual-boy/src/virtual-boy-header.vala
 plugins/virtual-boy/src/virtual-boy-plugin.vala

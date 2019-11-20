@@ -23,7 +23,6 @@ plugins/sega-saturn/src/sega-saturn-header.c
 plugins/sega-saturn/src/sega-saturn-plugin.c
 plugins/steam/src/steam-plugin.c
 plugins/steam/src/steam-registry.c
-plugins/steam/src/steam-title.c
 plugins/turbografx-cd/src/turbografx-cd-plugin.c
 plugins/virtual-boy/src/virtual-boy-header.c
 plugins/virtual-boy/src/virtual-boy-plugin.c
