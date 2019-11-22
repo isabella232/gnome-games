@@ -41,6 +41,15 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release version="3.34.2" type="stable" date="2019-11-22" urgency="medium">
+      <description>
+        <p>Fixes:</p>
+        <ul>
+          <li>Skip junk files when migrating savestates from 3.32 or earlier</li>
+        </ul>
+        <p>Translation updates.</p>
+      </description>
+    </release>
     <release version="3.34.1" type="stable" date="2019-10-05" urgency="medium">
       <description>
         <p>Fixes:</p>

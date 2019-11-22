@@ -1,4 +1,15 @@
 ==============
+Version 3.34.2
+==============
+
+* Skip junk files when migrating savestates from 3.32 or earlier
+
+* Translation updates
+ Basque
+ Czech
+ Greek
+
+==============
 Version 3.34.1
 ==============
 
