@@ -1,4 +1,51 @@
 ==============
+Version 3.35.2
+==============
+
+* Performance
+ - Collection and cover loading are now threaded instead of using Vala's async
+   functions. Loading should be faster and shouldn't cause UI stuttering anymore
+ - Game runners are now created on demand when starting a game instead of being
+   created for every game on app startup
+ - Steam plugin was simplified and should work a bit faster
+
+* New-style vertical covers are now supported for Steam games
+
+* UI
+ - List savestate shortcuts in shortcuts dialog
+ - Use shorter date formats for savestates when possible
+ - Fix a grammar issue
+ - Stop styling Restore button in fullscreen mode
+
+* Fixes
+ - Don't show Steam tools, such as Proton, as games
+ - Skip junk files when migrating savestates from 3.32 or earlier
+ - MAME plugin now builds
+ - Fixed pointer input not working until saving the game
+ - Save directory is now properly loaded after a reset
+ - Nintendo DS screen mode is now reset to vertical after a reset
+ - Fixed opening savestate manager with GTK animations disabled
+ - Ensure bottom bar is always shown or hidden correctly on mobile
+ - Appdata now validates in strict mode
+
+* Dependencies:
+ - Minimum retro-gtk version has been increased to 0.18.0
+
+* Various cleanups
+
+* Translation updates
+ Basque
+ Brazilian Portuguese
+ Czech
+ Finnish
+ Hungarian
+ Italian
+ Polish
+ Spanish
+ Swedish
+ Turkish
+
+==============
 Version 3.34.0
 ==============
 

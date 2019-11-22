@@ -43,6 +43,38 @@
   </screenshots>
 
   <releases>
+    <release version="3.35.2" type="development" date="2019-11-22" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>Collection should now load faster and with less UI stuttering:
+            <ul>
+              <li>Collection and cover loading are now threaded instead of using Vala's async functions</li>
+              <li>Game runners are now created on demand when starting a game</li>
+              <li>Steam plugin was simplified and should work a bit faster</li>
+            </ul>
+          </li>
+          <li>New-style vertical covers are now supported for Steam games</li>
+          <li>List savestate shortcuts in shortcuts dialog</li>
+          <li>Use shorter date formats for savestates when possible</li>
+          <li>Fix a grammar issue</li>
+          <li>Stop styling Restore button in fullscreen mode</li>
+        </ul>
+        <p>Fixes:</p>
+        <ul>
+          <li>Don't show Steam tools, such as Proton, as games</li>
+          <li>Skip junk files when migrating savestates from 3.32 or earlier</li>
+          <li>MAME plugin now builds</li>
+          <li>Fixed pointer input not working until saving the game</li>
+          <li>Save directory is now properly loaded after a reset</li>
+          <li>Nintendo DS screen mode is now reset to vertical after a reset</li>
+          <li>Fixed opening savestate manager with GTK animations disabled</li>
+          <li>Ensure bottom bar is always shown or hidden correctly on mobile</li>
+          <li>Appdata now validates in strict mode</li>
+        </ul>
+        <p>Translation updates.</p>
+      </description>
+    </release>
     <release version="3.34.0" type="stable" date="2019-09-09" urgency="medium">
       <description>
         <p>Translation updates.</p>
