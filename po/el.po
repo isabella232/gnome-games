@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-09-17 17:40+0000\n"
-"PO-Revision-Date: 2019-11-19 13:40+0200\n"
+"POT-Creation-Date: 2019-11-22 22:31+0000\n"
+"PO-Revision-Date: 2019-11-26 23:29+0200\n"
 "Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
 "Language-Team: Greek, Modern (1453-) <gnome-el-list@gnome.org>\n"
 "Language: el\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 2.2.4\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:6
 #: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:48
@@ -72,7 +72,7 @@ msgstr "Παίξτε τα παιχνίδια σας"
 msgid "Resume your game to where you left it"
 msgstr "Συνεχίστε το παιχνίδι σας εκεί που το άφησατε"
 
-#: data/org.gnome.Games.appdata.xml.in.in:204
+#: data/org.gnome.Games.appdata.xml.in.in:225
 msgid "The GNOME Project"
 msgstr "Το έργο GNOME"
 
@@ -111,11 +111,11 @@ msgstr ""
 
 #: data/org.gnome.Games.gschema.xml:20
 msgid "Window maximized"
-msgstr ""
+msgstr "Μεγιστοποιημένο παράθυρο"
 
 #: data/org.gnome.Games.gschema.xml:21
 msgid "Window maximized state."
-msgstr ""
+msgstr "Κατάσταση μεγιστοποιημένου παραθύρου."
 
 #: data/org.gnome.Games.gschema.xml:25
 msgid "Window size"
@@ -123,7 +123,7 @@ msgstr "Μέγεθος παραθύρου"
 
 #: data/org.gnome.Games.gschema.xml:26
 msgid "Window size (width and height)."
-msgstr ""
+msgstr "Μέγεθος παραθύρου (πλάτος και ύψος)."
 
 #: data/org.gnome.Games.gschema.xml:32
 #, fuzzy
@@ -143,11 +143,11 @@ msgstr "Πλατφόρμες"
 
 #: data/ui/collection-box.ui:84
 msgid "Loading"
-msgstr ""
+msgstr "Γίνεται φόρτωση"
 
 #: data/ui/collection-header-bar.ui:25
 msgid "Add game files…"
-msgstr ""
+msgstr "Προσθήκη αρχείων παιχνιδιού…"
 
 #. Translators: tooltip for the application menu button
 #: data/ui/collection-header-bar.ui:44
@@ -166,22 +166,18 @@ msgid "Back"
 msgstr "Πίσω"
 
 #: data/ui/collection-header-bar.ui:179
-#| msgid "Preferences"
 msgid "Pr_eferences"
 msgstr "Π_ροτιμήσεις"
 
 #: data/ui/collection-header-bar.ui:187
-#| msgid "Keyboard Shortcuts"
 msgid "_Keyboard Shortcuts"
 msgstr "Συντομεύσεις _πληκτρολογίου"
 
 #: data/ui/collection-header-bar.ui:195
-#| msgid "Help"
 msgid "_Help"
 msgstr "_Βοήθεια"
 
 #: data/ui/collection-header-bar.ui:203
-#| msgid "Games"
 msgid "_About Games"
 msgstr "_Περί του Παιχνίδια"
 
@@ -191,7 +187,7 @@ msgstr "Επαναφορά"
 
 #: data/ui/display-header-bar.ui:141
 msgid "_Load"
-msgstr ""
+msgstr "_Φόρτωση"
 
 #: data/ui/display-header-bar.ui:190
 msgid "_Savestates"
@@ -206,7 +202,6 @@ msgstr ""
 "b>"
 
 #: data/ui/dummy-display.ui:53
-#| msgid "If you see this, this is a bug."
 msgid "If you see this, this is a bug. Please contact the developers."
 msgstr ""
 "Εάν βλέπετε αυτό, πρόκειται για ένα σφάλμα. Παρακαλούμε επικοινωνήστε με "
@@ -229,7 +224,7 @@ msgstr ""
 
 #: data/ui/input-mode-switcher.ui:36
 msgid "Keyboard Input"
-msgstr ""
+msgstr "Είσοδος από το πληκτρολόγιο"
 
 #: data/ui/media-menu-button.ui:13
 msgid "Media"
@@ -245,11 +240,10 @@ msgstr ""
 #: data/ui/preferences-page-backup-restore.ui:38
 #: src/ui/preferences-page-backup-restore.vala:34
 msgid "Back up save data"
-msgstr ""
+msgstr "Αντίγραφο ασφαλείας αποθηκευμένων δεδομένων"
 
 #: data/ui/preferences-page-backup-restore.ui:47
 #: src/ui/preferences-page-backup-restore.vala:36
-#| msgid "Back"
 msgid "_Back Up"
 msgstr "_Αντίγραφο ασφαλείας"
 
@@ -258,15 +252,17 @@ msgid ""
 "Restore save data for games from existing backup. This will replace existing "
 "saves and cannot be undone."
 msgstr ""
+"Επαναφορά αποθηκευμένων δεδομένων για τα παιχνίδια από υπάρχον αντίγραφο "
+"ασφαλείας.Αυτό θα αντικαταστήσει τα υπάρχοντα αποθηκευμένα παιχνίδια και δεν "
+"μπορεί να αναιρεθεί."
 
 #: data/ui/preferences-page-backup-restore.ui:90
 #: src/ui/preferences-page-backup-restore.vala:12
 msgid "Restore save data"
-msgstr ""
+msgstr "Επαναφορά αποθηκευμένων δεδομένων"
 
 #: data/ui/preferences-page-backup-restore.ui:99
 #: src/ui/preferences-page-backup-restore.vala:14
-#| msgid "Restore"
 msgid "_Restore"
 msgstr "_Επαναφορά"
 
@@ -325,10 +321,8 @@ msgid "Quit"
 msgstr "Έξοδος"
 
 #: data/ui/remote-display.ui:36
-#, fuzzy
-#| msgid "You have to use its own window to play it."
 msgid "Use the game’s own window to play it"
-msgstr "Πρέπει να χρησιμοποιήσετε το δικό του παράθυρο για να παίξετε."
+msgstr "Χρησιμοποιήστε το παράθυρο του παιχνιδιού για να παίξετε"
 
 #: data/ui/remote-display.ui:51
 #, fuzzy
@@ -401,7 +395,6 @@ msgid "General"
 msgstr "Γενικά"
 
 #: data/ui/shortcuts-window.ui:20
-#| msgid "Quit"
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Έξοδος"
@@ -411,7 +404,6 @@ msgid "Collection"
 msgstr "Συλλογή"
 
 #: data/ui/shortcuts-window.ui:33
-#| msgid "Search"
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Aναζήτηση"
@@ -434,7 +426,7 @@ msgstr ""
 #: data/ui/shortcuts-window.ui:60
 msgctxt "shortcut window"
 msgid "Select view"
-msgstr ""
+msgstr "Επιλογή προβολής"
 
 #: data/ui/shortcuts-window.ui:61
 msgctxt "shortcut window"
@@ -444,12 +436,12 @@ msgstr ""
 #: data/ui/shortcuts-window.ui:69 data/ui/shortcuts-window.ui:78
 msgctxt "shortcut window"
 msgid "Start game"
-msgstr ""
+msgstr "Έναρξη παιχνιδιού"
 
 #: data/ui/shortcuts-window.ui:70
 msgctxt "shortcut window"
 msgid "Start button"
-msgstr ""
+msgstr "Πλήκτρο εκκίνησης"
 
 #: data/ui/shortcuts-window.ui:79 data/ui/shortcuts-window.ui:124
 msgctxt "shortcut window"
@@ -473,7 +465,6 @@ msgid "Exit fullscreen"
 msgstr "Έξοδος πλήρους οθόνης"
 
 #: data/ui/shortcuts-window.ui:105 data/ui/shortcuts-window.ui:114
-#| msgid "Search in your games collection"
 msgctxt "shortcut window"
 msgid "Go back to the collection"
 msgstr "Μετακίνηση πίσω στη συλλογή"
@@ -506,12 +497,12 @@ msgstr "Nintendo DS"
 #: data/ui/shortcuts-window.ui:148
 #: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:38
 msgid "Screen Layout"
-msgstr ""
+msgstr "Διάταξη οθόνης"
 
 #: data/ui/shortcuts-window.ui:153
 msgctxt "shortcut window"
 msgid "Vertical"
-msgstr ""
+msgstr "Κατακόρυφος"
 
 #: data/ui/shortcuts-window.ui:160 data/ui/shortcuts-window.ui:168
 msgctxt "shortcut window"
@@ -531,11 +522,11 @@ msgstr "Από κάτω προς τα αριστερά"
 #: data/ui/shortcuts-window.ui:176
 msgctxt "shortcut window"
 msgid "Single screen"
-msgstr ""
+msgstr "Μια οθόνη"
 
 #: data/ui/shortcuts-window.ui:184
 msgid "Screen Switching"
-msgstr ""
+msgstr "Εναλλαγή οθόνης"
 
 #: data/ui/shortcuts-window.ui:189
 msgctxt "shortcut window"
@@ -550,7 +541,7 @@ msgstr ""
 #: data/ui/shortcuts-window.ui:205
 msgctxt "shortcut window"
 msgid "Toggle screen"
-msgstr ""
+msgstr "Εναλλαγή οθόνης"
 
 #: data/ui/shortcuts-window.ui:206
 msgctxt "shortcut window"
@@ -612,7 +603,7 @@ msgstr ""
 
 #: plugins/dreamcast/src/dreamcast-header.vala:54
 msgid "The file doesn’t have a Dreamcast header."
-msgstr ""
+msgstr "Το αρχείο δεν έχει κεφαλίδα Dreamcast."
 
 #: plugins/dreamcast/src/dreamcast-plugin.vala:6
 msgid "Dreamcast"
@@ -620,7 +611,7 @@ msgstr "Dreamcast"
 
 #: plugins/game-cube/src/game-cube-header.vala:20
 msgid "The file doesn’t have a Game Cube header."
-msgstr ""
+msgstr "Το αρχείο δεν έχει κεφαλίδα Game Cube."
 
 #: plugins/game-cube/src/game-cube-plugin.vala:6
 msgid "Nintendo GameCube"
@@ -646,7 +637,7 @@ msgstr ""
 
 #: plugins/mame/src/mame-plugin.vala:7
 msgid "Arcade"
-msgstr ""
+msgstr "Arcade"
 
 #: plugins/ms-dos/src/ms-dos-plugin.vala:6
 msgid "MS-DOS"
@@ -654,11 +645,11 @@ msgstr "MS-DOS"
 
 #: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:19
 msgid "Change Screen"
-msgstr ""
+msgstr "Αλλαγή οθόνης"
 
 #: plugins/nintendo-ds/src/nintendo-ds-layout.vala:50
 msgid "Vertical"
-msgstr ""
+msgstr "Κατακόρυφος"
 
 #: plugins/nintendo-ds/src/nintendo-ds-layout.vala:53
 #: plugins/nintendo-ds/src/nintendo-ds-layout.vala:56
@@ -667,15 +658,15 @@ msgstr ""
 
 #: plugins/nintendo-ds/src/nintendo-ds-layout.vala:59
 msgid "Single screen"
-msgstr ""
+msgstr "Μια οθόνη"
 
 #: plugins/nintendo-ds/src/nintendo-ds-layout.vala:69
 msgid "Bottom to the right"
-msgstr ""
+msgstr "Από κάτω προς τα δεξιά"
 
 #: plugins/nintendo-ds/src/nintendo-ds-layout.vala:72
 msgid "Bottom to the left"
-msgstr ""
+msgstr "Από κάτω προς τα αριστερά"
 
 #: plugins/playstation/src/playstation-header.vala:27
 #, c-format
@@ -726,7 +717,7 @@ msgstr ""
 
 #: plugins/sega-saturn/src/sega-saturn-header.vala:54
 msgid "The file doesn’t have a Sega Saturn header."
-msgstr ""
+msgstr "Το αρχείο δεν έχει κεφαλίδα Sega Saturn."
 
 #: plugins/sega-saturn/src/sega-saturn-plugin.vala:7
 msgid "Sega Saturn"
@@ -779,15 +770,15 @@ msgstr "Το αρχείο είναι πολύ μικρό."
 #: plugins/virtual-boy/src/virtual-boy-header.vala:26
 #, c-format
 msgid "Invalid Virtual Boy ROM header size: %s"
-msgstr ""
+msgstr "Μη έγκυρο μέγεθος κεφαλίδας ROM για Virtual Boy: %s"
 
 #: plugins/virtual-boy/src/virtual-boy-header.vala:38
 msgid "Invalid Virtual Boy ROM header size."
-msgstr ""
+msgstr "Μη έγκυρο μέγεθος κεφαλίδας ROM για Virtual Boy"
 
 #: plugins/virtual-boy/src/virtual-boy-header.vala:42
 msgid "The file doesn’t have a Virtual Boy ROM header."
-msgstr ""
+msgstr "Το αρχείο δεν έχει κεφαλίδα Virtual Boy ROM."
 
 #: plugins/virtual-boy/src/virtual-boy-header.vala:51
 #, c-format
@@ -811,7 +802,7 @@ msgstr ""
 
 #: plugins/wii/src/wii-header.vala:33 plugins/wii/src/wii-header.vala:44
 msgid "The file doesn’t have a Wii header."
-msgstr ""
+msgstr "Το αρχείο δεν έχει κεφαλίδα Wii."
 
 #: plugins/wii/src/wii-plugin.vala:6
 msgid "Wii"
@@ -843,7 +834,7 @@ msgstr ""
 
 #: src/dummy/dummy-platform.vala:9 src/dummy/dummy-platform.vala:17
 msgid "Unknown"
-msgstr ""
+msgstr "Άγνωστο"
 
 #: src/gameinfo/gameinfo-disc-id-disc-title.vala:24
 #, c-format
@@ -871,14 +862,12 @@ msgid "No disc found for disc ID “%s”."
 msgstr ""
 
 #: src/grilo/grilo-players.vala:40
-#, fuzzy
-#| msgid "Video game player"
 msgid "Single-player"
-msgstr "Aναπαραγωγέας  βιντεοπαιχνιδιών"
+msgstr "Ένας παίκτης"
 
 #: src/grilo/grilo-players.vala:42
 msgid "Multi-player"
-msgstr ""
+msgstr "Πολλοί παίκτες"
 
 #: src/retro/retro-core-source.vala:29 src/retro/retro-core-source.vala:43
 #, c-format
@@ -907,26 +896,26 @@ msgid ""
 "run."
 msgstr ""
 
-#: src/retro/retro-runner.vala:313
+#: src/retro/retro-runner.vala:315
 #, c-format
 msgid "No module found for “%s”."
 msgstr ""
 
-#: src/retro/retro-runner.vala:581
+#: src/retro/retro-runner.vala:583
 msgid "Unknown platform"
 msgstr "Άγνωστη πλατφόρμα"
 
-#: src/retro/retro-runner.vala:606
+#: src/retro/retro-runner.vala:608
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
 
-#: src/retro/retro-runner.vala:608
+#: src/retro/retro-runner.vala:610
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr ""
 
 #. A list containing the names of all savestates with name of the form "New Savestate %d"
-#: src/retro/retro-runner.vala:618 src/retro/retro-runner.vala:644
+#: src/retro/retro-runner.vala:620 src/retro/retro-runner.vala:646
 #, c-format
 msgid "New savestate %s"
 msgstr ""
@@ -957,10 +946,9 @@ msgid "Famicom Disk System"
 msgstr "Famicom Disk System"
 
 #: src/retro/retro-simple-type.vala:26
-#, fuzzy
 #| msgid "Games"
 msgid "Game Boy"
-msgstr "Παιχνίδια"
+msgstr "Game Boy"
 
 #: src/retro/retro-simple-type.vala:28
 msgid "Game Boy Color"
@@ -1038,11 +1026,10 @@ msgstr "WonderSwan Color"
 
 #: src/ui/application.vala:153
 msgid "Select game files"
-msgstr ""
+msgstr "Προσθήκη αρχείων παιχνιδιού"
 
 #: src/ui/application.vala:154 src/ui/preferences-page-backup-restore.vala:14
 #: src/ui/preferences-page-backup-restore.vala:36
-#| msgid "Cancel"
 msgid "_Cancel"
 msgstr "_Ακύρωση"
 
@@ -1089,11 +1076,11 @@ msgstr "Προέξυψε αποσδόκητο σφάλμα."
 #: src/ui/error-display.vala:13
 #, c-format
 msgid "Oops! Unable to run “%s”"
-msgstr ""
+msgstr "Και κλάμα η κυρία! Αδυναμία εκτέλεσης του «%s»"
 
 #: src/ui/error-display.vala:15
 msgid "Oops! Unable to run the game"
-msgstr ""
+msgstr "Και κλάμα η κυρία! Αδυναμία εκτέλεσης του παιχνιδιού"
 
 #: src/ui/gamepad-mapper.vala:137
 msgid "Press suitable button on your gamepad"
@@ -1137,7 +1124,7 @@ msgstr ""
 #: src/ui/preferences-page-platforms-retro-row.vala:45
 #: src/ui/preferences-page-platforms-retro-row.vala:52
 msgid "None"
-msgstr ""
+msgstr "Κανένας"
 
 #. same as video-filters in gschema
 #: src/ui/preferences-page-video.vala:22
@@ -1254,7 +1241,7 @@ msgstr "Σφάλμα: %s (%d)"
 #: src/utils/file-operations.vala:85
 #, c-format
 msgid "Error writing “%s”: %s (%d)"
-msgstr ""
+msgstr "Σφάλμα εγγραφής «%s»: %s (%d)"
 
 #~ msgid "Please contact the developers."
 #~ msgstr "Παρακαλούμε επικοινωνήστε με τους προγραμματιστές."
