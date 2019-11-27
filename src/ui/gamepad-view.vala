@@ -26,7 +26,10 @@ private class Games.GamepadView : Gtk.DrawingArea {
 				critical ("Could not set up gamepad view: %s", e.message);
 			}
 
-			set_size_request (handle.width, handle.height);
+			double width, height;
+			get_dimensions (out width, out height);
+
+			set_size_request ((int) width, (int) height);
 			input_highlights = new bool[value.input_paths.length];
 
 			reset ();
@@ -37,6 +40,21 @@ private class Games.GamepadView : Gtk.DrawingArea {
 		handle = new Rsvg.Handle ();
 		configuration = { "", new GamepadInputPath[0] };
 		input_highlights = {};
+	}
+
+	private void get_dimensions (out double width, out double height) {
+		bool has_width, has_height, has_viewbox;
+		Rsvg.Length handle_width, handle_height;
+		Rsvg.Rectangle viewbox;
+
+		handle.get_intrinsic_dimensions (out has_width, out handle_width,
+		                                 out has_height, out handle_height,
+		                                 out has_viewbox, out viewbox);
+
+		assert (has_width && has_height);
+
+		width = handle_width.length;
+		height = handle_height.length;
 	}
 
 	public void reset () {
@@ -98,12 +116,15 @@ private class Games.GamepadView : Gtk.DrawingArea {
 	}
 
 	private void calculate_image_dimensions (out double x, out double y, out double scale) {
-		double w = get_allocated_width ();
-		double h = get_allocated_height ();
+		double width = get_allocated_width ();
+		double height = get_allocated_height ();
 
-		scale = double.min (h / handle.height, w / handle.width);
+		double image_width, image_height;
+		get_dimensions (out image_width, out image_height);
 
-		x = (w - handle.width * scale) / 2;
-		y = (h - handle.height * scale) / 2;
+		scale = double.min (height / image_height, width / image_width);
+
+		x = (width - image_width * scale) / 2;
+		y = (height - image_height * scale) / 2;
 	}
 }
