@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
 "POT-Creation-Date: 2019-11-22 22:31+0000\n"
-"PO-Revision-Date: 2019-11-26 23:29+0200\n"
+"PO-Revision-Date: 2019-11-28 23:52+0200\n"
 "Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
 "Language-Team: Greek, Modern (1453-) <gnome-el-list@gnome.org>\n"
 "Language: el\n"
@@ -53,12 +53,9 @@ msgid "Features:"
 msgstr "Χαρακτηριστικά:"
 
 #: data/org.gnome.Games.appdata.xml.in.in:22
-#, fuzzy
-#| msgid "List your installed games, your Steam games, your game ROMs..."
 msgid "List your installed games, your Steam games, your game ROMs…"
 msgstr ""
-"Δείτε όλα τα εγκατεστημένα παιχνίδια σας, από το Steam καθώς και τα "
-"παιχνίδια ROM..."
+"Δείτε όλα τα εγκατεστημένα παιχνίδια σας, από το Steam καθώς και τις ROM…"
 
 #: data/org.gnome.Games.appdata.xml.in.in:23
 msgid "Search in your games collection"
@@ -95,13 +92,11 @@ msgstr "Πλήρης οθόνη"
 
 #: data/org.gnome.Games.gschema.xml:11
 msgid "Whether the games should be displayed in full screen or not."
-msgstr ""
+msgstr "Αν τα παιχνίδια θα εμφανίζονται σε πλήρη οθόνη ή όχι."
 
 #: data/org.gnome.Games.gschema.xml:15
-#, fuzzy
-#| msgid "Video game player"
 msgid "Video filter"
-msgstr "Aναπαραγωγέας  βιντεοπαιχνιδιών"
+msgstr "Φίλτρο βίντεο"
 
 #: data/org.gnome.Games.gschema.xml:16
 msgid ""
@@ -194,12 +189,8 @@ msgid "_Savestates"
 msgstr ""
 
 #: data/ui/dummy-display.ui:37
-#, fuzzy
-#| msgid "<b><span size=\"large\">This is a dummy game display</span></b>"
 msgid "This is a dummy game display"
-msgstr ""
-"<b><span size=\"large\">Αυτή είναι μια εικονική οθόνη του παιχνιδιού</span></"
-"b>"
+msgstr "Αυτή είναι μια εικονική οθόνη του παιχνιδιού"
 
 #: data/ui/dummy-display.ui:53
 msgid "If you see this, this is a bug. Please contact the developers."
@@ -325,8 +316,6 @@ msgid "Use the game’s own window to play it"
 msgstr "Χρησιμοποιήστε το παράθυρο του παιχνιδιού για να παίξετε"
 
 #: data/ui/remote-display.ui:51
-#, fuzzy
-#| msgid "This game isn't integrated to GNOME Games."
 msgid "This game isn’t integrated to GNOME Games."
 msgstr "Αυτό το παιχνίδι δεν είναι ενσωματωμένο στα Παιχνίδια GNOME."
 
@@ -363,7 +352,7 @@ msgstr "Συνέχεια"
 
 #: data/ui/resume-failed-dialog.ui:9
 msgid "Resuming failed. Do you want to restart the game?"
-msgstr ""
+msgstr "Η συνέχιση απέτυχε. Θέλετε να κάνετε επανεκκίνηση του παιχνιδιού;"
 
 #: data/ui/resume-failed-dialog.ui:20
 msgctxt "Resuming a game failed dialog"
@@ -411,7 +400,7 @@ msgstr "Aναζήτηση"
 #: data/ui/shortcuts-window.ui:42 data/ui/shortcuts-window.ui:51
 msgctxt "shortcut window"
 msgid "Navigate"
-msgstr ""
+msgstr "Περιήγηση"
 
 #: data/ui/shortcuts-window.ui:43
 msgctxt "shortcut window"
@@ -449,15 +438,13 @@ msgid "Bottom action button"
 msgstr ""
 
 #: data/ui/shortcuts-window.ui:86
-#, fuzzy
-#| msgid "Games"
 msgid "In Game"
-msgstr "Παιχνίδια"
+msgstr "Στο παιχνίδι"
 
 #: data/ui/shortcuts-window.ui:91
 msgctxt "shortcut window"
 msgid "Toggle fullscreen"
-msgstr ""
+msgstr "Εναλλαγή πλήρους οθόνης"
 
 #: data/ui/shortcuts-window.ui:98
 msgctxt "shortcut window"
@@ -507,7 +494,7 @@ msgstr "Κατακόρυφος"
 #: data/ui/shortcuts-window.ui:160 data/ui/shortcuts-window.ui:168
 msgctxt "shortcut window"
 msgid "Side by side"
-msgstr ""
+msgstr "Πλάι πλάι"
 
 #: data/ui/shortcuts-window.ui:161
 msgctxt "shortcut window"
@@ -633,7 +620,7 @@ msgstr "LÖVE"
 #: plugins/mame/src/mame-game-uri-adapter.vala:18
 #, c-format
 msgid "Invalid MAME game id “%s” for “%s”."
-msgstr ""
+msgstr "Μη έγκυρο αναγνωριστικό παιχνιδιού MAME «%s» για «%s»."
 
 #: plugins/mame/src/mame-plugin.vala:7
 msgid "Arcade"
@@ -654,7 +641,7 @@ msgstr "Κατακόρυφος"
 #: plugins/nintendo-ds/src/nintendo-ds-layout.vala:53
 #: plugins/nintendo-ds/src/nintendo-ds-layout.vala:56
 msgid "Side by side"
-msgstr ""
+msgstr "Πλάι πλάι"
 
 #: plugins/nintendo-ds/src/nintendo-ds-layout.vala:59
 msgid "Single screen"
@@ -685,7 +672,7 @@ msgstr "PlayStation"
 #: plugins/sega-cd/src/sega-cd-header.vala:44
 #: plugins/sega-cd/src/sega-cd-header.vala:63
 msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
-msgstr ""
+msgstr "Το αρχείο δεν έχει κεφαλίδα για Genesis/Sega 32X/Sega CD/Sega Pico."
 
 #. translators: known as "Mega-CD" in most of the world
 #: plugins/sega-cd/src/sega-cd-plugin.vala:13
@@ -744,15 +731,15 @@ msgstr "Το αρχείο «%s» δεν υπάρχει."
 
 #: plugins/steam/src/steam-registry.vala:96
 msgid "Unexpected token '{'."
-msgstr ""
+msgstr "Απροσδόκητο διακριτικό '{'."
 
 #: plugins/steam/src/steam-registry.vala:110
 msgid "Unexpected end of tokens."
-msgstr ""
+msgstr "Απροσδόκητο τέλος των διακριτικών."
 
 #: plugins/steam/src/steam-registry.vala:113
 msgid "Unexpected token '}'."
-msgstr ""
+msgstr "Απροσδόκητο διακριτικό '}'."
 
 #: plugins/steam/src/steam-title.vala:17
 msgid "Couldn’t get name from Steam registry."
@@ -798,7 +785,7 @@ msgstr "Virtual Boy"
 #: plugins/wii/src/wii-header.vala:20
 #, c-format
 msgid "Invalid Wii header size: %s"
-msgstr ""
+msgstr "Μη έγκυρο μέγεθος κεφαλίδας Wii: %s"
 
 #: plugins/wii/src/wii-header.vala:33 plugins/wii/src/wii-header.vala:44
 msgid "The file doesn’t have a Wii header."
@@ -899,7 +886,7 @@ msgstr ""
 #: src/retro/retro-runner.vala:315
 #, c-format
 msgid "No module found for “%s”."
-msgstr ""
+msgstr "Δεν βρέθηκε άρθρωμα για «%s»."
 
 #: src/retro/retro-runner.vala:583
 msgid "Unknown platform"
@@ -909,6 +896,8 @@ msgstr "Άγνωστη πλατφόρμα"
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
+"Το σύστημα «%s» δεν υποστηρίζεται ακόμα αλλά έχει προγραμματιστεί ή πλήρης "
+"υποστήριξή του."
 
 #: src/retro/retro-runner.vala:610
 msgid "The system isn’t supported yet, but full support is planned."
@@ -1064,10 +1053,8 @@ msgstr ""
 "http://gnome.gr/"
 
 #: src/ui/application-window.vala:271 src/ui/application-window.vala:288
-#, fuzzy
-#| msgid "Play your games"
 msgid "Playing a game"
-msgstr "Παίξτε τα παιχνίδια σας"
+msgstr "Παίξιμο παιχνιδιού"
 
 #: src/ui/display-view.vala:323
 msgid "An unexpected error occurred."
@@ -1216,22 +1203,22 @@ msgstr ""
 #: src/utils/cue-sheet/cue-sheet.vala:144
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected %s."
-msgstr ""
+msgstr "%s:%lu: Απροσδόκητο διακριτικό %s, αναμένεται %s."
 
 #: src/utils/cue-sheet/cue-sheet.vala:151
 #, c-format
 msgid "%s:%lu: Unexpected end of file, expected a token."
-msgstr ""
+msgstr "%s:%lu: Απροσδόκητο τέλος του αρχείου, αναμένεται ένα διακριτικό."
 
 #: src/utils/cue-sheet/cue-sheet.vala:154
 #, c-format
 msgid "%s:%lu: Unexpected end of line, expected a token."
-msgstr ""
+msgstr "%s:%lu: Απροσδόκητο τέλος της γραμμής, αναμένεται ένα διακριτικό."
 
 #: src/utils/cue-sheet/cue-sheet.vala:177
 #, c-format
 msgid "%s:%lu: Unexpected token %s, expected end of line."
-msgstr ""
+msgstr "%s:%lu: Απροσδόκητο διακριτικό %s, αναμένεται το τέλος της γραμμής."
 
 #: src/utils/file-operations.vala:27
 #, c-format
