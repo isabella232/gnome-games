@@ -14,6 +14,8 @@ speedrunning tools or video game development tools.
 - Issues:       https://gitlab.gnome.org/GNOME/gnome-games/issues
 - Download:     https://download.gnome.org/sources/gnome-games/
 - Mailing list: https://mail.gnome.org/mailman/listinfo/games-list
+- Matrix room:  https://matrix.to/#/#gnome-games:matrix.org
+- IRC channel:  #gnome-games on irc.gnome.org
 
 ## Contribution guide
 https://gitlab.gnome.org/GNOME/gnome-games/blob/master/HACKING
