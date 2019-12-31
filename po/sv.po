@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-11-06 14:48+0000\n"
-"PO-Revision-Date: 2019-11-10 19:09+0100\n"
+"POT-Creation-Date: 2019-11-29 06:23+0000\n"
+"PO-Revision-Date: 2019-12-31 23:12+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: data/org.gnome.Games.appdata.xml.in.in:7
 #: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:48
 #: data/ui/collection-header-bar.ui:76 data/ui/display-header-bar.ui:16
-#: src/ui/application.vala:25
+#: src/ui/application.vala:26
 msgid "Games"
 msgstr "Spel"
 
@@ -70,7 +70,7 @@ msgstr "Spela dina spel"
 msgid "Resume your game to where you left it"
 msgstr "Återuppta ditt spel där du lämnade det"
 
-#: data/org.gnome.Games.appdata.xml.in.in:205
+#: data/org.gnome.Games.appdata.xml.in.in:237
 msgid "The GNOME Project"
 msgstr "GNOME-projektet"
 
@@ -567,42 +567,42 @@ msgstr "Bidra"
 msgid "Desktop"
 msgstr "Skrivbord"
 
-#: plugins/desktop/src/desktop-plugin.vala:57
+#: plugins/desktop/src/desktop-plugin.vala:77
 #, c-format
 msgid "Invalid command “%s”."
 msgstr "Ogiltigt kommando ”%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:70
+#: plugins/desktop/src/desktop-plugin.vala:86
 #, c-format
 msgid "Tracker listed file not found: “%s”."
 msgstr "Tracker-listad fil kunde inte hittas: ”%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:76
+#: plugins/desktop/src/desktop-plugin.vala:92
 #, c-format
 msgid "Couldn’t parse desktop entry “%s”."
 msgstr "Det går inte att tolka skrivbordsposten ”%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:86
+#: plugins/desktop/src/desktop-plugin.vala:102
 #, c-format
 msgid "“%s” shouldn’t be displayed."
 msgstr "”%s” borde inte visas."
 
-#: plugins/desktop/src/desktop-plugin.vala:89
+#: plugins/desktop/src/desktop-plugin.vala:105
 #, c-format
 msgid "“%s” is hidden."
 msgstr "”%s” är dold."
 
-#: plugins/desktop/src/desktop-plugin.vala:98
+#: plugins/desktop/src/desktop-plugin.vala:114
 #, c-format
 msgid "“%s” has blacklisted category “%s”."
 msgstr "”%s” har svartlistat kategorin ”%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:107
+#: plugins/desktop/src/desktop-plugin.vala:123
 #, c-format
 msgid "“%s” has blacklisted executable “%s”."
 msgstr "”%s” har svartlistat körbara filen ”%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:114
+#: plugins/desktop/src/desktop-plugin.vala:130
 #, c-format
 msgid "“%s” is blacklisted."
 msgstr "”%s” är svartlistad."
@@ -703,20 +703,20 @@ msgstr "Mega-CD"
 msgid "Sega CD 32X"
 msgstr "Sega CD 32X"
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:100
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:83
+#: plugins/sega-cd/src/sega-cd-plugin.vala:99
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:81
 #, c-format
 msgid "The file “%s” doesn’t have a track."
 msgstr "Filen ”%s” har inget spår."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:106
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:89
+#: plugins/sega-cd/src/sega-cd-plugin.vala:105
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:87
 #, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr "Filen ”%s” har inte ett giltigt binärt filformat."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:109
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:92
+#: plugins/sega-cd/src/sega-cd-plugin.vala:108
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:90
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
 msgstr "Filen ”%s” har inte ett giltigt spårläge för spår %d."
@@ -729,7 +729,7 @@ msgstr "Filen har inte ett Sega Saturn-filhuvud."
 msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:96
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:94
 #, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "Filen ”%s” har inte en giltig Sega Saturn-binärfil."
@@ -737,11 +737,6 @@ msgstr "Filen ”%s” har inte en giltig Sega Saturn-binärfil."
 #: plugins/steam/src/steam-plugin.vala:10
 msgid "Steam"
 msgstr "Steam"
-
-#: plugins/steam/src/steam-plugin.vala:85
-#, c-format
-msgid "Couldn’t get Steam appid from manifest “%s”."
-msgstr "Det gick inte att hämta Steam appid från manifestet ”%s”."
 
 #: plugins/steam/src/steam-registry.vala:68
 #, c-format
@@ -759,10 +754,6 @@ msgstr "Oväntat slut på token."
 #: plugins/steam/src/steam-registry.vala:113
 msgid "Unexpected token '}'."
 msgstr "Oväntat token ”}“."
-
-#: plugins/steam/src/steam-title.vala:17
-msgid "Couldn’t get name from Steam registry."
-msgstr "Det gick inte att hämta namn från Steam-registret."
 
 #. translators: known as "CD-ROM²" in eastern Asia and France
 #: plugins/turbografx-cd/src/turbografx-cd-plugin.vala:9
@@ -907,17 +898,17 @@ msgstr "Ingen modul hittades för ”%s”."
 msgid "Unknown platform"
 msgstr "Okänd plattform"
 
-#: src/retro/retro-runner.vala:608
+#: src/retro/retro-runner.vala:607
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Systemet ”%s” stöds inte ännu, men fullständigt stöd planeras."
 
-#: src/retro/retro-runner.vala:610
+#: src/retro/retro-runner.vala:609
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Systemet stöds inte ännu, men fullständigt stöd planeras."
 
 #. A list containing the names of all savestates with name of the form "New Savestate %d"
-#: src/retro/retro-runner.vala:620 src/retro/retro-runner.vala:646
+#: src/retro/retro-runner.vala:619 src/retro/retro-runner.vala:645
 #, c-format
 msgid "New savestate %s"
 msgstr "Nytt sparningstillstånd %s"
@@ -1025,37 +1016,37 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:153
+#: src/ui/application.vala:150
 msgid "Select game files"
 msgstr "Välj spelfiler"
 
-#: src/ui/application.vala:154 src/ui/preferences-page-backup-restore.vala:14
+#: src/ui/application.vala:151 src/ui/preferences-page-backup-restore.vala:14
 #: src/ui/preferences-page-backup-restore.vala:36
 msgid "_Cancel"
 msgstr "_Avbryt"
 
-#: src/ui/application.vala:155
+#: src/ui/application.vala:152
 msgid "_Add"
 msgstr "_Lägg till"
 
-#: src/ui/application.vala:195
+#: src/ui/application.vala:192
 #, c-format
 msgid "An unexpected error occurred while trying to run %s"
 msgstr "Ett oväntat fel inträffade vid försök att köra %s"
 
-#: src/ui/application.vala:386
+#: src/ui/application.vala:389
 msgid "GNOME Games"
 msgstr "GNOME Spel"
 
-#: src/ui/application.vala:388
+#: src/ui/application.vala:391
 msgid "A video game player for GNOME"
 msgstr "En spelarkad för GNOME"
 
-#: src/ui/application.vala:392
+#: src/ui/application.vala:395
 msgid "Learn more about GNOME Games"
 msgstr "Lär dig mer om GNOME Spel"
 
-#: src/ui/application.vala:399
+#: src/ui/application.vala:402
 msgid "translator-credits"
 msgstr ""
 "Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
@@ -1066,9 +1057,10 @@ msgstr ""
 msgid "Playing a game"
 msgstr "Spela"
 
-#: src/ui/display-view.vala:323
-msgid "An unexpected error occurred."
-msgstr "Ett oväntat fel inträffade."
+# Objektet som kör ett spel
+#: src/ui/display-view.vala:313
+msgid "No runner found"
+msgstr "Ingen körare hittades"
 
 #: src/ui/error-display.vala:13
 #, c-format
@@ -1268,6 +1260,15 @@ msgstr "Fel: %s (%d)"
 #, c-format
 msgid "Error writing “%s”: %s (%d)"
 msgstr "Fel vid skrivning av ”%s”: %s (%d)"
+
+#~ msgid "Couldn’t get Steam appid from manifest “%s”."
+#~ msgstr "Det gick inte att hämta Steam appid från manifestet ”%s”."
+
+#~ msgid "Couldn’t get name from Steam registry."
+#~ msgstr "Det gick inte att hämta namn från Steam-registret."
+
+#~ msgid "An unexpected error occurred."
+#~ msgstr "Ett oväntat fel inträffade."
 
 #~ msgid "Single-player"
 #~ msgstr "En spelare"
