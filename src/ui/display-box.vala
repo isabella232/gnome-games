@@ -4,6 +4,7 @@
 private class Games.DisplayBox : Gtk.Bin {
 	public signal void back ();
 	public signal void snapshots_hidden ();
+	public signal void restart ();
 
 	private bool _is_fullscreen;
 	public bool is_fullscreen {
@@ -76,6 +77,12 @@ private class Games.DisplayBox : Gtk.Bin {
 	public void display_running_game_failed (Game game, string error_message) {
 		stack.visible_child = error_display;
 		error_display.running_game_failed (game, error_message);
+	}
+
+	public void display_game_crashed (Game game, string error_message) {
+		stack.visible_child = error_display;
+		is_showing_snapshots = false;
+		error_display.game_crashed (game, error_message);
 	}
 
 	[GtkCallback]
