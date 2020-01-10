@@ -62,6 +62,7 @@ public class Games.RetroRunner : Object, Runner {
 
 	private bool is_initialized;
 	private bool is_ready;
+	private bool is_error;
 
 	public RetroRunnerBuilder builder {
 		construct {
@@ -274,6 +275,10 @@ public class Games.RetroRunner : Object, Runner {
 		_input_mode = input_manager.input_mode;
 
 		core.shutdown.connect (stop);
+		core.crashed.connect ((core, error) => {
+			is_error = true;
+			crash (error);
+		});
 
 		running = false;
 
@@ -287,8 +292,11 @@ public class Games.RetroRunner : Object, Runner {
 		settings.changed["video-filter"].disconnect (on_video_filter_changed);
 
 		core = null;
-		view.set_core (null);
-		view = null;
+
+		if (view != null) {
+			view.set_core (null);
+			view = null;
+		}
 
 		input_manager = null;
 
@@ -354,8 +362,10 @@ public class Games.RetroRunner : Object, Runner {
 		if (!running)
 			return;
 
-		current_state_pixbuf = view.get_pixbuf ();
-		core.stop ();
+		if (!is_error) {
+			current_state_pixbuf = view.get_pixbuf ();
+			core.stop ();
+		}
 
 		//FIXME:
 		// In the future here there will be code which updates the currently
