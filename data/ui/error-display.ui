@@ -40,5 +40,15 @@
         <property name="wrap">True</property>
       </object>
     </child>
+    <child>
+      <object class="GtkButton" id="restart_btn">
+        <property name="visible">True</property>
+        <property name="label">_Restart Game</property>
+        <property name="use-underline">True</property>
+        <property name="margin-top">12</property>
+        <property name="halign">center</property>
+        <property name="action-name">display.restart</property>
+      </object>
+    </child>
   </template>
 </interface>

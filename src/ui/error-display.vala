@@ -6,6 +6,8 @@ private class Games.ErrorDisplay : Gtk.Box {
 	private Gtk.Label primary_label;
 	[GtkChild]
 	private Gtk.Label secondary_label;
+	[GtkChild]
+	private Gtk.Button restart_btn;
 
 	public void running_game_failed (Game game, string message) {
 		string title;
@@ -15,6 +17,14 @@ private class Games.ErrorDisplay : Gtk.Box {
 			title = _("Oops! Unable to run the game");
 
 		set_labels (title, message);
+		restart_btn.hide ();
+	}
+
+	public void game_crashed (Game game, string message) {
+		var title = _("Oops! The game “%s” crashed unexpectedly").printf (game.name);
+
+		set_labels (title, message);
+		restart_btn.show ();
 	}
 
 	private void set_labels (string primary, string secondary) {
