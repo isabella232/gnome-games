@@ -127,6 +127,15 @@ private class Games.PreferencesWindow : Gtk.Window {
 		window_back_button.visible = folded;
 		sidebar.show_selection = !folded;
 
+		if (folded) {
+			content_box.get_style_context ().add_class ("folded");
+			titlebar_box.get_style_context ().add_class ("folded");
+		}
+		else {
+			content_box.get_style_context ().remove_class ("folded");
+			titlebar_box.get_style_context ().remove_class ("folded");
+		}
+
 		if (folded)
 			stack.transition_type = Gtk.StackTransitionType.NONE;
 		else
