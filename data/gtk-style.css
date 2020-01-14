@@ -74,10 +74,6 @@ gamesflashbox {
 	background: none;
 }
 
-list.rounded {
-  border-radius: 5px;
-}
-
 box.sidebar,
 box.sidebar > list {
 	transition: all 200ms;
@@ -103,19 +99,19 @@ list.rounded,
 }
 
 list.rounded row:first-child,
-.folded box.sidebar > list row:first-child {
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  -gtk-outline-top-left-radius: 6px;
-  -gtk-outline-top-right-radius: 6px;
+	.folded box.sidebar > list row:first-child {
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	-gtk-outline-top-left-radius: 6px;
+	-gtk-outline-top-right-radius: 6px;
 }
 
 list.rounded row:last-child,
 .folded box.sidebar > list row:last-child {
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-  -gtk-outline-bottom-left-radius: 6px;
-  -gtk-outline-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	-gtk-outline-bottom-left-radius: 6px;
+	-gtk-outline-bottom-right-radius: 6px;
 }
 
 list.rounded:backdrop,
