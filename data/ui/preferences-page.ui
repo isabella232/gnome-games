@@ -24,7 +24,7 @@
                       <object class="GtkBox" id="box">
                         <property name="visible">True</property>
                         <property name="orientation">vertical</property>
-                        <property name="margin">12</property>
+                        <property name="margin">18</property>
                         <property name="spacing">12</property>
                       </object>
                     </child>

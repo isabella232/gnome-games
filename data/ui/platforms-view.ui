@@ -18,14 +18,31 @@
             <property name="vexpand">True</property>
             <property name="width-request">250</property>
             <child>
-              <object class="GtkListBox" id="list_box">
+              <object class="GtkBox">
                 <property name="visible">True</property>
-                <signal name="row-activated" handler="on_list_box_row_activated"/>
+                <property name="orientation">vertical</property>
                 <style>
                   <class name="sidebar"/>
                 </style>
+                <child>
+                  <object class="GtkListBox" id="list_box">
+                    <property name="visible">True</property>
+                    <signal name="row-activated" handler="on_list_box_row_activated"/>
+                    <style>
+                      <class name="separators"/>
+                    </style>
+                  </object>
+                </child>
               </object>
             </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSeparator">
+            <property name="visible">True</property>
+            <style>
+              <class name="sidebar"/>
+            </style>
           </object>
         </child>
         <child>

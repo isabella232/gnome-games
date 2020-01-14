@@ -4,7 +4,6 @@
   <template class="GamesPreferencesSidebar" parent="GtkBin">
     <property name="visible">True</property>
     <style>
-      <class name="preferences"/>
       <class name="sidebar"/>
     </style>
     <child>
@@ -12,11 +11,21 @@
         <property name="visible">True</property>
         <property name="hscrollbar-policy">never</property>
         <child>
-          <object class="GtkListBox" id="list">
+          <object class="GtkBox">
             <property name="visible">True</property>
-            <property name="margin-top">4</property>
-            <property name="margin-bottom">4</property>
-            <signal name="row-activated" handler="row_activated"/>
+            <property name="orientation">vertical</property>
+            <style>
+              <class name="sidebar"/>
+            </style>
+            <child>
+              <object class="GtkListBox" id="list">
+                <property name="visible">True</property>
+                <signal name="row-activated" handler="row_activated"/>
+                <style>
+                  <class name="separators"/>
+                </style>
+              </object>
+            </child>
           </object>
         </child>
       </object>

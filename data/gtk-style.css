@@ -58,15 +58,64 @@ gamesflashbox {
  * https://source.puri.sm/Librem5/libhandy/blob/master/examples/style.css
  */
 
-stacksidebar list {
-	border-left-width: 0px;
-	border-right-width: 0px;
-}
-
 .list-icon {
 	opacity: 0.7;
 }
 
 .combo-list-box {
 	background: none;
+}
+
+list.rounded {
+  border-radius: 5px;
+}
+
+box.sidebar,
+box.sidebar > list {
+	transition: all 200ms;
+	background: @theme_bg_color;
+	border: 0 solid @borders;
+}
+
+box.sidebar:backdrop,
+box.sidebar:backdrop > list {
+	background-color: @theme_unfocused_bg_color;
+	border-color: @unfocused_borders;
+}
+
+.folded box.sidebar {
+	padding: 18px;
+}
+
+list.rounded,
+.folded box.sidebar > list {
+	background: @theme_base_color;
+	border-radius: 6px;
+	border: 1px solid @borders;
+}
+
+list.rounded row:first-child,
+.folded box.sidebar > list row:first-child {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  -gtk-outline-top-left-radius: 6px;
+  -gtk-outline-top-right-radius: 6px;
+}
+
+list.rounded row:last-child,
+.folded box.sidebar > list row:last-child {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  -gtk-outline-bottom-left-radius: 6px;
+  -gtk-outline-bottom-right-radius: 6px;
+}
+
+list.rounded:backdrop,
+.folded:backdrop box.sidebar > list {
+	background: @theme_unfocused_base_color;
+	border-color: @unfocused_borders;
+}
+
+list.separators row:not(:last-child) {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }

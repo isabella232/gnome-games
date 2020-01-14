@@ -19,7 +19,8 @@
         <property name="selection-mode">none</property>
         <signal name="row-activated" handler="filter_list_box_row_activated"/>
         <style>
-          <class name="frame"/>
+          <class name="rounded"/>
+          <class name="separators"/>
         </style>
       </object>
     </child>

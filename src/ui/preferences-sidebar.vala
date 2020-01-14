@@ -49,13 +49,8 @@ private class Games.PreferencesSidebar : Gtk.Bin {
 	private Gtk.ListBox list;
 	private HashTable<PreferencesPage, PreferencesSidebarItem> rows;
 
-	static construct {
-		set_css_name ("stacksidebar");
-	}
-
 	construct {
 		rows = new HashTable<PreferencesPage, PreferencesSidebarItem> (null, null);
-		list.set_header_func (update_header);
 		show_selection = true;
 	}
 
@@ -105,12 +100,5 @@ private class Games.PreferencesSidebar : Gtk.Bin {
 
 		if (row != null)
 			list.select_row (row);
-	}
-
-	private void update_header (Gtk.ListBoxRow row, Gtk.ListBoxRow? before) {
-		if (before != null && row.get_header () == null) {
-			var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
-			row.set_header (separator);
-		}
 	}
 }

@@ -19,7 +19,8 @@
         <property name="visible">True</property>
         <property name="selection-mode">none</property>
         <style>
-          <class name="frame"/>
+          <class name="rounded"/>
+          <class name="separators"/>
         </style>
         <child>
           <object class="GtkListBoxRow">
@@ -71,7 +72,8 @@
         <property name="visible">True</property>
         <property name="selection-mode">none</property>
         <style>
-          <class name="frame"/>
+          <class name="rounded"/>
+          <class name="separators"/>
         </style>
         <child>
           <object class="GtkListBoxRow">
