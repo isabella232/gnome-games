@@ -9,7 +9,7 @@
         <property name="ellipsize">end</property>
         <property name="halign">start</property>
         <property name="hexpand">true</property>
-        <property name="margin">6</property>
+        <property name="margin">10</property>
         <property name="label" bind-source="GamesPreferencesPagePlatformsGenericRow" bind-property="title"/>
       </object>
     </child>
