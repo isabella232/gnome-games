@@ -61,20 +61,24 @@ gamesflashbox {
 box.sidebar,
 box.sidebar > list {
 	transition: all 200ms;
-	background: @theme_bg_color;
+	background: @theme_base_color;
 	border: 0 solid @borders;
 }
 
 box.sidebar:backdrop,
 box.sidebar:backdrop > list {
-	background-color: @theme_unfocused_bg_color;
+	background-color: @theme_unfocused_base_color;
 	border-color: @unfocused_borders;
 }
 
 .folded box.sidebar {
 	padding: 18px;
+	background: @theme_bg_color;
 }
 
+.folded:backdrop box.sidebar {
+	background: @theme_unfocused_bg_color;
+}
 list.rounded,
 .folded box.sidebar > list {
 	background: @theme_base_color;
