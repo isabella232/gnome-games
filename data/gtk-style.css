@@ -8,14 +8,6 @@
 	background-color: @theme_unfocused_bg_color;
 }
 
-.content-view {
-	background-color: @theme_base_color;
-}
-
-.content-view:backdrop {
-	background-color: @theme_unfocused_base_color;
-}
-
 .savestate-row {
 	padding: 0;
 }
