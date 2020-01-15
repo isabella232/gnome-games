@@ -1,13 +1,5 @@
 /* This file is part of GNOME Games. License: GPL-3.0+. */
 
-.solid-background {
-	background-color: @theme_bg_color;
-}
-
-.solid-background:backdrop {
-	background-color: @theme_unfocused_bg_color;
-}
-
 .savestate-row {
 	padding: 0;
 }
