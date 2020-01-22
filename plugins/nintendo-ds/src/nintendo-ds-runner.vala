@@ -33,20 +33,10 @@ private class Games.NintendoDsRunner : RetroRunner {
 		layouts[Gdk.Key.@4] = NintendoDsLayout.QUICK_SWITCH;
 	}
 
-	construct {
-		game_init.connect (on_init);
-	}
-
 	private bool core_supports_layouts () {
 		var core = get_core ();
 
 		return core != null && core.has_option (SCREENS_LAYOUT_OPTION);
-	}
-
-	private void on_init () {
-		var core = get_core ();
-
-		core.options_set.connect (update_screen_layout);
 	}
 
 	private void update_screen_layout () {

@@ -20,8 +20,6 @@ private class Games.RetroGamepad : Object, Retro.Controller {
 		device.absolute_axis_event.connect (on_absolute_axis_event);
 	}
 
-	public void poll () {}
-
 	public int16 get_input_state (Retro.Input input) {
 		switch (input.get_controller_type ()) {
 		case Retro.ControllerType.JOYPAD:
@@ -50,17 +48,16 @@ private class Games.RetroGamepad : Object, Retro.Controller {
 		return (1 << Retro.ControllerType.JOYPAD) | (1 << Retro.ControllerType.ANALOG);
 	}
 
-	public bool set_rumble_state (Retro.RumbleEffect effect, uint16 strength) {
-		rumble_effect[effect] = strength;
+	public bool get_supports_rumble () {
+		return device.has_rumble ();
+	}
 
-		if (!device.has_rumble ())
-			return false;
+	public void set_rumble_state (Retro.RumbleEffect effect, uint16 strength) {
+		rumble_effect[effect] = strength;
 
 		device.rumble (rumble_effect[Retro.RumbleEffect.STRONG],
 		               rumble_effect[Retro.RumbleEffect.WEAK],
 		               uint16.MAX);
-
-		return true;
 	}
 
 	private bool get_button_pressed (Retro.JoypadId button) {
@@ -97,22 +94,28 @@ private class Games.RetroGamepad : Object, Retro.Controller {
 	private void on_button_press_event (Manette.Event event) {
 		uint16 button;
 
-		if (event.get_button (out button))
+		if (event.get_button (out button)) {
 			buttons[button] = true;
+			emit_state_changed ();
+		}
 	}
 
 	private void on_button_release_event (Manette.Event event) {
 		uint16 button;
 
-		if (event.get_button (out button))
+		if (event.get_button (out button)) {
 			buttons[button] = false;
+			emit_state_changed ();
+		}
 	}
 
 	private void on_absolute_axis_event (Manette.Event event) {
 		uint16 axis;
 		double value;
 
-		if (event.get_absolute (out axis, out value))
+		if (event.get_absolute (out axis, out value)) {
 			axes[axis] = (int16) (value * int16.MAX);
+			emit_state_changed ();
+		}
 	}
 }

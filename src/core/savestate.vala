@@ -43,31 +43,12 @@ public class Games.Savestate : Object {
 		}
 	}
 
-	public void set_snapshot_data (Bytes snapshot_data) throws Error {
-		var buffer = snapshot_data.get_data ();
-		var snapshot_path = Path.build_filename (path, "snapshot");
-
-		FileUtils.set_data (snapshot_path, buffer);
-	}
-
-	public Bytes get_snapshot_data () throws Error {
-		var snapshot_path = Path.build_filename (path, "snapshot");
-
-		uint8[] data = null;
-		FileUtils.get_data (snapshot_path, out data);
-		var bytes = new Bytes.take (data);
-
-		return bytes;
+	public string get_snapshot_path () {
+		return Path.build_filename (path, "snapshot");
 	}
 
 	public string get_save_ram_path () {
 		return Path.build_filename (path, "save");
-	}
-
-	public void set_save_ram_data (uint8[] save_ram_data) throws Error {
-		var save_ram_path = Path.build_filename (path, "save");
-
-		FileUtils.set_data (save_ram_path, save_ram_data);
 	}
 
 	public string get_screenshot_path () {
