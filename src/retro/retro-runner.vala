@@ -30,6 +30,7 @@ public class Games.RetroRunner : Object, Runner {
 	private Retro.Core core;
 	private Retro.CoreView view;
 	private RetroInputManager input_manager;
+	private Retro.MainLoop loop;
 	private InputMode _input_mode;
 	public InputMode input_mode {
 		get { return _input_mode; }
@@ -197,12 +198,12 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void load_previewed_savestate () throws Error {
-		core.stop ();
+		loop.stop ();
 
 		tmp_live_savestate = previewed_savestate.clone_in_tmp ();
 		core.save_directory = tmp_live_savestate.get_save_directory_path ();
 		load_save_ram (previewed_savestate.get_save_ram_path ());
-		core.load_state (previewed_savestate.get_snapshot_path ());
+		core.set_state (previewed_savestate.get_snapshot_data ());
 
 		if (previewed_savestate.has_media_data ())
 			media_set.selected_media_number = previewed_savestate.get_media_data ();
@@ -241,7 +242,7 @@ public class Games.RetroRunner : Object, Runner {
 		}
 		core.reset ();
 
-		core.start ();
+		loop.start ();
 
 		if (latest_savestate != null)
 			load_extra_savestate_metadata (latest_savestate, true);
@@ -250,16 +251,13 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void resume () {
-		if (!is_initialized)
-			return;
-
 		if (!is_ready) {
 			critical ("RetroRunner.resume() cannot be called if the game isn't playing");
 			return;
 		}
 
 		// Unpause an already running game
-		core.start ();
+		loop.start ();
 		running = true;
 	}
 
@@ -273,10 +271,11 @@ public class Games.RetroRunner : Object, Runner {
 		// Keep the internal values of input_mode in sync between RetroRunner and RetroInputManager
 		_input_mode = input_manager.input_mode;
 
-		core.shutdown.connect (stop);
+		core.shutdown.connect (on_shutdown);
 
 		core.run (); // Needed to finish preparing some cores.
 
+		loop = new Retro.MainLoop (core);
 		running = false;
 
 		is_initialized = true;
@@ -295,6 +294,7 @@ public class Games.RetroRunner : Object, Runner {
 		view = null;
 
 		input_manager = null;
+		loop = null;
 
 		_running = false;
 		is_initialized = false;
@@ -322,12 +322,14 @@ public class Games.RetroRunner : Object, Runner {
 
 		var options_path = get_options_path ();
 		if (FileUtils.test (options_path, FileTest.EXISTS))
-			try {
-				var options = new RetroOptions (options_path);
-				options.apply (core);
-			} catch (Error e) {
-				critical (e.message);
-			}
+			core.options_set.connect (() => {
+				try {
+					var options = new RetroOptions (options_path);
+					options.apply (core);
+				} catch (Error e) {
+					critical (e.message);
+				}
+			});
 
 		game_init ();
 
@@ -359,7 +361,7 @@ public class Games.RetroRunner : Object, Runner {
 			return;
 
 		current_state_pixbuf = view.get_pixbuf ();
-		core.stop ();
+		loop.stop ();
 
 		//FIXME:
 		// In the future here there will be code which updates the currently
@@ -477,7 +479,7 @@ public class Games.RetroRunner : Object, Runner {
 		if (media_set.get_size () > 1)
 			tmp_live_savestate.set_media_data (media_set);
 
-		core.save_state (tmp_live_savestate.get_snapshot_path ());
+		tmp_live_savestate.set_snapshot_data (core.get_state ());
 		save_screenshot_in_tmp ();
 
 		// Populate the metadata file
@@ -542,18 +544,27 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private void store_save_ram_in_tmp () throws Error {
-		if (core.get_memory_size (Retro.MemoryType.SAVE_RAM) == 0)
+		var bytes = core.get_memory (Retro.MemoryType.SAVE_RAM);
+		var save = bytes.get_data ();
+		if (save.length == 0)
 			return;
 
-		core.save_memory (Retro.MemoryType.SAVE_RAM,
-		                  tmp_live_savestate.get_save_ram_path ());
+		tmp_live_savestate.set_save_ram_data (save);
 	}
 
 	private void load_save_ram (string save_ram_path) throws Error {
 		if (!FileUtils.test (save_ram_path, FileTest.EXISTS))
 			return;
 
-		core.load_memory (Retro.MemoryType.SAVE_RAM, save_ram_path);
+		uint8[] data = null;
+		FileUtils.get_data (save_ram_path, out data);
+
+		var expected_size = core.get_memory_size (Retro.MemoryType.SAVE_RAM);
+		if (data.length != expected_size)
+			warning ("Unexpected RAM data size: got %lu, expected %lu\n", data.length, expected_size);
+
+		var bytes = new Bytes.take (data);
+		core.set_memory (Retro.MemoryType.SAVE_RAM, bytes);
 	}
 
 	private void save_screenshot_in_tmp () throws Error {
@@ -582,6 +593,12 @@ public class Games.RetroRunner : Object, Runner {
 		             "tEXt::Game Title", game_title,
 		             "tEXt::Platform", platform_name,
 		             null);
+	}
+
+	private bool on_shutdown () {
+		stop ();
+
+		return true;
 	}
 
 	private string get_unsupported_system_message () {

@@ -15,8 +15,9 @@ private class Games.RetroOptions : Object {
 
 		foreach (var key in options_keys) {
 			var val = keyfile.get_string (OPTIONS_GROUP, key);
+			var option = core.get_option (key);
 
-			core.override_option_default (key, val);
+			option.set_value (val);
 		}
 	}
 }
