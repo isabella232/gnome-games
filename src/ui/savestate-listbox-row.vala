@@ -22,7 +22,7 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 			if (savestate.is_automatic)
 				name_label.label = _("Autosave");
 			else
-				name_label.label = savestate.get_name ();
+				name_label.label = savestate.name;
 
 			var creation_date = savestate.get_creation_date ();
 			var date_format = get_date_format (creation_date);
@@ -87,7 +87,7 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 
 	public void set_name (string name) {
 		name_label.label = name;
-		savestate.set_name (name);
+		savestate.name = name;
 	}
 
 	public void reveal () {

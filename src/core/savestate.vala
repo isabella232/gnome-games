@@ -5,6 +5,7 @@ public class Games.Savestate : Object {
 	// Automatic means whether the savestate was created automatically when
 	// quitting/loading the game or manually by the user using the Save button
 	public bool is_automatic { get; private set; }
+	public string name { get; set; }
 
 	private static Savestate load (Platform platform, string path) {
 		var type = platform.get_savestate_type ();
@@ -38,37 +39,6 @@ public class Games.Savestate : Object {
 		}
 
 		return metadata;
-	}
-
-	public string? get_name () {
-		var metadata = get_metadata ();
-
-		try {
-			var is_automatic = metadata.get_boolean ("Metadata", "Automatic");
-
-			if (is_automatic)
-				return null;
-			else
-				return metadata.get_string ("Metadata", "Name");
-		}
-		catch (KeyFileError e) {
-			critical ("Failed to get name from metadata file for snapshot at %s: %s", path, e.message);
-			return null;
-		}
-	}
-
-	public void set_name (string name) {
-		var metadata = new KeyFile ();
-		var metadata_file_path = Path.build_filename (path, "metadata");
-
-		try {
-			metadata.load_from_file (metadata_file_path, KeyFileFlags.NONE);
-			metadata.set_string ("Metadata", "Name", name);
-			metadata.save_to_file (metadata_file_path);
-		}
-		catch (Error e) {
-			critical ("Failed to set name in metadata file for snapshot at %s: %s", path, e.message);
-		}
 	}
 
 	public DateTime? get_creation_date () {
@@ -198,25 +168,33 @@ public class Games.Savestate : Object {
 	public void set_metadata_automatic (DateTime creation_date, string platform, string core, double aspect_ratio) throws Error {
 		is_automatic = true;
 
-		set_metadata (null, creation_date, platform, core, aspect_ratio);
+		set_metadata (creation_date, platform, core, aspect_ratio);
 	}
 
 	// Set the metadata for a manual savestate
 	public void set_metadata_manual (string name, DateTime creation_date, string platform, string core, double aspect_ratio) throws Error {
 		is_automatic = false;
+		this.name = name;
 
-		set_metadata (name, creation_date, platform, core, aspect_ratio);
+		set_metadata (creation_date, platform, core, aspect_ratio);
 	}
 
 	protected virtual void load_metadata (KeyFile keyfile) throws KeyFileError {
 		is_automatic = keyfile.get_boolean ("Metadata", "Automatic");
+
+		if (is_automatic)
+			name = null;
+		else
+			name = keyfile.get_string ("Metadata", "Name");
 	}
 
 	protected virtual void save_metadata (KeyFile keyfile) {
 		keyfile.set_boolean ("Metadata", "Automatic", is_automatic);
+		if (name != null)
+			keyfile.set_string ("Metadata", "Name", name);
 	}
 
-	private void set_metadata (string? name, DateTime creation_date,
+	private void set_metadata (DateTime creation_date,
 	                           string platform, string core, double aspect_ratio) throws Error {
 		var metadata_file_path = Path.build_filename (path, "metadata");
 		var metadata_file = File.new_for_path (metadata_file_path);
@@ -224,9 +202,6 @@ public class Games.Savestate : Object {
 
 		if (metadata_file.query_exists ())
 			metadata_file.@delete ();
-
-		if (name != null)
-			metadata.set_string ("Metadata", "Name", name);
 
 		metadata.set_string ("Metadata", "Creation Date", creation_date.to_string ());
 		metadata.set_string ("Metadata", "Platform", platform);

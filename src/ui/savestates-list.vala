@@ -191,7 +191,7 @@ private class Games.SavestatesList : Gtk.Box {
 
 		ensure_row_is_visible (selected_row);
 
-		rename_entry.text = state.selected_savestate.get_name ();
+		rename_entry.text = state.selected_savestate.name;
 		rename_popover.relative_to = selected_row;
 		rename_popover.popup ();
 	}
@@ -241,7 +241,7 @@ private class Games.SavestatesList : Gtk.Box {
 			if (savestate.is_automatic)
 				continue;
 
-			if (savestate.get_name () == entry_text) {
+			if (savestate.name == entry_text) {
 				rename_entry.get_style_context ().add_class ("error");
 				rename_popover_btn.sensitive = false;
 				rename_error_label.label = _("A snapshot with this name already exists");

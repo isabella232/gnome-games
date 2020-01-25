@@ -617,10 +617,9 @@ public class Games.RetroRunner : Object, Runner {
 			if (savestate.is_automatic)
 				continue;
 
-			var savestate_name = savestate.get_name ();
 			MatchInfo match_info = null;
 
-			if (regex.match (savestate_name, 0, out match_info)) {
+			if (regex.match (savestate.name, 0, out match_info)) {
 				var number = match_info.fetch (1);
 				list.prepend (int.parse (number));
 			}
