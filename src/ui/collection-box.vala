@@ -159,6 +159,9 @@ private class Games.CollectionBox : Gtk.Box {
 	}
 
 	public bool search_bar_handle_event (Gdk.Event event) {
+		if (is_collection_empty)
+			return false;
+
 		return search_bar.handle_event (event);
 	}
 
