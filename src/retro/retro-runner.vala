@@ -480,7 +480,6 @@ public class Games.RetroRunner : Object, Runner {
 
 		// Populate the metadata file
 		var now_time = new DateTime.now ();
-		var platform_prefix = platform.get_uid_prefix ();
 		var ratio = Retro.pixbuf_get_aspect_ratio (current_state_pixbuf);
 
 		// FIXME: Because of how saving metadata is done currently, saving
@@ -488,14 +487,13 @@ public class Games.RetroRunner : Object, Runner {
 		save_savestate_metadata (tmp_live_savestate);
 
 		if (is_automatic)
-			tmp_live_savestate.set_metadata_automatic (now_time, platform_prefix,
+			tmp_live_savestate.set_metadata_automatic (now_time,
 			                                           get_core_id (), ratio);
 		else {
 			var savestate_name = create_new_savestate_name ();
 
 			tmp_live_savestate.set_metadata_manual (savestate_name, now_time,
-			                                        platform_prefix, get_core_id (),
-			                                        ratio);
+			                                        get_core_id (), ratio);
 		}
 
 		// Save the tmp_live_savestate into the game savestates directory
