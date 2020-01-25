@@ -150,7 +150,7 @@ public class Games.RetroRunner : Object, Runner {
 		if (latest_savestate != null)
 			tmp_live_savestate = latest_savestate.clone_in_tmp ();
 		else
-			tmp_live_savestate = Savestate.create_empty_in_tmp (platform);
+			tmp_live_savestate = Savestate.create_empty_in_tmp (platform, get_core_id ());
 		instantiate_core (tmp_live_savestate.get_save_directory_path ());
 
 		// Step 4) Preview the latest savestate --------------------------------
@@ -228,7 +228,7 @@ public class Games.RetroRunner : Object, Runner {
 			if (latest_savestate != null)
 				tmp_live_savestate = latest_savestate.clone_in_tmp ();
 			else
-				tmp_live_savestate = Savestate.create_empty_in_tmp (platform);
+				tmp_live_savestate = Savestate.create_empty_in_tmp (platform, get_core_id ());
 
 			instantiate_core (tmp_live_savestate.get_save_directory_path ());
 		}
@@ -487,7 +487,6 @@ public class Games.RetroRunner : Object, Runner {
 			tmp_live_savestate.name = create_new_savestate_name ();
 
 		tmp_live_savestate.creation_date = new DateTime.now ();
-		tmp_live_savestate.core = get_core_id ();
 		tmp_live_savestate.screenshot_aspect_ratio = Retro.pixbuf_get_aspect_ratio (current_state_pixbuf);
 
 		save_savestate_metadata (tmp_live_savestate);

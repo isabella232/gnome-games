@@ -1,19 +1,23 @@
 public class Games.Savestate : Object {
 	public string path { get; construct; }
 	public Platform platform { get; construct; }
+	public string core { get; construct; }
 
 	// Automatic means whether the savestate was created automatically when
 	// quitting/loading the game or manually by the user using the Save button
 	public bool is_automatic { get; set; }
 	public string name { get; set; }
 	public DateTime? creation_date { get; set; }
-	public string core { get; set; }
 	public double screenshot_aspect_ratio { get; set; }
 
-	private static Savestate load (Platform platform, string path) {
+	private static Savestate load (Platform platform, string core_id, string path) {
 		var type = platform.get_savestate_type ();
 
-		var savestate = Object.new (type, "path", path, "platform", platform, null) as Savestate;
+		var savestate = Object.new (type,
+		                            "path", path,
+		                            "platform", platform,
+		                            "core", core_id,
+		                            null) as Savestate;
 
 		savestate.load_keyfile ();
 
@@ -110,7 +114,7 @@ public class Games.Savestate : Object {
 
 		FileOperations.copy_contents (cloned_savestate_dir, tmp_savestate_dir);
 
-		return Savestate.load (platform, tmp_savestate_path);
+		return Savestate.load (platform, core, tmp_savestate_path);
 	}
 
 	// This method is used to save the savestate in /tmp as a regular savestate
@@ -129,7 +133,7 @@ public class Games.Savestate : Object {
 
 		FileOperations.copy_dir (copied_dir, new_savestate_dir);
 
-		return Savestate.load (platform, new_savestate_dir_path);
+		return Savestate.load (platform, core, new_savestate_dir_path);
 	}
 
 	protected virtual void load_metadata (KeyFile keyfile) throws KeyFileError {
@@ -142,8 +146,6 @@ public class Games.Savestate : Object {
 
 		var creation_date_str = keyfile.get_string ("Metadata", "Creation Date");
 		creation_date = new DateTime.from_iso8601 (creation_date_str, new TimeZone.local ());
-
-		core = keyfile.get_string ("Metadata", "Core");
 
 		screenshot_aspect_ratio = keyfile.get_double ("Screenshot", "Aspect Ratio");
 	}
@@ -208,7 +210,7 @@ public class Games.Savestate : Object {
 
 		while ((savestate_name = game_savestates_dir.read_name ()) != null) {
 			var savestate_path = Path.build_filename (game_savestates_dir_path, savestate_name);
-			game_savestates += Savestate.load (platform, savestate_path);
+			game_savestates += Savestate.load (platform, core_id, savestate_path);
 		}
 
 		// Sort the savestates array by creation dates
@@ -228,8 +230,8 @@ public class Games.Savestate : Object {
 		return -1;
 	}
 
-	public static Savestate create_empty_in_tmp (Platform platform) throws Error {
-		return Savestate.load (platform, prepare_empty_savestate_in_tmp ());
+	public static Savestate create_empty_in_tmp (Platform platform, string core_id) throws Error {
+		return Savestate.load (platform, core_id, prepare_empty_savestate_in_tmp ());
 	}
 
 	// Returns the path of the newly created dir in tmp
