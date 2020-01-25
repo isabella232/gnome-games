@@ -4,11 +4,11 @@ public class Games.Savestate : Object {
 
 	// Automatic means whether the savestate was created automatically when
 	// quitting/loading the game or manually by the user using the Save button
-	public bool is_automatic { get; private set; }
+	public bool is_automatic { get; set; }
 	public string name { get; set; }
-	public DateTime? creation_date { get; private set; }
-	public string core { get; private set; }
-	public double screenshot_aspect_ratio { get; private set; }
+	public DateTime? creation_date { get; set; }
+	public string core { get; set; }
+	public double screenshot_aspect_ratio { get; set; }
 
 	private static Savestate load (Platform platform, string path) {
 		var type = platform.get_savestate_type ();
@@ -130,24 +130,6 @@ public class Games.Savestate : Object {
 		FileOperations.copy_dir (copied_dir, new_savestate_dir);
 
 		return Savestate.load (platform, new_savestate_dir_path);
-	}
-
-	// Set the metadata for an automatic savestate
-	public void set_metadata_automatic (DateTime creation_date, string core, double aspect_ratio) throws Error {
-		is_automatic = true;
-		this.name = null;
-		this.creation_date = creation_date;
-		this.core = core;
-		this.screenshot_aspect_ratio = aspect_ratio;
-	}
-
-	// Set the metadata for a manual savestate
-	public void set_metadata_manual (string name, DateTime creation_date, string core, double aspect_ratio) throws Error {
-		is_automatic = false;
-		this.name = name;
-		this.creation_date = creation_date;
-		this.core = core;
-		this.screenshot_aspect_ratio = aspect_ratio;
 	}
 
 	protected virtual void load_metadata (KeyFile keyfile) throws KeyFileError {

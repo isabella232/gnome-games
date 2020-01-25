@@ -479,18 +479,16 @@ public class Games.RetroRunner : Object, Runner {
 		save_screenshot_in_tmp ();
 
 		// Populate the metadata file
-		var now_time = new DateTime.now ();
-		var ratio = Retro.pixbuf_get_aspect_ratio (current_state_pixbuf);
+		tmp_live_savestate.is_automatic = is_automatic;
 
 		if (is_automatic)
-			tmp_live_savestate.set_metadata_automatic (now_time,
-			                                           get_core_id (), ratio);
-		else {
-			var savestate_name = create_new_savestate_name ();
+			tmp_live_savestate.name = null;
+		else
+			tmp_live_savestate.name = create_new_savestate_name ();
 
-			tmp_live_savestate.set_metadata_manual (savestate_name, now_time,
-			                                        get_core_id (), ratio);
-		}
+		tmp_live_savestate.creation_date = new DateTime.now ();
+		tmp_live_savestate.core = get_core_id ();
+		tmp_live_savestate.screenshot_aspect_ratio = Retro.pixbuf_get_aspect_ratio (current_state_pixbuf);
 
 		save_savestate_metadata (tmp_live_savestate);
 
