@@ -2,6 +2,10 @@ public class Games.Savestate : Object {
 	public string path { get; construct; }
 	public Platform platform { get; construct; }
 
+	// Automatic means whether the savestate was created automatically when
+	// quitting/loading the game or manually by the user using the Save button
+	public bool is_automatic { get; private set; }
+
 	private static Savestate load (Platform platform, string path) {
 		var type = platform.get_savestate_type ();
 
@@ -192,21 +196,27 @@ public class Games.Savestate : Object {
 
 	// Set the metadata for an automatic savestate
 	public void set_metadata_automatic (DateTime creation_date, string platform, string core, double aspect_ratio) throws Error {
-		set_metadata (true, null, creation_date, platform, core, aspect_ratio);
+		is_automatic = true;
+
+		set_metadata (null, creation_date, platform, core, aspect_ratio);
 	}
 
 	// Set the metadata for a manual savestate
 	public void set_metadata_manual (string name, DateTime creation_date, string platform, string core, double aspect_ratio) throws Error {
-		set_metadata (false, name, creation_date, platform, core, aspect_ratio);
+		is_automatic = false;
+
+		set_metadata (name, creation_date, platform, core, aspect_ratio);
 	}
 
 	protected virtual void load_metadata (KeyFile keyfile) throws KeyFileError {
+		is_automatic = keyfile.get_boolean ("Metadata", "Automatic");
 	}
 
 	protected virtual void save_metadata (KeyFile keyfile) {
+		keyfile.set_boolean ("Metadata", "Automatic", is_automatic);
 	}
 
-	private void set_metadata (bool is_automatic, string? name, DateTime creation_date,
+	private void set_metadata (string? name, DateTime creation_date,
 	                           string platform, string core, double aspect_ratio) throws Error {
 		var metadata_file_path = Path.build_filename (path, "metadata");
 		var metadata_file = File.new_for_path (metadata_file_path);
@@ -214,8 +224,6 @@ public class Games.Savestate : Object {
 
 		if (metadata_file.query_exists ())
 			metadata_file.@delete ();
-
-		metadata.set_boolean ("Metadata", "Automatic", is_automatic);
 
 		if (name != null)
 			metadata.set_string ("Metadata", "Name", name);
@@ -228,20 +236,6 @@ public class Games.Savestate : Object {
 		save_metadata (metadata);
 
 		metadata.save_to_file (metadata_file_path);
-	}
-
-	// Automatic means whether the savestate was created automatically when
-	// quitting/loading the game or manually by the user using the Save button
-	public bool is_automatic () {
-		var metadata = get_metadata ();
-
-		try {
-			return metadata.get_boolean ("Metadata", "Automatic");
-		}
-		catch (Error e) {
-			critical ("Failed to get Automatic field from metadata file for snapshot at %s: %s", path, e.message);
-			return false;
-		}
 	}
 
 	public void delete_from_disk () {

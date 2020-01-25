@@ -238,7 +238,7 @@ private class Games.SavestatesList : Gtk.Box {
 			var savestate_row = list_child as SavestateListBoxRow;
 			var savestate = savestate_row.savestate;
 
-			if (savestate.is_automatic ())
+			if (savestate.is_automatic)
 				continue;
 
 			if (savestate.get_name () == entry_text) {
@@ -300,7 +300,8 @@ private class Games.SavestatesList : Gtk.Box {
 		}
 
 		delete_btn.sensitive = (state.selected_savestate != null);
-		rename_btn.sensitive = (state.selected_savestate != null && !state.selected_savestate.is_automatic ());
+		rename_btn.sensitive = (state.selected_savestate != null &&
+		                        !state.selected_savestate.is_automatic);
 	}
 
 	public bool on_key_press_event (uint keyval, Gdk.ModifierType state) {

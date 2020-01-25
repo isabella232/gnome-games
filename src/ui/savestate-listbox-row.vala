@@ -19,7 +19,7 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 		set {
 			_savestate = value;
 
-			if (savestate.is_automatic ())
+			if (savestate.is_automatic)
 				name_label.label = _("Autosave");
 			else
 				name_label.label = savestate.get_name ();

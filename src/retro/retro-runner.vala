@@ -614,7 +614,7 @@ public class Games.RetroRunner : Object, Runner {
 		var regex = new Regex (_("New snapshot %s").printf ("([1-9]\\d*)"));
 
 		foreach (var savestate in game_savestates) {
-			if (savestate.is_automatic ())
+			if (savestate.is_automatic)
 				continue;
 
 			var savestate_name = savestate.get_name ();
@@ -648,7 +648,7 @@ public class Games.RetroRunner : Object, Runner {
 		int autosaves_counter = 1;
 
 		foreach (var savestate in game_savestates) {
-			if (savestate.is_automatic ()) {
+			if (savestate.is_automatic) {
 				if (autosaves_counter < MAX_AUTOSAVES)
 					autosaves_counter++;
 				else
