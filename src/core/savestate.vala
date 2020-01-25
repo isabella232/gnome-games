@@ -147,6 +147,7 @@ public class Games.Savestate : Object {
 	// Set the metadata for an automatic savestate
 	public void set_metadata_automatic (DateTime creation_date, string core, double aspect_ratio) throws Error {
 		is_automatic = true;
+		this.name = null;
 		this.creation_date = creation_date;
 		this.core = core;
 		this.screenshot_aspect_ratio = aspect_ratio;
