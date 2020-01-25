@@ -88,6 +88,13 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 	public void set_name (string name) {
 		name_label.label = name;
 		savestate.name = name;
+
+		try {
+			savestate.write_metadata ();
+		}
+		catch (Error e) {
+			critical ("Couldn't update snapshot name: %s", e.message);
+		}
 	}
 
 	public void reveal () {

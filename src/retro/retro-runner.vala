@@ -482,10 +482,6 @@ public class Games.RetroRunner : Object, Runner {
 		var now_time = new DateTime.now ();
 		var ratio = Retro.pixbuf_get_aspect_ratio (current_state_pixbuf);
 
-		// FIXME: Because of how saving metadata is done currently, saving
-		// any additional data has to be done before the keyfile is written
-		save_savestate_metadata (tmp_live_savestate);
-
 		if (is_automatic)
 			tmp_live_savestate.set_metadata_automatic (now_time,
 			                                           get_core_id (), ratio);
@@ -495,6 +491,8 @@ public class Games.RetroRunner : Object, Runner {
 			tmp_live_savestate.set_metadata_manual (savestate_name, now_time,
 			                                        get_core_id (), ratio);
 		}
+
+		save_savestate_metadata (tmp_live_savestate);
 
 		// Save the tmp_live_savestate into the game savestates directory
 		var game_savestates_dir_path = get_game_savestates_dir_path ();
@@ -655,6 +653,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	protected virtual void save_savestate_metadata (Savestate savestate) throws Error {
+		tmp_live_savestate.write_metadata ();
 	}
 
 	protected virtual void load_savestate_metadata (Savestate savestate) throws Error {

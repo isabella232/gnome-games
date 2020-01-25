@@ -139,8 +139,6 @@ public class Games.Savestate : Object {
 		this.creation_date = creation_date;
 		this.core = core;
 		this.screenshot_aspect_ratio = aspect_ratio;
-
-		set_metadata ();
 	}
 
 	// Set the metadata for a manual savestate
@@ -150,8 +148,6 @@ public class Games.Savestate : Object {
 		this.creation_date = creation_date;
 		this.core = core;
 		this.screenshot_aspect_ratio = aspect_ratio;
-
-		set_metadata ();
 	}
 
 	protected virtual void load_metadata (KeyFile keyfile) throws KeyFileError {
@@ -183,7 +179,7 @@ public class Games.Savestate : Object {
 		keyfile.set_double ("Screenshot", "Aspect Ratio", screenshot_aspect_ratio);
 	}
 
-	private void set_metadata () throws Error {
+	public void write_metadata () throws Error {
 		var metadata_file_path = Path.build_filename (path, "metadata");
 		var metadata_file = File.new_for_path (metadata_file_path);
 		var metadata = new KeyFile ();
