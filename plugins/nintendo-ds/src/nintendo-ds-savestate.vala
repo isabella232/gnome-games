@@ -4,22 +4,14 @@ public class Games.NintendoDsSavestate : Savestate {
 	public NintendoDsLayout screen_layout { get; set; }
 	public bool view_bottom_screen { get; set; }
 
-	public void load_extra_metadata () {
-		var keyfile = get_metadata ();
+	protected override void load_metadata (KeyFile keyfile) throws KeyFileError {
+		var layout_value = keyfile.get_string ("Nintendo DS", "Screen Layout");
+		view_bottom_screen = keyfile.get_boolean ("Nintendo DS", "View Bottom Screen");
 
-		try {
-			var layout_value = keyfile.get_string ("Nintendo DS", "Screen Layout");
-			view_bottom_screen = keyfile.get_boolean ("Nintendo DS", "View Bottom Screen");
-
-			screen_layout = NintendoDsLayout.from_value (layout_value);
-		}
-		catch (KeyFileError e) {
-			critical ("Failed to get Nintendo DS metadata from metadata file for snapshot at %s: %s", path, e.message);
-			return;
-		}
+		screen_layout = NintendoDsLayout.from_value (layout_value);
 	}
 
-	protected override void save_extra_metadata (KeyFile keyfile) {
+	protected override void save_metadata (KeyFile keyfile) {
 		keyfile.set_string ("Nintendo DS", "Screen Layout", screen_layout.get_value ());
 		keyfile.set_boolean ("Nintendo DS", "View Bottom Screen", view_bottom_screen);
 	}

@@ -2,10 +2,24 @@ public class Games.Savestate : Object {
 	public string path { get; construct; }
 	public Platform platform { get; construct; }
 
-	public static Savestate load (Platform platform, string path) {
+	private static Savestate load (Platform platform, string path) {
 		var type = platform.get_savestate_type ();
 
-		return Object.new (type, "path", path, "platform", platform, null) as Savestate;
+		var savestate = Object.new (type, "path", path, "platform", platform, null) as Savestate;
+		savestate.load_keyfile ();
+
+		return savestate;
+	}
+
+	private void load_keyfile () {
+		var keyfile = get_metadata ();
+
+		try {
+			load_metadata (keyfile);
+		}
+		catch (KeyFileError e) {
+			critical ("Failed to load metadata for snapshot at %s: %s", path, e.message);
+		}
 	}
 
 	protected KeyFile get_metadata () {
@@ -186,7 +200,10 @@ public class Games.Savestate : Object {
 		set_metadata (false, name, creation_date, platform, core, aspect_ratio);
 	}
 
-	protected virtual void save_extra_metadata (KeyFile keyfile) {
+	protected virtual void load_metadata (KeyFile keyfile) throws KeyFileError {
+	}
+
+	protected virtual void save_metadata (KeyFile keyfile) {
 	}
 
 	private void set_metadata (bool is_automatic, string? name, DateTime creation_date,
@@ -208,7 +225,7 @@ public class Games.Savestate : Object {
 		metadata.set_string ("Metadata", "Core", core);
 		metadata.set_double ("Screenshot", "Aspect Ratio", aspect_ratio);
 
-		save_extra_metadata (metadata);
+		save_metadata (metadata);
 
 		metadata.save_to_file (metadata_file_path);
 	}

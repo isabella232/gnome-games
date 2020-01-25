@@ -129,8 +129,6 @@ private class Games.NintendoDsRunner : RetroRunner {
 		assert (savestate is NintendoDsSavestate);
 
 		var ds_savestate = savestate as NintendoDsSavestate;
-
-		ds_savestate.load_extra_metadata ();
 		screen_layout = ds_savestate.screen_layout;
 		view_bottom_screen = ds_savestate.view_bottom_screen;
 	}
