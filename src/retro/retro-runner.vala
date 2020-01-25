@@ -185,7 +185,7 @@ public class Games.RetroRunner : Object, Runner {
 		try {
 			pixbuf = new Gdk.Pixbuf.from_file (screenshot_path);
 
-			var aspect_ratio = savestate.get_screenshot_aspect_ratio ();
+			var aspect_ratio = savestate.screenshot_aspect_ratio;
 
 			if (aspect_ratio != 0)
 				Retro.pixbuf_set_aspect_ratio (pixbuf, (float) aspect_ratio);

@@ -48,7 +48,7 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 
 		Gdk.Pixbuf.get_file_info (screenshot_path, out screenshot_width, out screenshot_height);
 
-		var aspect_ratio = (double) savestate.get_screenshot_aspect_ratio ();
+		var aspect_ratio = savestate.screenshot_aspect_ratio;
 
 		// A fallback for migrated savestates
 		if (aspect_ratio == 0)

@@ -8,6 +8,7 @@ public class Games.Savestate : Object {
 	public string name { get; set; }
 	public DateTime? creation_date { get; private set; }
 	public string core { get; private set; }
+	public double screenshot_aspect_ratio { get; private set; }
 
 	private static Savestate load (Platform platform, string path) {
 		var type = platform.get_savestate_type ();
@@ -48,19 +49,6 @@ public class Games.Savestate : Object {
 		}
 
 		return metadata;
-	}
-
-	public double get_screenshot_aspect_ratio () {
-		var metadata = get_metadata ();
-
-		try {
-			return metadata.get_double ("Screenshot", "Aspect Ratio");
-		}
-		catch (Error e) {
-			// Migrated savestates are not going to have the correct aspect ratio.
-			// Fail gracefully and don't print
-			return 0;
-		}
 	}
 
 	public void set_snapshot_data (Bytes snapshot_data) throws Error {
@@ -161,8 +149,9 @@ public class Games.Savestate : Object {
 		is_automatic = true;
 		this.creation_date = creation_date;
 		this.core = core;
+		this.screenshot_aspect_ratio = aspect_ratio;
 
-		set_metadata (aspect_ratio);
+		set_metadata ();
 	}
 
 	// Set the metadata for a manual savestate
@@ -171,8 +160,9 @@ public class Games.Savestate : Object {
 		this.name = name;
 		this.creation_date = creation_date;
 		this.core = core;
+		this.screenshot_aspect_ratio = aspect_ratio;
 
-		set_metadata (aspect_ratio);
+		set_metadata ();
 	}
 
 	protected virtual void load_metadata (KeyFile keyfile) throws KeyFileError {
@@ -185,6 +175,10 @@ public class Games.Savestate : Object {
 
 		var creation_date_str = keyfile.get_string ("Metadata", "Creation Date");
 		creation_date = new DateTime.from_iso8601 (creation_date_str, new TimeZone.local ());
+
+		core = keyfile.get_string ("Metadata", "Core");
+
+		screenshot_aspect_ratio = keyfile.get_double ("Screenshot", "Aspect Ratio");
 	}
 
 	protected virtual void save_metadata (KeyFile keyfile) {
@@ -196,17 +190,17 @@ public class Games.Savestate : Object {
 		// FIXME: This is unused
 		keyfile.set_string ("Metadata", "Platform", platform.get_uid_prefix ());
 		keyfile.set_string ("Metadata", "Core", core);
+
+		keyfile.set_double ("Screenshot", "Aspect Ratio", screenshot_aspect_ratio);
 	}
 
-	private void set_metadata (double aspect_ratio) throws Error {
+	private void set_metadata () throws Error {
 		var metadata_file_path = Path.build_filename (path, "metadata");
 		var metadata_file = File.new_for_path (metadata_file_path);
 		var metadata = new KeyFile ();
 
 		if (metadata_file.query_exists ())
 			metadata_file.@delete ();
-
-		metadata.set_double ("Screenshot", "Aspect Ratio", aspect_ratio);
 
 		save_metadata (metadata);
 
