@@ -221,6 +221,9 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void start () throws Error {
+		if (latest_savestate != null)
+			reset_metadata (latest_savestate);
+
 		if (latest_savestate != null && latest_savestate.has_media_data ())
 			media_set.selected_media_number = latest_savestate.get_media_data ();
 
@@ -242,9 +245,6 @@ public class Games.RetroRunner : Object, Runner {
 		core.reset ();
 
 		loop.start ();
-
-		if (latest_savestate != null)
-			reset_metadata (latest_savestate);
 
 		running = true;
 	}
