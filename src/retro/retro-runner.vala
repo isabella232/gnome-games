@@ -614,7 +614,6 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private string create_new_savestate_name () throws Error {
-		// A list containing the names of all savestates with name of the form "New Savestate %d"
 		var list = new List<int>();
 		var regex = new Regex (_("New savestate %s").printf ("([1-9]\\d*)"));
 
