@@ -660,13 +660,13 @@ public class Games.RetroRunner : Object, Runner {
 		}
 	}
 
-	protected virtual void save_savestate_metadata (Savestate savestate) {
+	protected virtual void save_savestate_metadata (Savestate savestate) throws Error {
 	}
 
-	protected virtual void load_savestate_metadata (Savestate savestate) {
+	protected virtual void load_savestate_metadata (Savestate savestate) throws Error {
 	}
 
-	protected virtual void reset_metadata (Savestate last_savestate) {
+	protected virtual void reset_metadata (Savestate last_savestate) throws Error {
 	}
 }
 
