@@ -200,7 +200,7 @@ msgstr "No s'ha trobat cap joc"
 msgid ""
 "Install games or add directories containing games to your search sources."
 msgstr ""
-"Instal·leu jocs o afegiu diccionaris que continguin jocs a les vostres fonts "
+"Instal·leu jocs o afegiu directoris que continguin jocs a les vostres fonts "
 "de cerca."
 
 #: data/ui/input-mode-switcher.ui:16
@@ -1211,7 +1211,7 @@ msgstr "Error: %s (%d)"
 #: src/utils/file-operations.vala:78
 #, c-format
 msgid "Error writing “%s”: %s (%d)"
-msgstr "Error escrivint “%s”: %s (%d)"
+msgstr "S'ha produït un error escrivint «%s»: %s (%d)"
 
 #~ msgid "org.gnome.Games"
 #~ msgstr "org.gnome.Games"
