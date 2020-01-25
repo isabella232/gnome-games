@@ -208,7 +208,7 @@ public class Games.RetroRunner : Object, Runner {
 		if (previewed_savestate.has_media_data ())
 			media_set.selected_media_number = previewed_savestate.get_media_data ();
 
-		load_extra_savestate_metadata (previewed_savestate, false);
+		load_savestate_metadata (previewed_savestate);
 
 		is_ready = true;
 	}
@@ -244,7 +244,7 @@ public class Games.RetroRunner : Object, Runner {
 		loop.start ();
 
 		if (latest_savestate != null)
-			load_extra_savestate_metadata (latest_savestate, true);
+			reset_metadata (latest_savestate);
 
 		running = true;
 	}
@@ -488,7 +488,7 @@ public class Games.RetroRunner : Object, Runner {
 
 		// FIXME: Because of how saving metadata is done currently, saving
 		// any additional data has to be done before the keyfile is written
-		save_extra_savestate_metadata (tmp_live_savestate);
+		save_savestate_metadata (tmp_live_savestate);
 
 		if (is_automatic)
 			tmp_live_savestate.set_metadata_automatic (now_time, platform_prefix,
@@ -660,10 +660,13 @@ public class Games.RetroRunner : Object, Runner {
 		}
 	}
 
-	protected virtual void save_extra_savestate_metadata (Savestate savestate) {
+	protected virtual void save_savestate_metadata (Savestate savestate) {
 	}
 
-	protected virtual void load_extra_savestate_metadata (Savestate savestate, bool reset) {
+	protected virtual void load_savestate_metadata (Savestate savestate) {
+	}
+
+	protected virtual void reset_metadata (Savestate last_savestate) {
 	}
 }
 
