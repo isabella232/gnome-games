@@ -224,9 +224,6 @@ public class Games.RetroRunner : Object, Runner {
 		if (latest_savestate != null)
 			reset_metadata (latest_savestate);
 
-		if (latest_savestate != null && latest_savestate.has_media_data ())
-			media_set.selected_media_number = latest_savestate.get_media_data ();
-
 		if (!is_initialized) {
 			if (latest_savestate != null)
 				tmp_live_savestate = latest_savestate.clone_in_tmp ();
@@ -667,6 +664,8 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	protected virtual void reset_metadata (Savestate last_savestate) throws Error {
+		if (last_savestate.has_media_data ())
+			media_set.selected_media_number = last_savestate.get_media_data ();
 	}
 }
 
