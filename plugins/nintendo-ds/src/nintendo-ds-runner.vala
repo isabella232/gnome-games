@@ -114,6 +114,8 @@ private class Games.NintendoDsRunner : RetroRunner {
 	}
 
 	protected override void save_savestate_metadata (Savestate savestate) {
+		base.save_savestate_metadata (savestate);
+
 		assert (savestate is NintendoDsSavestate);
 
 		var ds_savestate = savestate as NintendoDsSavestate;
@@ -122,6 +124,8 @@ private class Games.NintendoDsRunner : RetroRunner {
 	}
 
 	protected override void load_savestate_metadata (Savestate savestate) {
+		base.load_savestate_metadata (savestate);
+
 		assert (savestate is NintendoDsSavestate);
 
 		var ds_savestate = savestate as NintendoDsSavestate;
@@ -132,6 +136,8 @@ private class Games.NintendoDsRunner : RetroRunner {
 	}
 
 	protected override void reset_metadata (Savestate last_savestate) {
+		base.reset_metadata (last_savestate);
+
 		screen_layout = NintendoDsLayout.TOP_BOTTOM;
 		view_bottom_screen = false;
 	}
