@@ -243,4 +243,3 @@ public class Games.Savestate : Object {
 		return tmp_savestate_path;
 	}
 }
-
