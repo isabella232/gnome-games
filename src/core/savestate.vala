@@ -6,17 +6,25 @@ public class Games.Savestate : Object {
 	// quitting/loading the game or manually by the user using the Save button
 	public bool is_automatic { get; private set; }
 	public string name { get; set; }
+	public DateTime? creation_date { get; private set; }
 
 	private static Savestate load (Platform platform, string path) {
 		var type = platform.get_savestate_type ();
 
 		var savestate = Object.new (type, "path", path, "platform", platform, null) as Savestate;
+
 		savestate.load_keyfile ();
 
 		return savestate;
 	}
 
 	private void load_keyfile () {
+		var metadata_file_path = Path.build_filename (path, "metadata");
+		var metadata_file = File.new_for_path (metadata_file_path);
+
+		if (!metadata_file.query_exists ())
+			return;
+
 		var keyfile = get_metadata ();
 
 		try {
@@ -39,20 +47,6 @@ public class Games.Savestate : Object {
 		}
 
 		return metadata;
-	}
-
-	public DateTime? get_creation_date () {
-		var metadata = get_metadata ();
-
-		try {
-			var creation_date_str = metadata.get_string ("Metadata", "Creation Date");
-
-			return new DateTime.from_iso8601 (creation_date_str, new TimeZone.local ());
-		}
-		catch (Error e) {
-			critical ("Failed to get creation date from metadata file for snapshot at %s: %s", path, e.message);
-			return null;
-		}
 	}
 
 	public double get_screenshot_aspect_ratio () {
@@ -147,11 +141,8 @@ public class Games.Savestate : Object {
 	// It names the newly created savestate using the creation date in the
 	// metadata file
 	public Savestate save_in (string game_savestates_dir_path) throws Error {
-		var metadata = get_metadata ();
-
-		var creation_date = metadata.get_string ("Metadata", "Creation Date");
 		var copied_dir = File.new_for_path (path);
-		var new_savestate_dir_path = Path.build_filename (game_savestates_dir_path, creation_date);
+		var new_savestate_dir_path = Path.build_filename (game_savestates_dir_path, creation_date.to_string ());
 		var new_savestate_dir = File.new_for_path (new_savestate_dir_path);
 
 		while (new_savestate_dir.query_exists ()) {
@@ -167,16 +158,18 @@ public class Games.Savestate : Object {
 	// Set the metadata for an automatic savestate
 	public void set_metadata_automatic (DateTime creation_date, string platform, string core, double aspect_ratio) throws Error {
 		is_automatic = true;
+		this.creation_date = creation_date;
 
-		set_metadata (creation_date, platform, core, aspect_ratio);
+		set_metadata (platform, core, aspect_ratio);
 	}
 
 	// Set the metadata for a manual savestate
 	public void set_metadata_manual (string name, DateTime creation_date, string platform, string core, double aspect_ratio) throws Error {
 		is_automatic = false;
 		this.name = name;
+		this.creation_date = creation_date;
 
-		set_metadata (creation_date, platform, core, aspect_ratio);
+		set_metadata (platform, core, aspect_ratio);
 	}
 
 	protected virtual void load_metadata (KeyFile keyfile) throws KeyFileError {
@@ -186,16 +179,19 @@ public class Games.Savestate : Object {
 			name = null;
 		else
 			name = keyfile.get_string ("Metadata", "Name");
+
+		var creation_date_str = keyfile.get_string ("Metadata", "Creation Date");
+		creation_date = new DateTime.from_iso8601 (creation_date_str, new TimeZone.local ());
 	}
 
 	protected virtual void save_metadata (KeyFile keyfile) {
 		keyfile.set_boolean ("Metadata", "Automatic", is_automatic);
 		if (name != null)
 			keyfile.set_string ("Metadata", "Name", name);
+		keyfile.set_string ("Metadata", "Creation Date", creation_date.to_string ());
 	}
 
-	private void set_metadata (DateTime creation_date,
-	                           string platform, string core, double aspect_ratio) throws Error {
+	private void set_metadata (string platform, string core, double aspect_ratio) throws Error {
 		var metadata_file_path = Path.build_filename (path, "metadata");
 		var metadata_file = File.new_for_path (metadata_file_path);
 		var metadata = new KeyFile ();
@@ -203,7 +199,6 @@ public class Games.Savestate : Object {
 		if (metadata_file.query_exists ())
 			metadata_file.@delete ();
 
-		metadata.set_string ("Metadata", "Creation Date", creation_date.to_string ());
 		metadata.set_string ("Metadata", "Platform", platform);
 		metadata.set_string ("Metadata", "Core", core);
 		metadata.set_double ("Screenshot", "Aspect Ratio", aspect_ratio);

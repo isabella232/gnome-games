@@ -24,7 +24,7 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 			else
 				name_label.label = savestate.name;
 
-			var creation_date = savestate.get_creation_date ();
+			var creation_date = savestate.creation_date;
 			var date_format = get_date_format (creation_date);
 			date_label.label = creation_date.format (date_format);
 
