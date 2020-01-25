@@ -12,8 +12,8 @@ data/ui/gamepad-mapper.ui
 data/ui/input-mode-switcher.ui
 data/ui/keyboard-mapper.ui
 data/ui/media-menu-button.ui
-data/ui/preferences-page-backup-restore.ui
 data/ui/preferences-page-controllers.ui
+data/ui/preferences-page-import-export.ui
 data/ui/preferences-page-video.ui
 data/ui/preferences-subpage-gamepad.ui
 data/ui/preferences-subpage-keyboard.ui
@@ -70,8 +70,8 @@ src/ui/error-display.vala
 src/ui/gamepad-mapper.vala
 src/ui/keyboard-mapper.vala
 src/ui/media-menu-button.vala
-src/ui/preferences-page-backup-restore.vala
 src/ui/preferences-page-controllers.vala
+src/ui/preferences-page-import-export.vala
 src/ui/preferences-page-platforms-retro-row.vala
 src/ui/preferences-page-platforms.vala
 src/ui/preferences-page-video.vala
