@@ -661,4 +661,3 @@ public class Games.RetroRunner : Object, Runner {
 			media_set.selected_media_number = last_savestate.get_media_data ();
 	}
 }
-
