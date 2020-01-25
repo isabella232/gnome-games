@@ -27,28 +27,16 @@ public class Games.Savestate : Object {
 		if (!metadata_file.query_exists ())
 			return;
 
-		var keyfile = get_metadata ();
+		var keyfile = new KeyFile ();
 
 		try {
+			keyfile.load_from_file (metadata_file_path, KeyFileFlags.NONE);
+
 			load_metadata (keyfile);
 		}
-		catch (KeyFileError e) {
+		catch (Error e) {
 			critical ("Failed to load metadata for snapshot at %s: %s", path, e.message);
 		}
-	}
-
-	protected KeyFile get_metadata () {
-		var metadata = new KeyFile ();
-		var metadata_file_path = Path.build_filename (path, "metadata");
-
-		try {
-			metadata.load_from_file (metadata_file_path, KeyFileFlags.NONE);
-		}
-		catch (Error e) {
-			critical ("Failed to load metadata for %s: %s", path, e.message);
-		}
-
-		return metadata;
 	}
 
 	public void set_snapshot_data (Bytes snapshot_data) throws Error {
