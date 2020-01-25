@@ -214,9 +214,8 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public Savestate[] get_savestates () {
-		if (game_savestates == null) {
-			critical ("RetroRunner hasn't loaded savestates. Call try_init_phase_one()");
-		}
+		if (game_savestates == null)
+			critical ("RetroRunner hasn't loaded snapshots. Call try_init_phase_one()");
 
 		return game_savestates;
 	}
@@ -462,7 +461,7 @@ public class Games.RetroRunner : Object, Runner {
 			return create_savestate (is_automatic);
 		}
 		catch (Error e) {
-			critical ("RetroRunner failed to create savestate: %s", e.message);
+			critical ("Failed to create snapshot: %s", e.message);
 
 			return null;
 		}
@@ -615,7 +614,7 @@ public class Games.RetroRunner : Object, Runner {
 
 	private string create_new_savestate_name () throws Error {
 		var list = new List<int>();
-		var regex = new Regex (_("New savestate %s").printf ("([1-9]\\d*)"));
+		var regex = new Regex (_("New snapshot %s").printf ("([1-9]\\d*)"));
 
 		foreach (var savestate in game_savestates) {
 			if (savestate.is_automatic ())
@@ -641,7 +640,7 @@ public class Games.RetroRunner : Object, Runner {
 				break;
 		}
 
-		return _("New savestate %s").printf (next_number.to_string ());
+		return _("New snapshot %s").printf (next_number.to_string ());
 	}
 
 	// Decide if there are too many automatic savestates and delete the

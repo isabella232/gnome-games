@@ -111,7 +111,7 @@ private class Games.SavestatesList : Gtk.Box {
 	private void on_load_clicked () {
 		if (!try_runner_load_previewed_savestate ()) {
 			// TODO: Here we could show a dialog with one button like
-			// "Failed to load savestate [Ok]"
+			// "Failed to load snapshot [Ok]"
 		}
 
 		state.is_revealed = false;
@@ -122,7 +122,7 @@ private class Games.SavestatesList : Gtk.Box {
 			_runner.load_previewed_savestate ();
 		}
 		catch (Error e) {
-			critical ("Failed to load savestate: %s", e.message);
+			critical ("Failed to load snapshot: %s", e.message);
 
 			return false;
 		}
@@ -244,7 +244,7 @@ private class Games.SavestatesList : Gtk.Box {
 			if (savestate.get_name () == entry_text) {
 				rename_entry.get_style_context ().add_class ("error");
 				rename_popover_btn.sensitive = false;
-				rename_error_label.label = _("A savestate with this name already exists");
+				rename_error_label.label = _("A snapshot with this name already exists");
 
 				return false;
 			}

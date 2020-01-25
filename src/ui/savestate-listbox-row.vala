@@ -76,7 +76,7 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 			                                            false);
 		}
 		catch (Error e) {
-			warning ("Failed to load savestate thumbnail: %s", e.message);
+			warning ("Failed to load snapshot thumbnail: %s", e.message);
 		}
 	}
 

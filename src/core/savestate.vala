@@ -34,7 +34,7 @@ public class Games.Savestate : Object {
 				return metadata.get_string ("Metadata", "Name");
 		}
 		catch (KeyFileError e) {
-			critical ("Failed to get name from metadata file for savestate at %s: %s", path, e.message);
+			critical ("Failed to get name from metadata file for snapshot at %s: %s", path, e.message);
 			return null;
 		}
 	}
@@ -49,7 +49,7 @@ public class Games.Savestate : Object {
 			metadata.save_to_file (metadata_file_path);
 		}
 		catch (Error e) {
-			critical ("Failed to set name in metadata file for savestate at %s: %s", path, e.message);
+			critical ("Failed to set name in metadata file for snapshot at %s: %s", path, e.message);
 		}
 	}
 
@@ -62,7 +62,7 @@ public class Games.Savestate : Object {
 			return new DateTime.from_iso8601 (creation_date_str, new TimeZone.local ());
 		}
 		catch (Error e) {
-			critical ("Failed to get creation date from metadata file for savestate at %s: %s", path, e.message);
+			critical ("Failed to get creation date from metadata file for snapshot at %s: %s", path, e.message);
 			return null;
 		}
 	}
@@ -127,7 +127,7 @@ public class Games.Savestate : Object {
 		var media_path = Path.build_filename (path, "media");
 
 		if (!FileUtils.test (media_path, FileTest.EXISTS))
-			throw new FileError.ACCES ("Savestate at %s does not contain media file", path);
+			throw new FileError.ACCES ("Snapshot at %s does not contain media file", path);
 
 		string contents;
 		FileUtils.get_contents (media_path, out contents);
@@ -222,7 +222,7 @@ public class Games.Savestate : Object {
 			return metadata.get_boolean ("Metadata", "Automatic");
 		}
 		catch (Error e) {
-			critical ("Failed to get Automatic field from metadata file for savestate at %s: %s", path, e.message);
+			critical ("Failed to get Automatic field from metadata file for snapshot at %s: %s", path, e.message);
 			return false;
 		}
 	}
@@ -236,7 +236,7 @@ public class Games.Savestate : Object {
 			FileOperations.delete_files (savestate_dir, {});
 		}
 		catch (Error e) {
-			warning ("Failed to delete savestate at %s: %s", path, e.message);
+			warning ("Failed to delete snapshot at %s: %s", path, e.message);
 		}
 	}
 

@@ -193,7 +193,7 @@ private class Games.DisplayView : Object, UiView {
 			box.runner.load_previewed_savestate ();
 		}
 		catch (Error e) {
-			warning ("Failed to load savestate: %s", e.message);
+			warning ("Failed to load snapshot: %s", e.message);
 		}
 
 		box.runner.resume ();

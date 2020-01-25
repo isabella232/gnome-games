@@ -185,7 +185,7 @@
         <child>
           <object class="GtkModelButton" id="savestates_menu_button">
             <property name="visible">True</property>
-            <property name="text" translatable="yes">_Savestates</property>
+            <property name="text" translatable="yes">_Snapshots</property>
             <signal name="clicked" handler="on_secondary_menu_savestates_clicked"/>
           </object>
         </child>

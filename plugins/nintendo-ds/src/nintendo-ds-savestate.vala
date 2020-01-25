@@ -14,7 +14,7 @@ public class Games.NintendoDsSavestate : Savestate {
 			screen_layout = NintendoDsLayout.from_value (layout_value);
 		}
 		catch (KeyFileError e) {
-			critical ("Failed to get Nintendo DS metadata from metadata file for savestate at %s: %s", path, e.message);
+			critical ("Failed to get Nintendo DS metadata from metadata file for snapshot at %s: %s", path, e.message);
 			return;
 		}
 	}
