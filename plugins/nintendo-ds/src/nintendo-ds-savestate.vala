@@ -5,6 +5,8 @@ public class Games.NintendoDsSavestate : Savestate {
 	public bool view_bottom_screen { get; set; }
 
 	protected override void load_metadata (KeyFile keyfile) throws KeyFileError {
+		base.load_metadata (keyfile);
+
 		var layout_value = keyfile.get_string ("Nintendo DS", "Screen Layout");
 		view_bottom_screen = keyfile.get_boolean ("Nintendo DS", "View Bottom Screen");
 
@@ -12,6 +14,8 @@ public class Games.NintendoDsSavestate : Savestate {
 	}
 
 	protected override void save_metadata (KeyFile keyfile) {
+		base.save_metadata (keyfile);
+
 		keyfile.set_string ("Nintendo DS", "Screen Layout", screen_layout.get_value ());
 		keyfile.set_boolean ("Nintendo DS", "View Bottom Screen", view_bottom_screen);
 	}
