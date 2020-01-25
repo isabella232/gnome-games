@@ -7,6 +7,7 @@ public class Games.Savestate : Object {
 	public bool is_automatic { get; private set; }
 	public string name { get; set; }
 	public DateTime? creation_date { get; private set; }
+	public string core { get; private set; }
 
 	private static Savestate load (Platform platform, string path) {
 		var type = platform.get_savestate_type ();
@@ -159,8 +160,9 @@ public class Games.Savestate : Object {
 	public void set_metadata_automatic (DateTime creation_date, string core, double aspect_ratio) throws Error {
 		is_automatic = true;
 		this.creation_date = creation_date;
+		this.core = core;
 
-		set_metadata (core, aspect_ratio);
+		set_metadata (aspect_ratio);
 	}
 
 	// Set the metadata for a manual savestate
@@ -168,8 +170,9 @@ public class Games.Savestate : Object {
 		is_automatic = false;
 		this.name = name;
 		this.creation_date = creation_date;
+		this.core = core;
 
-		set_metadata (core, aspect_ratio);
+		set_metadata (aspect_ratio);
 	}
 
 	protected virtual void load_metadata (KeyFile keyfile) throws KeyFileError {
@@ -192,9 +195,10 @@ public class Games.Savestate : Object {
 
 		// FIXME: This is unused
 		keyfile.set_string ("Metadata", "Platform", platform.get_uid_prefix ());
+		keyfile.set_string ("Metadata", "Core", core);
 	}
 
-	private void set_metadata (string core, double aspect_ratio) throws Error {
+	private void set_metadata (double aspect_ratio) throws Error {
 		var metadata_file_path = Path.build_filename (path, "metadata");
 		var metadata_file = File.new_for_path (metadata_file_path);
 		var metadata = new KeyFile ();
@@ -202,7 +206,6 @@ public class Games.Savestate : Object {
 		if (metadata_file.query_exists ())
 			metadata_file.@delete ();
 
-		metadata.set_string ("Metadata", "Core", core);
 		metadata.set_double ("Screenshot", "Aspect Ratio", aspect_ratio);
 
 		save_metadata (metadata);
