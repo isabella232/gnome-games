@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk+" version="3.24"/>
-  <template class="GamesPreferencesPageBackupRestore" parent="GamesPreferencesPage">
+  <template class="GamesPreferencesPageImportExport" parent="GamesPreferencesPage">
     <property name="visible">True</property>
     <child>
       <object class="GtkLabel">
         <property name="visible">True</property>
         <property name="xalign">0</property>
-        <property name="label" translatable="yes">Backup save states and in-game saves. This can be used for moving the data to another device or for restoring it later. Desktop, Steam and LÖVE games cannot be backed up.</property>
+        <property name="label" translatable="yes">Export save states and in-game saves. This can be used for moving the data to another device or for restoring it later. Desktop, Steam and LÖVE games cannot be exported.</property>
         <property name="wrap">True</property>
         <style>
           <class name="dim-label"/>
@@ -39,7 +39,7 @@
                     <property name="visible">True</property>
                     <property name="xalign">0</property>
                     <property name="expand">True</property>
-                    <property name="label" translatable="yes">Back up save data</property>
+                    <property name="label" translatable="yes">Export save data</property>
                     <property name="ellipsize">end</property>
                   </object>
                 </child>
@@ -48,8 +48,8 @@
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="use-underline">True</property>
-                    <property name="label" translatable="yes">_Back Up</property>
-                    <signal name="clicked" handler="on_backup_clicked"/>
+                    <property name="label" translatable="yes">_Export</property>
+                    <signal name="clicked" handler="on_export_clicked"/>
                   </object>
                 </child>
               </object>
@@ -63,7 +63,7 @@
         <property name="visible">True</property>
         <property name="xalign">0</property>
         <property name="margin-top">12</property>
-        <property name="label" translatable="yes">Restore save data for games from existing backup. This will replace existing saves and cannot be undone.</property>
+        <property name="label" translatable="yes">Import save data for games from existing backup. This will replace existing saves and cannot be undone.</property>
         <property name="wrap">True</property>
         <style>
           <class name="dim-label"/>
@@ -94,7 +94,7 @@
                     <property name="visible">True</property>
                     <property name="xalign">0</property>
                     <property name="expand">True</property>
-                    <property name="label" translatable="yes">Restore save data</property>
+                    <property name="label" translatable="yes">Import save data</property>
                     <property name="ellipsize">end</property>
                   </object>
                 </child>
@@ -103,8 +103,8 @@
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="use-underline">True</property>
-                    <property name="label" translatable="yes">_Restore</property>
-                    <signal name="clicked" handler="on_restore_clicked"/>
+                    <property name="label" translatable="yes">_Import</property>
+                    <signal name="clicked" handler="on_import_clicked"/>
                     <style>
                       <class name="destructive-action"/>
                     </style>

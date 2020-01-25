@@ -33,7 +33,7 @@
     <file preprocess="xml-stripblanks">ui/platform-list-item.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page-controllers.ui</file>
-    <file preprocess="xml-stripblanks">ui/preferences-page-backup-restore.ui</file>
+    <file preprocess="xml-stripblanks">ui/preferences-page-import-export.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page-platforms.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page-platforms-generic-row.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page-platforms-retro-row.ui</file>

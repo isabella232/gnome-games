@@ -149,7 +149,7 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GamesPreferencesPageBackupRestore" id="backup_restore_page">
+                  <object class="GamesPreferencesPageImportExport" id="import_export_page">
                     <property name="visible">True</property>
                   </object>
                 </child>
