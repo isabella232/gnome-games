@@ -17,18 +17,10 @@ private class Games.DisplayBox : Gtk.Bin {
 		}
 	}
 
+	public bool is_showing_snapshots { get; set; }
+
 	public DisplayHeaderBar header_bar {
 		get { return fullscreen_header_bar; }
-	}
-
-	public SavestatesListState savestates_list_state {
-		get { return savestates_list.state; }
-		set {
-			value.notify["is-revealed"].connect (on_savestates_list_revealed_changed);
-
-			savestates_list.state = value;
-			fullscreen_header_bar.savestates_list_state = value;
-		}
 	}
 
 	private Runner _runner;
@@ -57,8 +49,6 @@ private class Games.DisplayBox : Gtk.Bin {
 	}
 
 	[GtkChild]
-	private FullscreenBox fullscreen_box;
-	[GtkChild]
 	private Gtk.Stack stack;
 	[GtkChild]
 	private ErrorDisplay error_display;
@@ -74,10 +64,6 @@ private class Games.DisplayBox : Gtk.Bin {
 	private SavestatesList savestates_list;
 
 	private int fullscreen_header_bar_height;
-
-	public DisplayBox (SavestatesListState savestates_list_state) {
-		Object (savestates_list_state: savestates_list_state);
-	}
 
 	public void display_running_game_failed (Game game, string error_message) {
 		stack.visible_child = error_display;
@@ -108,7 +94,7 @@ private class Games.DisplayBox : Gtk.Bin {
 		if (runner == null)
 			return false;
 
-		if (savestates_list_state.is_revealed)
+		if (is_showing_snapshots)
 			return savestates_list.on_key_press_event (keyval, state);
 
 		return runner.key_press_event (keyval, state);
@@ -126,10 +112,6 @@ private class Games.DisplayBox : Gtk.Bin {
 			return false;
 
 		return runner.gamepad_button_press_event (button);
-	}
-
-	public void on_savestates_list_revealed_changed () {
-		fullscreen_box.autohide = !savestates_list.state.is_revealed;
 	}
 
 	[GtkCallback]

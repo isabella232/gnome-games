@@ -5,8 +5,6 @@ private class Games.SavestatesList : Gtk.Box {
 	public signal void hidden ();
 
 	[GtkChild]
-	private Gtk.Revealer revealer;
-	[GtkChild]
 	private Gtk.ListBox list_box;
 	[GtkChild]
 	private Gtk.ListBoxRow new_savestate_row;
@@ -28,20 +26,7 @@ private class Games.SavestatesList : Gtk.Box {
 
 	private Savestate selected_savestate;
 
-	private SavestatesListState _state;
-	public SavestatesListState state {
-		get { return _state; }
-		set {
-			if (_state != null)
-				_state.notify["is-revealed"].disconnect (on_revealed_changed);
-
-			_state = value;
-
-			if (value != null)
-				value.notify["is-revealed"].connect (on_revealed_changed);
-		}
-	}
-
+	public bool is_revealed { get; set; }
 	public Runner runner { get; set; }
 
 	construct {
@@ -109,20 +94,18 @@ private class Games.SavestatesList : Gtk.Box {
 		}
 	}
 
+	[GtkCallback]
 	private void on_revealed_changed () {
-		revealer.reveal_child = state.is_revealed;
-
-		if (state.is_revealed) {
+		if (is_revealed) {
 			runner.pause ();
 			populate_list_box ();
 			select_savestate_row (null);
 		}
-		// Runner isn't resumed here but after the revealer finishes the transition
 	}
 
 	[GtkCallback]
 	private void on_revealer_transition_end () {
-		if (!state.is_revealed)
+		if (!is_revealed)
 			hidden ();
 	}
 

@@ -39,6 +39,7 @@ private class Games.DisplayView : Object, UiView {
 	public Gtk.Window window { get; construct; }
 
 	public bool is_fullscreen { get; set; }
+	public bool is_showing_snapshots { get; set; }
 
 	private Settings settings;
 
@@ -48,8 +49,6 @@ private class Games.DisplayView : Object, UiView {
 	private ResumeDialog resume_dialog;
 	private ResumeFailedDialog resume_failed_dialog;
 	private QuitDialog quit_dialog;
-
-	private SavestatesListState savestates_list_state;
 
 	private long focus_out_timeout_id;
 
@@ -62,9 +61,8 @@ private class Games.DisplayView : Object, UiView {
 	}
 
 	construct {
-		savestates_list_state = new SavestatesListState ();
-		box = new DisplayBox (savestates_list_state);
-		header_bar = new DisplayHeaderBar (savestates_list_state);
+		box = new DisplayBox ();
+		header_bar = new DisplayHeaderBar ();
 
 		box.back.connect (on_display_back);
 		header_bar.back.connect (on_display_back);
@@ -77,6 +75,11 @@ private class Games.DisplayView : Object, UiView {
 		               "is-fullscreen", BindingFlags.BIDIRECTIONAL);
 		bind_property ("is-fullscreen", header_bar,
 		               "is-fullscreen", BindingFlags.BIDIRECTIONAL);
+
+		bind_property ("is-showing-snapshots", box,
+		               "is-showing-snapshots", BindingFlags.BIDIRECTIONAL);
+		bind_property ("is-showing-snapshots", header_bar,
+		               "is-showing-snapshots", BindingFlags.BIDIRECTIONAL);
 
 		focus_out_timeout_id = -1;
 
@@ -108,7 +111,7 @@ private class Games.DisplayView : Object, UiView {
 			return true;
 
 		if ((keyval == Gdk.Key.f || keyval == Gdk.Key.F) && ctrl_pressed &&
-		    header_bar.can_fullscreen && !savestates_list_state.is_revealed) {
+		    header_bar.can_fullscreen && !is_showing_snapshots) {
 			is_fullscreen = !is_fullscreen;
 			settings.set_boolean ("fullscreen", is_fullscreen);
 
@@ -116,7 +119,7 @@ private class Games.DisplayView : Object, UiView {
 		}
 
 		if (keyval == Gdk.Key.F11 && header_bar.can_fullscreen &&
-		    !savestates_list_state.is_revealed) {
+		    !is_showing_snapshots) {
 			is_fullscreen = !is_fullscreen;
 			settings.set_boolean ("fullscreen", is_fullscreen);
 
@@ -141,12 +144,12 @@ private class Games.DisplayView : Object, UiView {
 		if (!box.runner.supports_savestates)
 			return false;
 
-		if (savestates_list_state.is_revealed)
+		if (is_showing_snapshots)
 			return false;
 
 		if (((keyval == Gdk.Key.a || keyval == Gdk.Key.A) && ctrl_pressed) ||
 		     (keyval == Gdk.Key.F4)) {
-			savestates_list_state.is_revealed = true;
+			is_showing_snapshots = true;
 
 			return true;
 		}
@@ -169,7 +172,7 @@ private class Games.DisplayView : Object, UiView {
 	}
 
 	private void on_escape_key_pressed () {
-		if (savestates_list_state.is_revealed)
+		if (is_showing_snapshots)
 			on_display_back (); // Hide Savestates menu
 		else if (header_bar.can_fullscreen) {
 			is_fullscreen = false;
@@ -243,9 +246,9 @@ private class Games.DisplayView : Object, UiView {
 	}
 
 	private void on_display_back () {
-		if (savestates_list_state.is_revealed) {
+		if (is_showing_snapshots) {
 			box.runner.preview_current_state ();
-			savestates_list_state.is_revealed = false;
+			is_showing_snapshots = false;
 
 			return;
 		}
@@ -507,7 +510,7 @@ private class Games.DisplayView : Object, UiView {
 			return;
 
 		if (window.is_active) {
-			if (!savestates_list_state.is_revealed)
+			if (!is_showing_snapshots)
 				box.runner.resume ();
 		}
 		else if (with_delay)
@@ -549,6 +552,6 @@ private class Games.DisplayView : Object, UiView {
 			critical ("Failed to load snapshot: %s", e.message);
 		}
 
-		savestates_list_state.is_revealed = false;
+		is_showing_snapshots = false;
 	}
 }

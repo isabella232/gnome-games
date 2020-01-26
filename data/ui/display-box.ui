@@ -4,13 +4,15 @@
   <template class="GamesDisplayBox" parent="GtkBin">
     <property name="visible">True</property>
     <child>
-      <object class="GamesFullscreenBox" id="fullscreen_box">
+      <object class="GamesFullscreenBox">
         <property name="visible">True</property>
+        <property name="autohide" bind-source="GamesDisplayBox" bind-property="is-showing-snapshots" bind-flags="bidirectional|sync-create|invert-boolean"/>
         <property name="is-fullscreen" bind-source="GamesDisplayBox" bind-property="is-fullscreen" bind-flags="bidirectional"/>
         <child type="titlebar">
           <object class="GamesDisplayHeaderBar" id="fullscreen_header_bar">
             <property name="visible">True</property>
             <property name="show-title-buttons">False</property>
+            <property name="is-showing-snapshots" bind-source="GamesDisplayBox" bind-property="is-showing-snapshots" bind-flags="bidirectional"/>
             <signal name="back" handler="on_fullscreen_header_bar_back"/>
             <signal name="size-allocate" handler="on_fullscreen_header_bar_size_allocated"/>
           </object>
@@ -45,6 +47,7 @@
                   <object class="GamesSavestatesList" id="savestates_list">
                     <property name="visible">True</property>
                     <property name="halign">end</property>
+                    <property name="is-revealed" bind-source="GamesDisplayBox" bind-property="is-showing-snapshots" bind-flags="bidirectional"/>
                     <signal name="size-allocate" handler="on_savestates_list_size_allocate"/>
                     <signal name="hidden" handler="on_snapshots_hidden"/>
                   </object>

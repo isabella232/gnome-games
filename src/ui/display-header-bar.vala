@@ -7,17 +7,6 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 	[GtkChild]
 	private MediaMenuButton media_button;
 
-	private SavestatesListState _savestates_list_state;
-	public SavestatesListState savestates_list_state {
-		get { return _savestates_list_state; }
-		set {
-			_savestates_list_state = value;
-
-			if (value != null)
-				value.notify["is-revealed"].connect (on_savestates_list_revealed_changed);
-		}
-	}
-
 	public string game_title {
 		set {
 			ingame_header_bar.title = value;
@@ -31,6 +20,7 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 
 	public bool can_fullscreen { get; set; }
 	public bool is_fullscreen { get; set; }
+	public bool is_showing_snapshots { get; set; }
 
 	public MediaSet? media_set {
 		set { media_button.media_set = value; }
@@ -88,10 +78,6 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 
 	private Settings settings;
 
-	public DisplayHeaderBar (SavestatesListState savestates_list_state) {
-		Object (savestates_list_state: savestates_list_state);
-	}
-
 	construct {
 		settings = new Settings ("org.gnome.Games");
 	}
@@ -125,11 +111,12 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 
 	[GtkCallback]
 	private void on_secondary_menu_savestates_clicked () {
-		savestates_list_state.is_revealed = true;
+		is_showing_snapshots = true;
 	}
 
-	private void on_savestates_list_revealed_changed () {
-		if (savestates_list_state.is_revealed)
+	[GtkCallback]
+	private void on_showing_snapshots_changed () {
+		if (is_showing_snapshots)
 			stack.visible_child = savestates_header_bar;
 		else
 			stack.visible_child = ingame_header_bar;
