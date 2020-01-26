@@ -17,6 +17,14 @@ public class Games.Application : Gtk.Application {
 
 	private Manette.Monitor manette_monitor;
 
+	private const GLib.ActionEntry[] action_entries = {
+		{ "preferences",    preferences      },
+		{ "help",           help             },
+		{ "about",          about            },
+		{ "quit",           quit_application },
+		{ "add-game-files", add_game_files   },
+	};
+
 	internal Application () {
 		Object (application_id: Config.APPLICATION_ID,
 		        flags: ApplicationFlags.HANDLES_OPEN);
@@ -51,25 +59,7 @@ public class Games.Application : Gtk.Application {
 	}
 
 	private void add_actions () {
-		var preferences_action = new SimpleAction ("preferences", null);
-		preferences_action.activate.connect (preferences);
-		add_action (preferences_action);
-
-		var help_action = new SimpleAction ("help", null);
-		help_action.activate.connect (help);
-		add_action (help_action);
-
-		var about_action = new SimpleAction ("about", null);
-		about_action.activate.connect (about);
-		add_action (about_action);
-
-		var quit_action = new SimpleAction ("quit", null);
-		quit_action.activate.connect (quit_application);
-		add_action (quit_action);
-
-		var add_game_files_action = new SimpleAction ("add-game-files", null);
-		add_game_files_action.activate.connect (add_game_files);
-		add_action (add_game_files_action);
+		add_action_entries (action_entries, this);
 	}
 
 	private void add_signal_handlers () {
