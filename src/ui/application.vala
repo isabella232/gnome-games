@@ -12,6 +12,7 @@ public class Games.Application : Gtk.Application {
 	private bool game_list_loaded;
 
 	private GameCollection game_collection;
+	private ListStore list_store;
 	private CoverLoader cover_loader;
 
 	private Manette.Monitor manette_monitor;
@@ -197,22 +198,28 @@ public class Games.Application : Gtk.Application {
 		window.run_game (game);
 	}
 
-	protected override void activate () {
-		var icon_theme = Gtk.IconTheme.get_default ();
-		icon_theme.add_resource_path ("/org/gnome/Games/gesture");
-
-		Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
+	protected override void startup () {
+		base.startup ();
 
 		var screen = Gdk.Screen.get_default ();
 		var provider = load_css ("gtk-style.css");
 		Gtk.StyleContext.add_provider_for_screen (screen, provider, 600);
 
+		Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
+
+		var icon_theme = Gtk.IconTheme.get_default ();
+		icon_theme.add_resource_path ("/org/gnome/Games/gesture");
+
 		init_game_sources ();
 		load_game_list.begin ();
-		cover_loader = new CoverLoader ();
-		ListStore list_store = new ListStore (typeof (Game));
+
+		list_store = new ListStore (typeof (Game));
 		game_collection.game_added.connect (game => list_store.append (game));
 
+		cover_loader = new CoverLoader ();
+	}
+
+	protected override void activate () {
 		if (window != null) {
 			window.present_with_time (Gtk.get_current_event_time ());
 			return;
