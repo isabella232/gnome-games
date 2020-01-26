@@ -110,7 +110,6 @@ vala_sources = [
   'ui/display-box.vala',
   'ui/display-header-bar.vala',
   'ui/display-view.vala',
-  'ui/dummy-display.vala',
   'ui/empty-collection.vala',
   'ui/error-display.vala',
   'ui/error-info-bar.vala',
