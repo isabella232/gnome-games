@@ -3,6 +3,7 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/display-box.ui")]
 private class Games.DisplayBox : Gtk.Bin {
 	public signal void back ();
+	public signal void snapshots_hidden ();
 
 	private bool _is_fullscreen;
 	public bool is_fullscreen {
@@ -139,5 +140,10 @@ private class Games.DisplayBox : Gtk.Bin {
 	[GtkCallback]
 	private void on_savestates_list_size_allocate (Gtk.Allocation allocation) {
 		display_bin.horizontal_offset = -allocation.width / 2;
+	}
+
+	[GtkCallback]
+	private void on_snapshots_hidden () {
+		snapshots_hidden ();
 	}
 }

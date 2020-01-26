@@ -2,6 +2,8 @@
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/savestates-list.ui")]
 private class Games.SavestatesList : Gtk.Box {
+	public signal void hidden ();
+
 	[GtkChild]
 	private Gtk.Revealer revealer;
 	[GtkChild]
@@ -144,7 +146,8 @@ private class Games.SavestatesList : Gtk.Box {
 
 	[GtkCallback]
 	private void on_revealer_transition_end () {
-		state.on_revealer_transition_end ();
+		if (!state.is_revealed)
+			hidden ();
 	}
 
 	[GtkCallback]

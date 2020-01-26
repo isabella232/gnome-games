@@ -46,6 +46,7 @@
                     <property name="visible">True</property>
                     <property name="halign">end</property>
                     <signal name="size-allocate" handler="on_savestates_list_size_allocate"/>
+                    <signal name="hidden" handler="on_snapshots_hidden"/>
                   </object>
                 </child>
               </object>

@@ -62,9 +62,10 @@ private class Games.DisplayView : Object, UiView {
 		box = new DisplayBox (savestates_list_state);
 		header_bar = new DisplayHeaderBar (savestates_list_state);
 
-		savestates_list_state.on_revealer_transition_end.connect (on_savestates_list_transition_end);
 		box.back.connect (on_display_back);
 		header_bar.back.connect (on_display_back);
+
+		box.snapshots_hidden.connect (on_snapshots_hidden);
 
 		settings = new Settings ("org.gnome.Games");
 
@@ -481,8 +482,8 @@ private class Games.DisplayView : Object, UiView {
 		box.header_bar.media_set = null;
 	}
 
-	public void on_savestates_list_transition_end () {
-		if (!savestates_list_state.is_revealed && window.is_active) {
+	public void on_snapshots_hidden () {
+		if (window.is_active) {
 			box.runner.resume ();
 			box.runner.get_display ().grab_focus ();
 		}
