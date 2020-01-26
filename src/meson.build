@@ -98,7 +98,6 @@ vala_sources = [
   'tracker/tracker-uri-query.vala',
   'tracker/tracker-uri-source.vala',
 
-  'ui/adaptive-state.vala',
   'ui/application.vala',
   'ui/application-window.vala',
   'ui/checkmark-item.vala',

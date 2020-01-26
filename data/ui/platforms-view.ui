@@ -6,6 +6,8 @@
     <property name="expand">True</property>
     <signal name="map" after="yes" handler="on_map"/>
     <signal name="unmap" after="no" handler="on_unmap"/>
+    <signal name="notify::is-folded" handler="update_selection_mode"/>
+    <signal name="notify::is-subview-open" handler="update_subview"/>
     <child>
       <object class="HdyLeaflet" id="leaflet">
         <property name="visible">True</property>

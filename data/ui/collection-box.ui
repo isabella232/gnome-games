@@ -7,6 +7,9 @@
     <property name="hexpand">True</property>
     <property name="vexpand">True</property>
     <property name="width-request">360</property>
+    <signal name="notify::is-folded" handler="update_bottom_bar"/>
+    <signal name="notify::is-showing-bottom-bar" handler="update_bottom_bar"/>
+    <signal name="notify::is-subview-open" handler="update_bottom_bar"/>
     <child>
       <object class="GamesSearchBar" id="search_bar">
         <property name="visible">True</property>
@@ -51,6 +54,9 @@
             <child>
               <object class="GamesPlatformsView" id="platform_view">
                 <property name="visible">True</property>
+                <property name="is-folded" bind-source="GamesCollectionBox" bind-property="is-folded" bind-flags="bidirectional"/>
+                <property name="is-subview-open" bind-source="GamesCollectionBox" bind-property="is-subview-open" bind-flags="bidirectional"/>
+                <property name="subview-title" bind-source="GamesCollectionBox" bind-property="subview-title" bind-flags="bidirectional"/>
                 <signal name="game-activated" handler="on_game_activated"/>
               </object>
               <packing>

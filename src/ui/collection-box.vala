@@ -39,7 +39,10 @@ private class Games.CollectionBox : Gtk.Box {
 		}
 	}
 
-	public AdaptiveState adaptive_state { get; construct; }
+	public bool is_folded { get; set; }
+	public bool is_showing_bottom_bar { get; set; }
+	public bool is_subview_open { get; set; }
+	public string subview_title { get; set; }
 
 	construct {
 		var icon_name = Config.APPLICATION_ID + "-symbolic";
@@ -47,15 +50,10 @@ private class Games.CollectionBox : Gtk.Box {
 
 		collection_view.model = collection;
 		platform_view.model = collection;
-		platform_view.adaptive_state = adaptive_state;
-
-		adaptive_state.notify["is-showing-bottom-bar"].connect (update_bottom_bar);
-		adaptive_state.notify["is-subview-open"].connect (update_bottom_bar);
-		adaptive_state.notify["is-folded"].connect (update_bottom_bar);
 	}
 
-	public CollectionBox (ListModel collection, AdaptiveState adaptive_state) {
-		Object (collection: collection, adaptive_state: adaptive_state);
+	public CollectionBox (ListModel collection) {
+		Object (collection: collection);
 	}
 
 	public void show_error (string error_message) {
@@ -141,7 +139,7 @@ private class Games.CollectionBox : Gtk.Box {
 			collection_view.reset_scroll_position ();
 		}
 
-		adaptive_state.is_subview_open = false;
+		is_subview_open = false;
 	}
 
 	[GtkCallback]
@@ -165,8 +163,8 @@ private class Games.CollectionBox : Gtk.Box {
 		return search_bar.handle_event (event);
 	}
 
+	[GtkCallback]
 	private void update_bottom_bar () {
-		view_switcher_bar.reveal = adaptive_state.is_showing_bottom_bar &&
-			(!adaptive_state.is_folded || !adaptive_state.is_subview_open);
+		view_switcher_bar.reveal = is_showing_bottom_bar && (!is_folded || !is_subview_open);
 	}
 }

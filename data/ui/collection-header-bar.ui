@@ -3,6 +3,9 @@
   <requires lib="gtk+" version="3.24"/>
   <template class="GamesCollectionHeaderBar" parent="GtkBin">
     <property name="visible">True</property>
+    <signal name="notify::is-collection-empty" handler="update_adaptive_state"/>
+    <signal name="notify::is-folded" handler="update_subview"/>
+    <signal name="notify::is-subview-open" handler="update_subview"/>
     <child>
       <object class="GtkStack" id="stack">
         <property name="visible">True</property>
@@ -63,7 +66,7 @@
               <object class="HdySqueezer" id="title_squeezer">
                 <property name="visible">True</property>
                 <property name="transition-type">crossfade</property>
-                <signal name="notify::visible-child" handler="on_squeezer_visible_child_changed"/>
+                <signal name="notify::visible-child" handler="update_adaptive_state"/>
                 <child>
                   <object class="HdyViewSwitcher" id="view_switcher">
                     <property name="visible">True</property>
@@ -113,6 +116,7 @@
           <object class="GtkHeaderBar" id="subview_header_bar">
             <property name="visible">True</property>
             <property name="show_close_button">True</property>
+            <property name="title" bind-source="GamesCollectionHeaderBar" bind-property="subview-title" bind-flags="bidirectional"/>
             <child>
               <object class="GtkButton">
                 <property name="visible">True</property>

@@ -39,14 +39,16 @@ private class Games.CollectionView : Object, UiView {
 	public bool search_mode { get; set; }
 	public bool is_collection_empty { get; set; }
 
+	public bool is_folded { get; set; }
+	public bool is_showing_bottom_bar { get; set; }
+	public bool is_subview_open { get; set; }
+	public string subview_title { get; set; }
+
 	private KonamiCode konami_code;
-	private AdaptiveState adaptive_state;
 
 	construct {
-		adaptive_state = new AdaptiveState ();
-
-		box = new CollectionBox (collection, adaptive_state);
-		header_bar = new CollectionHeaderBar (adaptive_state);
+		box = new CollectionBox (collection);
+		header_bar = new CollectionHeaderBar ();
 		box.game_activated.connect (game => {
 			game_activated (game);
 		});
@@ -71,6 +73,26 @@ private class Games.CollectionView : Object, UiView {
 		               "is-collection-empty", BindingFlags.BIDIRECTIONAL);
 		bind_property ("is-collection-empty", header_bar,
 		               "is-collection-empty", BindingFlags.BIDIRECTIONAL);
+
+		bind_property ("is-folded", box,
+		               "is-folded", BindingFlags.BIDIRECTIONAL);
+		bind_property ("is-folded", header_bar,
+		               "is-folded", BindingFlags.BIDIRECTIONAL);
+
+		bind_property ("is-showing-bottom-bar", box,
+		               "is-showing-bottom-bar", BindingFlags.BIDIRECTIONAL);
+		bind_property ("is-showing-bottom-bar", header_bar,
+		               "is-showing-bottom-bar", BindingFlags.BIDIRECTIONAL);
+
+		bind_property ("is-subview-open", box,
+		               "is-subview-open", BindingFlags.BIDIRECTIONAL);
+		bind_property ("is-subview-open", header_bar,
+		               "is-subview-open", BindingFlags.BIDIRECTIONAL);
+
+		bind_property ("subview-title", box,
+		               "subview-title", BindingFlags.BIDIRECTIONAL);
+		bind_property ("subview-title", header_bar,
+		               "subview-title", BindingFlags.BIDIRECTIONAL);
 
 		konami_code = new KonamiCode (window);
 		konami_code.code_performed.connect (on_konami_code_performed);
@@ -99,8 +121,8 @@ private class Games.CollectionView : Object, UiView {
 		if (((event.state & default_modifiers) == Gdk.ModifierType.MOD1_MASK) &&
 		    (((window.get_direction () == Gtk.TextDirection.LTR) && keyval == Gdk.Key.Left) ||
 		     ((window.get_direction () == Gtk.TextDirection.RTL) && keyval == Gdk.Key.Right)) &&
-		     adaptive_state.is_subview_open) {
-			adaptive_state.is_subview_open = false;
+		     is_subview_open) {
+			is_subview_open = false;
 
 			return true;
 		}
