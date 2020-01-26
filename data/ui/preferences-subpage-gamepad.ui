@@ -58,9 +58,10 @@
               </packing>
             </child>
             <child type="center">
-              <object class="GtkLabel" id="info_message">
+              <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="ellipsize">end</property>
+                <property name="label" bind-source="GamesPreferencesSubpageGamepad" bind-property="info-message" bind-flags="sync-create"/>
               </object>
             </child>
           </object>

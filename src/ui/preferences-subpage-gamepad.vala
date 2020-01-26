@@ -122,13 +122,9 @@ private class Games.PreferencesSubpageGamepad : Gtk.Box, PreferencesSubpage {
 	private Gtk.Button back_button;
 	[GtkChild]
 	private Gtk.Button cancel_button;
-	[GtkChild]
-	private Gtk.Label info_message;
 
 	private GamepadMapper mapper;
 	private GamepadTester tester;
-
-	private Binding info_message_binding;
 
 	private Manette.Device _device;
 	public Manette.Device device {
@@ -147,8 +143,6 @@ private class Games.PreferencesSubpageGamepad : Gtk.Box, PreferencesSubpage {
 	}
 
 	construct {
-		info_message_binding = mapper.bind_property ("info-message", info_message, "label", BindingFlags.SYNC_CREATE);
-
 		state = State.TEST;
 	}
 
