@@ -53,6 +53,10 @@ private class Games.DisplayView : Object, UiView {
 
 	private long focus_out_timeout_id;
 
+	private const ActionEntry[] action_entries = {
+		{ "load-snapshot", load_snapshot },
+	};
+
 	public DisplayView (Gtk.Window window) {
 		Object (window: window);
 	}
@@ -75,6 +79,10 @@ private class Games.DisplayView : Object, UiView {
 		               "is-fullscreen", BindingFlags.BIDIRECTIONAL);
 
 		focus_out_timeout_id = -1;
+
+		var action_group = new SimpleActionGroup ();
+		action_group.add_action_entries (action_entries, this);
+		window.insert_action_group ("display", action_group);
 	}
 
 	public bool on_button_pressed (Gdk.EventButton event) {
@@ -531,5 +539,16 @@ private class Games.DisplayView : Object, UiView {
 			return false;
 
 		return true;
+	}
+
+	private void load_snapshot () {
+		try {
+			box.runner.load_previewed_savestate ();
+		}
+		catch (Error e) {
+			critical ("Failed to load snapshot: %s", e.message);
+		}
+
+		savestates_list_state.is_revealed = false;
 	}
 }

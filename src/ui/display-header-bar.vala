@@ -15,7 +15,6 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 
 			if (value != null)
 				value.notify["is-revealed"].connect (on_savestates_list_revealed_changed);
-				value.notify["selected-savestate"].connect (on_selected_savestate_changed);
 		}
 	}
 
@@ -86,8 +85,6 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 	private Gtk.MenuButton secondary_menu_button;
 	[GtkChild]
 	private Gtk.HeaderBar savestates_header_bar;
-	[GtkChild]
-	private Gtk.Button savestates_load_btn;
 
 	private Settings settings;
 
@@ -131,19 +128,10 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 		savestates_list_state.is_revealed = true;
 	}
 
-	[GtkCallback]
-	private void on_savestates_load_clicked () {
-		savestates_list_state.load_clicked ();
-	}
-
 	private void on_savestates_list_revealed_changed () {
 		if (savestates_list_state.is_revealed)
 			stack.visible_child = savestates_header_bar;
 		else
 			stack.visible_child = ingame_header_bar;
-	}
-
-	private void on_selected_savestate_changed () {
-		savestates_load_btn.sensitive = (savestates_list_state.selected_savestate != null);
 	}
 }

@@ -131,13 +131,13 @@
           <object class="GtkHeaderBar" id="savestates_header_bar">
             <property name="visible">True</property>
             <child>
-              <object class="GtkButton" id="savestates_load_btn">
+              <object class="GtkButton">
                 <property name="sensitive">False</property>
                 <property name="visible">True</property>
                 <property name="valign">center</property>
                 <property name="use-underline">True</property>
                 <property name="label" translatable="yes">_Load</property>
-                <signal name="clicked" handler="on_savestates_load_clicked"/>
+                <property name="action-name">display.load-snapshot</property>
                 <style>
                   <class name="suggested-action"/>
                 </style>

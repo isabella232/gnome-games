@@ -26,6 +26,8 @@ private class Games.SavestatesList : Gtk.Box {
 	[GtkChild]
 	private Gtk.Label rename_error_label;
 
+	private Savestate selected_savestate;
+
 	private SavestatesListState _state;
 	public SavestatesListState state {
 		get { return _state; }
@@ -37,7 +39,6 @@ private class Games.SavestatesList : Gtk.Box {
 
 			if (value != null) {
 				value.notify["is-revealed"].connect (on_revealed_changed);
-				value.load_clicked.connect (on_load_clicked);
 				value.delete_clicked.connect (on_delete_clicked);
 			}
 		}
@@ -61,7 +62,7 @@ private class Games.SavestatesList : Gtk.Box {
 			var savestate_row = row as SavestateListBoxRow;
 			var savestate = savestate_row.savestate;
 
-			if (savestate != state.selected_savestate)
+			if (savestate != selected_savestate)
 				select_savestate_row (row);
 		}
 	}
@@ -108,29 +109,6 @@ private class Games.SavestatesList : Gtk.Box {
 
 			list_box.add (list_row);
 		}
-	}
-
-	private void on_load_clicked () {
-		if (!try_runner_load_previewed_savestate ()) {
-			// TODO: Here we could show a dialog with one button like
-			// "Failed to load snapshot [Ok]"
-		}
-
-		state.is_revealed = false;
-	}
-
-	private bool try_runner_load_previewed_savestate () {
-		try {
-			_runner.load_previewed_savestate ();
-		}
-		catch (Error e) {
-			critical ("Failed to load snapshot: %s", e.message);
-
-			return false;
-		}
-
-		// Nothing went wrong
-		return true;
 	}
 
 	private void on_revealed_changed () {
@@ -194,7 +172,7 @@ private class Games.SavestatesList : Gtk.Box {
 
 		ensure_row_is_visible (selected_row);
 
-		rename_entry.text = state.selected_savestate.name;
+		rename_entry.text = selected_savestate.name;
 		rename_popover.relative_to = selected_row;
 		rename_popover.popup ();
 	}
@@ -277,12 +255,23 @@ private class Games.SavestatesList : Gtk.Box {
 		}
 	}
 
+	private SimpleAction lookup_action (string name) {
+		var group = get_action_group ("display") as ActionMap;
+		assert (group != null);
+
+		var action = group.lookup_action (name);
+		assert (action is SimpleAction);
+
+		return action as SimpleAction;
+	}
+
 	private void select_savestate_row (Gtk.ListBoxRow? row) {
 		list_box.select_row (row);
 
 		if (row == null) {
 			runner.preview_current_state ();
-			state.selected_savestate = null;
+			selected_savestate = null;
+			lookup_action ("load-snapshot").set_enabled (false);
 		}
 		else {
 			row.grab_focus ();
@@ -293,18 +282,19 @@ private class Games.SavestatesList : Gtk.Box {
 			var savestate_row = row as SavestateListBoxRow;
 			var savestate = savestate_row.savestate;
 
-			if (savestate == state.selected_savestate) {
-				on_load_clicked ();
+			if (savestate == selected_savestate) {
+				lookup_action ("load-snapshot").activate (null);
 				return;
 			}
 
 			runner.preview_savestate (savestate);
-			state.selected_savestate = savestate;
+			selected_savestate = savestate;
+			lookup_action ("load-snapshot").set_enabled (true);
 		}
 
-		delete_btn.sensitive = (state.selected_savestate != null);
-		rename_btn.sensitive = (state.selected_savestate != null &&
-		                        !state.selected_savestate.is_automatic);
+		delete_btn.sensitive = (selected_savestate != null);
+		rename_btn.sensitive = (selected_savestate != null &&
+		                        !selected_savestate.is_automatic);
 	}
 
 	public bool on_key_press_event (uint keyval, Gdk.ModifierType state) {
