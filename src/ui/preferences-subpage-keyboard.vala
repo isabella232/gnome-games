@@ -117,8 +117,6 @@ private class Games.PreferencesSubpageKeyboard : Gtk.Box, PreferencesSubpage {
 	private KeyboardTester tester;
 	private KeyboardMappingManager mapping_manager;
 
-	private Binding info_message_binding;
-
 	construct {
 		mapper = new KeyboardMapper (KEYBOARD_GAMEPAD_VIEW_CONFIGURATION, KEYBOARD_GAMEPAD_INPUTS);
 		gamepad_view_stack.add (mapper);
@@ -131,7 +129,7 @@ private class Games.PreferencesSubpageKeyboard : Gtk.Box, PreferencesSubpage {
 			tester.mapping = mapping_manager.mapping;
 		});
 
-		info_message_binding = mapper.bind_property ("info-message", info_message, "label", BindingFlags.SYNC_CREATE);
+		mapper.bind_property ("info-message", info_message, "label", BindingFlags.SYNC_CREATE);
 
 		state = State.TEST;
 	}

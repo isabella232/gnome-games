@@ -39,12 +39,6 @@ private class Games.CollectionView : Object, UiView {
 	public bool search_mode { get; set; }
 	public bool is_collection_empty { get; set; }
 
-	private Binding loading_notification_binding;
-	private Binding box_search_binding;
-	private Binding box_empty_collection_binding;
-	private Binding header_bar_search_binding;
-	private Binding header_bar_empty_collection_binding;
-
 	private KonamiCode konami_code;
 	private AdaptiveState adaptive_state;
 
@@ -65,23 +59,18 @@ private class Games.CollectionView : Object, UiView {
 		header_bar.viewstack = box.viewstack;
 		is_collection_empty = true;
 
-		loading_notification_binding = bind_property ("loading-notification", box,
-		                                              "loading-notification",
-		                                              BindingFlags.DEFAULT);
+		bind_property ("loading-notification", box,
+		               "loading-notification", BindingFlags.DEFAULT);
 
-		box_search_binding = bind_property ("search-mode", box, "search-mode",
-		                                    BindingFlags.BIDIRECTIONAL);
-		header_bar_search_binding = bind_property ("search-mode", header_bar,
-		                                           "search-mode",
-		                                           BindingFlags.BIDIRECTIONAL);
+		bind_property ("search-mode", box,
+		               "search-mode", BindingFlags.BIDIRECTIONAL);
+		bind_property ("search-mode", header_bar,
+		               "search-mode", BindingFlags.BIDIRECTIONAL);
 
-		box_empty_collection_binding = bind_property ("is-collection-empty", box,
-		                                              "is-collection-empty",
-		                                              BindingFlags.BIDIRECTIONAL);
-		header_bar_empty_collection_binding = bind_property ("is-collection-empty",
-		                                                     header_bar,
-		                                                     "is-collection-empty",
-		                                                     BindingFlags.BIDIRECTIONAL);
+		bind_property ("is-collection-empty", box,
+		               "is-collection-empty", BindingFlags.BIDIRECTIONAL);
+		bind_property ("is-collection-empty", header_bar,
+		               "is-collection-empty", BindingFlags.BIDIRECTIONAL);
 
 		konami_code = new KonamiCode (window);
 		konami_code.code_performed.connect (on_konami_code_performed);

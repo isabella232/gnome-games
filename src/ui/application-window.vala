@@ -54,9 +54,6 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 	private Settings settings;
 
-	private Binding fullscreen_binding;
-	private Binding loading_notification_binding;
-
 	private long window_size_update_timeout;
 
 	private uint inhibit_cookie;
@@ -96,14 +93,11 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		collection_view.game_activated.connect (on_game_activated);
 		display_view.back.connect (on_display_back);
 
-		loading_notification_binding = bind_property ("loading-notification",
-		                                              collection_view,
-		                                              "loading-notification",
-		                                              BindingFlags.DEFAULT);
+		bind_property ("loading-notification", collection_view,
+                       "loading-notification", BindingFlags.DEFAULT);
 
-		fullscreen_binding = bind_property ("is-fullscreen", display_view,
-		                                    "is-fullscreen",
-		                                    BindingFlags.BIDIRECTIONAL);
+		bind_property ("is-fullscreen", display_view,
+		               "is-fullscreen", BindingFlags.BIDIRECTIONAL);
 
 		window_size_update_timeout = -1;
 		inhibit_cookie = 0;

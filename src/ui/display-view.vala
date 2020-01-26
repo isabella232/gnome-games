@@ -42,9 +42,6 @@ private class Games.DisplayView : Object, UiView {
 
 	private Settings settings;
 
-	private Binding box_fullscreen_binding;
-	private Binding header_bar_fullscreen_binding;
-
 	private Cancellable run_game_cancellable;
 	private Cancellable quit_game_cancellable;
 
@@ -71,12 +68,10 @@ private class Games.DisplayView : Object, UiView {
 
 		settings = new Settings ("org.gnome.Games");
 
-		// Bind the is_fullscreen property between the header_bar and the box
-		box_fullscreen_binding = bind_property ("is-fullscreen", box, "is-fullscreen",
-		                                        BindingFlags.BIDIRECTIONAL);
-		header_bar_fullscreen_binding = bind_property ("is-fullscreen", header_bar,
-		                                               "is-fullscreen",
-		                                               BindingFlags.BIDIRECTIONAL);
+		bind_property ("is-fullscreen", box,
+		               "is-fullscreen", BindingFlags.BIDIRECTIONAL);
+		bind_property ("is-fullscreen", header_bar,
+		               "is-fullscreen", BindingFlags.BIDIRECTIONAL);
 
 		focus_out_timeout_id = -1;
 	}
