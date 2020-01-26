@@ -6,47 +6,41 @@
     <property name="orientation">vertical</property>
     <property name="halign">center</property>
     <property name="valign">center</property>
+    <property name="spacing">12</property>
     <child>
       <object class="GtkImage" id="icon">
         <property name="visible">True</property>
-        <property name="valign">center</property>
         <property name="pixel-size">128</property>
-        <property name="icon-size">0</property>
-        <property name="margin-bottom">18</property>
+        <property name="margin-bottom">6</property>
         <style>
           <class name="dim-label"/>
         </style>
       </object>
     </child>
     <child>
-      <object class="GtkBox" id="box">
+      <object class="GtkLabel" id="label">
         <property name="visible">True</property>
-        <property name="orientation">vertical</property>
-        <child>
-          <object class="GtkLabel" id="label">
-            <property name="visible">True</property>
-            <property name="opacity">0.5</property>
-            <property name="label" translatable="yes">No games found</property>
-            <property name="halign">center</property>
-            <property name="xalign">0</property>
-            <property name="margin-bottom">12</property>
-            <property name="wrap">True</property>
-            <attributes>
-              <attribute name="weight" value="bold"/>
-              <attribute name="scale" value="2"/>
-            </attributes>
-          </object>
-        </child>
-        <child>
-          <object class="GtkLabel" id="empty-state-label">
-            <property name="visible">True</property>
-            <property name="opacity">0.5</property>
-            <property name="label" translatable="yes">Install games or add directories containing games to your search sources.</property>
-            <property name="justify">left</property>
-            <property name="use-markup">true</property>
-            <property name="wrap">true</property>
-          </object>
-        </child>
+        <property name="label" translatable="yes">No games found</property>
+        <property name="justify">center</property>
+        <property name="wrap">True</property>
+        <style>
+          <class name="dim-label"/>
+        </style>
+        <attributes>
+          <attribute name="weight" value="bold"/>
+          <attribute name="scale" value="2"/>
+        </attributes>
+      </object>
+    </child>
+    <child>
+      <object class="GtkLabel" id="empty-state-label">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">Install games or add directories containing games to your search sources.</property>
+        <property name="justify">left</property>
+        <property name="wrap">true</property>
+        <style>
+          <class name="dim-label"/>
+        </style>
       </object>
     </child>
   </template>
