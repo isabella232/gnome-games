@@ -18,7 +18,7 @@ private class Games.ErrorDisplay : Gtk.Box {
 	}
 
 	private void set_labels (string primary, string secondary) {
-		primary_label.label = @"<big><b>$(Markup.escape_text (primary))</b></big>";
-		secondary_label.label = Markup.escape_text (secondary);
+		primary_label.label = primary;
+		secondary_label.label = secondary;
 	}
 }

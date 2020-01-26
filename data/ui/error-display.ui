@@ -6,43 +6,38 @@
     <property name="orientation">vertical</property>
     <property name="halign">center</property>
     <property name="valign">center</property>
+    <property name="spacing">12</property>
     <child>
       <object class="GtkImage" id="icon">
         <property name="visible">True</property>
-        <property name="valign">center</property>
         <property name="pixel-size">128</property>
         <property name="icon-name">face-uncertain-symbolic</property>
-        <property name="icon-size">0</property>
-        <property name="margin-bottom">18</property>
+        <property name="margin-bottom">6</property>
         <style>
           <class name="dim-label"/>
         </style>
       </object>
     </child>
     <child>
-      <object class="GtkBox" id="box">
+      <object class="GtkLabel" id="primary_label">
         <property name="visible">True</property>
-        <property name="orientation">vertical</property>
-        <property name="spacing">12</property>
-        <child>
-          <object class="GtkLabel" id="primary_label">
-            <property name="visible">True</property>
-            <property name="opacity">0.5</property>
-            <property name="halign">center</property>
-            <property name="valign">center</property>
-            <property name="use-markup">True</property>
-            <property name="wrap">True</property>
-          </object>
-        </child>
-        <child>
-          <object class="GtkLabel" id="secondary_label">
-            <property name="visible">True</property>
-            <property name="halign">center</property>
-            <property name="valign">center</property>
-            <property name="use-markup">True</property>
-            <property name="wrap">True</property>
-          </object>
-        </child>
+        <property name="halign">center</property>
+        <property name="wrap">True</property>
+        <style>
+          <class name="dim-label"/>
+        </style>
+        <attributes>
+          <attribute name="weight" value="bold"/>
+          <!-- "1.2" is the value of "large" -->
+          <attribute name="scale" value="1.2"/>
+        </attributes>
+      </object>
+    </child>
+    <child>
+      <object class="GtkLabel" id="secondary_label">
+        <property name="visible">True</property>
+        <property name="halign">center</property>
+        <property name="wrap">True</property>
       </object>
     </child>
   </template>
