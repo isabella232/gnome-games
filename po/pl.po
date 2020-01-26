@@ -1,15 +1,15 @@
 # Polish translation for gnome-games.
-# Copyright © 2016-2019 the gnome-games authors.
+# Copyright © 2016-2020 the gnome-games authors.
 # This file is distributed under the same license as the gnome-games package.
-# Piotr Drąg <piotrdrag@gmail.com>, 2016-2019.
-# Aviary.pl <community-poland@mozilla.org>, 2016-2019.
+# Piotr Drąg <piotrdrag@gmail.com>, 2016-2020.
+# Aviary.pl <community-poland@mozilla.org>, 2016-2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-11-11 22:07+0000\n"
-"PO-Revision-Date: 2019-11-18 14:33+0100\n"
+"POT-Creation-Date: 2020-01-25 18:27+0000\n"
+"PO-Revision-Date: 2020-01-26 14:55+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: data/org.gnome.Games.appdata.xml.in.in:7
 #: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:48
 #: data/ui/collection-header-bar.ui:76 data/ui/display-header-bar.ui:16
-#: src/ui/application.vala:25
+#: src/ui/application.vala:26
 msgid "Games"
 msgstr "Gry"
 
@@ -70,7 +70,7 @@ msgstr "Uruchamianie gier"
 msgid "Resume your game to where you left it"
 msgstr "Wstrzymywanie i wznawianie gier"
 
-#: data/org.gnome.Games.appdata.xml.in.in:205
+#: data/org.gnome.Games.appdata.xml.in.in:237
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
@@ -163,8 +163,8 @@ msgstr "Wyszukaj"
 
 #: data/ui/collection-header-bar.ui:126 data/ui/display-header-bar.ui:29
 #: data/ui/display-header-bar.ui:160 data/ui/preferences-subpage-gamepad.ui:83
-#: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:37
-#: data/ui/preferences-window.ui:78
+#: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:36
+#: data/ui/preferences-window.ui:77
 msgid "Back"
 msgstr "Wstecz"
 
@@ -193,7 +193,7 @@ msgid "_Load"
 msgstr "_Wczytaj"
 
 #: data/ui/display-header-bar.ui:188
-msgid "_Savestates"
+msgid "_Snapshots"
 msgstr "_Zapisy stanu"
 
 #: data/ui/dummy-display.ui:37
@@ -229,52 +229,52 @@ msgstr "Klawiatura"
 msgid "Media"
 msgstr "Nośnik"
 
-#: data/ui/preferences-page-backup-restore.ui:10
-msgid ""
-"Backup save states and in-game saves. This can be used for moving the data "
-"to another device or for restoring it later. Desktop, Steam and LÖVE games "
-"cannot be backed up."
-msgstr ""
-"Zachowywanie stanów zapisu i zapisów w grach. Można tego używać do "
-"przenoszenia danych na inne urządzenie lub do przywrócenia później. Nie "
-"można zachowywać gier komputerowych, Steam i LÖVE."
-
-#: data/ui/preferences-page-backup-restore.ui:38
-#: src/ui/preferences-page-backup-restore.vala:34
-msgid "Back up save data"
-msgstr "Zachowywanie danych zapisu"
-
-#: data/ui/preferences-page-backup-restore.ui:47
-#: src/ui/preferences-page-backup-restore.vala:36
-msgid "_Back Up"
-msgstr "_Zachowaj"
-
-#: data/ui/preferences-page-backup-restore.ui:62
-msgid ""
-"Restore save data for games from existing backup. This will replace existing "
-"saves and cannot be undone."
-msgstr ""
-"Przywracanie danych zapisu gier z istniejącej kopii. Zastąpi to istniejące "
-"zapisy i nie może zostać cofnięte."
-
-#: data/ui/preferences-page-backup-restore.ui:90
-#: src/ui/preferences-page-backup-restore.vala:12
-msgid "Restore save data"
-msgstr "Przywracanie danych zapisu"
-
-#: data/ui/preferences-page-backup-restore.ui:99
-#: src/ui/preferences-page-backup-restore.vala:14
-msgid "_Restore"
-msgstr "_Przywróć"
-
 #: data/ui/preferences-page-controllers.ui:10
 msgid "Gamepads"
 msgstr "Kontrolery"
 
-#: data/ui/preferences-page-controllers.ui:30
+#: data/ui/preferences-page-controllers.ui:31
 #: src/ui/preferences-page-controllers.vala:73
 msgid "Keyboard"
 msgstr "Klawiatura"
+
+#: data/ui/preferences-page-import-export.ui:10
+msgid ""
+"Export save states and in-game saves. This can be used for moving the data "
+"to another device or for restoring it later. Desktop, Steam and LÖVE games "
+"cannot be exported."
+msgstr ""
+"Eksportowanie stanów zapisu i zapisów w grach. Można tego używać do "
+"przenoszenia danych na inne urządzenie lub do przywrócenia później. Nie "
+"można eksportować gier komputerowych, Steam i LÖVE."
+
+#: data/ui/preferences-page-import-export.ui:42
+#: src/ui/preferences-page-import-export.vala:34
+msgid "Export save data"
+msgstr "Eksport danych zapisu"
+
+#: data/ui/preferences-page-import-export.ui:51
+#: src/ui/preferences-page-import-export.vala:36
+msgid "_Export"
+msgstr "Wy_eksportuj"
+
+#: data/ui/preferences-page-import-export.ui:66
+msgid ""
+"Import save data for games from existing backup. This will replace existing "
+"saves and cannot be undone."
+msgstr ""
+"Importowanie danych zapisu gier z istniejącej kopii. Zastąpi to istniejące "
+"zapisy i nie może zostać cofnięte."
+
+#: data/ui/preferences-page-import-export.ui:97
+#: src/ui/preferences-page-import-export.vala:12
+msgid "Import save data"
+msgstr "Import danych zapisu"
+
+#: data/ui/preferences-page-import-export.ui:106
+#: src/ui/preferences-page-import-export.vala:14
+msgid "_Import"
+msgstr "Zai_mportuj"
 
 #: data/ui/preferences-page-video.ui:10
 msgid "Filter"
@@ -303,7 +303,7 @@ msgstr "Pomiń"
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: data/ui/preferences-window.ui:5 data/ui/preferences-window.ui:26
+#: data/ui/preferences-window.ui:5 data/ui/preferences-window.ui:25
 msgid "Preferences"
 msgstr "Preferencje"
 
@@ -366,7 +366,7 @@ msgid "Reset"
 msgstr "Uruchom ponownie"
 
 #: data/ui/savestates-list.ui:63
-msgid "Create new savestate"
+msgid "Create new snapshot"
 msgstr "Nowy zapis stanu"
 
 #: data/ui/savestates-list.ui:88
@@ -454,17 +454,17 @@ msgstr "W grze"
 
 #: data/ui/shortcuts-window.ui:98
 msgctxt "shortcut window"
-msgid "Create new savestate"
+msgid "Create new snapshot"
 msgstr "Utworzenie nowego zapisu stanu"
 
 #: data/ui/shortcuts-window.ui:105
 msgctxt "shortcut window"
-msgid "Load the latest savestate"
+msgid "Load the latest snapshot"
 msgstr "Wczytanie ostatniego zapisu stanu"
 
 #: data/ui/shortcuts-window.ui:112
 msgctxt "shortcut window"
-msgid "Show savestates"
+msgid "Show snapshots"
 msgstr "Wyświetlenie zapisów stanu"
 
 #: data/ui/shortcuts-window.ui:119
@@ -747,12 +747,6 @@ msgstr "Plik „%s” nie ma prawidłowego pliku binarnego konsoli Sega Saturn."
 msgid "Steam"
 msgstr "Steam"
 
-#: plugins/steam/src/steam-plugin.vala:92
-#: plugins/steam/src/steam-plugin.vala:136
-#, c-format
-msgid "Couldn’t get Steam appid from manifest “%s”."
-msgstr "Nie można uzyskać identyfikatora programu Steam z manifestu „%s”."
-
 #: plugins/steam/src/steam-registry.vala:68
 #, c-format
 msgid "File “%s” doesn’t exist."
@@ -769,10 +763,6 @@ msgstr "Nieoczekiwany koniec tokenów."
 #: plugins/steam/src/steam-registry.vala:113
 msgid "Unexpected token '}'."
 msgstr "Nieoczekiwany token „}”."
-
-#: plugins/steam/src/steam-title.vala:17
-msgid "Couldn’t get name from Steam registry."
-msgstr "Nie można uzyskać nazwy z rejestru Steam."
 
 #. translators: known as "CD-ROM²" in eastern Asia and France
 #: plugins/turbografx-cd/src/turbografx-cd-plugin.vala:9
@@ -908,28 +898,27 @@ msgstr ""
 "Ta gra do działania wymaga pliku oprogramowania sprzętowego %s o sumie "
 "kontrolnej SHA-512 „%s”."
 
-#: src/retro/retro-runner.vala:315
+#: src/retro/retro-runner.vala:314
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nie odnaleziono modułu dla „%s”."
 
-#: src/retro/retro-runner.vala:583
+#: src/retro/retro-runner.vala:582
 msgid "Unknown platform"
 msgstr "Nieznana platforma"
 
-#: src/retro/retro-runner.vala:607
+#: src/retro/retro-runner.vala:606
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Konsola „%s” nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: src/retro/retro-runner.vala:609
+#: src/retro/retro-runner.vala:608
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Konsola nie jest jeszcze obsługiwana, ale jest w planach."
 
-#. A list containing the names of all savestates with name of the form "New Savestate %d"
-#: src/retro/retro-runner.vala:619 src/retro/retro-runner.vala:645
+#: src/retro/retro-runner.vala:617 src/retro/retro-runner.vala:643
 #, c-format
-msgid "New savestate %s"
+msgid "New snapshot %s"
 msgstr "%s. zapis stanu"
 
 #: src/retro/retro-simple-type.vala:13
@@ -1035,41 +1024,41 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:153
+#: src/ui/application.vala:150
 msgid "Select game files"
 msgstr "Wybór plików gry"
 
-#: src/ui/application.vala:154 src/ui/preferences-page-backup-restore.vala:14
-#: src/ui/preferences-page-backup-restore.vala:36
+#: src/ui/application.vala:151 src/ui/preferences-page-import-export.vala:14
+#: src/ui/preferences-page-import-export.vala:36
 msgid "_Cancel"
 msgstr "_Anuluj"
 
-#: src/ui/application.vala:155
+#: src/ui/application.vala:152
 msgid "_Add"
 msgstr "_Dodaj"
 
-#: src/ui/application.vala:195
+#: src/ui/application.vala:192
 #, c-format
 msgid "An unexpected error occurred while trying to run %s"
 msgstr "Wystąpił nieoczekiwany błąd podczas uruchamiania „%s”"
 
-#: src/ui/application.vala:393
+#: src/ui/application.vala:389
 msgid "GNOME Games"
 msgstr "Gry GNOME"
 
-#: src/ui/application.vala:395
+#: src/ui/application.vala:391
 msgid "A video game player for GNOME"
 msgstr "Uruchamianie gier w środowisku GNOME"
 
-#: src/ui/application.vala:399
+#: src/ui/application.vala:395
 msgid "Learn more about GNOME Games"
 msgstr "Więcej informacji o Grach GNOME"
 
-#: src/ui/application.vala:406
+#: src/ui/application.vala:402
 msgid "translator-credits"
 msgstr ""
-"Piotr Drąg <piotrdrag@gmail.com>, 2016-2019\n"
-"Aviary.pl <community-poland@mozilla.org>, 2016-2019"
+"Piotr Drąg <piotrdrag@gmail.com>, 2016-2020\n"
+"Aviary.pl <community-poland@mozilla.org>, 2016-2020"
 
 #: src/ui/application-window.vala:273 src/ui/application-window.vala:290
 msgid "Playing a game"
@@ -1109,23 +1098,23 @@ msgstr "Proszę nacisnąć odpowiedni klawisz na klawiaturze"
 msgid "Media %d"
 msgstr "%d. nośnik"
 
-#: src/ui/preferences-page-backup-restore.vala:6
-msgid "Back Up & Restore"
-msgstr "Zachowywanie i przywracanie"
-
-#: src/ui/preferences-page-backup-restore.vala:23
-#, c-format
-msgid "Couldn’t restore: %s"
-msgstr "Nie można przywrócić: %s"
-
-#: src/ui/preferences-page-backup-restore.vala:53
-#, c-format
-msgid "Couldn’t back up: %s"
-msgstr "Nie można zachować: %s"
-
 #: src/ui/preferences-page-controllers.vala:22
 msgid "Controllers"
 msgstr "Kontrolery"
+
+#: src/ui/preferences-page-import-export.vala:6
+msgid "Import & Export"
+msgstr "Importowanie i eksportowanie"
+
+#: src/ui/preferences-page-import-export.vala:23
+#, c-format
+msgid "Couldn’t import save data: %s"
+msgstr "Nie można zaimportować danych zapisu: %s"
+
+#: src/ui/preferences-page-import-export.vala:53
+#, c-format
+msgid "Couldn’t export save data: %s"
+msgstr "Nie można wyeksportować danych zapisu: %s"
 
 #: src/ui/preferences-page-platforms-retro-row.vala:45
 #: src/ui/preferences-page-platforms-retro-row.vala:52
@@ -1214,7 +1203,7 @@ msgid "Invalid name"
 msgstr "Nieprawidłowa nazwa"
 
 #: src/ui/savestates-list.vala:247
-msgid "A savestate with this name already exists"
+msgid "A snapshot with this name already exists"
 msgstr "Zapis stanu o tej nazwie już istnieje"
 
 #: src/utils/cue-sheet/cue-sheet.vala:25
