@@ -37,10 +37,8 @@ private class Games.SavestatesList : Gtk.Box {
 
 			_state = value;
 
-			if (value != null) {
+			if (value != null)
 				value.notify["is-revealed"].connect (on_revealed_changed);
-				value.delete_clicked.connect (on_delete_clicked);
-			}
 		}
 	}
 
