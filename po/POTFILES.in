@@ -6,7 +6,6 @@ data/org.gnome.Games.gschema.xml
 data/ui/collection-box.ui
 data/ui/collection-header-bar.ui
 data/ui/display-header-bar.ui
-data/ui/dummy-display.ui
 data/ui/empty-collection.ui
 data/ui/gamepad-mapper.ui
 data/ui/input-mode-switcher.ui
