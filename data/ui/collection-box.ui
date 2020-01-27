@@ -25,11 +25,10 @@
         <property name="visible">True</property>
         <property name="vexpand">True</property>
         <child>
-          <object class="GtkStack" id="viewstack">
+          <object class="GtkStack" id="empty_stack">
             <property name="visible">True</property>
-            <property name="visible-child">collection_view</property>
+            <property name="visible-child">empty_collection</property>
             <property name="transition-type">crossfade</property>
-            <signal name="notify::visible-child" handler="on_visible_child_changed"/>
             <style>
               <class name="background"/>
             </style>
@@ -42,29 +41,37 @@
               </packing>
             </child>
             <child>
-              <object class="GamesCollectionIconView" id="collection_view">
+              <object class="GtkStack" id="viewstack">
                 <property name="visible">True</property>
-                <signal name="game-activated" handler="on_game_activated"/>
+                <property name="visible-child">collection_view</property>
+                <property name="transition-type">crossfade</property>
+                <signal name="notify::visible-child" handler="on_visible_child_changed"/>
+                <child>
+                  <object class="GamesCollectionIconView" id="collection_view">
+                    <property name="visible">True</property>
+                    <signal name="game-activated" handler="on_game_activated"/>
+                  </object>
+                  <packing>
+                    <property name="name">games</property>
+                    <property name="title" translatable="yes">Games</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GamesPlatformsView" id="platform_view">
+                    <property name="visible">True</property>
+                    <property name="is-folded" bind-source="GamesCollectionBox" bind-property="is-folded" bind-flags="bidirectional"/>
+                    <property name="is-subview-open" bind-source="GamesCollectionBox" bind-property="is-subview-open" bind-flags="bidirectional"/>
+                    <property name="subview-title" bind-source="GamesCollectionBox" bind-property="subview-title" bind-flags="bidirectional"/>
+                    <signal name="game-activated" handler="on_game_activated"/>
+                  </object>
+                  <packing>
+                    <property name="name">platform</property>
+                    <!-- FIXME: the icon is meant to be used for text formatting -->
+                    <property name="icon-name">view-list-bullet-symbolic</property>
+                    <property name="title" translatable="yes">Platforms</property>
+                  </packing>
+                </child>
               </object>
-              <packing>
-                <property name="name">games</property>
-                <property name="title" translatable="yes">Games</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GamesPlatformsView" id="platform_view">
-                <property name="visible">True</property>
-                <property name="is-folded" bind-source="GamesCollectionBox" bind-property="is-folded" bind-flags="bidirectional"/>
-                <property name="is-subview-open" bind-source="GamesCollectionBox" bind-property="is-subview-open" bind-flags="bidirectional"/>
-                <property name="subview-title" bind-source="GamesCollectionBox" bind-property="subview-title" bind-flags="bidirectional"/>
-                <signal name="game-activated" handler="on_game_activated"/>
-              </object>
-              <packing>
-                <property name="name">platform</property>
-                <!-- FIXME: the icon is meant to be used for text formatting -->
-                <property name="icon-name">view-list-bullet-symbolic</property>
-                <property name="title" translatable="yes">Platforms</property>
-              </packing>
             </child>
           </object>
         </child>
