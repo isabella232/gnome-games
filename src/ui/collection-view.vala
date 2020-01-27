@@ -128,7 +128,8 @@ private class Games.CollectionView : Object, UiView {
 		}
 
 		if ((keyval == Gdk.Key.f || keyval == Gdk.Key.F) &&
-		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK) {
+		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK &&
+		    !is_collection_empty) {
 			if (!search_mode)
 				search_mode = true;
 
