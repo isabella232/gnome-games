@@ -247,6 +247,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void restart () {
+		current_state_pixbuf = view.get_pixbuf ();
 		try_create_savestate (true);
 		core.reset ();
 	}
