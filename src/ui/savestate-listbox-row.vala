@@ -103,7 +103,7 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 
 	public void remove_animated () {
 		selectable = false;
-		revealer.notify["child-revealed"].connect(() => {
+		revealer.notify["child-revealed"].connect (() => {
 			get_parent ().remove (this);
 		});
 		revealer.reveal_child = false;
@@ -167,7 +167,7 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 		const double ARC_3 = Math.PI * 1.5;
 
 		cr.new_sub_path ();
-		cr.arc (x + width - radius, y + radius,	         radius, ARC_3, ARC_0);
+		cr.arc (x + width - radius, y + radius,          radius, ARC_3, ARC_0);
 		cr.arc (x + width - radius, y + height - radius, radius, ARC_0, ARC_1);
 		cr.arc (x + radius,         y + height - radius, radius, ARC_1, ARC_2);
 		cr.arc (x + radius,         y + radius,          radius, ARC_2, ARC_3);
@@ -219,4 +219,3 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 		}
 	}
 }
-

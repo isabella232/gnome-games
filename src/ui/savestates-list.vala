@@ -75,7 +75,7 @@ private class Games.SavestatesList : Gtk.Box {
 
 	private void populate_list_box () {
 		// Remove current savestate rows
-		var list_rows =  list_box.get_children ();
+		var list_rows = list_box.get_children ();
 		foreach (var row in list_rows) {
 			if (row != new_savestate_row)
 				list_box.remove (row);

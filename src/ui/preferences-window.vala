@@ -119,7 +119,7 @@ private class Games.PreferencesWindow : Gtk.Window {
 	}
 
 	[GtkCallback]
-	private void on_folded_changed (Object object, ParamSpec paramSpec) {
+	private void on_folded_changed () {
 		var folded = content_box.folded;
 
 		update_header_group ();

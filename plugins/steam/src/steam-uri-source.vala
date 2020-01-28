@@ -6,8 +6,7 @@ private class Games.SteamUriSource : Object, UriSource {
 	// From the home directory.
 	private const string REGISTRY_PATH = "/.steam/registry.vdf";
 
-	private const string[] APPS_REGISTRY_PATH =
-		{ "Registry", "HKCU", "Software", "Valve", "Steam", "Apps" };
+	private const string[] APPS_REGISTRY_PATH = { "Registry", "HKCU", "Software", "Valve", "Steam", "Apps" };
 
 	private string uri_scheme;
 	private SteamGameData game_data;

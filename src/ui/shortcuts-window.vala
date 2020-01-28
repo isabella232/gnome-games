@@ -14,4 +14,3 @@ private class Games.ShortcutsWindow : Gtk.ShortcutsWindow {
 		general_shortcut_alt_left.accelerator = get_direction () == Gtk.TextDirection.LTR ? "<alt>Left" : "<alt>Right";
 	}
 }
-

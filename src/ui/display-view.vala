@@ -178,7 +178,7 @@ private class Games.DisplayView : Object, UiView {
 		}
 
 		if (((keyval == Gdk.Key.s || keyval == Gdk.Key.S) && ctrl_pressed) ||
-		     (keyval == Gdk.Key.F2)){
+		     (keyval == Gdk.Key.F2)) {
 			create_new_savestate ();
 
 			return true;

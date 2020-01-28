@@ -22,7 +22,7 @@ private class Games.SteamRegistry {
 			if (node == null)
 				return {};
 
-			if (i < path.length -1) {
+			if (i < path.length - 1) {
 				current_value = node.get_child (path[i + 1]);
 			}
 			else {
@@ -42,7 +42,7 @@ private class Games.SteamRegistry {
 			if (current_value.tag != path[i])
 				return null;
 
-			if (i < path.length -1) {
+			if (i < path.length - 1) {
 				var node = current_value as SteamRegistryNode;
 				if (node == null)
 					return null;

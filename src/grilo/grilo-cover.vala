@@ -73,7 +73,7 @@ public class Games.GriloCover : Object, Cover {
 		}
 	}
 
-	private async void fetch_cover (string uri) throws Error{
+	private async void fetch_cover (string uri) throws Error {
 		var dir = Application.get_covers_dir ();
 		Application.try_make_dir (dir);
 

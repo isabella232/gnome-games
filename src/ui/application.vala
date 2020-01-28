@@ -17,7 +17,7 @@ public class Games.Application : Gtk.Application {
 
 	private Manette.Monitor manette_monitor;
 
-	private const GLib.ActionEntry[] action_entries = {
+	private const ActionEntry[] action_entries = {
 		{ "preferences",    preferences      },
 		{ "help",           help             },
 		{ "about",          about            },

@@ -260,7 +260,7 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 		const double ARC_3 = Math.PI * 1.5;
 
 		cr.new_sub_path ();
-		cr.arc (x + width - radius, y + radius,	         radius, ARC_3, ARC_0);
+		cr.arc (x + width - radius, y + radius,          radius, ARC_3, ARC_0);
 		cr.arc (x + width - radius, y + height - radius, radius, ARC_0, ARC_1);
 		cr.arc (x + radius,         y + height - radius, radius, ARC_1, ARC_2);
 		cr.arc (x + radius,         y + radius,          radius, ARC_2, ARC_3);
