@@ -38,8 +38,8 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 			if (runner != null) {
 				extra_widget = runner.get_extra_widget ();
 
-				secondary_menu_button.sensitive = runner.supports_savestates;
 				secondary_menu_button.visible = runner.can_support_savestates;
+				savestates_menu_button.sensitive = runner.supports_savestates;
 			}
 			else
 				extra_widget = null;
@@ -73,6 +73,8 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 	private Gtk.Button restore;
 	[GtkChild]
 	private Gtk.MenuButton secondary_menu_button;
+	[GtkChild]
+	private Gtk.ModelButton savestates_menu_button;
 	[GtkChild]
 	private Gtk.HeaderBar savestates_header_bar;
 
@@ -112,6 +114,11 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 	[GtkCallback]
 	private void on_secondary_menu_savestates_clicked () {
 		is_showing_snapshots = true;
+	}
+
+	[GtkCallback]
+	private void on_restart_clicked () {
+		runner.restart ();
 	}
 
 	[GtkCallback]

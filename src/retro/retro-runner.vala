@@ -246,6 +246,11 @@ public class Games.RetroRunner : Object, Runner {
 		running = true;
 	}
 
+	public void restart () {
+		try_create_savestate (true);
+		core.reset ();
+	}
+
 	public void resume () {
 		if (!is_ready) {
 			critical ("RetroRunner.resume() cannot be called if the game isn't playing");

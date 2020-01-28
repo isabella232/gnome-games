@@ -90,6 +90,9 @@ public class Games.CommandRunner : Object, Runner {
 		}
 	}
 
+	public void restart () {
+	}
+
 	public void resume () {
 	}
 

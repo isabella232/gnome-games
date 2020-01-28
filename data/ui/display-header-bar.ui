@@ -183,6 +183,20 @@
       <object class="GtkBox" id="secondary_menu_box">
         <property name="visible">True</property>
         <property name="margin">6</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkModelButton">
+            <property name="visible">True</property>
+            <property name="text" translatable="yes">_Restart</property>
+            <signal name="clicked" handler="on_restart_clicked"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkSeparator">
+            <property name="orientation">vertical</property>
+            <property name="visible">True</property>
+          </object>
+        </child>
         <child>
           <object class="GtkModelButton" id="savestates_menu_button">
             <property name="visible">True</property>

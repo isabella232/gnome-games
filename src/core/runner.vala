@@ -16,6 +16,7 @@ public interface Games.Runner : Object {
 
 	public abstract bool try_init_phase_one (out string error_message);
 	public abstract void start () throws Error;
+	public abstract void restart ();
 	public abstract void resume ();
 	public abstract void pause ();
 	public abstract void stop ();
