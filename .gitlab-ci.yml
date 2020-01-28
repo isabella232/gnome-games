@@ -39,3 +39,9 @@ stop_review:
 
 nightly:
   extends: '.publish_nightly'
+
+lint:
+  image: valalang/lint:latest
+  stage: .pre
+  script:
+    - io.elementary.vala-lint -c build-aux/vala-lint.conf src plugins
