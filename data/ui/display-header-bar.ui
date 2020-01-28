@@ -15,7 +15,7 @@
           <object class="GtkHeaderBar" id="ingame_header_bar">
             <property name="visible">True</property>
             <property name="title" bind-source="GamesDisplayHeaderBar" bind-property="game-title" bind-flags="bidirectional"/>
-            <property name="show_close_button">True</property>
+            <property name="show-close-button" bind-source="GamesDisplayHeaderBar" bind-property="show-title-buttons" bind-flags="bidirectional|sync-create"/>
             <child>
               <object class="GtkButton" id="back">
                 <property name="visible">True</property>
