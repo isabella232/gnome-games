@@ -7,15 +7,7 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 	[GtkChild]
 	private MediaMenuButton media_button;
 
-	private string _game_title;
-	public string game_title {
-		get { return _game_title; }
-		set {
-			_game_title = value;
-			ingame_header_bar.title = value;
-			savestates_header_bar.title = value;
-		}
-	}
+	public string game_title { get; set; }
 
 	public bool show_title_buttons {
 		set { ingame_header_bar.show_close_button = value; }

@@ -14,7 +14,7 @@
         <child>
           <object class="GtkHeaderBar" id="ingame_header_bar">
             <property name="visible">True</property>
-            <property name="title" translatable="yes">Games</property>
+            <property name="title" bind-source="GamesDisplayHeaderBar" bind-property="game-title" bind-flags="bidirectional"/>
             <property name="show_close_button">True</property>
             <child>
               <object class="GtkButton" id="back">
@@ -131,6 +131,7 @@
         <child>
           <object class="GtkHeaderBar" id="savestates_header_bar">
             <property name="visible">True</property>
+            <property name="title" bind-source="GamesDisplayHeaderBar" bind-property="game-title" bind-flags="bidirectional"/>
             <child>
               <object class="GtkButton">
                 <property name="sensitive">False</property>
