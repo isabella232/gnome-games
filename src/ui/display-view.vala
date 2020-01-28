@@ -45,6 +45,7 @@ private class Games.DisplayView : Object, UiView {
 	public bool is_showing_snapshots { get; set; }
 
 	public Runner runner { get; set; }
+	public string game_title { get; set; }
 
 	private Settings settings;
 
@@ -98,6 +99,11 @@ private class Games.DisplayView : Object, UiView {
 		               "runner", BindingFlags.BIDIRECTIONAL);
 		bind_property ("runner", header_bar,
 		               "runner", BindingFlags.BIDIRECTIONAL);
+
+		bind_property ("game-title", box,
+		               "game-title", BindingFlags.BIDIRECTIONAL);
+		bind_property ("game-title", header_bar,
+		               "game-title", BindingFlags.BIDIRECTIONAL);
 
 		focus_out_timeout_id = -1;
 
@@ -292,8 +298,7 @@ private class Games.DisplayView : Object, UiView {
 	}
 
 	private void run_game_with_cancellable (Game game, Cancellable cancellable) {
-		header_bar.game_title = game.name;
-		box.header_bar.game_title = game.name;
+		game_title = game.name;
 
 		// Reset the UI parts depending on the runner to avoid an
 		// inconsistent state is case we couldn't retrieve it.

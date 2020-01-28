@@ -49,6 +49,7 @@ private class Games.DisplayBox : Gtk.Bin {
 	}
 
 	public bool can_fullscreen { get; set; }
+	public string game_title { get; set; }
 
 	[GtkChild]
 	private Gtk.Stack stack;
