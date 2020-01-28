@@ -490,8 +490,6 @@ private class Games.DisplayView : Object, UiView {
 	}
 
 	private void reset_display_page () {
-		header_bar.hide_secondary_menu_button ();
-
 		header_bar.can_fullscreen = false;
 		box.header_bar.can_fullscreen = false;
 		header_bar.runner = null;

@@ -35,11 +35,10 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 			_runner = value;
 			input_mode_switcher.runner = value;
 
-			if (runner != null) {
-				extra_widget = runner.get_extra_widget ();
+			secondary_menu_button.visible = runner != null && runner.is_integrated;
 
-				secondary_menu_button.visible = runner.is_integrated;
-			}
+			if (runner != null)
+				extra_widget = runner.get_extra_widget ();
 			else
 				extra_widget = null;
 		}
@@ -79,10 +78,6 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 
 	construct {
 		settings = new Settings ("org.gnome.Games");
-	}
-
-	public void hide_secondary_menu_button () {
-		secondary_menu_button.visible = false;
 	}
 
 	[GtkCallback]
