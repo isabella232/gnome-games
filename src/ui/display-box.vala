@@ -48,6 +48,8 @@ private class Games.DisplayBox : Gtk.Bin {
 		}
 	}
 
+	public bool can_fullscreen { get; set; }
+
 	[GtkChild]
 	private Gtk.Stack stack;
 	[GtkChild]
@@ -64,6 +66,11 @@ private class Games.DisplayBox : Gtk.Bin {
 	private SavestatesList savestates_list;
 
 	private int fullscreen_header_bar_height;
+
+	construct {
+		bind_property ("can-fullscreen", header_bar,
+		               "can-fullscreen", BindingFlags.BIDIRECTIONAL);
+	}
 
 	public void display_running_game_failed (Game game, string error_message) {
 		stack.visible_child = error_display;

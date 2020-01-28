@@ -40,6 +40,7 @@ private class Games.DisplayView : Object, UiView {
 
 	public Gtk.Window window { get; construct; }
 
+	public bool can_fullscreen { get; set; }
 	public bool is_fullscreen { get; set; }
 	public bool is_showing_snapshots { get; set; }
 
@@ -75,6 +76,11 @@ private class Games.DisplayView : Object, UiView {
 		box.snapshots_hidden.connect (on_snapshots_hidden);
 
 		settings = new Settings ("org.gnome.Games");
+
+		bind_property ("can-fullscreen", box,
+		               "can-fullscreen", BindingFlags.BIDIRECTIONAL);
+		bind_property ("can-fullscreen", header_bar,
+		               "can-fullscreen", BindingFlags.BIDIRECTIONAL);
 
 		bind_property ("is-fullscreen", box,
 		               "is-fullscreen", BindingFlags.BIDIRECTIONAL);
@@ -116,15 +122,14 @@ private class Games.DisplayView : Object, UiView {
 			return true;
 
 		if ((keyval == Gdk.Key.f || keyval == Gdk.Key.F) && ctrl_pressed &&
-		    header_bar.can_fullscreen && !is_showing_snapshots) {
+		    can_fullscreen && !is_showing_snapshots) {
 			is_fullscreen = !is_fullscreen;
 			settings.set_boolean ("fullscreen", is_fullscreen);
 
 			return true;
 		}
 
-		if (keyval == Gdk.Key.F11 && header_bar.can_fullscreen &&
-		    !is_showing_snapshots) {
+		if (keyval == Gdk.Key.F11 && can_fullscreen && !is_showing_snapshots) {
 			is_fullscreen = !is_fullscreen;
 			settings.set_boolean ("fullscreen", is_fullscreen);
 
@@ -291,8 +296,7 @@ private class Games.DisplayView : Object, UiView {
 		if (runner == null)
 			return;
 
-		header_bar.can_fullscreen = runner.can_fullscreen;
-		box.header_bar.can_fullscreen = runner.can_fullscreen;
+		can_fullscreen = runner.can_fullscreen;
 		header_bar.runner = runner;
 		box.runner = runner;
 		header_bar.media_set = runner.media_set;
@@ -490,8 +494,7 @@ private class Games.DisplayView : Object, UiView {
 	}
 
 	private void reset_display_page () {
-		header_bar.can_fullscreen = false;
-		box.header_bar.can_fullscreen = false;
+		can_fullscreen = false;
 		header_bar.runner = null;
 		box.runner = null;
 		header_bar.media_set = null;
