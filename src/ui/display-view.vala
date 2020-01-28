@@ -431,7 +431,7 @@ private class Games.DisplayView : Object, UiView {
 
 		box.runner.pause ();
 
-		if (!box.runner.can_support_savestates) {
+		if (!box.runner.is_integrated) {
 			// Game does not and will not support savestates (e.g. Steam games)
 			// => Progress cannot be saved so game can be quit safely
 			box.runner.stop ();

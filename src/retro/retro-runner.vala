@@ -18,7 +18,7 @@ public class Games.RetroRunner : Object, Runner {
 		get { return core.get_can_access_state (); }
 	}
 
-	public bool can_support_savestates {
+	public bool is_integrated {
 		get { return true; }
 	}
 

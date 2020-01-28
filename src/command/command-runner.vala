@@ -13,7 +13,7 @@ public class Games.CommandRunner : Object, Runner {
 		get { return false; }
 	}
 
-	public bool can_support_savestates {
+	public bool is_integrated {
 		get { return false; }
 	}
 

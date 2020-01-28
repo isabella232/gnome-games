@@ -38,7 +38,7 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 			if (runner != null) {
 				extra_widget = runner.get_extra_widget ();
 
-				secondary_menu_button.visible = runner.can_support_savestates;
+				secondary_menu_button.visible = runner.is_integrated;
 				savestates_menu_button.sensitive = runner.supports_savestates;
 			}
 			else
