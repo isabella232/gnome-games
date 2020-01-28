@@ -459,8 +459,10 @@ public class Games.RetroRunner : Object, Runner {
 		if (!core.get_can_access_state ()) // Check if the core can support savestates
 			return null;
 
-		try {
+		if (!is_automatic)
 			new_savestate_created ();
+
+		try {
 			return create_savestate (is_automatic);
 		}
 		catch (Error e) {
