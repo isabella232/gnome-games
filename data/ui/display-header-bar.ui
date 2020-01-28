@@ -67,10 +67,10 @@
             </child>
             <child>
               <object class="GtkMenuButton" id="secondary_menu_button">
-                <property name="popover">secondary_menu</property>
                 <property name="visible">True</property>
                 <property name="valign">center</property>
                 <property name="can-focus">False</property>
+                <property name="menu-model">secondary_menu</property>
                 <style>
                   <class name="image-button"/>
                 </style>
@@ -178,33 +178,18 @@
       </object>
     </child>
   </template>
-  <object class="GtkPopoverMenu" id="secondary_menu">
-    <child>
-      <object class="GtkBox" id="secondary_menu_box">
-        <property name="visible">True</property>
-        <property name="margin">6</property>
-        <property name="orientation">vertical</property>
-        <child>
-          <object class="GtkModelButton">
-            <property name="visible">True</property>
-            <property name="text" translatable="yes">_Restart</property>
-            <property name="action-name">display.restart</property>
-          </object>
-        </child>
-        <child>
-          <object class="GtkSeparator">
-            <property name="orientation">vertical</property>
-            <property name="visible">True</property>
-          </object>
-        </child>
-        <child>
-          <object class="GtkModelButton">
-            <property name="visible">True</property>
-            <property name="text" translatable="yes">_Snapshots</property>
-            <property name="action-name">display.show-snapshots</property>
-          </object>
-        </child>
-      </object>
-    </child>
-  </object>
+  <menu id="secondary_menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Restart</attribute>
+        <attribute name="action">display.restart</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Snapshots</attribute>
+        <attribute name="action">display.show-snapshots</attribute>
+      </item>
+    </section>
+  </menu>
 </interface>
