@@ -198,10 +198,10 @@
           </object>
         </child>
         <child>
-          <object class="GtkModelButton" id="savestates_menu_button">
+          <object class="GtkModelButton">
             <property name="visible">True</property>
             <property name="text" translatable="yes">_Snapshots</property>
-            <signal name="clicked" handler="on_secondary_menu_savestates_clicked"/>
+            <property name="action-name">display.show-snapshots</property>
           </object>
         </child>
       </object>

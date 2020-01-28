@@ -32,6 +32,8 @@ private class Games.DisplayView : Object, UiView {
 					box.runner.stop ();
 					box.runner = null;
 				}
+
+				update_actions ();
 			}
 		}
 	}
@@ -52,9 +54,11 @@ private class Games.DisplayView : Object, UiView {
 
 	private long focus_out_timeout_id;
 
+	private SimpleActionGroup action_group;
 	private const ActionEntry[] action_entries = {
-		{ "load-snapshot", load_snapshot },
-		{ "restart",       restart       },
+		{ "load-snapshot",  load_snapshot  },
+		{ "show-snapshots", show_snapshots },
+		{ "restart",        restart        },
 	};
 
 	public DisplayView (Gtk.Window window) {
@@ -84,7 +88,7 @@ private class Games.DisplayView : Object, UiView {
 
 		focus_out_timeout_id = -1;
 
-		var action_group = new SimpleActionGroup ();
+		action_group = new SimpleActionGroup ();
 		action_group.add_action_entries (action_entries, this);
 		window.insert_action_group ("display", action_group);
 	}
@@ -150,7 +154,7 @@ private class Games.DisplayView : Object, UiView {
 
 		if (((keyval == Gdk.Key.a || keyval == Gdk.Key.A) && ctrl_pressed) ||
 		     (keyval == Gdk.Key.F4)) {
-			is_showing_snapshots = true;
+			show_snapshots ();
 
 			return true;
 		}
@@ -293,6 +297,8 @@ private class Games.DisplayView : Object, UiView {
 		box.runner = runner;
 		header_bar.media_set = runner.media_set;
 		box.header_bar.media_set = runner.media_set;
+
+		update_actions ();
 
 		is_fullscreen = settings.get_boolean ("fullscreen") && runner.can_fullscreen;
 
@@ -492,6 +498,8 @@ private class Games.DisplayView : Object, UiView {
 		box.runner = null;
 		header_bar.media_set = null;
 		box.header_bar.media_set = null;
+
+		update_actions ();
 	}
 
 	public void on_snapshots_hidden () {
@@ -545,6 +553,13 @@ private class Games.DisplayView : Object, UiView {
 		return true;
 	}
 
+	private void update_actions () {
+		var runner = box.runner;
+
+		var action = action_group.lookup_action ("show-snapshots") as SimpleAction;
+		action.set_enabled (runner != null && runner.supports_savestates);
+	}
+
 	private void load_snapshot () {
 		try {
 			box.runner.load_previewed_savestate ();
@@ -554,6 +569,11 @@ private class Games.DisplayView : Object, UiView {
 		}
 
 		is_showing_snapshots = false;
+	}
+
+	private void show_snapshots () {
+		if (box.runner != null && box.runner.is_integrated)
+			is_showing_snapshots = true;
 	}
 
 	private void restart () {
