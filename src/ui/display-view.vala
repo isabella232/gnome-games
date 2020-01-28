@@ -28,9 +28,9 @@ private class Games.DisplayView : Object, UiView {
 			if (!is_view_active) {
 				is_fullscreen = false;
 
-				if (box.runner != null) {
-					box.runner.stop ();
-					box.runner = null;
+				if (runner != null) {
+					runner.stop ();
+					runner = null;
 				}
 
 				update_actions ();
@@ -43,6 +43,8 @@ private class Games.DisplayView : Object, UiView {
 	public bool can_fullscreen { get; set; }
 	public bool is_fullscreen { get; set; }
 	public bool is_showing_snapshots { get; set; }
+
+	public Runner runner { get; set; }
 
 	private Settings settings;
 
@@ -91,6 +93,11 @@ private class Games.DisplayView : Object, UiView {
 		               "is-showing-snapshots", BindingFlags.BIDIRECTIONAL);
 		bind_property ("is-showing-snapshots", header_bar,
 		               "is-showing-snapshots", BindingFlags.BIDIRECTIONAL);
+
+		bind_property ("runner", box,
+		               "runner", BindingFlags.BIDIRECTIONAL);
+		bind_property ("runner", header_bar,
+		               "runner", BindingFlags.BIDIRECTIONAL);
 
 		focus_out_timeout_id = -1;
 
@@ -151,7 +158,7 @@ private class Games.DisplayView : Object, UiView {
 		}
 
 		// Shortcuts for the Savestates manager
-		if (!box.runner.supports_savestates)
+		if (!runner.supports_savestates)
 			return false;
 
 		if (is_showing_snapshots)
@@ -184,37 +191,37 @@ private class Games.DisplayView : Object, UiView {
 	private void on_escape_key_pressed () {
 		if (is_showing_snapshots)
 			on_display_back (); // Hide Savestates menu
-		else if (header_bar.can_fullscreen) {
+		else if (can_fullscreen) {
 			is_fullscreen = false;
 			settings.set_boolean ("fullscreen", false);
 		}
 	}
 
 	private void create_new_savestate () {
-		box.runner.pause ();
-		box.runner.try_create_savestate (false);
-		box.runner.resume ();
-		box.runner.get_display ().grab_focus ();
+		runner.pause ();
+		runner.try_create_savestate (false);
+		runner.resume ();
+		runner.get_display ().grab_focus ();
 	}
 
 	private void load_latest_savestate () {
-		var savestates = box.runner.get_savestates ();
+		var savestates = runner.get_savestates ();
 
 		if (savestates.length == 0)
 			return;
 
-		box.runner.pause ();
-		box.runner.preview_savestate (savestates[0]);
+		runner.pause ();
+		runner.preview_savestate (savestates[0]);
 
 		try {
-			box.runner.load_previewed_savestate ();
+			runner.load_previewed_savestate ();
 		}
 		catch (Error e) {
 			warning ("Failed to load snapshot: %s", e.message);
 		}
 
-		box.runner.resume ();
-		box.runner.get_display ().grab_focus ();
+		runner.resume ();
+		runner.get_display ().grab_focus ();
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {
@@ -257,7 +264,7 @@ private class Games.DisplayView : Object, UiView {
 
 	private void on_display_back () {
 		if (is_showing_snapshots) {
-			box.runner.preview_current_state ();
+			runner.preview_current_state ();
 			is_showing_snapshots = false;
 
 			return;
@@ -268,7 +275,7 @@ private class Games.DisplayView : Object, UiView {
 
 	public void run_game (Game game) {
 		// If there is a game already running we have to quit it first
-		if (box.runner != null && !quit_game ())
+		if (runner != null && !quit_game ())
 			return;
 
 		if (run_game_cancellable != null)
@@ -292,19 +299,17 @@ private class Games.DisplayView : Object, UiView {
 		// inconsistent state is case we couldn't retrieve it.
 		reset_display_page ();
 
-		var runner = try_get_runner (game);
+		runner = try_get_runner (game);
 		if (runner == null)
 			return;
 
 		can_fullscreen = runner.can_fullscreen;
-		header_bar.runner = runner;
-		box.runner = runner;
 		header_bar.media_set = runner.media_set;
 		box.header_bar.media_set = runner.media_set;
 
 		update_actions ();
 
-		is_fullscreen = settings.get_boolean ("fullscreen") && runner.can_fullscreen;
+		is_fullscreen = settings.get_boolean ("fullscreen") && can_fullscreen;
 
 		if (!runner.can_resume) {
 			try_run_with_cancellable (runner, false, cancellable);
@@ -370,7 +375,7 @@ private class Games.DisplayView : Object, UiView {
 	private bool try_run_with_cancellable (Runner runner, bool resume, Cancellable cancellable) {
 		try {
 			if (resume)
-				box.runner.load_previewed_savestate ();
+				runner.load_previewed_savestate ();
 			else
 				runner.start ();
 
@@ -403,7 +408,7 @@ private class Games.DisplayView : Object, UiView {
 			response = Gtk.ResponseType.CANCEL;
 
 		if (response == Gtk.ResponseType.CANCEL) {
-			box.runner = null;
+			runner = null;
 			back ();
 
 			return;
@@ -437,21 +442,21 @@ private class Games.DisplayView : Object, UiView {
 	}
 
 	public bool quit_game_with_cancellable (Cancellable cancellable) {
-		if (box.runner == null)
+		if (runner == null)
 			return true;
 
-		box.runner.pause ();
+		runner.pause ();
 
-		if (!box.runner.is_integrated) {
+		if (!runner.is_integrated) {
 			// Game does not and will not support savestates (e.g. Steam games)
 			// => Progress cannot be saved so game can be quit safely
-			box.runner.stop ();
+			runner.stop ();
 			return true;
 		}
 
-		if (box.runner.try_create_savestate (true) != null) {
+		if (runner.try_create_savestate (true) != null) {
 			// Progress saved => can quit game safely
-			box.runner.stop ();
+			runner.stop ();
 			return true;
 		}
 
@@ -487,16 +492,15 @@ private class Games.DisplayView : Object, UiView {
 	}
 
 	private bool cancel_quitting_game () {
-		if (box.runner != null)
-			box.runner.resume ();
+		if (runner != null)
+			runner.resume ();
 
 		return false;
 	}
 
 	private void reset_display_page () {
 		can_fullscreen = false;
-		header_bar.runner = null;
-		box.runner = null;
+		runner = null;
 		header_bar.media_set = null;
 		box.header_bar.media_set = null;
 
@@ -505,8 +509,8 @@ private class Games.DisplayView : Object, UiView {
 
 	public void on_snapshots_hidden () {
 		if (window.is_active) {
-			box.runner.resume ();
-			box.runner.get_display ().grab_focus ();
+			runner.resume ();
+			runner.get_display ().grab_focus ();
 		}
 	}
 
@@ -521,12 +525,12 @@ private class Games.DisplayView : Object, UiView {
 
 		if (window.is_active) {
 			if (!is_showing_snapshots)
-				box.runner.resume ();
+				runner.resume ();
 		}
 		else if (with_delay)
 			focus_out_timeout_id = Timeout.add (FOCUS_OUT_DELAY_MILLISECONDS, on_focus_out_delay_elapsed);
 		else
-			box.runner.pause ();
+			runner.pause ();
 	}
 
 	private bool on_focus_out_delay_elapsed () {
@@ -536,13 +540,13 @@ private class Games.DisplayView : Object, UiView {
 			return false;
 
 		if (!window.is_active)
-			box.runner.pause ();
+			runner.pause ();
 
 		return false;
 	}
 
 	private bool can_update_pause () {
-		if (box.runner == null)
+		if (runner == null)
 			return false;
 
 		if (run_game_cancellable != null)
@@ -555,15 +559,13 @@ private class Games.DisplayView : Object, UiView {
 	}
 
 	private void update_actions () {
-		var runner = box.runner;
-
 		var action = action_group.lookup_action ("show-snapshots") as SimpleAction;
 		action.set_enabled (runner != null && runner.supports_savestates);
 	}
 
 	private void load_snapshot () {
 		try {
-			box.runner.load_previewed_savestate ();
+			runner.load_previewed_savestate ();
 		}
 		catch (Error e) {
 			critical ("Failed to load snapshot: %s", e.message);
@@ -573,12 +575,12 @@ private class Games.DisplayView : Object, UiView {
 	}
 
 	private void show_snapshots () {
-		if (box.runner != null && box.runner.is_integrated)
+		if (runner != null && runner.is_integrated)
 			is_showing_snapshots = true;
 	}
 
 	private void restart () {
-		if (box.runner != null && box.runner.is_integrated)
-			box.runner.restart ();
+		if (runner != null && runner.is_integrated)
+			runner.restart ();
 	}
 }
