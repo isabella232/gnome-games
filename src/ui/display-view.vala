@@ -54,6 +54,7 @@ private class Games.DisplayView : Object, UiView {
 
 	private const ActionEntry[] action_entries = {
 		{ "load-snapshot", load_snapshot },
+		{ "restart",       restart       },
 	};
 
 	public DisplayView (Gtk.Window window) {
@@ -553,5 +554,10 @@ private class Games.DisplayView : Object, UiView {
 		}
 
 		is_showing_snapshots = false;
+	}
+
+	private void restart () {
+		if (box.runner != null && box.runner.is_integrated)
+			box.runner.restart ();
 	}
 }

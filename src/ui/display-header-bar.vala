@@ -117,11 +117,6 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 	}
 
 	[GtkCallback]
-	private void on_restart_clicked () {
-		runner.restart ();
-	}
-
-	[GtkCallback]
 	private void on_showing_snapshots_changed () {
 		if (is_showing_snapshots)
 			stack.visible_child = savestates_header_bar;

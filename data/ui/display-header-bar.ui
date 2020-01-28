@@ -188,7 +188,7 @@
           <object class="GtkModelButton">
             <property name="visible">True</property>
             <property name="text" translatable="yes">_Restart</property>
-            <signal name="clicked" handler="on_restart_clicked"/>
+            <property name="action-name">display.restart</property>
           </object>
         </child>
         <child>
