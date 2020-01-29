@@ -147,7 +147,11 @@ public class Games.Savestate : Object {
 		var creation_date_str = keyfile.get_string ("Metadata", "Creation Date");
 		creation_date = new DateTime.from_iso8601 (creation_date_str, new TimeZone.local ());
 
-		screenshot_aspect_ratio = keyfile.get_double ("Screenshot", "Aspect Ratio");
+		// Migrated savestates aren't going to have this
+		if (keyfile.has_group ("Screenshot"))
+			screenshot_aspect_ratio = keyfile.get_double ("Screenshot", "Aspect Ratio");
+		else
+			screenshot_aspect_ratio = 0;
 	}
 
 	protected virtual void save_metadata (KeyFile keyfile) {
