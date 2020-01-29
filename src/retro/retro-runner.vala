@@ -239,6 +239,8 @@ public class Games.RetroRunner : Object, Runner {
 
 			is_ready = true;
 		}
+
+		core.run (); // Needed to finish preparing some cores.
 		core.reset ();
 
 		loop.start ();
@@ -274,8 +276,6 @@ public class Games.RetroRunner : Object, Runner {
 		_input_mode = input_manager.input_mode;
 
 		core.shutdown.connect (on_shutdown);
-
-		core.run (); // Needed to finish preparing some cores.
 
 		loop = new Retro.MainLoop (core);
 		running = false;
