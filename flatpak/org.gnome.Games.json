@@ -82,6 +82,7 @@
         "libretro-cores/libretro-mednafen_wswan.json",
         "libretro-cores/libretro-mgba.json",
         "libretro-cores/libretro-nestopia.json",
+        "libretro-cores/libretro-parallel_n64.json",
         "libretro-cores/libretro-pcsx_rearmed.json",
         "libretro-cores/libretro-prboom.json",
         "libretro-cores/libretro-prosystem.json",
