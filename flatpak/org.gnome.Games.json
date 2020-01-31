@@ -220,7 +220,7 @@
                 {
                     "type" : "git",
                     "url" : "https://gitlab.gnome.org/exalm/retro-gtk.git",
-                    "branch" : "wip/exalm/subprocess3"
+                    "branch" : "wip/exalm/opengl"
                 }
             ]
         },
