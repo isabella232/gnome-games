@@ -352,7 +352,9 @@ public class Games.RetroRunner : Object, Runner {
 
 		core.set_medias (medias_uris);
 		core.boot ();
-		core.set_current_media (media_set.selected_media_number);
+
+		if (medias_uris.length > 0)
+			core.set_current_media (media_set.selected_media_number);
 	}
 
 	public void pause () {
