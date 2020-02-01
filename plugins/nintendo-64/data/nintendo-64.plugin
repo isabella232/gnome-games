@@ -1,0 +1,6 @@
+[Plugin]
+Module=libgames-nintendo-64-plugin
+Name=Nintendo 64 Plugin
+Description=Provides support for Nintendo 64 games.
+Authors=Alexander Mikhaylenko <alexm@gnome.org>
+Copyright=Copyright © 2020 Alexander Mikhaylenko
