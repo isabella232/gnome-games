@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.24"/>
+  <template class="GamesNintendo64PakController" parent="GtkBox">
+    <property name="visible">True</property>
+    <property name="orientation">vertical</property>
+    <child>
+      <object class="GtkLabel" id="title">
+        <property name="visible" bind-source="GamesNintendo64PakController" bind-property="show-title" bind-flags="sync-create|bidirectional"/>
+        <property name="xalign">0</property>
+        <property name="margin">5</property>
+        <attributes>
+          <attribute name="weight" value="bold"/>
+          <attribute name="scale" value="0.8"/>
+        </attributes>
+        <style>
+          <class name="dim-label"/>
+        </style>
+      </object>
+    </child>
+    <child>
+      <object class="GtkModelButton" id="memory_btn">
+        <property name="visible">True</property>
+        <property name="role">radio</property>
+        <property name="text" translatable="true">Controller Pak</property>
+        <signal name="clicked" handler="memory_btn_clicked"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkModelButton" id="rumble_btn">
+        <property name="visible">True</property>
+        <property name="role">radio</property>
+        <property name="text" translatable="true">Rumble Pak</property>
+        <property name="sensitive" bind-source="GamesNintendo64PakController" bind-property="supports-rumble" bind-flags="sync-create"/>
+        <signal name="clicked" handler="rumble_btn_clicked"/>
+      </object>
+    </child>
+  </template>
+</interface>

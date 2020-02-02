@@ -9,7 +9,7 @@ private class Games.Nintendo64Plugin : Object, Plugin {
 	private static RetroPlatform platform;
 
 	static construct {
-		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, { MIME_TYPE }, PLATFORM_UID_PREFIX);
+		platform = new Nintendo64Platform (PLATFORM_ID, PLATFORM_NAME, { MIME_TYPE }, PLATFORM_UID_PREFIX);
 	}
 
 	public Platform[] get_platforms () {
@@ -53,7 +53,7 @@ private class Games.Nintendo64Plugin : Object, Plugin {
 	private static Runner? create_runner (Game game) throws Error {
 		var core_source = new RetroCoreSource (platform);
 
-		return new RetroRunner (game, core_source);
+		return new Nintendo64Runner (game, core_source);
 	}
 }
 
