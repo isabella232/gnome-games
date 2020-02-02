@@ -24,9 +24,9 @@ Mandatory=true
 [Firmware:TheKingOfFighters95]
 Path=mpr-18811-mx.ic1
 MD5=255113ba943c92a54facd25a10fd780c
-Mandatory=true
+Mandatory=false
 
 [Firmware:UltramanHikariNoKyojinDensetsu]
 Path=mpr-19367-mx.ic1
 MD5=1cd19988d1d72a3e7caa0b73234c96b4
-Mandatory=true
+Mandatory=false
