@@ -9,7 +9,7 @@ private class Games.Nintendo64Plugin : Object, Plugin {
 	private static RetroPlatform platform;
 
 	static construct {
-		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, { MIME_TYPE }, PLATFORM_UID_PREFIX);
+		platform = new Nintendo64Platform (PLATFORM_ID, PLATFORM_NAME, { MIME_TYPE }, PLATFORM_UID_PREFIX);
 	}
 
 	public Platform[] get_platforms () {
@@ -58,7 +58,7 @@ private class Games.Nintendo64Plugin : Object, Plugin {
 		builder.uri = game.get_uri ();
 		builder.uid = game.get_uid ();
 		builder.title = game.name;
-		return builder.to_runner ();
+		return builder.to_runner (typeof (Nintendo64Runner));
 	}
 }
 

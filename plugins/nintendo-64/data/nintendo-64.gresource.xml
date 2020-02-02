@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/org/gnome/Games/plugins/nintendo-64">
+    <file>ui/nintendo-64-pak-player.ui</file>
+    <file>ui/nintendo-64-pak-switcher.ui</file>
+  </gresource>
+</gresources>
