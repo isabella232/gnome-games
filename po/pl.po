@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-01-25 18:27+0000\n"
-"PO-Revision-Date: 2020-01-26 14:55+0100\n"
+"POT-Creation-Date: 2020-01-28 13:39+0000\n"
+"PO-Revision-Date: 2020-02-02 12:22+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -20,9 +20,9 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:7
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:48
-#: data/ui/collection-header-bar.ui:76 data/ui/display-header-bar.ui:16
-#: src/ui/application.vala:26
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:56
+#: data/ui/collection-header-bar.ui:79 data/ui/display-header-bar.ui:17
+#: src/ui/application.vala:35
 msgid "Games"
 msgstr "Gry"
 
@@ -92,7 +92,7 @@ msgstr ""
 "pocket;neogeopocket;nes;nintendo;pegasus;pegazus;pico;playstation;psp;saturn;"
 "sega;sg-1000;snes;sony;turbografx;vita;wii;wii u;wiiu;wiiware;"
 
-#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:99
+#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:100
 msgid "Fullscreen"
 msgstr "Pełny ekran"
 
@@ -140,77 +140,71 @@ msgstr ""
 "Preferowany rdzeń biblioteki libretro używany do uruchamiania gier. Inny "
 "rdzeń może zostać użyty, jeśli preferowany nie ma oprogramowania sprzętowego."
 
-#: data/ui/collection-box.ui:60 src/ui/preferences-page-platforms.vala:9
+#: data/ui/collection-box.ui:71 src/ui/preferences-page-platforms.vala:9
 msgid "Platforms"
 msgstr "Platformy"
 
-#: data/ui/collection-box.ui:84
+#: data/ui/collection-box.ui:97
 msgid "Loading"
 msgstr "Wczytywanie"
 
-#: data/ui/collection-header-bar.ui:25
+#: data/ui/collection-header-bar.ui:28
 msgid "Add game files…"
 msgstr "Dodaj pliki gry…"
 
 #. Translators: tooltip for the application menu button
-#: data/ui/collection-header-bar.ui:44
+#: data/ui/collection-header-bar.ui:47
 msgid "Menu"
 msgstr "Menu"
 
-#: data/ui/collection-header-bar.ui:95 data/ui/collection-header-bar.ui:149
+#: data/ui/collection-header-bar.ui:98 data/ui/collection-header-bar.ui:153
 msgid "Search"
 msgstr "Wyszukaj"
 
-#: data/ui/collection-header-bar.ui:126 data/ui/display-header-bar.ui:29
-#: data/ui/display-header-bar.ui:160 data/ui/preferences-subpage-gamepad.ui:83
+#: data/ui/collection-header-bar.ui:130 data/ui/display-header-bar.ui:30
+#: data/ui/display-header-bar.ui:161 data/ui/preferences-subpage-gamepad.ui:84
 #: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:36
 #: data/ui/preferences-window.ui:77
 msgid "Back"
 msgstr "Wstecz"
 
-#: data/ui/collection-header-bar.ui:179
+#: data/ui/collection-header-bar.ui:176
 msgid "Pr_eferences"
 msgstr "_Preferencje"
 
-#: data/ui/collection-header-bar.ui:187
+#: data/ui/collection-header-bar.ui:180
 msgid "_Keyboard Shortcuts"
 msgstr "_Skróty klawiszowe"
 
-#: data/ui/collection-header-bar.ui:195
+#: data/ui/collection-header-bar.ui:184
 msgid "_Help"
 msgstr "Pomo_c"
 
-#: data/ui/collection-header-bar.ui:203
+#: data/ui/collection-header-bar.ui:188
 msgid "_About Games"
 msgstr "_O programie"
 
-#: data/ui/display-header-bar.ui:52
+#: data/ui/display-header-bar.ui:53
 msgid "Restore"
 msgstr "Przywróć"
 
-#: data/ui/display-header-bar.ui:139
+#: data/ui/display-header-bar.ui:140
 msgid "_Load"
 msgstr "_Wczytaj"
 
-#: data/ui/display-header-bar.ui:188
+#: data/ui/display-header-bar.ui:190
+msgid "_Restart"
+msgstr "_Uruchom ponownie"
+
+#: data/ui/display-header-bar.ui:203
 msgid "_Snapshots"
 msgstr "_Zapisy stanu"
 
-#: data/ui/dummy-display.ui:37
-msgid "This is a dummy game display"
-msgstr "Pusta gra"
-
-#: data/ui/dummy-display.ui:53
-msgid "If you see this, this is a bug. Please contact the developers."
-msgstr ""
-"Jeśli to jest widoczne, to wystąpił błąd. Prosimy skontaktować się "
-"z programistami."
-
-#: data/ui/empty-collection.ui:29
+#: data/ui/empty-collection.ui:23
 msgid "No games found"
 msgstr "Brak gier"
 
-#: data/ui/empty-collection.ui:44
+#: data/ui/empty-collection.ui:38
 msgid ""
 "Install games or add directories containing games to your search sources."
 msgstr ""
@@ -296,7 +290,7 @@ msgstr "Skonfiguruj"
 msgid "Skip"
 msgstr "Pomiń"
 
-#: data/ui/preferences-subpage-gamepad.ui:101
+#: data/ui/preferences-subpage-gamepad.ui:102
 #: data/ui/preferences-subpage-keyboard.ui:102 data/ui/quit-dialog.ui:15
 #: data/ui/reset-controller-mapping-dialog.ui:15
 #: data/ui/resume-failed-dialog.ui:14
@@ -319,15 +313,15 @@ msgstr "Niezapisane postępy zostaną utracone."
 msgid "Quit"
 msgstr "Zakończ"
 
-#: data/ui/remote-display.ui:36
+#: data/ui/remote-display.ui:23
 msgid "Use the game’s own window to play it"
 msgstr "Należy użyć okna gry"
 
-#: data/ui/remote-display.ui:51
+#: data/ui/remote-display.ui:36
 msgid "This game isn’t integrated with GNOME Games."
 msgstr "Ta gra nie jest zintegrowana z Grami GNOME."
 
-#: data/ui/remote-display.ui:64
+#: data/ui/remote-display.ui:47
 msgid "You have to use its own window to play it."
 msgstr "Należy użyć jej okna."
 
@@ -365,19 +359,19 @@ msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Uruchom ponownie"
 
-#: data/ui/savestates-list.ui:63
+#: data/ui/savestates-list.ui:64
 msgid "Create new snapshot"
 msgstr "Nowy zapis stanu"
 
-#: data/ui/savestates-list.ui:88
+#: data/ui/savestates-list.ui:89
 msgid "_Delete"
 msgstr "_Usuń"
 
-#: data/ui/savestates-list.ui:102 data/ui/savestates-list.ui:152
+#: data/ui/savestates-list.ui:103 data/ui/savestates-list.ui:153
 msgid "_Rename"
 msgstr "_Zmień nazwę"
 
-#: data/ui/savestates-list.ui:128
+#: data/ui/savestates-list.ui:129
 msgid "Name"
 msgstr "Nazwa"
 
@@ -898,25 +892,25 @@ msgstr ""
 "Ta gra do działania wymaga pliku oprogramowania sprzętowego %s o sumie "
 "kontrolnej SHA-512 „%s”."
 
-#: src/retro/retro-runner.vala:314
+#: src/retro/retro-runner.vala:316
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nie odnaleziono modułu dla „%s”."
 
-#: src/retro/retro-runner.vala:582
+#: src/retro/retro-runner.vala:577
 msgid "Unknown platform"
 msgstr "Nieznana platforma"
 
-#: src/retro/retro-runner.vala:606
+#: src/retro/retro-runner.vala:601
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Konsola „%s” nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: src/retro/retro-runner.vala:608
+#: src/retro/retro-runner.vala:603
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Konsola nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: src/retro/retro-runner.vala:617 src/retro/retro-runner.vala:643
+#: src/retro/retro-runner.vala:612 src/retro/retro-runner.vala:637
 #, c-format
 msgid "New snapshot %s"
 msgstr "%s. zapis stanu"
@@ -1024,47 +1018,47 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:150
+#: src/ui/application.vala:141
 msgid "Select game files"
 msgstr "Wybór plików gry"
 
-#: src/ui/application.vala:151 src/ui/preferences-page-import-export.vala:14
+#: src/ui/application.vala:142 src/ui/preferences-page-import-export.vala:14
 #: src/ui/preferences-page-import-export.vala:36
 msgid "_Cancel"
 msgstr "_Anuluj"
 
-#: src/ui/application.vala:152
+#: src/ui/application.vala:143
 msgid "_Add"
 msgstr "_Dodaj"
 
-#: src/ui/application.vala:192
+#: src/ui/application.vala:183
 #, c-format
 msgid "An unexpected error occurred while trying to run %s"
 msgstr "Wystąpił nieoczekiwany błąd podczas uruchamiania „%s”"
 
-#: src/ui/application.vala:389
+#: src/ui/application.vala:386
 msgid "GNOME Games"
 msgstr "Gry GNOME"
 
-#: src/ui/application.vala:391
+#: src/ui/application.vala:388
 msgid "A video game player for GNOME"
 msgstr "Uruchamianie gier w środowisku GNOME"
 
-#: src/ui/application.vala:395
+#: src/ui/application.vala:392
 msgid "Learn more about GNOME Games"
 msgstr "Więcej informacji o Grach GNOME"
 
-#: src/ui/application.vala:402
+#: src/ui/application.vala:399
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2016-2020\n"
 "Aviary.pl <community-poland@mozilla.org>, 2016-2020"
 
-#: src/ui/application-window.vala:273 src/ui/application-window.vala:290
+#: src/ui/application-window.vala:267 src/ui/application-window.vala:284
 msgid "Playing a game"
 msgstr "W trakcie gry"
 
-#: src/ui/display-view.vala:313
+#: src/ui/display-view.vala:320
 msgid "No runner found"
 msgstr "Nie odnaleziono programu uruchamiającego"
 
@@ -1158,26 +1152,26 @@ msgstr "Testowanie klawiatury"
 msgid "Configuring Keyboard"
 msgstr "Konfigurowanie klawiatury"
 
-#: src/ui/savestate-listbox-row.vala:23 src/ui/savestates-list.vala:226
+#: src/ui/savestate-listbox-row.vala:23 src/ui/savestates-list.vala:188
 msgid "Autosave"
 msgstr "Automatyczny zapis"
 
 #. Translators: Time in locale format
-#: src/ui/savestate-listbox-row.vala:185
+#: src/ui/savestate-listbox-row.vala:192
 #, no-c-format
 msgid "%X"
 msgstr "%X"
 
 #. Translators: this is the word Yesterday followed by
 #. * a time in locale format. i.e. "Yesterday 23:04:35"
-#: src/ui/savestate-listbox-row.vala:191
+#: src/ui/savestate-listbox-row.vala:198
 #, no-c-format
 msgid "Yesterday %X"
 msgstr "Wczoraj o %X"
 
 #. Translators: this is the abbreviated name of the week day followed by
 #. * a time in locale format. i.e. "Monday 23:04:35"
-#: src/ui/savestate-listbox-row.vala:197
+#: src/ui/savestate-listbox-row.vala:204
 #, no-c-format
 msgid "%a %X"
 msgstr "%a o %X"
@@ -1185,7 +1179,7 @@ msgstr "%a o %X"
 #. Translators: this is the day of the month followed
 #. * by the abbreviated month name followed by a time in
 #. * locale format i.e. "3 Feb 23:04:35"
-#: src/ui/savestate-listbox-row.vala:204
+#: src/ui/savestate-listbox-row.vala:211
 #, no-c-format
 msgid "%-e %b %X"
 msgstr "%-e %b, %X"
@@ -1193,16 +1187,16 @@ msgstr "%-e %b, %X"
 #. Translators: this is the day number followed
 #. * by the abbreviated month name followed by the year followed
 #. * by a time in locale format i.e. "3 Feb 2015 23:04:00"
-#: src/ui/savestate-listbox-row.vala:211
+#: src/ui/savestate-listbox-row.vala:218
 #, no-c-format
 msgid "%-e %b %Y %X"
 msgstr "%-e %b %Y, %X"
 
-#: src/ui/savestates-list.vala:229
+#: src/ui/savestates-list.vala:191
 msgid "Invalid name"
 msgstr "Nieprawidłowa nazwa"
 
-#: src/ui/savestates-list.vala:247
+#: src/ui/savestates-list.vala:209
 msgid "A snapshot with this name already exists"
 msgstr "Zapis stanu o tej nazwie już istnieje"
 
