@@ -44,9 +44,6 @@ private class Games.RetroGamepad : Object, Retro.Controller {
 	}
 
 	public Retro.ControllerType get_controller_type () {
-		if (present_analog_sticks)
-			return Retro.ControllerType.ANALOG;
-
 		return Retro.ControllerType.JOYPAD;
 	}
 
