@@ -43,6 +43,30 @@
   </screenshots>
 
   <releases>
+    <release version="3.35.90" type="development" date="2020-02-03" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>Allow to restart the current game from secondary menu</li>
+          <li>Rename savestates to snapshots</li>
+          <li>Rename backup to export, restore to import</li>
+          <li>Add a nightly icon</li>
+          <li>Present sidebar as a content list in mobile mode</li>
+          <li>Tweak lists: make them rounded, add separators and use thicker rows</li>
+          <li>Use darker colors for the main window, matching other content apps</li>
+        </ul>
+        <p>Fixes:</p>
+        <ul>
+          <li>Make controller use JOYPAD type regardless of having analog sticks</li>
+          <li>Fix a runtime warning when starting standalone games</li>
+          <li>Restore state and memory before running the first frame</li>
+          <li>Fix a runtime error when loading a snapshot migrated from 3.32.x</li>
+          <li>Don't allow type-to-search and Ctrl+F shortcuts with empty collection</li>
+          <li>Fix libhandy and rsvg deprecations</li>
+        </ul>
+        <p>Translation updates.</p>
+      </description>
+    </release>
     <release version="3.35.2" type="development" date="2019-11-22" urgency="medium">
       <description>
         <p>Improvements:</p>

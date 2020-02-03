@@ -1,3 +1,36 @@
+===============
+Version 3.35.90
+===============
+
+* Allow to restart the current game from secondary menu
+
+* UI
+ - Rename savestates to snapshots
+ - Rename backup to export, restore to import
+ - Add a nightly icon
+ - Present sidebar as a content list in mobile mode
+ - Tweak lists: make them rounded, add separators and use thicker rows
+ - Use darker colors for the main window, matching other content apps
+
+* Fixes
+ - Make controller use JOYPAD type regardless of having analog sticks
+ - Fix a runtime warning when starting standalone games
+ - Restore state and memory before running the first frame
+ - Fix a runtime error when loading a snapshot migrated from 3.32.x
+ - Don't allow type-to-search and Ctrl+F shortcuts with empty collection
+ - Fix libhandy and rsvg deprecations
+
+* Various cleanups
+
+* Translation updates
+ Brazilian Portuguese
+ Catalan
+ Friulian
+ Indonesian
+ Polish
+ Spanish
+ Swedish
+
 ==============
 Version 3.35.2
 ==============
