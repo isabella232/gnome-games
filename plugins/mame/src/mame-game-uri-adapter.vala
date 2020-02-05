@@ -20,8 +20,7 @@ private class Games.MameGameUriAdapter : GameUriAdapter, Object {
 		var uid_string = @"mame-$game_id".down ();
 		var uid = new GenericUid (uid_string);
 
-		var info = supported_games[game_id];
-		var title_string = info.name;
+		var title_string = supported_games[game_id];
 		title_string = title_string.split ("(")[0];
 		title_string = title_string.strip ();
 		var title = new GenericTitle (title_string);
