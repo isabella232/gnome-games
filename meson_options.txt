@@ -15,7 +15,7 @@ option ('dreamcast-plugin',     description: 'Support for Dreamcast games',     
 option ('game-cube-plugin',     description: 'Support for GameCube games',      type: 'boolean')
 option ('libretro-plugin',      description: 'Support for Libretro games',      type: 'boolean')
 option ('love-plugin',          description: 'Support for LÖVE games',          type: 'boolean')
-option ('mame-plugin',          description: 'Support for MAME games',          type: 'boolean', value: false)
+option ('mame-plugin',          description: 'Support for MAME games',          type: 'boolean')
 option ('ms-dos-plugin',        description: 'Support for MS-DOS games',        type: 'boolean')
 option ('nintendo-64-plugin',   description: 'Support for Nintendo 64 games',   type: 'boolean')
 option ('nintendo-ds-plugin',   description: 'Support for Nintendo DS games',   type: 'boolean')
