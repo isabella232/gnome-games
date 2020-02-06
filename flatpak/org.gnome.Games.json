@@ -11,9 +11,6 @@
     ],
     "desktop-file-name-suffix" : " (Development)",
     "finish-args" : [
-        /* Extension point */
-        "--extension=org.gnome.Games.LibretroPlugin=directory=lib/libretro/extra.d",
-        "--extension=org.gnome.Games.LibretroPlugin=subdirectories",
         /* X11 + XShm access */
         "--share=ipc",
         "--socket=x11",
@@ -39,6 +36,15 @@
         /* Settings migration */
         "--metadata=X-DConf=migrate-path=/org/gnome/Games/"
     ],
+    "add-extensions": {
+        "org.gnome.Games.LibretroPlugin": {
+            "version": "stable",
+            "directory": "lib/libretro/extra.d",
+            "subdirectories": true,
+            "no-autodownload": true,
+            "autodelete": true
+        }
+    },
     "cleanup" : [
         "/include",
         "/lib/pkgconfig",
