@@ -19,6 +19,7 @@ vala_sources = [
   'core/game.vala',
   'core/game-callback.vala',
   'core/game-collection.vala',
+  'core/game-model.vala',
   'core/game-uri-adapter.vala',
   'core/icon.vala',
   'core/input-capabilities.vala',
