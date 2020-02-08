@@ -34,6 +34,20 @@ private class Games.GameModel : Object, ListModel {
 	}
 
 	private int compare_func (Game a, Game b) {
-		return a.name.collate (b.name);
+		var ret = a.name.collate (b.name);
+
+		if (ret != 0)
+			return ret;
+
+		ret = a.get_platform ().get_name ().collate (b.get_platform ().get_name ());
+		if (ret != 0)
+			return ret;
+
+		try {
+			return a.get_uid ().get_uid ().collate (b.get_uid ().get_uid ());
+		}
+		catch (Error e) {
+			assert_not_reached ();
+		}
 	}
 }
