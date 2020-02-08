@@ -12,26 +12,14 @@ private class Games.CollectionIconView : Gtk.Bin {
 		this.game_filter = game_filter;
 	}
 
-	private ulong model_changed_id;
-	private ListModel _model;
-	public ListModel model {
-		get { return _model; }
+	private GameModel _game_model;
+	public GameModel game_model {
+		get { return _game_model; }
 		set {
-			if (model != null)
-				model.disconnect (model_changed_id);
+			_game_model = value;
+			flow_box.bind_model (game_model, add_game);
 
-			_model = value;
-			clear_content ();
-			if (model == null)
-				return;
-
-			for (int i = 0; i < model.get_n_items (); i++) {
-				var game = model.get_item (i) as Game;
-				add_game (game);
-			}
-			model_changed_id = model.items_changed.connect (on_items_changed);
-
-			flow_box.invalidate_sort ();
+			game_model.items_changed.connect (apply_filter);
 		}
 	}
 
@@ -64,8 +52,6 @@ private class Games.CollectionIconView : Gtk.Bin {
 
 	construct {
 		flow_box.max_children_per_line = uint.MAX;
-		flow_box.set_filter_func (filter_box);
-		flow_box.set_sort_func (sort_boxes);
 	}
 
 	[GtkCallback]
@@ -109,7 +95,7 @@ private class Games.CollectionIconView : Gtk.Bin {
 
 	public void set_filter (string[] filtering_terms) {
 		this.filtering_terms = filtering_terms;
-		flow_box.invalidate_filter ();
+		apply_filter ();
 	}
 
 	public void reset_scroll_position () {
@@ -144,10 +130,6 @@ private class Games.CollectionIconView : Gtk.Bin {
 		flow_box.unselect_all ();
 	}
 
-	public void invalidate_flow_box_filter () {
-		flow_box.invalidate_filter ();
-	}
-
 	[GtkCallback]
 	private bool on_gamepad_browse (Gtk.DirectionType direction) {
 		if (!has_game_selected ())
@@ -177,49 +159,27 @@ private class Games.CollectionIconView : Gtk.Bin {
 
 	[GtkCallback]
 	private void on_child_activated (Gtk.FlowBoxChild child) {
-		if (child.get_child () is GameIconView)
-			on_game_view_activated (child.get_child () as GameIconView);
-	}
+		var game_view = child.get_child () as GameIconView;
 
-	private void on_game_view_activated (GameIconView game_view) {
 		game_activated (game_view.game);
 	}
 
-	private void on_items_changed (uint position, uint removed, uint added) {
-		// FIXME: currently games are never removed, update this function if
-		// necessary.
-		assert (removed == 0);
+	private Gtk.Widget add_game (Object item) {
+		var game = item as Game;
 
-		for (uint i = position; i < position + added; i++) {
-			var game = model.get_item (i) as Game;
-			add_game (game);
-		}
-	}
-
-	private void add_game (Game game) {
 		var game_view = new GameIconView (game);
-		var child = new Gtk.FlowBoxChild ();
+		game_view.show ();
 
-		game_view.visible = true;
-		child.visible = true;
-
-		child.add (game_view);
-		flow_box.add (child);
+		return game_view;
 	}
 
-	private void clear_content () {
-		flow_box.forall ((child) => { flow_box.remove (child); });
-	}
+	public void apply_filter () {
+		flow_box.foreach (widget => {
+			var child = widget as Gtk.FlowBoxChild;
+			var game_view = child.get_child () as GameIconView;
 
-	private bool filter_box (Gtk.FlowBoxChild child) {
-		var game_view = child.get_child () as GameIconView;
-		if (game_view == null)
-			return false;
-
-		if (game_view.game == null)
-			return false;
-
-		return filter_game (game_view.game);
+			widget.visible = filter_game (game_view.game);
+		});
 	}
 
 	private bool filter_game (Game game) {
@@ -227,20 +187,6 @@ private class Games.CollectionIconView : Gtk.Bin {
 			return false;
 
 		return game.matches_search_terms (filtering_terms);
-	}
-
-	private int sort_boxes (Gtk.FlowBoxChild child1, Gtk.FlowBoxChild child2) {
-		var game_view1 = child1.get_child () as GameIconView;
-		var game_view2 = child2.get_child () as GameIconView;
-
-		assert (game_view1 != null);
-		assert (game_view2 != null);
-
-		return sort_games (game_view1.game, game_view2.game);
-	}
-
-	private int sort_games (Game game1, Game game2) {
-		return game1.name.collate (game2.name);
 	}
 
 	[GtkCallback]

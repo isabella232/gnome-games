@@ -4,7 +4,7 @@
 private class Games.CollectionBox : Gtk.Box {
 	public signal void game_activated (Game game);
 
-	public ListModel collection { get; construct; }
+	public GameModel game_model { get; construct; }
 	public bool search_mode { get; set; }
 	public bool loading_notification { get; set; }
 
@@ -65,12 +65,12 @@ private class Games.CollectionBox : Gtk.Box {
 		var icon_name = Config.APPLICATION_ID + "-symbolic";
 		viewstack.child_set (collection_view, "icon-name", icon_name);
 
-		collection_view.model = collection;
-		platform_view.model = collection;
+		collection_view.game_model = game_model;
+		platform_view.game_model = game_model;
 	}
 
-	public CollectionBox (ListModel collection) {
-		Object (collection: collection);
+	public CollectionBox (GameModel game_model) {
+		Object (game_model: game_model);
 	}
 
 	public void show_error (string error_message) {
@@ -128,11 +128,13 @@ private class Games.CollectionBox : Gtk.Box {
 	}
 
 	public bool found_games () {
-		for (int i = 0; i < collection.get_n_items (); i++) {
-			var game = collection.get_item (i) as Game;
+		for (int i = 0; i < game_model.get_n_items (); i++) {
+			var game = game_model.get_item (i) as Game;
+
 			if (game.matches_search_terms (filtering_terms))
 				return true;
 		}
+
 		return false;
 	}
 

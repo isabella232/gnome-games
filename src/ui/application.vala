@@ -12,7 +12,7 @@ public class Games.Application : Gtk.Application {
 	private bool game_list_loaded;
 
 	private GameCollection game_collection;
-	private ListStore list_store;
+	private GameModel game_model;
 	private CoverLoader cover_loader;
 
 	private Manette.Monitor manette_monitor;
@@ -203,8 +203,8 @@ public class Games.Application : Gtk.Application {
 		init_game_sources ();
 		load_game_list.begin ();
 
-		list_store = new ListStore (typeof (Game));
-		game_collection.game_added.connect (game => list_store.append (game));
+		game_model = new GameModel ();
+		game_collection.game_added.connect (game_model.add_game);
 
 		cover_loader = new CoverLoader ();
 	}
@@ -215,7 +215,7 @@ public class Games.Application : Gtk.Application {
 			return;
 		}
 
-		window = new ApplicationWindow (this, list_store);
+		window = new ApplicationWindow (this, game_model);
 		window.destroy.connect (() => {
 			quit_application ();
 		});

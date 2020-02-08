@@ -33,7 +33,7 @@ private class Games.CollectionView : Object, UiView {
 	}
 
 	public Gtk.Window window { get; construct; }
-	public ListModel collection { get; construct; }
+	public GameModel game_model { get; construct; }
 
 	public bool loading_notification { get; set; }
 	public bool search_mode { get; set; }
@@ -47,16 +47,16 @@ private class Games.CollectionView : Object, UiView {
 	private KonamiCode konami_code;
 
 	construct {
-		box = new CollectionBox (collection);
+		box = new CollectionBox (game_model);
 		header_bar = new CollectionHeaderBar ();
 		box.game_activated.connect (game => {
 			game_activated (game);
 		});
 
-		collection.items_changed.connect (() => {
-			is_collection_empty = collection.get_n_items () == 0;
+		game_model.items_changed.connect (() => {
+			is_collection_empty = game_model.get_n_items () == 0;
 		});
-		is_collection_empty = collection.get_n_items () == 0;
+		is_collection_empty = game_model.get_n_items () == 0;
 
 		header_bar.viewstack = box.viewstack;
 		is_collection_empty = true;
@@ -98,8 +98,8 @@ private class Games.CollectionView : Object, UiView {
 		konami_code.code_performed.connect (on_konami_code_performed);
 	}
 
-	public CollectionView (Gtk.Window window, ListModel collection) {
-		Object (window: window, collection: collection);
+	public CollectionView (Gtk.Window window, GameModel game_model) {
+		Object (window: window, game_model: game_model);
 	}
 
 	public void show_error (string error_message) {

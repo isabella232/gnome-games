@@ -15,28 +15,22 @@ private class Games.PlatformsView : Gtk.Bin {
 	[GtkChild]
 	private GamepadBrowse gamepad_browse;
 
-	private ulong model_items_changed_id;
-
-	private GenericSet<Platform> platforms;
 	private Platform selected_platform;
 	private bool has_used_gamepad;
 
 	private string[] filtering_terms;
 
-	private ListModel _model;
-	public ListModel model {
-		get { return _model; }
+	private GameModel _game_model;
+	public GameModel game_model {
+		get { return _game_model; }
 		set {
-			if (model_items_changed_id != 0) {
-				_model.disconnect (model_items_changed_id);
-				model_items_changed_id = 0;
-			}
+			_game_model = value;
+			collection_view.game_model = value;
 
-			_model = value;
-			collection_view.model = _model;
+			var platform_model = new PlatformModel (value);
+			list_box.bind_model (platform_model, add_platform);
 
-			if (model != null)
-				model_items_changed_id = model.items_changed.connect (on_model_changed);
+			platform_model.items_changed.connect (apply_filter);
 		}
 	}
 
@@ -60,18 +54,37 @@ private class Games.PlatformsView : Gtk.Bin {
 	public string subview_title { get; set; }
 
 	construct {
-		platforms = new GenericSet<Platform> (Platform.hash, Platform.equal);
-
-		list_box.set_sort_func (sort_rows);
-
 		collection_view.set_game_filter (filter_game);
 	}
 
-	private int sort_rows (Gtk.ListBoxRow row1, Gtk.ListBoxRow row2) {
-		var item1 = row1 as PlatformListItem;
-		var item2 = row2 as PlatformListItem;
+	private void apply_filter () {
+		list_box.foreach (widget => {
+			var row = widget as PlatformListItem;
 
-		return PlatformListItem.compare (item1, item2);
+			if (row == null)
+				return;
+
+			widget.set_visible (filter_list (row));
+		});
+	}
+
+	private bool filter_list (PlatformListItem item) {
+		if (item.platform == null)
+			return false;
+
+		Game[] visible_games = {};
+		for (int i = 0; i < game_model.get_n_items (); i++) {
+			var game = game_model.get_item (i) as Game;
+
+			if (game.matches_search_terms (filtering_terms))
+				visible_games += game;
+		}
+
+		foreach (var game in visible_games)
+			if (game.get_platform () == item.platform)
+				return true;
+
+		return false;
 	}
 
 	private bool filter_game (Game game) {
@@ -103,7 +116,9 @@ private class Games.PlatformsView : Gtk.Bin {
 	public void set_filter (string[] filtering_terms) {
 		this.filtering_terms = filtering_terms;
 		collection_view.set_filter (filtering_terms);
-		hide_empty_sidebar_items ();
+
+		apply_filter ();
+		select_first_visible_row ();
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {
@@ -204,29 +219,11 @@ private class Games.PlatformsView : Gtk.Bin {
 		selected_platform = row.platform;
 		subview_title = selected_platform.get_name ();
 
-		collection_view.invalidate_flow_box_filter ();
+		collection_view.apply_filter ();
 		collection_view.reset_scroll_position ();
 	}
 
-	private void on_model_changed (uint position, uint removed, uint added) {
-		// FIXME: currently games are never removed, update this function if
-		// necessary.
-		assert (removed == 0);
-
-		for (uint i = position; i < position + added; i++) {
-			var game = model.get_item (i) as Game;
-			var platform = game.get_platform ();
-
-			if (!platforms.contains (platform)) {
-				platforms.add (platform);
-
-				var platform_list_item = new PlatformListItem (platform);
-				list_box.add (platform_list_item);
-			}
-		}
-	}
-
-	public void select_first_visible_row () {
+	private void select_first_visible_row () {
 		foreach (var child in list_box.get_children ()) {
 			var row = child as Gtk.ListBoxRow;
 
@@ -253,37 +250,13 @@ private class Games.PlatformsView : Gtk.Bin {
 		}
 	}
 
-	private void hide_empty_sidebar_items () {
-		// Create an array of all the games which fit the search text entered
-		// in the top search bar
-		Game[] visible_games = {};
+	private Gtk.Widget add_platform (Object object) {
+		var platform = object as Platform;
 
-		for (int i = 0; i < model.get_n_items (); i++) {
-			var game = model.get_item (i) as Game;
+		var item = new PlatformListItem (platform);
+		item.show ();
 
-			if (game.matches_search_terms (filtering_terms))
-				visible_games += game;
-		}
-
-		foreach (var row in list_box.get_children ()) {
-			var platform_item = row as PlatformListItem;
-			var platform = platform_item.platform;
-			// Assume row doesn't have any games to show
-			var is_row_visible = false;
-
-			foreach (var game in visible_games) {
-				var game_platform = game.get_platform ().get_name ();
-
-				if (game_platform == platform.get_name ()) {
-					is_row_visible = true;
-					break;
-				}
-			}
-
-			row.visible = is_row_visible;
-		}
-
-		select_first_visible_row ();
+		return item;
 	}
 
 	[GtkCallback]

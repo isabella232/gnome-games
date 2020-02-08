@@ -59,10 +59,10 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	private uint inhibit_cookie;
 	private Gtk.ApplicationInhibitFlags inhibit_flags;
 
-	public ListModel collection { get; construct; }
+	public GameModel game_model { get; construct; }
 
-	public ApplicationWindow (Application application, ListModel collection) {
-		Object (application: application, collection: collection);
+	public ApplicationWindow (Application application, GameModel game_model) {
+		Object (application: application, game_model: game_model);
 
 		current_view = collection_view;
 	}
@@ -82,7 +82,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (settings.get_boolean ("window-maximized"))
 			maximize ();
 
-		collection_view = new CollectionView (this, collection);
+		collection_view = new CollectionView (this, game_model);
 		display_view = new DisplayView (this);
 
 		content_box.add (collection_view.content_box);
