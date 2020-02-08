@@ -13,6 +13,7 @@ private class Games.PlatformModel : Object, ListModel {
 		n_games = new HashTable<Platform, uint> (Platform.hash, Platform.equal);
 
 		game_model.game_added.connect (game_added);
+		game_model.game_removed.connect (game_removed);
 	}
 
 	public Object? get_item (uint position) {
@@ -38,6 +39,19 @@ private class Games.PlatformModel : Object, ListModel {
 		}
 
 		n_games[platform] = n_games[platform] + 1;
+	}
+
+	private void game_removed (Game game) {
+		var platform = game.get_platform ();
+
+		n_games[platform] = n_games[platform] - 1;
+
+		if (n_games[platform] == 0) {
+			var iter = sequence.lookup (platform, compare_func);
+			var pos = iter.get_position ();
+			iter.remove ();
+			items_changed (pos, 1, 0);
+		}
 	}
 
 	private int compare_func (Platform a, Platform b) {

@@ -2,24 +2,32 @@
 
 private class Games.GameCollection : Object {
 	public signal void game_added (Game game);
+	public signal void game_replaced (Game game, Game prev_game);
+	public signal void game_removed (Game game);
 
+	private HashTable<string, Game> cached_games;
 	private GenericSet<Game> games;
 	private UriSource[] sources;
 	private UriGameFactory[] factories;
 	private RunnerFactory[] runner_factories;
+	private Database database;
 
 	private HashTable<string, Array<UriGameFactory>> factories_for_mime_type;
 	private HashTable<string, Array<UriGameFactory>> factories_for_scheme;
 	private HashTable<Platform, Array<RunnerFactory>> runner_factories_for_platforms;
 
-	public bool paused { get; set; }
 	private SourceFunc search_games_cb;
 
-	construct {
+	public GameCollection (Database database) {
+		this.database = database;
+
+		cached_games = new HashTable<string, Game> (str_hash, str_equal);
 		games = new GenericSet<Game> (Game.hash, Game.equal);
 		factories_for_mime_type = new HashTable<string, Array<UriGameFactory>> (str_hash, str_equal);
 		factories_for_scheme = new HashTable<string, Array<UriGameFactory>> (str_hash, str_equal);
 		runner_factories_for_platforms = new HashTable<Platform, Array<RunnerFactory>> (Platform.hash, Platform.equal);
+
+		add_source (database.get_uri_source ());
 	}
 
 	public void add_source (UriSource source) {
@@ -84,15 +92,45 @@ private class Games.GameCollection : Object {
 		search_games_cb = search_games.callback;
 
 		ThreadFunc<void*> run = () => {
-			foreach (var source in sources)
-				foreach (var uri in source) {
-					if (paused) {
-						Idle.add ((owned) search_games_cb);
-						return null;
-					}
+			try {
+				database.list_cached_games ((game) => {
+					cached_games[game.get_uri ().to_string ()] = game;
+					if (games.contains (game))
+						return;
 
+					games.add (game);
+					Idle.add (() => {
+						game_added (game);
+						return Source.REMOVE;
+					});
+				});
+			}
+			catch (Error e) {
+				critical ("Couldn't load cached games: %s", e.message);
+			}
+
+			foreach (var source in sources)
+				foreach (var uri in source)
 					add_uri (uri);
+
+			cached_games.foreach_steal ((uri, game) => {
+				var removed = false;
+				try {
+					removed = database.remove_game (uri, game);
 				}
+				catch (Error e) {
+					warning ("Couldn't remove game: %s", e.message);
+				}
+
+				games.remove (game);
+				if (removed)
+					Idle.add (() => {
+						game_removed (game);
+						return Source.REMOVE;
+					});
+
+				return true;
+			});
 
 			Idle.add ((owned) search_games_cb);
 			return null;
@@ -173,12 +211,42 @@ private class Games.GameCollection : Object {
 	}
 
 	private void store_game (Game game) {
-		if (games.contains (game))
+		var uri = game.get_uri ().to_string ();
+		if (cached_games.contains (uri)) {
+			var cached_game = cached_games.take (uri);
+
+			try {
+				database.update_game (game, cached_game);
+			}
+			catch (Error e) {
+				warning ("Couldn't update game: %s", e.message);
+			}
+
+			Idle.add (() => {
+				game_replaced (game, cached_game);
+				return Source.REMOVE;
+			});
+
+			return;
+		}
+
+		Game? prev_game = null;
+		try {
+			prev_game = database.store_game (game);
+		}
+		catch (Error e) {
+			warning ("Couldn't cache game: %s", e.message);
+		}
+
+		if (games.contains (game) && prev_game == null)
 			return;
 
 		games.add (game);
 		Idle.add (() => {
-			game_added (game);
+			if (prev_game != null)
+				game_replaced (game, prev_game);
+			else
+				game_added (game);
 			return Source.REMOVE;
 		});
 	}

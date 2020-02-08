@@ -2,6 +2,7 @@
 
 private class Games.GameModel : Object, ListModel {
 	public signal void game_added (Game game);
+	public signal void game_removed (Game game);
 
 	private Sequence<Game> sequence;
 	private int n_games;
@@ -33,18 +34,44 @@ private class Games.GameModel : Object, ListModel {
 		game_added (game);
 	}
 
+	public void replace_game (Game game, Game prev_game) {
+		// Title changed, just hope it doesn't happen too often
+		if (prev_game.name != game.name) {
+			remove_game (prev_game);
+			add_game (game);
+
+			return;
+		}
+
+		// Title didn't change, try to make it seamless
+		prev_game.replaced (game);
+	}
+
+	public void remove_game (Game game) {
+		var iter = sequence.lookup (game, compare_func);
+
+		var pos = iter.get_position ();
+		iter.remove ();
+
+		items_changed (pos, 1, 0);
+		game_removed (game);
+	}
+
 	private int compare_func (Game a, Game b) {
 		var ret = a.name.collate (b.name);
-
 		if (ret != 0)
 			return ret;
 
-		ret = a.get_platform ().get_name ().collate (b.get_platform ().get_name ());
+		ret = a.get_platform ().get_name ().collate (
+		      b.get_platform ().get_name ());
 		if (ret != 0)
 			return ret;
 
 		try {
-			return a.get_uid ().get_uid ().collate (b.get_uid ().get_uid ());
+			var uid1 = a.get_uid ().get_uid ();
+			var uid2 = b.get_uid ().get_uid ();
+
+			return uid1.collate (uid2);
 		}
 		catch (Error e) {
 			assert_not_reached ();

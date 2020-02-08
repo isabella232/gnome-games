@@ -1,6 +1,8 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public interface Games.Game : Object {
+	public signal void replaced (Game new_game);
+
 	public abstract string name { get; }
 
 	public abstract Uid get_uid ();

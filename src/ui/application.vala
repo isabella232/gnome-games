@@ -205,6 +205,8 @@ public class Games.Application : Gtk.Application {
 
 		game_model = new GameModel ();
 		game_collection.game_added.connect (game_model.add_game);
+		game_collection.game_replaced.connect (game_model.replace_game);
+		game_collection.game_removed.connect (game_model.remove_game);
 
 		cover_loader = new CoverLoader ();
 	}
@@ -244,9 +246,7 @@ public class Games.Application : Gtk.Application {
 			debug (e.message);
 		}
 
-		game_collection = new GameCollection ();
-		if (database != null)
-			game_collection.add_source (database.get_uri_source ());
+		game_collection = new GameCollection (database);
 
 		if (tracker_uri_source != null)
 			game_collection.add_source (tracker_uri_source);
@@ -345,16 +345,6 @@ public class Games.Application : Gtk.Application {
 		game_list_loaded = true;
 		if (window != null)
 			window.loading_notification = false;
-	}
-
-	public void set_pause_loading (bool paused) {
-		if (game_collection.paused == paused)
-			return;
-
-		game_collection.paused = paused;
-
-		if (!paused)
-			load_game_list.begin ();
 	}
 
 	private void preferences () {

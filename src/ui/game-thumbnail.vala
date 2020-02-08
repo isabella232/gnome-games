@@ -24,6 +24,8 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 			icon = game.get_icon ();
 			cover = game.get_cover ();
 
+			try_load_cover = true;
+
 			if (cover != null)
 				cover_changed_id = cover.changed.connect (() => {
 					try_load_cover = true;
