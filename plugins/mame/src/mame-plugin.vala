@@ -10,7 +10,7 @@ private class Games.MamePlugin : Object, Plugin {
 	private static RetroPlatform platform;
 
 	static construct {
-		string[] mime_types = { SEARCHED_MIME_TYPE, SPECIFIC_MIME_TYPE };
+		string[] mime_types = { SEARCHED_MIME_TYPE };
 		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, mime_types, PLATFORM_UID_PREFIX);
 	}
 
