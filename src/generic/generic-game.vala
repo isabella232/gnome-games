@@ -24,6 +24,7 @@ public class Games.GenericGame : Object, Game {
 	private Icon game_icon;
 	private Cover game_cover;
 	private Platform game_platform;
+	private MediaSet? media_set;
 
 	public GenericGame (Uid uid, Uri uri, Title title, Platform platform) {
 		game_uid = uid;
@@ -60,6 +61,14 @@ public class Games.GenericGame : Object, Game {
 
 	public void set_cover (Cover cover) {
 		game_cover = cover;
+	}
+
+	public MediaSet? get_media_set () {
+		return media_set;
+	}
+
+	public void set_media_set (MediaSet? media_set) {
+		this.media_set = media_set;
 	}
 
 	public Platform get_platform () {

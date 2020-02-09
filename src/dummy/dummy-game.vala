@@ -41,4 +41,8 @@ private class Games.DummyGame : Object, Game {
 	public Platform get_platform () {
 		return new DummyPlatform ();
 	}
+
+	public MediaSet? get_media_set () {
+		return null;
+	}
 }
