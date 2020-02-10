@@ -2,7 +2,6 @@ vala_sources = [
   'playstation-error.vala',
   'playstation-game-factory.vala',
   'playstation-header.vala',
-  'playstation-gameinfo-cache.vala',
   'playstation-plugin.vala',
   'playstation-uid.vala',
 ]

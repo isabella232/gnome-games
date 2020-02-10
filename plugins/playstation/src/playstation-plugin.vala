@@ -8,13 +8,10 @@ private class Games.PlayStation : Object, Plugin {
 	private const string PLATFORM_UID_PREFIX = "playstation";
 
 	private static RetroPlatform platform;
-	private static PlaystationGameinfoCache gameinfo_cache;
 
 	static construct {
 		string[] mime_types = { CUE_MIME_TYPE, PHONY_MIME_TYPE };
 		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, mime_types, PLATFORM_UID_PREFIX);
-
-		gameinfo_cache = new PlaystationGameinfoCache ();
 	}
 
 	public Platform[] get_platforms () {
@@ -26,7 +23,7 @@ private class Games.PlayStation : Object, Plugin {
 	}
 
 	public UriGameFactory[] get_uri_game_factories () {
-		var factory = new PlayStationGameFactory (platform, gameinfo_cache);
+		var factory = new PlayStationGameFactory (platform);
 
 		return { factory };
 	}
@@ -39,14 +36,11 @@ private class Games.PlayStation : Object, Plugin {
 	}
 
 	public static Runner? create_runner (Game game) throws Error {
-		var uri = game.get_uri ();
-		var media_set = gameinfo_cache.get_media_set (uri);
-
 		var core_source = new RetroCoreSource (platform);
 
 		var builder = new RetroRunnerBuilder ();
 		builder.core_source = core_source;
-		builder.media_set = media_set;
+		builder.media_set = game.get_media_set ();
 		builder.uid = game.get_uid ();
 		builder.title = game.name;
 
