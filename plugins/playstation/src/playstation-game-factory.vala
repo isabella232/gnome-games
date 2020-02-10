@@ -88,6 +88,8 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 			media.add_uri (uri);
 			game_for_uri[uri] = game_for_disc_set_id[disc_set_id];
 
+			try_add_game (game_for_uri[uri]);
+
 			return;
 		}
 
@@ -122,8 +124,23 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		game_for_uri[uri] = game;
 		game_for_disc_set_id[disc_set_id] = game;
 		games.add (game);
-		if (game_added_callback != null)
-			game_added_callback (game);
+
+		try_add_game (game);
+	}
+
+	private void try_add_game (Game game) {
+		if (game_added_callback == null)
+			return;
+
+		var is_complete = true;
+		game.get_media_set ().foreach_media (media => {
+			is_complete &= (media.get_uris ().length != 0);
+		});
+
+		if (!is_complete)
+			return;
+
+		game_added_callback (game);
 	}
 
 	public void foreach_game (GameCallback game_callback) {
