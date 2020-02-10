@@ -64,6 +64,7 @@ vala_sources = [
 
   'generic/generic-game.vala',
   'generic/generic-game-uri-adapter.vala',
+  'generic/generic-input-capabilities.vala',
   'generic/generic-platform.vala',
   'generic/generic-runner-factory.vala',
   'generic/generic-title.vala',
