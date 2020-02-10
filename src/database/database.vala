@@ -69,33 +69,59 @@ private class Games.Database : Object {
 		SELECT EXISTS (SELECT 1 FROM game_resources WHERE uri=$URI LIMIT 1);
 	""";
 
+	private Sqlite.Statement add_game_query;
+	private Sqlite.Statement add_game_uri_query;
+	private Sqlite.Statement update_game_query;
+	private Sqlite.Statement delete_game_query;
+	private Sqlite.Statement delete_uri_query;
+
+	private Sqlite.Statement find_game_uris_query;
+	private Sqlite.Statement get_cached_game_query;
+	private Sqlite.Statement list_cached_games_query;
+
+	private Sqlite.Statement add_game_resource_query;
+	private Sqlite.Statement has_uri_query;
+
 	public Database (string path) throws Error {
 		if (Sqlite.Database.open (path, out database) != Sqlite.OK)
 			throw new DatabaseError.COULDNT_OPEN ("Couldn’t open the database for “%s”.", path);
 
-		create_tables ();
+		exec (CREATE_RESOURCES_TABLE_QUERY, null);
+		exec (CREATE_GAMES_TABLE_QUERY, null);
+		exec (CREATE_URIS_TABLE_QUERY, null);
+
+		add_game_query = prepare (database, ADD_GAME_QUERY);
+		add_game_uri_query = prepare (database, ADD_GAME_URI_QUERY);
+		update_game_query = prepare (database, UPDATE_GAME_QUERY);
+		delete_game_query = prepare (database, DELETE_GAME_QUERY);
+		delete_uri_query = prepare (database, DELETE_URI_QUERY);
+
+		find_game_uris_query = prepare (database, FIND_GAME_URIS_QUERY);
+		get_cached_game_query = prepare (database, GET_CACHED_GAME_QUERY);
+		list_cached_games_query = prepare (database, LIST_CACHED_GAMES_QUERY);
+
+		add_game_resource_query = prepare (database, ADD_GAME_RESOURCE_QUERY);
+		has_uri_query = prepare (database, HAS_URI_QUERY);
 	}
 
 	public void add_uri (Uri uri) throws Error {
 		if (has_uri (uri))
 			return;
 
-		var statement = prepare (database, ADD_GAME_RESOURCE_QUERY);
+		add_game_resource_query.reset ();
+		bind_text (add_game_resource_query, "$URI", uri.to_string ());
 
-		bind_text (statement, "$URI", uri.to_string ());
-
-		if (statement.step () != Sqlite.DONE)
+		if (add_game_resource_query.step () != Sqlite.DONE)
 			throw new DatabaseError.EXECUTION_FAILED ("Execution failed.");
 	}
 
 	public bool has_uri (Uri uri) throws Error {
-		var statement = prepare (database, HAS_URI_QUERY);
+		has_uri_query.reset ();
+		bind_text (has_uri_query, "$URI", uri.to_string ());
 
-		bind_text (statement, "$URI", uri.to_string ());
-
-		switch (statement.step ()) {
+		switch (has_uri_query.step ()) {
 		case Sqlite.ROW:
-			return statement.column_text (0) == "1";
+			return has_uri_query.column_text (0) == "1";
 		default:
 			debug ("Execution failed.");
 
@@ -105,12 +131,6 @@ private class Games.Database : Object {
 
 	public DatabaseUriSource get_uri_source () {
 		return new DatabaseUriSource (database);
-	}
-
-	private void create_tables () throws Error {
-		exec (CREATE_RESOURCES_TABLE_QUERY, null);
-		exec (CREATE_GAMES_TABLE_QUERY, null);
-		exec (CREATE_URIS_TABLE_QUERY, null);
 	}
 
 	private void exec (string query, Sqlite.Callback? callback) throws Error {
@@ -164,11 +184,11 @@ private class Games.Database : Object {
 	}
 
 	private void store_game_uri (string uid, string uri) throws Error {
-		var statement = prepare (database, ADD_GAME_URI_QUERY);
-		bind_text (statement, "$UID", uid);
-		bind_text (statement, "$URI", uri);
+		add_game_uri_query.reset ();
+		bind_text (add_game_uri_query, "$UID", uid);
+		bind_text (add_game_uri_query, "$URI", uri);
 
-		var result = statement.step ();
+		var result = add_game_uri_query.step ();
 		if (result != Sqlite.DONE && result != Sqlite.CONSTRAINT)
 			throw new DatabaseError.EXECUTION_FAILED ("Couldn't add uri (%s, %s)", uid, uri);
 	}
@@ -188,13 +208,13 @@ private class Games.Database : Object {
 		else
 			store_game_uri (uid, uri);
 
-		var statement = prepare (database, ADD_GAME_QUERY);
-		bind_text (statement, "$UID", uid);
-		bind_text (statement, "$TITLE", title);
-		bind_text (statement, "$PLATFORM", platform);
-		bind_text (statement, "$MEDIA_SET", media_set);
+		add_game_query.reset ();
+		bind_text (add_game_query, "$UID", uid);
+		bind_text (add_game_query, "$TITLE", title);
+		bind_text (add_game_query, "$PLATFORM", platform);
+		bind_text (add_game_query, "$MEDIA_SET", media_set);
 
-		var result = statement.step ();
+		var result = add_game_query.step ();
 		if (result == Sqlite.CONSTRAINT) {
 			var prev_game = get_cached_game (uid);
 			update_game (game, prev_game);
@@ -218,12 +238,12 @@ private class Games.Database : Object {
 		if (old_title == title && old_media_set == media_set)
 			return;
 
-		var statement = prepare (database, UPDATE_GAME_QUERY);
-		bind_text (statement, "$UID", uid);
-		bind_text (statement, "$TITLE", title);
-		bind_text (statement, "$MEDIA_SET", media_set);
+		update_game_query.reset ();
+		bind_text (update_game_query, "$UID", uid);
+		bind_text (update_game_query, "$TITLE", title);
+		bind_text (update_game_query, "$MEDIA_SET", media_set);
 
-		if (statement.step () != Sqlite.DONE)
+		if (update_game_query.step () != Sqlite.DONE)
 			throw new DatabaseError.EXECUTION_FAILED ("Couldn't update game (%s, %s, %s)", uid, title, media_set);
 
 		if (game.get_media_set () != null)
@@ -236,57 +256,56 @@ private class Games.Database : Object {
 	public bool remove_game (string uri, Game game) throws Error {
 		var uid = game.get_uid ().get_uid ();
 
-		var statement = prepare (database, DELETE_URI_QUERY);
-		bind_text (statement, "$URI", uri);
+		delete_uri_query.reset ();
+		bind_text (delete_uri_query, "$URI", uri);
 
-		if (statement.step () != Sqlite.DONE)
+		if (delete_uri_query.step () != Sqlite.DONE)
 			throw new DatabaseError.EXECUTION_FAILED ("Couldn't delete uri (%s)", uri);
 
-		statement = prepare (database, FIND_GAME_URIS_QUERY);
-		bind_text (statement, "$UID", uid);
+		find_game_uris_query.reset ();
+		bind_text (find_game_uris_query, "$UID", uid);
 
-		var result = statement.step ();
+		var result = find_game_uris_query.step ();
 		if (result == Sqlite.ROW)
 			return false;
 
 		if (result != Sqlite.DONE)
 			throw new DatabaseError.EXECUTION_FAILED ("Couldn't find uris (%s)", uid);
 
-		statement = prepare (database, DELETE_GAME_QUERY);
-		bind_text (statement, "$UID", uid);
+		delete_game_query.reset ();
+		bind_text (delete_game_query, "$UID", uid);
 
-		if (statement.step () != Sqlite.DONE)
+		if (delete_game_query.step () != Sqlite.DONE)
 			throw new DatabaseError.EXECUTION_FAILED ("Couldn't delete game (%s)", uid);
 
 		return true;
 	}
 
-	private Game get_cached_game (string game_uid) throws Error {
-		var statement = prepare (database, GET_CACHED_GAME_QUERY);
-		bind_text (statement, "$UID", game_uid);
+	private Game get_cached_game (string uid) throws Error {
+		get_cached_game_query.reset ();
+		bind_text (get_cached_game_query, "$UID", uid);
 
-		if (statement.step () == Sqlite.ROW) {
-			var uid = statement.column_text (0);
-			var uri = statement.column_text (1);
-			var title = statement.column_text (2);
-			var platform = statement.column_text (3);
-			var media_set = statement.column_text (4);
+		if (get_cached_game_query.step () == Sqlite.ROW) {
+			var uri = get_cached_game_query.column_text (0);
+			var title = get_cached_game_query.column_text (1);
+			var platform = get_cached_game_query.column_text (2);
+			var media_set = get_cached_game_query.column_text (3);
 
 			return new DatabaseGame (uid, uri, title, platform, media_set);
 		}
 
-		throw new DatabaseError.EXECUTION_FAILED ("Couldn't get game for uid (%s)", game_uid);
+		throw new DatabaseError.EXECUTION_FAILED ("Couldn't get game for uid (%s)", uid);
 	}
 
 	public void list_cached_games (GameCallback game_callback) throws Error {
-		var statement = prepare (database, LIST_CACHED_GAMES_QUERY);
+		list_cached_games_query.reset ();
 
-		while (statement.step () == Sqlite.ROW) {
-			var uid = statement.column_text (0);
-			var uri = statement.column_text (1);
-			var title = statement.column_text (2);
-			var platform = statement.column_text (3);
-			var media_set = statement.column_text (4);
+		while (list_cached_games_query.step () == Sqlite.ROW) {
+			var uid = list_cached_games_query.column_text (0);
+			var uri = list_cached_games_query.column_text (1);
+			var title = list_cached_games_query.column_text (2);
+			var platform = list_cached_games_query.column_text (3);
+			var media_set = list_cached_games_query.column_text (4);
 
 			var game = new DatabaseGame (uid, uri, title, platform, media_set);
 			game_callback (game);
