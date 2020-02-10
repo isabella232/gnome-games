@@ -18,8 +18,6 @@ private class Games.CollectionIconView : Gtk.Bin {
 		set {
 			_game_model = value;
 			flow_box.bind_model (game_model, add_game);
-
-			game_model.items_changed.connect (apply_filter);
 		}
 	}
 
@@ -52,6 +50,7 @@ private class Games.CollectionIconView : Gtk.Bin {
 
 	construct {
 		flow_box.max_children_per_line = uint.MAX;
+		flow_box.set_filter_func (filter_box);
 	}
 
 	[GtkCallback]
@@ -95,7 +94,7 @@ private class Games.CollectionIconView : Gtk.Bin {
 
 	public void set_filter (string[] filtering_terms) {
 		this.filtering_terms = filtering_terms;
-		apply_filter ();
+		flow_box.invalidate_filter ();
 	}
 
 	public void reset_scroll_position () {
@@ -173,13 +172,19 @@ private class Games.CollectionIconView : Gtk.Bin {
 		return game_view;
 	}
 
-	public void apply_filter () {
-		flow_box.foreach (widget => {
-			var child = widget as Gtk.FlowBoxChild;
-			var game_view = child.get_child () as GameIconView;
+	public void invalidate_filter () {
+		flow_box.invalidate_filter ();
+	}
 
-			widget.visible = filter_game (game_view.game);
-		});
+	private bool filter_box (Gtk.FlowBoxChild child) {
+		var game_view = child.get_child () as GameIconView;
+		if (game_view == null)
+			return false;
+
+		if (game_view.game == null)
+			return false;
+
+		return filter_game (game_view.game);
 	}
 
 	private bool filter_game (Game game) {

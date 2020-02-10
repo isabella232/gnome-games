@@ -20,8 +20,6 @@ private class Games.PlatformsView : Gtk.Bin {
 
 	private string[] filtering_terms;
 
-	private bool reset_selected_row;
-
 	private GameModel _game_model;
 	public GameModel game_model {
 		get { return _game_model; }
@@ -31,8 +29,6 @@ private class Games.PlatformsView : Gtk.Bin {
 
 			var platform_model = new PlatformModel (value);
 			list_box.bind_model (platform_model, add_platform);
-
-			platform_model.items_changed.connect (apply_filter);
 		}
 	}
 
@@ -57,24 +53,14 @@ private class Games.PlatformsView : Gtk.Bin {
 
 	construct {
 		collection_view.set_game_filter (filter_game);
-		reset_selected_row = true;
+		list_box.set_filter_func (filter_list);
 	}
 
-	private void apply_filter () {
-		list_box.foreach (widget => {
-			var row = widget as PlatformListItem;
+	private bool filter_list (Gtk.ListBoxRow? row) {
+		var item = row as PlatformListItem;
+		if (item == null)
+			return false;
 
-			if (row == null)
-				return;
-
-			widget.set_visible (filter_list (row));
-		});
-
-		if (reset_selected_row)
-			select_first_visible_row ();
-	}
-
-	private bool filter_list (PlatformListItem item) {
 		if (item.platform == null)
 			return false;
 
@@ -123,8 +109,8 @@ private class Games.PlatformsView : Gtk.Bin {
 		this.filtering_terms = filtering_terms;
 		collection_view.set_filter (filtering_terms);
 
-		reset_selected_row = true;
-		apply_filter ();
+		list_box.invalidate_filter ();
+		select_first_visible_row ();
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {
@@ -225,11 +211,11 @@ private class Games.PlatformsView : Gtk.Bin {
 		selected_platform = row.platform;
 		subview_title = selected_platform.get_name ();
 
-		collection_view.apply_filter ();
+		collection_view.invalidate_filter ();
 		collection_view.reset_scroll_position ();
 	}
 
-	private void select_first_visible_row () {
+	public void select_first_visible_row () {
 		foreach (var child in list_box.get_children ()) {
 			var row = child as Gtk.ListBoxRow;
 

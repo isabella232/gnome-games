@@ -162,6 +162,8 @@ private class Games.CollectionBox : Gtk.Box {
 	private void on_visible_child_changed () {
 		if (viewstack.visible_child == collection_view)
 			collection_view.reset_scroll_position ();
+		else
+			platform_view.select_first_visible_row ();
 
 		is_subview_open = false;
 	}
