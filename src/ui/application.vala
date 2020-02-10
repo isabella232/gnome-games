@@ -201,12 +201,13 @@ public class Games.Application : Gtk.Application {
 		icon_theme.add_resource_path ("/org/gnome/Games/gesture");
 
 		init_game_sources ();
-		load_game_list.begin ();
 
 		game_model = new GameModel ();
 		game_collection.game_added.connect (game_model.add_game);
 		game_collection.game_replaced.connect (game_model.replace_game);
 		game_collection.game_removed.connect (game_model.remove_game);
+
+		load_game_list.begin ();
 
 		cover_loader = new CoverLoader ();
 	}
