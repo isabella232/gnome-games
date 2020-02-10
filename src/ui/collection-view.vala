@@ -53,13 +53,12 @@ private class Games.CollectionView : Object, UiView {
 			game_activated (game);
 		});
 
+		is_collection_empty = game_model.get_n_items () == 0;
 		game_model.items_changed.connect (() => {
 			is_collection_empty = game_model.get_n_items () == 0;
 		});
-		is_collection_empty = game_model.get_n_items () == 0;
 
 		header_bar.viewstack = box.viewstack;
-		is_collection_empty = true;
 
 		bind_property ("loading-notification", box,
 		               "loading-notification", BindingFlags.DEFAULT);
@@ -70,9 +69,9 @@ private class Games.CollectionView : Object, UiView {
 		               "search-mode", BindingFlags.BIDIRECTIONAL);
 
 		bind_property ("is-collection-empty", box,
-		               "is-collection-empty", BindingFlags.BIDIRECTIONAL);
+		               "is-collection-empty", BindingFlags.BIDIRECTIONAL | BindingFlags.SYNC_CREATE);
 		bind_property ("is-collection-empty", header_bar,
-		               "is-collection-empty", BindingFlags.BIDIRECTIONAL);
+		               "is-collection-empty", BindingFlags.BIDIRECTIONAL | BindingFlags.SYNC_CREATE);
 
 		bind_property ("is-folded", box,
 		               "is-folded", BindingFlags.BIDIRECTIONAL);
