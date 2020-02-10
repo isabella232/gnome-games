@@ -1,5 +1,4 @@
 vala_sources = [
-  'ms-dos-input-capabilities.vala',
   'ms-dos-plugin.vala',
 ]
 

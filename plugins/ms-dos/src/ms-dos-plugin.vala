@@ -47,7 +47,7 @@ private class Games.MsDosPlugin : Object, Plugin {
 
 	private static Runner? create_runner (Game game) throws Error {
 		var core_source = new RetroCoreSource (platform);
-		var input_capabilities = new MsDosInputCapabilities ();
+		var input_capabilities = new GenericInputCapabilities (true);
 
 		var builder = new RetroRunnerBuilder ();
 		builder.core_source = core_source;
