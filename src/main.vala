@@ -5,7 +5,10 @@ int main (string[] args) {
 	Intl.bind_textdomain_codeset (Config.GETTEXT_PACKAGE, "UTF-8");
 	Intl.textdomain (Config.GETTEXT_PACKAGE);
 
-	Grl.init (ref args);
+	string[] empty_args = {};
+	unowned var unowned_args = empty_args;
+
+	Grl.init (ref unowned_args);
 	Hdy.init (ref args);
 
 	var app = new Games.Application ();
