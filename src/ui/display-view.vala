@@ -57,7 +57,6 @@ private class Games.DisplayView : Object, UiView {
 	private QuitDialog quit_dialog;
 
 	private long focus_out_timeout_id;
-	private Game game;
 
 	private SimpleActionGroup action_group;
 	private const ActionEntry[] action_entries = {
@@ -165,9 +164,6 @@ private class Games.DisplayView : Object, UiView {
 		}
 
 		// Shortcuts for the Savestates manager
-		if (runner == null)
-			return false;
-
 		if (!runner.supports_savestates)
 			return false;
 
@@ -288,8 +284,6 @@ private class Games.DisplayView : Object, UiView {
 		if (runner != null && !quit_game ())
 			return;
 
-		this.game = game;
-
 		if (run_game_cancellable != null)
 			run_game_cancellable.cancel ();
 
@@ -317,19 +311,6 @@ private class Games.DisplayView : Object, UiView {
 		can_fullscreen = runner.can_fullscreen;
 		header_bar.media_set = runner.media_set;
 		box.header_bar.media_set = runner.media_set;
-
-		runner.crash.connect (message => {
-			runner.stop ();
-			reset_display_page ();
-
-			if (run_game_cancellable != null)
-				run_game_cancellable.cancel ();
-
-			if (quit_game_cancellable != null)
-				quit_game_cancellable.cancel ();
-
-			box.display_game_crashed (game, message);
-		});
 
 		update_actions ();
 
@@ -604,12 +585,7 @@ private class Games.DisplayView : Object, UiView {
 	}
 
 	private void restart () {
-		if (runner != null && runner.is_integrated) {
+		if (runner != null && runner.is_integrated)
 			runner.restart ();
-			return;
-		}
-
-		if (game != null)
-			run_game (game);
 	}
 }

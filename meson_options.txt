@@ -17,7 +17,6 @@ option ('libretro-plugin',      description: 'Support for Libretro games',      
 option ('love-plugin',          description: 'Support for LÖVE games',          type: 'boolean')
 option ('mame-plugin',          description: 'Support for MAME games',          type: 'boolean')
 option ('ms-dos-plugin',        description: 'Support for MS-DOS games',        type: 'boolean')
-option ('nintendo-64-plugin',   description: 'Support for Nintendo 64 games',   type: 'boolean')
 option ('nintendo-ds-plugin',   description: 'Support for Nintendo DS games',   type: 'boolean')
 option ('playstation-plugin',   description: 'Support for PlayStation games',   type: 'boolean')
 option ('sega-cd-plugin',       description: 'Support for Sega CD games',       type: 'boolean')

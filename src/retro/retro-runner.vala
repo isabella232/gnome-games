@@ -62,7 +62,6 @@ public class Games.RetroRunner : Object, Runner {
 
 	private bool is_initialized;
 	private bool is_ready;
-	private bool is_error;
 
 	public RetroRunnerBuilder builder {
 		construct {
@@ -195,12 +194,11 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void load_previewed_savestate () throws Error {
+		core.stop ();
+
 		tmp_live_savestate = previewed_savestate.clone_in_tmp ();
 		core.save_directory = tmp_live_savestate.get_save_directory_path ();
 		load_save_ram (previewed_savestate.get_save_ram_path ());
-
-		core.iteration (true); // Needed to finish preparing some cores.
-
 		core.load_state (previewed_savestate.get_snapshot_path ());
 
 		if (previewed_savestate.has_media_data ())
@@ -238,7 +236,7 @@ public class Games.RetroRunner : Object, Runner {
 			is_ready = true;
 		}
 
-		core.iteration (true); // Needed to finish preparing some cores.
+		core.iteration (); // Needed to finish preparing some cores.
 		core.reset ();
 
 		core.run ();
@@ -276,10 +274,6 @@ public class Games.RetroRunner : Object, Runner {
 		_input_mode = input_manager.input_mode;
 
 		core.shutdown.connect (stop);
-		core.crashed.connect ((core, error) => {
-			is_error = true;
-			crash (error);
-		});
 
 		running = false;
 
@@ -293,11 +287,8 @@ public class Games.RetroRunner : Object, Runner {
 		settings.changed["video-filter"].disconnect (on_video_filter_changed);
 
 		core = null;
-
-		if (view != null) {
-			view.set_core (null);
-			view = null;
-		}
+		view.set_core (null);
+		view = null;
 
 		input_manager = null;
 
@@ -363,10 +354,8 @@ public class Games.RetroRunner : Object, Runner {
 		if (!running)
 			return;
 
-		if (!is_error) {
-			current_state_pixbuf = view.get_pixbuf ();
-			core.stop ();
-		}
+		current_state_pixbuf = view.get_pixbuf ();
+		core.stop ();
 
 		//FIXME:
 		// In the future here there will be code which updates the currently

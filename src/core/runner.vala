@@ -3,7 +3,6 @@
 public interface Games.Runner : Object {
 	public signal void new_savestate_created ();
 	public signal void stopped ();
-	public signal void crash (string message);
 
 	public abstract bool can_fullscreen { get; }
 	public abstract bool can_resume { get; }
