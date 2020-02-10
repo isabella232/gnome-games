@@ -35,6 +35,9 @@ plugins/love/src/love-plugin.vala
 plugins/mame/src/mame-game-uri-adapter.vala
 plugins/mame/src/mame-plugin.vala
 plugins/ms-dos/src/ms-dos-plugin.vala
+plugins/nintendo-64/data/ui/nintendo-64-pak-switcher.ui
+plugins/nintendo-64/src/nintendo-64-pak-player.vala
+plugins/nintendo-64/src/nintendo-64-plugin.vala
 plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui
 plugins/nintendo-ds/src/nintendo-ds-layout-switcher.vala
 plugins/nintendo-ds/src/nintendo-ds-layout.vala
