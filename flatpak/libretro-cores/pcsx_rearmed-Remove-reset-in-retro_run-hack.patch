@@ -1,4 +1,4 @@
-From 10668abd8d4fdb5749d845c56ae032a54004c2f5 Mon Sep 17 00:00:00 2001
+From cf7f13cf73430c8cc29792c784e0acf01c36b1e6 Mon Sep 17 00:00:00 2001
 From: Adrien Plazas <kekun.plazas@laposte.net>
 Date: Fri, 10 Mar 2017 07:24:33 +0100
 Subject: [PATCH] libretro: Remove reset in retro_run() hack
@@ -11,12 +11,12 @@ the core just after setting its state.
  1 file changed, 1 insertion(+), 31 deletions(-)
 
 diff --git a/frontend/libretro.c b/frontend/libretro.c
-index e5ce194..e72edc5 100644
+index 3e2c64a..a80924e 100644
 --- a/frontend/libretro.c
 +++ b/frontend/libretro.c
-@@ -50,9 +50,6 @@
- 
- #define ISHEXDEC ((buf[cursor]>='0') && (buf[cursor]<='9')) || ((buf[cursor]>='a') && (buf[cursor]<='f')) || ((buf[cursor]>='A') && (buf[cursor]<='F'))
+@@ -71,9 +71,6 @@ void new_dyna_after_save(void) { }
+ void new_dyna_freeze(void *f, int i) { }
+ #endif
  
 -//hack to prevent retroarch freezing when reseting in the menu but not while running with the hot key
 -static int rebootemu = 0;
@@ -24,7 +24,7 @@ index e5ce194..e72edc5 100644
  static retro_video_refresh_t video_cb;
  static retro_input_poll_t input_poll_cb;
  static retro_input_state_t input_state_cb;
-@@ -1340,9 +1337,7 @@ size_t retro_get_memory_size(unsigned id)
+@@ -1583,9 +1580,7 @@ size_t retro_get_memory_size(unsigned id)
  
  void retro_reset(void)
  {
@@ -35,11 +35,10 @@ index e5ce194..e72edc5 100644
  }
  
  static const unsigned short retro_psx_map[] = {
-@@ -1591,22 +1586,6 @@ static void update_variables(bool in_flight)
-    else
+@@ -2139,22 +2134,6 @@ static void update_variables(bool in_flight)
     {
        //not yet running
--
+ 
 -      //bootlogo display hack
 -      if (found_bios) {
 -         var.value = "NULL";
@@ -55,10 +54,11 @@ index e5ce194..e72edc5 100644
 -            }
 -         }
 -      }
- #ifndef DRC_DISABLE
+-
+ #if defined(LIGHTREC) || defined(NEW_DYNAREC)
        var.value = "NULL";
        var.key = "pcsx_rearmed_psxclock";
-@@ -1654,15 +1633,6 @@ static uint16_t get_analog_button(retro_input_state_t input_state_cb, int player
+@@ -2214,15 +2193,6 @@ unsigned char axis_range_modifier(int16_t axis_value, bool is_square) {
  void retro_run(void)
  {
  	int i;
@@ -72,8 +72,8 @@ index e5ce194..e72edc5 100644
 -		}
 -	}
  
- 	input_poll_cb();
- 
+ 	if (display_internal_fps) {
+ 		frame_count++;
 -- 
-2.21.0
+2.24.1
 
