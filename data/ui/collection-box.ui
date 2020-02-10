@@ -32,6 +32,11 @@
             <style>
               <class name="background"/>
             </style>
+	     <child>
+              <object class="GamesEmptySearch" id="empty_search">
+                <property name="visible">True</property>
+              </object>
+            </child>
             <child>
               <object class="GamesEmptyCollection" id="empty_collection">
                 <property name="visible">True</property>

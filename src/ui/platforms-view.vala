@@ -22,16 +22,6 @@ private class Games.PlatformsView : Gtk.Bin {
 	private bool has_used_gamepad;
 
 	private string[] filtering_terms;
-	public string filtering_text {
-		set {
-			collection_view.filtering_text = value;
-
-			if (value != null)
-				filtering_terms = value.split (" ");
-
-			hide_empty_sidebar_items ();
-		}
-	}
 
 	private ListModel _model;
 	public ListModel model {
@@ -108,6 +98,12 @@ private class Games.PlatformsView : Gtk.Bin {
 	public void on_unmap () {
 		window_active_binding = null;
 		is_active = false;
+	}
+
+	public void set_filter (string[] filtering_terms) {
+		this.filtering_terms = filtering_terms;
+		collection_view.set_filter (filtering_terms);
+		hide_empty_sidebar_items ();
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {

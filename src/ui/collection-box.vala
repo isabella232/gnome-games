@@ -15,6 +15,8 @@ private class Games.CollectionBox : Gtk.Box {
 	[GtkChild]
 	private EmptyCollection empty_collection;
 	[GtkChild]
+	private EmptySearch empty_search;
+	[GtkChild]
 	private CollectionIconView collection_view;
 	[GtkChild]
 	private PlatformsView platform_view;
@@ -38,6 +40,19 @@ private class Games.CollectionBox : Gtk.Box {
 				empty_stack.visible_child = empty_collection;
 			else
 				empty_stack.visible_child = viewstack;
+		}
+	}
+
+	public string[] filtering_terms;
+	public string filtering_text {
+		 set {
+			if (value == null)
+				filtering_terms = null;
+			else
+				filtering_terms = value.split (" ");
+
+			platform_view.set_filter (filtering_terms);
+			collection_view.set_filter (filtering_terms);
 		}
 	}
 
@@ -112,6 +127,15 @@ private class Games.CollectionBox : Gtk.Box {
 			return collection_view.gamepad_button_release_event (event);
 	}
 
+	public bool found_games () {
+		for (int i = 0; i < collection.get_n_items (); i++) {
+			var game = collection.get_item (i) as Game;
+			if (game.matches_search_terms (filtering_terms))
+				return true;
+		}
+		return false;
+	}
+
 	public bool gamepad_absolute_axis_event (Manette.Event event) {
 		if (!get_mapped ())
 			return false;
@@ -134,22 +158,19 @@ private class Games.CollectionBox : Gtk.Box {
 
 	[GtkCallback]
 	private void on_visible_child_changed () {
-		if (viewstack.visible_child == platform_view)
-			platform_view.filtering_text = search_bar.text;
-		else {
-			collection_view.filtering_text = search_bar.text;
+		if (viewstack.visible_child == collection_view)
 			collection_view.reset_scroll_position ();
-		}
 
 		is_subview_open = false;
 	}
 
 	[GtkCallback]
 	private void on_search_text_notify () {
-		if (viewstack.visible_child == platform_view)
-			platform_view.filtering_text = search_bar.text;
+		filtering_text = search_bar.text;
+		if (found_games ())
+			empty_stack.visible_child = viewstack;
 		else
-			collection_view.filtering_text = search_bar.text;
+			empty_stack.visible_child = empty_search;
 
 		// Changing the filtering_text for the PlatformView might
 		// cause the currently selected sidebar row to become empty and therefore

@@ -5,14 +5,6 @@ private class Games.CollectionIconView : Gtk.Bin {
 	public signal void game_activated (Game game);
 
 	private string[] filtering_terms;
-	public string filtering_text {
-		set {
-			if (value != null)
-				filtering_terms = value.split (" ");
-
-			flow_box.invalidate_filter ();
-		}
-	}
 
 	public delegate bool GameFilter (Game game);
 	private unowned GameFilter? game_filter;
@@ -113,6 +105,11 @@ private class Games.CollectionIconView : Gtk.Bin {
 			return false;
 
 		return gamepad_browse.gamepad_absolute_axis_event (event);
+	}
+
+	public void set_filter (string[] filtering_terms) {
+		this.filtering_terms = filtering_terms;
+		flow_box.invalidate_filter ();
 	}
 
 	public void reset_scroll_position () {
