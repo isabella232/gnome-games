@@ -41,7 +41,6 @@ private class Games.PlayStation : Object, Plugin {
 	public static Runner? create_runner (Game game) throws Error {
 		var uri = game.get_uri ();
 		var media_set = gameinfo_cache.get_media_set (uri);
-		var input_capabilities = gameinfo_cache.get_input_capabilities (uri);
 
 		var core_source = new RetroCoreSource (platform);
 
@@ -50,7 +49,6 @@ private class Games.PlayStation : Object, Plugin {
 		builder.media_set = media_set;
 		builder.uid = game.get_uid ();
 		builder.title = game.name;
-		builder.input_capabilities = input_capabilities;
 
 		return builder.to_runner ();
 	}

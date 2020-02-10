@@ -127,8 +127,7 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		if (game_added_callback != null)
 			game_added_callback (game);
 
-		var input_capabilities = new GameinfoDiscIdInputCapabilities (gameinfo, disc_set_id);
-		gameinfo_cache.store_info (uri, media_set, input_capabilities);
+		gameinfo_cache.store_info (uri, media_set);
 	}
 
 	public void foreach_game (GameCallback game_callback) {
