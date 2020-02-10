@@ -164,12 +164,7 @@ private class Games.CollectionIconView : Gtk.Bin {
 	}
 
 	private Gtk.Widget add_game (Object item) {
-		var game = item as Game;
-
-		var game_view = new GameIconView (game);
-		game_view.show ();
-
-		return game_view;
+		return new GameIconView (item as Game);
 	}
 
 	public void invalidate_filter () {
