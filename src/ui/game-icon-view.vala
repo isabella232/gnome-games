@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/game-icon-view.ui")]
-private class Games.GameIconView : Gtk.Box {
+private class Games.GameIconView : Gtk.FlowBoxChild {
 	[GtkChild]
 	private GameThumbnail thumbnail;
 	[GtkChild]

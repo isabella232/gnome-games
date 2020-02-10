@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk+" version="3.24"/>
-  <template class="GamesGameIconView" parent="GtkBox">
+  <template class="GamesGameIconView" parent="GtkFlowBoxChild">
     <property name="visible">True</property>
-    <property name="orientation">vertical</property>
     <child>
-      <object class="GamesGameThumbnail" id="thumbnail">
+      <object class="GtkBox">
         <property name="visible">True</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkLabel" id="title">
-        <property name="visible">True</property>
-        <property name="ellipsize">middle</property>
-        <property name="justify">center</property>
-        <property name="lines">2</property>
-        <property name="max-width-chars">0</property>
-        <property name="wrap">True</property>
-        <property name="wrap-mode">word-char</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GamesGameThumbnail" id="thumbnail">
+            <property name="visible">True</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="title">
+            <property name="visible">True</property>
+            <property name="ellipsize">middle</property>
+            <property name="justify">center</property>
+            <property name="lines">2</property>
+            <property name="max-width-chars">0</property>
+            <property name="wrap">True</property>
+            <property name="wrap-mode">word-char</property>
+          </object>
+        </child>
       </object>
     </child>
   </template>

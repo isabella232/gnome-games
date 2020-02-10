@@ -158,7 +158,7 @@ private class Games.CollectionIconView : Gtk.Bin {
 
 	[GtkCallback]
 	private void on_child_activated (Gtk.FlowBoxChild child) {
-		var game_view = child.get_child () as GameIconView;
+		var game_view = child as GameIconView;
 
 		game_activated (game_view.game);
 	}
@@ -177,7 +177,7 @@ private class Games.CollectionIconView : Gtk.Bin {
 	}
 
 	private bool filter_box (Gtk.FlowBoxChild child) {
-		var game_view = child.get_child () as GameIconView;
+		var game_view = child as GameIconView;
 		if (game_view == null)
 			return false;
 
