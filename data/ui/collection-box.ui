@@ -32,7 +32,7 @@
             <style>
               <class name="background"/>
             </style>
-	     <child>
+            <child>
               <object class="GamesEmptySearch" id="empty_search">
                 <property name="visible">True</property>
               </object>
