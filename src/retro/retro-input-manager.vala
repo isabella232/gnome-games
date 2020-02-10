@@ -31,12 +31,10 @@ private class Games.RetroInputManager : Object {
 	private Manette.Device?[] devices;
 	private Retro.Controller?[] controllers;
 	private int core_view_joypad_port;
-	private bool present_analog_sticks;
 
-	public RetroInputManager (Retro.Core core, Retro.CoreView view, bool present_analog_sticks) {
+	public RetroInputManager (Retro.Core core, Retro.CoreView view) {
 		this.core = core;
 		this.view = view;
-		this.present_analog_sticks = present_analog_sticks;
 
 		keyboard_mapping_manager = new KeyboardMappingManager ();
 		view.set_key_joypad_mapping (keyboard_mapping_manager.mapping);
@@ -52,7 +50,7 @@ private class Games.RetroInputManager : Object {
 		Manette.Device device = null;
 		while (iterator.next (out device)) {
 			var port = controllers.length;
-			var retro_gamepad = new RetroGamepad (device, present_analog_sticks);
+			var retro_gamepad = new RetroGamepad (device);
 			devices += device;
 			controllers += retro_gamepad;
 			core.set_controller (port, retro_gamepad);
@@ -96,7 +94,7 @@ private class Games.RetroInputManager : Object {
 		// connected as a last resort.
 		var port = core_view_joypad_port;
 		devices[port] = device;
-		var retro_gamepad = new RetroGamepad (device, present_analog_sticks);
+		var retro_gamepad = new RetroGamepad (device);
 		controllers[port] = retro_gamepad;
 		core.set_controller (port, retro_gamepad);
 		device.disconnected.connect (on_device_disconnected);

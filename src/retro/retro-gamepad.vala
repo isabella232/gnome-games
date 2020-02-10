@@ -2,14 +2,13 @@
 
 private class Games.RetroGamepad : Object, Retro.Controller {
 	public Manette.Device device { get; construct; }
-	public bool present_analog_sticks { get; construct; }
 
 	private bool[] buttons;
 	private int16[] axes;
 	private uint16 rumble_effect[2];
 
-	public RetroGamepad (Manette.Device device, bool present_analog_sticks) {
-		Object (device: device, present_analog_sticks: present_analog_sticks);
+	public RetroGamepad (Manette.Device device) {
+		Object (device: device);
 	}
 
 	construct {

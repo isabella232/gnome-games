@@ -270,8 +270,7 @@ public class Games.RetroRunner : Object, Runner {
 	private void instantiate_core (string core_save_directory_path) throws Error {
 		prepare_core (core_save_directory_path);
 
-		var present_analog_sticks = input_capabilities == null || input_capabilities.get_allow_analog_gamepads ();
-		input_manager = new RetroInputManager (core, view, present_analog_sticks);
+		input_manager = new RetroInputManager (core, view);
 		// Keep the internal values of input_mode in sync between RetroRunner and RetroInputManager
 		_input_mode = input_manager.input_mode;
 
