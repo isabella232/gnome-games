@@ -20,6 +20,8 @@ private class Games.PlatformsView : Gtk.Bin {
 
 	private string[] filtering_terms;
 
+	private bool reset_selected_row;
+
 	private GameModel _game_model;
 	public GameModel game_model {
 		get { return _game_model; }
@@ -55,6 +57,7 @@ private class Games.PlatformsView : Gtk.Bin {
 
 	construct {
 		collection_view.set_game_filter (filter_game);
+		reset_selected_row = true;
 	}
 
 	private void apply_filter () {
@@ -66,6 +69,9 @@ private class Games.PlatformsView : Gtk.Bin {
 
 			widget.set_visible (filter_list (row));
 		});
+
+		if (reset_selected_row)
+			select_first_visible_row ();
 	}
 
 	private bool filter_list (PlatformListItem item) {
@@ -117,8 +123,8 @@ private class Games.PlatformsView : Gtk.Bin {
 		this.filtering_terms = filtering_terms;
 		collection_view.set_filter (filtering_terms);
 
+		reset_selected_row = true;
 		apply_filter ();
-		select_first_visible_row ();
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {
