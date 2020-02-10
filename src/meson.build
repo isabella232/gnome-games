@@ -217,6 +217,33 @@ gnome_games_exec = executable (
   install: true
 )
 
+search_provider_c_args = [
+  '-DG_LOG_DOMAIN="GamesSearchProvider"',
+]
+
+search_provider_sources = [
+  'search-provider.vala',
+]
+
+search_provider_deps = [
+  config_dep,
+
+  gio_dep,
+  glib_dep,
+  gtk_dep,
+  sqlite_dep,
+]
+
+executable (
+  'gnome-games-search-provider',
+  search_provider_sources,
+  dependencies: search_provider_deps,
+  c_args: search_provider_c_args,
+  include_directories: confinc,
+  install: true,
+  install_dir: libexecdir
+)
+
 plugin_dependencies = [
   archive_dep,
   gio_dep,

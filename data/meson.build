@@ -54,6 +54,17 @@ if appstream_util.found()
   )
 endif
 
+dbus_conf = configuration_data()
+dbus_conf.set('appid', application_id)
+dbus_conf.set('libexecdir', libexecdir)
+configure_file (
+  input: 'org.gnome.Games.SearchProvider.service.in',
+  output: '@0@.SearchProvider.service'.format(application_id),
+  configuration: dbus_conf,
+  install: true,
+  install_dir: servicedir
+)
+
 gsettings_conf = configuration_data ()
 gsettings_conf.set ('GETTEXT_PACKAGE', meson.project_name ())
 configure_file (
@@ -62,6 +73,17 @@ configure_file (
   configuration: gsettings_conf,
   install: true,
   install_dir: join_paths(datadir, 'glib-2.0', 'schemas'),
+)
+
+search_provider_conf = configuration_data()
+search_provider_conf.set('appid', application_id)
+search_provider_conf.set('profile', profile)
+configure_file(
+  configuration: search_provider_conf,
+  input: 'org.gnome.Games.SearchProvider.ini.in',
+  install_dir: join_paths(datadir, 'gnome-shell', 'search-providers'),
+  install: true,
+  output: '@0@.SearchProvider.ini'.format(application_id)
 )
 
 subdir ('icons')

@@ -52,9 +52,12 @@ srcdir = join_paths (meson.source_root (), 'src')
 podir = join_paths (meson.source_root (), 'po')
 
 prefix = get_option('prefix')
+bindir = join_paths (prefix, get_option ('bindir'))
 datadir = join_paths (prefix, get_option ('datadir'))
 libdir = join_paths (prefix, get_option ('libdir'))
+libexecdir = join_paths (prefix, get_option ('libexecdir'))
 localedir = join_paths (prefix, get_option ('localedir'))
+servicedir = join_paths (datadir, 'dbus-1', 'services')
 options_dir = join_paths (datadir, meson.project_name(), 'options')
 plugins_dir = join_paths (libdir, meson.project_name(), 'plugins')
 
