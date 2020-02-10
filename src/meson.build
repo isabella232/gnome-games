@@ -57,7 +57,6 @@ vala_sources = [
   'gameinfo/gameinfo-error.vala',
   'gameinfo/gameinfo-disc-id-disc-title.vala',
   'gameinfo/gameinfo-disc-id-game-title.vala',
-  'gameinfo/gameinfo-disc-id-input-capabilities.vala',
 
   'gamepad/gamepad-dpad.vala',
   'gamepad/gamepad-input.vala',
