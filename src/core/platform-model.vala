@@ -12,6 +12,23 @@ private class Games.PlatformModel : Object, ListModel {
 		n_platforms = 0;
 		n_games = new HashTable<Platform, uint> (Platform.hash, Platform.equal);
 
+		uint n = game_model.get_n_items ();
+		for (uint i = 0; i < n; i++) {
+			var game = game_model.get_item (i) as Game;
+			var platform = game.get_platform ();
+
+			if (n_games[platform] == 0) {
+				sequence.append (platform);
+				n_platforms++;
+			}
+
+			n_games[platform] = n_games[platform] + 1;
+		}
+
+		sequence.sort (compare_func);
+
+		items_changed (0, get_n_items (), 0);
+
 		game_model.game_added.connect (game_added);
 		game_model.game_removed.connect (game_removed);
 	}
