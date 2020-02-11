@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-01-28 13:39+0000\n"
-"PO-Revision-Date: 2020-01-28 15:37+0100\n"
+"POT-Creation-Date: 2020-02-10 19:31+0000\n"
+"PO-Revision-Date: 2020-02-11 10:36+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
@@ -22,9 +22,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:7
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:56
-#: data/ui/collection-header-bar.ui:79 data/ui/display-header-bar.ui:17
-#: src/ui/application.vala:35
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:61
+#: data/ui/collection-header-bar.ui:79 src/ui/application.vala:35
 msgid "Games"
 msgstr "Juegos"
 
@@ -74,7 +73,7 @@ msgstr "Iniciar sus juegos"
 msgid "Resume your game to where you left it"
 msgstr "Reanudar la partida donde la dejó"
 
-#: data/org.gnome.Games.appdata.xml.in.in:237
+#: data/org.gnome.Games.appdata.xml.in.in:261
 msgid "The GNOME Project"
 msgstr "El Proyecto GNOME"
 
@@ -140,11 +139,11 @@ msgstr ""
 "Núcleo de Libretro preferido usado para ejecutar juegos. Se puede usar otro "
 "si al núcleo preferido le falta el «firmware»."
 
-#: data/ui/collection-box.ui:71 src/ui/preferences-page-platforms.vala:9
+#: data/ui/collection-box.ui:76 src/ui/preferences-page-platforms.vala:9
 msgid "Platforms"
 msgstr "Plataformas"
 
-#: data/ui/collection-box.ui:97
+#: data/ui/collection-box.ui:102
 msgid "Loading"
 msgstr "Cargando"
 
@@ -162,7 +161,7 @@ msgid "Search"
 msgstr "Buscar"
 
 #: data/ui/collection-header-bar.ui:130 data/ui/display-header-bar.ui:30
-#: data/ui/display-header-bar.ui:161 data/ui/preferences-subpage-gamepad.ui:84
+#: data/ui/display-header-bar.ui:162 data/ui/preferences-subpage-gamepad.ui:84
 #: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:36
 #: data/ui/preferences-window.ui:77
 msgid "Back"
@@ -188,20 +187,19 @@ msgstr "_Acerca de Juegos"
 msgid "Restore"
 msgstr "Restaurar"
 
-#: data/ui/display-header-bar.ui:140
+#: data/ui/display-header-bar.ui:141
 msgid "_Load"
 msgstr "_Cargar"
 
-#: data/ui/display-header-bar.ui:190
-#| msgid "Restart"
+#: data/ui/display-header-bar.ui:185
 msgid "_Restart"
 msgstr "_Reiniciar"
 
-#: data/ui/display-header-bar.ui:203
+#: data/ui/display-header-bar.ui:191
 msgid "_Snapshots"
 msgstr "_Instantáneas"
 
-#: data/ui/empty-collection.ui:23
+#: data/ui/empty-collection.ui:23 data/ui/empty-search.ui:25
 msgid "No games found"
 msgstr "No se encontró ningún juego"
 
@@ -211,6 +209,10 @@ msgid ""
 msgstr ""
 "Instale juegos o añada carpetas que contengan juegos a los orígenes de "
 "búsqueda."
+
+#: data/ui/empty-search.ui:40
+msgid "Try a different search."
+msgstr "Pruebe a hacer una búsqueda diferente."
 
 #: data/ui/input-mode-switcher.ui:16
 msgid "Gamepad Input"
@@ -234,10 +236,6 @@ msgid "Keyboard"
 msgstr "Teclado"
 
 #: data/ui/preferences-page-import-export.ui:10
-#| msgid ""
-#| "Backup save states and in-game saves. This can be used for moving the "
-#| "data to another device or for restoring it later. Desktop, Steam and LÖVE "
-#| "games cannot be backed up."
 msgid ""
 "Export save states and in-game saves. This can be used for moving the data "
 "to another device or for restoring it later. Desktop, Steam and LÖVE games "
@@ -249,7 +247,6 @@ msgstr ""
 
 #: data/ui/preferences-page-import-export.ui:42
 #: src/ui/preferences-page-import-export.vala:34
-#| msgid "Restore save data"
 msgid "Export save data"
 msgstr "Exportar datos guardados"
 
@@ -259,9 +256,6 @@ msgid "_Export"
 msgstr "_Exportar"
 
 #: data/ui/preferences-page-import-export.ui:66
-#| msgid ""
-#| "Restore save data for games from existing backup. This will replace "
-#| "existing saves and cannot be undone."
 msgid ""
 "Import save data for games from existing backup. This will replace existing "
 "saves and cannot be undone."
@@ -271,7 +265,6 @@ msgstr ""
 
 #: data/ui/preferences-page-import-export.ui:97
 #: src/ui/preferences-page-import-export.vala:12
-#| msgid "Restore save data"
 msgid "Import save data"
 msgstr "Importar datos guardados"
 
@@ -370,7 +363,6 @@ msgid "Reset"
 msgstr "Reiniciar"
 
 #: data/ui/savestates-list.ui:64
-#| msgid "Create new savestate"
 msgid "Create new snapshot"
 msgstr "Crear instantánea nueva"
 
@@ -458,21 +450,16 @@ msgid "In Game"
 msgstr "En el juego"
 
 #: data/ui/shortcuts-window.ui:98
-#| msgid "Create new savestate"
 msgctxt "shortcut window"
 msgid "Create new snapshot"
 msgstr "Crear instantánea nueva"
 
 #: data/ui/shortcuts-window.ui:105
-#| msgctxt "shortcut window"
-#| msgid "Load the latest savestate"
 msgctxt "shortcut window"
 msgid "Load the latest snapshot"
 msgstr "Cargar la última instantánea"
 
 #: data/ui/shortcuts-window.ui:112
-#| msgctxt "shortcut window"
-#| msgid "Show savestates"
 msgctxt "shortcut window"
 msgid "Show snapshots"
 msgstr "Mostrar instantáneas"
@@ -833,7 +820,7 @@ msgstr "El juego no tiene un comando válido."
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "No se pudo ejecutar «%s»: falló la ejecución."
 
-#: src/core/media-set/media-set.vala:30
+#: src/core/media-set/media-set.vala:45
 #, c-format
 msgid "Invalid media index %u."
 msgstr "Índice del soporte %u no válido"
@@ -910,27 +897,26 @@ msgstr ""
 "El juego necesita el archivo de firmware %s con una huella SHA-512 %s para "
 "ejecutarse."
 
-#: src/retro/retro-runner.vala:316
+#: src/retro/retro-runner.vala:311
 #, c-format
 msgid "No module found for “%s”."
 msgstr "No se pudo encontrar un módulo apropiado para «%s»."
 
-#: src/retro/retro-runner.vala:577
+#: src/retro/retro-runner.vala:566
 msgid "Unknown platform"
 msgstr "Plataforma desconocida"
 
-#: src/retro/retro-runner.vala:601
+#: src/retro/retro-runner.vala:584
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "El sistema «%s» todavía no está soportado, pero llegará pronto."
 
-#: src/retro/retro-runner.vala:603
+#: src/retro/retro-runner.vala:586
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "El sistema todavía no está soportado, pero llegará pronto."
 
-#: src/retro/retro-runner.vala:612 src/retro/retro-runner.vala:637
+#: src/retro/retro-runner.vala:595 src/retro/retro-runner.vala:620
 #, c-format
-#| msgid "New savestate %s"
 msgid "New snapshot %s"
 msgstr "Nueva instantánea %s"
 
@@ -1055,29 +1041,29 @@ msgstr "_Añadir"
 msgid "An unexpected error occurred while trying to run %s"
 msgstr "Ha ocurrido un error inesperado al intentar ejecutar %s"
 
-#: src/ui/application.vala:386
+#: src/ui/application.vala:376
 msgid "GNOME Games"
 msgstr "Juegos de GNOME"
 
-#: src/ui/application.vala:388
+#: src/ui/application.vala:378
 msgid "A video game player for GNOME"
 msgstr "Un reproductor de videojuegos para GNOME"
 
-#: src/ui/application.vala:392
+#: src/ui/application.vala:382
 msgid "Learn more about GNOME Games"
 msgstr "Más información acerca de Juegos de GNOME"
 
-#: src/ui/application.vala:399
+#: src/ui/application.vala:389
 msgid "translator-credits"
 msgstr ""
 "Daniel Mustieles <daniel.mustieles@gmail.com>, 2016, 2018, 2019\n"
 "Rodrigo Lledó <rodhos92@gmail.com>, 2018, 2019"
 
-#: src/ui/application-window.vala:267 src/ui/application-window.vala:284
+#: src/ui/application-window.vala:262 src/ui/application-window.vala:279
 msgid "Playing a game"
 msgstr "Jugando a un juego"
 
-#: src/ui/display-view.vala:320
+#: src/ui/display-view.vala:341
 msgid "No runner found"
 msgstr "No se encontró ningún corredor"
 
@@ -1121,13 +1107,11 @@ msgstr "Importar exportar"
 
 #: src/ui/preferences-page-import-export.vala:23
 #, c-format
-#| msgid "Couldn’t restore: %s"
 msgid "Couldn’t import save data: %s"
 msgstr "No se han podido importar los datos guardados: %s"
 
 #: src/ui/preferences-page-import-export.vala:53
 #, c-format
-#| msgid "Couldn’t restore: %s"
 msgid "Couldn’t export save data: %s"
 msgstr "No se han podido exportar los datos guardados: %s"
 
@@ -1218,7 +1202,6 @@ msgid "Invalid name"
 msgstr "Nombre no válido"
 
 #: src/ui/savestates-list.vala:209
-#| msgid "A savestate with this name already exists"
 msgid "A snapshot with this name already exists"
 msgstr "Ya existe una instantánea con el mismo nombre"
 
