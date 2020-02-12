@@ -285,7 +285,7 @@ public class Games.Application : Gtk.Application {
 	}
 
 	private bool show_loading_notification () {
-		if (!game_list_loaded)
+		if (!game_list_loaded && !game_collection.paused)
 			window.loading_notification = true;
 
 		return false;
@@ -398,7 +398,12 @@ public class Games.Application : Gtk.Application {
 	}
 
 	internal async void load_game_list () {
+		GLib.Timeout.add (500, show_loading_notification);
+
 		yield game_collection.search_games ();
+
+		if (game_collection.paused)
+			return;
 
 		game_list_loaded = true;
 		if (window != null)
