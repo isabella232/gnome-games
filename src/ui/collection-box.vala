@@ -190,6 +190,10 @@ private class Games.CollectionBox : Gtk.Box {
 		return search_bar.handle_event (event);
 	}
 
+	public void run_search (string query) {
+		search_bar.run_search (query);
+	}
+
 	[GtkCallback]
 	private void update_bottom_bar () {
 		view_switcher_bar.reveal = is_showing_bottom_bar && (!is_folded || !is_subview_open);

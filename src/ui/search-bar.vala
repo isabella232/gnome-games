@@ -28,6 +28,10 @@ private class Games.SearchBar : Gtk.Bin {
 		entry.grab_focus_without_selecting ();
 	}
 
+	public void run_search (string query) {
+		entry.text = query;
+	}
+
 	public bool handle_event (Gdk.Event event) {
 		return search_bar.handle_event (event);
 	}

@@ -104,6 +104,13 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		set_help_overlay (new ShortcutsWindow ());
 	}
 
+	public void run_search (string query) {
+		if (current_view != collection_view)
+			return;
+
+		collection_view.run_search (query);
+	}
+
 	public void show_error (string error_message) {
 		collection_view.show_error (error_message);
 	}

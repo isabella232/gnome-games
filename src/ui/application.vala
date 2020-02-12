@@ -26,7 +26,8 @@ public class Games.Application : Gtk.Application {
 	};
 
 	private const OptionEntry[] option_entries = {
-		{ "", 0, 0, OptionArg.FILENAME_ARRAY },
+		{ "search", 0, 0, OptionArg.STRING_ARRAY,   null, N_("Search term") },
+		{ "",       0, 0, OptionArg.FILENAME_ARRAY },
 		{ null },
 	};
 
@@ -222,6 +223,16 @@ public class Games.Application : Gtk.Application {
 		var options = command_line.get_options_dict ();
 
 		activate ();
+
+		if ("search" in options) {
+			var terms_variant = options.lookup_value ("search", VariantType.STRING_ARRAY);
+			if (terms_variant != null) {
+				var terms = terms_variant.get_strv ();
+				window.run_search (string.joinv (" ", terms));
+			}
+
+			return 0;
+		}
 
 		var files_variant = options.lookup_value ("", VariantType.BYTESTRING_ARRAY);
 		if (files_variant != null) {

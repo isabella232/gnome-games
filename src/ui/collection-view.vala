@@ -161,4 +161,9 @@ private class Games.CollectionView : Object, UiView {
 			critical (e.message);
 		}
 	}
+
+	public void run_search (string query) {
+		search_mode = true;
+		box.run_search (query);
+	}
 }
