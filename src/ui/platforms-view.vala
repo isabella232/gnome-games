@@ -219,7 +219,7 @@ private class Games.PlatformsView : Gtk.Bin {
 		foreach (var child in list_box.get_children ()) {
 			var row = child as Gtk.ListBoxRow;
 
-			if (row.visible) {
+			if (row.get_child_visible ()) {
 				list_box.select_row (row);
 				row.focus (Gtk.DirectionType.LEFT);
 				select_platform_for_row (row);
