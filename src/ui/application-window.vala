@@ -116,6 +116,9 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	}
 
 	public void run_game (Game game) {
+		if (current_view != collection_view)
+			return;
+
 		current_view = display_view;
 		display_view.run_game (game);
 
