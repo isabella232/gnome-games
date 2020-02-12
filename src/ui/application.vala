@@ -405,6 +405,16 @@ public class Games.Application : Gtk.Application {
 			window.loading_notification = false;
 	}
 
+	public void set_pause_loading (bool paused) {
+		if (game_collection.paused == paused)
+			return;
+
+		game_collection.paused = paused;
+
+		if (!paused)
+			load_game_list.begin ();
+	}
+
 	private void preferences () {
 		if (preferences_window == null) {
 			preferences_window = new PreferencesWindow ();

@@ -19,7 +19,10 @@ private class Games.GameCollection : Object {
 	private HashTable<Platform, Array<RunnerFactory>> runner_factories_for_platforms;
 
 	private SourceFunc search_games_cb;
+	private bool is_preloading_done;
 	private bool is_loading_done;
+
+	public bool paused { get; set; }
 
 	public GameCollection (Database database) {
 		this.database = database;
@@ -95,34 +98,48 @@ private class Games.GameCollection : Object {
 		search_games_cb = search_games.callback;
 
 		ThreadFunc<void*> run = () => {
-			try {
-				database.list_cached_games ((game) => {
-					cached_games[game.get_uri ().to_string ()] = game;
+			if (!is_preloading_done) {
+				try {
+					database.list_cached_games ((game) => {
+						cached_games[game.get_uri ().to_string ()] = game;
 
-					string? uid = null;
-					try {
-						uid = game.get_uid ().get_uid ();
-					}
-					catch (Error e) {}
+						string? uid = null;
+						try {
+							uid = game.get_uid ().get_uid ();
+						}
+						catch (Error e) {}
 
-					if (games.contains (uid))
-						return;
+						if (games.contains (uid))
+							return;
 
-					games[uid] = game;
+						games[uid] = game;
 
-					Idle.add (() => {
-						game_added (game);
-						return Source.REMOVE;
+						Idle.add (() => {
+							game_added (game);
+							return Source.REMOVE;
+						});
 					});
-				});
-			}
-			catch (Error e) {
-				critical ("Couldn't load cached games: %s", e.message);
+				}
+				catch (Error e) {
+					critical ("Couldn't load cached games: %s", e.message);
+				}
+
+				is_preloading_done = true;
+
+				if (paused) {
+					Idle.add ((owned) search_games_cb);
+					return null;
+				}
 			}
 
 			foreach (var source in sources)
-				foreach (var uri in source)
+				foreach (var uri in source) {
+					if (paused) {
+						Idle.add ((owned) search_games_cb);
+						return null;
+					}
 					add_uri (uri);
+				}
 
 			cached_games.foreach_steal ((uri, game) => {
 				var removed = false;
