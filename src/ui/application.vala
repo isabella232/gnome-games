@@ -25,9 +25,14 @@ public class Games.Application : Gtk.Application {
 		{ "add-game-files", add_game_files   },
 	};
 
+	private const OptionEntry[] option_entries = {
+		{ "", 0, 0, OptionArg.FILENAME_ARRAY },
+		{ null },
+	};
+
 	internal Application () {
 		Object (application_id: Config.APPLICATION_ID,
-		        flags: ApplicationFlags.HANDLES_OPEN);
+		        flags: ApplicationFlags.HANDLES_OPEN | ApplicationFlags.HANDLES_COMMAND_LINE);
 	}
 
 	construct {
@@ -37,6 +42,7 @@ public class Games.Application : Gtk.Application {
 		Environment.set_variable ("PULSE_PROP_media.role", "game", true);
 		Environment.set_variable ("PULSE_PROP_application.icon_name", Config.APPLICATION_ID, true);
 
+		add_main_option_entries (option_entries);
 		add_actions ();
 		add_signal_handlers ();
 
@@ -210,6 +216,25 @@ public class Games.Application : Gtk.Application {
 		load_game_list.begin ();
 
 		cover_loader = new CoverLoader ();
+	}
+
+	protected override int command_line (ApplicationCommandLine command_line) {
+		var options = command_line.get_options_dict ();
+
+		activate ();
+
+		var files_variant = options.lookup_value ("", VariantType.BYTESTRING_ARRAY);
+		if (files_variant != null) {
+			var filenames = files_variant.get_bytestring_array ();
+			File[] files = {};
+
+			foreach (var filename in filenames)
+				files += command_line.create_file_for_arg (filename);
+
+			open (files, "");
+		}
+
+		return 0;
 	}
 
 	protected override void activate () {
