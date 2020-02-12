@@ -26,7 +26,8 @@ public class Games.Application : Gtk.Application {
 	};
 
 	private const OptionEntry[] option_entries = {
-		{ "search", 0, 0, OptionArg.STRING_ARRAY,   null, N_("Search term") },
+		{ "search", 0, 0, OptionArg.STRING_ARRAY,   null, N_("Search term")       },
+		{ "uid",    0, 0, OptionArg.STRING,         null, N_("Run a game by uid") },
 		{ "",       0, 0, OptionArg.FILENAME_ARRAY },
 		{ null },
 	};
@@ -219,10 +220,30 @@ public class Games.Application : Gtk.Application {
 		cover_loader = new CoverLoader ();
 	}
 
+	private async void run_by_uid (string uid) {
+		var game = yield game_collection.query_game_for_uid (uid);
+
+		if (game == null) {
+			window.show_error (_("Cannot find game with UID “%s”.").printf (uid));
+
+			return;
+		}
+
+		window.run_game (game);
+	}
+
 	protected override int command_line (ApplicationCommandLine command_line) {
 		var options = command_line.get_options_dict ();
 
 		activate ();
+
+		if ("uid" in options) {
+			var uid = options.lookup_value ("uid", VariantType.STRING);
+			if (uid != null)
+				run_by_uid.begin (uid.get_string ());
+
+			return 0;
+		}
 
 		if ("search" in options) {
 			var terms_variant = options.lookup_value ("search", VariantType.STRING_ARRAY);

@@ -5,8 +5,10 @@ private class Games.GameCollection : Object {
 	public signal void game_replaced (Game game, Game prev_game);
 	public signal void game_removed (Game game);
 
+	private signal void loading_done ();
+
+	private HashTable<string, Game> games;
 	private HashTable<string, Game> cached_games;
-	private GenericSet<Game> games;
 	private UriSource[] sources;
 	private UriGameFactory[] factories;
 	private RunnerFactory[] runner_factories;
@@ -17,12 +19,13 @@ private class Games.GameCollection : Object {
 	private HashTable<Platform, Array<RunnerFactory>> runner_factories_for_platforms;
 
 	private SourceFunc search_games_cb;
+	private bool is_loading_done;
 
 	public GameCollection (Database database) {
 		this.database = database;
 
+		games = new HashTable<string, Game> (str_hash, str_equal);
 		cached_games = new HashTable<string, Game> (str_hash, str_equal);
-		games = new GenericSet<Game> (Game.hash, Game.equal);
 		factories_for_mime_type = new HashTable<string, Array<UriGameFactory>> (str_hash, str_equal);
 		factories_for_scheme = new HashTable<string, Array<UriGameFactory>> (str_hash, str_equal);
 		runner_factories_for_platforms = new HashTable<Platform, Array<RunnerFactory>> (Platform.hash, Platform.equal);
@@ -95,10 +98,18 @@ private class Games.GameCollection : Object {
 			try {
 				database.list_cached_games ((game) => {
 					cached_games[game.get_uri ().to_string ()] = game;
-					if (games.contains (game))
+
+					string? uid = null;
+					try {
+						uid = game.get_uid ().get_uid ();
+					}
+					catch (Error e) {}
+
+					if (games.contains (uid))
 						return;
 
-					games.add (game);
+					games[uid] = game;
+
 					Idle.add (() => {
 						game_added (game);
 						return Source.REMOVE;
@@ -122,7 +133,13 @@ private class Games.GameCollection : Object {
 					warning ("Couldn't remove game: %s", e.message);
 				}
 
-				games.remove (game);
+				string? uid = null;
+				try {
+					uid = game.get_uid ().get_uid ();
+				}
+				catch (Error e) {}
+
+				games.remove (uid);
 				if (removed)
 					Idle.add (() => {
 						game_removed (game);
@@ -139,6 +156,9 @@ private class Games.GameCollection : Object {
 		new Thread<void*> (null, (owned) run);
 
 		yield;
+
+		is_loading_done = true;
+		loading_done ();
 
 		search_games_cb = null;
 	}
@@ -238,10 +258,17 @@ private class Games.GameCollection : Object {
 			warning ("Couldn't cache game: %s", e.message);
 		}
 
-		if (games.contains (game) && prev_game == null)
+		string? uid = null;
+		try {
+			uid = game.get_uid ().get_uid ();
+		}
+		catch (Error e) {}
+
+		if (games.contains (uid) && prev_game == null)
 			return;
 
-		games.add (game);
+		games[uid] = game;
+
 		Idle.add (() => {
 			if (prev_game != null)
 				game_replaced (game, prev_game);
@@ -249,5 +276,45 @@ private class Games.GameCollection : Object {
 				game_added (game);
 			return Source.REMOVE;
 		});
+	}
+
+	public async Game? query_game_for_uid (string uid) {
+		if (uid in games)
+			return games[uid];
+
+		if (is_loading_done)
+			return null;
+
+		Game? result = null;
+		ulong game_added_id = 0;
+		ulong loading_done_id = 0;
+
+		game_added_id = game_added.connect ((game) => {
+			string? game_uid = null;
+			try {
+				game_uid = game.get_uid ().get_uid ();
+			}
+			catch (Error e) {
+				return;
+			}
+
+			if (game_uid != uid)
+				return;
+
+			result = game;
+			disconnect (game_added_id);
+			disconnect (loading_done_id);
+			query_game_for_uid.callback ();
+		});
+
+		loading_done_id = loading_done.connect (() => {
+			disconnect (game_added_id);
+			disconnect (loading_done_id);
+			query_game_for_uid.callback ();
+		});
+
+		yield;
+
+		return result;
 	}
 }
