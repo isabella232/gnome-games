@@ -1,16 +1,16 @@
 # Hungarian translation for gnome-games.
-# Copyright (C) 2016, 2017, 2018, 2019 Free Software Foundation, Inc.
+# Copyright (C) 2016, 2017, 2018, 2019, 2020 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-games package.
 #
-# Balázs Úr <ur.balazs at fsf dot hu>, 2016, 2017, 2018, 2019.
+# Balázs Úr <ur.balazs at fsf dot hu>, 2016, 2017, 2018, 2019, 2020.
 # Gabor Kelemen <kelemeng at ubuntu dot com>, 2017.
 # Balázs Meskó <mesko.balazs at fsf dot hu>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-09-13 15:50+0000\n"
-"PO-Revision-Date: 2019-09-14 18:00+0200\n"
+"POT-Creation-Date: 2020-02-10 17:47+0000\n"
+"PO-Revision-Date: 2020-02-13 19:19+0100\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
@@ -18,20 +18,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 18.12.3\n"
+"X-Generator: Lokalize 19.04.3\n"
 
-#: data/org.gnome.Games.appdata.xml.in.in:6
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:48
-#: data/ui/collection-header-bar.ui:76 data/ui/display-header-bar.ui:16
-#: src/ui/application.vala:25
+#: data/org.gnome.Games.appdata.xml.in.in:7
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:56
+#: data/ui/collection-header-bar.ui:79 src/ui/application.vala:35
 msgid "Games"
 msgstr "Játékok"
 
-#: data/org.gnome.Games.appdata.xml.in.in:7
+#: data/org.gnome.Games.appdata.xml.in.in:8
 msgid "Simple game launcher for GNOME"
 msgstr "Egyszerű játékindító a GNOME-hoz"
 
-#: data/org.gnome.Games.appdata.xml.in.in:10
+#: data/org.gnome.Games.appdata.xml.in.in:11
 msgid ""
 "Games is a GNOME 3 application to browse your video games library and to "
 "easily pick and play a game from it. It aims to do for games what Music "
@@ -41,7 +40,7 @@ msgstr ""
 "hogy egyszerűen kiválaszthassa és elindíthassa a játékot onnan. Célja, hogy "
 "ugyanazt tegye a játékokkal, amit a Zene már elvégzett a zenekönyvtárral."
 
-#: data/org.gnome.Games.appdata.xml.in.in:15
+#: data/org.gnome.Games.appdata.xml.in.in:16
 msgid ""
 "You want to install Games if you just want a very simple and comfortable way "
 "to play your games and you don’t need advanced features such as speedrunning "
@@ -52,27 +51,27 @@ msgstr ""
 "funkciókra, mint például gyors végigjátszást segítő eszközök vagy videojáték "
 "fejlesztői eszközök."
 
-#: data/org.gnome.Games.appdata.xml.in.in:20
+#: data/org.gnome.Games.appdata.xml.in.in:21
 msgid "Features:"
 msgstr "Szolgáltatások:"
 
-#: data/org.gnome.Games.appdata.xml.in.in:22
+#: data/org.gnome.Games.appdata.xml.in.in:23
 msgid "List your installed games, your Steam games, your game ROMs…"
 msgstr "Telepített játékok, Steam játékok, játék ROM-ok, stb. felsorolása"
 
-#: data/org.gnome.Games.appdata.xml.in.in:23
+#: data/org.gnome.Games.appdata.xml.in.in:24
 msgid "Search in your games collection"
 msgstr "Keresés a játékgyűjteményében"
 
-#: data/org.gnome.Games.appdata.xml.in.in:24
+#: data/org.gnome.Games.appdata.xml.in.in:25
 msgid "Play your games"
 msgstr "Játékok elindítása"
 
-#: data/org.gnome.Games.appdata.xml.in.in:25
+#: data/org.gnome.Games.appdata.xml.in.in:26
 msgid "Resume your game to where you left it"
 msgstr "Játék folytatása, ahol abbahagyta"
 
-#: data/org.gnome.Games.appdata.xml.in.in:204
+#: data/org.gnome.Games.appdata.xml.in.in:261
 msgid "The GNOME Project"
 msgstr "A GNOME projekt"
 
@@ -89,7 +88,7 @@ msgstr "Videojáték-gyűjtemény elindítása és megtekintése"
 msgid "game;videogame;video game;player;"
 msgstr "játék;videojáték;videó játék;lejátszó;"
 
-#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:101
+#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:100
 msgid "Fullscreen"
 msgstr "Teljes képernyő"
 
@@ -138,51 +137,51 @@ msgstr ""
 "Lehet, hogy más központi összetevő lesz használva, ha az előnyben "
 "részesítettből hiányzik egy firmware."
 
-#: data/ui/collection-box.ui:60 src/ui/preferences-page-platforms.vala:9
+#: data/ui/collection-box.ui:71 src/ui/preferences-page-platforms.vala:9
 msgid "Platforms"
 msgstr "Platformok"
 
-#: data/ui/collection-box.ui:84
+#: data/ui/collection-box.ui:97
 msgid "Loading"
 msgstr "Betöltés"
 
-#: data/ui/collection-header-bar.ui:25
+#: data/ui/collection-header-bar.ui:28
 msgid "Add game files…"
 msgstr "Játékfájlok hozzáadása…"
 
 #. Translators: tooltip for the application menu button
-#: data/ui/collection-header-bar.ui:44
+#: data/ui/collection-header-bar.ui:47
 msgid "Menu"
 msgstr "Menü"
 
-#: data/ui/collection-header-bar.ui:95 data/ui/collection-header-bar.ui:149
+#: data/ui/collection-header-bar.ui:98 data/ui/collection-header-bar.ui:153
 msgid "Search"
 msgstr "Keresés"
 
-#: data/ui/collection-header-bar.ui:126 data/ui/display-header-bar.ui:29
-#: data/ui/display-header-bar.ui:162 data/ui/preferences-subpage-gamepad.ui:83
-#: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:37
-#: data/ui/preferences-window.ui:78
+#: data/ui/collection-header-bar.ui:130 data/ui/display-header-bar.ui:30
+#: data/ui/display-header-bar.ui:162 data/ui/preferences-subpage-gamepad.ui:84
+#: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:36
+#: data/ui/preferences-window.ui:77
 msgid "Back"
 msgstr "Vissza"
 
-#: data/ui/collection-header-bar.ui:179
+#: data/ui/collection-header-bar.ui:176
 msgid "Pr_eferences"
 msgstr "_Beállítások"
 
-#: data/ui/collection-header-bar.ui:187
+#: data/ui/collection-header-bar.ui:180
 msgid "_Keyboard Shortcuts"
 msgstr "_Gyorsbillentyűk"
 
-#: data/ui/collection-header-bar.ui:195
+#: data/ui/collection-header-bar.ui:184
 msgid "_Help"
 msgstr "_Súgó"
 
-#: data/ui/collection-header-bar.ui:203
+#: data/ui/collection-header-bar.ui:188
 msgid "_About Games"
 msgstr "A Játékok _névjegye"
 
-#: data/ui/display-header-bar.ui:54
+#: data/ui/display-header-bar.ui:53
 msgid "Restore"
 msgstr "Helyreállítás"
 
@@ -190,23 +189,20 @@ msgstr "Helyreállítás"
 msgid "_Load"
 msgstr "_Betöltés"
 
-#: data/ui/display-header-bar.ui:190
-msgid "_Savestates"
-msgstr "Állapot_mentések"
+#: data/ui/display-header-bar.ui:185
+#| msgid "Restart"
+msgid "_Restart"
+msgstr "Új_raindítás"
 
-#: data/ui/dummy-display.ui:37
-msgid "This is a dummy game display"
-msgstr "Ez egy üres játékmegjelenítő"
+#: data/ui/display-header-bar.ui:191
+msgid "_Snapshots"
+msgstr "_Pillanatképek"
 
-#: data/ui/dummy-display.ui:53
-msgid "If you see this, this is a bug. Please contact the developers."
-msgstr "Ha ezt látja, akkor ez hiba. Lépjen kapcsolatba a fejlesztőkkel."
-
-#: data/ui/empty-collection.ui:29
+#: data/ui/empty-collection.ui:23
 msgid "No games found"
 msgstr "Nem találhatók játékok"
 
-#: data/ui/empty-collection.ui:44
+#: data/ui/empty-collection.ui:38
 msgid ""
 "Install games or add directories containing games to your search sources."
 msgstr ""
@@ -225,53 +221,62 @@ msgstr "Billentyűzet bemenet"
 msgid "Media"
 msgstr "Adathordozó"
 
-#: data/ui/preferences-page-backup-restore.ui:10
-msgid ""
-"Backup save states and in-game saves. This can be used for moving the data "
-"to another device or for restoring it later. Desktop, Steam and LÖVE games "
-"cannot be backed up."
-msgstr ""
-"Biztonsági mentés készítése az állapotokról és a játék közbeni mentésekről. "
-"Ezt arra használhatja, hogy másik eszközre vigye az adatait, vagy hogy "
-"később helyreállítsa azokat. Az asztali, a Steam és a LÖVE-alapú játékokról "
-"nem készíthető biztonsági mentés."
-
-#: data/ui/preferences-page-backup-restore.ui:38
-#: src/ui/preferences-page-backup-restore.vala:34
-msgid "Back up save data"
-msgstr "Mentési adatok biztonsági mentése"
-
-#: data/ui/preferences-page-backup-restore.ui:47
-#: src/ui/preferences-page-backup-restore.vala:36
-msgid "_Back Up"
-msgstr "_Biztonsági mentés"
-
-#: data/ui/preferences-page-backup-restore.ui:62
-msgid ""
-"Restore save data for games from existing backup. This will replace existing "
-"saves and cannot be undone."
-msgstr ""
-"Játékok mentési adatainak helyreállítása meglévő mentésből. Ez lecseréli a "
-"meglévő mentéseket, és nem vonható vissza."
-
-#: data/ui/preferences-page-backup-restore.ui:90
-#: src/ui/preferences-page-backup-restore.vala:12
-msgid "Restore save data"
-msgstr "Mentési adatok helyreállítása"
-
-#: data/ui/preferences-page-backup-restore.ui:99
-#: src/ui/preferences-page-backup-restore.vala:14
-msgid "_Restore"
-msgstr "_Helyreállítás"
-
 #: data/ui/preferences-page-controllers.ui:10
 msgid "Gamepads"
 msgstr "Irányítók"
 
-#: data/ui/preferences-page-controllers.ui:30
+#: data/ui/preferences-page-controllers.ui:31
 #: src/ui/preferences-page-controllers.vala:73
 msgid "Keyboard"
 msgstr "Billentyűzet"
+
+#: data/ui/preferences-page-import-export.ui:10
+#| msgid ""
+#| "Backup save states and in-game saves. This can be used for moving the "
+#| "data to another device or for restoring it later. Desktop, Steam and LÖVE "
+#| "games cannot be backed up."
+msgid ""
+"Export save states and in-game saves. This can be used for moving the data "
+"to another device or for restoring it later. Desktop, Steam and LÖVE games "
+"cannot be exported."
+msgstr ""
+"Mentési állapotok és a játék közbeni mentések exportálása. Ezt arra"
+" használhatja, hogy másik eszközre vigye az adatait, vagy hogy később"
+" helyreállítsa azokat. Az asztali, a Steam és a LÖVE-alapú játékok nem"
+" exportálhatók."
+
+#: data/ui/preferences-page-import-export.ui:42
+#: src/ui/preferences-page-import-export.vala:34
+#| msgid "Restore save data"
+msgid "Export save data"
+msgstr "Mentési adatok exportálása"
+
+#: data/ui/preferences-page-import-export.ui:51
+#: src/ui/preferences-page-import-export.vala:36
+msgid "_Export"
+msgstr "_Exportálás"
+
+#: data/ui/preferences-page-import-export.ui:66
+#| msgid ""
+#| "Restore save data for games from existing backup. This will replace "
+#| "existing saves and cannot be undone."
+msgid ""
+"Import save data for games from existing backup. This will replace existing "
+"saves and cannot be undone."
+msgstr ""
+"Játékok mentési adatainak importálása meglévő biztonsági mentésből. Ez"
+" lecseréli a meglévő mentéseket, és nem vonható vissza."
+
+#: data/ui/preferences-page-import-export.ui:97
+#: src/ui/preferences-page-import-export.vala:12
+#| msgid "Restore save data"
+msgid "Import save data"
+msgstr "Mentési adatok importálása"
+
+#: data/ui/preferences-page-import-export.ui:106
+#: src/ui/preferences-page-import-export.vala:14
+msgid "_Import"
+msgstr "_Importálás"
 
 #: data/ui/preferences-page-video.ui:10
 msgid "Filter"
@@ -293,14 +298,14 @@ msgstr "Beállítás"
 msgid "Skip"
 msgstr "Kihagyás"
 
-#: data/ui/preferences-subpage-gamepad.ui:101
+#: data/ui/preferences-subpage-gamepad.ui:102
 #: data/ui/preferences-subpage-keyboard.ui:102 data/ui/quit-dialog.ui:15
 #: data/ui/reset-controller-mapping-dialog.ui:15
 #: data/ui/resume-failed-dialog.ui:14
 msgid "Cancel"
 msgstr "Mégse"
 
-#: data/ui/preferences-window.ui:5 data/ui/preferences-window.ui:26
+#: data/ui/preferences-window.ui:5 data/ui/preferences-window.ui:25
 msgid "Preferences"
 msgstr "Beállítások"
 
@@ -316,15 +321,16 @@ msgstr "Az összes nem mentett folyamat el fog veszni."
 msgid "Quit"
 msgstr "Kilépés"
 
-#: data/ui/remote-display.ui:36
+#: data/ui/remote-display.ui:23
 msgid "Use the game’s own window to play it"
 msgstr "A játék saját ablakát kell használnia az elindításához"
 
-#: data/ui/remote-display.ui:51
-msgid "This game isn’t integrated to GNOME Games."
+#: data/ui/remote-display.ui:36
+#| msgid "This game isn’t integrated to GNOME Games."
+msgid "This game isn’t integrated with GNOME Games."
 msgstr "Ez a játék nincs integrálva a GNOME Játékokkal."
 
-#: data/ui/remote-display.ui:64
+#: data/ui/remote-display.ui:47
 msgid "You have to use its own window to play it."
 msgstr "A saját ablakát kell használnia az elindításához."
 
@@ -362,19 +368,20 @@ msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Visszaállítás"
 
-#: data/ui/savestates-list.ui:63
-msgid "Create new savestate"
-msgstr "Új állapotmentés létrehozása"
+#: data/ui/savestates-list.ui:64
+#| msgid "Create new savestate"
+msgid "Create new snapshot"
+msgstr "Új pillanatkép létrehozása"
 
-#: data/ui/savestates-list.ui:88
+#: data/ui/savestates-list.ui:89
 msgid "_Delete"
 msgstr "_Törlés"
 
-#: data/ui/savestates-list.ui:102 data/ui/savestates-list.ui:152
+#: data/ui/savestates-list.ui:103 data/ui/savestates-list.ui:153
 msgid "_Rename"
 msgstr "Át_nevezés"
 
-#: data/ui/savestates-list.ui:128
+#: data/ui/savestates-list.ui:129
 msgid "Name"
 msgstr "Név"
 
@@ -450,19 +457,24 @@ msgid "In Game"
 msgstr "Játékban"
 
 #: data/ui/shortcuts-window.ui:98
+#| msgid "Create new savestate"
 msgctxt "shortcut window"
-msgid "Create new savestate"
-msgstr "Új állapotmentés létrehozása"
+msgid "Create new snapshot"
+msgstr "Új pillanatkép létrehozása"
 
 #: data/ui/shortcuts-window.ui:105
+#| msgctxt "shortcut window"
+#| msgid "Load the latest savestate"
 msgctxt "shortcut window"
-msgid "Load the latest savestate"
-msgstr "Legújabb állapotmentés betöltése"
+msgid "Load the latest snapshot"
+msgstr "Legújabb pillanatkép betöltése"
 
 #: data/ui/shortcuts-window.ui:112
+#| msgctxt "shortcut window"
+#| msgid "Show savestates"
 msgctxt "shortcut window"
-msgid "Show savestates"
-msgstr "Állapotmentések megjelenítése"
+msgid "Show snapshots"
+msgstr "Pillanatképek megjelenítése"
 
 #: data/ui/shortcuts-window.ui:119
 msgctxt "shortcut window"
@@ -571,42 +583,42 @@ msgstr "Közreműködés"
 msgid "Desktop"
 msgstr "Asztal"
 
-#: plugins/desktop/src/desktop-plugin.vala:57
+#: plugins/desktop/src/desktop-plugin.vala:77
 #, c-format
 msgid "Invalid command “%s”."
 msgstr "Érvénytelen parancs: „%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:70
+#: plugins/desktop/src/desktop-plugin.vala:86
 #, c-format
 msgid "Tracker listed file not found: “%s”."
 msgstr "A követő által listázott fájl nem található: „%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:76
+#: plugins/desktop/src/desktop-plugin.vala:92
 #, c-format
 msgid "Couldn’t parse desktop entry “%s”."
 msgstr "Nem sikerült feldolgozni a(z) „%s” asztalbejegyzést."
 
-#: plugins/desktop/src/desktop-plugin.vala:86
+#: plugins/desktop/src/desktop-plugin.vala:102
 #, c-format
 msgid "“%s” shouldn’t be displayed."
 msgstr "A(z) „%s” nem jeleníthető meg."
 
-#: plugins/desktop/src/desktop-plugin.vala:89
+#: plugins/desktop/src/desktop-plugin.vala:105
 #, c-format
 msgid "“%s” is hidden."
 msgstr "A(z) „%s” rejtett."
 
-#: plugins/desktop/src/desktop-plugin.vala:98
+#: plugins/desktop/src/desktop-plugin.vala:114
 #, c-format
 msgid "“%s” has blacklisted category “%s”."
 msgstr "A(z) „%s” „%s” kategóriája feketelistán van."
 
-#: plugins/desktop/src/desktop-plugin.vala:107
+#: plugins/desktop/src/desktop-plugin.vala:123
 #, c-format
 msgid "“%s” has blacklisted executable “%s”."
 msgstr "A(z) „%s” „%s” futtatható állománya feketelistán van."
 
-#: plugins/desktop/src/desktop-plugin.vala:114
+#: plugins/desktop/src/desktop-plugin.vala:130
 #, c-format
 msgid "“%s” is blacklisted."
 msgstr "A(z) „%s” feketelistán van."
@@ -708,20 +720,20 @@ msgstr "Sega CD"
 msgid "Sega CD 32X"
 msgstr "Sega CD 32X"
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:116
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:99
+#: plugins/sega-cd/src/sega-cd-plugin.vala:99
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:81
 #, c-format
 msgid "The file “%s” doesn’t have a track."
 msgstr "A(z) „%s” fájlnak nincs sávja."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:122
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:105
+#: plugins/sega-cd/src/sega-cd-plugin.vala:105
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:87
 #, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr "A(z) „%s” fájlnak nincs érvényes bináris fájlformátuma."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:125
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:108
+#: plugins/sega-cd/src/sega-cd-plugin.vala:108
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:90
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
 msgstr "A(z) „%s” fájlnak nincs érvényes sáv módja a(z) %d. sávhoz."
@@ -734,7 +746,7 @@ msgstr "A fájlnak nincs Sega Saturn fejléce."
 msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:112
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:94
 #, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "A(z) „%s” fájlnak nincs érvényes Sega Saturn bináris fájlja."
@@ -742,11 +754,6 @@ msgstr "A(z) „%s” fájlnak nincs érvényes Sega Saturn bináris fájlja."
 #: plugins/steam/src/steam-plugin.vala:10
 msgid "Steam"
 msgstr "Steam"
-
-#: plugins/steam/src/steam-plugin.vala:85
-#, c-format
-msgid "Couldn’t get Steam appid from manifest “%s”."
-msgstr "Nem sikerült lekérni a Steam alkalmazásazonosítót a(z) „%s” leíróból."
 
 #: plugins/steam/src/steam-registry.vala:68
 #, c-format
@@ -764,10 +771,6 @@ msgstr "A tokenek váratlanul véget értek."
 #: plugins/steam/src/steam-registry.vala:113
 msgid "Unexpected token '}'."
 msgstr "Váratlan „{” token."
-
-#: plugins/steam/src/steam-title.vala:17
-msgid "Couldn’t get name from Steam registry."
-msgstr "Nem sikerült lekérni a nevet a Steam nyilvántartásból."
 
 #. translators: known as "CD-ROM²" in eastern Asia and France
 #: plugins/turbografx-cd/src/turbografx-cd-plugin.vala:9
@@ -872,14 +875,6 @@ msgstr "Nem található lemezkészlet-azonosító a(z) „%s” lemezazonosító
 msgid "No disc found for disc ID “%s”."
 msgstr "Nem található lemez a(z) „%s” lemezazonosítóhoz."
 
-#: src/grilo/grilo-players.vala:40
-msgid "Single-player"
-msgstr "Egyjátékos"
-
-#: src/grilo/grilo-players.vala:42
-msgid "Multi-player"
-msgstr "Többjátékos"
-
 #: src/retro/retro-core-source.vala:29 src/retro/retro-core-source.vala:43
 #, c-format
 msgid "No module found for platform “%s” and MIME types [ “%s” ]."
@@ -912,7 +907,7 @@ msgstr ""
 "Ennek a játéknak a futtatásához a(z) %s, %s SHA-512 ujjlenyomattal ellátott "
 "firmware fájl szükséges."
 
-#: src/retro/retro-runner.vala:313
+#: src/retro/retro-runner.vala:316
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nem található modul ehhez: „%s”."
@@ -921,21 +916,21 @@ msgstr "Nem található modul ehhez: „%s”."
 msgid "Unknown platform"
 msgstr "Ismeretlen platform"
 
-#: src/retro/retro-runner.vala:606
+#: src/retro/retro-runner.vala:605
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
 "A(z) „%s” rendszer még nem támogatott, de a teljes támogatás tervezett."
 
-#: src/retro/retro-runner.vala:608
+#: src/retro/retro-runner.vala:607
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "A rendszer még nem támogatott, de a teljes támogatás tervezett."
 
-#. A list containing the names of all savestates with name of the form "New Savestate %d"
-#: src/retro/retro-runner.vala:618 src/retro/retro-runner.vala:644
+#: src/retro/retro-runner.vala:616 src/retro/retro-runner.vala:641
 #, c-format
-msgid "New savestate %s"
-msgstr "Új %s állapotmentés"
+#| msgid "New savestate %s"
+msgid "New snapshot %s"
+msgstr "Új %s pillanatkép"
 
 #: src/retro/retro-simple-type.vala:13
 msgid "Amiga"
@@ -1040,20 +1035,20 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:153
+#: src/ui/application.vala:141
 msgid "Select game files"
 msgstr "Játékfájlok kiválasztása"
 
-#: src/ui/application.vala:154 src/ui/preferences-page-backup-restore.vala:14
-#: src/ui/preferences-page-backup-restore.vala:36
+#: src/ui/application.vala:142 src/ui/preferences-page-import-export.vala:14
+#: src/ui/preferences-page-import-export.vala:36
 msgid "_Cancel"
 msgstr "_Mégse"
 
-#: src/ui/application.vala:155
+#: src/ui/application.vala:143
 msgid "_Add"
 msgstr "_Hozzáadás"
 
-#: src/ui/application.vala:195
+#: src/ui/application.vala:183
 #, c-format
 msgid "An unexpected error occurred while trying to run %s"
 msgstr "Váratlan hiba történt a(z) %s futtatásának kísérletekor"
@@ -1076,13 +1071,14 @@ msgstr ""
 "Meskó Balázs <mesko.balazs at fsf dot hu>\n"
 "Úr Balázs <ur.balazs at fsf dot hu>"
 
-#: src/ui/application-window.vala:271 src/ui/application-window.vala:288
+#: src/ui/application-window.vala:267 src/ui/application-window.vala:284
 msgid "Playing a game"
 msgstr "Játék elindítása"
 
-#: src/ui/display-view.vala:323
-msgid "An unexpected error occurred."
-msgstr "Váratlan hiba történt."
+#: src/ui/display-view.vala:341
+#| msgid "No games found"
+msgid "No runner found"
+msgstr "Nem található futtató"
 
 #: src/ui/error-display.vala:13
 #, c-format
@@ -1114,23 +1110,25 @@ msgstr "Nyomja meg a megfelelő gombot a billentyűzeten"
 msgid "Media %d"
 msgstr "%d. adathordozó"
 
-#: src/ui/preferences-page-backup-restore.vala:6
-msgid "Back Up & Restore"
-msgstr "Biztonsági mentés és helyreállítás"
-
-#: src/ui/preferences-page-backup-restore.vala:23
-#, c-format
-msgid "Couldn’t restore: %s"
-msgstr "Nem sikerült helyreállítani: %s"
-
-#: src/ui/preferences-page-backup-restore.vala:53
-#, c-format
-msgid "Couldn’t back up: %s"
-msgstr "Nem sikerült biztonsági mentést készíteni: %s"
-
 #: src/ui/preferences-page-controllers.vala:22
 msgid "Controllers"
 msgstr "Vezérlők"
+
+#: src/ui/preferences-page-import-export.vala:6
+msgid "Import & Export"
+msgstr "Importálás és exportálás"
+
+#: src/ui/preferences-page-import-export.vala:23
+#, c-format
+#| msgid "Couldn’t restore: %s"
+msgid "Couldn’t import save data: %s"
+msgstr "Nem sikerült importálni a mentési adatokat: %s"
+
+#: src/ui/preferences-page-import-export.vala:53
+#, c-format
+#| msgid "Couldn’t restore: %s"
+msgid "Couldn’t export save data: %s"
+msgstr "Nem sikerült exportálni a mentési adatokat: %s"
 
 #: src/ui/preferences-page-platforms-retro-row.vala:45
 #: src/ui/preferences-page-platforms-retro-row.vala:52
@@ -1174,26 +1172,26 @@ msgstr "Billentyűzet tesztelése"
 msgid "Configuring Keyboard"
 msgstr "Billentyűzet beállítása"
 
-#: src/ui/savestate-listbox-row.vala:23 src/ui/savestates-list.vala:226
+#: src/ui/savestate-listbox-row.vala:23 src/ui/savestates-list.vala:188
 msgid "Autosave"
 msgstr "Automatikus mentés"
 
 #. Translators: Time in locale format
-#: src/ui/savestate-listbox-row.vala:185
+#: src/ui/savestate-listbox-row.vala:192
 #, no-c-format
 msgid "%X"
 msgstr "%X"
 
 #. Translators: this is the word Yesterday followed by
 #. * a time in locale format. i.e. "Yesterday 23:04:35"
-#: src/ui/savestate-listbox-row.vala:191
+#: src/ui/savestate-listbox-row.vala:198
 #, no-c-format
 msgid "Yesterday %X"
 msgstr "Tegnap %X"
 
 #. Translators: this is the abbreviated name of the week day followed by
 #. * a time in locale format. i.e. "Monday 23:04:35"
-#: src/ui/savestate-listbox-row.vala:197
+#: src/ui/savestate-listbox-row.vala:204
 #, no-c-format
 msgid "%a %X"
 msgstr "%a %X"
@@ -1201,27 +1199,27 @@ msgstr "%a %X"
 #. Translators: this is the day of the month followed
 #. * by the abbreviated month name followed by a time in
 #. * locale format i.e. "3 Feb 23:04:35"
-#: src/ui/savestate-listbox-row.vala:204
+#: src/ui/savestate-listbox-row.vala:211
 #, no-c-format
-#| msgid "%-e %b %Y %X"
 msgid "%-e %b %X"
 msgstr "%b. %-e. %X"
 
 #. Translators: this is the day number followed
 #. * by the abbreviated month name followed by the year followed
 #. * by a time in locale format i.e. "3 Feb 2015 23:04:00"
-#: src/ui/savestate-listbox-row.vala:211
+#: src/ui/savestate-listbox-row.vala:218
 #, no-c-format
 msgid "%-e %b %Y %X"
 msgstr "%Y. %b. %-e. %X"
 
-#: src/ui/savestates-list.vala:229
+#: src/ui/savestates-list.vala:191
 msgid "Invalid name"
 msgstr "Érvénytelen név"
 
-#: src/ui/savestates-list.vala:247
-msgid "A savestate with this name already exists"
-msgstr "Már létezik ilyen nevű állapotmentés"
+#: src/ui/savestates-list.vala:209
+#| msgid "A savestate with this name already exists"
+msgid "A snapshot with this name already exists"
+msgstr "Már létezik ilyen nevű pillanatkép"
 
 #: src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
