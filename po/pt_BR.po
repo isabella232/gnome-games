@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-02-10 17:47+0000\n"
-"PO-Revision-Date: 2020-02-13 10:15-0300\n"
+"POT-Creation-Date: 2020-02-13 13:19+0000\n"
+"PO-Revision-Date: 2020-02-14 09:15-0300\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
@@ -21,8 +21,8 @@ msgstr ""
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:7
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:56
-#: data/ui/collection-header-bar.ui:79 src/ui/application.vala:35
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:61
+#: data/ui/collection-header-bar.ui:79 src/ui/application.vala:42
 msgid "Games"
 msgstr "Jogos"
 
@@ -139,11 +139,11 @@ msgstr ""
 "O núcleo preferido do Libretro a ser usado para jogos. Um núcleo diferente "
 "pode ser usado se o núcleo preferido não tiver firmware."
 
-#: data/ui/collection-box.ui:71 src/ui/preferences-page-platforms.vala:9
+#: data/ui/collection-box.ui:76 src/ui/preferences-page-platforms.vala:9
 msgid "Platforms"
 msgstr "Plataformas"
 
-#: data/ui/collection-box.ui:97
+#: data/ui/collection-box.ui:102
 msgid "Loading"
 msgstr "Carregando"
 
@@ -192,7 +192,6 @@ msgid "_Load"
 msgstr "_Carregar"
 
 #: data/ui/display-header-bar.ui:185
-#| msgid "Restart"
 msgid "_Restart"
 msgstr "_Reiniciar"
 
@@ -200,7 +199,7 @@ msgstr "_Reiniciar"
 msgid "_Snapshots"
 msgstr "_Snapshots"
 
-#: data/ui/empty-collection.ui:23
+#: data/ui/empty-collection.ui:23 data/ui/empty-search.ui:25
 msgid "No games found"
 msgstr "Nenhum jogo localizado"
 
@@ -210,6 +209,10 @@ msgid ""
 msgstr ""
 "Instale jogos ou adicione diretórios que contenham jogos às suas fontes de "
 "pesquisa."
+
+#: data/ui/empty-search.ui:40
+msgid "Try a different search."
+msgstr "Tente uma pesquisa diferente."
 
 #: data/ui/input-mode-switcher.ui:16
 msgid "Gamepad Input"
@@ -233,10 +236,6 @@ msgid "Keyboard"
 msgstr "Teclado"
 
 #: data/ui/preferences-page-import-export.ui:10
-#| msgid ""
-#| "Backup save states and in-game saves. This can be used for moving the "
-#| "data to another device or for restoring it later. Desktop, Steam and LÖVE "
-#| "games cannot be backed up."
 msgid ""
 "Export save states and in-game saves. This can be used for moving the data "
 "to another device or for restoring it later. Desktop, Steam and LÖVE games "
@@ -248,7 +247,6 @@ msgstr ""
 
 #: data/ui/preferences-page-import-export.ui:42
 #: src/ui/preferences-page-import-export.vala:34
-#| msgid "Restore save data"
 msgid "Export save data"
 msgstr "Exportar dados salvos"
 
@@ -258,9 +256,6 @@ msgid "_Export"
 msgstr "_Exportar"
 
 #: data/ui/preferences-page-import-export.ui:66
-#| msgid ""
-#| "Restore save data for games from existing backup. This will replace "
-#| "existing saves and cannot be undone."
 msgid ""
 "Import save data for games from existing backup. This will replace existing "
 "saves and cannot be undone."
@@ -270,7 +265,6 @@ msgstr ""
 
 #: data/ui/preferences-page-import-export.ui:97
 #: src/ui/preferences-page-import-export.vala:12
-#| msgid "Restore save data"
 msgid "Import save data"
 msgstr "Importar dados salvos"
 
@@ -369,7 +363,6 @@ msgid "Reset"
 msgstr "Reiniciar"
 
 #: data/ui/savestates-list.ui:64
-#| msgid "Create new savestate"
 msgid "Create new snapshot"
 msgstr "Criar novo snapshot"
 
@@ -457,21 +450,16 @@ msgid "In Game"
 msgstr "No jogo"
 
 #: data/ui/shortcuts-window.ui:98
-#| msgid "Create new savestate"
 msgctxt "shortcut window"
 msgid "Create new snapshot"
 msgstr "Cria um novo snapshot"
 
 #: data/ui/shortcuts-window.ui:105
-#| msgctxt "shortcut window"
-#| msgid "Load the latest savestate"
 msgctxt "shortcut window"
 msgid "Load the latest snapshot"
 msgstr "Carrega o snapshot mais recente"
 
 #: data/ui/shortcuts-window.ui:112
-#| msgctxt "shortcut window"
-#| msgid "Show savestates"
 msgctxt "shortcut window"
 msgid "Show snapshots"
 msgstr "Mostra os snapshots"
@@ -830,7 +818,7 @@ msgstr "O jogo não possui um comando válido."
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "Não foi possível executar “%s”: execução falhou."
 
-#: src/core/media-set/media-set.vala:30
+#: src/core/media-set/media-set.vala:45
 #, c-format
 msgid "Invalid media index %u."
 msgstr "Índice de mídia %u inválido."
@@ -905,28 +893,27 @@ msgstr ""
 "Esse jogo requer o arquivo de firmware de %s com uma impressão digital "
 "SHA-512 de %s para jogar."
 
-#: src/retro/retro-runner.vala:316
+#: src/retro/retro-runner.vala:311
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nenhum módulo localizado para “%s”."
 
-#: src/retro/retro-runner.vala:581
+#: src/retro/retro-runner.vala:566
 msgid "Unknown platform"
 msgstr "Plataforma desconhecida"
 
-#: src/retro/retro-runner.vala:605
+#: src/retro/retro-runner.vala:584
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
 "Não há suporte ao sistema “%s” ainda, mas suporte complete está nos planos."
 
-#: src/retro/retro-runner.vala:607
+#: src/retro/retro-runner.vala:586
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Não há suporte ao sistema ainda, mas suporte completo está nos planos."
 
-#: src/retro/retro-runner.vala:616 src/retro/retro-runner.vala:641
+#: src/retro/retro-runner.vala:595 src/retro/retro-runner.vala:620
 #, c-format
-#| msgid "New savestate %s"
 msgid "New snapshot %s"
 msgstr "Novo snapshot %s"
 
@@ -1033,43 +1020,58 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:141
+#: src/ui/application.vala:29
+#| msgid "Search"
+msgid "Search term"
+msgstr "Termo da pesquisa"
+
+#: src/ui/application.vala:30
+msgid "Run a game by uid"
+msgstr "Jogue um jogo por uid"
+
+#: src/ui/application.vala:149
 msgid "Select game files"
 msgstr "Selecione arquivos de jogos"
 
-#: src/ui/application.vala:142 src/ui/preferences-page-import-export.vala:14
+#: src/ui/application.vala:150 src/ui/preferences-page-import-export.vala:14
 #: src/ui/preferences-page-import-export.vala:36
 msgid "_Cancel"
 msgstr "_Cancelar"
 
-#: src/ui/application.vala:143
+#: src/ui/application.vala:151
 msgid "_Add"
 msgstr "_Adicionar"
 
-#: src/ui/application.vala:183
+#: src/ui/application.vala:191
 #, c-format
 msgid "An unexpected error occurred while trying to run %s"
 msgstr "Ocorreu um erro inesperado ao tentar executar %s."
 
-#: src/ui/application.vala:386
+#: src/ui/application.vala:227
+#, c-format
+#| msgid "Invalid game file: “%s”."
+msgid "Cannot find game with UID “%s”."
+msgstr "Não foi possível encontrar um jogo com o UID “%s”."
+
+#: src/ui/application.vala:449
 msgid "GNOME Games"
 msgstr "GNOME Jogos"
 
-#: src/ui/application.vala:388
+#: src/ui/application.vala:451
 msgid "A video game player for GNOME"
 msgstr "Um executor de video game para o GNOME"
 
-#: src/ui/application.vala:392
+#: src/ui/application.vala:455
 msgid "Learn more about GNOME Games"
 msgstr "Aprenda mais sobre o GNOME Jogos"
 
-#: src/ui/application.vala:399
+#: src/ui/application.vala:462
 msgid "translator-credits"
 msgstr ""
 "Enrico Nicoletto <liverig@gmail.com>\n"
 "Rafael Fontenelle <rafaelff@gnome.org>"
 
-#: src/ui/application-window.vala:267 src/ui/application-window.vala:284
+#: src/ui/application-window.vala:277 src/ui/application-window.vala:294
 msgid "Playing a game"
 msgstr "Jogar um jogo"
 
@@ -1117,13 +1119,11 @@ msgstr "Importar & exportar"
 
 #: src/ui/preferences-page-import-export.vala:23
 #, c-format
-#| msgid "Couldn’t restore: %s"
 msgid "Couldn’t import save data: %s"
 msgstr "Não foi possível importar dados salvos: %s"
 
 #: src/ui/preferences-page-import-export.vala:53
 #, c-format
-#| msgid "Couldn’t restore: %s"
 msgid "Couldn’t export save data: %s"
 msgstr "Não foi possível exportar dados salvos: %s"
 
@@ -1214,7 +1214,6 @@ msgid "Invalid name"
 msgstr "Nome inválido"
 
 #: src/ui/savestates-list.vala:209
-#| msgid "A savestate with this name already exists"
 msgid "A snapshot with this name already exists"
 msgstr "Um snapshot com esse nome já existe"
 
@@ -1428,9 +1427,6 @@ msgstr "Erro de escrita “%s”: %s (%d)"
 
 #~ msgid "No game file found for media “%s”."
 #~ msgstr "Nenhum arquivo de jogo localizado para a mídia “%s”."
-
-#~ msgid "Invalid game file: “%s”."
-#~ msgstr "Arquivo de jogo inválido: “%s”."
 
 #~ msgid "The file doesn’t have a Master System header."
 #~ msgstr "O arquivo não possui um cabeçalho de Master System."
