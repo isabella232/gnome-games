@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-02-13 13:19+0000\n"
-"PO-Revision-Date: 2020-02-14 09:15-0300\n"
+"POT-Creation-Date: 2020-02-16 17:29+0000\n"
+"PO-Revision-Date: 2020-02-16 16:38-0300\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
@@ -893,26 +893,26 @@ msgstr ""
 "Esse jogo requer o arquivo de firmware de %s com uma impressão digital "
 "SHA-512 de %s para jogar."
 
-#: src/retro/retro-runner.vala:311
+#: src/retro/retro-runner.vala:319
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nenhum módulo localizado para “%s”."
 
-#: src/retro/retro-runner.vala:566
+#: src/retro/retro-runner.vala:576
 msgid "Unknown platform"
 msgstr "Plataforma desconhecida"
 
-#: src/retro/retro-runner.vala:584
+#: src/retro/retro-runner.vala:594
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
 "Não há suporte ao sistema “%s” ainda, mas suporte complete está nos planos."
 
-#: src/retro/retro-runner.vala:586
+#: src/retro/retro-runner.vala:596
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Não há suporte ao sistema ainda, mas suporte completo está nos planos."
 
-#: src/retro/retro-runner.vala:595 src/retro/retro-runner.vala:620
+#: src/retro/retro-runner.vala:605 src/retro/retro-runner.vala:630
 #, c-format
 msgid "New snapshot %s"
 msgstr "Novo snapshot %s"
@@ -1021,7 +1021,6 @@ msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
 #: src/ui/application.vala:29
-#| msgid "Search"
 msgid "Search term"
 msgstr "Termo da pesquisa"
 
@@ -1049,7 +1048,6 @@ msgstr "Ocorreu um erro inesperado ao tentar executar %s."
 
 #: src/ui/application.vala:227
 #, c-format
-#| msgid "Invalid game file: “%s”."
 msgid "Cannot find game with UID “%s”."
 msgstr "Não foi possível encontrar um jogo com o UID “%s”."
 
@@ -1075,18 +1073,23 @@ msgstr ""
 msgid "Playing a game"
 msgstr "Jogar um jogo"
 
-#: src/ui/display-view.vala:341
+#: src/ui/display-view.vala:360
 msgid "No runner found"
 msgstr "Nenhum runner encontrado"
 
-#: src/ui/error-display.vala:13
+#: src/ui/error-display.vala:15
 #, c-format
 msgid "Oops! Unable to run “%s”"
 msgstr "Ops! Não foi possível jogar “%s”"
 
-#: src/ui/error-display.vala:15
+#: src/ui/error-display.vala:17
 msgid "Oops! Unable to run the game"
 msgstr "Ops! Não foi possível jogar o jogo"
+
+#: src/ui/error-display.vala:24
+#, c-format
+msgid "Oops! The game “%s” crashed unexpectedly"
+msgstr "Ops! O jogo “%s” foi encerrado inesperadamente"
 
 #: src/ui/gamepad-mapper.vala:137
 msgid "Press suitable button on your gamepad"
