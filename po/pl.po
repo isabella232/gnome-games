@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-01-28 13:39+0000\n"
-"PO-Revision-Date: 2020-02-02 12:22+0100\n"
+"POT-Creation-Date: 2020-02-12 10:59+0000\n"
+"PO-Revision-Date: 2020-02-16 13:18+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -20,9 +20,8 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:7
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:56
-#: data/ui/collection-header-bar.ui:79 data/ui/display-header-bar.ui:17
-#: src/ui/application.vala:35
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:61
+#: data/ui/collection-header-bar.ui:79 src/ui/application.vala:42
 msgid "Games"
 msgstr "Gry"
 
@@ -70,7 +69,7 @@ msgstr "Uruchamianie gier"
 msgid "Resume your game to where you left it"
 msgstr "Wstrzymywanie i wznawianie gier"
 
-#: data/org.gnome.Games.appdata.xml.in.in:237
+#: data/org.gnome.Games.appdata.xml.in.in:261
 msgid "The GNOME Project"
 msgstr "Projekt GNOME"
 
@@ -140,11 +139,11 @@ msgstr ""
 "Preferowany rdzeń biblioteki libretro używany do uruchamiania gier. Inny "
 "rdzeń może zostać użyty, jeśli preferowany nie ma oprogramowania sprzętowego."
 
-#: data/ui/collection-box.ui:71 src/ui/preferences-page-platforms.vala:9
+#: data/ui/collection-box.ui:76 src/ui/preferences-page-platforms.vala:9
 msgid "Platforms"
 msgstr "Platformy"
 
-#: data/ui/collection-box.ui:97
+#: data/ui/collection-box.ui:102
 msgid "Loading"
 msgstr "Wczytywanie"
 
@@ -162,7 +161,7 @@ msgid "Search"
 msgstr "Wyszukaj"
 
 #: data/ui/collection-header-bar.ui:130 data/ui/display-header-bar.ui:30
-#: data/ui/display-header-bar.ui:161 data/ui/preferences-subpage-gamepad.ui:84
+#: data/ui/display-header-bar.ui:162 data/ui/preferences-subpage-gamepad.ui:84
 #: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:36
 #: data/ui/preferences-window.ui:77
 msgid "Back"
@@ -188,19 +187,19 @@ msgstr "_O programie"
 msgid "Restore"
 msgstr "Przywróć"
 
-#: data/ui/display-header-bar.ui:140
+#: data/ui/display-header-bar.ui:141
 msgid "_Load"
 msgstr "_Wczytaj"
 
-#: data/ui/display-header-bar.ui:190
+#: data/ui/display-header-bar.ui:185
 msgid "_Restart"
 msgstr "_Uruchom ponownie"
 
-#: data/ui/display-header-bar.ui:203
+#: data/ui/display-header-bar.ui:191
 msgid "_Snapshots"
 msgstr "_Zapisy stanu"
 
-#: data/ui/empty-collection.ui:23
+#: data/ui/empty-collection.ui:23 data/ui/empty-search.ui:25
 msgid "No games found"
 msgstr "Brak gier"
 
@@ -210,6 +209,10 @@ msgid ""
 msgstr ""
 "Należy zainstalować gry lub dodać katalogi zawierające gry do źródeł "
 "wyszukiwania."
+
+#: data/ui/empty-search.ui:40
+msgid "Try a different search."
+msgstr "Proszę spróbować innych słów."
 
 #: data/ui/input-mode-switcher.ui:16
 msgid "Gamepad Input"
@@ -817,7 +820,7 @@ msgstr "Gra nie ma prawidłowego polecenia."
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "Nie można uruchomić „%s”: wykonanie się nie powiodło."
 
-#: src/core/media-set/media-set.vala:30
+#: src/core/media-set/media-set.vala:45
 #, c-format
 msgid "Invalid media index %u."
 msgstr "Nieprawidłowy indeks nośnika %u."
@@ -892,25 +895,25 @@ msgstr ""
 "Ta gra do działania wymaga pliku oprogramowania sprzętowego %s o sumie "
 "kontrolnej SHA-512 „%s”."
 
-#: src/retro/retro-runner.vala:316
+#: src/retro/retro-runner.vala:311
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nie odnaleziono modułu dla „%s”."
 
-#: src/retro/retro-runner.vala:577
+#: src/retro/retro-runner.vala:566
 msgid "Unknown platform"
 msgstr "Nieznana platforma"
 
-#: src/retro/retro-runner.vala:601
+#: src/retro/retro-runner.vala:584
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Konsola „%s” nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: src/retro/retro-runner.vala:603
+#: src/retro/retro-runner.vala:586
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Konsola nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: src/retro/retro-runner.vala:612 src/retro/retro-runner.vala:637
+#: src/retro/retro-runner.vala:595 src/retro/retro-runner.vala:620
 #, c-format
 msgid "New snapshot %s"
 msgstr "%s. zapis stanu"
@@ -1018,47 +1021,60 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:141
+#: src/ui/application.vala:29
+msgid "Search term"
+msgstr "Wyszukuje podany termin"
+
+#: src/ui/application.vala:30
+msgid "Run a game by uid"
+msgstr "Uruchamia grę według jej UID"
+
+#: src/ui/application.vala:149
 msgid "Select game files"
 msgstr "Wybór plików gry"
 
-#: src/ui/application.vala:142 src/ui/preferences-page-import-export.vala:14
+#: src/ui/application.vala:150 src/ui/preferences-page-import-export.vala:14
 #: src/ui/preferences-page-import-export.vala:36
 msgid "_Cancel"
 msgstr "_Anuluj"
 
-#: src/ui/application.vala:143
+#: src/ui/application.vala:151
 msgid "_Add"
 msgstr "_Dodaj"
 
-#: src/ui/application.vala:183
+#: src/ui/application.vala:191
 #, c-format
 msgid "An unexpected error occurred while trying to run %s"
 msgstr "Wystąpił nieoczekiwany błąd podczas uruchamiania „%s”"
 
-#: src/ui/application.vala:386
+#: src/ui/application.vala:227
+#, c-format
+msgid "Cannot find game with UID “%s”."
+msgstr "Nie można odnaleźć gry o UID „%s”."
+
+#: src/ui/application.vala:434
 msgid "GNOME Games"
 msgstr "Gry GNOME"
 
-#: src/ui/application.vala:388
+#: src/ui/application.vala:436
 msgid "A video game player for GNOME"
 msgstr "Uruchamianie gier w środowisku GNOME"
 
-#: src/ui/application.vala:392
+#: src/ui/application.vala:440
 msgid "Learn more about GNOME Games"
 msgstr "Więcej informacji o Grach GNOME"
 
-#: src/ui/application.vala:399
+#: src/ui/application.vala:447
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2016-2020\n"
 "Aviary.pl <community-poland@mozilla.org>, 2016-2020"
 
-#: src/ui/application-window.vala:267 src/ui/application-window.vala:284
+#: src/ui/application-window.vala:272 src/ui/application-window.vala:289
 msgid "Playing a game"
 msgstr "W trakcie gry"
 
-#: src/ui/display-view.vala:320
+#: src/ui/display-view.vala:341
 msgid "No runner found"
 msgstr "Nie odnaleziono programu uruchamiającego"
 
