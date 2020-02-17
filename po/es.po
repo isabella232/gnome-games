@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-02-12 10:59+0000\n"
-"PO-Revision-Date: 2020-02-12 12:27+0100\n"
+"POT-Creation-Date: 2020-02-16 17:29+0000\n"
+"PO-Revision-Date: 2020-02-17 11:54+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
@@ -897,25 +897,25 @@ msgstr ""
 "El juego necesita el archivo de firmware %s con una huella SHA-512 %s para "
 "ejecutarse."
 
-#: src/retro/retro-runner.vala:311
+#: src/retro/retro-runner.vala:319
 #, c-format
 msgid "No module found for “%s”."
 msgstr "No se pudo encontrar un módulo apropiado para «%s»."
 
-#: src/retro/retro-runner.vala:566
+#: src/retro/retro-runner.vala:576
 msgid "Unknown platform"
 msgstr "Plataforma desconocida"
 
-#: src/retro/retro-runner.vala:584
+#: src/retro/retro-runner.vala:594
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "El sistema «%s» todavía no está soportado, pero llegará pronto."
 
-#: src/retro/retro-runner.vala:586
+#: src/retro/retro-runner.vala:596
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "El sistema todavía no está soportado, pero llegará pronto."
 
-#: src/retro/retro-runner.vala:595 src/retro/retro-runner.vala:620
+#: src/retro/retro-runner.vala:605 src/retro/retro-runner.vala:630
 #, c-format
 msgid "New snapshot %s"
 msgstr "Nueva instantánea %s"
@@ -1024,7 +1024,6 @@ msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
 #: src/ui/application.vala:29
-#| msgid "Search"
 msgid "Search term"
 msgstr "Buscar término"
 
@@ -1052,44 +1051,48 @@ msgstr "Ha ocurrido un error inesperado al intentar ejecutar %s"
 
 #: src/ui/application.vala:227
 #, c-format
-#| msgid "Invalid game file: “%s”."
 msgid "Cannot find game with UID “%s”."
 msgstr "No se puede jugar al juego con UID «%s»."
 
-#: src/ui/application.vala:434
+#: src/ui/application.vala:449
 msgid "GNOME Games"
 msgstr "Juegos de GNOME"
 
-#: src/ui/application.vala:436
+#: src/ui/application.vala:451
 msgid "A video game player for GNOME"
 msgstr "Un reproductor de videojuegos para GNOME"
 
-#: src/ui/application.vala:440
+#: src/ui/application.vala:455
 msgid "Learn more about GNOME Games"
 msgstr "Más información acerca de Juegos de GNOME"
 
-#: src/ui/application.vala:447
+#: src/ui/application.vala:462
 msgid "translator-credits"
 msgstr ""
 "Daniel Mustieles <daniel.mustieles@gmail.com>, 2016, 2018, 2019\n"
 "Rodrigo Lledó <rodhos92@gmail.com>, 2018, 2019"
 
-#: src/ui/application-window.vala:272 src/ui/application-window.vala:289
+#: src/ui/application-window.vala:277 src/ui/application-window.vala:294
 msgid "Playing a game"
 msgstr "Jugando a un juego"
 
-#: src/ui/display-view.vala:341
+#: src/ui/display-view.vala:360
 msgid "No runner found"
 msgstr "No se encontró ningún corredor"
 
-#: src/ui/error-display.vala:13
+#: src/ui/error-display.vala:15
 #, c-format
 msgid "Oops! Unable to run “%s”"
 msgstr "No se puede ejecutar «%s»"
 
-#: src/ui/error-display.vala:15
+#: src/ui/error-display.vala:17
 msgid "Oops! Unable to run the game"
 msgstr "No se puede ejecutar el juego"
+
+#: src/ui/error-display.vala:24
+#, c-format
+msgid "Oops! The game “%s” crashed unexpectedly"
+msgstr "EL juego «%s» ha fallado de manera inesperada"
 
 #: src/ui/gamepad-mapper.vala:137
 msgid "Press suitable button on your gamepad"
