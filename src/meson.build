@@ -21,6 +21,7 @@ vala_sources = [
   'core/game-collection.vala',
   'core/game-model.vala',
   'core/game-uri-adapter.vala',
+  'core/header-bar-widget.vala',
   'core/icon.vala',
   'core/input-capabilities.vala',
   'core/input-mode.vala',
