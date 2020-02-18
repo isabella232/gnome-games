@@ -12,6 +12,7 @@
           <object class="GamesDisplayHeaderBar" id="fullscreen_header_bar">
             <property name="visible">True</property>
             <property name="show-title-buttons">False</property>
+            <property name="game-title" bind-source="GamesDisplayBox" bind-property="game-title" bind-flags="bidirectional"/>
             <property name="is-showing-snapshots" bind-source="GamesDisplayBox" bind-property="is-showing-snapshots" bind-flags="bidirectional"/>
             <signal name="notify::is-menu-open" handler="block_autohide_changed"/>
             <signal name="back" handler="on_fullscreen_header_bar_back"/>
