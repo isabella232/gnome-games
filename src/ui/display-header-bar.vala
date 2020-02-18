@@ -36,8 +36,8 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 		}
 	}
 
-	private Gtk.Widget _extra_widget;
-	private Gtk.Widget extra_widget {
+	private HeaderBarWidget _extra_widget;
+	private HeaderBarWidget extra_widget {
 		get { return _extra_widget; }
 		set {
 			if (extra_widget == value)
