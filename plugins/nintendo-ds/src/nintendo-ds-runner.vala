@@ -59,7 +59,7 @@ private class Games.NintendoDsRunner : RetroRunner {
 		}
 	}
 
-	public override Gtk.Widget? get_extra_widget () {
+	public override HeaderBarWidget? get_extra_widget () {
 		if (!core_supports_layouts ())
 			return null;
 

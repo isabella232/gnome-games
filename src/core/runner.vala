@@ -13,7 +13,7 @@ public interface Games.Runner : Object {
 	public abstract InputMode input_mode { get; set; }
 
 	public abstract Gtk.Widget get_display ();
-	public abstract Gtk.Widget? get_extra_widget ();
+	public abstract HeaderBarWidget? get_extra_widget ();
 
 	public abstract bool try_init_phase_one (out string error_message);
 	public abstract void start () throws Error;

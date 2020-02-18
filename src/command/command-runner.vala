@@ -49,7 +49,7 @@ public class Games.CommandRunner : Object, Runner {
 		return new RemoteDisplay ();
 	}
 
-	public Gtk.Widget? get_extra_widget () {
+	public HeaderBarWidget? get_extra_widget () {
 		return null;
 	}
 

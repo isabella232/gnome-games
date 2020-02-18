@@ -159,7 +159,7 @@ public class Games.RetroRunner : Object, Runner {
 		return view;
 	}
 
-	public virtual Gtk.Widget? get_extra_widget () {
+	public virtual HeaderBarWidget? get_extra_widget () {
 		return null;
 	}
 
