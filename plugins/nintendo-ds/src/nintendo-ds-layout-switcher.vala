@@ -1,11 +1,13 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/plugins/nintendo-ds/ui/nintendo-ds-layout-switcher.ui")]
-private class Games.NintendoDsLayoutSwitcher : Gtk.Box {
+private class Games.NintendoDsLayoutSwitcher : Gtk.Box, HeaderBarWidget {
 	[GtkChild]
 	private Gtk.Revealer change_screen_revealer;
 	[GtkChild]
 	private Gtk.Image change_screen_image;
+	[GtkChild]
+	private Gtk.MenuButton layout_button;
 	[GtkChild]
 	private Gtk.Image layout_image;
 	[GtkChild]
@@ -16,6 +18,11 @@ private class Games.NintendoDsLayoutSwitcher : Gtk.Box {
 	private HashTable<NintendoDsLayout, NintendoDsLayoutItem> items;
 
 	public NintendoDsRunner runner { get; construct; }
+
+	private bool is_menu_open;
+	public bool block_autohide {
+		get { return is_menu_open; }
+	}
 
 	static construct {
 		var icon_theme = Gtk.IconTheme.get_default ();
@@ -41,6 +48,12 @@ private class Games.NintendoDsLayoutSwitcher : Gtk.Box {
 
 	public NintendoDsLayoutSwitcher (NintendoDsRunner runner) {
 		Object (runner: runner);
+	}
+
+	[GtkCallback]
+	private void on_menu_state_changed () {
+		is_menu_open = layout_button.active;
+		notify_property ("block-autohide");
 	}
 
 	[GtkCallback]
