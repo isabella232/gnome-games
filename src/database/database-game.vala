@@ -17,6 +17,9 @@ public class Games.DatabaseGame : Object, Game {
 		game_title = title;
 		game_platform = PlatformRegister.get_register ().get_platform (platform);
 
+		if (game_platform == null)
+			game_platform = new DummyPlatform ();
+
 		if (media_set != null)
 			game_media_set = new MediaSet.parse (new Variant.parsed (media_set));
 	}
