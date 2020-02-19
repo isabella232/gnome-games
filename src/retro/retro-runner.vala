@@ -195,8 +195,6 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void load_previewed_savestate () throws Error {
-		core.stop ();
-
 		tmp_live_savestate = previewed_savestate.clone_in_tmp ();
 		core.save_directory = tmp_live_savestate.get_save_directory_path ();
 		load_save_ram (previewed_savestate.get_save_ram_path ());
@@ -236,9 +234,6 @@ public class Games.RetroRunner : Object, Runner {
 
 			is_ready = true;
 		}
-
-		core.iteration (); // Needed to finish preparing some cores.
-		core.reset ();
 
 		core.run ();
 
