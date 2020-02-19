@@ -35,7 +35,7 @@ private class Games.PlatformRegister : Object {
 		return result;
 	}
 
-	public Platform get_platform (string id) {
+	public Platform? get_platform (string id) {
 		return platforms[id];
 	}
 }
