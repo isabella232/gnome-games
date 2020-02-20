@@ -10,11 +10,13 @@ variables:
 tests:
   image: registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:master
   stage: test
+  tags:
+    - flatpak
   variables:
     MANIFEST_PATH: 'flatpak/org.gnome.Games.UnitTests.yml'
   script:
-    - flatpak-builder unit-tests ${MANIFEST_PATH}
-    - xvfb-run -a -s '-screen 0 1024x768x24' flatpak-builder --run unit-tests ${MANIFEST_PATH} games-unit-tests
+    - flatpak-builder --user --disable-rofiles-fuse unit-tests ${MANIFEST_PATH}
+    - xvfb-run -a -s '-screen 0 1024x768x24' flatpak-builder --disable-rofiles-fuse --run unit-tests ${MANIFEST_PATH} games-unit-tests
   cache:
     paths:
       - .flatpak-builder/downloads
