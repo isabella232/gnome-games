@@ -42,7 +42,7 @@ private class Games.TurboGrafxCDPlugin : Object, Plugin {
 		if (!is_valid_disc (uri))
 			throw new TurboGrafxCDError.INVALID_DISC ("“%s” isn’t a valid TurboGrafx-CD disc.", uri.to_string ());
 
-		var uid = new FingerprintUid (uri, PLATFORM_UID_PREFIX);
+		var uid = new GenericUid (Fingerprint.get_uid (uri, PLATFORM_UID_PREFIX));
 		var title = new FilenameTitle (uri);
 		var media = new GriloMedia (title, PHONY_MIME_TYPE);
 		var cover = new CompositeCover ({

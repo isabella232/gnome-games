@@ -81,7 +81,7 @@ private class Games.SegaCDPlugin : Object, Plugin {
 
 		var bin_uri = new Uri (bin_file.get_uri ());
 		var header_offset = header.get_offset ();
-		var uid = new FingerprintUid.for_chunk (bin_uri, SEGA_CD_UID_PREFIX, header_offset, SegaCDHeader.HEADER_LENGTH);
+		var uid = new GenericUid (Fingerprint.get_uid_for_chunk (bin_uri, SEGA_CD_UID_PREFIX, header_offset, SegaCDHeader.HEADER_LENGTH));
 		var title = new FilenameTitle (uri);
 		var media = new GriloMedia (title, SEGA_CD_MIME_TYPE);
 		var cover = new CompositeCover ({

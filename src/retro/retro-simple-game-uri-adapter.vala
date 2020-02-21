@@ -10,7 +10,7 @@ private class Games.RetroSimpleGameUriAdapter : GameUriAdapter, Object {
 	}
 
 	public Game game_for_uri (Uri uri) throws Error {
-		var uid = new FingerprintUid (uri, simple_type.prefix);
+		var uid = new GenericUid (Fingerprint.get_uid (uri, simple_type.prefix));
 		var title = new FilenameTitle (uri);
 		var media = new GriloMedia (title, simple_type.mime_type);
 		var cover = new CompositeCover ({

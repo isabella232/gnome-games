@@ -22,36 +22,16 @@ namespace Games.Fingerprint {
 
 		return Checksum.compute_for_bytes (ChecksumType.MD5, bytes);
 	}
-}
 
-public class Games.FingerprintUid : Object, Uid {
-	private Uri uri;
-	private string prefix;
-	private size_t start;
-	private size_t? length;
-	private string uid;
+	public string get_uid (Uri uri, string prefix) throws Error {
+		var fingerprint = Fingerprint.get_for_file_uri (uri, 0, null);
 
-	public FingerprintUid (Uri uri, string prefix) {
-		this.uri = uri;
-		this.prefix = prefix;
-		start = 0;
-		length = null;
+		return @"$prefix-$fingerprint";
 	}
 
-	public FingerprintUid.for_chunk (Uri uri, string prefix, size_t start, size_t length) {
-		this.uri = uri;
-		this.prefix = prefix;
-		this.start = start;
-		this.length = length;
-	}
-
-	public string get_uid () throws Error {
-		if (uid != null)
-			return uid;
-
+	public string get_uid_for_chunk (Uri uri, string prefix, size_t start, size_t length) throws Error {
 		var fingerprint = Fingerprint.get_for_file_uri (uri, start, length);
-		uid = @"$prefix-$fingerprint";
 
-		return uid;
+		return @"$prefix-$fingerprint";
 	}
 }
