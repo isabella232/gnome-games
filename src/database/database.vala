@@ -291,7 +291,7 @@ private class Games.Database : Object {
 			var platform = get_cached_game_query.column_text (2);
 			var media_set = get_cached_game_query.column_text (3);
 
-			return new DatabaseGame (uid, uri, title, platform, media_set);
+			return create_game (uid, uri, title, platform, media_set);
 		}
 
 		throw new DatabaseError.EXECUTION_FAILED ("Couldn't get game for uid (%s)", uid);
@@ -307,8 +307,25 @@ private class Games.Database : Object {
 			var platform = list_cached_games_query.column_text (3);
 			var media_set = list_cached_games_query.column_text (4);
 
-			var game = new DatabaseGame (uid, uri, title, platform, media_set);
+			var game = create_game (uid, uri, title, platform, media_set);
 			game_callback (game);
 		}
+	}
+
+	private Game create_game (string uid, string uri, string title, string platform, string? media_set) {
+		var game_uid = new GenericUid (uid);
+		var game_uri = new Uri (uri);
+		var game_title = new GenericTitle (title);
+		var game_platform = PlatformRegister.get_register ().get_platform (platform);
+
+		if (game_platform == null)
+			game_platform = new DummyPlatform ();
+
+		var game = new GenericGame (game_uid, game_uri, game_title, game_platform);
+
+		if (media_set != null)
+			game.set_media_set (new MediaSet.parse (new Variant.parsed (media_set)));
+
+		return game;
 	}
 }
