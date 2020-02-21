@@ -1,7 +1,6 @@
 vala_sources = [
   'wii-header.vala',
   'wii-plugin.vala',
-  'wii-uid.vala',
 ]
 
 c_args = [

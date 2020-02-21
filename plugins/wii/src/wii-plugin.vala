@@ -34,12 +34,18 @@ private class Games.WiiPlugin : Object, Plugin {
 		return { factory };
 	}
 
+	private static string get_uid (WiiHeader header) throws Error {
+		var game_id = header.get_game_id ();
+
+		return @"$PLATFORM_UID_PREFIX-$game_id".down ();
+	}
+
 	private static Game game_for_uri (Uri uri) throws Error {
 		var file = uri.to_file ();
 		var header = new WiiHeader (file);
 		header.check_validity ();
 
-		var uid = new WiiUid (header);
+		var uid = new GenericUid (get_uid (header));
 		var title = new FilenameTitle (uri);
 		var media = new GriloMedia (title, MIME_TYPE);
 		var cover = new CompositeCover ({
