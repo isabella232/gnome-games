@@ -73,15 +73,11 @@ private class Games.LibretroPlugin : Object, Plugin {
 	private static Runner? create_runner (Game game) throws Error {
 		var uri = game.get_uri ();
 		var core_descriptor = get_core_descriptor (uri);
-		var input_capabilities = new GenericInputCapabilities (true);
+		var runner = new RetroRunner.from_descriptor (game, core_descriptor);
 
-		var builder = new RetroRunnerBuilder ();
-		builder.core_descriptor = core_descriptor;
-		builder.platform = platform;
-		builder.uid = game.get_uid ();
-		builder.title = game.name;
-		builder.input_capabilities = input_capabilities;
-		return builder.to_runner ();
+		runner.input_capabilities = new GenericInputCapabilities (true);
+
+		return runner;
 	}
 }
 

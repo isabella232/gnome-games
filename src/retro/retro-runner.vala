@@ -24,6 +24,8 @@ public class Games.RetroRunner : Object, Runner {
 		get { return _media_set; }
 	}
 
+	public InputCapabilities input_capabilities { get; set; }
+
 	private Retro.Core core;
 	private Retro.CoreView view;
 	private RetroInputManager input_manager;
@@ -40,7 +42,6 @@ public class Games.RetroRunner : Object, Runner {
 	private RetroCoreSource core_source;
 	private Platform platform;
 	private Uid uid;
-	private InputCapabilities input_capabilities;
 	private Settings settings;
 	private string game_title;
 
@@ -64,19 +65,33 @@ public class Games.RetroRunner : Object, Runner {
 	private bool is_ready;
 	private bool is_error;
 
-	public RetroRunnerBuilder builder {
-		construct {
-			core_descriptor = value.core_descriptor;
-			_media_set = value.media_set;
+	private RetroRunner (Game game) {
+		uid = game.get_uid ();
+		platform = game.get_platform ();
+		game_title = game.name;
 
-			uid = value.uid;
-			core_source = value.core_source;
-			platform = value.platform;
-			input_capabilities = value.input_capabilities;
-			game_title = value.title;
+		_media_set = game.get_media_set ();
+		if (media_set == null && game.get_uri () != null) {
+			var media = new Media ();
+			media.add_uri (game.get_uri ());
+
+			_media_set = new MediaSet ();
+			_media_set.add_media (media);
 
 			_media_set.notify["selected-media-number"].connect (on_media_number_changed);
 		}
+	}
+
+	public RetroRunner.from_source (Game game, RetroCoreSource source) {
+		this (game);
+
+		core_source = source;
+	}
+
+	public RetroRunner.from_descriptor (Game game, Retro.CoreDescriptor descriptor) {
+		this (game);
+
+		core_descriptor = descriptor;
 	}
 
 	construct {

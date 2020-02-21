@@ -54,12 +54,7 @@ private class Games.NintendoDsPlugin : Object, Plugin {
 	private static Runner? create_runner (Game game) throws Error {
 		var core_source = new RetroCoreSource (platform);
 
-		var builder = new RetroRunnerBuilder ();
-		builder.core_source = core_source;
-		builder.uri = game.get_uri ();
-		builder.uid = game.get_uid ();
-		builder.title = game.name;
-		return builder.to_runner (typeof (NintendoDsRunner));
+		return new NintendoDsRunner (game, core_source);
 	}
 }
 

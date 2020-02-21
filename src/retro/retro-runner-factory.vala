@@ -14,13 +14,6 @@ public class Games.RetroRunnerFactory : Object, RunnerFactory {
 	public Runner? create_runner (Game game) throws Error {
 		var core_source = new RetroCoreSource (platform);
 
-		var builder = new RetroRunnerBuilder ();
-		builder.core_source = core_source;
-		builder.uri = game.get_uri ();
-		builder.uid = game.get_uid ();
-		builder.title = game.name;
-		var runner = builder.to_runner ();
-
-		return runner;
+		return new RetroRunner.from_source (game, core_source);
 	}
 }

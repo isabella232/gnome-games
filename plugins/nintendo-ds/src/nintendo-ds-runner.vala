@@ -65,6 +65,10 @@ private class Games.NintendoDsRunner : RetroRunner {
 		}
 	}
 
+	public NintendoDsRunner (Game game, RetroCoreSource source) {
+		base.from_source (game, source);
+	}
+
 	private bool core_supports_layouts () {
 		var core = get_core ();
 

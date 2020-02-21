@@ -29,22 +29,9 @@ private class Games.PlayStation : Object, Plugin {
 	}
 
 	public RunnerFactory[] get_runner_factories () {
-		var factory = new GenericRunnerFactory (create_runner);
-		factory.add_platform (platform);
+		var factory = new RetroRunnerFactory (platform);
 
 		return { factory };
-	}
-
-	public static Runner? create_runner (Game game) throws Error {
-		var core_source = new RetroCoreSource (platform);
-
-		var builder = new RetroRunnerBuilder ();
-		builder.core_source = core_source;
-		builder.media_set = game.get_media_set ();
-		builder.uid = game.get_uid ();
-		builder.title = game.name;
-
-		return builder.to_runner ();
 	}
 }
 
