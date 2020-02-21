@@ -3,7 +3,6 @@ vala_sources = [
   'libretro-icon.vala',
   'libretro-plugin.vala',
   'libretro-title.vala',
-  'libretro-uid.vala',
   'libretro-uri-iterator.vala',
   'libretro-uri-source.vala',
 ]

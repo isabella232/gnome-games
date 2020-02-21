@@ -51,10 +51,16 @@ private class Games.LibretroPlugin : Object, Plugin {
 		return core_descriptor;
 	}
 
+	private static string get_uid (Retro.CoreDescriptor core_descriptor) {
+		var id = core_descriptor.get_id ();
+
+		return @"$PLATFORM_UID_PREFIX-$id";
+	}
+
 	private static Game game_for_uri (Uri uri) throws Error {
 		var core_descriptor = get_core_descriptor (uri);
 
-		var uid = new LibretroUid (core_descriptor);
+		var uid = new GenericUid (get_uid (core_descriptor));
 		var title = new LibretroTitle (core_descriptor);
 		var icon = new LibretroIcon (core_descriptor);
 
