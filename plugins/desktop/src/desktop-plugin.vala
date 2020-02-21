@@ -47,6 +47,13 @@ private class Games.DesktopPlugin : Object, Plugin {
 		return { factory };
 	}
 
+	private static string get_uid (DesktopAppInfo app_info) {
+		var appid = app_info.get_id ();
+		var hash = Checksum.compute_for_string (ChecksumType.SHA256, appid);
+
+		return @"$PLATFORM_UID_PREFIX-$hash";
+	}
+
 	private static Game game_for_uri (Uri uri) throws Error {
 		check_uri (uri);
 
@@ -54,7 +61,7 @@ private class Games.DesktopPlugin : Object, Plugin {
 		var path = file.get_path ();
 
 		var app_info = new DesktopAppInfo.from_filename (path);
-		var uid = new DesktopUid (app_info);
+		var uid = new GenericUid (get_uid (app_info));
 		var title = new DesktopTitle (app_info);
 		var icon = new DesktopIcon (app_info);
 
