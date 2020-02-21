@@ -40,10 +40,8 @@ public class Games.RetroRunner : Object, Runner {
 
 	private Retro.CoreDescriptor core_descriptor;
 	private RetroCoreSource core_source;
-	private Platform platform;
-	private Uid uid;
 	private Settings settings;
-	private string game_title;
+	private Game game;
 
 	private Savestate[] game_savestates;
 	private Savestate latest_savestate;
@@ -66,9 +64,7 @@ public class Games.RetroRunner : Object, Runner {
 	private bool is_error;
 
 	private RetroRunner (Game game) {
-		uid = game.get_uid ();
-		platform = game.get_platform ();
-		game_title = game.name;
+		this.game = game;
 
 		_media_set = game.get_media_set ();
 		if (media_set == null && game.get_uri () != null) {
@@ -147,7 +143,7 @@ public class Games.RetroRunner : Object, Runner {
 
 	private void init_phase_one () throws Error {
 		// Step 1) Load the game's savestates ----------------------------------
-		game_savestates = Savestate.get_game_savestates (uid, platform, get_core_id ());
+		game_savestates = Savestate.get_game_savestates (game.get_uid (), game.get_platform (), get_core_id ());
 		if (game_savestates.length != 0)
 			latest_savestate = game_savestates[0];
 
@@ -162,7 +158,7 @@ public class Games.RetroRunner : Object, Runner {
 		if (latest_savestate != null)
 			tmp_live_savestate = latest_savestate.clone_in_tmp ();
 		else
-			tmp_live_savestate = Savestate.create_empty_in_tmp (platform, get_core_id ());
+			tmp_live_savestate = Savestate.create_empty_in_tmp (game.get_platform (), get_core_id ());
 		instantiate_core (tmp_live_savestate.get_save_directory_path ());
 
 		// Step 4) Preview the latest savestate --------------------------------
@@ -237,7 +233,7 @@ public class Games.RetroRunner : Object, Runner {
 			if (latest_savestate != null)
 				tmp_live_savestate = latest_savestate.clone_in_tmp ();
 			else
-				tmp_live_savestate = Savestate.create_empty_in_tmp (platform, get_core_id ());
+				tmp_live_savestate = Savestate.create_empty_in_tmp (game.get_platform (), get_core_id ());
 
 			instantiate_core (tmp_live_savestate.get_save_directory_path ());
 		}
@@ -343,7 +339,7 @@ public class Games.RetroRunner : Object, Runner {
 			}
 
 		var platforms_dir = Application.get_platforms_dir ();
-		var platform_id = platform.get_id ();
+		var platform_id = game.get_platform ().get_id ();
 		core.system_directory = @"$platforms_dir/$platform_id/system";
 
 		core.save_directory = save_directory_path;
@@ -458,7 +454,7 @@ public class Games.RetroRunner : Object, Runner {
 		// Get the savestates directory of the game
 		var data_dir_path = Application.get_data_dir ();
 		var savestates_dir_path = Path.build_filename (data_dir_path, "savestates");
-		var uid = uid.get_uid ();
+		var uid = game.get_uid ().get_uid ();
 		var core_id = get_core_id ();
 		var core_id_prefix = core_id.replace (".libretro", "");
 
@@ -583,12 +579,15 @@ public class Games.RetroRunner : Object, Runner {
 
 		var now = new GLib.DateTime.now_local ();
 		var creation_time = now.to_string ();
+		var game_title = game.name;
+		var platform = game.get_platform ();
 		var platform_name = platform.get_name ();
 		var platform_id = platform.get_id ();
 		if (platform_name == null) {
 			critical ("Unknown name for platform %s", platform_id);
 			platform_name = _("Unknown platform");
 		}
+
 
 		// See http://www.libpng.org/pub/png/spec/iso/index-object.html#11textinfo
 		// for description of used keys. "Game Title" and "Platform" are
@@ -603,7 +602,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private string get_unsupported_system_message () {
-		var platform_name = platform.get_name ();
+		var platform_name = game.get_platform ().get_name ();
 		if (platform_name != null)
 			return _("The system “%s” isn’t supported yet, but full support is planned.").printf (platform_name);
 
