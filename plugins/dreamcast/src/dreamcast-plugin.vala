@@ -34,12 +34,19 @@ private class Games.DreamcastPlugin : Object, Plugin {
 		return { factory };
 	}
 
+	private static string get_uid (DreamcastHeader header) throws Error {
+		var product_number = header.get_product_number ();
+		var areas = header.get_areas ();
+
+		return @"$PLATFORM_UID_PREFIX-$product_number-$areas".down ();
+	}
+
 	private static Game game_for_uri (Uri uri) throws Error {
 		var file = uri.to_file ();
 		var header = new DreamcastHeader (file);
 		header.check_validity ();
 
-		var uid = new DreamcastUid (header);
+		var uid = new GenericUid (get_uid (header));
 		var title = new FilenameTitle (uri);
 		var media = new GriloMedia (title, MIME_TYPE);
 		var cover = new CompositeCover ({

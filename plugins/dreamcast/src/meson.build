@@ -1,7 +1,6 @@
 vala_sources = [
   'dreamcast-header.vala',
   'dreamcast-plugin.vala',
-  'dreamcast-uid.vala',
 ]
 
 c_args = [
