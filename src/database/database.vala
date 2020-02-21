@@ -160,7 +160,7 @@ private class Games.Database : Object {
 	}
 
 	private string? serialize_media_set (Game game) {
-		var media_set = game.get_media_set ();
+		var media_set = game.media_set;
 
 		if (media_set == null)
 			return null;
@@ -169,7 +169,7 @@ private class Games.Database : Object {
 	}
 
 	private string[] get_media_uris (Game game) {
-		var media_set = game.get_media_set ();
+		var media_set = game.media_set;
 
 		if (media_set == null)
 			return {};
@@ -202,7 +202,7 @@ private class Games.Database : Object {
 
 		// TODO transaction
 
-		if (game.get_media_set () != null)
+		if (game.media_set != null)
 			foreach (var media_uri in get_media_uris (game))
 				store_game_uri (uid, media_uri);
 		else
@@ -246,7 +246,7 @@ private class Games.Database : Object {
 		if (update_game_query.step () != Sqlite.DONE)
 			throw new DatabaseError.EXECUTION_FAILED ("Couldn't update game (%s, %s, %s)", uid, title, media_set);
 
-		if (game.get_media_set () != null)
+		if (game.media_set != null)
 			foreach (var media_uri in get_media_uris (game))
 				store_game_uri (uid, media_uri);
 		else
@@ -324,7 +324,7 @@ private class Games.Database : Object {
 		var game = new Game (game_uid, game_uri, game_title, game_platform);
 
 		if (media_set != null)
-			game.set_media_set (new MediaSet.parse (new Variant.parsed (media_set)));
+			game.media_set = new MediaSet.parse (new Variant.parsed (media_set));
 
 		return game;
 	}

@@ -66,7 +66,7 @@ public class Games.RetroRunner : Object, Runner {
 	private RetroRunner (Game game) {
 		this.game = game;
 
-		_media_set = game.get_media_set ();
+		_media_set = game.media_set;
 		if (media_set == null && game.uri != null) {
 			var media = new Media ();
 			media.add_uri (game.uri);

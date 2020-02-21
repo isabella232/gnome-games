@@ -134,7 +134,7 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 			return;
 
 		var is_complete = true;
-		game.get_media_set ().foreach_media (media => {
+		game.media_set.foreach_media (media => {
 			is_complete &= (media.get_uris ().length != 0);
 		});
 
@@ -164,7 +164,7 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 
 		var game = new Game (uid, uri, title, platform);
 		game.set_cover (cover);
-		game.set_media_set (media_set);
+		game.media_set = media_set;
 
 		return game;
 	}
