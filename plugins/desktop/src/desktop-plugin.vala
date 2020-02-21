@@ -72,8 +72,7 @@ private class Games.DesktopPlugin : Object, Plugin {
 	}
 
 	private static Runner? create_runner (Game game) throws Error {
-		var uri = game.get_uri ();
-		var file = uri.to_file ();
+		var file = game.uri.to_file ();
 		var path = file.get_path ();
 
 		var app_info = new DesktopAppInfo.from_filename (path);

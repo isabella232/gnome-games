@@ -101,7 +101,7 @@ private class Games.GameCollection : Object {
 			if (!is_preloading_done) {
 				try {
 					database.list_cached_games ((game) => {
-						cached_games[game.get_uri ().to_string ()] = game;
+						cached_games[game.uri.to_string ()] = game;
 
 						var uid = game.uid.get_uid ();
 
@@ -240,7 +240,7 @@ private class Games.GameCollection : Object {
 	}
 
 	private void store_game (Game game) {
-		var uri = game.get_uri ().to_string ();
+		var uri = game.uri.to_string ();
 		if (cached_games.contains (uri)) {
 			var cached_game = cached_games.take (uri);
 

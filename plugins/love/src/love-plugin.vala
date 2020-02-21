@@ -50,8 +50,8 @@ private class Games.LovePlugin : Object, Plugin {
 	}
 
 	private static Runner? create_runner (Game game) throws Error {
-		var uri = game.get_uri ();
-		string[] args = { "love", uri.to_string () };
+		string[] args = { "love", game.uri.to_string () };
+
 		return new CommandRunner (args);
 	}
 }

@@ -195,7 +195,7 @@ private class Games.Database : Object {
 
 	public Game? store_game (Game game) throws Error {
 		var uid = game.uid.get_uid ();
-		var uri = game.get_uri ().to_string ();
+		var uri = game.uri.to_string ();
 		var title = game.name;
 		var platform = game.get_platform ().get_id ();
 		var media_set = serialize_media_set (game);
@@ -229,7 +229,7 @@ private class Games.Database : Object {
 
 	public void update_game (Game game, Game? prev_game = null) throws Error {
 		var uid = game.uid.get_uid ();
-		var uri = game.get_uri ().to_string ();
+		var uri = game.uri.to_string ();
 		var title = game.name;
 		var media_set = serialize_media_set (game);
 		var old_title = prev_game != null ? prev_game.name : null;

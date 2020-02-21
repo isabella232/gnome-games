@@ -21,8 +21,8 @@ public class Games.Game : Object {
 	}
 
 	public Uid uid { get; private set; }
+	public Uri uri { get; private set; }
 
-	private Uri game_uri;
 	private Title game_title;
 	private Icon game_icon;
 	private Cover game_cover;
@@ -31,13 +31,9 @@ public class Games.Game : Object {
 
 	public Game (Uid uid, Uri uri, Title title, Platform platform) {
 		this.uid = uid;
-		game_uri = uri;
+		this.uri = uri;
 		game_title = title;
 		game_platform = platform;
-	}
-
-	public Uri get_uri () {
-		return game_uri;
 	}
 
 	public Icon get_icon () {

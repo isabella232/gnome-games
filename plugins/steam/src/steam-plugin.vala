@@ -115,7 +115,7 @@ private class Games.SteamPlugin : Object, Plugin {
 	}
 
 	private static Runner? create_runner (Game game) throws Error {
-		var uri = game.get_uri ();
+		var uri = game.uri;
 		var scheme = uri.get_scheme ();
 		var steam_uri = new Uri.from_uri_and_scheme (uri, STEAM_SCHEME);
 
