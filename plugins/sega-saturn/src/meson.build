@@ -2,7 +2,6 @@ vala_sources = [
   'sega-saturn-error.vala',
   'sega-saturn-header.vala',
   'sega-saturn-plugin.vala',
-  'sega-saturn-uid.vala',
 ]
 
 c_args = [

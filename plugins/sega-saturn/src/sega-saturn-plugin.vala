@@ -40,6 +40,13 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 		return { factory };
 	}
 
+	private static string get_uid (SegaSaturnHeader header) throws Error {
+		var product_number = header.get_product_number ();
+		var areas = header.get_areas ();
+
+		return @"$PLATFORM_UID_PREFIX-$product_number-$areas".down ();
+	}
+
 	private static Game game_for_uri (Uri uri) throws Error {
 		var file = uri.to_file ();
 		var file_info = file.query_info (FileAttribute.STANDARD_CONTENT_TYPE, FileQueryInfoFlags.NONE);
@@ -63,7 +70,7 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 		var header = new SegaSaturnHeader (bin_file);
 		header.check_validity ();
 
-		var uid = new SegaSaturnUid (header);
+		var uid = new GenericUid (get_uid (header));
 		var title = new FilenameTitle (uri);
 		var media = new GriloMedia (title, SEGA_SATURN_MIME_TYPE);
 		var cover = new CompositeCover ({
