@@ -3,7 +3,6 @@ vala_sources = [
   'playstation-game-factory.vala',
   'playstation-header.vala',
   'playstation-plugin.vala',
-  'playstation-uid.vala',
 ]
 
 c_sources = [

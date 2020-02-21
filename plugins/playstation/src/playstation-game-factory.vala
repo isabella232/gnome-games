@@ -5,6 +5,7 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 	private const string PHONY_MIME_TYPE = "application/x-playstation-rom";
 	private const string ICON_NAME = "media-optical-symbolic";
 	private const string GAMEINFO = "resource:///org/gnome/Games/plugin/playstation/playstation.gameinfo.xml";
+	private const string PLATFORM_UID_PREFIX = "playstation";
 
 	private static GameinfoDoc gameinfo;
 
@@ -148,8 +149,10 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 	}
 
 	private Game create_game (MediaSet media_set, string disc_set_id, Uri uri) throws Error {
+		var uid_string = @"$PLATFORM_UID_PREFIX-$disc_set_id".down ();
+
 		var gameinfo = get_gameinfo ();
-		var uid = new PlayStationUid (disc_set_id);
+		var uid = new GenericUid (uid_string);
 		var title = new CompositeTitle ({
 			new GameinfoDiscIdGameTitle (gameinfo, disc_set_id),
 			new FilenameTitle (uri)
