@@ -1,7 +1,6 @@
 vala_sources = [
   'game-cube-header.vala',
   'game-cube-plugin.vala',
-  'game-cube-uid.vala',
 ]
 
 c_args = [
