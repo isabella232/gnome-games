@@ -71,7 +71,7 @@ private class Games.PlatformsView : Gtk.Bin {
 		}
 
 		foreach (var game in visible_games)
-			if (game.get_platform () == item.platform)
+			if (game.platform == item.platform)
 				return true;
 
 		return false;
@@ -79,7 +79,7 @@ private class Games.PlatformsView : Gtk.Bin {
 
 	private bool filter_game (Game game) {
 		if (selected_platform != null &&
-		    selected_platform.get_name () != game.get_platform ().get_name ())
+		    selected_platform.get_name () != game.platform.get_name ())
 			return false;
 
 		return true;

@@ -22,18 +22,18 @@ public class Games.Game : Object {
 
 	public Uid uid { get; private set; }
 	public Uri uri { get; private set; }
+	public Platform platform { get; private set; }
 
 	private Title game_title;
 	private Icon game_icon;
 	private Cover game_cover;
-	private Platform game_platform;
 	private MediaSet? media_set;
 
 	public Game (Uid uid, Uri uri, Title title, Platform platform) {
 		this.uid = uid;
 		this.uri = uri;
 		game_title = title;
-		game_platform = platform;
+		this.platform = platform;
 	}
 
 	public Icon get_icon () {
@@ -64,10 +64,6 @@ public class Games.Game : Object {
 
 	public void set_media_set (MediaSet? media_set) {
 		this.media_set = media_set;
-	}
-
-	public Platform get_platform () {
-		return game_platform;
 	}
 
 	public bool matches_search_terms (string[] search_terms) {

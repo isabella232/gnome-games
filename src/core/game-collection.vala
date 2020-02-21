@@ -173,7 +173,7 @@ private class Games.GameCollection : Object {
 	}
 
 	public Runner? create_runner (Game game) {
-		var platform = game.get_platform ();
+		var platform = game.platform;
 
 		if (!runner_factories_for_platforms.contains (platform))
 			return null;

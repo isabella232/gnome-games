@@ -197,7 +197,7 @@ private class Games.Database : Object {
 		var uid = game.uid.get_uid ();
 		var uri = game.uri.to_string ();
 		var title = game.name;
-		var platform = game.get_platform ().get_id ();
+		var platform = game.platform.get_id ();
 		var media_set = serialize_media_set (game);
 
 		// TODO transaction

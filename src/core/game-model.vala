@@ -62,8 +62,8 @@ private class Games.GameModel : Object, ListModel {
 		if (ret != 0)
 			return ret;
 
-		ret = a.get_platform ().get_name ().collate (
-		      b.get_platform ().get_name ());
+		ret = a.platform.get_name ().collate (
+		      b.platform.get_name ());
 		if (ret != 0)
 			return ret;
 

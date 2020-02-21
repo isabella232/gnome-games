@@ -15,7 +15,7 @@ private class Games.PlatformModel : Object, ListModel {
 		uint n = game_model.get_n_items ();
 		for (uint i = 0; i < n; i++) {
 			var game = game_model.get_item (i) as Game;
-			var platform = game.get_platform ();
+			var platform = game.platform;
 
 			if (n_games[platform] == 0) {
 				sequence.append (platform);
@@ -48,7 +48,7 @@ private class Games.PlatformModel : Object, ListModel {
 	}
 
 	private void game_added (Game game) {
-		var platform = game.get_platform ();
+		var platform = game.platform;
 
 		if (n_games[platform] == 0) {
 			var iter = sequence.insert_sorted (platform, compare_func);
@@ -59,7 +59,7 @@ private class Games.PlatformModel : Object, ListModel {
 	}
 
 	private void game_removed (Game game) {
-		var platform = game.get_platform ();
+		var platform = game.platform;
 
 		n_games[platform] = n_games[platform] - 1;
 
