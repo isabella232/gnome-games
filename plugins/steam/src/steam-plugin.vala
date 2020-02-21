@@ -102,7 +102,7 @@ private class Games.SteamPlugin : Object, Plugin {
 			assert_not_reached ();
 		}
 
-		var uid = new SteamUid (prefix, game_id);
+		var uid = new GenericUid (@"$PLATFORM_UID_PREFIX-$prefix$game_id".down ());
 		var title = new GenericTitle (game_title);
 		var icon = new SteamIcon (app_id, game_id);
 		var cover = new SteamCover (game_id);
