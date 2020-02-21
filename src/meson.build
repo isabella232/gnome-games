@@ -52,7 +52,6 @@ vala_sources = [
   'dummy/dummy-cover.vala',
   'dummy/dummy-icon.vala',
   'dummy/dummy-platform.vala',
-  'dummy/dummy-uid.vala',
 
   'gameinfo/gameinfo-doc.vala',
   'gameinfo/gameinfo-error.vala',
