@@ -51,7 +51,6 @@ vala_sources = [
   'database/database-uri-source.vala',
 
   'dummy/dummy-cover.vala',
-  'dummy/dummy-game.vala',
   'dummy/dummy-icon.vala',
   'dummy/dummy-platform.vala',
   'dummy/dummy-uid.vala',
