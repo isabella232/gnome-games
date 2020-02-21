@@ -5,7 +5,6 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 	private const double ICON_SCALE = 0.75;
 
 	private ulong cover_changed_id;
-	private Uid uid;
 	private Icon icon;
 	private Cover cover;
 
@@ -20,7 +19,6 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 				cover.disconnect (cover_changed_id);
 
 			_game = value;
-			uid = game.get_uid ();
 			icon = game.get_icon ();
 			cover = game.get_cover ();
 
