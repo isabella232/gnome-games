@@ -46,7 +46,7 @@ private class Games.GameCubePlugin : Object, Plugin {
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
 
-		var game = new GenericGame (uid, uri, title, platform);
+		var game = new Game (uid, uri, title, platform);
 		game.set_cover (cover);
 
 		return game;

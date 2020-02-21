@@ -107,7 +107,7 @@ private class Games.SteamPlugin : Object, Plugin {
 		var icon = new SteamIcon (app_id, game_id);
 		var cover = new SteamCover (game_id);
 
-		var game = new GenericGame (uid, uri, title, platform);
+		var game = new Game (uid, uri, title, platform);
 		game.set_icon (icon);
 		game.set_cover (cover);
 

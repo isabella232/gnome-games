@@ -26,7 +26,7 @@ private class Games.MameGameUriAdapter : GameUriAdapter, Object {
 		var title = new GenericTitle (title_string);
 		var cover = new LocalCover (uri);
 
-		var game = new GenericGame (uid, uri, title, platform);
+		var game = new Game (uid, uri, title, platform);
 		game.set_cover (cover);
 
 		return game;

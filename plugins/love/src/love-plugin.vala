@@ -42,7 +42,7 @@ private class Games.LovePlugin : Object, Plugin {
 		var icon = new LoveIcon (package);
 		var cover = new LocalCover (uri);
 
-		var game = new GenericGame (uid, uri, title, platform);
+		var game = new Game (uid, uri, title, platform);
 		game.set_icon (icon);
 		game.set_cover (cover);
 

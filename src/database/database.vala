@@ -321,7 +321,7 @@ private class Games.Database : Object {
 		if (game_platform == null)
 			game_platform = new DummyPlatform ();
 
-		var game = new GenericGame (game_uid, game_uri, game_title, game_platform);
+		var game = new Game (game_uid, game_uri, game_title, game_platform);
 
 		if (media_set != null)
 			game.set_media_set (new MediaSet.parse (new Variant.parsed (media_set)));

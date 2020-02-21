@@ -63,7 +63,6 @@ vala_sources = [
   'gamepad/gamepad-input.vala',
   'gamepad/gamepad-mapping-builder.vala',
 
-  'generic/generic-game.vala',
   'generic/generic-game-uri-adapter.vala',
   'generic/generic-input-capabilities.vala',
   'generic/generic-platform.vala',

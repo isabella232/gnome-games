@@ -58,7 +58,7 @@ private class Games.DesktopPlugin : Object, Plugin {
 		var title = new DesktopTitle (app_info);
 		var icon = new DesktopIcon (app_info);
 
-		var game = new GenericGame (uid, uri, title, platform);
+		var game = new Game (uid, uri, title, platform);
 		game.set_icon (icon);
 
 		return game;

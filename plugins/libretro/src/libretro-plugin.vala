@@ -58,7 +58,7 @@ private class Games.LibretroPlugin : Object, Plugin {
 		var title = new LibretroTitle (core_descriptor);
 		var icon = new LibretroIcon (core_descriptor);
 
-		var game = new GenericGame (uid, uri, title, platform);
+		var game = new Game (uid, uri, title, platform);
 		game.set_icon (icon);
 
 		return game;
