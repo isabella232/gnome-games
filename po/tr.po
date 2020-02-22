@@ -1,18 +1,18 @@
 # Turkish translation for gnome-games.
-# Copyright (C) 2018-2019 gnome-games's COPYRIGHT HOLDER
+# Copyright (C) 2018-2020 gnome-games's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-games package.
 #
 # Ertan Kurt <ertank@gmail.com>, 2016.
 # Emin Tufan Çetin <etcetin@gmail.com>, 2018-2019.
 # Serdar Sağlam <teknomobil@yandex.com>, 2019.
-# Sabri Ünal <libreajans@gmail.com>, 2019.
+# Sabri Ünal <libreajans@gmail.com>, 2019-2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-09-18 20:17+0000\n"
-"PO-Revision-Date: 2019-09-20 10:18+0300\n"
+"POT-Creation-Date: 2020-02-20 20:37+0000\n"
+"PO-Revision-Date: 2020-02-19 17:08+0300\n"
 "Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Türkçe <gnome-turk@gnome.org>\n"
 "Language: tr\n"
@@ -20,20 +20,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.2.4\n"
 
-#: data/org.gnome.Games.appdata.xml.in.in:6
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:48
-#: data/ui/collection-header-bar.ui:76 data/ui/display-header-bar.ui:16
-#: src/ui/application.vala:25
+#: data/org.gnome.Games.appdata.xml.in.in:7
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:61
+#: data/ui/collection-header-bar.ui:79 src/ui/application.vala:42
 msgid "Games"
 msgstr "Oyunlar"
 
-#: data/org.gnome.Games.appdata.xml.in.in:7
+#: data/org.gnome.Games.appdata.xml.in.in:8
 msgid "Simple game launcher for GNOME"
 msgstr "GNOME için basit oyun başlatıcısı"
 
-#: data/org.gnome.Games.appdata.xml.in.in:10
+#: data/org.gnome.Games.appdata.xml.in.in:11
 msgid ""
 "Games is a GNOME 3 application to browse your video games library and to "
 "easily pick and play a game from it. It aims to do for games what Music "
@@ -43,7 +42,7 @@ msgstr ""
 "oynayabileceğiniz bir GNOME 3 uygulamasıdır. Müzik, müzik kitaplığınız için "
 "ne yapıyorsa aynısını oyunlar için yapmayı hedefliyor."
 
-#: data/org.gnome.Games.appdata.xml.in.in:15
+#: data/org.gnome.Games.appdata.xml.in.in:16
 msgid ""
 "You want to install Games if you just want a very simple and comfortable way "
 "to play your games and you don’t need advanced features such as speedrunning "
@@ -53,27 +52,27 @@ msgstr ""
 "bitirme veya video oyun geliştirme araçları gibi gelişmiş özelliklere "
 "gereksinmiyorsanız Oyunlarʼı kurmak isteyebilirsiniz."
 
-#: data/org.gnome.Games.appdata.xml.in.in:20
+#: data/org.gnome.Games.appdata.xml.in.in:21
 msgid "Features:"
 msgstr "Özellikler:"
 
-#: data/org.gnome.Games.appdata.xml.in.in:22
+#: data/org.gnome.Games.appdata.xml.in.in:23
 msgid "List your installed games, your Steam games, your game ROMs…"
 msgstr "Kurulu oyunlarınızı, Steam oyunlarınızı, oyun ROMʼlarınızı listeleyin…"
 
-#: data/org.gnome.Games.appdata.xml.in.in:23
+#: data/org.gnome.Games.appdata.xml.in.in:24
 msgid "Search in your games collection"
 msgstr "Oyun derleminizde arayın"
 
-#: data/org.gnome.Games.appdata.xml.in.in:24
+#: data/org.gnome.Games.appdata.xml.in.in:25
 msgid "Play your games"
 msgstr "Oyunlarınızı oynayın"
 
-#: data/org.gnome.Games.appdata.xml.in.in:25
+#: data/org.gnome.Games.appdata.xml.in.in:26
 msgid "Resume your game to where you left it"
 msgstr "Oyunu bıraktığınız yerden sürdürün"
 
-#: data/org.gnome.Games.appdata.xml.in.in:204
+#: data/org.gnome.Games.appdata.xml.in.in:261
 msgid "The GNOME Project"
 msgstr "GNOME Projesi"
 
@@ -138,81 +137,79 @@ msgstr ""
 "Oyun çalıştırmak için tercih edilen Libretro çekirdeği. Tercih edilen "
 "çekirdek donanım yazılımı eksikse, farklı bir çekirdek kullanılabilir."
 
-#: data/ui/collection-box.ui:60 src/ui/preferences-page-platforms.vala:9
+#: data/ui/collection-box.ui:76 src/ui/preferences-page-platforms.vala:9
 msgid "Platforms"
 msgstr "Platformlar"
 
-#: data/ui/collection-box.ui:84
+#: data/ui/collection-box.ui:102
 msgid "Loading"
 msgstr "Yükleniyor"
 
-#: data/ui/collection-header-bar.ui:25
+#: data/ui/collection-header-bar.ui:28
 msgid "Add game files…"
 msgstr "Oyun dosyaları ekle…"
 
 #. Translators: tooltip for the application menu button
-#: data/ui/collection-header-bar.ui:44
+#: data/ui/collection-header-bar.ui:47
 msgid "Menu"
 msgstr "Menü"
 
-#: data/ui/collection-header-bar.ui:95 data/ui/collection-header-bar.ui:149
+#: data/ui/collection-header-bar.ui:98 data/ui/collection-header-bar.ui:153
 msgid "Search"
 msgstr "Ara"
 
-#: data/ui/collection-header-bar.ui:126 data/ui/display-header-bar.ui:29
-#: data/ui/display-header-bar.ui:162 data/ui/preferences-subpage-gamepad.ui:83
-#: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:37
-#: data/ui/preferences-window.ui:78
+#: data/ui/collection-header-bar.ui:130 data/ui/display-header-bar.ui:30
+#: data/ui/display-header-bar.ui:165 data/ui/preferences-subpage-gamepad.ui:84
+#: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:36
+#: data/ui/preferences-window.ui:77
 msgid "Back"
 msgstr "Geri"
 
-#: data/ui/collection-header-bar.ui:179
+#: data/ui/collection-header-bar.ui:176
 msgid "Pr_eferences"
 msgstr "T_ercihler"
 
-#: data/ui/collection-header-bar.ui:187
+#: data/ui/collection-header-bar.ui:180
 msgid "_Keyboard Shortcuts"
 msgstr "Klavye _Kısayolları"
 
-#: data/ui/collection-header-bar.ui:195
+#: data/ui/collection-header-bar.ui:184
 msgid "_Help"
 msgstr "Y_ardım"
 
-#: data/ui/collection-header-bar.ui:203
+#: data/ui/collection-header-bar.ui:188
 msgid "_About Games"
 msgstr "Oyunlar _Hakkında"
 
-#: data/ui/display-header-bar.ui:54
+#: data/ui/display-header-bar.ui:53
 msgid "Restore"
 msgstr "Geri Yükle"
 
-#: data/ui/display-header-bar.ui:141
+#: data/ui/display-header-bar.ui:144
 msgid "_Load"
 msgstr "Yük_le"
 
-#: data/ui/display-header-bar.ui:190
-msgid "_Savestates"
-msgstr "_Kayıtverileri"
+#: data/ui/display-header-bar.ui:188
+msgid "_Restart"
+msgstr "_Yeniden Başlat"
 
-#: data/ui/dummy-display.ui:37
-msgid "This is a dummy game display"
-msgstr "Bu bir sahte oyun görüntüsüdür"
+#: data/ui/display-header-bar.ui:194
+msgid "_Snapshots"
+msgstr "_Anlık Görüntüler"
 
-#: data/ui/dummy-display.ui:53
-msgid "If you see this, this is a bug. Please contact the developers."
-msgstr ""
-"Eğer bunu görüyorsanız bu bir hatadır. Lütfen geliştiricilerle iletişime "
-"geçin."
-
-#: data/ui/empty-collection.ui:29
+#: data/ui/empty-collection.ui:23 data/ui/empty-search.ui:25
 msgid "No games found"
 msgstr "Oyun bulunamadı"
 
-#: data/ui/empty-collection.ui:44
+#: data/ui/empty-collection.ui:38
 msgid ""
 "Install games or add directories containing games to your search sources."
 msgstr ""
 "Oyun kurun veya arama kaynaklarınız için oyunları içeren dizinleri ekleyin."
+
+#: data/ui/empty-search.ui:40
+msgid "Try a different search."
+msgstr "Farklı bir arama deneyin."
 
 #: data/ui/input-mode-switcher.ui:16
 msgid "Gamepad Input"
@@ -222,56 +219,56 @@ msgstr "Oyun Çubuğu Girdisi"
 msgid "Keyboard Input"
 msgstr "Klavye Girdisi"
 
-#: data/ui/media-menu-button.ui:13
+#: data/ui/media-menu-button.ui:14
 msgid "Media"
 msgstr "Ortam"
-
-#: data/ui/preferences-page-backup-restore.ui:10
-msgid ""
-"Backup save states and in-game saves. This can be used for moving the data "
-"to another device or for restoring it later. Desktop, Steam and LÖVE games "
-"cannot be backed up."
-msgstr ""
-"Yedekleme durumları ve oyun içi kaydetmeleri korur. Bu işlem, verileri başka "
-"bir aygıta taşımak veya daha sonra geri yüklemek için kullanılabilir. "
-"Masaüstü, Steam ve LÖVE oyunları yedeklenemez."
-
-#: data/ui/preferences-page-backup-restore.ui:38
-#: src/ui/preferences-page-backup-restore.vala:34
-msgid "Back up save data"
-msgstr "Kaydetme verisini yedekle"
-
-#: data/ui/preferences-page-backup-restore.ui:47
-#: src/ui/preferences-page-backup-restore.vala:36
-msgid "_Back Up"
-msgstr "_Yedekle"
-
-#: data/ui/preferences-page-backup-restore.ui:62
-msgid ""
-"Restore save data for games from existing backup. This will replace existing "
-"saves and cannot be undone."
-msgstr ""
-"Var olan yedeklemeden oyunlara ilişkin kaydetme verilerini geri yükle. Bu "
-"işlem, var olan kaydetmelerin yerine geçer ve geri alınamaz."
-
-#: data/ui/preferences-page-backup-restore.ui:90
-#: src/ui/preferences-page-backup-restore.vala:12
-msgid "Restore save data"
-msgstr "Kaydetme verisini geri yükle"
-
-#: data/ui/preferences-page-backup-restore.ui:99
-#: src/ui/preferences-page-backup-restore.vala:14
-msgid "_Restore"
-msgstr "_Geri Yükle"
 
 #: data/ui/preferences-page-controllers.ui:10
 msgid "Gamepads"
 msgstr "Oyun Çubukları"
 
-#: data/ui/preferences-page-controllers.ui:30
+#: data/ui/preferences-page-controllers.ui:31
 #: src/ui/preferences-page-controllers.vala:73
 msgid "Keyboard"
 msgstr "Klavye"
+
+#: data/ui/preferences-page-import-export.ui:10
+msgid ""
+"Export save states and in-game saves. This can be used for moving the data "
+"to another device or for restoring it later. Desktop, Steam and LÖVE games "
+"cannot be exported."
+msgstr ""
+"Yedekleme durumları ve oyun içi kaydetmeleri dışa aktarır. Bu işlem, "
+"verileri başka bir aygıta taşımak veya daha sonra geri yüklemek için "
+"kullanılabilir. Masaüstü, Steam ve LÖVE oyunları dışa aktarılamaz."
+
+#: data/ui/preferences-page-import-export.ui:42
+#: src/ui/preferences-page-import-export.vala:34
+msgid "Export save data"
+msgstr "Kaydetme verisini dışa aktar"
+
+#: data/ui/preferences-page-import-export.ui:51
+#: src/ui/preferences-page-import-export.vala:36
+msgid "_Export"
+msgstr "Dışa _Aktar"
+
+#: data/ui/preferences-page-import-export.ui:66
+msgid ""
+"Import save data for games from existing backup. This will replace existing "
+"saves and cannot be undone."
+msgstr ""
+"Var olan yedeklemeden oyunlara ilişkin kaydetme verilerini içe aktar. Bu "
+"işlem, var olan kaydetmelerin yerine geçer ve geri alınamaz."
+
+#: data/ui/preferences-page-import-export.ui:97
+#: src/ui/preferences-page-import-export.vala:12
+msgid "Import save data"
+msgstr "Kaydetme verisini içe aktar"
+
+#: data/ui/preferences-page-import-export.ui:106
+#: src/ui/preferences-page-import-export.vala:14
+msgid "_Import"
+msgstr "İçe _Aktar"
 
 #: data/ui/preferences-page-video.ui:10
 msgid "Filter"
@@ -293,14 +290,14 @@ msgstr "Yapılandır"
 msgid "Skip"
 msgstr "Atla"
 
-#: data/ui/preferences-subpage-gamepad.ui:101
+#: data/ui/preferences-subpage-gamepad.ui:102
 #: data/ui/preferences-subpage-keyboard.ui:102 data/ui/quit-dialog.ui:15
 #: data/ui/reset-controller-mapping-dialog.ui:15
 #: data/ui/resume-failed-dialog.ui:14
 msgid "Cancel"
 msgstr "İptal"
 
-#: data/ui/preferences-window.ui:5 data/ui/preferences-window.ui:26
+#: data/ui/preferences-window.ui:5 data/ui/preferences-window.ui:25
 msgid "Preferences"
 msgstr "Seçenekler"
 
@@ -316,15 +313,15 @@ msgstr "Tüm kaydedilmemiş ilerleme kaybolacak."
 msgid "Quit"
 msgstr "Çık"
 
-#: data/ui/remote-display.ui:36
+#: data/ui/remote-display.ui:23
 msgid "Use the game’s own window to play it"
 msgstr "Oynamak için oyunun kendi penceresini kullan"
 
-#: data/ui/remote-display.ui:51
-msgid "This game isn’t integrated to GNOME Games."
-msgstr "Bu oyun GNOME Oyunlarʼa tümleşmemiş."
+#: data/ui/remote-display.ui:36
+msgid "This game isn’t integrated with GNOME Games."
+msgstr "Bu oyun GNOME Oyunlar ile tümleşmemiş."
 
-#: data/ui/remote-display.ui:64
+#: data/ui/remote-display.ui:47
 msgid "You have to use its own window to play it."
 msgstr "Oynamak için kendi penceresini kullanmalısınız."
 
@@ -362,19 +359,19 @@ msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Sıfırla"
 
-#: data/ui/savestates-list.ui:63
-msgid "Create new savestate"
-msgstr "Yeni kayıtverisi oluştur"
+#: data/ui/savestates-list.ui:64
+msgid "Create new snapshot"
+msgstr "Yeni anlık görüntü oluştur"
 
-#: data/ui/savestates-list.ui:88
+#: data/ui/savestates-list.ui:89
 msgid "_Delete"
 msgstr "_Sil"
 
-#: data/ui/savestates-list.ui:102 data/ui/savestates-list.ui:152
+#: data/ui/savestates-list.ui:103 data/ui/savestates-list.ui:153
 msgid "_Rename"
 msgstr "Yeniden _Adlandır"
 
-#: data/ui/savestates-list.ui:128
+#: data/ui/savestates-list.ui:129
 msgid "Name"
 msgstr "Ad"
 
@@ -450,22 +447,19 @@ msgid "In Game"
 msgstr "Oyun İçi"
 
 #: data/ui/shortcuts-window.ui:98
-#| msgid "Create new savestate"
 msgctxt "shortcut window"
-msgid "Create new savestate"
-msgstr "Yeni kayıtverisi oluştur"
+msgid "Create new snapshot"
+msgstr "Yeni anlık görüntü oluştur"
 
 #: data/ui/shortcuts-window.ui:105
-#| msgid "Create new savestate"
 msgctxt "shortcut window"
-msgid "Load the latest savestate"
-msgstr "Son kayıtverisini yükle"
+msgid "Load the latest snapshot"
+msgstr "Son anlık görüntüyü yükle"
 
 #: data/ui/shortcuts-window.ui:112
-#| msgid "New savestate %s"
 msgctxt "shortcut window"
-msgid "Show savestates"
-msgstr "Kayıtverilerini göster"
+msgid "Show snapshots"
+msgstr "Anlık görüntüleri göster"
 
 #: data/ui/shortcuts-window.ui:119
 msgctxt "shortcut window"
@@ -508,7 +502,7 @@ msgid "Nintendo DS"
 msgstr "Nintendo DS"
 
 #: data/ui/shortcuts-window.ui:169
-#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:38
+#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:39
 msgid "Screen Layout"
 msgstr "Ekran Düzeni"
 
@@ -574,42 +568,42 @@ msgstr "Katkı ver"
 msgid "Desktop"
 msgstr "Masaüstü"
 
-#: plugins/desktop/src/desktop-plugin.vala:57
+#: plugins/desktop/src/desktop-plugin.vala:77
 #, c-format
 msgid "Invalid command “%s”."
 msgstr "Geçersiz komut “%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:70
+#: plugins/desktop/src/desktop-plugin.vala:86
 #, c-format
 msgid "Tracker listed file not found: “%s”."
 msgstr "Tracker tarafından listelenen dosya bulunamadı: “%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:76
+#: plugins/desktop/src/desktop-plugin.vala:92
 #, c-format
 msgid "Couldn’t parse desktop entry “%s”."
 msgstr "“%s” masaüstü girdisi ayrıştırılamadı."
 
-#: plugins/desktop/src/desktop-plugin.vala:86
+#: plugins/desktop/src/desktop-plugin.vala:102
 #, c-format
 msgid "“%s” shouldn’t be displayed."
 msgstr "“%s” görüntülenmemeli."
 
-#: plugins/desktop/src/desktop-plugin.vala:89
+#: plugins/desktop/src/desktop-plugin.vala:105
 #, c-format
 msgid "“%s” is hidden."
 msgstr "“%s” gizli."
 
-#: plugins/desktop/src/desktop-plugin.vala:98
+#: plugins/desktop/src/desktop-plugin.vala:114
 #, c-format
 msgid "“%s” has blacklisted category “%s”."
 msgstr "“%s”, karalisteli “%s” kategorisinde."
 
-#: plugins/desktop/src/desktop-plugin.vala:107
+#: plugins/desktop/src/desktop-plugin.vala:123
 #, c-format
 msgid "“%s” has blacklisted executable “%s”."
 msgstr "“%s”, karalisteli “%s” çalıştırılabilir listesinde."
 
-#: plugins/desktop/src/desktop-plugin.vala:114
+#: plugins/desktop/src/desktop-plugin.vala:130
 #, c-format
 msgid "“%s” is blacklisted."
 msgstr "“%s” karalistede."
@@ -710,20 +704,20 @@ msgstr "Sega CD"
 msgid "Sega CD 32X"
 msgstr "Sega CD 32X"
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:100
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:83
+#: plugins/sega-cd/src/sega-cd-plugin.vala:99
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:81
 #, c-format
 msgid "The file “%s” doesn’t have a track."
 msgstr "“%s” dosyasının izi yok."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:106
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:89
+#: plugins/sega-cd/src/sega-cd-plugin.vala:105
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:87
 #, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr "“%s” dosyasının geçerli ikili dosya biçimi yok."
 
-#: plugins/sega-cd/src/sega-cd-plugin.vala:109
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:92
+#: plugins/sega-cd/src/sega-cd-plugin.vala:108
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:90
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
 msgstr "“%s” dosyasının %d izi için geçerli iz kipi yok."
@@ -736,7 +730,7 @@ msgstr "Dosyanın Sega Saturn başlığı yok."
 msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:96
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:94
 #, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "“%s” dosyasının geçerli Sega Saturn ikili dosyası yok."
@@ -744,11 +738,6 @@ msgstr "“%s” dosyasının geçerli Sega Saturn ikili dosyası yok."
 #: plugins/steam/src/steam-plugin.vala:10
 msgid "Steam"
 msgstr "Steam"
-
-#: plugins/steam/src/steam-plugin.vala:85
-#, c-format
-msgid "Couldn’t get Steam appid from manifest “%s”."
-msgstr "Steam appid, “%s” manifestʼinden alınamıyor."
 
 #: plugins/steam/src/steam-registry.vala:68
 #, c-format
@@ -766,10 +755,6 @@ msgstr "Beklenmeyen işaret sonu."
 #: plugins/steam/src/steam-registry.vala:113
 msgid "Unexpected token '}'."
 msgstr "Beklenmeyen işaret '{'."
-
-#: plugins/steam/src/steam-title.vala:17
-msgid "Couldn’t get name from Steam registry."
-msgstr "Steam defterinden ad alınamıyor."
 
 #. translators: known as "CD-ROM²" in eastern Asia and France
 #: plugins/turbografx-cd/src/turbografx-cd-plugin.vala:9
@@ -830,7 +815,7 @@ msgstr "Oyunun geçerli komutu yok."
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "“%s” çalıştırılamadı: çalıştırma başarısız."
 
-#: src/core/media-set/media-set.vala:30
+#: src/core/media-set/media-set.vala:45
 #, c-format
 msgid "Invalid media index %u."
 msgstr "Geçersiz ortam indeksi %u."
@@ -905,29 +890,28 @@ msgstr ""
 "Bu oyun çalışmak için %2$s SHA-512 parmak izli %1$s donanım yazılımı dosyası "
 "gerektiriyor."
 
-#: src/retro/retro-runner.vala:313
+#: src/retro/retro-runner.vala:314
 #, c-format
 msgid "No module found for “%s”."
 msgstr "“%s” için modül bulunamadı."
 
-#: src/retro/retro-runner.vala:581
+#: src/retro/retro-runner.vala:571
 msgid "Unknown platform"
 msgstr "Bilinmeyen platform"
 
-#: src/retro/retro-runner.vala:606
+#: src/retro/retro-runner.vala:589
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "“%s” sistemi henüz desteklenmiyor ancak tam destek planlanmaktadır."
 
-#: src/retro/retro-runner.vala:608
+#: src/retro/retro-runner.vala:591
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Sistem henüz desteklenmiyor ancak tam destek planlanmaktadır."
 
-#. A list containing the names of all savestates with name of the form "New Savestate %d"
-#: src/retro/retro-runner.vala:618 src/retro/retro-runner.vala:644
+#: src/retro/retro-runner.vala:600 src/retro/retro-runner.vala:625
 #, c-format
-msgid "New savestate %s"
-msgstr "Yeni kayıtverisi %s"
+msgid "New snapshot %s"
+msgstr "Yeni anlık görüntü %s"
 
 #: src/retro/retro-simple-type.vala:13
 msgid "Amiga"
@@ -1032,38 +1016,51 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:153
+#: src/ui/application.vala:29
+msgid "Search term"
+msgstr "Arama terimi"
+
+#: src/ui/application.vala:30
+msgid "Run a game by uid"
+msgstr "Kimliğe göre oyun çalıştır"
+
+#: src/ui/application.vala:149
 msgid "Select game files"
 msgstr "Oyun dosyaları seç"
 
-#: src/ui/application.vala:154 src/ui/preferences-page-backup-restore.vala:14
-#: src/ui/preferences-page-backup-restore.vala:36
+#: src/ui/application.vala:150 src/ui/preferences-page-import-export.vala:14
+#: src/ui/preferences-page-import-export.vala:36
 msgid "_Cancel"
 msgstr "_İptal"
 
-#: src/ui/application.vala:155
+#: src/ui/application.vala:151
 msgid "_Add"
 msgstr "_Ekle"
 
-#: src/ui/application.vala:195
+#: src/ui/application.vala:191
 #, c-format
 msgid "An unexpected error occurred while trying to run %s"
 msgstr "%s çalıştırılırken beklenmeyen hata oluştu"
 
-#: src/ui/application.vala:386
+#: src/ui/application.vala:227
+#, c-format
+msgid "Cannot find game with UID “%s”."
+msgstr "“%s” kimlikli oyun bulunamadı"
+
+#: src/ui/application.vala:449
 msgid "GNOME Games"
 msgstr "GNOME Oyunlar"
 
-#: src/ui/application.vala:388
+#: src/ui/application.vala:451
 msgid "A video game player for GNOME"
 msgstr "GNOME için video oyun oynatıcı"
 
-#: src/ui/application.vala:392
+#: src/ui/application.vala:455
 msgid "Learn more about GNOME Games"
 msgstr "GNOME Oyunlar hakkında daha çok öğren"
 
 # Header bilgisinden güncellemeyi unutmayın.
-#: src/ui/application.vala:399
+#: src/ui/application.vala:462
 msgid "translator-credits"
 msgstr ""
 "Ertan Kurt <ertank@gmail.com>\n"
@@ -1071,22 +1068,27 @@ msgstr ""
 "Serdar Sağlam <teknomobil@yandex.com>\n"
 "Sabri Ünal <libreajans@gmail.com>"
 
-#: src/ui/application-window.vala:271 src/ui/application-window.vala:288
+#: src/ui/application-window.vala:277 src/ui/application-window.vala:294
 msgid "Playing a game"
 msgstr "Oyun oynama"
 
-#: src/ui/display-view.vala:323
-msgid "An unexpected error occurred."
-msgstr "Beklenmeyen hata oluştu."
+#: src/ui/display-view.vala:360
+msgid "No runner found"
+msgstr "Koşucu bulunamadı"
 
-#: src/ui/error-display.vala:13
+#: src/ui/error-display.vala:15
 #, c-format
 msgid "Oops! Unable to run “%s”"
 msgstr "Hayda! “%s” çalıştırılamıyor"
 
-#: src/ui/error-display.vala:15
+#: src/ui/error-display.vala:17
 msgid "Oops! Unable to run the game"
 msgstr "Hayda! Oyun çalıştırılamıyor"
+
+#: src/ui/error-display.vala:24
+#, c-format
+msgid "Oops! The game “%s” crashed unexpectedly"
+msgstr "Hata! “%s” oyunu beklenmedik biçimde çöktü"
 
 #: src/ui/gamepad-mapper.vala:137
 msgid "Press suitable button on your gamepad"
@@ -1104,28 +1106,28 @@ msgstr "Oyun çubuğunuzdaki uygun yukarı/aşağı ekseni oynatın"
 msgid "Press suitable key on your keyboard"
 msgstr "Klavyenizdeki uygun tuşa basın"
 
-#: src/ui/media-menu-button.vala:50
+#: src/ui/media-menu-button.vala:52
 #, c-format
 msgid "Media %d"
 msgstr "%d Ortamı"
 
-#: src/ui/preferences-page-backup-restore.vala:6
-msgid "Back Up & Restore"
-msgstr "Yedekle ve Geri Yükle"
-
-#: src/ui/preferences-page-backup-restore.vala:23
-#, c-format
-msgid "Couldn’t restore: %s"
-msgstr "Geri yüklenemedi: %s"
-
-#: src/ui/preferences-page-backup-restore.vala:53
-#, c-format
-msgid "Couldn’t back up: %s"
-msgstr "Yedeklenemedi: %s"
-
 #: src/ui/preferences-page-controllers.vala:22
 msgid "Controllers"
 msgstr "Denetleyiciler"
+
+#: src/ui/preferences-page-import-export.vala:6
+msgid "Import & Export"
+msgstr "İçeriye / Dışarıya Aktar"
+
+#: src/ui/preferences-page-import-export.vala:23
+#, c-format
+msgid "Couldn’t import save data: %s"
+msgstr "Kayıt verisi içe aktarılamadı: %s"
+
+#: src/ui/preferences-page-import-export.vala:53
+#, c-format
+msgid "Couldn’t export save data: %s"
+msgstr "Kayıt verisi dışa aktarılamadı: %s"
 
 #: src/ui/preferences-page-platforms-retro-row.vala:45
 #: src/ui/preferences-page-platforms-retro-row.vala:52
@@ -1169,26 +1171,26 @@ msgstr "Klavye Sınama"
 msgid "Configuring Keyboard"
 msgstr "Klavye Yapılandırma"
 
-#: src/ui/savestate-listbox-row.vala:23 src/ui/savestates-list.vala:226
+#: src/ui/savestate-listbox-row.vala:23 src/ui/savestates-list.vala:188
 msgid "Autosave"
 msgstr "Kendiliğinden Kaydet"
 
 #. Translators: Time in locale format
-#: src/ui/savestate-listbox-row.vala:185
+#: src/ui/savestate-listbox-row.vala:192
 #, no-c-format
 msgid "%X"
 msgstr "%X"
 
 #. Translators: this is the word Yesterday followed by
 #. * a time in locale format. i.e. "Yesterday 23:04:35"
-#: src/ui/savestate-listbox-row.vala:191
+#: src/ui/savestate-listbox-row.vala:198
 #, no-c-format
 msgid "Yesterday %X"
 msgstr "Dün %X"
 
 #. Translators: this is the abbreviated name of the week day followed by
 #. * a time in locale format. i.e. "Monday 23:04:35"
-#: src/ui/savestate-listbox-row.vala:197
+#: src/ui/savestate-listbox-row.vala:204
 #, no-c-format
 msgid "%a %X"
 msgstr "%a %X"
@@ -1196,27 +1198,26 @@ msgstr "%a %X"
 #. Translators: this is the day of the month followed
 #. * by the abbreviated month name followed by a time in
 #. * locale format i.e. "3 Feb 23:04:35"
-#: src/ui/savestate-listbox-row.vala:204
+#: src/ui/savestate-listbox-row.vala:211
 #, no-c-format
-#| msgid "%-e %b %Y %X"
 msgid "%-e %b %X"
 msgstr "%-e %b %X"
 
 #. Translators: this is the day number followed
 #. * by the abbreviated month name followed by the year followed
 #. * by a time in locale format i.e. "3 Feb 2015 23:04:00"
-#: src/ui/savestate-listbox-row.vala:211
+#: src/ui/savestate-listbox-row.vala:218
 #, no-c-format
 msgid "%-e %b %Y %X"
 msgstr "%-e %b %Y %X"
 
-#: src/ui/savestates-list.vala:229
+#: src/ui/savestates-list.vala:191
 msgid "Invalid name"
 msgstr "Geçersiz ad"
 
-#: src/ui/savestates-list.vala:247
-msgid "A savestate with this name already exists"
-msgstr "Bu adda bir kayıtverisi zaten var."
+#: src/ui/savestates-list.vala:209
+msgid "A snapshot with this name already exists"
+msgstr "Bu adda bir anlık görüntü zaten var."
 
 #: src/utils/cue-sheet/cue-sheet.vala:25
 #, c-format
@@ -1279,6 +1280,46 @@ msgstr "Hata: %s (%d)"
 #, c-format
 msgid "Error writing “%s”: %s (%d)"
 msgstr "“%s” yazılırken hata: %s (%d)"
+
+#~ msgid "_Savestates"
+#~ msgstr "_Kayıtverileri"
+
+#~ msgid "This is a dummy game display"
+#~ msgstr "Bu bir sahte oyun görüntüsüdür"
+
+#~ msgid "If you see this, this is a bug. Please contact the developers."
+#~ msgstr ""
+#~ "Eğer bunu görüyorsanız bu bir hatadır. Lütfen geliştiricilerle iletişime "
+#~ "geçin."
+
+#~ msgid "Back up save data"
+#~ msgstr "Kaydetme verisini yedekle"
+
+#~ msgid "_Back Up"
+#~ msgstr "_Yedekle"
+
+#~ msgid "_Restore"
+#~ msgstr "_Geri Yükle"
+
+#~| msgid "Create new savestate"
+#~ msgctxt "shortcut window"
+#~ msgid "Create new savestate"
+#~ msgstr "Yeni kayıtverisi oluştur"
+
+#~ msgid "Couldn’t get Steam appid from manifest “%s”."
+#~ msgstr "Steam appid, “%s” manifestʼinden alınamıyor."
+
+#~ msgid "Couldn’t get name from Steam registry."
+#~ msgstr "Steam defterinden ad alınamıyor."
+
+#~ msgid "An unexpected error occurred."
+#~ msgstr "Beklenmeyen hata oluştu."
+
+#~ msgid "Back Up & Restore"
+#~ msgstr "Yedekle ve Geri Yükle"
+
+#~ msgid "Couldn’t back up: %s"
+#~ msgstr "Yedeklenemedi: %s"
 
 #~ msgid "Single-player"
 #~ msgstr "Tekli oyuncu"
