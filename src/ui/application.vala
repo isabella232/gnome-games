@@ -119,10 +119,10 @@ public class Games.Application : Gtk.Application {
 		return @"$cache_dir/covers";
 	}
 
-	public static string get_covers_cache_dir (int size) {
-		var covers_dir = get_covers_dir ();
+	public static string get_image_cache_dir (string dir_name, int size) {
+		var cache_dir = get_cache_dir ();
 
-		return @"$covers_dir/$size";
+		return @"$cache_dir/$dir_name/$size";
 	}
 
 	public static void try_make_dir (string path) {

@@ -37,9 +37,9 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 	}
 
 	private Gdk.Pixbuf? cover_pixbuf;
-	private bool loading_cover;
+	private Gdk.Pixbuf? icon_pixbuf;
 	private bool try_load_cover;
-	private int last_size;
+	private int last_cover_size;
 
 	public struct DrawingContext {
 		Cairo.Context cr;
@@ -83,10 +83,7 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 
 		var drawn = false;
 
-		drawn = draw_cover (context);
-
-		if (!drawn)
-			drawn = draw_icon (context);
+		drawn = draw_image (context);
 
 		// Draw the default thumbnail if no thumbnail have been drawn
 		if (!drawn)
@@ -95,37 +92,32 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 		return true;
 	}
 
-	public bool draw_icon (DrawingContext context) {
-		var g_icon = icon.get_icon ();
-		if (g_icon == null)
-			return false;
+	public bool draw_image (DrawingContext context) {
+		Gdk.Pixbuf cover, icon;
+		get_icon_and_cover (context, out cover, out icon);
 
-		var pixbuf = get_scaled_icon (context, g_icon, ICON_SCALE);
-		if (pixbuf == null)
-			return false;
+		if (cover != null) {
+			var border_radius = (int) context.style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS, context.state);
+			border_radius = border_radius.clamp (0, int.max (context.width / 2, context.height / 2));
 
-		draw_background (context);
-		draw_pixbuf (context, pixbuf);
-		draw_border (context);
+			context.cr.set_source_rgb (0, 0, 0);
+			rounded_rectangle (context.cr, 0.5, 0.5, context.width - 1, context.height - 1, border_radius);
+			context.cr.fill ();
+			draw_pixbuf (context, cover);
+			draw_border (context);
 
-		return true;
-	}
+			return true;
+		}
 
-	public bool draw_cover (DrawingContext context) {
-		var pixbuf = get_scaled_cover (context);
-		if (pixbuf == null)
-			return false;
+		if (icon != null) {
+			draw_background (context);
+			draw_pixbuf (context, icon);
+			draw_border (context);
 
-		var border_radius = (int) context.style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS, context.state);
-		border_radius = border_radius.clamp (0, int.max (context.width / 2, context.height / 2));
+			return true;
+		}
 
-		context.cr.set_source_rgb (0, 0, 0);
-		rounded_rectangle (context.cr, 0.5, 0.5, context.width - 1, context.height - 1, border_radius);
-		context.cr.fill ();
-		draw_pixbuf (context, pixbuf);
-		draw_border (context);
-
-		return true;
+		return false;
 	}
 
 	public void draw_default (DrawingContext context) {
@@ -164,57 +156,47 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 		context.cr.restore ();
 	}
 
-	private Gdk.Pixbuf? get_scaled_icon (DrawingContext context, GLib.Icon? icon, double scale) {
-		if (icon == null)
-			return null;
+	private void get_icon_and_cover (DrawingContext context, out Gdk.Pixbuf cover, out Gdk.Pixbuf icon) {
+		var cover_size = int.min (context.width, context.height) * scale_factor;
+		var icon_size = (int) (cover_size * ICON_SCALE);
 
-		var theme = Gtk.IconTheme.get_default ();
-		var lookup_flags = Gtk.IconLookupFlags.FORCE_SIZE | Gtk.IconLookupFlags.FORCE_REGULAR;
-		var size = int.min (context.width, context.height) * scale * scale_factor;
-		var icon_info = theme.lookup_by_gicon (icon, (int) size, lookup_flags);
-
-		if (icon_info == null)
-			return null;
-
-		try {
-			return icon_info.load_icon ();
-		}
-		catch (Error e) {
-			warning (@"Couldn’t load the icon: $(e.message)\n");
-			return null;
-		}
-	}
-
-	private Gdk.Pixbuf? get_scaled_cover (DrawingContext context) {
-		var size = int.min (context.width, context.height) * scale_factor;
-
-		if (size != last_size) {
+		if (cover_size != last_cover_size) {
 			cover_pixbuf = null;
+			icon_pixbuf = null;
 			try_load_cover = true;
 		}
 
-		if (!try_load_cover)
-			return cover_pixbuf;
+		if (!try_load_cover) {
+			cover = cover_pixbuf;
+			icon = icon_pixbuf;
+			return;
+		}
 
 		var loader = Application.get_default ().get_cover_loader ();
 
-		last_size = size;
+		last_cover_size = cover_size;
 
 		try_load_cover = false;
-		loading_cover = true;
-		loader.fetch_cover (game, size, (s, pixbuf) => {
-			if (s != last_size) {
-				cover_pixbuf = null;
-				try_load_cover = true;
-			} else
-			if (pixbuf != null)
-				cover_pixbuf = pixbuf;
+		loader.fetch_cover (game, cover_size, icon_size, (cover_size, cover_pixbuf, icon_size, icon_pixbuf) => {
+			if (cover_size != last_cover_size) {
+				this.cover_pixbuf = null;
+				this.icon_pixbuf = null;
 
-			loading_cover = false;
+				try_load_cover = true;
+			}
+			else {
+				if (cover_pixbuf != null)
+					this.cover_pixbuf = cover_pixbuf;
+
+				if (icon_pixbuf != null)
+					this.icon_pixbuf = icon_pixbuf;
+			}
+
 			queue_draw ();
 		});
 
-		return cover_pixbuf;
+		cover = cover_pixbuf;
+		icon = icon_pixbuf;
 	}
 
 	private void draw_pixbuf (DrawingContext context, Gdk.Pixbuf pixbuf) {
