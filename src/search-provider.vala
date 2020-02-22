@@ -50,7 +50,7 @@ private class Games.SearchProvider : Object {
 		return results;
 	}
 
-	private static int compare_cover_dirs (File file1, File file2) {
+	private static int compare_cache_dirs (File file1, File file2) {
 		var name1 = file1.get_basename ();
 		var name2 = file2.get_basename ();
 
@@ -66,13 +66,14 @@ private class Games.SearchProvider : Object {
 		return strcmp (name1, name2);
 	}
 
-	private async File? find_game_cover (string uid) throws Error {
+	private async File? find_game_image (string uid, string subdir_name) throws Error {
 		var cache_dir = Environment.get_user_cache_dir ();
-		var path = @"$cache_dir/gnome-games/covers/";
-		var covers_dir = File.new_for_path (path);
+		var path = @"$cache_dir/gnome-games/$subdir_name/";
 
-		var enumerator = yield covers_dir.enumerate_children_async ("standard::*",
-		                                                            FileQueryInfoFlags.NONE);
+		var subdir = File.new_for_path (path);
+
+		var enumerator = yield subdir.enumerate_children_async ("standard::*",
+		                                                        FileQueryInfoFlags.NONE);
 
 		var list = new List<File> ();
 
@@ -84,7 +85,7 @@ private class Games.SearchProvider : Object {
 			list.prepend (enumerator.get_child (info));
 		}
 
-		list.sort (compare_cover_dirs);
+		list.sort (compare_cache_dirs);
 
 		foreach (var dir in list) {
 			var child = dir.get_child (@"$uid.png");
@@ -96,6 +97,14 @@ private class Games.SearchProvider : Object {
 		return null;
 	}
 
+	private async File? get_game_image (string uid) throws Error {
+		var cover = yield find_game_image (uid, "covers");
+		if (cover != null)
+			return cover;
+
+		return yield find_game_image (uid, "icons");
+	}
+
 	public async HashTable<string, Variant>[] get_result_metas (string[] results) throws Error {
 		application.hold ();
 
@@ -103,11 +112,11 @@ private class Games.SearchProvider : Object {
 
 		foreach (var uid in results) {
 			var title = games[uid];
-			var cover = yield find_game_cover (uid);
+			var image = yield get_game_image (uid);
 
 			GLib.Icon icon;
-			if (cover != null)
-				icon = new FileIcon (cover);
+			if (image != null)
+				icon = new FileIcon (image);
 			else
 				icon = new ThemedIcon ("%s-symbolic".printf (Config.APPLICATION_ID));
 
