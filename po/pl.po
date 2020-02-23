@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-02-12 10:59+0000\n"
-"PO-Revision-Date: 2020-02-16 13:18+0100\n"
+"POT-Creation-Date: 2020-02-18 18:06+0000\n"
+"PO-Revision-Date: 2020-02-23 12:18+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -91,7 +91,7 @@ msgstr ""
 "pocket;neogeopocket;nes;nintendo;pegasus;pegazus;pico;playstation;psp;saturn;"
 "sega;sg-1000;snes;sony;turbografx;vita;wii;wii u;wiiu;wiiware;"
 
-#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:100
+#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:101
 msgid "Fullscreen"
 msgstr "Pełny ekran"
 
@@ -161,7 +161,7 @@ msgid "Search"
 msgstr "Wyszukaj"
 
 #: data/ui/collection-header-bar.ui:130 data/ui/display-header-bar.ui:30
-#: data/ui/display-header-bar.ui:162 data/ui/preferences-subpage-gamepad.ui:84
+#: data/ui/display-header-bar.ui:165 data/ui/preferences-subpage-gamepad.ui:84
 #: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:36
 #: data/ui/preferences-window.ui:77
 msgid "Back"
@@ -187,15 +187,15 @@ msgstr "_O programie"
 msgid "Restore"
 msgstr "Przywróć"
 
-#: data/ui/display-header-bar.ui:141
+#: data/ui/display-header-bar.ui:144
 msgid "_Load"
 msgstr "_Wczytaj"
 
-#: data/ui/display-header-bar.ui:185
+#: data/ui/display-header-bar.ui:188
 msgid "_Restart"
 msgstr "_Uruchom ponownie"
 
-#: data/ui/display-header-bar.ui:191
+#: data/ui/display-header-bar.ui:194
 msgid "_Snapshots"
 msgstr "_Zapisy stanu"
 
@@ -222,7 +222,7 @@ msgstr "Kontroler"
 msgid "Keyboard Input"
 msgstr "Klawiatura"
 
-#: data/ui/media-menu-button.ui:13
+#: data/ui/media-menu-button.ui:14
 msgid "Media"
 msgstr "Nośnik"
 
@@ -505,7 +505,7 @@ msgid "Nintendo DS"
 msgstr "Nintendo DS"
 
 #: data/ui/shortcuts-window.ui:169
-#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:38
+#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:39
 msgid "Screen Layout"
 msgstr "Układ ekranów"
 
@@ -895,25 +895,25 @@ msgstr ""
 "Ta gra do działania wymaga pliku oprogramowania sprzętowego %s o sumie "
 "kontrolnej SHA-512 „%s”."
 
-#: src/retro/retro-runner.vala:311
+#: src/retro/retro-runner.vala:319
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nie odnaleziono modułu dla „%s”."
 
-#: src/retro/retro-runner.vala:566
+#: src/retro/retro-runner.vala:576
 msgid "Unknown platform"
 msgstr "Nieznana platforma"
 
-#: src/retro/retro-runner.vala:584
+#: src/retro/retro-runner.vala:594
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Konsola „%s” nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: src/retro/retro-runner.vala:586
+#: src/retro/retro-runner.vala:596
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Konsola nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: src/retro/retro-runner.vala:595 src/retro/retro-runner.vala:620
+#: src/retro/retro-runner.vala:605 src/retro/retro-runner.vala:630
 #, c-format
 msgid "New snapshot %s"
 msgstr "%s. zapis stanu"
@@ -1052,40 +1052,45 @@ msgstr "Wystąpił nieoczekiwany błąd podczas uruchamiania „%s”"
 msgid "Cannot find game with UID “%s”."
 msgstr "Nie można odnaleźć gry o UID „%s”."
 
-#: src/ui/application.vala:434
+#: src/ui/application.vala:449
 msgid "GNOME Games"
 msgstr "Gry GNOME"
 
-#: src/ui/application.vala:436
+#: src/ui/application.vala:451
 msgid "A video game player for GNOME"
 msgstr "Uruchamianie gier w środowisku GNOME"
 
-#: src/ui/application.vala:440
+#: src/ui/application.vala:455
 msgid "Learn more about GNOME Games"
 msgstr "Więcej informacji o Grach GNOME"
 
-#: src/ui/application.vala:447
+#: src/ui/application.vala:462
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2016-2020\n"
 "Aviary.pl <community-poland@mozilla.org>, 2016-2020"
 
-#: src/ui/application-window.vala:272 src/ui/application-window.vala:289
+#: src/ui/application-window.vala:277 src/ui/application-window.vala:294
 msgid "Playing a game"
 msgstr "W trakcie gry"
 
-#: src/ui/display-view.vala:341
+#: src/ui/display-view.vala:360
 msgid "No runner found"
 msgstr "Nie odnaleziono programu uruchamiającego"
 
-#: src/ui/error-display.vala:13
+#: src/ui/error-display.vala:15
 #, c-format
 msgid "Oops! Unable to run “%s”"
 msgstr "Nie można uruchomić gry „%s”"
 
-#: src/ui/error-display.vala:15
+#: src/ui/error-display.vala:17
 msgid "Oops! Unable to run the game"
 msgstr "Nie można uruchomić gry"
+
+#: src/ui/error-display.vala:24
+#, c-format
+msgid "Oops! The game “%s” crashed unexpectedly"
+msgstr "Gra „%s” nieoczekiwanie uległa awarii"
 
 #: src/ui/gamepad-mapper.vala:137
 msgid "Press suitable button on your gamepad"
@@ -1103,7 +1108,7 @@ msgstr "Proszę przesunąć odpowiednią oś w górę/dół na kontrolerze"
 msgid "Press suitable key on your keyboard"
 msgstr "Proszę nacisnąć odpowiedni klawisz na klawiaturze"
 
-#: src/ui/media-menu-button.vala:50
+#: src/ui/media-menu-button.vala:52
 #, c-format
 msgid "Media %d"
 msgstr "%d. nośnik"
