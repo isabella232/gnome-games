@@ -9,7 +9,6 @@ int main (string[] args) {
 	unowned var unowned_args = empty_args;
 
 	Grl.init (ref unowned_args);
-	Hdy.init (ref args);
 
 	var app = new Games.Application ();
 	var result = app.run (args);
