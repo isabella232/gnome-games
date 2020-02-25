@@ -176,6 +176,11 @@
         "mime/mime.json",
         {
             "name" : "libevdev",
+            "buildsystem" : "meson",
+            "config-opts" : [
+                "-Dtests=disabled",
+                "-Ddocumentation=disabled"
+            ],
             "sources" : [
                 {
                     "type" : "git",
