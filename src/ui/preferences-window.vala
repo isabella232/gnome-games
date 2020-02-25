@@ -9,8 +9,6 @@ private class Games.PreferencesWindow : Gtk.Window {
 	[GtkChild]
 	private Hdy.Leaflet titlebar_box;
 	[GtkChild]
-	private Gtk.HeaderBar left_header_bar;
-	[GtkChild]
 	private Gtk.HeaderBar right_header_bar;
 	[GtkChild]
 	private Gtk.Stack main_stack;
@@ -54,8 +52,7 @@ private class Games.PreferencesWindow : Gtk.Window {
 				titlebar_stack.add (header_bar);
 				titlebar_stack.visible_child = header_bar;
 
-				content_box.visible_child = stack;
-				titlebar_box.visible_child = right_header_bar;
+				content_box.navigate (Hdy.NavigationDirection.FORWARD);
 			}
 
 			_subpage = value;
@@ -74,9 +71,7 @@ private class Games.PreferencesWindow : Gtk.Window {
 
 	[GtkCallback]
 	private void sidebar_row_selected () {
-		content_box.visible_child = stack;
-		titlebar_box.visible_child = right_header_bar;
-		update_header_group ();
+		content_box.navigate (Hdy.NavigationDirection.FORWARD);
 
 		update_ui ();
 	}
@@ -108,14 +103,8 @@ private class Games.PreferencesWindow : Gtk.Window {
 
 	[GtkCallback]
 	private void on_back_clicked () {
-		if (content_box.visible_child == sidebar) {
+		if (!content_box.navigate (Hdy.NavigationDirection.BACK))
 			close ();
-			return;
-		}
-
-		content_box.visible_child = sidebar;
-		titlebar_box.visible_child = left_header_bar;
-		update_header_group ();
 	}
 
 	[GtkCallback]
