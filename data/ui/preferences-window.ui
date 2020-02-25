@@ -96,6 +96,11 @@
                 </child>
               </object>
             </child>
+            <child>
+              <object class="GtkBox" id="titlebar_subpage_box">
+                <property name="visible">True</property>
+              </object>
+            </child>
           </object>
         </child>
       </object>
@@ -161,6 +166,12 @@
                 </child>
               </object>
             </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="content_subpage_box">
+            <property name="visible">True</property>
+            <property name="orientation">vertical</property>
           </object>
         </child>
       </object>

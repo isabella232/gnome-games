@@ -9,11 +9,15 @@ private class Games.PreferencesWindow : Gtk.Window {
 	[GtkChild]
 	private Hdy.Leaflet titlebar_box;
 	[GtkChild]
+	private Gtk.Box titlebar_subpage_box;
+	[GtkChild]
 	private Gtk.HeaderBar right_header_bar;
 	[GtkChild]
 	private Gtk.Stack main_stack;
 	[GtkChild]
 	private Hdy.Leaflet content_box;
+	[GtkChild]
+	private Gtk.Box content_subpage_box;
 	[GtkChild]
 	private PreferencesSidebar sidebar;
 	[GtkChild]
@@ -42,15 +46,15 @@ private class Games.PreferencesWindow : Gtk.Window {
 			if (value != null) {
 				var header_bar = value.header_bar;
 
-				main_stack.add (value);
-				main_stack.visible_child = value;
+				content_subpage_box.add (value);
+				main_stack.visible_child = content_subpage_box;
 
 				selection_mode_binding = value.bind_property ("request-selection-mode",
 				                                              titlebar, "selection-mode",
 				                                              BindingFlags.SYNC_CREATE);
 
-				titlebar_stack.add (header_bar);
-				titlebar_stack.visible_child = header_bar;
+				titlebar_subpage_box.add (header_bar);
+				titlebar_stack.visible_child = titlebar_subpage_box;
 
 				content_box.navigate (Hdy.NavigationDirection.FORWARD);
 			}
@@ -96,8 +100,8 @@ private class Games.PreferencesWindow : Gtk.Window {
 		if (main_stack.transition_running || previous_subpage == null)
 			return;
 
-		main_stack.remove (previous_subpage);
-		titlebar_stack.remove (previous_subpage.header_bar);
+		content_subpage_box.remove (previous_subpage);
+		titlebar_subpage_box.remove (previous_subpage.header_bar);
 		previous_subpage = null;
 	}
 
