@@ -263,10 +263,6 @@ private class Games.PlatformsView : Gtk.Bin {
 	[GtkCallback]
 	private void on_leaflet_folded_changed () {
 		is_folded = leaflet.folded;
-		if (leaflet.folded)
-			leaflet.get_style_context ().add_class ("folded");
-		else
-			leaflet.get_style_context ().remove_class ("folded");
 	}
 
 	[GtkCallback]
