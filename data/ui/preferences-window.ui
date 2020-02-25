@@ -15,7 +15,7 @@
             <property name="transition-type">slide-left-right</property>
             <property name="transition-duration">250</property>
             <child>
-              <object class="HdyLeaflet" id="titlebar_box">
+              <object class="HdyLeaflet" id="titlebar_leaflet">
                 <property name="visible">True</property>
                 <signal name="notify::visible-child" handler="update_header_group"/>
                 <child>
@@ -112,7 +112,7 @@
         <property name="transition-duration">250</property>
         <signal name="notify::transition-running" handler="subpage_transition_finished"/>
         <child>
-          <object class="HdyLeaflet" id="content_box">
+          <object class="HdyLeaflet" id="content_leaflet">
             <property name="visible">True</property>
             <property name="can-swipe-back">True</property>
             <signal name="notify::folded" handler="on_folded_changed" after="yes"/>
@@ -199,8 +199,8 @@
   </object>
   <object class="HdySwipeGroup">
     <swipeables>
-      <swipeable name="titlebar_box"/>
-      <swipeable name="content_box"/>
+      <swipeable name="titlebar_leaflet"/>
+      <swipeable name="content_leaflet"/>
     </swipeables>
   </object>
 </interface>

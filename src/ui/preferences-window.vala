@@ -7,7 +7,7 @@ private class Games.PreferencesWindow : Gtk.Window {
 	[GtkChild]
 	private Gtk.Stack titlebar_stack;
 	[GtkChild]
-	private Hdy.Leaflet titlebar_box;
+	private Hdy.Leaflet titlebar_leaflet;
 	[GtkChild]
 	private Gtk.Box titlebar_subpage_box;
 	[GtkChild]
@@ -15,7 +15,7 @@ private class Games.PreferencesWindow : Gtk.Window {
 	[GtkChild]
 	private Gtk.Stack main_stack;
 	[GtkChild]
-	private Hdy.Leaflet content_box;
+	private Hdy.Leaflet content_leaflet;
 	[GtkChild]
 	private Gtk.Box content_subpage_box;
 	[GtkChild]
@@ -38,8 +38,8 @@ private class Games.PreferencesWindow : Gtk.Window {
 
 			if (subpage != null) {
 				previous_subpage = subpage;
-				main_stack.visible_child = content_box;
-				titlebar_stack.visible_child = titlebar_box;
+				main_stack.visible_child = content_leaflet;
+				titlebar_stack.visible_child = titlebar_leaflet;
 				selection_mode_binding.unbind ();
 			}
 
@@ -56,7 +56,7 @@ private class Games.PreferencesWindow : Gtk.Window {
 				titlebar_subpage_box.add (header_bar);
 				titlebar_stack.visible_child = titlebar_subpage_box;
 
-				content_box.navigate (Hdy.NavigationDirection.FORWARD);
+				content_leaflet.navigate (Hdy.NavigationDirection.FORWARD);
 			}
 
 			_subpage = value;
@@ -75,7 +75,7 @@ private class Games.PreferencesWindow : Gtk.Window {
 
 	[GtkCallback]
 	private void sidebar_row_selected () {
-		content_box.navigate (Hdy.NavigationDirection.FORWARD);
+		content_leaflet.navigate (Hdy.NavigationDirection.FORWARD);
 
 		update_ui ();
 	}
@@ -107,13 +107,13 @@ private class Games.PreferencesWindow : Gtk.Window {
 
 	[GtkCallback]
 	private void on_back_clicked () {
-		if (!content_box.navigate (Hdy.NavigationDirection.BACK))
+		if (!content_leaflet.navigate (Hdy.NavigationDirection.BACK))
 			close ();
 	}
 
 	[GtkCallback]
 	private void on_folded_changed () {
-		var folded = content_box.folded;
+		var folded = content_leaflet.folded;
 
 		update_header_group ();
 		page_back_button.visible = folded;
@@ -127,8 +127,8 @@ private class Games.PreferencesWindow : Gtk.Window {
 	}
 
 	private void update_header_group () {
-		var folded = content_box.folded;
-		var visible_header_bar = titlebar_box.visible_child as Gtk.HeaderBar;
+		var folded = content_leaflet.folded;
+		var visible_header_bar = titlebar_leaflet.visible_child as Gtk.HeaderBar;
 
 		if (folded)
 			header_group.focus = visible_header_bar;
