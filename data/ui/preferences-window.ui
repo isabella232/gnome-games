@@ -10,10 +10,8 @@
       <object class="HdyTitleBar" id="titlebar">
         <property name="visible">True</property>
         <child>
-          <object class="GtkStack" id="titlebar_stack">
+          <object class="HdyDeck" id="titlebar_deck">
             <property name="visible">True</property>
-            <property name="transition-type">slide-left-right</property>
-            <property name="transition-duration">250</property>
             <child>
               <object class="HdyLeaflet" id="titlebar_leaflet">
                 <property name="visible">True</property>
@@ -106,10 +104,9 @@
       </object>
     </child>
     <child>
-      <object class="GtkStack" id="main_stack">
+      <object class="HdyDeck" id="content_deck">
         <property name="visible">True</property>
-        <property name="transition-type">slide-left-right</property>
-        <property name="transition-duration">250</property>
+        <property name="can-swipe-back" bind-source="titlebar" bind-property="selection-mode" bind-flags="sync-create|invert-boolean"/>
         <signal name="notify::transition-running" handler="subpage_transition_finished"/>
         <child>
           <object class="HdyLeaflet" id="content_leaflet">
@@ -196,6 +193,12 @@
       <headerbar name="left_header_bar"/>
       <headerbar name="right_header_bar"/>
     </headerbars>
+  </object>
+  <object class="HdySwipeGroup">
+    <swipeables>
+      <swipeable name="titlebar_deck"/>
+      <swipeable name="content_deck"/>
+    </swipeables>
   </object>
   <object class="HdySwipeGroup">
     <swipeables>

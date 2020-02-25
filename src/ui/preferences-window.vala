@@ -5,15 +5,13 @@ private class Games.PreferencesWindow : Gtk.Window {
 	[GtkChild]
 	private Hdy.TitleBar titlebar;
 	[GtkChild]
-	private Gtk.Stack titlebar_stack;
-	[GtkChild]
 	private Hdy.Leaflet titlebar_leaflet;
 	[GtkChild]
 	private Gtk.Box titlebar_subpage_box;
 	[GtkChild]
 	private Gtk.HeaderBar right_header_bar;
 	[GtkChild]
-	private Gtk.Stack main_stack;
+	private Hdy.Deck content_deck;
 	[GtkChild]
 	private Hdy.Leaflet content_leaflet;
 	[GtkChild]
@@ -37,9 +35,7 @@ private class Games.PreferencesWindow : Gtk.Window {
 				return;
 
 			if (subpage != null) {
-				previous_subpage = subpage;
-				main_stack.visible_child = content_leaflet;
-				titlebar_stack.visible_child = titlebar_leaflet;
+				content_deck.navigate (Hdy.NavigationDirection.BACK);
 				selection_mode_binding.unbind ();
 			}
 
@@ -47,24 +43,19 @@ private class Games.PreferencesWindow : Gtk.Window {
 				var header_bar = value.header_bar;
 
 				content_subpage_box.add (value);
-				main_stack.visible_child = content_subpage_box;
+				titlebar_subpage_box.add (header_bar);
 
 				selection_mode_binding = value.bind_property ("request-selection-mode",
 				                                              titlebar, "selection-mode",
 				                                              BindingFlags.SYNC_CREATE);
 
-				titlebar_subpage_box.add (header_bar);
-				titlebar_stack.visible_child = titlebar_subpage_box;
-
+				content_deck.navigate (Hdy.NavigationDirection.FORWARD);
 				content_leaflet.navigate (Hdy.NavigationDirection.FORWARD);
 			}
 
 			_subpage = value;
 		}
 	}
-
-	// The previous subpage instance must be kept around during the transition
-	private PreferencesSubpage previous_subpage;
 
 	private Binding subpage_binding;
 	private Binding selection_mode_binding;
@@ -82,6 +73,12 @@ private class Games.PreferencesWindow : Gtk.Window {
 
 	private void update_ui () {
 		var page = stack.visible_child as PreferencesPage;
+
+		if (subpage_binding != null) {
+			subpage_binding.unbind ();
+			subpage_binding = null;
+		}
+
 		if (page == null) {
 			right_header_bar.title = "";
 			subpage = null;
@@ -92,17 +89,22 @@ private class Games.PreferencesWindow : Gtk.Window {
 		right_header_bar.title = page.title;
 
 		subpage_binding = page.bind_property ("subpage", this, "subpage",
-		                                      BindingFlags.SYNC_CREATE);
+		                                      BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
 	}
 
 	[GtkCallback]
 	public void subpage_transition_finished (Object object, ParamSpec param) {
-		if (main_stack.transition_running || previous_subpage == null)
+		if (content_deck.transition_running ||
+		    content_deck.visible_child != content_leaflet)
 			return;
 
-		content_subpage_box.remove (previous_subpage);
-		titlebar_subpage_box.remove (previous_subpage.header_bar);
-		previous_subpage = null;
+		foreach (var child in content_subpage_box.get_children ())
+			content_subpage_box.remove (child);
+
+		foreach (var child in titlebar_subpage_box.get_children ())
+			titlebar_subpage_box.remove (child);
+
+		subpage = null;
 	}
 
 	[GtkCallback]
@@ -126,6 +128,7 @@ private class Games.PreferencesWindow : Gtk.Window {
 			stack.transition_type = Gtk.StackTransitionType.CROSSFADE;
 	}
 
+	[GtkCallback]
 	private void update_header_group () {
 		var folded = content_leaflet.folded;
 		var visible_header_bar = titlebar_leaflet.visible_child as Gtk.HeaderBar;
