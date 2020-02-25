@@ -16,7 +16,17 @@ private class Games.DummyGame : Object, Game {
 		this.uri = uri;
 
 		var file = uri.to_file ();
-		var name = file.get_basename ();
+		string name;
+		try {
+			var fileinfo = file.query_info (FileAttribute.STANDARD_DISPLAY_NAME,
+			                                FileQueryInfoFlags.NONE,
+			                                null);
+			name = fileinfo.get_display_name ();
+		} catch (Error e) {
+			critical ("Couldn't retrieve filename: %s", e.message);
+			name = file.get_basename();
+		}
+
 		name = name.split (".")[0];
 		name = name.split ("(")[0];
 		_name = name.strip ();

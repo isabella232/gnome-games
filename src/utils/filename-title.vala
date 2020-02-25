@@ -15,7 +15,17 @@ public class Games.FilenameTitle : Object, Title {
 
 	public string get_title () throws Error {
 		var file = uri.to_file ();
-		var name = file.get_basename ();
+		string name;
+		try {
+			var fileinfo = file.query_info (FileAttribute.STANDARD_DISPLAY_NAME,
+			                                FileQueryInfoFlags.NONE,
+			                                null);
+			name = fileinfo.get_display_name ();
+		} catch (Error e) {
+			critical ("Couldn't retrieve filename: %s", e.message);
+			name = file.get_basename ();
+		}
+
 		name = filename_ext_regex.replace (name, name.length, 0, "");
 		name = name.split ("(")[0];
 		name = name.strip ();

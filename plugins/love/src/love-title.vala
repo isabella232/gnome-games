@@ -22,7 +22,17 @@ private class Games.LoveTitle : Object, Title {
 
 		var uri = package.get_uri ();
 		var file = uri.to_file ();
-		title = file.get_basename ();
+
+		try {
+			var fileinfo = file.query_info (FileAttribute.STANDARD_DISPLAY_NAME,
+			                                FileQueryInfoFlags.NONE,
+			                                null);
+			title = fileinfo.get_display_name ();
+		} catch (Error e) {
+			critical ("Couldn't retrieve filename: %s", e.message);
+			title = file.get_basename ();
+		}
+
 		title = title.split (".")[0];
 		title = title.split ("(")[0];
 		title = title.strip ();

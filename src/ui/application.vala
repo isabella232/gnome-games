@@ -187,7 +187,17 @@ public class Games.Application : Gtk.Application {
 		var game = game_for_uris (uris);
 
 		if (game == null) {
-			var filename = file.get_basename ();
+			string filename;
+			try {
+				var fileinfo = file.query_info (FileAttribute.STANDARD_DISPLAY_NAME,
+				                                FileQueryInfoFlags.NONE,
+				                                null);
+				filename = fileinfo.get_display_name ();
+			} catch (Error e) {
+				critical ("Couldn't retrieve filename: %s", e.message);
+				filename = file.get_basename ();
+			}
+
 			var error_msg = _("An unexpected error occurred while trying to run %s").printf (filename);
 			window.show_error (error_msg);
 			return;
