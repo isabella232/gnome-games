@@ -2,6 +2,7 @@
 
 public class Games.Application : Gtk.Application {
 	const string HELP_URI = "https://wiki.gnome.org/Apps/Games/Documentation";
+	const string TEST_QUERY = "SELECT nie:url(?f) WHERE { ?f fts:match 'test query to check tracker' }";
 
 	private static bool? is_flatpak;
 
@@ -16,6 +17,8 @@ public class Games.Application : Gtk.Application {
 	private CoverLoader cover_loader;
 
 	private Manette.Monitor manette_monitor;
+
+	private bool tracker_failed;
 
 	private const ActionEntry[] action_entries = {
 		{ "preferences",    preferences      },
@@ -291,6 +294,11 @@ public class Games.Application : Gtk.Application {
 		});
 		window.show ();
 
+		if (tracker_failed) {
+			string error_msg = _("Couldn't find Tracker, automatic game discovery may not work.");
+			window.show_error (error_msg);
+		}
+
 		GLib.Timeout.add (500, show_loading_notification);
 	}
 
@@ -308,10 +316,12 @@ public class Games.Application : Gtk.Application {
 		TrackerUriSource tracker_uri_source = null;
 		try {
 			var connection = Tracker.Sparql.Connection.@get ();
+			connection.query (TEST_QUERY);
 			tracker_uri_source = new TrackerUriSource (connection);
 		}
 		catch (Error e) {
-			debug (e.message);
+			tracker_failed = true;
+			critical ("Couldn't find Tracker: %s", e.message);
 		}
 
 		game_collection = new GameCollection (database);
@@ -536,3 +546,4 @@ public class Games.Application : Gtk.Application {
 		return GLib.Application.get_default () as Application;
 	}
 }
+
