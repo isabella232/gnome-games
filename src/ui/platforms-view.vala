@@ -7,8 +7,6 @@ private class Games.PlatformsView : Gtk.Bin {
 	[GtkChild]
 	private Hdy.Leaflet leaflet;
 	[GtkChild]
-	private Gtk.ScrolledWindow scrolled_window;
-	[GtkChild]
 	private Gtk.ListBox list_box;
 	[GtkChild]
 	private CollectionIconView collection_view;
@@ -174,7 +172,7 @@ private class Games.PlatformsView : Gtk.Bin {
 
 			return true;
 		case Gtk.DirectionType.RIGHT:
-			is_subview_open = true;
+			leaflet.navigate (Hdy.NavigationDirection.FORWARD);
 			collection_view.select_default_game (Gtk.DirectionType.RIGHT);
 
 			return true;
@@ -185,7 +183,7 @@ private class Games.PlatformsView : Gtk.Bin {
 
 	[GtkCallback]
 	private bool on_gamepad_accept () {
-		is_subview_open = true;
+		leaflet.navigate (Hdy.NavigationDirection.FORWARD);
 		collection_view.select_default_game (Gtk.DirectionType.RIGHT);
 
 		return true;
@@ -194,7 +192,7 @@ private class Games.PlatformsView : Gtk.Bin {
 	[GtkCallback]
 	private bool on_gamepad_cancel () {
 		collection_view.unselect_game ();
-		is_subview_open = false;
+		leaflet.navigate (Hdy.NavigationDirection.BACK);
 
 		return true;
 	}
@@ -203,7 +201,7 @@ private class Games.PlatformsView : Gtk.Bin {
 	private void on_list_box_row_activated (Gtk.ListBoxRow row_item) {
 		select_platform_for_row (row_item);
 
-		is_subview_open = true;
+		leaflet.navigate (Hdy.NavigationDirection.FORWARD);
 	}
 
 	private void select_platform_for_row (Gtk.ListBoxRow row_item) {
@@ -215,7 +213,12 @@ private class Games.PlatformsView : Gtk.Bin {
 		collection_view.reset_scroll_position ();
 	}
 
-	public void select_first_visible_row () {
+	public void reset () {
+		select_first_visible_row ();
+		leaflet.navigate (Hdy.NavigationDirection.BACK);
+	}
+
+	private void select_first_visible_row () {
 		foreach (var child in list_box.get_children ()) {
 			var row = child as Gtk.ListBoxRow;
 
@@ -271,10 +274,11 @@ private class Games.PlatformsView : Gtk.Bin {
 	}
 
 	[GtkCallback]
-	private void update_subview () {
-		if (is_subview_open)
-			leaflet.visible_child = collection_view;
-		else
-			leaflet.visible_child = scrolled_window;
+	private void on_visible_child_changed () {
+		is_subview_open = (leaflet.visible_child == collection_view);
+	}
+
+	public Hdy.Leaflet get_leaflet () {
+		return leaflet;
 	}
 }

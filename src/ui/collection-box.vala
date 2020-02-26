@@ -5,6 +5,7 @@ private class Games.CollectionBox : Gtk.Box {
 	public signal void game_activated (Game game);
 
 	public GameModel game_model { get; construct; }
+	public Hdy.SwipeGroup swipe_group { get; construct; }
 	public bool search_mode { get; set; }
 	public bool loading_notification { get; set; }
 
@@ -67,10 +68,12 @@ private class Games.CollectionBox : Gtk.Box {
 
 		collection_view.game_model = game_model;
 		platform_view.game_model = game_model;
+
+		swipe_group.add_swipeable (platform_view.get_leaflet ());
 	}
 
-	public CollectionBox (GameModel game_model) {
-		Object (game_model: game_model);
+	public CollectionBox (GameModel game_model, Hdy.SwipeGroup swipe_group) {
+		Object (game_model: game_model, swipe_group: swipe_group);
 	}
 
 	public void show_error (string error_message) {
@@ -163,9 +166,7 @@ private class Games.CollectionBox : Gtk.Box {
 		if (viewstack.visible_child == collection_view)
 			collection_view.reset_scroll_position ();
 		else
-			platform_view.select_first_visible_row ();
-
-		is_subview_open = false;
+			platform_view.reset ();
 	}
 
 	[GtkCallback]

@@ -30,19 +30,24 @@ private class Games.CollectionHeaderBar : Gtk.Bin {
 	public bool is_showing_bottom_bar { get; set; }
 	public bool is_subview_open { get; set; }
 	public string subview_title { get; set; }
+	public Hdy.SwipeGroup swipe_group { get; construct; }
 
 	[GtkChild]
-	private Gtk.Stack stack;
+	private Hdy.Deck deck;
 	[GtkChild]
 	private Hdy.HeaderBar header_bar;
 	[GtkChild]
-	private Gtk.HeaderBar subview_header_bar;
+	private Hdy.HeaderBar subview_header_bar;
 	[GtkChild]
 	private Hdy.Squeezer title_squeezer;
 	[GtkChild]
 	private Hdy.ViewSwitcher view_switcher;
 
 	private ulong viewstack_child_changed_id;
+
+	public CollectionHeaderBar (Hdy.SwipeGroup swipe_group) {
+		Object (swipe_group: swipe_group);
+	}
 
 	[GtkCallback]
 	private void update_adaptive_state () {
@@ -51,15 +56,22 @@ private class Games.CollectionHeaderBar : Gtk.Bin {
 	}
 
 	[GtkCallback]
-	private void update_subview () {
-		if (is_subview_open && is_folded)
-			stack.visible_child = subview_header_bar;
-		else
-			stack.visible_child = header_bar;
+	private void on_subview_back_clicked () {
+		back ();
 	}
 
 	[GtkCallback]
-	private void on_subview_back_clicked () {
-		is_subview_open = false;
+	private void on_folded_changed () {
+		if (is_folded) {
+			deck.visible_child = is_subview_open ? subview_header_bar : header_bar;
+			swipe_group.add_swipeable (deck);
+		} else {
+			swipe_group.remove_swipeable (deck);
+			deck.visible_child = header_bar;
+		}
+	}
+
+	public bool back () {
+		return deck.navigate (Hdy.NavigationDirection.BACK);
 	}
 }

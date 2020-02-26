@@ -7,12 +7,13 @@
     <signal name="map" after="yes" handler="on_map"/>
     <signal name="unmap" after="no" handler="on_unmap"/>
     <signal name="notify::is-folded" handler="update_selection_mode"/>
-    <signal name="notify::is-subview-open" handler="update_subview"/>
     <child>
       <object class="HdyLeaflet" id="leaflet">
         <property name="visible">True</property>
-        <property name="transition-type">slide</property>
+        <property name="can-swipe-back">True</property>
+        <property name="mode-transition-duration">200</property>
         <signal name="notify::folded" handler="on_leaflet_folded_changed"/>
+        <signal name="notify::visible-child" handler="on_visible_child_changed"/>
         <child>
           <object class="GtkScrolledWindow" id="scrolled_window">
             <property name="visible">True</property>
@@ -45,6 +46,9 @@
               <class name="sidebar"/>
             </style>
           </object>
+          <packing>
+            <property name="allow-visible">False</property>
+          </packing>
         </child>
         <child>
           <object class="GamesCollectionIconView" id="collection_view">

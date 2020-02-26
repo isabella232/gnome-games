@@ -47,8 +47,10 @@ private class Games.CollectionView : Object, UiView {
 	private KonamiCode konami_code;
 
 	construct {
-		box = new CollectionBox (game_model);
-		header_bar = new CollectionHeaderBar ();
+		var swipe_group = new Hdy.SwipeGroup ();
+
+		box = new CollectionBox (game_model, swipe_group);
+		header_bar = new CollectionHeaderBar (swipe_group);
 		box.game_activated.connect (game => {
 			game_activated (game);
 		});
@@ -120,11 +122,8 @@ private class Games.CollectionView : Object, UiView {
 		if (((event.state & default_modifiers) == Gdk.ModifierType.MOD1_MASK) &&
 		    (((window.get_direction () == Gtk.TextDirection.LTR) && keyval == Gdk.Key.Left) ||
 		     ((window.get_direction () == Gtk.TextDirection.RTL) && keyval == Gdk.Key.Right)) &&
-		     is_subview_open) {
-			is_subview_open = false;
-
+		     header_bar.back ())
 			return true;
-		}
 
 		if ((keyval == Gdk.Key.f || keyval == Gdk.Key.F) &&
 		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK &&

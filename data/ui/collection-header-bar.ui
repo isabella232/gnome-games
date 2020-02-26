@@ -4,12 +4,10 @@
   <template class="GamesCollectionHeaderBar" parent="GtkBin">
     <property name="visible">True</property>
     <signal name="notify::is-collection-empty" handler="update_adaptive_state"/>
-    <signal name="notify::is-folded" handler="update_subview"/>
-    <signal name="notify::is-subview-open" handler="update_subview"/>
+    <signal name="notify::is-folded" handler="on_folded_changed"/>
     <child>
-      <object class="GtkStack" id="stack">
+      <object class="HdyDeck" id="deck">
         <property name="visible">True</property>
-        <property name="transition-type">slide-left-right</property>
         <child>
           <object class="HdyHeaderBar" id="header_bar">
             <property name="visible">True</property>
@@ -113,7 +111,7 @@
           </object>
         </child>
         <child>
-          <object class="GtkHeaderBar" id="subview_header_bar">
+          <object class="HdyHeaderBar" id="subview_header_bar">
             <property name="visible">True</property>
             <property name="show_close_button">True</property>
             <property name="title" bind-source="GamesCollectionHeaderBar" bind-property="subview-title" bind-flags="bidirectional"/>
