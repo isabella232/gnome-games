@@ -1,4 +1,22 @@
 ===============
+Version 3.35.92
+===============
+
+* Prevent headerbar from hiding while there are open popovers
+
+* Fixes
+ - Ensure analog works for pcsx_rearmed core
+ - Fix game title in fullscreen
+ - Ensure loading notification is shown after unpausing
+
+* Translation updates
+ Brazilian Portuguese
+ Danish
+ Hungarian
+ Indonesian
+ Swedish
+
+===============
 Version 3.35.90
 ===============
 

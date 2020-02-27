@@ -43,6 +43,21 @@
   </screenshots>
 
   <releases>
+    <release version="3.35.92" type="development" date="2020-02-27" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>Prevent headerbar from hiding while there are open popovers</li>
+        </ul>
+        <p>Fixes:</p>
+        <ul>
+          <li>Ensure analog works for pcsx_rearmed core</li>
+          <li>Fix game title in fullscreen</li>
+          <li>Ensure loading notification is shown after unpausing</li>
+        </ul>
+        <p>Translation updates.</p>
+      </description>
+    </release>
     <release version="3.35.90" type="development" date="2020-02-03" urgency="medium">
       <description>
         <p>Improvements:</p>
