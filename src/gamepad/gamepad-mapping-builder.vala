@@ -6,6 +6,14 @@ private class Games.GamepadMappingBuilder : Object {
 		string source;
 	}
 
+	// SDL strings are based on XBox button order unlike libretro, e.g.
+	// A is the bottom button rather than the right one.
+	//
+	// At the same time, /usr/include/linux/input-event-codes.h uses XBox order
+	// for A and B, and Nintendo order for X and Y: X is the top button, and Y
+	// is the left one.
+	//
+	// As a result, we swap X and Y again to match XBox order.
 	private const GamepadInputSource[] INPUT_SOURCES = {
 		{ { EventCode.EV_ABS, EventCode.ABS_X }, "leftx" },
 		{ { EventCode.EV_ABS, EventCode.ABS_Y }, "lefty" },
