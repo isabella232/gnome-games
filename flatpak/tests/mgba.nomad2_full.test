@@ -5,13 +5,15 @@ Medias=nomad2_full.gba;
 
 [Options]
 mgba_solar_sensor_level=0;1;2;3;4;5;6;7;8;9;10;
-mgba_allow_opposing_directions=OFF;ON;
+mgba_allow_opposing_directions=no;yes;
 mgba_gb_model=Autodetect;Game Boy;Super Game Boy;Game Boy Color;Game Boy Advance;
 mgba_use_bios=ON;OFF;
 mgba_skip_bios=OFF;ON;
 mgba_sgb_borders=ON;OFF;
 mgba_idle_optimization=Remove Known;Detect and Remove;Don't Remove;
 mgba_frameskip=0;1;2;3;4;5;6;7;8;9;10;
+mgba_color_correction=OFF;GBA;GBC;Auto;
+mgba_interframe_blending=OFF;mix;mix_fast;mix_smart;mix_smart_fast;lcd_ghosting;lcd_ghosting_fast;
 
 [Frame 120]
 Video=mgba.nomad2_full.120.png
