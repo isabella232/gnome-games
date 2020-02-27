@@ -3,10 +3,10 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-subpage-keyboard.ui")]
 private class Games.PreferencesSubpageKeyboard : Gtk.Box, PreferencesSubpage {
 	private const GamepadInput[] KEYBOARD_GAMEPAD_INPUTS = {
-		{ EventCode.EV_KEY, EventCode.BTN_A },
-		{ EventCode.EV_KEY, EventCode.BTN_B },
-		{ EventCode.EV_KEY, EventCode.BTN_X },
-		{ EventCode.EV_KEY, EventCode.BTN_Y },
+		{ EventCode.EV_KEY, EventCode.BTN_EAST },
+		{ EventCode.EV_KEY, EventCode.BTN_SOUTH },
+		{ EventCode.EV_KEY, EventCode.BTN_WEST },
+		{ EventCode.EV_KEY, EventCode.BTN_NORTH },
 		{ EventCode.EV_KEY, EventCode.BTN_START },
 		{ EventCode.EV_KEY, EventCode.BTN_SELECT },
 		{ EventCode.EV_KEY, EventCode.BTN_THUMBL },
@@ -22,8 +22,8 @@ private class Games.PreferencesSubpageKeyboard : Gtk.Box, PreferencesSubpage {
 	};
 
 	private const GamepadInputPath[] KEYBOARD_GAMEPAD_INPUT_PATHS = {
-		{ { EventCode.EV_KEY, EventCode.BTN_A }, "a" },
-		{ { EventCode.EV_KEY, EventCode.BTN_B }, "b" },
+		{ { EventCode.EV_KEY, EventCode.BTN_EAST }, "east" },
+		{ { EventCode.EV_KEY, EventCode.BTN_SOUTH }, "south" },
 		{ { EventCode.EV_KEY, EventCode.BTN_DPAD_DOWN }, "dpdown" },
 		{ { EventCode.EV_KEY, EventCode.BTN_DPAD_LEFT }, "dpleft" },
 		{ { EventCode.EV_KEY, EventCode.BTN_DPAD_RIGHT }, "dpright" },
@@ -36,8 +36,8 @@ private class Games.PreferencesSubpageKeyboard : Gtk.Box, PreferencesSubpage {
 		{ { EventCode.EV_KEY, EventCode.BTN_THUMBR }, "rightstick" },
 		{ { EventCode.EV_KEY, EventCode.BTN_TL2 }, "lefttrigger" },
 		{ { EventCode.EV_KEY, EventCode.BTN_TR2 }, "righttrigger" },
-		{ { EventCode.EV_KEY, EventCode.BTN_Y }, "x" },
-		{ { EventCode.EV_KEY, EventCode.BTN_X }, "y" },
+		{ { EventCode.EV_KEY, EventCode.BTN_NORTH }, "north" },
+		{ { EventCode.EV_KEY, EventCode.BTN_WEST }, "west" },
 	};
 
 	private const GamepadViewConfiguration KEYBOARD_GAMEPAD_VIEW_CONFIGURATION = {

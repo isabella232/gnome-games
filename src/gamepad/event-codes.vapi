@@ -6,6 +6,11 @@ namespace Games.EventCode {
     public const uint16 EV_ABS;
     public const uint16 EV_MAX;
 
+    public const uint16 BTN_SOUTH;
+    public const uint16 BTN_EAST;
+    public const uint16 BTN_WEST;
+    public const uint16 BTN_NORTH;
+
     public const uint16 BTN_A;
     public const uint16 BTN_B;
     public const uint16 BTN_X;

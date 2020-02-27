@@ -75,13 +75,13 @@
      fit-margin-bottom="0"
      showborder="true" />
   <circle
-     id="a"
+     id="south"
      style="display:inline;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.5;enable-background:new"
      cx="164"
      cy="82"
      r="8" />
   <circle
-     id="b"
+     id="east"
      style="display:inline;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.5;enable-background:new"
      cx="181"
      cy="65"
@@ -90,14 +90,14 @@
      cy="65"
      cx="147"
      style="display:inline;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.49912116;enable-background:new"
-     id="x"
+     id="west"
      r="8" />
   <circle
      r="8"
      cy="48"
      cx="164"
      style="display:inline;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.5;enable-background:new"
-     id="y" />
+     id="north" />
   <path
      style="display:inline;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;enable-background:new"
      d="m 123.50003,66.25 c 0,3.250005 -5.75001,3.75 -9.00001,3.75 h -1.5 c -0.7071,0 -1.5,-0.792895 -1.5,-1.5 v -5 c 0,-0.707105 0.7929,-1.5 1.5,-1.5 h 1.5 c 3.25,0 9.00001,0.5 9.00001,3.75 z"
