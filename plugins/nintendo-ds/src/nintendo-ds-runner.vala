@@ -3,8 +3,15 @@
 private class Games.NintendoDsRunner : RetroRunner {
 	// Map the 1,2,3,4 key values to the 4 screen layouts of the Nintendo DS
 	private static HashTable<uint, NintendoDsLayout?> layouts;
+	private static HashTable<string, string> gap_overrides;
 
 	private const string SCREENS_LAYOUT_OPTION = "desmume_screens_layout";
+	private const string SCREENS_GAP_OPTION = "desmume_screens_gap";
+	private const string SCREENS_GAP_NONE = "0";
+	private const string SCREENS_GAP_DEFAULT = "80";
+
+	private const size_t HEADER_GAME_CODE_OFFSET = 12;
+	private const size_t HEADER_GAME_CODE_SIZE = 3;
 
 	private NintendoDsLayout _screen_layout;
 	public NintendoDsLayout screen_layout {
@@ -31,12 +38,55 @@ private class Games.NintendoDsRunner : RetroRunner {
 		layouts[Gdk.Key.@2] = NintendoDsLayout.LEFT_RIGHT;
 		layouts[Gdk.Key.@3] = NintendoDsLayout.RIGHT_LEFT;
 		layouts[Gdk.Key.@4] = NintendoDsLayout.QUICK_SWITCH;
+
+		gap_overrides = new HashTable<string, string> (str_hash, str_equal);
+
+		try {
+			var bytes = resources_lookup_data ("/org/gnome/Games/plugins/nintendo-ds/layout-overrides", ResourceLookupFlags.NONE);
+			var text = (string) bytes.get_data ();
+			var lines = text.split ("\n");
+
+			foreach (var line in lines) {
+				var data = line.split ("#", 2);
+				if (data.length < 2)
+					continue;
+
+				var fields = data[0].strip ().split (" ", 2);
+				if (fields.length < 2)
+					continue;
+
+				var key = fields[0];
+				var value = fields[1];
+				gap_overrides[key] = value;
+			}
+		}
+		catch (Error e) {
+			critical ("Couldn't read layout overrides: %s", e.message);
+		}
 	}
 
 	private bool core_supports_layouts () {
 		var core = get_core ();
 
-		return core != null && core.has_option (SCREENS_LAYOUT_OPTION);
+		return core != null && core.has_option (SCREENS_LAYOUT_OPTION) && core.has_option (SCREENS_GAP_OPTION);
+	}
+
+	private string get_screen_gap_width () {
+
+		try {
+			assert (media_set.get_size () == 1);
+			var uris = media_set.get_media (0).get_uris ();
+			var file = uris[0].to_file ();
+			var stream = new StringInputStream (file);
+			string game_code = stream.read_string_for_size (HEADER_GAME_CODE_OFFSET, HEADER_GAME_CODE_SIZE);
+
+			return gap_overrides[game_code] ?? SCREENS_GAP_DEFAULT;
+		}
+		catch (Error e) {
+			critical ("Couldn't read the header: %s", e.message);
+
+			return SCREENS_GAP_DEFAULT;
+		}
 	}
 
 	private void update_screen_layout () {
@@ -45,17 +95,24 @@ private class Games.NintendoDsRunner : RetroRunner {
 
 		var core = get_core ();
 
-		var option = core.get_option (SCREENS_LAYOUT_OPTION);
-
-		var option_value = screen_layout.get_value ();
+		var screens_layout_option = core.get_option (SCREENS_LAYOUT_OPTION);
+		var screens_layout_option_value = screen_layout.get_value ();
 		if (screen_layout == NintendoDsLayout.QUICK_SWITCH)
-			option_value = view_bottom_screen ? "bottom only" : "top only";
+			screens_layout_option_value = view_bottom_screen ? "bottom only" : "top only";
+
+		var screens_gap_option = core.get_option (SCREENS_GAP_OPTION);
+		string screens_gap;
+		if (screen_layout == NintendoDsLayout.TOP_BOTTOM)
+			screens_gap = get_screen_gap_width ();
+		else
+			screens_gap = SCREENS_GAP_NONE;
 
 		try {
-			option.set_value (option_value);
+			screens_layout_option.set_value (screens_layout_option_value);
+			screens_gap_option.set_value (screens_gap);
 		}
 		catch (Error e) {
-			critical (e.message);
+			critical ("Failed to set desmume option: %s", e.message);
 		}
 	}
 
