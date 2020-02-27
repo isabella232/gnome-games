@@ -15,8 +15,8 @@ private class Games.GamepadMappingBuilder : Object {
 	// At the same time, /usr/include/linux/input-event-codes.h uses
 	// Xbox order for A and B, and Nintendo/libretro order for X and Y:
 	//
-	//   (Y)
-	// (X) (B)
+	//   (X)
+	// (Y) (B)
 	//   (A)
 	//
 	// As a result, we swap X and Y buttons to match Xbox order
