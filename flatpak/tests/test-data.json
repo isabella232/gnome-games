@@ -13,11 +13,6 @@
                 },
                 {
                     "type" : "file",
-                    "path" : "blastem.240pSuite.expected",
-                    "dest-filename" : "blastem.240pSuite.expected"
-                },
-                {
-                    "type" : "file",
                     "path" : "blastem.240pSuite.test",
                     "dest-filename" : "blastem.240pSuite.test"
                 },
@@ -25,11 +20,6 @@
                     "type" : "file",
                     "path" : "bsnes_mercury_balanced.240pSuite.120.png",
                     "dest-filename" : "bsnes_mercury_balanced.240pSuite.120.png"
-                },
-                {
-                    "type" : "file",
-                    "path" : "bsnes_mercury_balanced.240pSuite.expected",
-                    "dest-filename" : "bsnes_mercury_balanced.240pSuite.expected"
                 },
                 {
                     "type" : "file",
@@ -43,18 +33,8 @@
                 },
                 {
                     "type" : "file",
-                    "path" : "desmume2015.pong-ds.expected",
-                    "dest-filename" : "desmume2015.pong-ds.expected"
-                },
-                {
-                    "type" : "file",
                     "path" : "desmume2015.pong-ds.test",
                     "dest-filename" : "desmume2015.pong-ds.test"
-                },
-                {
-                    "type" : "file",
-                    "path" : "gambatte.OpenMAZE.expected",
-                    "dest-filename" : "gambatte.OpenMAZE.expected"
                 },
                 {
                     "type" : "file",
@@ -68,11 +48,6 @@
                 },
                 {
                     "type" : "file",
-                    "path" : "mednafen_pce_fast.240pSuite.expected",
-                    "dest-filename" : "mednafen_pce_fast.240pSuite.expected"
-                },
-                {
-                    "type" : "file",
                     "path" : "mednafen_pce_fast.240pSuite.test",
                     "dest-filename" : "mednafen_pce_fast.240pSuite.test"
                 },
@@ -80,11 +55,6 @@
                     "type" : "file",
                     "path" : "mgba.nomad2_full.120.png",
                     "dest-filename" : "mgba.nomad2_full.120.png"
-                },
-                {
-                    "type" : "file",
-                    "path" : "mgba.nomad2_full.expected",
-                    "dest-filename" : "mgba.nomad2_full.expected"
                 },
                 {
                     "type" : "file",
@@ -98,11 +68,6 @@
                 },
                 {
                     "type" : "file",
-                    "path" : "nestopia.240pee.expected",
-                    "dest-filename" : "nestopia.240pee.expected"
-                },
-                {
-                    "type" : "file",
                     "path" : "nestopia.240pee.test",
                     "dest-filename" : "nestopia.240pee.test"
                 },
@@ -113,11 +78,6 @@
                 },
                 {
                     "type" : "file",
-                    "path" : "pcsx_rearmed.240pTestSuitePS1.expected",
-                    "dest-filename" : "pcsx_rearmed.240pTestSuitePS1.expected"
-                },
-                {
-                    "type" : "file",
                     "path" : "pcsx_rearmed.240pTestSuitePS1.test",
                     "dest-filename" : "pcsx_rearmed.240pTestSuitePS1.test"
                 },
@@ -125,11 +85,6 @@
                     "type" : "file",
                     "path" : "stella2014.hunchy.1.png",
                     "dest-filename" : "stella2014.hunchy.1.png"
-                },
-                {
-                    "type" : "file",
-                    "path" : "stella2014.hunchy.expected",
-                    "dest-filename" : "stella2014.hunchy.expected"
                 },
                 {
                     "type" : "file",
