@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-02-16 17:29+0000\n"
-"PO-Revision-Date: 2020-02-17 23:44+0100\n"
+"POT-Creation-Date: 2020-02-27 13:40+0000\n"
+"PO-Revision-Date: 2020-03-01 15:01+0100\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 #: data/org.gnome.Games.appdata.xml.in.in:7
 #: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:61
-#: data/ui/collection-header-bar.ui:79 src/ui/application.vala:42
+#: data/ui/collection-header-bar.ui:79 src/ui/application.vala:45
 msgid "Games"
 msgstr "Játékok"
 
@@ -88,7 +88,7 @@ msgstr "Videojáték-gyűjtemény elindítása és megtekintése"
 msgid "game;videogame;video game;player;"
 msgstr "játék;videojáték;videó játék;lejátszó;"
 
-#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:100
+#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:101
 msgid "Fullscreen"
 msgstr "Teljes képernyő"
 
@@ -159,7 +159,7 @@ msgid "Search"
 msgstr "Keresés"
 
 #: data/ui/collection-header-bar.ui:130 data/ui/display-header-bar.ui:30
-#: data/ui/display-header-bar.ui:162 data/ui/preferences-subpage-gamepad.ui:84
+#: data/ui/display-header-bar.ui:165 data/ui/preferences-subpage-gamepad.ui:84
 #: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:36
 #: data/ui/preferences-window.ui:77
 msgid "Back"
@@ -185,15 +185,15 @@ msgstr "A Játékok _névjegye"
 msgid "Restore"
 msgstr "Helyreállítás"
 
-#: data/ui/display-header-bar.ui:141
+#: data/ui/display-header-bar.ui:144
 msgid "_Load"
 msgstr "_Betöltés"
 
-#: data/ui/display-header-bar.ui:185
+#: data/ui/display-header-bar.ui:188
 msgid "_Restart"
 msgstr "Új_raindítás"
 
-#: data/ui/display-header-bar.ui:191
+#: data/ui/display-header-bar.ui:194
 msgid "_Snapshots"
 msgstr "_Pillanatképek"
 
@@ -220,7 +220,7 @@ msgstr "Irányító bemenet"
 msgid "Keyboard Input"
 msgstr "Billentyűzet bemenet"
 
-#: data/ui/media-menu-button.ui:13
+#: data/ui/media-menu-button.ui:14
 msgid "Media"
 msgstr "Adathordozó"
 
@@ -504,7 +504,7 @@ msgid "Nintendo DS"
 msgstr "Nintendo DS"
 
 #: data/ui/shortcuts-window.ui:169
-#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:38
+#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:39
 msgid "Screen Layout"
 msgstr "Képernyő-elrendezés"
 
@@ -894,26 +894,26 @@ msgstr ""
 "Ennek a játéknak a futtatásához a(z) %s, %s SHA-512 ujjlenyomattal ellátott "
 "firmware fájl szükséges."
 
-#: src/retro/retro-runner.vala:319
+#: src/retro/retro-runner.vala:314
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nem található modul ehhez: „%s”."
 
-#: src/retro/retro-runner.vala:576
+#: src/retro/retro-runner.vala:571
 msgid "Unknown platform"
 msgstr "Ismeretlen platform"
 
-#: src/retro/retro-runner.vala:594
+#: src/retro/retro-runner.vala:589
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
 "A(z) „%s” rendszer még nem támogatott, de a teljes támogatás tervezett."
 
-#: src/retro/retro-runner.vala:596
+#: src/retro/retro-runner.vala:591
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "A rendszer még nem támogatott, de a teljes támogatás tervezett."
 
-#: src/retro/retro-runner.vala:605 src/retro/retro-runner.vala:630
+#: src/retro/retro-runner.vala:600 src/retro/retro-runner.vala:625
 #, c-format
 msgid "New snapshot %s"
 msgstr "Új %s pillanatkép"
@@ -1021,50 +1021,56 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:29
+#: src/ui/application.vala:32
 msgid "Search term"
 msgstr "Keresési kifejezés"
 
-#: src/ui/application.vala:30
+#: src/ui/application.vala:33
 msgid "Run a game by uid"
 msgstr "Játék futtatása UID alapján"
 
-#: src/ui/application.vala:149
+#: src/ui/application.vala:152
 msgid "Select game files"
 msgstr "Játékfájlok kiválasztása"
 
-#: src/ui/application.vala:150 src/ui/preferences-page-import-export.vala:14
+#: src/ui/application.vala:153 src/ui/preferences-page-import-export.vala:14
 #: src/ui/preferences-page-import-export.vala:36
 msgid "_Cancel"
 msgstr "_Mégse"
 
-#: src/ui/application.vala:151
+#: src/ui/application.vala:154
 msgid "_Add"
 msgstr "_Hozzáadás"
 
-#: src/ui/application.vala:191
+#: src/ui/application.vala:204
 #, c-format
 msgid "An unexpected error occurred while trying to run %s"
 msgstr "Váratlan hiba történt a(z) %s futtatásának kísérletekor"
 
-#: src/ui/application.vala:227
+#: src/ui/application.vala:240
 #, c-format
 msgid "Cannot find game with UID “%s”."
 msgstr "Nem található „%s” UID azonosítójú játék."
 
-#: src/ui/application.vala:449
+#: src/ui/application.vala:298
+msgid "Couldn't find Tracker, automatic game discovery may not work."
+msgstr ""
+"Nem található a Tracker, az automatikus játékfelfedezés valószínűleg nem fog"
+" működni."
+
+#: src/ui/application.vala:469
 msgid "GNOME Games"
 msgstr "GNOME Játékok"
 
-#: src/ui/application.vala:451
+#: src/ui/application.vala:471
 msgid "A video game player for GNOME"
 msgstr "Egy videojáték-lejátszó a GNOME-hoz"
 
-#: src/ui/application.vala:455
+#: src/ui/application.vala:475
 msgid "Learn more about GNOME Games"
 msgstr "Tudjon meg többet a GNOME Játékokról"
 
-#: src/ui/application.vala:462
+#: src/ui/application.vala:482
 msgid "translator-credits"
 msgstr ""
 "Meskó Balázs <mesko.balazs at fsf dot hu>\n"
@@ -1108,7 +1114,7 @@ msgstr "Mozgassa a megfelelő tengelyt fel/le az irányítón"
 msgid "Press suitable key on your keyboard"
 msgstr "Nyomja meg a megfelelő gombot a billentyűzeten"
 
-#: src/ui/media-menu-button.vala:50
+#: src/ui/media-menu-button.vala:52
 #, c-format
 msgid "Media %d"
 msgstr "%d. adathordozó"
