@@ -62,6 +62,8 @@
     "modules" : [
         /* Common dependencies */
         "shared-modules/lua5.3/lua-5.3.5.json",
+        "shared-modules/SDL/SDL-1.2.15.json",
+        "shared-modules/SDL/SDL_net-1.2.8.json",
         /* Emulator cores for libretro
 
            We build them first, because some of them are very big, and they
