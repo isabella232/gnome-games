@@ -60,6 +60,8 @@
         "/share/gir-1.0"
     ],
     "modules" : [
+        /* Common dependencies */
+        "shared-modules/lua5.3/lua-5.3.5.json",
         /* Emulator cores for libretro
 
            We build them first, because some of them are very big, and they
@@ -90,7 +92,6 @@
             ]
         },
         /* End libretro cores */
-        "shared-modules/lua5.3/lua-5.3.5.json",
         {
             "name" : "tracker",
             "buildsystem" : "meson",
