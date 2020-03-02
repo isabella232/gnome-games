@@ -221,8 +221,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void start () throws Error {
-		if (latest_savestate != null)
-			reset_metadata (latest_savestate);
+		reset_metadata (latest_savestate);
 
 		if (!is_initialized) {
 			if (latest_savestate != null)
@@ -665,8 +664,8 @@ public class Games.RetroRunner : Object, Runner {
 	protected virtual void load_savestate_metadata (Savestate savestate) throws Error {
 	}
 
-	protected virtual void reset_metadata (Savestate last_savestate) throws Error {
-		if (last_savestate.has_media_data ())
+	protected virtual void reset_metadata (Savestate? last_savestate) throws Error {
+		if (last_savestate != null && last_savestate.has_media_data ())
 			media_set.selected_media_number = last_savestate.get_media_data ();
 	}
 }

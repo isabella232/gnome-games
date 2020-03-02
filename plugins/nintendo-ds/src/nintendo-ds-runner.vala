@@ -133,7 +133,7 @@ private class Games.NintendoDsRunner : RetroRunner {
 		view_bottom_screen = ds_savestate.view_bottom_screen;
 	}
 
-	protected override void reset_metadata (Savestate last_savestate) throws Error {
+	protected override void reset_metadata (Savestate? last_savestate) throws Error {
 		base.reset_metadata (last_savestate);
 
 		screen_layout = NintendoDsLayout.TOP_BOTTOM;
