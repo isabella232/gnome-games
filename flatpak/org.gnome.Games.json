@@ -90,7 +90,7 @@
             ]
         },
         /* End libretro cores */
-        "org.lua.modules.json",
+        "shared-modules/lua5.3/lua-5.3.5.json",
         {
             "name" : "tracker",
             "buildsystem" : "meson",
