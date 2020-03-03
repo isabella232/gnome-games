@@ -40,7 +40,7 @@ public class Games.MediaSet : Object {
 			media_callback (media);
 	}
 
-	private Media get_media (uint index) throws Error {
+	public Media get_media (uint index) throws Error {
 		if (index >= medias.length)
 			throw new MediaSetError.NOT_A_MEDIA (_("Invalid media index %u."), index);
 
