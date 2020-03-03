@@ -9,5 +9,6 @@
     <file>icons/screen-layout-top-bottom-symbolic.svg</file>
     <file>icons/view-bottom-screen-symbolic.svg</file>
     <file>icons/view-top-screen-symbolic.svg</file>
+    <file>layout-overrides</file>
   </gresource>
 </gresources>
