@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-02-16 17:29+0000\n"
-"PO-Revision-Date: 2020-02-17 11:54+0100\n"
+"POT-Creation-Date: 2020-02-27 13:40+0000\n"
+"PO-Revision-Date: 2020-03-03 16:26+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: data/org.gnome.Games.appdata.xml.in.in:7
 #: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:61
-#: data/ui/collection-header-bar.ui:79 src/ui/application.vala:42
+#: data/ui/collection-header-bar.ui:79 src/ui/application.vala:45
 msgid "Games"
 msgstr "Juegos"
 
@@ -90,7 +90,7 @@ msgstr "Visualice y juegue con su colección de videojuegos"
 msgid "game;videogame;video game;player;"
 msgstr "juego;videojuego;vídeo;jugador;"
 
-#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:100
+#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:101
 msgid "Fullscreen"
 msgstr "Pantalla completa"
 
@@ -161,7 +161,7 @@ msgid "Search"
 msgstr "Buscar"
 
 #: data/ui/collection-header-bar.ui:130 data/ui/display-header-bar.ui:30
-#: data/ui/display-header-bar.ui:162 data/ui/preferences-subpage-gamepad.ui:84
+#: data/ui/display-header-bar.ui:165 data/ui/preferences-subpage-gamepad.ui:84
 #: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:36
 #: data/ui/preferences-window.ui:77
 msgid "Back"
@@ -187,15 +187,15 @@ msgstr "_Acerca de Juegos"
 msgid "Restore"
 msgstr "Restaurar"
 
-#: data/ui/display-header-bar.ui:141
+#: data/ui/display-header-bar.ui:144
 msgid "_Load"
 msgstr "_Cargar"
 
-#: data/ui/display-header-bar.ui:185
+#: data/ui/display-header-bar.ui:188
 msgid "_Restart"
 msgstr "_Reiniciar"
 
-#: data/ui/display-header-bar.ui:191
+#: data/ui/display-header-bar.ui:194
 msgid "_Snapshots"
 msgstr "_Instantáneas"
 
@@ -222,7 +222,7 @@ msgstr "Entrada del mando"
 msgid "Keyboard Input"
 msgstr "Entrada del teclado"
 
-#: data/ui/media-menu-button.ui:13
+#: data/ui/media-menu-button.ui:14
 msgid "Media"
 msgstr "Soporte"
 
@@ -506,7 +506,7 @@ msgid "Nintendo DS"
 msgstr "Nintendo DS"
 
 #: data/ui/shortcuts-window.ui:169
-#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:38
+#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:39
 msgid "Screen Layout"
 msgstr "Disposición de pantalla"
 
@@ -897,25 +897,25 @@ msgstr ""
 "El juego necesita el archivo de firmware %s con una huella SHA-512 %s para "
 "ejecutarse."
 
-#: src/retro/retro-runner.vala:319
+#: src/retro/retro-runner.vala:314
 #, c-format
 msgid "No module found for “%s”."
 msgstr "No se pudo encontrar un módulo apropiado para «%s»."
 
-#: src/retro/retro-runner.vala:576
+#: src/retro/retro-runner.vala:571
 msgid "Unknown platform"
 msgstr "Plataforma desconocida"
 
-#: src/retro/retro-runner.vala:594
+#: src/retro/retro-runner.vala:589
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "El sistema «%s» todavía no está soportado, pero llegará pronto."
 
-#: src/retro/retro-runner.vala:596
+#: src/retro/retro-runner.vala:591
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "El sistema todavía no está soportado, pero llegará pronto."
 
-#: src/retro/retro-runner.vala:605 src/retro/retro-runner.vala:630
+#: src/retro/retro-runner.vala:600 src/retro/retro-runner.vala:625
 #, c-format
 msgid "New snapshot %s"
 msgstr "Nueva instantánea %s"
@@ -1023,50 +1023,56 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:29
+#: src/ui/application.vala:32
 msgid "Search term"
 msgstr "Buscar término"
 
-#: src/ui/application.vala:30
+#: src/ui/application.vala:33
 msgid "Run a game by uid"
 msgstr "Ejecutar un juego por UID"
 
-#: src/ui/application.vala:149
+#: src/ui/application.vala:152
 msgid "Select game files"
 msgstr "Seleccionar archivos de juegos"
 
-#: src/ui/application.vala:150 src/ui/preferences-page-import-export.vala:14
+#: src/ui/application.vala:153 src/ui/preferences-page-import-export.vala:14
 #: src/ui/preferences-page-import-export.vala:36
 msgid "_Cancel"
 msgstr "_Cancelar"
 
-#: src/ui/application.vala:151
+#: src/ui/application.vala:154
 msgid "_Add"
 msgstr "_Añadir"
 
-#: src/ui/application.vala:191
+#: src/ui/application.vala:204
 #, c-format
 msgid "An unexpected error occurred while trying to run %s"
 msgstr "Ha ocurrido un error inesperado al intentar ejecutar %s"
 
-#: src/ui/application.vala:227
+#: src/ui/application.vala:240
 #, c-format
 msgid "Cannot find game with UID “%s”."
 msgstr "No se puede jugar al juego con UID «%s»."
 
-#: src/ui/application.vala:449
+#: src/ui/application.vala:298
+msgid "Couldn't find Tracker, automatic game discovery may not work."
+msgstr ""
+"No se ha podido encontrar Tracker, el descubrimiento automático de juegos "
+"puede que no funcione."
+
+#: src/ui/application.vala:469
 msgid "GNOME Games"
 msgstr "Juegos de GNOME"
 
-#: src/ui/application.vala:451
+#: src/ui/application.vala:471
 msgid "A video game player for GNOME"
 msgstr "Un reproductor de videojuegos para GNOME"
 
-#: src/ui/application.vala:455
+#: src/ui/application.vala:475
 msgid "Learn more about GNOME Games"
 msgstr "Más información acerca de Juegos de GNOME"
 
-#: src/ui/application.vala:462
+#: src/ui/application.vala:482
 msgid "translator-credits"
 msgstr ""
 "Daniel Mustieles <daniel.mustieles@gmail.com>, 2016, 2018, 2019\n"
@@ -1110,7 +1116,7 @@ msgstr "Mueva el eje arriba/abajo adecuado en el mando"
 msgid "Press suitable key on your keyboard"
 msgstr "Pulse la tecla adecuada en el teclado"
 
-#: src/ui/media-menu-button.vala:50
+#: src/ui/media-menu-button.vala:52
 #, c-format
 msgid "Media %d"
 msgstr "Soporte %d"
