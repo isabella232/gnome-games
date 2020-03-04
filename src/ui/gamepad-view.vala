@@ -99,36 +99,26 @@ private class Games.GamepadView : Gtk.DrawingArea {
 		context.translate (x, y);
 		context.scale (scale, scale);
 
-		color_gamepad (context);
-		highlight_gamepad (context);
+		input_state.for_each ((path, state) => {
+			var color_name = state.highlight ? "theme_selected_bg_color" : "theme_fg_color";
+
+			Gdk.RGBA color;
+			get_style_context ().lookup_color (color_name, out color);
+
+			draw_path (context, path, color);
+		});
 
 		return false;
 	}
 
-	private void color_gamepad (Cairo.Context context) {
+	private void draw_path (Cairo.Context context, string path, Gdk.RGBA color) {
 		context.push_group ();
-		handle.render_cairo (context);
+
+		handle.render_cairo_sub (context, @"#$path");
 		var group = context.pop_group ();
 
-		Gdk.RGBA color;
-		get_style_context ().lookup_color ("theme_fg_color", out color);
 		context.set_source_rgba (color.red, color.green, color.blue, color.alpha);
 		context.mask (group);
-	}
-
-	private void highlight_gamepad (Cairo.Context context) {
-		input_state.for_each ((path, state) => {
-			if (state.highlight) {
-				context.push_group ();
-				handle.render_cairo_sub (context, @"#$path");
-				var group = context.pop_group ();
-
-				Gdk.RGBA color;
-				get_style_context ().lookup_color ("theme_selected_bg_color", out color);
-				context.set_source_rgba (color.red, color.green, color.blue, color.alpha);
-				context.mask (group);
-			}
-		});
 	}
 
 	private void calculate_image_dimensions (out double x, out double y, out double scale) {
