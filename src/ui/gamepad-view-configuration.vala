@@ -2,10 +2,6 @@
 
 namespace Games {
 	private const GamepadButtonPath[] STANDARD_GAMEPAD_BUTTON_PATHS = {
-		{ { EventCode.EV_ABS, EventCode.ABS_X }, "leftx" },
-		{ { EventCode.EV_ABS, EventCode.ABS_Y }, "lefty" },
-		{ { EventCode.EV_ABS, EventCode.ABS_RX }, "rightx" },
-		{ { EventCode.EV_ABS, EventCode.ABS_RY }, "righty" },
 		{ { EventCode.EV_KEY, EventCode.BTN_EAST }, "east" },
 		{ { EventCode.EV_KEY, EventCode.BTN_SOUTH }, "south" },
 		{ { EventCode.EV_KEY, EventCode.BTN_DPAD_DOWN }, "dpdown" },
@@ -23,6 +19,24 @@ namespace Games {
 		{ { EventCode.EV_KEY, EventCode.BTN_TR2 }, "righttrigger" },
 		{ { EventCode.EV_KEY, EventCode.BTN_NORTH }, "north" },
 		{ { EventCode.EV_KEY, EventCode.BTN_WEST }, "west" },
+	};
+
+	private const GamepadAnalogPath[] STANDARD_GAMEPAD_ANALOG_PATHS = {
+		{
+			{ EventCode.EV_ABS, EventCode.ABS_X },
+			{ EventCode.EV_ABS, EventCode.ABS_Y },
+			6, "leftstick"
+		},
+		{
+			{ EventCode.EV_ABS, EventCode.ABS_RX },
+			{ EventCode.EV_ABS, EventCode.ABS_RY },
+			6, "rightstick"
+		},
+	};
+
+	private const string[] BACKGROUND_PATHS = {
+		"leftstick-base",
+		"rightstick-base",
 	};
 
 	private struct GamepadButtonPath {
@@ -48,8 +62,8 @@ namespace Games {
 
 			conf.svg_path = "/org/gnome/Games/gamepads/standard-gamepad.svg";
 			conf.button_paths = STANDARD_GAMEPAD_BUTTON_PATHS;
-			conf.analog_paths = {};
-			conf.background_paths = {};
+			conf.analog_paths = STANDARD_GAMEPAD_ANALOG_PATHS;
+			conf.background_paths = BACKGROUND_PATHS;
 
 			return conf;
 		}
