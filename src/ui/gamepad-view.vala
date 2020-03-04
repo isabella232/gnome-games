@@ -1,8 +1,12 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.GamepadView : Gtk.DrawingArea {
+	private struct InputState {
+		bool highlight;
+	}
+
 	private Rsvg.Handle handle;
-	private bool[] input_highlights;
+	private new HashTable<string, InputState?> input_state;
 
 	private GamepadViewConfiguration _configuration;
 	public GamepadViewConfiguration configuration {
@@ -30,7 +34,15 @@ private class Games.GamepadView : Gtk.DrawingArea {
 			get_dimensions (out width, out height);
 
 			set_size_request ((int) width, (int) height);
-			input_highlights = new bool[value.input_paths.length];
+
+			input_state.foreach_remove (() => true);
+
+			foreach (var path in configuration.input_paths) {
+				if (path.path in input_state)
+					continue;
+
+				input_state[path.path] = {};
+			}
 
 			reset ();
 		}
@@ -39,7 +51,7 @@ private class Games.GamepadView : Gtk.DrawingArea {
 	construct {
 		handle = new Rsvg.Handle ();
 		configuration = { "", new GamepadInputPath[0] };
-		input_highlights = {};
+		input_state = new HashTable<string, InputState?> (str_hash, str_equal);
 	}
 
 	private void get_dimensions (out double width, out double height) {
@@ -58,20 +70,23 @@ private class Games.GamepadView : Gtk.DrawingArea {
 	}
 
 	public void reset () {
-		for (var i = 0; i < input_highlights.length; ++i)
-			input_highlights[i] = false;
+		input_state.foreach ((path, state) => {
+			state.highlight = false;
+		});
 
 		queue_draw ();
 	}
 
 	public bool highlight (GamepadInput input, bool highlight) {
-		for (var i = 0; i < configuration.input_paths.length; ++i) {
-			if (configuration.input_paths[i].input == input) {
-				input_highlights[i] = highlight;
-				queue_draw ();
+		foreach (var path in configuration.input_paths) {
+			if (input != path.input)
+				continue;
 
-				return true;
-			}
+			input_state[path.path].highlight = highlight;
+
+			queue_draw ();
+
+			return true;
 		}
 
 		return false;
@@ -102,10 +117,10 @@ private class Games.GamepadView : Gtk.DrawingArea {
 	}
 
 	private void highlight_gamepad (Cairo.Context context) {
-		for (var i = 0; i < configuration.input_paths.length; ++i)
-			if (input_highlights[i]) {
+		input_state.for_each ((path, state) => {
+			if (state.highlight) {
 				context.push_group ();
-				handle.render_cairo_sub (context, "#" + configuration.input_paths[i].path);
+				handle.render_cairo_sub (context, @"#$path");
 				var group = context.pop_group ();
 
 				Gdk.RGBA color;
@@ -113,6 +128,7 @@ private class Games.GamepadView : Gtk.DrawingArea {
 				context.set_source_rgba (color.red, color.green, color.blue, color.alpha);
 				context.mask (group);
 			}
+		});
 	}
 
 	private void calculate_image_dimensions (out double x, out double y, out double scale) {
