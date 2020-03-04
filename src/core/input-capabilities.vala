@@ -2,4 +2,5 @@
 
 public interface Games.InputCapabilities : Object {
 	public abstract bool get_allow_keyboard_mode ();
+	public abstract bool get_allow_gamepad_mode ();
 }
