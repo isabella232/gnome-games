@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 namespace Games {
-	private const GamepadInputPath[] STANDARD_GAMEPAD_INPUT_PATHS = {
+	private const GamepadButtonPath[] STANDARD_GAMEPAD_BUTTON_PATHS = {
 		{ { EventCode.EV_ABS, EventCode.ABS_X }, "leftx" },
 		{ { EventCode.EV_ABS, EventCode.ABS_Y }, "lefty" },
 		{ { EventCode.EV_ABS, EventCode.ABS_RX }, "rightx" },
@@ -25,21 +25,21 @@ namespace Games {
 		{ { EventCode.EV_KEY, EventCode.BTN_WEST }, "west" },
 	};
 
-	private struct GamepadInputPath {
+	private struct GamepadButtonPath {
 		GamepadInput input;
 		string path;
 	}
 
 	private struct GamepadViewConfiguration {
 		string svg_path;
-		GamepadInputPath[] input_paths;
+		GamepadButtonPath[] button_paths;
 		string[] background_paths;
 
 		public static GamepadViewConfiguration get_default () {
 			GamepadViewConfiguration conf = {};
 
 			conf.svg_path = "/org/gnome/Games/gamepads/standard-gamepad.svg";
-			conf.input_paths = STANDARD_GAMEPAD_INPUT_PATHS;
+			conf.button_paths = STANDARD_GAMEPAD_BUTTON_PATHS;
 			conf.background_paths = {};
 
 			return conf;

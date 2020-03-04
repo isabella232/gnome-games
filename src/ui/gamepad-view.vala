@@ -37,7 +37,7 @@ private class Games.GamepadView : Gtk.DrawingArea {
 
 			input_state.foreach_remove (() => true);
 
-			foreach (var path in configuration.input_paths) {
+			foreach (var path in configuration.button_paths) {
 				if (path.path in input_state)
 					continue;
 
@@ -50,7 +50,7 @@ private class Games.GamepadView : Gtk.DrawingArea {
 
 	construct {
 		handle = new Rsvg.Handle ();
-		configuration = { "", new GamepadInputPath[0] };
+		configuration = { "", new GamepadButtonPath[0] };
 		input_state = new HashTable<string, InputState?> (str_hash, str_equal);
 	}
 
@@ -78,7 +78,7 @@ private class Games.GamepadView : Gtk.DrawingArea {
 	}
 
 	public bool highlight (GamepadInput input, bool highlight) {
-		foreach (var path in configuration.input_paths) {
+		foreach (var path in configuration.button_paths) {
 			if (input != path.input)
 				continue;
 
