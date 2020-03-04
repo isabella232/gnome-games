@@ -30,9 +30,17 @@ namespace Games {
 		string path;
 	}
 
+	private struct GamepadAnalogPath {
+		GamepadInput input_x;
+		GamepadInput input_y;
+		double offset_radius;
+		string path;
+	}
+
 	private struct GamepadViewConfiguration {
 		string svg_path;
 		GamepadButtonPath[] button_paths;
+		GamepadAnalogPath[] analog_paths;
 		string[] background_paths;
 
 		public static GamepadViewConfiguration get_default () {
@@ -40,6 +48,7 @@ namespace Games {
 
 			conf.svg_path = "/org/gnome/Games/gamepads/standard-gamepad.svg";
 			conf.button_paths = STANDARD_GAMEPAD_BUTTON_PATHS;
+			conf.analog_paths = {};
 			conf.background_paths = {};
 
 			return conf;

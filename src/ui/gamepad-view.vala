@@ -3,6 +3,8 @@
 private class Games.GamepadView : Gtk.DrawingArea {
 	private struct InputState {
 		bool highlight;
+		double offset_x;
+		double offset_y;
 	}
 
 	private Rsvg.Handle handle;
@@ -44,6 +46,13 @@ private class Games.GamepadView : Gtk.DrawingArea {
 				input_state[path.path] = {};
 			}
 
+			foreach (var path in configuration.analog_paths) {
+				if (path.path in input_state)
+					continue;
+
+				input_state[path.path] = {};
+			}
+
 			reset ();
 		}
 	}
@@ -72,6 +81,8 @@ private class Games.GamepadView : Gtk.DrawingArea {
 	public void reset () {
 		input_state.foreach ((path, state) => {
 			state.highlight = false;
+			state.offset_x = 0;
+			state.offset_y = 0;
 		});
 
 		queue_draw ();
@@ -92,6 +103,24 @@ private class Games.GamepadView : Gtk.DrawingArea {
 		return false;
 	}
 
+	public bool set_analog (GamepadInput input, double value) {
+		foreach (var path in configuration.analog_paths) {
+			if (input != path.input_x && input != path.input_y)
+				continue;
+
+			if (input == path.input_x)
+				input_state[path.path].offset_x = value * path.offset_radius;
+			else
+				input_state[path.path].offset_y = value * path.offset_radius;
+
+			queue_draw ();
+
+			return true;
+		}
+
+		return false;
+	}
+
 	public override bool draw (Cairo.Context context) {
 		double x, y, scale;
 		calculate_image_dimensions (out x, out y, out scale);
@@ -103,7 +132,7 @@ private class Games.GamepadView : Gtk.DrawingArea {
 			Gdk.RGBA color;
 			get_style_context ().lookup_color ("theme_fg_color", out color);
 
-			draw_path (context, path, color);
+			draw_path (context, path, color, 0, 0);
 		}
 
 		input_state.for_each ((path, state) => {
@@ -112,14 +141,16 @@ private class Games.GamepadView : Gtk.DrawingArea {
 			Gdk.RGBA color;
 			get_style_context ().lookup_color (color_name, out color);
 
-			draw_path (context, path, color);
+			draw_path (context, path, color, state.offset_x, state.offset_y);
 		});
 
 		return false;
 	}
 
-	private void draw_path (Cairo.Context context, string path, Gdk.RGBA color) {
+	private void draw_path (Cairo.Context context, string path, Gdk.RGBA color, double offset_x, double offset_y) {
 		context.push_group ();
+
+		context.translate (offset_x, offset_y);
 
 		handle.render_cairo_sub (context, @"#$path");
 		var group = context.pop_group ();
