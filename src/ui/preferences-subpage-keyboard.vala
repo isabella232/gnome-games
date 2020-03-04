@@ -95,6 +95,7 @@ private class Games.PreferencesSubpageKeyboard : Gtk.Box, PreferencesSubpage {
 	}
 
 	public bool request_selection_mode { get; set; }
+	public string info_message { get; set; }
 
 	[GtkChild]
 	private Gtk.Stack gamepad_view_stack;
@@ -110,8 +111,6 @@ private class Games.PreferencesSubpageKeyboard : Gtk.Box, PreferencesSubpage {
 	private Gtk.Button back_button;
 	[GtkChild]
 	private Gtk.Button cancel_button;
-	[GtkChild]
-	private Gtk.Label info_message;
 
 	private KeyboardMapper mapper;
 	private KeyboardTester tester;
@@ -129,7 +128,7 @@ private class Games.PreferencesSubpageKeyboard : Gtk.Box, PreferencesSubpage {
 			tester.mapping = mapping_manager.mapping;
 		});
 
-		mapper.bind_property ("info-message", info_message, "label", BindingFlags.SYNC_CREATE);
+		mapper.bind_property ("info-message", this, "info-message", BindingFlags.SYNC_CREATE);
 
 		state = State.TEST;
 	}
