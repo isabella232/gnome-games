@@ -2,6 +2,8 @@
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/gamepad-mapper.ui")]
 private class Games.GamepadMapper : Gtk.Bin {
+	private const double ANALOG_ANIMATION_SPEED = 166660.0;
+
 	public signal void finished (string sdl_string);
 
 	[GtkChild]
@@ -11,6 +13,9 @@ private class Games.GamepadMapper : Gtk.Bin {
 	private GamepadInput[] mapping_inputs;
 	private GamepadInput input;
 	private uint current_input_index;
+
+	private uint tick_cb;
+	private uint64 animation_start_time;
 
 	public string info_message { get; private set; }
 
@@ -124,9 +129,35 @@ private class Games.GamepadMapper : Gtk.Bin {
 			return;
 		}
 
+		if (tick_cb != 0) {
+			remove_tick_callback (tick_cb);
+			tick_cb = 0;
+		}
+
 		gamepad_view.reset ();
 		input = mapping_inputs[current_input_index++];
-		gamepad_view.highlight (input, true);
+
+		switch (input.type) {
+		case EventCode.EV_KEY:
+			gamepad_view.highlight (input, true);
+
+			break;
+		case EventCode.EV_ABS:
+			animation_start_time = get_frame_clock ().get_frame_time ();
+			tick_cb = add_tick_callback ((widget, clock) => {
+				var time = clock.get_frame_time () - animation_start_time;
+
+				double t = time / ANALOG_ANIMATION_SPEED;
+
+				gamepad_view.set_analog (input, Math.sin (t));
+
+				return Source.CONTINUE;
+			});
+
+			break;
+		default:
+			break;
+		}
 
 		update_info_message ();
 	}
