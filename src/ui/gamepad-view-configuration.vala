@@ -33,12 +33,14 @@ namespace Games {
 	private struct GamepadViewConfiguration {
 		string svg_path;
 		GamepadInputPath[] input_paths;
+		string[] background_paths;
 
 		public static GamepadViewConfiguration get_default () {
 			GamepadViewConfiguration conf = {};
 
 			conf.svg_path = "/org/gnome/Games/gamepads/standard-gamepad.svg";
 			conf.input_paths = STANDARD_GAMEPAD_INPUT_PATHS;
+			conf.background_paths = {};
 
 			return conf;
 		}

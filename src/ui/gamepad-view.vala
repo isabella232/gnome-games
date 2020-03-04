@@ -99,6 +99,13 @@ private class Games.GamepadView : Gtk.DrawingArea {
 		context.translate (x, y);
 		context.scale (scale, scale);
 
+		foreach (var path in configuration.background_paths) {
+			Gdk.RGBA color;
+			get_style_context ().lookup_color ("theme_fg_color", out color);
+
+			draw_path (context, path, color);
+		}
+
 		input_state.for_each ((path, state) => {
 			var color_name = state.highlight ? "theme_selected_bg_color" : "theme_fg_color";
 
