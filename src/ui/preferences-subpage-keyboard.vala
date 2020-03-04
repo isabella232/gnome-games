@@ -21,29 +21,6 @@ private class Games.PreferencesSubpageKeyboard : Gtk.Box, PreferencesSubpage {
 		{ EventCode.EV_KEY, EventCode.BTN_TR2 },
 	};
 
-	private const GamepadInputPath[] KEYBOARD_GAMEPAD_INPUT_PATHS = {
-		{ { EventCode.EV_KEY, EventCode.BTN_EAST }, "east" },
-		{ { EventCode.EV_KEY, EventCode.BTN_SOUTH }, "south" },
-		{ { EventCode.EV_KEY, EventCode.BTN_DPAD_DOWN }, "dpdown" },
-		{ { EventCode.EV_KEY, EventCode.BTN_DPAD_LEFT }, "dpleft" },
-		{ { EventCode.EV_KEY, EventCode.BTN_DPAD_RIGHT }, "dpright" },
-		{ { EventCode.EV_KEY, EventCode.BTN_DPAD_UP }, "dpup" },
-		{ { EventCode.EV_KEY, EventCode.BTN_SELECT }, "back" },
-		{ { EventCode.EV_KEY, EventCode.BTN_TL }, "leftshoulder" },
-		{ { EventCode.EV_KEY, EventCode.BTN_TR }, "rightshoulder" },
-		{ { EventCode.EV_KEY, EventCode.BTN_START }, "start" },
-		{ { EventCode.EV_KEY, EventCode.BTN_THUMBL }, "leftstick" },
-		{ { EventCode.EV_KEY, EventCode.BTN_THUMBR }, "rightstick" },
-		{ { EventCode.EV_KEY, EventCode.BTN_TL2 }, "lefttrigger" },
-		{ { EventCode.EV_KEY, EventCode.BTN_TR2 }, "righttrigger" },
-		{ { EventCode.EV_KEY, EventCode.BTN_NORTH }, "north" },
-		{ { EventCode.EV_KEY, EventCode.BTN_WEST }, "west" },
-	};
-
-	private const GamepadViewConfiguration KEYBOARD_GAMEPAD_VIEW_CONFIGURATION = {
-		"/org/gnome/Games/gamepads/standard-gamepad.svg", KEYBOARD_GAMEPAD_INPUT_PATHS
-	};
-
 	private enum State {
 		TEST,
 		CONFIGURE,
@@ -117,9 +94,9 @@ private class Games.PreferencesSubpageKeyboard : Gtk.Box, PreferencesSubpage {
 	private KeyboardMappingManager mapping_manager;
 
 	construct {
-		mapper = new KeyboardMapper (KEYBOARD_GAMEPAD_VIEW_CONFIGURATION, KEYBOARD_GAMEPAD_INPUTS);
+		mapper = new KeyboardMapper (GamepadViewConfiguration.get_default (), KEYBOARD_GAMEPAD_INPUTS);
 		gamepad_view_stack.add (mapper);
-		tester = new KeyboardTester (KEYBOARD_GAMEPAD_VIEW_CONFIGURATION);
+		tester = new KeyboardTester (GamepadViewConfiguration.get_default ());
 		gamepad_view_stack.add (tester);
 		mapping_manager = new KeyboardMappingManager ();
 

@@ -26,34 +26,6 @@ private class Games.PreferencesSubpageGamepad : Gtk.Box, PreferencesSubpage {
 		{ EventCode.EV_KEY, EventCode.BTN_TR2 },
 	};
 
-	private const GamepadInputPath[] STANDARD_GAMEPAD_INPUT_PATHS = {
-		{ { EventCode.EV_ABS, EventCode.ABS_X }, "leftx" },
-		{ { EventCode.EV_ABS, EventCode.ABS_Y }, "lefty" },
-		{ { EventCode.EV_ABS, EventCode.ABS_RX }, "rightx" },
-		{ { EventCode.EV_ABS, EventCode.ABS_RY }, "righty" },
-		{ { EventCode.EV_KEY, EventCode.BTN_EAST }, "east" },
-		{ { EventCode.EV_KEY, EventCode.BTN_SOUTH }, "south" },
-		{ { EventCode.EV_KEY, EventCode.BTN_DPAD_DOWN }, "dpdown" },
-		{ { EventCode.EV_KEY, EventCode.BTN_DPAD_LEFT }, "dpleft" },
-		{ { EventCode.EV_KEY, EventCode.BTN_DPAD_RIGHT }, "dpright" },
-		{ { EventCode.EV_KEY, EventCode.BTN_DPAD_UP }, "dpup" },
-		{ { EventCode.EV_KEY, EventCode.BTN_MODE }, "guide" },
-		{ { EventCode.EV_KEY, EventCode.BTN_SELECT }, "back" },
-		{ { EventCode.EV_KEY, EventCode.BTN_TL }, "leftshoulder" },
-		{ { EventCode.EV_KEY, EventCode.BTN_TR }, "rightshoulder" },
-		{ { EventCode.EV_KEY, EventCode.BTN_START }, "start" },
-		{ { EventCode.EV_KEY, EventCode.BTN_THUMBL }, "leftstick" },
-		{ { EventCode.EV_KEY, EventCode.BTN_THUMBR }, "rightstick" },
-		{ { EventCode.EV_KEY, EventCode.BTN_TL2 }, "lefttrigger" },
-		{ { EventCode.EV_KEY, EventCode.BTN_TR2 }, "righttrigger" },
-		{ { EventCode.EV_KEY, EventCode.BTN_NORTH }, "north" },
-		{ { EventCode.EV_KEY, EventCode.BTN_WEST }, "west" },
-	};
-
-	private const GamepadViewConfiguration STANDARD_GAMEPAD_VIEW_CONFIGURATION = {
-		"/org/gnome/Games/gamepads/standard-gamepad.svg", STANDARD_GAMEPAD_INPUT_PATHS
-	};
-
 	private enum State {
 		TEST,
 		CONFIGURE,
@@ -132,9 +104,9 @@ private class Games.PreferencesSubpageGamepad : Gtk.Box, PreferencesSubpage {
 		get { return _device; }
 		construct {
 			_device = value;
-			mapper = new GamepadMapper (value, STANDARD_GAMEPAD_VIEW_CONFIGURATION, STANDARD_GAMEPAD_INPUTS);
+			mapper = new GamepadMapper (value, GamepadViewConfiguration.get_default (), STANDARD_GAMEPAD_INPUTS);
 			gamepad_view_stack.add (mapper);
-			tester = new GamepadTester (value, STANDARD_GAMEPAD_VIEW_CONFIGURATION);
+			tester = new GamepadTester (value, GamepadViewConfiguration.get_default ());
 			gamepad_view_stack.add (tester);
 
 			mapper.bind_property ("info-message", this, "info-message", BindingFlags.SYNC_CREATE);
