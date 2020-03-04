@@ -61,7 +61,7 @@
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="ellipsize">end</property>
-                <property name="label" bind-source="GamesPreferencesSubpageGamepad" bind-property="info-message" bind-flags="sync-create"/>
+                <property name="label" bind-source="GamesPreferencesSubpageGamepad" bind-property="info-message" bind-flags="bidirectional"/>
               </object>
             </child>
           </object>
