@@ -266,7 +266,7 @@ public class Games.RetroRunner : Object, Runner {
 
 		input_manager = new RetroInputManager (core, view);
 		// Keep the internal values of input_mode in sync between RetroRunner and RetroInputManager
-		_input_mode = input_manager.input_mode;
+		input_mode = get_available_input_modes ()[0];
 
 		core.shutdown.connect (stop);
 		core.crashed.connect ((core, error) => {
@@ -381,10 +381,15 @@ public class Games.RetroRunner : Object, Runner {
 		if (input_capabilities == null)
 			return { InputMode.GAMEPAD };
 
+		InputMode[] modes = {};
+
 		if (input_capabilities.get_allow_keyboard_mode ())
-			return { InputMode.GAMEPAD, InputMode.KEYBOARD };
-		else
-			return { InputMode.GAMEPAD };
+			modes += InputMode.KEYBOARD;
+
+		if (input_capabilities.get_allow_gamepad_mode ())
+			modes += InputMode.GAMEPAD;
+
+		return modes;
 	}
 
 	public virtual bool key_press_event (uint keyval, Gdk.ModifierType state) {
