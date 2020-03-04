@@ -107,6 +107,7 @@ private class Games.PreferencesSubpageGamepad : Gtk.Box, PreferencesSubpage {
 	}
 
 	public bool request_selection_mode { get; set; }
+	public string info_message { get; set; }
 
 	[GtkChild]
 	private Gtk.Stack gamepad_view_stack;
@@ -135,6 +136,8 @@ private class Games.PreferencesSubpageGamepad : Gtk.Box, PreferencesSubpage {
 			gamepad_view_stack.add (mapper);
 			tester = new GamepadTester (value, STANDARD_GAMEPAD_VIEW_CONFIGURATION);
 			gamepad_view_stack.add (tester);
+
+			mapper.bind_property ("info-message", this, "info-message", BindingFlags.SYNC_CREATE);
 		}
 	}
 
