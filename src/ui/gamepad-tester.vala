@@ -73,6 +73,6 @@ private class Games.GamepadTester : Gtk.Bin {
 		double value;
 
 		if (event.get_absolute (out axis, out value))
-			gamepad_view.highlight ({ EventCode.EV_ABS, axis }, !(-0.8 < value < 0.8));
+			gamepad_view.set_analog ({ EventCode.EV_ABS, axis }, value);
 	}
 }
