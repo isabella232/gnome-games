@@ -336,7 +336,7 @@ private class Games.DisplayView : Object, UiView {
 		is_fullscreen = settings.get_boolean ("fullscreen") && can_fullscreen;
 
 		if (!runner.can_resume) {
-			try_run_with_cancellable (runner, false, cancellable);
+			start_or_resume (runner, false);
 			return;
 		}
 
@@ -347,7 +347,7 @@ private class Games.DisplayView : Object, UiView {
 		if (response != Gtk.ResponseType.NONE) {
 			var resume = (response == Gtk.ResponseType.ACCEPT);
 
-			if (!try_run_with_cancellable (runner, resume, cancellable))
+			if (!start_or_resume (runner, resume))
 				prompt_resume_fail_with_cancellable (runner, cancellable);
 		}
 	}
@@ -396,7 +396,7 @@ private class Games.DisplayView : Object, UiView {
 		return (Gtk.ResponseType) response;
 	}
 
-	private bool try_run_with_cancellable (Runner runner, bool resume, Cancellable cancellable) {
+	private bool start_or_resume (Runner runner, bool resume) {
 		try {
 			if (resume)
 				runner.load_previewed_savestate ();
