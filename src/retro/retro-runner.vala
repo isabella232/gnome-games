@@ -174,10 +174,6 @@ public class Games.RetroRunner : Object, Runner {
 		return null;
 	}
 
-	public void capture_current_state_pixbuf () {
-		current_state_pixbuf = view.get_pixbuf ();
-	}
-
 	public void preview_current_state () {
 		view.set_pixbuf (current_state_pixbuf);
 	}
