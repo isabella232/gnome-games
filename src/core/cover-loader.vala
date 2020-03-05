@@ -115,7 +115,7 @@ public class Games.CoverLoader : Object {
 	private string get_cache_path (Game game, int size, string dir_name) {
 		var dir = Application.get_image_cache_dir (dir_name, size);
 
-		var uid = game.uid.get_uid ();
+		var uid = game.uid;
 
 		return @"$dir/$uid.png";
 	}

@@ -177,9 +177,8 @@ public class Games.Savestate : Object {
 	public static Savestate[] get_game_savestates (Uid game_uid, Platform platform, string core_id) throws Error {
 		var data_dir_path = Application.get_data_dir ();
 		var savestates_dir_path = Path.build_filename (data_dir_path, "savestates");
-		var uid_str = game_uid.get_uid ();
 		var core_id_prefix = core_id.replace (".libretro", "");
-		var game_savestates_dir_path = Path.build_filename (savestates_dir_path, uid_str + "-" + core_id_prefix);
+		var game_savestates_dir_path = Path.build_filename (savestates_dir_path, @"$game_uid-$core_id_prefix");
 		var game_savestates_dir_file = File.new_for_path (game_savestates_dir_path);
 
 		if (!game_savestates_dir_file.query_exists ()) {

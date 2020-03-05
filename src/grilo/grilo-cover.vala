@@ -56,7 +56,6 @@ public class Games.GriloCover : Object, Cover {
 			return cover_path;
 
 		var dir = Application.get_covers_dir ();
-		var uid = uid.get_uid ();
 		cover_path = @"$dir/$uid.cover";
 
 		return cover_path;

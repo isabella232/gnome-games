@@ -454,11 +454,11 @@ public class Games.RetroRunner : Object, Runner {
 		// Get the savestates directory of the game
 		var data_dir_path = Application.get_data_dir ();
 		var savestates_dir_path = Path.build_filename (data_dir_path, "savestates");
-		var uid = game.uid.get_uid ();
+		var uid = game.uid;
 		var core_id = get_core_id ();
 		var core_id_prefix = core_id.replace (".libretro", "");
 
-		return Path.build_filename (savestates_dir_path, uid + "-" + core_id_prefix);
+		return Path.build_filename (savestates_dir_path, @"$uid-$core_id_prefix");
 	}
 
 	// Returns the created Savestate or null if the Savestate couldn't be created

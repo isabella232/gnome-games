@@ -7,7 +7,7 @@ public class Games.Uid : Object {
 		this.uid = uid;
 	}
 
-	public string get_uid () {
+	public string to_string () {
 		return uid;
 	}
 }

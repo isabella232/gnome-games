@@ -68,7 +68,7 @@ public class Games.Game : Object {
 	}
 
 	public static uint hash (Game key) {
-		var uid = key.uid.get_uid ();
+		var uid = key.uid.to_string ();
 
 		return str_hash (uid);
 	}
@@ -77,8 +77,8 @@ public class Games.Game : Object {
 		if (direct_equal (a, b))
 			return true;
 
-		var a_uid = a.uid.get_uid ();
-		var b_uid = b.uid.get_uid ();
+		var a_uid = a.uid.to_string ();
+		var b_uid = b.uid.to_string ();
 
 		return str_equal (a_uid, b_uid);
 	}
