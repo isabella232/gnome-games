@@ -61,25 +61,11 @@
               </packing>
             </child>
             <child type="title">
-              <object class="HdySqueezer" id="title_squeezer">
+              <object class="HdyViewSwitcherTitle" id="view_switcher_title">
                 <property name="visible">True</property>
-                <property name="transition-type">crossfade</property>
-                <signal name="notify::visible-child" handler="update_adaptive_state"/>
-                <child>
-                  <object class="HdyViewSwitcher" id="view_switcher">
-                    <property name="visible">True</property>
-                    <property name="policy">wide</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="visible">True</property>
-                    <property name="label" translatable="yes">Games</property>
-                    <style>
-                      <class name="title"/>
-                    </style>
-                  </object>
-                </child>
+                <property name="title" translatable="yes">Games</property>
+                <property name="view-switcher-enabled" bind-source="GamesCollectionHeaderBar" bind-property="is-collection-empty" bind-flags="bidirectional|sync-create|invert-boolean"/>
+                <signal name="notify::title-visible" handler="update_adaptive_state"/>
               </object>
             </child>
             <child>

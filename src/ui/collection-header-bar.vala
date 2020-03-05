@@ -13,18 +13,11 @@ private class Games.CollectionHeaderBar : Gtk.Bin {
 			}
 
 			_viewstack = value;
-			view_switcher.stack = _viewstack;
+			view_switcher_title.stack = _viewstack;
 		}
 	}
 
-	private bool _is_collection_empty;
-	public bool is_collection_empty {
-		get { return _is_collection_empty; }
-		set {
-			_is_collection_empty = value;
-			title_squeezer.set_child_enabled (view_switcher, !value);
-		}
-	}
+	public bool is_collection_empty { get; set; }
 
 	public bool is_folded { get; set; }
 	public bool is_showing_bottom_bar { get; set; }
@@ -39,9 +32,7 @@ private class Games.CollectionHeaderBar : Gtk.Bin {
 	[GtkChild]
 	private Hdy.HeaderBar subview_header_bar;
 	[GtkChild]
-	private Hdy.Squeezer title_squeezer;
-	[GtkChild]
-	private Hdy.ViewSwitcher view_switcher;
+	private Hdy.ViewSwitcherTitle view_switcher_title;
 
 	private ulong viewstack_child_changed_id;
 
@@ -51,7 +42,7 @@ private class Games.CollectionHeaderBar : Gtk.Bin {
 
 	[GtkCallback]
 	private void update_adaptive_state () {
-		bool showing_title = title_squeezer.visible_child != view_switcher;
+		bool showing_title = view_switcher_title.title_visible;
 		is_showing_bottom_bar = showing_title && !is_collection_empty;
 	}
 
