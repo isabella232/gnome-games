@@ -18,4 +18,8 @@ public class Games.Uid : Object {
 	public static bool equal (Uid a, Uid b) {
 		return str_equal (a.uid, b.uid);
 	}
+
+	public static int compare (Uid a, Uid b) {
+		return a.uid.collate (b.uid);
+	}
 }

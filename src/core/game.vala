@@ -87,9 +87,6 @@ public class Games.Game : Object {
 		if (ret != 0)
 			return ret;
 
-		var uid1 = a.uid.to_string ();
-		var uid2 = b.uid.to_string ();
-
-		return uid1.collate (uid2);
+		return Uid.compare (a.uid, b.uid);
 	}
 }
