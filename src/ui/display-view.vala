@@ -340,9 +340,7 @@ private class Games.DisplayView : Object, UiView {
 			return;
 		}
 
-		var response = Gtk.ResponseType.NONE;
-		if (runner.can_resume)
-			response = prompt_resume_with_cancellable (cancellable);
+		var response = prompt_resume_with_cancellable (cancellable);
 
 		if (response != Gtk.ResponseType.NONE) {
 			var resume = (response == Gtk.ResponseType.ACCEPT);
