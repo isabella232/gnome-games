@@ -27,7 +27,7 @@ private class Games.GameModel : Object, ListModel {
 	}
 
 	public void add_game (Game game) {
-		var iter = sequence.insert_sorted (game, compare_func);
+		var iter = sequence.insert_sorted (game, Game.compare);
 		n_games++;
 
 		items_changed (iter.get_position (), 0, 1);
@@ -48,28 +48,12 @@ private class Games.GameModel : Object, ListModel {
 	}
 
 	public void remove_game (Game game) {
-		var iter = sequence.lookup (game, compare_func);
+		var iter = sequence.lookup (game, Game.compare);
 
 		var pos = iter.get_position ();
 		iter.remove ();
 
 		items_changed (pos, 1, 0);
 		game_removed (game);
-	}
-
-	private int compare_func (Game a, Game b) {
-		var ret = a.name.collate (b.name);
-		if (ret != 0)
-			return ret;
-
-		ret = a.platform.get_name ().collate (
-		      b.platform.get_name ());
-		if (ret != 0)
-			return ret;
-
-		var uid1 = a.uid.to_string ();
-		var uid2 = b.uid.to_string ();
-
-		return uid1.collate (uid2);
 	}
 }

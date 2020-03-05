@@ -77,4 +77,20 @@ public class Games.Game : Object {
 
 		return Uid.equal (a.uid, b.uid);
 	}
+
+	public static int compare (Game a, Game b) {
+		var ret = a.name.collate (b.name);
+		if (ret != 0)
+			return ret;
+
+		ret = a.platform.get_name ().collate (
+		      b.platform.get_name ());
+		if (ret != 0)
+			return ret;
+
+		var uid1 = a.uid.to_string ();
+		var uid2 = b.uid.to_string ();
+
+		return uid1.collate (uid2);
+	}
 }
