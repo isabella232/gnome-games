@@ -342,12 +342,11 @@ private class Games.DisplayView : Object, UiView {
 
 		var response = prompt_resume_with_cancellable (cancellable);
 
-		if (response != Gtk.ResponseType.NONE) {
-			var resume = (response == Gtk.ResponseType.ACCEPT);
+		if (response == Gtk.ResponseType.NONE)
+			return;
 
-			if (!start_or_resume (runner, resume))
-				prompt_resume_fail_with_cancellable (runner, cancellable);
-		}
+		if (!start_or_resume (runner, response == Gtk.ResponseType.ACCEPT))
+			prompt_resume_fail_with_cancellable (runner, cancellable);
 	}
 
 	private Runner? try_get_runner (Game game) {
