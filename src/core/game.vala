@@ -83,8 +83,7 @@ public class Games.Game : Object {
 		if (ret != 0)
 			return ret;
 
-		ret = a.platform.get_name ().collate (
-		      b.platform.get_name ());
+		ret = Platform.compare (a.platform, b.platform);
 		if (ret != 0)
 			return ret;
 
