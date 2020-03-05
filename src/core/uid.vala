@@ -10,4 +10,8 @@ public class Games.Uid : Object {
 	public string to_string () {
 		return uid;
 	}
+
+	public static uint hash (Uid key) {
+		return str_hash (key.uid);
+	}
 }

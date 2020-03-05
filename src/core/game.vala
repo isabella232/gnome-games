@@ -68,9 +68,7 @@ public class Games.Game : Object {
 	}
 
 	public static uint hash (Game key) {
-		var uid = key.uid.to_string ();
-
-		return str_hash (uid);
+		return Uid.hash (key.uid);
 	}
 
 	public static bool equal (Game a, Game b) {
