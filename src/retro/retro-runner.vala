@@ -95,6 +95,10 @@ public class Games.RetroRunner : Object, Runner {
 		is_ready = false;
 
 		settings = new Settings ("org.gnome.Games");
+		view = new Retro.CoreView ();
+
+		settings.changed["video-filter"].connect (on_video_filter_changed);
+		on_video_filter_changed ();
 	}
 
 	~RetroRunner () {
@@ -147,13 +151,7 @@ public class Games.RetroRunner : Object, Runner {
 		if (game_savestates.length != 0)
 			latest_savestate = game_savestates[0];
 
-		// Step 2) Init the CoreView -------------------------------------------
-		// This is done here such that get_display() won't return null
-		view = new Retro.CoreView ();
-		settings.changed["video-filter"].connect (on_video_filter_changed);
-		on_video_filter_changed ();
-
-		// Step 3) Instantiate the core
+		// Step 2) Instantiate the core
 		// This is needed to check if the core supports savestates
 		if (latest_savestate != null)
 			tmp_live_savestate = latest_savestate.clone_in_tmp ();
@@ -161,7 +159,7 @@ public class Games.RetroRunner : Object, Runner {
 			tmp_live_savestate = Savestate.create_empty_in_tmp (game.platform, get_core_id ());
 		instantiate_core (tmp_live_savestate.get_save_directory_path ());
 
-		// Step 4) Preview the latest savestate --------------------------------
+		// Step 3) Preview the latest savestate --------------------------------
 		if (latest_savestate != null)
 			preview_savestate (latest_savestate);
 	}
