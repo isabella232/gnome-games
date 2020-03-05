@@ -25,7 +25,7 @@ private class Games.PlatformModel : Object, ListModel {
 			n_games[platform] = n_games[platform] + 1;
 		}
 
-		sequence.sort (compare_func);
+		sequence.sort (Platform.compare);
 
 		items_changed (0, get_n_items (), 0);
 
@@ -51,7 +51,7 @@ private class Games.PlatformModel : Object, ListModel {
 		var platform = game.platform;
 
 		if (n_games[platform] == 0) {
-			var iter = sequence.insert_sorted (platform, compare_func);
+			var iter = sequence.insert_sorted (platform, Platform.compare);
 			items_changed (iter.get_position (), 0, 1);
 		}
 
@@ -64,14 +64,10 @@ private class Games.PlatformModel : Object, ListModel {
 		n_games[platform] = n_games[platform] - 1;
 
 		if (n_games[platform] == 0) {
-			var iter = sequence.lookup (platform, compare_func);
+			var iter = sequence.lookup (platform, Platform.compare);
 			var pos = iter.get_position ();
 			iter.remove ();
 			items_changed (pos, 1, 0);
 		}
-	}
-
-	private int compare_func (Platform a, Platform b) {
-		return a.get_name ().collate (b.get_name ());
 	}
 }
