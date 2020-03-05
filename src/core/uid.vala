@@ -7,7 +7,7 @@ public class Games.Uid : Object {
 		this.uid = uid;
 	}
 
-	public string get_uid () throws Error {
+	public string get_uid () {
 		return uid;
 	}
 }

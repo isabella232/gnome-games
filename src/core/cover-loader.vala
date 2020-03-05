@@ -112,7 +112,7 @@ public class Games.CoverLoader : Object {
 		}
 	}
 
-	private string get_cache_path (Game game, int size, string dir_name) throws Error {
+	private string get_cache_path (Game game, int size, string dir_name) {
 		var dir = Application.get_image_cache_dir (dir_name, size);
 
 		var uid = game.get_uid ().get_uid ();
@@ -121,14 +121,7 @@ public class Games.CoverLoader : Object {
 	}
 
 	private Gdk.Pixbuf? load_cache_from_disk (Game game, int size, string dir) {
-		string cache_path;
-		try {
-			cache_path = get_cache_path (game, size, dir);
-		}
-		catch (Error e) {
-			critical (e.message);
-			return null;
-		}
+		var cache_path = get_cache_path (game, size, dir);
 
 		try {
 			return new Gdk.Pixbuf.from_file (cache_path);
