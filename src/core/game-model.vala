@@ -67,8 +67,8 @@ private class Games.GameModel : Object, ListModel {
 		if (ret != 0)
 			return ret;
 
-		var uid1 = a.get_uid ().get_uid ();
-		var uid2 = b.get_uid ().get_uid ();
+		var uid1 = a.uid.get_uid ();
+		var uid2 = b.uid.get_uid ();
 
 		return uid1.collate (uid2);
 	}

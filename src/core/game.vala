@@ -20,7 +20,8 @@ public class Games.Game : Object {
 		}
 	}
 
-	private Uid game_uid;
+	public Uid uid { get; private set; }
+
 	private Uri game_uri;
 	private Title game_title;
 	private Icon game_icon;
@@ -29,14 +30,10 @@ public class Games.Game : Object {
 	private MediaSet? media_set;
 
 	public Game (Uid uid, Uri uri, Title title, Platform platform) {
-		game_uid = uid;
+		this.uid = uid;
 		game_uri = uri;
 		game_title = title;
 		game_platform = platform;
-	}
-
-	public Uid get_uid () {
-		return game_uid;
 	}
 
 	public Uri get_uri () {
@@ -87,7 +84,7 @@ public class Games.Game : Object {
 	}
 
 	public static uint hash (Game key) {
-		var uid = key.get_uid ().get_uid ();
+		var uid = key.uid.get_uid ();
 
 		return str_hash (uid);
 	}
@@ -96,8 +93,8 @@ public class Games.Game : Object {
 		if (direct_equal (a, b))
 			return true;
 
-		var a_uid = a.get_uid ().get_uid ();
-		var b_uid = b.get_uid ().get_uid ();
+		var a_uid = a.uid.get_uid ();
+		var b_uid = b.uid.get_uid ();
 
 		return str_equal (a_uid, b_uid);
 	}

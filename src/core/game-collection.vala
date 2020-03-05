@@ -103,7 +103,7 @@ private class Games.GameCollection : Object {
 					database.list_cached_games ((game) => {
 						cached_games[game.get_uri ().to_string ()] = game;
 
-						var uid = game.get_uid ().get_uid ();
+						var uid = game.uid.get_uid ();
 
 						if (games.contains (uid))
 							return;
@@ -146,7 +146,7 @@ private class Games.GameCollection : Object {
 					warning ("Couldn't remove game: %s", e.message);
 				}
 
-				var uid = game.get_uid ().get_uid ();
+				var uid = game.uid.get_uid ();
 
 				games.remove (uid);
 				if (removed)
@@ -267,7 +267,7 @@ private class Games.GameCollection : Object {
 			warning ("Couldn't cache game: %s", e.message);
 		}
 
-		var uid = game.get_uid ().get_uid ();
+		var uid = game.uid.get_uid ();
 
 		if (games.contains (uid) && prev_game == null)
 			return;
@@ -295,7 +295,7 @@ private class Games.GameCollection : Object {
 		ulong loading_done_id = 0;
 
 		game_added_id = game_added.connect ((game) => {
-			var game_uid = game.get_uid ().get_uid ();
+			var game_uid = game.uid.get_uid ();
 
 			if (game_uid != uid)
 				return;

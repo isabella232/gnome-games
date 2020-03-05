@@ -194,7 +194,7 @@ private class Games.Database : Object {
 	}
 
 	public Game? store_game (Game game) throws Error {
-		var uid = game.get_uid ().get_uid ();
+		var uid = game.uid.get_uid ();
 		var uri = game.get_uri ().to_string ();
 		var title = game.name;
 		var platform = game.get_platform ().get_id ();
@@ -228,7 +228,7 @@ private class Games.Database : Object {
 	}
 
 	public void update_game (Game game, Game? prev_game = null) throws Error {
-		var uid = game.get_uid ().get_uid ();
+		var uid = game.uid.get_uid ();
 		var uri = game.get_uri ().to_string ();
 		var title = game.name;
 		var media_set = serialize_media_set (game);
@@ -254,7 +254,7 @@ private class Games.Database : Object {
 	}
 
 	public bool remove_game (string uri, Game game) throws Error {
-		var uid = game.get_uid ().get_uid ();
+		var uid = game.uid.get_uid ();
 
 		delete_uri_query.reset ();
 		bind_text (delete_uri_query, "$URI", uri);

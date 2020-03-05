@@ -143,7 +143,7 @@ public class Games.RetroRunner : Object, Runner {
 
 	private void init_phase_one () throws Error {
 		// Step 1) Load the game's savestates ----------------------------------
-		game_savestates = Savestate.get_game_savestates (game.get_uid (), game.get_platform (), get_core_id ());
+		game_savestates = Savestate.get_game_savestates (game.uid, game.get_platform (), get_core_id ());
 		if (game_savestates.length != 0)
 			latest_savestate = game_savestates[0];
 
@@ -454,7 +454,7 @@ public class Games.RetroRunner : Object, Runner {
 		// Get the savestates directory of the game
 		var data_dir_path = Application.get_data_dir ();
 		var savestates_dir_path = Path.build_filename (data_dir_path, "savestates");
-		var uid = game.get_uid ().get_uid ();
+		var uid = game.uid.get_uid ();
 		var core_id = get_core_id ();
 		var core_id_prefix = core_id.replace (".libretro", "");
 
