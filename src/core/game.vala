@@ -75,9 +75,6 @@ public class Games.Game : Object {
 		if (direct_equal (a, b))
 			return true;
 
-		var a_uid = a.uid.to_string ();
-		var b_uid = b.uid.to_string ();
-
-		return str_equal (a_uid, b_uid);
+		return Uid.equal (a.uid, b.uid);
 	}
 }

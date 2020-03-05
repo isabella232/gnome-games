@@ -14,4 +14,8 @@ public class Games.Uid : Object {
 	public static uint hash (Uid key) {
 		return str_hash (key.uid);
 	}
+
+	public static bool equal (Uid a, Uid b) {
+		return str_equal (a.uid, b.uid);
+	}
 }
