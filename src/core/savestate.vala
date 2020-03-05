@@ -219,7 +219,7 @@ public class Games.Savestate : Object {
 	}
 
 	// Returns the path of the newly created dir in tmp
-	public static string prepare_empty_savestate_in_tmp () throws Error {
+	private static string prepare_empty_savestate_in_tmp () throws Error {
 		var tmp_savestate_path = DirUtils.make_tmp ("games_savestate_XXXXXX");
 		var save_dir_path = Path.build_filename (tmp_savestate_path, "save-dir");
 		var save_dir = File.new_for_path (save_dir_path);
