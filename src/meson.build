@@ -67,7 +67,6 @@ vala_sources = [
   'generic/generic-platform.vala',
   'generic/generic-runner-factory.vala',
   'generic/generic-title.vala',
-  'generic/generic-uid.vala',
   'generic/generic-uri-game-factory.vala',
 
   'grilo/grilo-cover.vala',

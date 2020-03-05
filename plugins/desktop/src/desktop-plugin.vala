@@ -61,7 +61,7 @@ private class Games.DesktopPlugin : Object, Plugin {
 		var path = file.get_path ();
 
 		var app_info = new DesktopAppInfo.from_filename (path);
-		var uid = new GenericUid (get_uid (app_info));
+		var uid = new Uid (get_uid (app_info));
 		var title = new DesktopTitle (app_info);
 		var icon = new DesktopIcon (app_info);
 

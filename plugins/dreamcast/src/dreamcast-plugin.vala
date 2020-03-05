@@ -46,7 +46,7 @@ private class Games.DreamcastPlugin : Object, Plugin {
 		var header = new DreamcastHeader (file);
 		header.check_validity ();
 
-		var uid = new GenericUid (get_uid (header));
+		var uid = new Uid (get_uid (header));
 		var title = new FilenameTitle (uri);
 		var media = new GriloMedia (title, MIME_TYPE);
 		var cover = new CompositeCover ({

@@ -70,7 +70,7 @@ private class Games.SegaSaturnPlugin : Object, Plugin {
 		var header = new SegaSaturnHeader (bin_file);
 		header.check_validity ();
 
-		var uid = new GenericUid (get_uid (header));
+		var uid = new Uid (get_uid (header));
 		var title = new FilenameTitle (uri);
 		var media = new GriloMedia (title, SEGA_SATURN_MIME_TYPE);
 		var cover = new CompositeCover ({

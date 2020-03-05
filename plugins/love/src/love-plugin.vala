@@ -36,7 +36,7 @@ private class Games.LovePlugin : Object, Plugin {
 	}
 
 	private static Game game_for_uri (Uri uri) throws Error {
-		var uid = new GenericUid (Fingerprint.get_uid (uri, PLATFORM_UID_PREFIX));
+		var uid = new Uid (Fingerprint.get_uid (uri, PLATFORM_UID_PREFIX));
 		var package = new LovePackage (uri);
 		var title = new LoveTitle (package);
 		var icon = new LoveIcon (package);

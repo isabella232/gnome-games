@@ -60,7 +60,7 @@ private class Games.LibretroPlugin : Object, Plugin {
 	private static Game game_for_uri (Uri uri) throws Error {
 		var core_descriptor = get_core_descriptor (uri);
 
-		var uid = new GenericUid (get_uid (core_descriptor));
+		var uid = new Uid (get_uid (core_descriptor));
 		var title = new LibretroTitle (core_descriptor);
 		var icon = new LibretroIcon (core_descriptor);
 

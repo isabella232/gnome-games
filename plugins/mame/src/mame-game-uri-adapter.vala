@@ -18,7 +18,7 @@ private class Games.MameGameUriAdapter : GameUriAdapter, Object {
 			throw new MameError.INVALID_GAME_ID (_("Invalid MAME game id “%s” for “%s”."), game_id, uri.to_string ());
 
 		var uid_string = @"mame-$game_id".down ();
-		var uid = new GenericUid (uid_string);
+		var uid = new Uid (uid_string);
 
 		var title_string = supported_games[game_id];
 		title_string = title_string.split ("(")[0];

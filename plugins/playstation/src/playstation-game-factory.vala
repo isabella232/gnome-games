@@ -152,7 +152,7 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		var uid_string = @"$PLATFORM_UID_PREFIX-$disc_set_id".down ();
 
 		var gameinfo = get_gameinfo ();
-		var uid = new GenericUid (uid_string);
+		var uid = new Uid (uid_string);
 		var title = new CompositeTitle ({
 			new GameinfoDiscIdGameTitle (gameinfo, disc_set_id),
 			new FilenameTitle (uri)

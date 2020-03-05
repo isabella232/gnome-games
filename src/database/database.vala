@@ -313,7 +313,7 @@ private class Games.Database : Object {
 	}
 
 	private Game create_game (string uid, string uri, string title, string platform, string? media_set) {
-		var game_uid = new GenericUid (uid);
+		var game_uid = new Uid (uid);
 		var game_uri = new Uri (uri);
 		var game_title = new GenericTitle (title);
 		var game_platform = PlatformRegister.get_register ().get_platform (platform);

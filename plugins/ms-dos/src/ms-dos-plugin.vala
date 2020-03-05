@@ -32,7 +32,7 @@ private class Games.MsDosPlugin : Object, Plugin {
 	}
 
 	private static Game game_for_uri (Uri uri) throws Error {
-		var uid = new GenericUid (Fingerprint.get_uid (uri, PLATFORM_UID_PREFIX));
+		var uid = new Uid (Fingerprint.get_uid (uri, PLATFORM_UID_PREFIX));
 		var title = new FilenameTitle (uri);
 		var media = new GriloMedia (title, MIME_TYPE);
 		var cover = new CompositeCover ({
