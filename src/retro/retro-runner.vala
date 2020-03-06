@@ -142,6 +142,7 @@ public class Games.RetroRunner : Object, Runner {
 		}
 		else
 			module_path = core_source.get_module_path ();
+
 		core = new Retro.Core (module_path);
 
 		var options_path = get_options_path ();
@@ -160,6 +161,12 @@ public class Games.RetroRunner : Object, Runner {
 		core.save_directory = tmp_save_dir;
 
 		core.log.connect (Retro.g_log);
+		core.shutdown.connect (stop);
+		core.crashed.connect ((core, error) => {
+			is_error = true;
+			crash (error);
+		});
+
 		view.set_core (core);
 
 		string[] medias_uris = {};
@@ -173,20 +180,10 @@ public class Games.RetroRunner : Object, Runner {
 
 		if (medias_uris.length > 0)
 			core.set_current_media (media_set.selected_media_number);
-	}
-
-	private void instantiate_core () throws Error {
-		prepare_core ();
 
 		input_manager = new RetroInputManager (core, view);
 		// Keep the internal values of input_mode in sync between RetroRunner and RetroInputManager
 		input_mode = get_available_input_modes ()[0];
-
-		core.shutdown.connect (stop);
-		core.crashed.connect ((core, error) => {
-			is_error = true;
-			crash (error);
-		});
 
 		running = false;
 
@@ -203,7 +200,7 @@ public class Games.RetroRunner : Object, Runner {
 			if (latest_savestate != null)
 				latest_savestate.copy_save_dir_to (tmp_save_dir);
 
-			instantiate_core ();
+			prepare_core ();
 
 			reset_metadata (latest_savestate);
 		}
