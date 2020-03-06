@@ -95,9 +95,6 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	construct {
-		core_loaded = false;
-		save_ram_and_dir_set = false;
-
 		settings = new Settings ("org.gnome.Games");
 		view = new Retro.CoreView ();
 
