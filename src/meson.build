@@ -36,6 +36,7 @@ vala_sources = [
   'core/plugin-register-iterator.vala',
   'core/plugin-registrar.vala',
   'core/runner.vala',
+  'core/runner-error.vala',
   'core/runner-factory.vala',
   'core/savestate.vala',
   'core/title.vala',
