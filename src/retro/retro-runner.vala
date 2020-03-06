@@ -479,35 +479,32 @@ public class Games.RetroRunner : Object, Runner {
 		if (is_automatic)
 			trim_autosaves ();
 
-		// Populate the metadata file
-		tmp_live_savestate.is_automatic = is_automatic;
+		var creation_date = new DateTime.now ();
+		var path = Path.build_filename (get_game_savestates_dir_path (),
+		                                creation_date.to_string ());
 
-		if (is_automatic)
-			tmp_live_savestate.name = null;
-		else
-			tmp_live_savestate.name = create_new_savestate_name ();
+		var snapshot = Savestate.create_empty (game, get_core_id (), path);
 
-		tmp_live_savestate.creation_date = new DateTime.now ();
+		snapshot.is_automatic = is_automatic;
+		snapshot.name = is_automatic ? null : create_new_savestate_name ();
+		snapshot.creation_date = creation_date;
 
-		save_to_snapshot (tmp_live_savestate);
+		save_to_snapshot (snapshot);
+		snapshot.write_metadata ();
 
-		tmp_live_savestate.write_metadata ();
-
-		// Save the tmp_live_savestate into the game savestates directory
-		var game_savestates_dir_path = get_game_savestates_dir_path ();
-		var savestate = tmp_live_savestate.save_in (game_savestates_dir_path);
+		snapshot = snapshot.move_to (path);
 
 		// Update the game_savestates array
 		// Insert the new savestate at the beginning of the array since it's the latest savestate
 		Savestate[] new_game_savestates = {};
 
-		new_game_savestates += savestate;
+		new_game_savestates += snapshot;
 		foreach (var existing_savestate in game_savestates)
 			new_game_savestates += existing_savestate;
 
 		game_savestates = new_game_savestates;
 
-		return savestate;
+		return snapshot;
 	}
 
 	public void delete_savestate (Savestate savestate) {

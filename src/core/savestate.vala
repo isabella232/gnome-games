@@ -178,6 +178,34 @@ public class Games.Savestate : Object {
 		return Savestate.load (platform, core_id, prepare_empty_savestate_in_tmp ());
 	}
 
+	public static Savestate create_empty (Game game, string core_id, string path) throws Error {
+		var random = Random.next_int ();
+		var tmp_path = @"$(path)_$random";
+
+		var dir = File.new_for_path (tmp_path);
+		dir.make_directory ();
+
+		var save_dir = dir.get_child ("save-dir");
+		save_dir.make_directory ();
+
+		return Savestate.load (game.platform, core_id, tmp_path);
+	}
+
+	public Savestate move_to (string dest_path) throws Error {
+		var current_dir = File.new_for_path (path);
+		var dest_dir = File.new_for_path (dest_path);
+
+		var dest = dest_path;
+		while (dest_dir.query_exists ()) {
+			dest += "_";
+			dest_dir = File.new_for_path (dest);
+		}
+
+		current_dir.move (dest_dir, FileCopyFlags.ALL_METADATA);
+
+		return Savestate.load (platform, core, dest);
+	}
+
 	// Returns the path of the newly created dir in tmp
 	private static string prepare_empty_savestate_in_tmp () throws Error {
 		var tmp_savestate_path = DirUtils.make_tmp ("games_savestate_XXXXXX");
