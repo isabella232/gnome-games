@@ -10,7 +10,7 @@ public class Games.Savestate : Object {
 	public DateTime? creation_date { get; set; }
 	public double screenshot_aspect_ratio { get; set; }
 
-	private static Savestate load (Platform platform, string core_id, string path) {
+	public static Savestate load (Platform platform, string core_id, string path) {
 		var type = platform.get_savestate_type ();
 
 		var savestate = Object.new (type,
