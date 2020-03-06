@@ -552,35 +552,6 @@ public class Games.RetroRunner : Object, Runner {
 		core.load_memory (Retro.MemoryType.SAVE_RAM, save_ram_path);
 	}
 
-	private void save_screenshot (string path) throws Error {
-		var pixbuf = current_state_pixbuf;
-		if (pixbuf == null)
-			return;
-
-		var now = new GLib.DateTime.now_local ();
-		var creation_time = now.to_string ();
-		var game_title = game.name;
-		var platform = game.platform;
-		var platform_name = platform.get_name ();
-		var platform_id = platform.get_id ();
-		if (platform_name == null) {
-			critical ("Unknown name for platform %s", platform_id);
-			platform_name = _("Unknown platform");
-		}
-
-
-		// See http://www.libpng.org/pub/png/spec/iso/index-object.html#11textinfo
-		// for description of used keys. "Game Title" and "Platform" are
-		// non-standard fields as allowed by PNG specification.
-		pixbuf.save (path, "png",
-		             "tEXt::Software", "GNOME Games",
-		             "tEXt::Title", @"Screenshot of $game_title on $platform_name",
-		             "tEXt::Creation Time", creation_time.to_string (),
-		             "tEXt::Game Title", game_title,
-		             "tEXt::Platform", platform_name,
-		             null);
-	}
-
 	public Retro.Core get_core () {
 		return core;
 	}
@@ -630,6 +601,35 @@ public class Games.RetroRunner : Object, Runner {
 					savestate.delete_from_disk ();
 			}
 		}
+	}
+
+	private void save_screenshot (string path) throws Error {
+		var pixbuf = current_state_pixbuf;
+		if (pixbuf == null)
+			return;
+
+		var now = new GLib.DateTime.now_local ();
+		var creation_time = now.to_string ();
+		var game_title = game.name;
+		var platform = game.platform;
+		var platform_name = platform.get_name ();
+		var platform_id = platform.get_id ();
+		if (platform_name == null) {
+			critical ("Unknown name for platform %s", platform_id);
+			platform_name = _("Unknown platform");
+		}
+
+
+		// See http://www.libpng.org/pub/png/spec/iso/index-object.html#11textinfo
+		// for description of used keys. "Game Title" and "Platform" are
+		// non-standard fields as allowed by PNG specification.
+		pixbuf.save (path, "png",
+		             "tEXt::Software", "GNOME Games",
+		             "tEXt::Title", @"Screenshot of $game_title on $platform_name",
+		             "tEXt::Creation Time", creation_time.to_string (),
+		             "tEXt::Game Title", game_title,
+		             "tEXt::Platform", platform_name,
+		             null);
 	}
 
 	protected virtual void save_to_snapshot (Savestate savestate) throws Error {
