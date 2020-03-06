@@ -206,6 +206,13 @@ public class Games.Savestate : Object {
 		return Savestate.load (platform, core, dest);
 	}
 
+	public void copy_save_dir_to (string dest) throws Error {
+		var save_dir_file = File.new_for_path (get_save_directory_path ());
+		var dest_file = File.new_for_path (dest);
+
+		FileOperations.copy_contents (save_dir_file, dest_file);
+	}
+
 	// Returns the path of the newly created dir in tmp
 	private static string prepare_empty_savestate_in_tmp () throws Error {
 		var tmp_savestate_path = DirUtils.make_tmp ("games_savestate_XXXXXX");

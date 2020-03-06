@@ -44,8 +44,9 @@ public class Games.RetroRunner : Object, Runner {
 
 	private Savestate[] game_savestates;
 	private Savestate latest_savestate;
-	private Savestate tmp_live_savestate;
 	private Savestate previewed_savestate;
+
+	private string tmp_save_dir;
 
 	private Gdk.Pixbuf current_state_pixbuf;
 
@@ -120,6 +121,10 @@ public class Games.RetroRunner : Object, Runner {
 			return core_source.get_core_id ();
 	}
 
+	private string create_tmp_save_dir () throws Error {
+		return DirUtils.make_tmp ("games_save_dir_XXXXXX");
+	}
+
 	public void prepare () throws RunnerError {
 		try {
 			snapshot_manager = new SnapshotManager (game, get_core_id ());
@@ -129,14 +134,11 @@ public class Games.RetroRunner : Object, Runner {
 			if (game_savestates.length != 0)
 				latest_savestate = game_savestates[0];
 
-			// Step 2) Instantiate the core
-			// This is needed to check if the core supports savestates
+			tmp_save_dir = create_tmp_save_dir ();
 			if (latest_savestate != null)
-				tmp_live_savestate = latest_savestate.clone_in_tmp ();
-			else
-				tmp_live_savestate = Savestate.create_empty_in_tmp (game.platform, get_core_id ());
+				latest_savestate.copy_save_dir_to (tmp_save_dir);
 
-			instantiate_core (tmp_live_savestate.get_save_directory_path ());
+			instantiate_core (tmp_save_dir);
 
 			if (latest_savestate != null)
 				load_savestate_metadata (latest_savestate);
@@ -194,8 +196,10 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void load_previewed_savestate () throws Error {
-		tmp_live_savestate = previewed_savestate.clone_in_tmp ();
-		core.save_directory = tmp_live_savestate.get_save_directory_path ();
+		tmp_save_dir = create_tmp_save_dir ();
+		previewed_savestate.copy_save_dir_to (tmp_save_dir);
+		core.save_directory = tmp_save_dir;
+
 		load_save_ram (previewed_savestate.get_save_ram_path ());
 		core.load_state (previewed_savestate.get_snapshot_path ());
 
@@ -218,12 +222,11 @@ public class Games.RetroRunner : Object, Runner {
 		reset_metadata (latest_savestate);
 
 		if (!is_initialized) {
+			tmp_save_dir = create_tmp_save_dir ();
 			if (latest_savestate != null)
-				tmp_live_savestate = latest_savestate.clone_in_tmp ();
-			else
-				tmp_live_savestate = Savestate.create_empty_in_tmp (game.platform, get_core_id ());
+				latest_savestate.copy_save_dir_to (tmp_save_dir);
 
-			instantiate_core (tmp_live_savestate.get_save_directory_path ());
+			instantiate_core (tmp_save_dir);
 		}
 
 		if (!is_ready) {
@@ -531,6 +534,10 @@ public class Games.RetroRunner : Object, Runner {
 		if (core.get_memory_size (Retro.MemoryType.SAVE_RAM) > 0)
 			core.save_memory (Retro.MemoryType.SAVE_RAM,
 			                  savestate.get_save_ram_path ());
+
+		var tmp_dir = File.new_for_path (tmp_save_dir);
+		var dest_dir = File.new_for_path (savestate.get_save_directory_path ());
+		FileOperations.copy_contents (tmp_dir, dest_dir);
 
 		if (media_set.get_size () > 1)
 			savestate.set_media_data (media_set);
