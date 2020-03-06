@@ -164,14 +164,14 @@ private class Games.NintendoDsRunner : RetroRunner {
 		return true;
 	}
 
-	protected override void save_savestate_metadata (Savestate savestate) throws Error {
+	protected override void save_to_snapshot (Savestate savestate) throws Error {
+		base.save_to_snapshot (savestate);
+
 		assert (savestate is NintendoDsSavestate);
 
 		var ds_savestate = savestate as NintendoDsSavestate;
 		ds_savestate.screen_layout = screen_layout;
 		ds_savestate.view_bottom_screen = view_bottom_screen;
-
-		base.save_savestate_metadata (savestate);
 	}
 
 	protected override void load_savestate_metadata (Savestate savestate) throws Error {

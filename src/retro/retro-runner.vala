@@ -489,7 +489,7 @@ public class Games.RetroRunner : Object, Runner {
 
 		tmp_live_savestate.creation_date = new DateTime.now ();
 
-		save_savestate_metadata (tmp_live_savestate);
+		save_to_snapshot (tmp_live_savestate);
 
 		tmp_live_savestate.write_metadata ();
 
@@ -634,7 +634,7 @@ public class Games.RetroRunner : Object, Runner {
 		}
 	}
 
-	protected virtual void save_savestate_metadata (Savestate savestate) throws Error {
+	protected virtual void save_to_snapshot (Savestate savestate) throws Error {
 		// Populate the savestate in tmp with data from the current state of the game
 		store_save_ram_in_tmp ();
 
@@ -644,8 +644,6 @@ public class Games.RetroRunner : Object, Runner {
 		core.save_state (savestate.get_snapshot_path ());
 		save_screenshot_in_tmp ();
 		savestate.screenshot_aspect_ratio = Retro.pixbuf_get_aspect_ratio (current_state_pixbuf);
-
-		savestate.write_metadata ();
 	}
 
 	protected virtual void load_savestate_metadata (Savestate savestate) throws Error {
