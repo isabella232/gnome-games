@@ -63,8 +63,8 @@ public class Games.RetroRunner : Object, Runner {
 		}
 	}
 
-	private bool is_initialized;
-	private bool is_ready;
+	private bool core_loaded;
+	private bool save_ram_and_dir_set;
 	private bool is_error;
 
 	private RetroRunner (Game game) {
@@ -95,8 +95,8 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	construct {
-		is_initialized = false;
-		is_ready = false;
+		core_loaded = false;
+		save_ram_and_dir_set = false;
 
 		settings = new Settings ("org.gnome.Games");
 		view = new Retro.CoreView ();
@@ -188,7 +188,7 @@ public class Games.RetroRunner : Object, Runner {
 
 		running = false;
 
-		is_initialized = true;
+		core_loaded = true;
 	}
 
 	public void prepare () throws RunnerError {
@@ -271,7 +271,7 @@ public class Games.RetroRunner : Object, Runner {
 
 		load_savestate_metadata (previewed_savestate);
 
-		is_ready = true;
+		save_ram_and_dir_set = true;
 	}
 
 	public Savestate[] get_savestates () {
@@ -282,15 +282,15 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void start () throws Error {
-		assert (is_initialized);
+		assert (core_loaded);
 
-		if (!is_ready) {
+		if (!save_ram_and_dir_set) {
 			reset_metadata (latest_savestate);
 
 			if (latest_savestate != null)
 				load_save_ram (latest_savestate.get_save_ram_path ());
 
-			is_ready = true;
+			save_ram_and_dir_set = true;
 		}
 
 		resume ();
@@ -311,10 +311,10 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void resume () {
-		if (!is_initialized)
+		if (!core_loaded)
 			return;
 
-		if (!is_ready) {
+		if (!save_ram_and_dir_set) {
 			critical ("RetroRunner.resume() cannot be called if the game isn't playing");
 			return;
 		}
@@ -325,7 +325,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private void deinit () {
-		if (!is_initialized)
+		if (!core_loaded)
 			return;
 
 		settings.changed["video-filter"].disconnect (on_video_filter_changed);
@@ -340,8 +340,8 @@ public class Games.RetroRunner : Object, Runner {
 		input_manager = null;
 
 		_running = false;
-		is_initialized = false;
-		is_ready = false;
+		core_loaded = false;
+		save_ram_and_dir_set = false;
 	}
 
 	private void on_video_filter_changed () {
@@ -351,7 +351,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void pause () {
-		if (!is_initialized)
+		if (!core_loaded)
 			return;
 
 		if (!running)
@@ -370,7 +370,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void stop () {
-		if (!is_initialized)
+		if (!core_loaded)
 			return;
 
 		pause ();
@@ -402,7 +402,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private void on_media_number_changed () {
-		if (!is_initialized)
+		if (!core_loaded)
 			return;
 
 		try {
