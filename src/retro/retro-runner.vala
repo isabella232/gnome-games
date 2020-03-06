@@ -114,7 +114,7 @@ public class Games.RetroRunner : Object, Runner {
 		return _("The system isn’t supported yet, but full support is planned.");
 	}
 
-	public void try_init_phase_one () throws RunnerError {
+	public void prepare () throws RunnerError {
 		try {
 			init_phase_one ();
 		// TODO: Check for the two RetroErrors using RetroCoreManager

@@ -15,7 +15,7 @@ public interface Games.Runner : Object {
 	public abstract Gtk.Widget get_display ();
 	public abstract HeaderBarWidget? get_extra_widget ();
 
-	public abstract void try_init_phase_one () throws RunnerError;
+	public abstract void prepare () throws RunnerError;
 	public abstract void start () throws Error;
 	public abstract void restart ();
 	public abstract void resume ();

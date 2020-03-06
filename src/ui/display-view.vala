@@ -360,7 +360,7 @@ private class Games.DisplayView : Object, UiView {
 		}
 
 		try {
-			runner.try_init_phase_one ();
+			runner.prepare ();
 		}
 		catch (RunnerError e) {
 			reset_display_page ();

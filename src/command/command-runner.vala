@@ -32,7 +32,7 @@ public class Games.CommandRunner : Object, Runner {
 		this.args = args;
 	}
 
-	public void try_init_phase_one () throws RunnerError {
+	public void prepare () throws RunnerError {
 		if (args.length <= 0)
 			throw new RunnerError.INVALID_GAME (_("The game doesn’t have a valid command."));
 	}
