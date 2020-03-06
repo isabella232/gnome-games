@@ -78,3 +78,5 @@ modules:
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/retro-gtk.git
+        tag: 0.18.1
+        commit: 08e84543076364ca1d2141a9bdb7d85940b7c8f4
