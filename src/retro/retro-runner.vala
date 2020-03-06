@@ -139,7 +139,7 @@ public class Games.RetroRunner : Object, Runner {
 			if (latest_savestate != null)
 				latest_savestate.copy_save_dir_to (tmp_save_dir);
 
-			instantiate_core (tmp_save_dir);
+			instantiate_core ();
 
 			if (latest_savestate != null)
 				load_savestate_metadata (latest_savestate);
@@ -227,7 +227,7 @@ public class Games.RetroRunner : Object, Runner {
 			if (latest_savestate != null)
 				latest_savestate.copy_save_dir_to (tmp_save_dir);
 
-			instantiate_core (tmp_save_dir);
+			instantiate_core ();
 		}
 
 		if (!is_ready) {
@@ -262,10 +262,8 @@ public class Games.RetroRunner : Object, Runner {
 		running = true;
 	}
 
-	// instantiate_core is used to setup the core, which needs to have a savestate
-	// in /tmp created and ready
-	private void instantiate_core (string core_save_directory_path) throws Error {
-		prepare_core (core_save_directory_path);
+	private void instantiate_core () throws Error {
+		prepare_core ();
 
 		input_manager = new RetroInputManager (core, view);
 		// Keep the internal values of input_mode in sync between RetroRunner and RetroInputManager
@@ -308,7 +306,7 @@ public class Games.RetroRunner : Object, Runner {
 		view.set_filter (filter);
 	}
 
-	private void prepare_core (string save_directory_path) throws Error {
+	private void prepare_core () throws Error {
 		string module_path;
 		if (core_descriptor != null) {
 			var module_file = core_descriptor.get_module_file ();
@@ -334,7 +332,7 @@ public class Games.RetroRunner : Object, Runner {
 		var platform_id = game.platform.get_id ();
 		core.system_directory = @"$platforms_dir/$platform_id/system";
 
-		core.save_directory = save_directory_path;
+		core.save_directory = tmp_save_dir;
 
 		core.log.connect (Retro.g_log);
 		view.set_core (core);
