@@ -64,7 +64,6 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	private bool core_loaded;
-	private bool save_ram_and_dir_set;
 	private bool is_error;
 
 	private RetroRunner (Game game) {
@@ -266,8 +265,6 @@ public class Games.RetroRunner : Object, Runner {
 			media_set.selected_media_number = previewed_savestate.get_media_data ();
 
 		load_savestate_metadata (previewed_savestate);
-
-		save_ram_and_dir_set = true;
 	}
 
 	public Savestate[] get_savestates () {
@@ -279,7 +276,6 @@ public class Games.RetroRunner : Object, Runner {
 
 	public void start () throws Error {
 		assert (core_loaded);
-		assert (save_ram_and_dir_set);
 
 		resume ();
 	}
@@ -301,11 +297,6 @@ public class Games.RetroRunner : Object, Runner {
 	public void resume () {
 		if (!core_loaded)
 			return;
-
-		if (!save_ram_and_dir_set) {
-			critical ("RetroRunner.resume() cannot be called if the game isn't playing");
-			return;
-		}
 
 		// Unpause an already running game
 		core.run ();
@@ -329,7 +320,6 @@ public class Games.RetroRunner : Object, Runner {
 
 		_running = false;
 		core_loaded = false;
-		save_ram_and_dir_set = false;
 	}
 
 	private void on_video_filter_changed () {
