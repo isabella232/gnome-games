@@ -174,39 +174,6 @@ public class Games.Savestate : Object {
 		}
 	}
 
-	public static Savestate[] get_game_savestates (Game game, string core_id) throws Error {
-		var data_dir_path = Application.get_data_dir ();
-		var savestates_dir_path = Path.build_filename (data_dir_path, "savestates");
-
-		var uid = game.uid;
-		var platform = game.platform;
-		var core_id_prefix = core_id.replace (".libretro", "");
-
-		var game_savestates_dir_path = Path.build_filename (savestates_dir_path, @"$uid-$core_id_prefix");
-		var game_savestates_dir_file = File.new_for_path (game_savestates_dir_path);
-
-		if (!game_savestates_dir_file.query_exists ()) {
-			// The game has no savestates directory so we create one
-			game_savestates_dir_file.make_directory_with_parents ();
-			return {}; // Obviously no savestates available either
-		}
-
-		var game_savestates_dir = Dir.open (game_savestates_dir_path);
-
-		Savestate[] game_savestates = {};
-		string savestate_name = null;
-
-		while ((savestate_name = game_savestates_dir.read_name ()) != null) {
-			var savestate_path = Path.build_filename (game_savestates_dir_path, savestate_name);
-			game_savestates += Savestate.load (platform, core_id, savestate_path);
-		}
-
-		// Sort the savestates array by creation dates
-		qsort_with_data (game_savestates, sizeof (Savestate), Savestate.compare);
-
-		return game_savestates;
-	}
-
 	public static Savestate create_empty_in_tmp (Platform platform, string core_id) throws Error {
 		return Savestate.load (platform, core_id, prepare_empty_savestate_in_tmp ());
 	}
