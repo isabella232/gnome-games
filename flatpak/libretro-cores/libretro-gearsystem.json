@@ -11,7 +11,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/drhelius/Gearsystem.git"
+                    "url": "https://github.com/drhelius/Gearsystem.git",
+                    "commit": "7e2536fafd4ab0e35efdc8570c807635b2fc4679"
                 }
             ]
         }

@@ -18,7 +18,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/libretro/picodrive"
+                    "url": "https://github.com/libretro/picodrive",
+                    "commit": "600894ec6eb657586a972a9ecd268f50907a279c"
                 },
                 {
                     "type": "file",

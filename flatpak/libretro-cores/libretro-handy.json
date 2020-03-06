@@ -17,7 +17,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/libretro/libretro-handy"
+                    "url": "https://github.com/libretro/libretro-handy",
+                    "commit": "c9fe65d1a2df454ee11404ac27bdc9be319dd9a2"
                 },
                 {
                     "type": "file",
