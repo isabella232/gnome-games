@@ -552,12 +552,10 @@ public class Games.RetroRunner : Object, Runner {
 		core.load_memory (Retro.MemoryType.SAVE_RAM, save_ram_path);
 	}
 
-	private void save_screenshot_in_tmp () throws Error {
+	private void save_screenshot (string path) throws Error {
 		var pixbuf = current_state_pixbuf;
 		if (pixbuf == null)
 			return;
-
-		var screenshot_path = tmp_live_savestate.get_screenshot_path ();
 
 		var now = new GLib.DateTime.now_local ();
 		var creation_time = now.to_string ();
@@ -574,7 +572,7 @@ public class Games.RetroRunner : Object, Runner {
 		// See http://www.libpng.org/pub/png/spec/iso/index-object.html#11textinfo
 		// for description of used keys. "Game Title" and "Platform" are
 		// non-standard fields as allowed by PNG specification.
-		pixbuf.save (screenshot_path, "png",
+		pixbuf.save (path, "png",
 		             "tEXt::Software", "GNOME Games",
 		             "tEXt::Title", @"Screenshot of $game_title on $platform_name",
 		             "tEXt::Creation Time", creation_time.to_string (),
@@ -642,7 +640,7 @@ public class Games.RetroRunner : Object, Runner {
 			savestate.set_media_data (media_set);
 
 		core.save_state (savestate.get_snapshot_path ());
-		save_screenshot_in_tmp ();
+		save_screenshot (savestate.get_screenshot_path ());
 		savestate.screenshot_aspect_ratio = Retro.pixbuf_get_aspect_ratio (current_state_pixbuf);
 	}
 
