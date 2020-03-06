@@ -237,9 +237,7 @@ public class Games.RetroRunner : Object, Runner {
 			is_ready = true;
 		}
 
-		core.run ();
-
-		running = true;
+		resume ();
 	}
 
 	public void restart () {
