@@ -220,8 +220,6 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void start () throws Error {
-		reset_metadata (latest_savestate);
-
 		if (!is_initialized) {
 			tmp_save_dir = create_tmp_save_dir ();
 			if (latest_savestate != null)
@@ -231,6 +229,8 @@ public class Games.RetroRunner : Object, Runner {
 		}
 
 		if (!is_ready) {
+			reset_metadata (latest_savestate);
+
 			if (latest_savestate != null)
 				load_save_ram (latest_savestate.get_save_ram_path ());
 
