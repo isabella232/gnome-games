@@ -400,8 +400,8 @@ private class Games.DisplayView : Object, UiView {
 		try {
 			if (resume)
 				runner.load_previewed_savestate ();
-			else
-				runner.start ();
+
+			runner.start ();
 
 			return true;
 		}
