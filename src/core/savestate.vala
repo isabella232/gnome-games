@@ -88,35 +88,6 @@ public class Games.Savestate : Object {
 		FileUtils.set_contents (media_path, contents, contents.length);
 	}
 
-	public Savestate clone_in_tmp () throws Error {
-		var tmp_savestate_path = prepare_empty_savestate_in_tmp ();
-		var tmp_savestate_dir = File.new_for_path (tmp_savestate_path);
-		var cloned_savestate_dir = File.new_for_path (path);
-
-		FileOperations.copy_contents (cloned_savestate_dir, tmp_savestate_dir);
-
-		return Savestate.load (platform, core, tmp_savestate_path);
-	}
-
-	// This method is used to save the savestate in /tmp as a regular savestate
-	// inside the savestates directory of a game
-	// It names the newly created savestate using the creation date in the
-	// metadata file
-	public Savestate save_in (string game_savestates_dir_path) throws Error {
-		var copied_dir = File.new_for_path (path);
-		var new_savestate_dir_path = Path.build_filename (game_savestates_dir_path, creation_date.to_string ());
-		var new_savestate_dir = File.new_for_path (new_savestate_dir_path);
-
-		while (new_savestate_dir.query_exists ()) {
-			new_savestate_dir_path += "_";
-			new_savestate_dir = File.new_for_path (new_savestate_dir_path);
-		}
-
-		FileOperations.copy_dir (copied_dir, new_savestate_dir);
-
-		return Savestate.load (platform, core, new_savestate_dir_path);
-	}
-
 	protected virtual void load_metadata (KeyFile keyfile) throws KeyFileError {
 		is_automatic = keyfile.get_boolean ("Metadata", "Automatic");
 
@@ -174,10 +145,6 @@ public class Games.Savestate : Object {
 		}
 	}
 
-	public static Savestate create_empty_in_tmp (Platform platform, string core_id) throws Error {
-		return Savestate.load (platform, core_id, prepare_empty_savestate_in_tmp ());
-	}
-
 	public static Savestate create_empty (Game game, string core_id, string path) throws Error {
 		var random = Random.next_int ();
 		var tmp_path = @"$(path)_$random";
@@ -211,17 +178,6 @@ public class Games.Savestate : Object {
 		var dest_file = File.new_for_path (dest);
 
 		FileOperations.copy_contents (save_dir_file, dest_file);
-	}
-
-	// Returns the path of the newly created dir in tmp
-	private static string prepare_empty_savestate_in_tmp () throws Error {
-		var tmp_savestate_path = DirUtils.make_tmp ("games_savestate_XXXXXX");
-		var save_dir_path = Path.build_filename (tmp_savestate_path, "save-dir");
-		var save_dir = File.new_for_path (save_dir_path);
-
-		save_dir.make_directory ();
-
-		return tmp_savestate_path;
 	}
 
 	public static int compare (Savestate s1, Savestate s2) {
