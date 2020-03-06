@@ -254,16 +254,6 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void load_previewed_savestate () throws Error {
-		tmp_save_dir = create_tmp_save_dir ();
-		previewed_savestate.copy_save_dir_to (tmp_save_dir);
-		core.save_directory = tmp_save_dir;
-
-		load_save_ram (previewed_savestate.get_save_ram_path ());
-		core.load_state (previewed_savestate.get_snapshot_path ());
-
-		if (previewed_savestate.has_media_data ())
-			media_set.selected_media_number = previewed_savestate.get_media_data ();
-
 		load_savestate_metadata (previewed_savestate);
 	}
 
@@ -517,6 +507,15 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	protected virtual void load_savestate_metadata (Savestate savestate) throws Error {
+		tmp_save_dir = create_tmp_save_dir ();
+		savestate.copy_save_dir_to (tmp_save_dir);
+		core.save_directory = tmp_save_dir;
+
+		load_save_ram (savestate.get_save_ram_path ());
+		core.load_state (savestate.get_snapshot_path ());
+
+		if (savestate.has_media_data ())
+			media_set.selected_media_number = savestate.get_media_data ();
 	}
 
 	protected virtual void reset_metadata (Savestate? last_savestate) throws Error {
