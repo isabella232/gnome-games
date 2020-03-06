@@ -101,6 +101,12 @@ public class Games.RetroRunner : Object, Runner {
 		on_video_filter_changed ();
 	}
 
+	private void on_video_filter_changed () {
+		var filter_name = settings.get_string ("video-filter");
+		var filter = Retro.VideoFilter.from_string (filter_name);
+		view.set_filter (filter);
+	}
+
 	~RetroRunner () {
 		pause ();
 		deinit ();
@@ -303,12 +309,6 @@ public class Games.RetroRunner : Object, Runner {
 
 		_running = false;
 		core_loaded = false;
-	}
-
-	private void on_video_filter_changed () {
-		var filter_name = settings.get_string ("video-filter");
-		var filter = Retro.VideoFilter.from_string (filter_name);
-		view.set_filter (filter);
 	}
 
 	public void pause () {
