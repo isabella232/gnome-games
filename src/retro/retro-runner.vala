@@ -611,7 +611,6 @@ public class Games.RetroRunner : Object, Runner {
 			platform_name = _("Unknown platform");
 		}
 
-
 		// See http://www.libpng.org/pub/png/spec/iso/index-object.html#11textinfo
 		// for description of used keys. "Game Title" and "Platform" are
 		// non-standard fields as allowed by PNG specification.
