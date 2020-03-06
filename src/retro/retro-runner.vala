@@ -220,13 +220,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void start () throws Error {
-		if (!is_initialized) {
-			tmp_save_dir = create_tmp_save_dir ();
-			if (latest_savestate != null)
-				latest_savestate.copy_save_dir_to (tmp_save_dir);
-
-			instantiate_core ();
-		}
+		assert (is_initialized);
 
 		if (!is_ready) {
 			reset_metadata (latest_savestate);
