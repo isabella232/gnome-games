@@ -6,7 +6,12 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public bool can_resume {
-		get { return game_savestates.length != 0; }
+		get {
+			if (snapshot_manager == null)
+				return false;
+
+			return snapshot_manager.has_snapshots ();
+		}
 	}
 
 	public bool supports_savestates {
@@ -42,7 +47,6 @@ public class Games.RetroRunner : Object, Runner {
 	private Game game;
 	private SnapshotManager snapshot_manager;
 
-	private Savestate[] game_savestates;
 	private Savestate latest_savestate;
 	private Savestate previewed_savestate;
 
@@ -129,10 +133,7 @@ public class Games.RetroRunner : Object, Runner {
 		try {
 			snapshot_manager = new SnapshotManager (game, get_core_id ());
 
-			// Step 1) Load the game's savestates ----------------------------------
-			game_savestates = snapshot_manager.get_snapshots ();
-			if (game_savestates.length != 0)
-				latest_savestate = game_savestates[0];
+			latest_savestate = snapshot_manager.get_latest_snapshot ();
 
 			tmp_save_dir = create_tmp_save_dir ();
 			if (latest_savestate != null)
@@ -212,10 +213,10 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public Savestate[] get_savestates () {
-		if (game_savestates == null)
-			critical ("RetroRunner hasn't loaded snapshots. Call try_init_phase_one()");
+		if (snapshot_manager == null)
+			return {};
 
-		return game_savestates;
+		return snapshot_manager.get_snapshots ();
 	}
 
 	public void start () throws Error {

@@ -50,6 +50,17 @@ public class Games.SnapshotManager : Object {
 		return snapshots;
 	}
 
+	public bool has_snapshots () {
+		return snapshots.length > 0;
+	}
+
+	public Savestate? get_latest_snapshot () {
+		if (has_snapshots ())
+			return snapshots[0];
+
+		return null;
+	}
+
 	private void trim_autosaves () {
 		int n_autosaves = 1;
 
