@@ -200,8 +200,7 @@ public class Games.RetroRunner : Object, Runner {
 
 			instantiate_core ();
 
-			if (latest_savestate != null)
-				load_savestate_metadata (latest_savestate);
+			reset_metadata (latest_savestate);
 		}
 		catch (RetroError.MODULE_NOT_FOUND e) {
 			debug ("%s\n", e.message);
@@ -280,15 +279,7 @@ public class Games.RetroRunner : Object, Runner {
 
 	public void start () throws Error {
 		assert (core_loaded);
-
-		if (!save_ram_and_dir_set) {
-			reset_metadata (latest_savestate);
-
-			if (latest_savestate != null)
-				load_save_ram (latest_savestate.get_save_ram_path ());
-
-			save_ram_and_dir_set = true;
-		}
+		assert (save_ram_and_dir_set);
 
 		resume ();
 	}
@@ -539,7 +530,12 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	protected virtual void reset_metadata (Savestate? last_savestate) throws Error {
-		if (last_savestate != null && last_savestate.has_media_data ())
+		if (last_savestate == null)
+			return;
+
+		load_save_ram (latest_savestate.get_save_ram_path ());
+
+		if (last_savestate.has_media_data ())
 			media_set.selected_media_number = last_savestate.get_media_data ();
 	}
 }
