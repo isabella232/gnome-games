@@ -17,7 +17,7 @@ public interface Games.Runner : Object {
 
 	public abstract void prepare () throws RunnerError;
 	public abstract void start () throws Error;
-	public abstract void restart ();
+	public abstract void restart () throws Error;
 	public abstract void resume ();
 	public abstract void pause ();
 	public abstract void stop ();

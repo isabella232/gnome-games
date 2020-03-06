@@ -607,7 +607,13 @@ private class Games.DisplayView : Object, UiView {
 
 	private void restart () {
 		if (runner != null && runner.is_integrated) {
-			runner.restart ();
+			try {
+				runner.restart ();
+			}
+			catch (Error e) {
+				critical ("Couldn't restart: %s", e.message);
+			}
+
 			return;
 		}
 
