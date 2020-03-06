@@ -129,6 +129,68 @@ public class Games.RetroRunner : Object, Runner {
 		return DirUtils.make_tmp ("games_save_dir_XXXXXX");
 	}
 
+	private void prepare_core () throws Error {
+		string module_path;
+		if (core_descriptor != null) {
+			var module_file = core_descriptor.get_module_file ();
+			if (module_file == null)
+				throw new RetroError.MODULE_NOT_FOUND (_("No module found for “%s”."), core_descriptor.get_name ());
+
+			module_path = module_file.get_path ();
+		}
+		else
+			module_path = core_source.get_module_path ();
+		core = new Retro.Core (module_path);
+
+		var options_path = get_options_path ();
+		if (FileUtils.test (options_path, FileTest.EXISTS))
+			try {
+				var options = new RetroOptions (options_path);
+				options.apply (core);
+			} catch (Error e) {
+				critical (e.message);
+			}
+
+		var platforms_dir = Application.get_platforms_dir ();
+		var platform_id = game.platform.get_id ();
+		core.system_directory = @"$platforms_dir/$platform_id/system";
+
+		core.save_directory = tmp_save_dir;
+
+		core.log.connect (Retro.g_log);
+		view.set_core (core);
+
+		string[] medias_uris = {};
+		media_set.foreach_media ((media) => {
+			var uris = media.get_uris ();
+			medias_uris += (uris.length == 0) ? "" : uris[0].to_string ();
+		});
+
+		core.set_medias (medias_uris);
+		core.boot ();
+
+		if (medias_uris.length > 0)
+			core.set_current_media (media_set.selected_media_number);
+	}
+
+	private void instantiate_core () throws Error {
+		prepare_core ();
+
+		input_manager = new RetroInputManager (core, view);
+		// Keep the internal values of input_mode in sync between RetroRunner and RetroInputManager
+		input_mode = get_available_input_modes ()[0];
+
+		core.shutdown.connect (stop);
+		core.crashed.connect ((core, error) => {
+			is_error = true;
+			crash (error);
+		});
+
+		running = false;
+
+		is_initialized = true;
+	}
+
 	public void prepare () throws RunnerError {
 		try {
 			snapshot_manager = new SnapshotManager (game, get_core_id ());
@@ -262,24 +324,6 @@ public class Games.RetroRunner : Object, Runner {
 		running = true;
 	}
 
-	private void instantiate_core () throws Error {
-		prepare_core ();
-
-		input_manager = new RetroInputManager (core, view);
-		// Keep the internal values of input_mode in sync between RetroRunner and RetroInputManager
-		input_mode = get_available_input_modes ()[0];
-
-		core.shutdown.connect (stop);
-		core.crashed.connect ((core, error) => {
-			is_error = true;
-			crash (error);
-		});
-
-		running = false;
-
-		is_initialized = true;
-	}
-
 	private void deinit () {
 		if (!is_initialized)
 			return;
@@ -304,50 +348,6 @@ public class Games.RetroRunner : Object, Runner {
 		var filter_name = settings.get_string ("video-filter");
 		var filter = Retro.VideoFilter.from_string (filter_name);
 		view.set_filter (filter);
-	}
-
-	private void prepare_core () throws Error {
-		string module_path;
-		if (core_descriptor != null) {
-			var module_file = core_descriptor.get_module_file ();
-			if (module_file == null)
-				throw new RetroError.MODULE_NOT_FOUND (_("No module found for “%s”."), core_descriptor.get_name ());
-
-			module_path = module_file.get_path ();
-		}
-		else
-			module_path = core_source.get_module_path ();
-		core = new Retro.Core (module_path);
-
-		var options_path = get_options_path ();
-		if (FileUtils.test (options_path, FileTest.EXISTS))
-			try {
-				var options = new RetroOptions (options_path);
-				options.apply (core);
-			} catch (Error e) {
-				critical (e.message);
-			}
-
-		var platforms_dir = Application.get_platforms_dir ();
-		var platform_id = game.platform.get_id ();
-		core.system_directory = @"$platforms_dir/$platform_id/system";
-
-		core.save_directory = tmp_save_dir;
-
-		core.log.connect (Retro.g_log);
-		view.set_core (core);
-
-		string[] medias_uris = {};
-		media_set.foreach_media ((media) => {
-			var uris = media.get_uris ();
-			medias_uris += (uris.length == 0) ? "" : uris[0].to_string ();
-		});
-
-		core.set_medias (medias_uris);
-		core.boot ();
-
-		if (medias_uris.length > 0)
-			core.set_current_media (media_set.selected_media_number);
 	}
 
 	public void pause () {
