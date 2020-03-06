@@ -124,7 +124,7 @@ public class Games.RetroRunner : Object, Runner {
 	public void prepare () throws RunnerError {
 		try {
 			// Step 1) Load the game's savestates ----------------------------------
-			game_savestates = Savestate.get_game_savestates (game.uid, game.platform, get_core_id ());
+			game_savestates = Savestate.get_game_savestates (game, get_core_id ());
 			if (game_savestates.length != 0)
 				latest_savestate = game_savestates[0];
 
