@@ -1,3 +1,5 @@
+// This file is part of GNOME Games. License: GPL-3.0+.
+
 public class Games.Savestate : Object {
 	public string path { get; construct; }
 	public Platform platform { get; construct; }
