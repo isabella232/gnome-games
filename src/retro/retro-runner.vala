@@ -106,36 +106,22 @@ public class Games.RetroRunner : Object, Runner {
 		deinit ();
 	}
 
-	// init_phase_one attempts to init everything that can be init-ed right away
-	// It is called by the DisplayView to check if a runner can be used
-	// This method must be called before other methods/properties
-	public bool try_init_phase_one (out string error_message) {
+	public void try_init_phase_one () throws RunnerError {
 		try {
 			init_phase_one ();
 		// TODO: Check for the two RetroErrors using RetroCoreManager
 		}
 		catch (RetroError.MODULE_NOT_FOUND e) {
-			debug (e.message);
-			error_message = get_unsupported_system_message ();
-
-			return false;
+			debug ("%s\n", e.message);
+			throw new RunnerError.UNSUPPORTED_SYSTEM (get_unsupported_system_message ());
 		}
 		catch (RetroError.FIRMWARE_NOT_FOUND e) {
-			debug (e.message);
-			error_message = get_unsupported_system_message ();
-
-			return false;
+			debug ("%s\n", e.message);
+			throw new RunnerError.UNSUPPORTED_SYSTEM (get_unsupported_system_message ());
 		}
 		catch (Error e) {
-			debug (e.message);
-			error_message = e.message;
-
-			return false;
+			throw new RunnerError.OTHER (e.message);
 		}
-
-		// Nothing went wrong
-		error_message = "";
-		return true;
 	}
 
 	private string get_core_id () throws Error {

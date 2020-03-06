@@ -32,17 +32,9 @@ public class Games.CommandRunner : Object, Runner {
 		this.args = args;
 	}
 
-	public bool try_init_phase_one (out string error_message) {
-		if (args.length > 0) {
-			error_message = "";
-
-			return true;
-		}
-
-		debug ("Invalid command: it doesn’t have any argument.");
-		error_message = _("The game doesn’t have a valid command.");
-
-		return false;
+	public void try_init_phase_one () throws RunnerError {
+		if (args.length <= 0)
+			throw new RunnerError.INVALID_GAME (_("The game doesn’t have a valid command."));
 	}
 
 	public Gtk.Widget get_display () {

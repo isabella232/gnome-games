@@ -359,14 +359,17 @@ private class Games.DisplayView : Object, UiView {
 			return null;
 		}
 
-		string error_message;
-		if (runner.try_init_phase_one (out error_message))
-			return runner;
+		try {
+			runner.try_init_phase_one ();
+		}
+		catch (RunnerError e) {
+			reset_display_page ();
+			box.display_running_game_failed (game, e.message);
 
-		reset_display_page ();
-		box.display_running_game_failed (game, error_message);
+			return null;
+		}
 
-		return null;
+		return runner;
 	}
 
 	private Gtk.ResponseType prompt_resume_with_cancellable (Cancellable cancellable) {
