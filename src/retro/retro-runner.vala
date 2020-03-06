@@ -114,10 +114,27 @@ public class Games.RetroRunner : Object, Runner {
 		return _("The system isn’t supported yet, but full support is planned.");
 	}
 
+	private string get_core_id () throws Error {
+		if (core_descriptor != null)
+			return core_descriptor.get_id ();
+		else
+			return core_source.get_core_id ();
+	}
+
 	public void prepare () throws RunnerError {
 		try {
-			init_phase_one ();
-		// TODO: Check for the two RetroErrors using RetroCoreManager
+			// Step 1) Load the game's savestates ----------------------------------
+			game_savestates = Savestate.get_game_savestates (game.uid, game.platform, get_core_id ());
+			if (game_savestates.length != 0)
+				latest_savestate = game_savestates[0];
+
+			// Step 2) Instantiate the core
+			// This is needed to check if the core supports savestates
+			if (latest_savestate != null)
+				tmp_live_savestate = latest_savestate.clone_in_tmp ();
+			else
+				tmp_live_savestate = Savestate.create_empty_in_tmp (game.platform, get_core_id ());
+			instantiate_core (tmp_live_savestate.get_save_directory_path ());
 		}
 		catch (RetroError.MODULE_NOT_FOUND e) {
 			debug ("%s\n", e.message);
@@ -130,28 +147,6 @@ public class Games.RetroRunner : Object, Runner {
 		catch (Error e) {
 			throw new RunnerError.OTHER (e.message);
 		}
-	}
-
-	private string get_core_id () throws Error {
-		if (core_descriptor != null)
-			return core_descriptor.get_id ();
-		else
-			return core_source.get_core_id ();
-	}
-
-	private void init_phase_one () throws Error {
-		// Step 1) Load the game's savestates ----------------------------------
-		game_savestates = Savestate.get_game_savestates (game.uid, game.platform, get_core_id ());
-		if (game_savestates.length != 0)
-			latest_savestate = game_savestates[0];
-
-		// Step 2) Instantiate the core
-		// This is needed to check if the core supports savestates
-		if (latest_savestate != null)
-			tmp_live_savestate = latest_savestate.clone_in_tmp ();
-		else
-			tmp_live_savestate = Savestate.create_empty_in_tmp (game.platform, get_core_id ());
-		instantiate_core (tmp_live_savestate.get_save_directory_path ());
 
 		// Step 3) Preview the latest savestate --------------------------------
 		if (latest_savestate != null)
