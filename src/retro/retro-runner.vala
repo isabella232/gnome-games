@@ -106,6 +106,14 @@ public class Games.RetroRunner : Object, Runner {
 		deinit ();
 	}
 
+	private string get_unsupported_system_message () {
+		var platform_name = game.platform.get_name ();
+		if (platform_name != null)
+			return _("The system “%s” isn’t supported yet, but full support is planned.").printf (platform_name);
+
+		return _("The system isn’t supported yet, but full support is planned.");
+	}
+
 	public void try_init_phase_one () throws RunnerError {
 		try {
 			init_phase_one ();
@@ -579,14 +587,6 @@ public class Games.RetroRunner : Object, Runner {
 		             "tEXt::Game Title", game_title,
 		             "tEXt::Platform", platform_name,
 		             null);
-	}
-
-	private string get_unsupported_system_message () {
-		var platform_name = game.platform.get_name ();
-		if (platform_name != null)
-			return _("The system “%s” isn’t supported yet, but full support is planned.").printf (platform_name);
-
-		return _("The system isn’t supported yet, but full support is planned.");
 	}
 
 	public Retro.Core get_core () {
