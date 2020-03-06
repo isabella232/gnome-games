@@ -42,6 +42,7 @@ public class Games.RetroRunner : Object, Runner {
 	private RetroCoreSource core_source;
 	private Settings settings;
 	private Game game;
+	private SnapshotManager snapshot_manager;
 
 	private Savestate[] game_savestates;
 	private Savestate latest_savestate;
@@ -123,8 +124,10 @@ public class Games.RetroRunner : Object, Runner {
 
 	public void prepare () throws RunnerError {
 		try {
+			snapshot_manager = new SnapshotManager (game, get_core_id ());
+
 			// Step 1) Load the game's savestates ----------------------------------
-			game_savestates = Savestate.get_game_savestates (game, get_core_id ());
+			game_savestates = snapshot_manager.get_snapshots ();
 			if (game_savestates.length != 0)
 				latest_savestate = game_savestates[0];
 
