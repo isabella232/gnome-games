@@ -465,15 +465,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void delete_savestate (Savestate savestate) {
-		Savestate[] new_game_savestates = {};
-
-		foreach (var existing_savestate in game_savestates) {
-			if (savestate != existing_savestate)
-				new_game_savestates += existing_savestate;
-		}
-
-		game_savestates = new_game_savestates;
-		savestate.delete_from_disk ();
+		snapshot_manager.delete_snapshot (savestate);
 	}
 
 	private string get_options_path () throws Error {

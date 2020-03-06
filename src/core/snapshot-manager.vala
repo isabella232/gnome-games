@@ -126,4 +126,16 @@ public class Games.SnapshotManager : Object {
 
 		return snapshot;
 	}
+
+	public void delete_snapshot (Savestate snapshot) {
+		Savestate[] new_snapshots = {};
+
+		foreach (var s in snapshots)
+			if (snapshot != s)
+				new_snapshots += s;
+
+		snapshots = new_snapshots;
+
+		snapshot.delete_from_disk ();
+	}
 }
