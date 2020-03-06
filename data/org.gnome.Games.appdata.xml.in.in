@@ -43,6 +43,11 @@
   </screenshots>
 
   <releases>
+    <release version="3.36.0" type="stable" date="2020-03-07" urgency="medium">
+      <description>
+        <p>Translation updates.</p>
+      </description>
+    </release>
     <release version="3.35.92" type="development" date="2020-02-27" urgency="medium">
       <description>
         <p>Improvements:</p>
