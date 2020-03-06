@@ -447,7 +447,7 @@ public class Games.RetroRunner : Object, Runner {
 	// savestate creation fails except warn the user of unsaved progress via the
 	// QuitDialog in the DisplayView
 	public Savestate? try_create_savestate (bool is_automatic) {
-		if (!core.get_can_access_state ()) // Check if the core can support savestates
+		if (!supports_savestates)
 			return null;
 
 		if (!is_automatic)
