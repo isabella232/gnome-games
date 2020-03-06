@@ -39,6 +39,7 @@ vala_sources = [
   'core/runner-error.vala',
   'core/runner-factory.vala',
   'core/savestate.vala',
+  'core/snapshot-manager.vala',
   'core/title.vala',
   'core/uid.vala',
   'core/uri-game-factory.vala',
