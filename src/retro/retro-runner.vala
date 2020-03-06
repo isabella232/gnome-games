@@ -1,8 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public class Games.RetroRunner : Object, Runner {
-	private const int MAX_AUTOSAVES = 5;
-
 	public bool can_fullscreen {
 		get { return true; }
 	}
@@ -440,17 +438,6 @@ public class Games.RetroRunner : Object, Runner {
 		}
 	}
 
-	private string get_game_savestates_dir_path () throws Error {
-		// Get the savestates directory of the game
-		var data_dir_path = Application.get_data_dir ();
-		var savestates_dir_path = Path.build_filename (data_dir_path, "savestates");
-		var uid = game.uid;
-		var core_id = get_core_id ();
-		var core_id_prefix = core_id.replace (".libretro", "");
-
-		return Path.build_filename (savestates_dir_path, @"$uid-$core_id_prefix");
-	}
-
 	// Returns the created Savestate or null if the Savestate couldn't be created
 	// Currently the callers are the DisplayView and the SavestatesList
 	// In the future we might want to throw Errors from here in case there is
@@ -465,46 +452,13 @@ public class Games.RetroRunner : Object, Runner {
 			new_savestate_created ();
 
 		try {
-			return create_savestate (is_automatic);
+			return snapshot_manager.create_snapshot (is_automatic, save_to_snapshot);
 		}
 		catch (Error e) {
 			critical ("Failed to create snapshot: %s", e.message);
 
 			return null;
 		}
-	}
-
-	private Savestate create_savestate (bool is_automatic) throws Error {
-		// Make room for the new automatic savestate
-		if (is_automatic)
-			trim_autosaves ();
-
-		var creation_date = new DateTime.now ();
-		var path = Path.build_filename (get_game_savestates_dir_path (),
-		                                creation_date.to_string ());
-
-		var snapshot = Savestate.create_empty (game, get_core_id (), path);
-
-		snapshot.is_automatic = is_automatic;
-		snapshot.name = is_automatic ? null : create_new_savestate_name ();
-		snapshot.creation_date = creation_date;
-
-		save_to_snapshot (snapshot);
-		snapshot.write_metadata ();
-
-		snapshot = snapshot.move_to (path);
-
-		// Update the game_savestates array
-		// Insert the new savestate at the beginning of the array since it's the latest savestate
-		Savestate[] new_game_savestates = {};
-
-		new_game_savestates += snapshot;
-		foreach (var existing_savestate in game_savestates)
-			new_game_savestates += existing_savestate;
-
-		game_savestates = new_game_savestates;
-
-		return snapshot;
 	}
 
 	public void delete_savestate (Savestate savestate) {
@@ -543,53 +497,6 @@ public class Games.RetroRunner : Object, Runner {
 
 	public Retro.Core get_core () {
 		return core;
-	}
-
-	private string create_new_savestate_name () throws Error {
-		var list = new List<int>();
-		var regex = new Regex (_("New snapshot %s").printf ("([1-9]\\d*)"));
-
-		foreach (var savestate in game_savestates) {
-			if (savestate.is_automatic)
-				continue;
-
-			MatchInfo match_info = null;
-
-			if (regex.match (savestate.name, 0, out match_info)) {
-				var number = match_info.fetch (1);
-				list.prepend (int.parse (number));
-			}
-		}
-
-		list.sort ((a, b) => a - b);
-
-		// Find the next available name for a new manual savestate
-		var next_number = 1;
-		foreach (var number in list) {
-			if (number == next_number)
-				next_number++;
-			else
-				break;
-		}
-
-		return _("New snapshot %s").printf (next_number.to_string ());
-	}
-
-	// Decide if there are too many automatic savestates and delete the
-	// last ones if so
-	private void trim_autosaves () {
-		// A new automatic savestate will be created right after this call,
-		// so counter starts from 1
-		int autosaves_counter = 1;
-
-		foreach (var savestate in game_savestates) {
-			if (savestate.is_automatic) {
-				if (autosaves_counter < MAX_AUTOSAVES)
-					autosaves_counter++;
-				else
-					savestate.delete_from_disk ();
-			}
-		}
 	}
 
 	private void save_screenshot (string path) throws Error {

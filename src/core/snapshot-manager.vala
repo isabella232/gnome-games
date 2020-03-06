@@ -1,6 +1,10 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public class Games.SnapshotManager : Object {
+	private const int MAX_AUTOSAVES = 5;
+
+	public delegate void SnapshotFunc (Savestate snapshot) throws Error;
+
 	private Game game;
 	private string core_id;
 
@@ -44,5 +48,82 @@ public class Games.SnapshotManager : Object {
 
 	public Savestate[] get_snapshots () {
 		return snapshots;
+	}
+
+	private void trim_autosaves () {
+		int n_autosaves = 1;
+
+		foreach (var snapshot in snapshots) {
+			if (!snapshot.is_automatic)
+				continue;
+
+			if (n_autosaves < MAX_AUTOSAVES) {
+				n_autosaves++;
+				continue;
+			}
+
+			snapshot.delete_from_disk ();
+		}
+	}
+
+	private string create_new_snapshot_name () throws Error {
+		var list = new List<int> ();
+		var regex = new Regex (_("New snapshot %s").printf ("([1-9]\\d*)"));
+
+		foreach (var snapshot in snapshots) {
+			if (snapshot.is_automatic)
+				continue;
+
+			MatchInfo match_info = null;
+
+			if (regex.match (snapshot.name, 0, out match_info)) {
+				var number = match_info.fetch (1);
+				list.prepend (int.parse (number));
+			}
+		}
+
+		list.sort ((a, b) => a - b);
+
+		// Find the next available name for a new manual snapshot
+		int next_number = 1;
+		foreach (var number in list) {
+			if (number != next_number)
+				break;
+
+			next_number++;
+		}
+
+		return _("New snapshot %s").printf (next_number.to_string ());
+	}
+
+	public Savestate create_snapshot (bool is_automatic, SnapshotFunc save_callback) throws Error {
+		// Make room for the new automatic snapshot
+		if (is_automatic)
+			trim_autosaves ();
+
+		var creation_date = new DateTime.now ();
+		var path = Path.build_filename (get_snapshots_dir (),
+		                                creation_date.to_string ());
+
+		var snapshot = Savestate.create_empty (game, core_id, path);
+
+		snapshot.is_automatic = is_automatic;
+		snapshot.name = is_automatic ? null : create_new_snapshot_name ();
+		snapshot.creation_date = creation_date;
+
+		save_callback (snapshot);
+		snapshot.write_metadata ();
+
+		snapshot = snapshot.move_to (path);
+
+		Savestate[] new_snapshots = {};
+
+		new_snapshots += snapshot;
+		foreach (var s in snapshots)
+			new_snapshots += s;
+
+		snapshots = new_snapshots;
+
+		return snapshot;
 	}
 }
