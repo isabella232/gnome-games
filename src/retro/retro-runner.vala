@@ -479,15 +479,6 @@ public class Games.RetroRunner : Object, Runner {
 		if (is_automatic)
 			trim_autosaves ();
 
-		// Populate the savestate in tmp with data from the current state of the game
-		store_save_ram_in_tmp ();
-
-		if (media_set.get_size () > 1)
-			tmp_live_savestate.set_media_data (media_set);
-
-		core.save_state (tmp_live_savestate.get_snapshot_path ());
-		save_screenshot_in_tmp ();
-
 		// Populate the metadata file
 		tmp_live_savestate.is_automatic = is_automatic;
 
@@ -497,9 +488,10 @@ public class Games.RetroRunner : Object, Runner {
 			tmp_live_savestate.name = create_new_savestate_name ();
 
 		tmp_live_savestate.creation_date = new DateTime.now ();
-		tmp_live_savestate.screenshot_aspect_ratio = Retro.pixbuf_get_aspect_ratio (current_state_pixbuf);
 
 		save_savestate_metadata (tmp_live_savestate);
+
+		tmp_live_savestate.write_metadata ();
 
 		// Save the tmp_live_savestate into the game savestates directory
 		var game_savestates_dir_path = get_game_savestates_dir_path ();
@@ -643,7 +635,17 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	protected virtual void save_savestate_metadata (Savestate savestate) throws Error {
-		tmp_live_savestate.write_metadata ();
+		// Populate the savestate in tmp with data from the current state of the game
+		store_save_ram_in_tmp ();
+
+		if (media_set.get_size () > 1)
+			savestate.set_media_data (media_set);
+
+		core.save_state (savestate.get_snapshot_path ());
+		save_screenshot_in_tmp ();
+		savestate.screenshot_aspect_ratio = Retro.pixbuf_get_aspect_ratio (current_state_pixbuf);
+
+		savestate.write_metadata ();
 	}
 
 	protected virtual void load_savestate_metadata (Savestate savestate) throws Error {
