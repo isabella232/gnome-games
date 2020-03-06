@@ -202,20 +202,9 @@ public class Games.Savestate : Object {
 		}
 
 		// Sort the savestates array by creation dates
-		qsort_with_data (game_savestates, sizeof (Savestate), compare_savestates_path);
+		qsort_with_data (game_savestates, sizeof (Savestate), Savestate.compare);
 
 		return game_savestates;
-	}
-
-	private static int compare_savestates_path (Savestate s1, Savestate s2) {
-		if (s1.path < s2.path)
-			return 1;
-
-		if (s1.path == s2.path)
-			return 0;
-
-		// s1.path > s2.path
-		return -1;
 	}
 
 	public static Savestate create_empty_in_tmp (Platform platform, string core_id) throws Error {
@@ -231,5 +220,16 @@ public class Games.Savestate : Object {
 		save_dir.make_directory ();
 
 		return tmp_savestate_path;
+	}
+
+	public static int compare (Savestate s1, Savestate s2) {
+		if (s1.path < s2.path)
+			return 1;
+
+		if (s1.path == s2.path)
+			return 0;
+
+		// s1.path > s2.path
+		return -1;
 	}
 }
