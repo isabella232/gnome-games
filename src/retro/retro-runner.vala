@@ -134,7 +134,11 @@ public class Games.RetroRunner : Object, Runner {
 				tmp_live_savestate = latest_savestate.clone_in_tmp ();
 			else
 				tmp_live_savestate = Savestate.create_empty_in_tmp (game.platform, get_core_id ());
+
 			instantiate_core (tmp_live_savestate.get_save_directory_path ());
+
+			if (latest_savestate != null)
+				load_savestate_metadata (latest_savestate);
 		}
 		catch (RetroError.MODULE_NOT_FOUND e) {
 			debug ("%s\n", e.message);
