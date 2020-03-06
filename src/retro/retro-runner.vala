@@ -534,14 +534,6 @@ public class Games.RetroRunner : Object, Runner {
 		return @"$(Config.OPTIONS_DIR)/$options_name.options";
 	}
 
-	private void store_save_ram_in_tmp () throws Error {
-		if (core.get_memory_size (Retro.MemoryType.SAVE_RAM) == 0)
-			return;
-
-		core.save_memory (Retro.MemoryType.SAVE_RAM,
-		                  tmp_live_savestate.get_save_ram_path ());
-	}
-
 	private void load_save_ram (string save_ram_path) throws Error {
 		if (!FileUtils.test (save_ram_path, FileTest.EXISTS))
 			return;
@@ -633,8 +625,9 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	protected virtual void save_to_snapshot (Savestate savestate) throws Error {
-		// Populate the savestate in tmp with data from the current state of the game
-		store_save_ram_in_tmp ();
+		if (core.get_memory_size (Retro.MemoryType.SAVE_RAM) > 0)
+			core.save_memory (Retro.MemoryType.SAVE_RAM,
+			                  savestate.get_save_ram_path ());
 
 		if (media_set.get_size () > 1)
 			savestate.set_media_data (media_set);
