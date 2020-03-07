@@ -112,6 +112,14 @@ public class Games.RetroRunner : Object, Runner {
 		deinit ();
 	}
 
+	public Gtk.Widget get_display () {
+		return view;
+	}
+
+	public virtual HeaderBarWidget? get_extra_widget () {
+		return null;
+	}
+
 	private string get_unsupported_system_message () {
 		var platform_name = game.platform.get_name ();
 		if (platform_name != null)
@@ -129,6 +137,18 @@ public class Games.RetroRunner : Object, Runner {
 
 	private string create_tmp_save_dir () throws Error {
 		return DirUtils.make_tmp ("games_save_dir_XXXXXX");
+	}
+
+	private string get_options_path () throws Error {
+		assert (core != null);
+
+		var core_filename = core.get_filename ();
+		var file = File.new_for_path (core_filename);
+		var basename = file.get_basename ();
+		var options_name = basename.split (".")[0];
+		options_name = options_name.replace ("_libretro", "");
+
+		return @"$(Config.OPTIONS_DIR)/$options_name.options";
 	}
 
 	private void prepare_core () throws Error {
@@ -221,52 +241,6 @@ public class Games.RetroRunner : Object, Runner {
 			preview_savestate (latest_savestate);
 	}
 
-	public Gtk.Widget get_display () {
-		return view;
-	}
-
-	public virtual HeaderBarWidget? get_extra_widget () {
-		return null;
-	}
-
-	public void preview_current_state () {
-		view.set_pixbuf (current_state_pixbuf);
-	}
-
-	public void preview_savestate (Savestate savestate) {
-		previewed_savestate = savestate;
-
-		var screenshot_path = savestate.get_screenshot_path ();
-		Gdk.Pixbuf pixbuf = null;
-
-		// Treat errors locally because loading the savestate screenshot is not
-		// a critical operation
-		try {
-			pixbuf = new Gdk.Pixbuf.from_file (screenshot_path);
-
-			var aspect_ratio = savestate.screenshot_aspect_ratio;
-
-			if (aspect_ratio != 0)
-				Retro.pixbuf_set_aspect_ratio (pixbuf, (float) aspect_ratio);
-		}
-		catch (Error e) {
-			warning ("Couldn't load %s: %s", screenshot_path, e.message);
-		}
-
-		view.set_pixbuf (pixbuf);
-	}
-
-	public void load_previewed_savestate () throws Error {
-		load_savestate_metadata (previewed_savestate);
-	}
-
-	public Savestate[] get_savestates () {
-		if (snapshot_manager == null)
-			return {};
-
-		return snapshot_manager.get_snapshots ();
-	}
-
 	public void start () throws Error {
 		assert (core_loaded);
 
@@ -287,25 +261,6 @@ public class Games.RetroRunner : Object, Runner {
 		// Unpause an already running game
 		core.run ();
 		running = true;
-	}
-
-	private void deinit () {
-		if (!core_loaded)
-			return;
-
-		settings.changed["video-filter"].disconnect (on_video_filter_changed);
-
-		core = null;
-
-		if (view != null) {
-			view.set_core (null);
-			view = null;
-		}
-
-		input_manager = null;
-
-		_running = false;
-		core_loaded = false;
 	}
 
 	public void pause () {
@@ -334,6 +289,84 @@ public class Games.RetroRunner : Object, Runner {
 		pause ();
 		deinit ();
 		stopped ();
+	}
+
+	public Savestate? try_create_savestate (bool is_automatic) {
+		if (!supports_savestates)
+			return null;
+
+		if (!is_automatic)
+			new_savestate_created ();
+
+		try {
+			return snapshot_manager.create_snapshot (is_automatic, save_to_snapshot);
+		}
+		catch (Error e) {
+			critical ("Failed to create snapshot: %s", e.message);
+
+			return null;
+		}
+	}
+
+	public void delete_savestate (Savestate savestate) {
+		snapshot_manager.delete_snapshot (savestate);
+	}
+
+	public void preview_savestate (Savestate savestate) {
+		previewed_savestate = savestate;
+
+		var screenshot_path = savestate.get_screenshot_path ();
+		Gdk.Pixbuf pixbuf = null;
+
+		// Treat errors locally because loading the savestate screenshot is not
+		// a critical operation
+		try {
+			pixbuf = new Gdk.Pixbuf.from_file (screenshot_path);
+
+			var aspect_ratio = savestate.screenshot_aspect_ratio;
+
+			if (aspect_ratio != 0)
+				Retro.pixbuf_set_aspect_ratio (pixbuf, (float) aspect_ratio);
+		}
+		catch (Error e) {
+			warning ("Couldn't load %s: %s", screenshot_path, e.message);
+		}
+
+		view.set_pixbuf (pixbuf);
+	}
+
+	public void preview_current_state () {
+		view.set_pixbuf (current_state_pixbuf);
+	}
+
+	public void load_previewed_savestate () throws Error {
+		load_savestate_metadata (previewed_savestate);
+	}
+
+	public Savestate[] get_savestates () {
+		if (snapshot_manager == null)
+			return {};
+
+		return snapshot_manager.get_snapshots ();
+	}
+
+	private void deinit () {
+		if (!core_loaded)
+			return;
+
+		settings.changed["video-filter"].disconnect (on_video_filter_changed);
+
+		core = null;
+
+		if (view != null) {
+			view.set_core (null);
+			view = null;
+		}
+
+		input_manager = null;
+
+		_running = false;
+		core_loaded = false;
 	}
 
 	public InputMode[] get_available_input_modes () {
@@ -398,55 +431,6 @@ public class Games.RetroRunner : Object, Runner {
 		}
 	}
 
-	// Returns the created Savestate or null if the Savestate couldn't be created
-	// Currently the callers are the DisplayView and the SavestatesList
-	// In the future we might want to throw Errors from here in case there is
-	// something that can be done, but right now there's nothing we can do if
-	// savestate creation fails except warn the user of unsaved progress via the
-	// QuitDialog in the DisplayView
-	public Savestate? try_create_savestate (bool is_automatic) {
-		if (!supports_savestates)
-			return null;
-
-		if (!is_automatic)
-			new_savestate_created ();
-
-		try {
-			return snapshot_manager.create_snapshot (is_automatic, save_to_snapshot);
-		}
-		catch (Error e) {
-			critical ("Failed to create snapshot: %s", e.message);
-
-			return null;
-		}
-	}
-
-	public void delete_savestate (Savestate savestate) {
-		snapshot_manager.delete_snapshot (savestate);
-	}
-
-	private string get_options_path () throws Error {
-		assert (core != null);
-
-		var core_filename = core.get_filename ();
-		var file = File.new_for_path (core_filename);
-		var basename = file.get_basename ();
-		var options_name = basename.split (".")[0];
-		options_name = options_name.replace ("_libretro", "");
-
-		return @"$(Config.OPTIONS_DIR)/$options_name.options";
-	}
-
-	private void load_save_ram (string save_ram_path) throws Error {
-		if (!FileUtils.test (save_ram_path, FileTest.EXISTS))
-			return;
-
-		if (core.get_memory_size (Retro.MemoryType.SAVE_RAM) == 0)
-			return;
-
-		core.load_memory (Retro.MemoryType.SAVE_RAM, save_ram_path);
-	}
-
 	public Retro.Core get_core () {
 		return core;
 	}
@@ -477,6 +461,16 @@ public class Games.RetroRunner : Object, Runner {
 		             "tEXt::Game Title", game_title,
 		             "tEXt::Platform", platform_name,
 		             null);
+	}
+
+	private void load_save_ram (string save_ram_path) throws Error {
+		if (!FileUtils.test (save_ram_path, FileTest.EXISTS))
+			return;
+
+		if (core.get_memory_size (Retro.MemoryType.SAVE_RAM) == 0)
+			return;
+
+		core.load_memory (Retro.MemoryType.SAVE_RAM, save_ram_path);
 	}
 
 	protected virtual void save_to_snapshot (Savestate savestate) throws Error {
@@ -512,7 +506,7 @@ public class Games.RetroRunner : Object, Runner {
 		if (last_savestate == null)
 			return;
 
-		load_save_ram (latest_savestate.get_save_ram_path ());
+		load_save_ram (last_savestate.get_save_ram_path ());
 
 		if (last_savestate.has_media_data ())
 			media_set.selected_media_number = last_savestate.get_media_data ();
