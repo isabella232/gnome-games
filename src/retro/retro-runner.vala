@@ -107,7 +107,6 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	~RetroRunner () {
-		pause ();
 		deinit ();
 	}
 
@@ -284,7 +283,6 @@ public class Games.RetroRunner : Object, Runner {
 		if (!core_loaded)
 			return;
 
-		pause ();
 		deinit ();
 		stopped ();
 	}
@@ -354,14 +352,17 @@ public class Games.RetroRunner : Object, Runner {
 
 		settings.changed["video-filter"].disconnect (on_video_filter_changed);
 
+		input_manager = null;
+
+		if (core.is_initiated)
+			core.stop ();
+
 		core = null;
 
 		if (view != null) {
 			view.set_core (null);
 			view = null;
 		}
-
-		input_manager = null;
 
 		_running = false;
 		core_loaded = false;
