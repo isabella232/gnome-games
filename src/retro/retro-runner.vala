@@ -47,7 +47,6 @@ public class Games.RetroRunner : Object, Runner {
 	private Game game;
 	private SnapshotManager snapshot_manager;
 
-	private Savestate latest_savestate;
 	private Savestate previewed_savestate;
 
 	private string tmp_save_dir;
@@ -214,15 +213,18 @@ public class Games.RetroRunner : Object, Runner {
 		try {
 			snapshot_manager = new SnapshotManager (game, get_core_id ());
 
-			latest_savestate = snapshot_manager.get_latest_snapshot ();
+			var snapshot = snapshot_manager.get_latest_snapshot ();
 
 			tmp_save_dir = create_tmp_save_dir ();
-			if (latest_savestate != null)
-				latest_savestate.copy_save_dir_to (tmp_save_dir);
+			if (snapshot != null)
+				snapshot.copy_save_dir_to (tmp_save_dir);
 
 			prepare_core ();
 
-			reset_metadata (latest_savestate);
+			reset_metadata (snapshot);
+
+			if (snapshot != null)
+				preview_savestate (snapshot);
 		}
 		catch (RetroError.MODULE_NOT_FOUND e) {
 			debug ("%s\n", e.message);
@@ -235,10 +237,6 @@ public class Games.RetroRunner : Object, Runner {
 		catch (Error e) {
 			throw new RunnerError.OTHER (e.message);
 		}
-
-		// Step 3) Preview the latest savestate --------------------------------
-		if (latest_savestate != null)
-			preview_savestate (latest_savestate);
 	}
 
 	public void start () throws Error {
