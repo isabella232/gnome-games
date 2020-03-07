@@ -287,6 +287,28 @@ public class Games.RetroRunner : Object, Runner {
 		stopped ();
 	}
 
+	private void deinit () {
+		if (!core_loaded)
+			return;
+
+		settings.changed["video-filter"].disconnect (on_video_filter_changed);
+
+		input_manager = null;
+
+		if (core.is_initiated)
+			core.stop ();
+
+		core = null;
+
+		if (view != null) {
+			view.set_core (null);
+			view = null;
+		}
+
+		_running = false;
+		core_loaded = false;
+	}
+
 	public Savestate? try_create_savestate (bool is_automatic) {
 		if (!supports_savestates)
 			return null;
@@ -344,28 +366,6 @@ public class Games.RetroRunner : Object, Runner {
 			return {};
 
 		return snapshot_manager.get_snapshots ();
-	}
-
-	private void deinit () {
-		if (!core_loaded)
-			return;
-
-		settings.changed["video-filter"].disconnect (on_video_filter_changed);
-
-		input_manager = null;
-
-		if (core.is_initiated)
-			core.stop ();
-
-		core = null;
-
-		if (view != null) {
-			view.set_core (null);
-			view = null;
-		}
-
-		_running = false;
-		core_loaded = false;
 	}
 
 	public InputMode[] get_available_input_modes () {
