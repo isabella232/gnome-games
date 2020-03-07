@@ -248,10 +248,10 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void restart () {
-		current_state_pixbuf = view.get_pixbuf ();
-		var savestate = try_create_savestate (true);
+		pause ();
 
 		try {
+			var savestate = try_create_savestate (true);
 			reset_metadata (savestate);
 		}
 		catch (Error e) {
@@ -259,6 +259,8 @@ public class Games.RetroRunner : Object, Runner {
 		}
 
 		core.reset ();
+
+		resume ();
 	}
 
 	public void resume () {
