@@ -249,10 +249,10 @@ public class Games.RetroRunner : Object, Runner {
 
 	public void restart () {
 		current_state_pixbuf = view.get_pixbuf ();
-		try_create_savestate (true);
+		var savestate = try_create_savestate (true);
 
 		try {
-			reset_metadata (latest_savestate);
+			reset_metadata (savestate);
 		}
 		catch (Error e) {
 			critical ("Couldn't reset metadata: %s", e.message);
