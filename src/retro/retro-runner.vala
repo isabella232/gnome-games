@@ -243,12 +243,14 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void restart () throws Error {
-		current_state_pixbuf = view.get_pixbuf ();
+		pause ();
 
 		var savestate = try_create_savestate (true);
 		reset_metadata (savestate);
 
 		core.reset ();
+
+		resume ();
 	}
 
 	public void resume () {
