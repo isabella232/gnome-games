@@ -204,8 +204,6 @@ public class Games.RetroRunner : Object, Runner {
 		// Keep the internal values of input_mode in sync between RetroRunner and RetroInputManager
 		input_mode = get_available_input_modes ()[0];
 
-		running = false;
-
 		core_loaded = true;
 	}
 
