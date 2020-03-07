@@ -529,8 +529,10 @@ private class Games.DisplayView : Object, UiView {
 			return;
 
 		if (window.is_active) {
-			if (!is_showing_snapshots)
+			if (!is_showing_snapshots) {
 				runner.resume ();
+				runner.get_display ().grab_focus ();
+			}
 		}
 		else if (with_delay)
 			focus_out_timeout_id = Timeout.add (FOCUS_OUT_DELAY_MILLISECONDS, on_focus_out_delay_elapsed);
