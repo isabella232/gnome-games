@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk+" version="3.24"/>
-  <template class="GamesSavestatesList" parent="GtkBox">
+  <template class="GamesSnapshotsList" parent="GtkBox">
     <signal name="notify::is-revealed" handler="on_revealed_changed"/>
     <style>
       <class name="background"/>
@@ -10,7 +10,7 @@
       <object class="GtkRevealer">
         <property name="visible">True</property>
         <property name="transition-type">slide-left</property>
-        <property name="reveal-child" bind-source="GamesSavestatesList" bind-property="is-revealed" bind-flags="sync-create|bidirectional"/>
+        <property name="reveal-child" bind-source="GamesSnapshotsList" bind-property="is-revealed" bind-flags="sync-create|bidirectional"/>
         <signal name="notify::child-revealed" handler="on_revealer_transition_end"/>
         <child>
           <object class="GtkBox">

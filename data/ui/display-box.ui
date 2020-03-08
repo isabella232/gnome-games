@@ -47,11 +47,11 @@
                   </packing>
                 </child>
                 <child type="overlay">
-                  <object class="GamesSavestatesList" id="savestates_list">
+                  <object class="GamesSnapshotsList" id="snapshots_list">
                     <property name="visible">True</property>
                     <property name="halign">end</property>
                     <property name="is-revealed" bind-source="GamesDisplayBox" bind-property="is-showing-snapshots" bind-flags="bidirectional"/>
-                    <signal name="size-allocate" handler="on_savestates_list_size_allocate"/>
+                    <signal name="size-allocate" handler="on_snapshots_list_size_allocate"/>
                     <signal name="hidden" handler="on_snapshots_hidden"/>
                   </object>
                 </child>

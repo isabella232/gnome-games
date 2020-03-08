@@ -12,9 +12,9 @@ private class Games.DisplayBox : Gtk.Bin {
 		set {
 			_is_fullscreen = value;
 
-			// A top margin is added to the savestates list in fullscreen mode such that
-			// the fullscreen header bar doesn't cover the savestates menu
-			savestates_list.set_margin (value ? fullscreen_header_bar_height : 0);
+			// A top margin is added to the snapshots list in fullscreen mode
+			// so that the fullscreen header bar doesn't cover it
+			snapshots_list.set_margin (value ? fullscreen_header_bar_height : 0);
 		}
 	}
 
@@ -43,7 +43,7 @@ private class Games.DisplayBox : Gtk.Bin {
 			var display = runner.get_display ();
 			set_display (display);
 
-			savestates_list.runner = value;
+			snapshots_list.runner = value;
 
 			runner.new_savestate_created.connect (flash_box.flash);
 		}
@@ -67,7 +67,7 @@ private class Games.DisplayBox : Gtk.Bin {
 	[GtkChild]
 	private FlashBox flash_box;
 	[GtkChild]
-	private SavestatesList savestates_list;
+	private SnapshotsList snapshots_list;
 
 	private int fullscreen_header_bar_height;
 
@@ -112,7 +112,7 @@ private class Games.DisplayBox : Gtk.Bin {
 			return false;
 
 		if (is_showing_snapshots)
-			return savestates_list.on_key_press_event (keyval, state);
+			return snapshots_list.on_key_press_event (keyval, state);
 
 		return runner.key_press_event (keyval, state);
 	}
@@ -137,7 +137,7 @@ private class Games.DisplayBox : Gtk.Bin {
 	}
 
 	[GtkCallback]
-	private void on_savestates_list_size_allocate (Gtk.Allocation allocation) {
+	private void on_snapshots_list_size_allocate (Gtk.Allocation allocation) {
 		display_bin.horizontal_offset = -allocation.width / 2;
 	}
 

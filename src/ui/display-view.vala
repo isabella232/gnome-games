@@ -164,7 +164,6 @@ private class Games.DisplayView : Object, UiView {
 			return true;
 		}
 
-		// Shortcuts for the Savestates manager
 		if (runner == null)
 			return false;
 

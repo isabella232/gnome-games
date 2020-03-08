@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-[GtkTemplate (ui = "/org/gnome/Games/ui/savestates-list.ui")]
-private class Games.SavestatesList : Gtk.Box {
+[GtkTemplate (ui = "/org/gnome/Games/ui/snapshots-list.ui")]
+private class Games.SnapshotsList : Gtk.Box {
 	public signal void hidden ();
 
 	[GtkChild]

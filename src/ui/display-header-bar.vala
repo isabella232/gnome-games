@@ -72,7 +72,7 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 	[GtkChild]
 	private Gtk.MenuButton secondary_menu_button;
 	[GtkChild]
-	private Gtk.HeaderBar savestates_header_bar;
+	private Gtk.HeaderBar snapshots_header_bar;
 
 	private Settings settings;
 
@@ -112,7 +112,7 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 	[GtkCallback]
 	private void on_showing_snapshots_changed () {
 		if (is_showing_snapshots)
-			stack.visible_child = savestates_header_bar;
+			stack.visible_child = snapshots_header_bar;
 		else
 			stack.visible_child = ingame_header_bar;
 	}
