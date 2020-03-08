@@ -167,7 +167,7 @@ private class Games.DisplayView : Object, UiView {
 		if (runner == null)
 			return false;
 
-		if (!runner.supports_savestates)
+		if (!runner.supports_snapshots)
 			return false;
 
 		if (is_showing_snapshots)
@@ -585,7 +585,7 @@ private class Games.DisplayView : Object, UiView {
 
 	private void update_actions () {
 		var action = action_group.lookup_action ("show-snapshots") as SimpleAction;
-		action.set_enabled (runner != null && runner.supports_savestates);
+		action.set_enabled (runner != null && runner.supports_snapshots);
 	}
 
 	private void load_snapshot () {

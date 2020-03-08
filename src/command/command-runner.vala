@@ -9,7 +9,7 @@ public class Games.CommandRunner : Object, Runner {
 		get { return false; }
 	}
 
-	public bool supports_savestates {
+	public bool supports_snapshots {
 		get { return false; }
 	}
 

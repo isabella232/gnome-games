@@ -14,7 +14,7 @@ public class Games.RetroRunner : Object, Runner {
 		}
 	}
 
-	public bool supports_savestates {
+	public bool supports_snapshots {
 		get { return core.get_can_access_state (); }
 	}
 
@@ -312,7 +312,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public Savestate? try_create_savestate (bool is_automatic) {
-		if (!supports_savestates)
+		if (!supports_snapshots)
 			return null;
 
 		if (!is_automatic)
