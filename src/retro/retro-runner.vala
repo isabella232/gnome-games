@@ -316,7 +316,7 @@ public class Games.RetroRunner : Object, Runner {
 			return null;
 
 		if (!is_automatic)
-			new_savestate_created ();
+			snapshot_created ();
 
 		try {
 			return snapshot_manager.create_snapshot (is_automatic, save_to_snapshot);

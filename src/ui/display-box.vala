@@ -29,7 +29,7 @@ private class Games.DisplayBox : Gtk.Bin {
 		get { return _runner; }
 		set {
 			if (runner != null)
-				runner.new_savestate_created.disconnect (flash_box.flash);
+				runner.snapshot_created.disconnect (flash_box.flash);
 
 			stack.visible_child = display_overlay;
 
@@ -45,7 +45,7 @@ private class Games.DisplayBox : Gtk.Bin {
 
 			snapshots_list.runner = value;
 
-			runner.new_savestate_created.connect (flash_box.flash);
+			runner.snapshot_created.connect (flash_box.flash);
 		}
 	}
 
