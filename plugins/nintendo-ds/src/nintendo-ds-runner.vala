@@ -174,8 +174,8 @@ private class Games.NintendoDsRunner : RetroRunner {
 		ds_savestate.view_bottom_screen = view_bottom_screen;
 	}
 
-	protected override void load_savestate_metadata (Savestate savestate) throws Error {
-		base.load_savestate_metadata (savestate);
+	protected override void load_from_snapshot (Savestate savestate) throws Error {
+		base.load_from_snapshot (savestate);
 
 		assert (savestate is NintendoDsSavestate);
 
@@ -184,8 +184,8 @@ private class Games.NintendoDsRunner : RetroRunner {
 		view_bottom_screen = ds_savestate.view_bottom_screen;
 	}
 
-	protected override void reset_metadata (Savestate? last_savestate) throws Error {
-		base.reset_metadata (last_savestate);
+	protected override void reset_with_snapshot (Savestate? last_savestate) throws Error {
+		base.reset_with_snapshot (last_savestate);
 
 		screen_layout = NintendoDsLayout.TOP_BOTTOM;
 		view_bottom_screen = false;

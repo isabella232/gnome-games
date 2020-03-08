@@ -360,7 +360,7 @@ public class Games.RetroRunner : Object, Runner {
 	}
 
 	public void load_previewed_savestate () throws Error {
-		load_savestate_metadata (previewed_savestate);
+		load_from_snapshot (previewed_savestate);
 	}
 
 	public Savestate[] get_savestates () {
@@ -491,7 +491,7 @@ public class Games.RetroRunner : Object, Runner {
 		savestate.screenshot_aspect_ratio = Retro.pixbuf_get_aspect_ratio (current_state_pixbuf);
 	}
 
-	protected virtual void load_savestate_metadata (Savestate savestate) throws Error {
+	protected virtual void load_from_snapshot (Savestate savestate) throws Error {
 		tmp_save_dir = create_tmp_save_dir ();
 		savestate.copy_save_dir_to (tmp_save_dir);
 		core.save_directory = tmp_save_dir;
