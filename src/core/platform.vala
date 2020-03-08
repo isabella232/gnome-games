@@ -9,7 +9,7 @@ public interface Games.Platform : Object {
 
 	public abstract PreferencesPagePlatformsRow get_row ();
 
-	public abstract Type get_savestate_type ();
+	public abstract Type get_snapshot_type ();
 
 	public static uint hash (Platform platform) {
 		return str_hash (platform.get_id ());

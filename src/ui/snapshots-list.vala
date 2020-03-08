@@ -24,7 +24,7 @@ private class Games.SnapshotsList : Gtk.Box {
 	[GtkChild]
 	private Gtk.Label rename_error_label;
 
-	private Savestate selected_savestate;
+	private Snapshot selected_snapshot;
 
 	public bool is_revealed { get; set; }
 	public Runner runner { get; set; }
@@ -43,9 +43,9 @@ private class Games.SnapshotsList : Gtk.Box {
 
 		if (row != null && row is SnapshotRow) {
 			var snapshot_row = row as SnapshotRow;
-			var savestate = snapshot_row.savestate;
+			var snapshot = snapshot_row.snapshot;
 
-			if (savestate != selected_savestate)
+			if (snapshot != selected_snapshot)
 				select_snapshot_row (row);
 		}
 	}
@@ -53,28 +53,25 @@ private class Games.SnapshotsList : Gtk.Box {
 	[GtkCallback]
 	private void on_row_activated (Gtk.ListBoxRow activated_row) {
 		if (activated_row == new_snapshot_row) {
-			var savestate = runner.try_create_savestate (false);
+			var snapshot = runner.try_create_snapshot (false);
 
-			if (savestate != null) {
-				var snapshot_row = new SnapshotRow (savestate);
+			if (snapshot != null) {
+				var snapshot_row = new SnapshotRow (snapshot);
 
 				list_box.insert (snapshot_row, 1);
 				select_snapshot_row (snapshot_row);
 				snapshot_row.reveal ();
 			}
 			else {
-				// Savestate creation failed
 				select_snapshot_row (list_box.get_row_at_index (1));
 
-				// TODO: Perhaps we should warn the user that the creation of
-				// the savestate failed via an in-app notification ?
+				// TODO: Add a warning
 			}
 		} else
 			select_snapshot_row (activated_row);
 	}
 
 	private void populate_list_box () {
-		// Remove current savestate rows
 		var list_rows = list_box.get_children ();
 		foreach (var row in list_rows) {
 			if (row != new_snapshot_row)
@@ -84,9 +81,9 @@ private class Games.SnapshotsList : Gtk.Box {
 		if (runner == null)
 			return;
 
-		var savestates = _runner.get_savestates ();
-		foreach (var savestate in savestates) {
-			var list_row = new SnapshotRow (savestate);
+		var snapshots = _runner.get_snapshots ();
+		foreach (var snapshot in snapshots) {
+			var list_row = new SnapshotRow (snapshot);
 
 			// Reveal it early so that it doesn't animate
 			list_row.reveal ();
@@ -114,10 +111,10 @@ private class Games.SnapshotsList : Gtk.Box {
 		var selected_row = list_box.get_selected_row ();
 		var selected_row_index = selected_row.get_index ();
 		var snapshot_row = selected_row as SnapshotRow;
-		var savestate = snapshot_row.savestate;
+		var snapshot = snapshot_row.snapshot;
 
 		ensure_row_is_visible (selected_row);
-		runner.delete_savestate (savestate);
+		runner.delete_snapshot (snapshot);
 
 		// Select and preview a new row
 		var next_row_index = selected_row_index + 1;
@@ -153,7 +150,7 @@ private class Games.SnapshotsList : Gtk.Box {
 
 		ensure_row_is_visible (selected_row);
 
-		rename_entry.text = selected_savestate.name;
+		rename_entry.text = selected_snapshot.name;
 		rename_popover.relative_to = selected_row;
 		rename_popover.popup ();
 	}
@@ -195,15 +192,15 @@ private class Games.SnapshotsList : Gtk.Box {
 
 		foreach (var list_child in list_box.get_children ()) {
 			if (!(list_child is SnapshotRow))
-				continue; // Ignore the new savestate row;
-
-			var snapshot_row = list_child as SnapshotRow;
-			var savestate = snapshot_row.savestate;
-
-			if (savestate.is_automatic)
 				continue;
 
-			if (savestate.name == entry_text) {
+			var snapshot_row = list_child as SnapshotRow;
+			var snapshot = snapshot_row.snapshot;
+
+			if (snapshot.is_automatic)
+				continue;
+
+			if (snapshot.name == entry_text) {
 				rename_entry.get_style_context ().add_class ("error");
 				rename_popover_btn.sensitive = false;
 				rename_error_label.label = _("A snapshot with this name already exists");
@@ -251,7 +248,7 @@ private class Games.SnapshotsList : Gtk.Box {
 
 		if (row == null) {
 			runner.preview_current_state ();
-			selected_savestate = null;
+			selected_snapshot = null;
 			lookup_action ("load-snapshot").set_enabled (false);
 		}
 		else {
@@ -261,21 +258,21 @@ private class Games.SnapshotsList : Gtk.Box {
 				return;
 
 			var snapshot_row = row as SnapshotRow;
-			var savestate = snapshot_row.savestate;
+			var snapshot = snapshot_row.snapshot;
 
-			if (savestate == selected_savestate) {
+			if (snapshot == selected_snapshot) {
 				lookup_action ("load-snapshot").activate (null);
 				return;
 			}
 
-			runner.preview_savestate (savestate);
-			selected_savestate = savestate;
+			runner.preview_snapshot (snapshot);
+			selected_snapshot = snapshot;
 			lookup_action ("load-snapshot").set_enabled (true);
 		}
 
-		delete_btn.sensitive = (selected_savestate != null);
-		rename_btn.sensitive = (selected_savestate != null &&
-		                        !selected_savestate.is_automatic);
+		delete_btn.sensitive = (selected_snapshot != null);
+		rename_btn.sensitive = (selected_snapshot != null &&
+		                        !selected_snapshot.is_automatic);
 	}
 
 	public bool on_key_press_event (uint keyval, Gdk.ModifierType state) {

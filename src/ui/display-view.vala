@@ -182,14 +182,14 @@ private class Games.DisplayView : Object, UiView {
 
 		if (((keyval == Gdk.Key.s || keyval == Gdk.Key.S) && ctrl_pressed) ||
 		     (keyval == Gdk.Key.F2)) {
-			create_new_savestate ();
+			create_new_snapshot ();
 
 			return true;
 		}
 
 		if ((keyval == Gdk.Key.d || keyval == Gdk.Key.D) && ctrl_pressed ||
 		    (keyval == Gdk.Key.F3)) {
-			load_latest_savestate ();
+			load_latest_snapshot ();
 
 			return true;
 		}
@@ -199,31 +199,31 @@ private class Games.DisplayView : Object, UiView {
 
 	private void on_escape_key_pressed () {
 		if (is_showing_snapshots)
-			on_display_back (); // Hide Savestates menu
+			on_display_back ();
 		else if (can_fullscreen) {
 			is_fullscreen = false;
 			settings.set_boolean ("fullscreen", false);
 		}
 	}
 
-	private void create_new_savestate () {
+	private void create_new_snapshot () {
 		runner.pause ();
-		runner.try_create_savestate (false);
+		runner.try_create_snapshot (false);
 		runner.resume ();
 		runner.get_display ().grab_focus ();
 	}
 
-	private void load_latest_savestate () {
-		var savestates = runner.get_savestates ();
+	private void load_latest_snapshot () {
+		var snapshots = runner.get_snapshots ();
 
-		if (savestates.length == 0)
+		if (snapshots.length == 0)
 			return;
 
 		runner.pause ();
-		runner.preview_savestate (savestates[0]);
+		runner.preview_snapshot (snapshots[0]);
 
 		try {
-			runner.load_previewed_savestate ();
+			runner.load_previewed_snapshot ();
 		}
 		catch (Error e) {
 			warning ("Failed to load snapshot: %s", e.message);
@@ -398,7 +398,7 @@ private class Games.DisplayView : Object, UiView {
 	private bool start_or_resume (Runner runner, bool resume) {
 		try {
 			if (resume)
-				runner.load_previewed_savestate ();
+				runner.load_previewed_snapshot ();
 
 			runner.start ();
 
@@ -471,13 +471,13 @@ private class Games.DisplayView : Object, UiView {
 		runner.pause ();
 
 		if (!runner.is_integrated) {
-			// Game does not and will not support savestates (e.g. Steam games)
+			// Game does not and will not support snapshots (e.g. Steam games)
 			// => Progress cannot be saved so game can be quit safely
 			runner.stop ();
 			return true;
 		}
 
-		if (runner.try_create_savestate (true) != null) {
+		if (runner.try_create_snapshot (true) != null) {
 			// Progress saved => can quit game safely
 			runner.stop ();
 			return true;
@@ -590,7 +590,7 @@ private class Games.DisplayView : Object, UiView {
 
 	private void load_snapshot () {
 		try {
-			runner.load_previewed_savestate ();
+			runner.load_previewed_snapshot ();
 		}
 		catch (Error e) {
 			critical ("Failed to load snapshot: %s", e.message);

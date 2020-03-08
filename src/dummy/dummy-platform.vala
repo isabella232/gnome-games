@@ -17,7 +17,7 @@ public class Games.DummyPlatform : Object, Platform {
 		return new PreferencesPagePlatformsGenericRow (_("Unknown"));
 	}
 
-	public Type get_savestate_type () {
-		return typeof (Savestate);
+	public Type get_snapshot_type () {
+		return typeof (Snapshot);
 	}
 }

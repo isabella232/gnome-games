@@ -13,18 +13,18 @@ private class Games.SnapshotRow : Gtk.ListBoxRow {
 	[GtkChild]
 	private Gtk.Revealer revealer;
 
-	private Savestate _savestate;
-	public Savestate savestate {
-		get { return _savestate; }
+	private Snapshot _snapshot;
+	public Snapshot snapshot {
+		get { return _snapshot; }
 		set {
-			_savestate = value;
+			_snapshot = value;
 
-			if (savestate.is_automatic)
+			if (snapshot.is_automatic)
 				name_label.label = _("Autosave");
 			else
-				name_label.label = savestate.name;
+				name_label.label = snapshot.name;
 
-			var creation_date = savestate.creation_date;
+			var creation_date = snapshot.creation_date;
 			var date_format = get_date_format (creation_date);
 			date_label.label = creation_date.format (date_format);
 
@@ -34,23 +34,23 @@ private class Games.SnapshotRow : Gtk.ListBoxRow {
 
 	private Gdk.Pixbuf pixbuf;
 
-	public SnapshotRow (Savestate savestate) {
-		Object (savestate: savestate);
+	public SnapshotRow (Snapshot snapshot) {
+		Object (snapshot: snapshot);
 	}
 
 	private void load_thumbnail () {
-		if (savestate == null)
+		if (snapshot == null)
 			return;
 
-		var screenshot_path = savestate.get_screenshot_path ();
+		var screenshot_path = snapshot.get_screenshot_path ();
 		var screenshot_width = 0;
 		var screenshot_height = 0;
 
 		Gdk.Pixbuf.get_file_info (screenshot_path, out screenshot_width, out screenshot_height);
 
-		var aspect_ratio = savestate.screenshot_aspect_ratio;
+		var aspect_ratio = snapshot.screenshot_aspect_ratio;
 
-		// A fallback for migrated savestates
+		// A fallback for migrated snapshots
 		if (aspect_ratio == 0)
 			aspect_ratio = (double) screenshot_width / screenshot_height;
 
@@ -87,10 +87,10 @@ private class Games.SnapshotRow : Gtk.ListBoxRow {
 
 	public void set_name (string name) {
 		name_label.label = name;
-		savestate.name = name;
+		snapshot.name = name;
 
 		try {
-			savestate.write_metadata ();
+			snapshot.write_metadata ();
 		}
 		catch (Error e) {
 			critical ("Couldn't update snapshot name: %s", e.message);
@@ -174,17 +174,15 @@ private class Games.SnapshotRow : Gtk.ListBoxRow {
 		cr.close_path ();
 	}
 
-	// Get the date format such that savestates dates are presented similar to
-	// Nautilus's Modified column
 	// Adapted from nautilus-file.c, nautilus_file_get_date_as_string()
-	private string get_date_format (DateTime savestate_date) {
-		var savestate_date_midnight = new DateTime.local (savestate_date.get_year (),
-		                                                  savestate_date.get_month (),
-		                                                  savestate_date.get_day_of_month (),
-		                                                  0, 0, 0);
+	private string get_date_format (DateTime date) {
+		var date_midnight = new DateTime.local (date.get_year (),
+		                                        date.get_month (),
+		                                        date.get_day_of_month (),
+		                                        0, 0, 0);
 		var now = new DateTime.now ();
 		var today_midnight = new DateTime.local (now.get_year (), now.get_month (), now.get_day_of_month (), 0, 0, 0);
-		var days_ago = (today_midnight.difference (savestate_date_midnight)) / GLib.TimeSpan.DAY;
+		var days_ago = (today_midnight.difference (date_midnight)) / GLib.TimeSpan.DAY;
 
 		if (days_ago == 0) {
 			/* Translators: Time in locale format */
@@ -203,7 +201,7 @@ private class Games.SnapshotRow : Gtk.ListBoxRow {
 			/* xgettext:no-c-format */
 			return _("%a %X");
 		}
-		else if (savestate_date.get_year () == now.get_year ()) {
+		else if (date.get_year () == now.get_year ()) {
 			/* Translators: this is the day of the month followed
 			 * by the abbreviated month name followed by a time in
 			 * locale format i.e. "3 Feb 23:04:35" */

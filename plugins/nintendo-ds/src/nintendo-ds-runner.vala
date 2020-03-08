@@ -164,28 +164,28 @@ private class Games.NintendoDsRunner : RetroRunner {
 		return true;
 	}
 
-	protected override void save_to_snapshot (Savestate savestate) throws Error {
-		base.save_to_snapshot (savestate);
+	protected override void save_to_snapshot (Snapshot snapshot) throws Error {
+		base.save_to_snapshot (snapshot);
 
-		assert (savestate is NintendoDsSnapshot);
+		assert (snapshot is NintendoDsSnapshot);
 
-		var ds_savestate = savestate as NintendoDsSnapshot;
-		ds_savestate.screen_layout = screen_layout;
-		ds_savestate.view_bottom_screen = view_bottom_screen;
+		var ds_snapshot = snapshot as NintendoDsSnapshot;
+		ds_snapshot.screen_layout = screen_layout;
+		ds_snapshot.view_bottom_screen = view_bottom_screen;
 	}
 
-	protected override void load_from_snapshot (Savestate savestate) throws Error {
-		base.load_from_snapshot (savestate);
+	protected override void load_from_snapshot (Snapshot snapshot) throws Error {
+		base.load_from_snapshot (snapshot);
 
-		assert (savestate is NintendoDsSnapshot);
+		assert (snapshot is NintendoDsSnapshot);
 
-		var ds_savestate = savestate as NintendoDsSnapshot;
-		screen_layout = ds_savestate.screen_layout;
-		view_bottom_screen = ds_savestate.view_bottom_screen;
+		var ds_snapshot = snapshot as NintendoDsSnapshot;
+		screen_layout = ds_snapshot.screen_layout;
+		view_bottom_screen = ds_snapshot.view_bottom_screen;
 	}
 
-	protected override void reset_with_snapshot (Savestate? last_savestate) throws Error {
-		base.reset_with_snapshot (last_savestate);
+	protected override void reset_with_snapshot (Snapshot? last_snapshot) throws Error {
+		base.reset_with_snapshot (last_snapshot);
 
 		screen_layout = NintendoDsLayout.TOP_BOTTOM;
 		view_bottom_screen = false;

@@ -48,13 +48,13 @@ public class Games.CommandRunner : Object, Runner {
 	public void preview_current_state () {
 	}
 
-	public void preview_savestate (Savestate savestate) {
+	public void preview_snapshot (Snapshot snapshot) {
 	}
 
-	public void load_previewed_savestate () {
+	public void load_previewed_snapshot() {
 	}
 
-	public Savestate[] get_savestates () {
+	public Snapshot[] get_snapshots () {
 		return {};
 	}
 
@@ -94,11 +94,11 @@ public class Games.CommandRunner : Object, Runner {
 	public void stop () {
 	}
 
-	public Savestate? try_create_savestate (bool is_automatic) {
+	public Snapshot? try_create_snapshot (bool is_automatic) {
 		return null;
 	}
 
-	public void delete_savestate (Savestate savestate) {
+	public void delete_snapshot (Snapshot snapshot) {
 	}
 
 	public InputMode[] get_available_input_modes () {

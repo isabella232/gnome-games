@@ -1,29 +1,29 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-public class Games.Savestate : Object {
+public class Games.Snapshot : Object {
 	public string path { get; construct; }
 	public Platform platform { get; construct; }
 	public string core { get; construct; }
 
-	// Automatic means whether the savestate was created automatically when
+	// Automatic means whether the snapshot was created automatically when
 	// quitting/loading the game or manually by the user using the Save button
 	public bool is_automatic { get; set; }
 	public string name { get; set; }
 	public DateTime? creation_date { get; set; }
 	public double screenshot_aspect_ratio { get; set; }
 
-	public static Savestate load (Platform platform, string core_id, string path) {
-		var type = platform.get_savestate_type ();
+	public static Snapshot load (Platform platform, string core_id, string path) {
+		var type = platform.get_snapshot_type ();
 
-		var savestate = Object.new (type,
+		var snapshot = Object.new (type,
 		                            "path", path,
 		                            "platform", platform,
 		                            "core", core_id,
-		                            null) as Savestate;
+		                            null) as Snapshot;
 
-		savestate.load_keyfile ();
+		snapshot.load_keyfile ();
 
-		return savestate;
+		return snapshot;
 	}
 
 	private void load_keyfile () {
@@ -101,7 +101,7 @@ public class Games.Savestate : Object {
 		var creation_date_str = keyfile.get_string ("Metadata", "Creation Date");
 		creation_date = new DateTime.from_iso8601 (creation_date_str, new TimeZone.local ());
 
-		// Migrated savestates aren't going to have this
+		// Migrated snapshots aren't going to have this
 		if (keyfile.has_group ("Screenshot"))
 			screenshot_aspect_ratio = keyfile.get_double ("Screenshot", "Aspect Ratio");
 		else
@@ -135,19 +135,19 @@ public class Games.Savestate : Object {
 	}
 
 	public void delete_from_disk () {
-		var savestate_dir = File.new_for_path (path);
+		var snapshot_dir = File.new_for_path (path);
 
 		// Treat errors locally in this method because there isn't much that
 		// can go wrong with deleting files
 		try {
-			FileOperations.delete_files (savestate_dir, {});
+			FileOperations.delete_files (snapshot_dir, {});
 		}
 		catch (Error e) {
 			warning ("Failed to delete snapshot at %s: %s", path, e.message);
 		}
 	}
 
-	public static Savestate create_empty (Game game, string core_id, string path) throws Error {
+	public static Snapshot create_empty (Game game, string core_id, string path) throws Error {
 		var random = Random.next_int ();
 		var tmp_path = @"$(path)_$random";
 
@@ -157,10 +157,10 @@ public class Games.Savestate : Object {
 		var save_dir = dir.get_child ("save-dir");
 		save_dir.make_directory ();
 
-		return Savestate.load (game.platform, core_id, tmp_path);
+		return Snapshot.load (game.platform, core_id, tmp_path);
 	}
 
-	public Savestate move_to (string dest_path) throws Error {
+	public Snapshot move_to (string dest_path) throws Error {
 		var current_dir = File.new_for_path (path);
 		var dest_dir = File.new_for_path (dest_path);
 
@@ -172,7 +172,7 @@ public class Games.Savestate : Object {
 
 		current_dir.move (dest_dir, FileCopyFlags.ALL_METADATA);
 
-		return Savestate.load (platform, core, dest);
+		return Snapshot.load (platform, core, dest);
 	}
 
 	public void copy_save_dir_to (string dest) throws Error {
@@ -182,7 +182,7 @@ public class Games.Savestate : Object {
 		FileOperations.copy_contents (save_dir_file, dest_file);
 	}
 
-	public static int compare (Savestate s1, Savestate s2) {
+	public static int compare (Snapshot s1, Snapshot s2) {
 		if (s1.path < s2.path)
 			return 1;
 

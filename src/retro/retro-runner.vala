@@ -47,7 +47,7 @@ public class Games.RetroRunner : Object, Runner {
 	private Game game;
 	private SnapshotManager snapshot_manager;
 
-	private Savestate previewed_savestate;
+	private Snapshot previewed_snapshot;
 
 	private string tmp_save_dir;
 
@@ -221,7 +221,7 @@ public class Games.RetroRunner : Object, Runner {
 			reset_with_snapshot (snapshot);
 
 			if (snapshot != null)
-				preview_savestate (snapshot);
+				preview_snapshot (snapshot);
 		}
 		catch (RetroError.MODULE_NOT_FOUND e) {
 			debug ("%s\n", e.message);
@@ -245,8 +245,8 @@ public class Games.RetroRunner : Object, Runner {
 	public void restart () throws Error {
 		pause ();
 
-		var savestate = try_create_savestate (true);
-		reset_with_snapshot (savestate);
+		var snapshot = try_create_snapshot (true);
+		reset_with_snapshot (snapshot);
 
 		core.reset ();
 
@@ -273,10 +273,6 @@ public class Games.RetroRunner : Object, Runner {
 			current_state_pixbuf = view.get_pixbuf ();
 			core.stop ();
 		}
-
-		//FIXME:
-		// In the future here there will be code which updates the currently
-		// used temporary savestate
 
 		running = false;
 	}
@@ -311,7 +307,7 @@ public class Games.RetroRunner : Object, Runner {
 		core_loaded = false;
 	}
 
-	public Savestate? try_create_savestate (bool is_automatic) {
+	public Snapshot? try_create_snapshot (bool is_automatic) {
 		if (!supports_snapshots)
 			return null;
 
@@ -328,22 +324,22 @@ public class Games.RetroRunner : Object, Runner {
 		}
 	}
 
-	public void delete_savestate (Savestate savestate) {
-		snapshot_manager.delete_snapshot (savestate);
+	public void delete_snapshot (Snapshot snapshot) {
+		snapshot_manager.delete_snapshot (snapshot);
 	}
 
-	public void preview_savestate (Savestate savestate) {
-		previewed_savestate = savestate;
+	public void preview_snapshot (Snapshot snapshot) {
+		previewed_snapshot = snapshot;
 
-		var screenshot_path = savestate.get_screenshot_path ();
+		var screenshot_path = snapshot.get_screenshot_path ();
 		Gdk.Pixbuf pixbuf = null;
 
-		// Treat errors locally because loading the savestate screenshot is not
+		// Treat errors locally because loading the snapshot screenshot is not
 		// a critical operation
 		try {
 			pixbuf = new Gdk.Pixbuf.from_file (screenshot_path);
 
-			var aspect_ratio = savestate.screenshot_aspect_ratio;
+			var aspect_ratio = snapshot.screenshot_aspect_ratio;
 
 			if (aspect_ratio != 0)
 				Retro.pixbuf_set_aspect_ratio (pixbuf, (float) aspect_ratio);
@@ -359,11 +355,11 @@ public class Games.RetroRunner : Object, Runner {
 		view.set_pixbuf (current_state_pixbuf);
 	}
 
-	public void load_previewed_savestate () throws Error {
-		load_from_snapshot (previewed_savestate);
+	public void load_previewed_snapshot () throws Error {
+		load_from_snapshot (previewed_snapshot);
 	}
 
-	public Savestate[] get_savestates () {
+	public Snapshot[] get_snapshots () {
 		if (snapshot_manager == null)
 			return {};
 
@@ -474,42 +470,42 @@ public class Games.RetroRunner : Object, Runner {
 		core.load_memory (Retro.MemoryType.SAVE_RAM, save_ram_path);
 	}
 
-	protected virtual void save_to_snapshot (Savestate savestate) throws Error {
+	protected virtual void save_to_snapshot (Snapshot snapshot) throws Error {
 		if (core.get_memory_size (Retro.MemoryType.SAVE_RAM) > 0)
 			core.save_memory (Retro.MemoryType.SAVE_RAM,
-			                  savestate.get_save_ram_path ());
+			                  snapshot.get_save_ram_path ());
 
 		var tmp_dir = File.new_for_path (tmp_save_dir);
-		var dest_dir = File.new_for_path (savestate.get_save_directory_path ());
+		var dest_dir = File.new_for_path (snapshot.get_save_directory_path ());
 		FileOperations.copy_contents (tmp_dir, dest_dir);
 
 		if (media_set.get_size () > 1)
-			savestate.set_media_data (media_set);
+			snapshot.set_media_data (media_set);
 
-		core.save_state (savestate.get_snapshot_path ());
-		save_screenshot (savestate.get_screenshot_path ());
-		savestate.screenshot_aspect_ratio = Retro.pixbuf_get_aspect_ratio (current_state_pixbuf);
+		core.save_state (snapshot.get_snapshot_path ());
+		save_screenshot (snapshot.get_screenshot_path ());
+		snapshot.screenshot_aspect_ratio = Retro.pixbuf_get_aspect_ratio (current_state_pixbuf);
 	}
 
-	protected virtual void load_from_snapshot (Savestate savestate) throws Error {
+	protected virtual void load_from_snapshot (Snapshot snapshot) throws Error {
 		tmp_save_dir = create_tmp_save_dir ();
-		savestate.copy_save_dir_to (tmp_save_dir);
+		snapshot.copy_save_dir_to (tmp_save_dir);
 		core.save_directory = tmp_save_dir;
 
-		load_save_ram (savestate.get_save_ram_path ());
-		core.load_state (savestate.get_snapshot_path ());
+		load_save_ram (snapshot.get_save_ram_path ());
+		core.load_state (snapshot.get_snapshot_path ());
 
-		if (savestate.has_media_data ())
-			media_set.selected_media_number = savestate.get_media_data ();
+		if (snapshot.has_media_data ())
+			media_set.selected_media_number = snapshot.get_media_data ();
 	}
 
-	protected virtual void reset_with_snapshot (Savestate? last_savestate) throws Error {
-		if (last_savestate == null)
+	protected virtual void reset_with_snapshot (Snapshot? last_snapshot) throws Error {
+		if (last_snapshot == null)
 			return;
 
-		load_save_ram (last_savestate.get_save_ram_path ());
+		load_save_ram (last_snapshot.get_save_ram_path ());
 
-		if (last_savestate.has_media_data ())
-			media_set.selected_media_number = last_savestate.get_media_data ();
+		if (last_snapshot.has_media_data ())
+			media_set.selected_media_number = last_snapshot.get_media_data ();
 	}
 }

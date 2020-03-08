@@ -3,12 +3,12 @@
 public class Games.SnapshotManager : Object {
 	private const int MAX_AUTOSAVES = 5;
 
-	public delegate void SnapshotFunc (Savestate snapshot) throws Error;
+	public delegate void SnapshotFunc (Snapshot snapshot) throws Error;
 
 	private Game game;
 	private string core_id;
 
-	private Savestate[] snapshots;
+	private Snapshot[] snapshots;
 
 	public SnapshotManager (Game game, string core_id) throws Error {
 		this.game = game;
@@ -31,10 +31,10 @@ public class Games.SnapshotManager : Object {
 
 		while ((snapshot_name = dir.read_name ()) != null) {
 			var snapshot_path = Path.build_filename (dir_path, snapshot_name);
-			snapshots += Savestate.load (game.platform, core_id, snapshot_path);
+			snapshots += Snapshot.load (game.platform, core_id, snapshot_path);
 		}
 
-		qsort_with_data (snapshots, sizeof (Savestate), Savestate.compare);
+		qsort_with_data (snapshots, sizeof (Snapshot), Snapshot.compare);
 	}
 
 	private string get_snapshots_dir () throws Error {
@@ -46,7 +46,7 @@ public class Games.SnapshotManager : Object {
 		                            @"$uid-$core_id_prefix");
 	}
 
-	public Savestate[] get_snapshots () {
+	public Snapshot[] get_snapshots () {
 		return snapshots;
 	}
 
@@ -54,7 +54,7 @@ public class Games.SnapshotManager : Object {
 		return snapshots.length > 0;
 	}
 
-	public Savestate? get_latest_snapshot () {
+	public Snapshot? get_latest_snapshot () {
 		if (has_snapshots ())
 			return snapshots[0];
 
@@ -107,7 +107,7 @@ public class Games.SnapshotManager : Object {
 		return _("New snapshot %s").printf (next_number.to_string ());
 	}
 
-	public Savestate create_snapshot (bool is_automatic, SnapshotFunc save_callback) throws Error {
+	public Snapshot create_snapshot (bool is_automatic, SnapshotFunc save_callback) throws Error {
 		// Make room for the new automatic snapshot
 		if (is_automatic)
 			trim_autosaves ();
@@ -116,7 +116,7 @@ public class Games.SnapshotManager : Object {
 		var path = Path.build_filename (get_snapshots_dir (),
 		                                creation_date.to_string ());
 
-		var snapshot = Savestate.create_empty (game, core_id, path);
+		var snapshot = Snapshot.create_empty (game, core_id, path);
 
 		snapshot.is_automatic = is_automatic;
 		snapshot.name = is_automatic ? null : create_new_snapshot_name ();
@@ -127,7 +127,7 @@ public class Games.SnapshotManager : Object {
 
 		snapshot = snapshot.move_to (path);
 
-		Savestate[] new_snapshots = {};
+		Snapshot[] new_snapshots = {};
 
 		new_snapshots += snapshot;
 		foreach (var s in snapshots)
@@ -138,8 +138,8 @@ public class Games.SnapshotManager : Object {
 		return snapshot;
 	}
 
-	public void delete_snapshot (Savestate snapshot) {
-		Savestate[] new_snapshots = {};
+	public void delete_snapshot (Snapshot snapshot) {
+		Snapshot[] new_snapshots = {};
 
 		foreach (var s in snapshots)
 			if (snapshot != s)

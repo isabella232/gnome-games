@@ -22,12 +22,12 @@ public interface Games.Runner : Object {
 	public abstract void pause ();
 	public abstract void stop ();
 
-	public abstract Savestate? try_create_savestate (bool is_automatic);
-	public abstract void delete_savestate (Savestate savestate);
-	public abstract void preview_savestate (Savestate savestate);
+	public abstract Snapshot? try_create_snapshot (bool is_automatic);
+	public abstract void delete_snapshot (Snapshot snapshot);
+	public abstract void preview_snapshot (Snapshot snapshot);
 	public abstract void preview_current_state ();
-	public abstract void load_previewed_savestate () throws Error;
-	public abstract Savestate[] get_savestates ();
+	public abstract void load_previewed_snapshot () throws Error;
+	public abstract Snapshot[] get_snapshots ();
 
 	public abstract InputMode[] get_available_input_modes ();
 	public abstract bool key_press_event (uint keyval, Gdk.ModifierType state);
