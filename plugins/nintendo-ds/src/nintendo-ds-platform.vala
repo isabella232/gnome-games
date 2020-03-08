@@ -6,6 +6,6 @@ public class Games.NintendoDsPlatform : RetroPlatform {
 	}
 
 	public override Type get_savestate_type () {
-		return typeof (NintendoDsSavestate);
+		return typeof (NintendoDsSnapshot);
 	}
 }

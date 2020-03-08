@@ -167,9 +167,9 @@ private class Games.NintendoDsRunner : RetroRunner {
 	protected override void save_to_snapshot (Savestate savestate) throws Error {
 		base.save_to_snapshot (savestate);
 
-		assert (savestate is NintendoDsSavestate);
+		assert (savestate is NintendoDsSnapshot);
 
-		var ds_savestate = savestate as NintendoDsSavestate;
+		var ds_savestate = savestate as NintendoDsSnapshot;
 		ds_savestate.screen_layout = screen_layout;
 		ds_savestate.view_bottom_screen = view_bottom_screen;
 	}
@@ -177,9 +177,9 @@ private class Games.NintendoDsRunner : RetroRunner {
 	protected override void load_from_snapshot (Savestate savestate) throws Error {
 		base.load_from_snapshot (savestate);
 
-		assert (savestate is NintendoDsSavestate);
+		assert (savestate is NintendoDsSnapshot);
 
-		var ds_savestate = savestate as NintendoDsSavestate;
+		var ds_savestate = savestate as NintendoDsSnapshot;
 		screen_layout = ds_savestate.screen_layout;
 		view_bottom_screen = ds_savestate.view_bottom_screen;
 	}

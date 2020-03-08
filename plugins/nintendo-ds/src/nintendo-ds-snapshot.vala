@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-public class Games.NintendoDsSavestate : Savestate {
+public class Games.NintendoDsSnapshot : Savestate {
 	public NintendoDsLayout screen_layout { get; set; }
 	public bool view_bottom_screen { get; set; }
 
