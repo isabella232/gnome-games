@@ -1,26 +1,26 @@
 /* This file is part of GNOME Games. License: GPL-3.0+. */
 
-.savestate-row {
+.snapshot-row {
 	padding: 0;
 }
 
-.savestate-thumbnail {
+.snapshot-thumbnail {
 	color: rgba(255, 255, 255, 0.5);
 	background: rgba(0, 0, 0, .5);
 	border: 1px solid rgba(0, 0, 0, .5);
 	border-radius: 5px;
 }
 
-.savestate-name {
+.snapshot-name {
 	font-size: large;
 }
 
-.savestate-date {
+.snapshot-date {
 	opacity: 0.5;
 	font-size: small;
 }
 
-.savestates-list {
+.snapshot-list {
 	border-left: none;
 	border-right: none;
 }

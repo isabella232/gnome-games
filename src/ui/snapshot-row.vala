@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-[GtkTemplate (ui = "/org/gnome/Games/ui/savestate-listbox-row.ui")]
-private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
+[GtkTemplate (ui = "/org/gnome/Games/ui/snapshot-row.ui")]
+private class Games.SnapshotRow : Gtk.ListBoxRow {
 	public const int THUMBNAIL_SIZE = 64;
 
 	[GtkChild]
@@ -34,7 +34,7 @@ private class Games.SavestateListBoxRow : Gtk.ListBoxRow {
 
 	private Gdk.Pixbuf pixbuf;
 
-	public SavestateListBoxRow (Savestate savestate) {
+	public SnapshotRow (Savestate savestate) {
 		Object (savestate: savestate);
 	}
 

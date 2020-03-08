@@ -7,7 +7,7 @@ private class Games.SavestatesList : Gtk.Box {
 	[GtkChild]
 	private Gtk.ListBox list_box;
 	[GtkChild]
-	private Gtk.ListBoxRow new_savestate_row;
+	private Gtk.ListBoxRow new_snapshot_row;
 	[GtkChild]
 	private Gtk.ScrolledWindow scrolled_window;
 	[GtkChild]
@@ -41,43 +41,43 @@ private class Games.SavestatesList : Gtk.Box {
 	private void on_move_cursor () {
 		var row = list_box.get_selected_row ();
 
-		if (row != null && row is SavestateListBoxRow) {
-			var savestate_row = row as SavestateListBoxRow;
-			var savestate = savestate_row.savestate;
+		if (row != null && row is SnapshotRow) {
+			var snapshot_row = row as SnapshotRow;
+			var savestate = snapshot_row.savestate;
 
 			if (savestate != selected_savestate)
-				select_savestate_row (row);
+				select_snapshot_row (row);
 		}
 	}
 
 	[GtkCallback]
 	private void on_row_activated (Gtk.ListBoxRow activated_row) {
-		if (activated_row == new_savestate_row) {
+		if (activated_row == new_snapshot_row) {
 			var savestate = runner.try_create_savestate (false);
 
 			if (savestate != null) {
-				var savestate_row = new SavestateListBoxRow (savestate);
+				var snapshot_row = new SnapshotRow (savestate);
 
-				list_box.insert (savestate_row, 1);
-				select_savestate_row (savestate_row);
-				savestate_row.reveal ();
+				list_box.insert (snapshot_row, 1);
+				select_snapshot_row (snapshot_row);
+				snapshot_row.reveal ();
 			}
 			else {
 				// Savestate creation failed
-				select_savestate_row (list_box.get_row_at_index (1));
+				select_snapshot_row (list_box.get_row_at_index (1));
 
 				// TODO: Perhaps we should warn the user that the creation of
 				// the savestate failed via an in-app notification ?
 			}
 		} else
-			select_savestate_row (activated_row);
+			select_snapshot_row (activated_row);
 	}
 
 	private void populate_list_box () {
 		// Remove current savestate rows
 		var list_rows = list_box.get_children ();
 		foreach (var row in list_rows) {
-			if (row != new_savestate_row)
+			if (row != new_snapshot_row)
 				list_box.remove (row);
 		}
 
@@ -86,10 +86,10 @@ private class Games.SavestatesList : Gtk.Box {
 
 		var savestates = _runner.get_savestates ();
 		foreach (var savestate in savestates) {
-			var list_row = new SavestateListBoxRow (savestate);
+			var list_row = new SnapshotRow (savestate);
+
 			// Reveal it early so that it doesn't animate
 			list_row.reveal ();
-
 			list_box.add (list_row);
 		}
 	}
@@ -99,7 +99,7 @@ private class Games.SavestatesList : Gtk.Box {
 		if (is_revealed) {
 			runner.pause ();
 			populate_list_box ();
-			select_savestate_row (null);
+			select_snapshot_row (null);
 		}
 	}
 
@@ -113,8 +113,8 @@ private class Games.SavestatesList : Gtk.Box {
 	private void on_delete_clicked () {
 		var selected_row = list_box.get_selected_row ();
 		var selected_row_index = selected_row.get_index ();
-		var savestate_row = selected_row as SavestateListBoxRow;
-		var savestate = savestate_row.savestate;
+		var snapshot_row = selected_row as SnapshotRow;
+		var savestate = snapshot_row.savestate;
 
 		ensure_row_is_visible (selected_row);
 		runner.delete_savestate (savestate);
@@ -140,11 +140,11 @@ private class Games.SavestatesList : Gtk.Box {
 		}
 
 		if (new_selected_row != null && new_selected_row.selectable)
-			select_savestate_row (new_selected_row);
+			select_snapshot_row (new_selected_row);
 		else
-			select_savestate_row (null);
+			select_snapshot_row (null);
 
-		savestate_row.remove_animated ();
+		snapshot_row.remove_animated ();
 	}
 
 	[GtkCallback]
@@ -194,11 +194,11 @@ private class Games.SavestatesList : Gtk.Box {
 		}
 
 		foreach (var list_child in list_box.get_children ()) {
-			if (!(list_child is SavestateListBoxRow))
+			if (!(list_child is SnapshotRow))
 				continue; // Ignore the new savestate row;
 
-			var savestate_row = list_child as SavestateListBoxRow;
-			var savestate = savestate_row.savestate;
+			var snapshot_row = list_child as SnapshotRow;
+			var savestate = snapshot_row.savestate;
 
 			if (savestate.is_automatic)
 				continue;
@@ -223,9 +223,9 @@ private class Games.SavestatesList : Gtk.Box {
 	[GtkCallback]
 	private void apply_rename () {
 		var selected_row = list_box.get_selected_row ();
-		var savestate_row = selected_row as SavestateListBoxRow;
+		var snapshot_row = selected_row as SnapshotRow;
 
-		savestate_row.set_name (rename_entry.text.strip ());
+		snapshot_row.set_name (rename_entry.text.strip ());
 		rename_popover.popdown ();
 	}
 
@@ -246,7 +246,7 @@ private class Games.SavestatesList : Gtk.Box {
 		return action as SimpleAction;
 	}
 
-	private void select_savestate_row (Gtk.ListBoxRow? row) {
+	private void select_snapshot_row (Gtk.ListBoxRow? row) {
 		list_box.select_row (row);
 
 		if (row == null) {
@@ -257,11 +257,11 @@ private class Games.SavestatesList : Gtk.Box {
 		else {
 			row.grab_focus ();
 
-			if (!(row is SavestateListBoxRow))
+			if (!(row is SnapshotRow))
 				return;
 
-			var savestate_row = row as SavestateListBoxRow;
-			var savestate = savestate_row.savestate;
+			var snapshot_row = row as SnapshotRow;
+			var savestate = snapshot_row.savestate;
 
 			if (savestate == selected_savestate) {
 				lookup_action ("load-snapshot").activate (null);

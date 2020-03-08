@@ -31,11 +31,11 @@
                       <class name="sidebar"/>
                     </style>
                     <child>
-                      <object class="GtkListBoxRow" id="new_savestate_row">
+                      <object class="GtkListBoxRow" id="new_snapshot_row">
                         <property name="visible">True</property>
                         <property name="selectable">False</property>
                         <style>
-                          <class name="savestate-row"/>
+                          <class name="snapshot-row"/>
                         </style>
                         <child>
                           <object class="GtkBox">
@@ -50,7 +50,7 @@
                                 <property name="height-request">66</property>
                                 <property name="margin">6</property>
                                 <style>
-                                  <class name="savestate-thumbnail"/>
+                                  <class name="snapshot-thumbnail"/>
                                 </style>
                               </object>
                             </child>
@@ -64,7 +64,7 @@
                                 <property name="label" translatable="yes">Create new snapshot</property>
                                 <property name="wrap">True</property>
                                 <style>
-                                  <class name="savestate-name"/>
+                                  <class name="snapshot-name"/>
                                 </style>
                               </object>
                             </child>
@@ -73,7 +73,7 @@
                       </object>
                     </child>
                     <style>
-                      <class name="savestates-list"/>
+                      <class name="snapshot-list"/>
                     </style>
                   </object>
                 </child>
