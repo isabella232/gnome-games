@@ -218,7 +218,7 @@ public class Games.RetroRunner : Object, Runner {
 
 			prepare_core ();
 
-			reset_metadata (snapshot);
+			reset_with_snapshot (snapshot);
 
 			if (snapshot != null)
 				preview_savestate (snapshot);
@@ -246,7 +246,7 @@ public class Games.RetroRunner : Object, Runner {
 		pause ();
 
 		var savestate = try_create_savestate (true);
-		reset_metadata (savestate);
+		reset_with_snapshot (savestate);
 
 		core.reset ();
 
@@ -503,7 +503,7 @@ public class Games.RetroRunner : Object, Runner {
 			media_set.selected_media_number = savestate.get_media_data ();
 	}
 
-	protected virtual void reset_metadata (Savestate? last_savestate) throws Error {
+	protected virtual void reset_with_snapshot (Savestate? last_savestate) throws Error {
 		if (last_savestate == null)
 			return;
 
