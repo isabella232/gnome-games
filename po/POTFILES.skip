@@ -1,6 +1,5 @@
 # List of source files that should *not* be translated.
 # Please keep this file sorted alphabetically.
-data/ui/snapshots-list.ui
 plugins/desktop/src/desktop-plugin.c
 plugins/dreamcast/src/dreamcast-header.c
 plugins/dreamcast/src/dreamcast-plugin.c
