@@ -23,8 +23,8 @@ data/ui/remote-display.ui
 data/ui/reset-controller-mapping-dialog.ui
 data/ui/resume-dialog.ui
 data/ui/resume-failed-dialog.ui
-data/ui/savestates-list.ui
 data/ui/shortcuts-window.ui
+data/ui/snapshots-list.ui
 plugins/desktop/src/desktop-plugin.vala
 plugins/dreamcast/src/dreamcast-header.vala
 plugins/dreamcast/src/dreamcast-plugin.vala
@@ -56,6 +56,7 @@ plugins/wii/src/wii-plugin.vala
 src/command/command-runner.vala
 src/core/media-set/media-set.vala
 src/core/plugin-registrar.vala
+src/core/snapshot-manager.vala
 src/dummy/dummy-platform.vala
 src/gameinfo/gameinfo-disc-id-disc-title.vala
 src/gameinfo/gameinfo-doc.vala
@@ -77,7 +78,7 @@ src/ui/preferences-page-platforms.vala
 src/ui/preferences-page-video.vala
 src/ui/preferences-subpage-gamepad.vala
 src/ui/preferences-subpage-keyboard.vala
-src/ui/savestate-listbox-row.vala
-src/ui/savestates-list.vala
+src/ui/snapshot-row.vala
+src/ui/snapshots-list.vala
 src/utils/cue-sheet/cue-sheet.vala
 src/utils/file-operations.vala

@@ -1,5 +1,6 @@
 # List of source files that should *not* be translated.
 # Please keep this file sorted alphabetically.
+data/ui/snapshots-list.ui
 plugins/desktop/src/desktop-plugin.c
 plugins/dreamcast/src/dreamcast-header.c
 plugins/dreamcast/src/dreamcast-plugin.c
@@ -31,6 +32,7 @@ plugins/wii/src/wii-plugin.c
 src/command/command-runner.c
 src/core/media-set/media-set.c
 src/core/plugin-registrar.c
+src/core/snapshot-manager.c
 src/dummy/dummy-platform.c
 src/gameinfo/gameinfo-disc-id-disc-title.c
 src/gameinfo/gameinfo-doc.c
@@ -52,7 +54,7 @@ src/ui/preferences-page-platforms-retro-row.c
 src/ui/preferences-page-video.c
 src/ui/preferences-subpage-gamepad.c
 src/ui/preferences-subpage-keyboard.c
-src/ui/savestate-listbox-row.c
-src/ui/savestates-list.c
+src/ui/snapshot-row.c
+src/ui/snapshots-list.c
 src/utils/cue-sheet/cue-sheet.c
 src/utils/file-operations.c
