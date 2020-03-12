@@ -55,6 +55,7 @@ private class Games.DisplayView : Object, UiView {
 	private ResumeDialog resume_dialog;
 	private ResumeFailedDialog resume_failed_dialog;
 	private QuitDialog quit_dialog;
+	private RestartDialog restart_dialog;
 
 	private long focus_out_timeout_id;
 	private Game game;
@@ -242,6 +243,9 @@ private class Games.DisplayView : Object, UiView {
 
 		if (quit_dialog != null)
 			return quit_dialog.is_active && quit_dialog.gamepad_button_press_event (event);
+
+		if (restart_dialog != null)
+			return restart_dialog.is_active && restart_dialog.gamepad_button_press_event (event);
 
 		if (!window.is_active || !window.get_mapped ())
 			return false;
@@ -580,6 +584,9 @@ private class Games.DisplayView : Object, UiView {
 		if (quit_game_cancellable != null)
 			return false;
 
+		if (restart_dialog != null)
+			return false;
+
 		return true;
 	}
 
@@ -606,8 +613,28 @@ private class Games.DisplayView : Object, UiView {
 
 	private void restart () {
 		if (runner != null && runner.is_integrated) {
+			runner.pause ();
+
+			if (runner.try_create_snapshot (true) == null) {
+				restart_dialog = new RestartDialog ();
+				restart_dialog.transient_for = window;
+
+				var response = restart_dialog.run ();
+				restart_dialog.destroy ();
+				restart_dialog = null;
+
+				if (response == Gtk.ResponseType.CANCEL || response == Gtk.ResponseType.DELETE_EVENT) {
+					runner.resume ();
+
+					return;
+				}
+			}
+
+			runner.stop ();
+			runner = try_get_runner (game);
+
 			try {
-				runner.restart ();
+				runner.start ();
 			}
 			catch (Error e) {
 				critical ("Couldn't restart: %s", e.message);
