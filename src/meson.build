@@ -146,6 +146,7 @@ vala_sources = [
   'ui/quit-dialog.vala',
   'ui/remote-display.vala',
   'ui/reset-controller-mapping-dialog.vala',
+  'ui/restart-dialog.vala',
   'ui/resume-dialog.vala',
   'ui/resume-failed-dialog.vala',
   'ui/search-bar.vala',
