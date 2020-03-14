@@ -82,9 +82,6 @@ public class Games.CommandRunner : Object, Runner {
 		}
 	}
 
-	public void restart () throws Error {
-	}
-
 	public void resume () {
 	}
 

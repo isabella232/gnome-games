@@ -242,17 +242,6 @@ public class Games.RetroRunner : Object, Runner {
 		resume ();
 	}
 
-	public void restart () throws Error {
-		pause ();
-
-		var snapshot = try_create_snapshot (true);
-		reset_with_snapshot (snapshot);
-
-		core.reset ();
-
-		resume ();
-	}
-
 	public void resume () {
 		if (!core_loaded)
 			return;
