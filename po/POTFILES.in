@@ -21,6 +21,7 @@ data/ui/preferences-window.ui
 data/ui/quit-dialog.ui
 data/ui/remote-display.ui
 data/ui/reset-controller-mapping-dialog.ui
+data/ui/restart-dialog.ui
 data/ui/resume-dialog.ui
 data/ui/resume-failed-dialog.ui
 data/ui/shortcuts-window.ui
