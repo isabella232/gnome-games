@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-03-04 17:21+0000\n"
-"PO-Revision-Date: 2020-03-05 00:34+0100\n"
+"POT-Creation-Date: 2020-03-15 12:08+0000\n"
+"PO-Revision-Date: 2020-03-16 19:23+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -21,7 +21,7 @@ msgstr ""
 
 #: data/org.gnome.Games.appdata.xml.in.in:7
 #: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:61
-#: data/ui/collection-header-bar.ui:77 src/ui/application.vala:45
+#: data/ui/collection-header-bar.ui:66 src/ui/application.vala:45
 msgid "Games"
 msgstr "Spel"
 
@@ -151,30 +151,30 @@ msgstr "Lägg till spelfiler…"
 msgid "Menu"
 msgstr "Meny"
 
-#: data/ui/collection-header-bar.ui:96 data/ui/collection-header-bar.ui:151
+#: data/ui/collection-header-bar.ui:82 data/ui/collection-header-bar.ui:137
 msgid "Search"
 msgstr "Sök"
 
-#: data/ui/collection-header-bar.ui:128 data/ui/display-header-bar.ui:30
+#: data/ui/collection-header-bar.ui:114 data/ui/display-header-bar.ui:30
 #: data/ui/display-header-bar.ui:165 data/ui/preferences-subpage-gamepad.ui:84
 #: data/ui/preferences-subpage-keyboard.ui:85 data/ui/preferences-window.ui:34
 #: data/ui/preferences-window.ui:78
 msgid "Back"
 msgstr "Bakåt"
 
-#: data/ui/collection-header-bar.ui:174
+#: data/ui/collection-header-bar.ui:160
 msgid "Pr_eferences"
 msgstr "I_nställningar"
 
-#: data/ui/collection-header-bar.ui:178
+#: data/ui/collection-header-bar.ui:164
 msgid "_Keyboard Shortcuts"
 msgstr "_Tangentbordsgenvägar"
 
-#: data/ui/collection-header-bar.ui:182
+#: data/ui/collection-header-bar.ui:168
 msgid "_Help"
 msgstr "_Hjälp"
 
-#: data/ui/collection-header-bar.ui:186
+#: data/ui/collection-header-bar.ui:172
 msgid "_About Games"
 msgstr "_Om Spel"
 
@@ -290,7 +290,7 @@ msgstr "Hoppa över"
 
 #: data/ui/preferences-subpage-gamepad.ui:102
 #: data/ui/preferences-subpage-keyboard.ui:103 data/ui/quit-dialog.ui:15
-#: data/ui/reset-controller-mapping-dialog.ui:15
+#: data/ui/reset-controller-mapping-dialog.ui:15 data/ui/restart-dialog.ui:15
 #: data/ui/resume-failed-dialog.ui:14
 msgid "Cancel"
 msgstr "Avbryt"
@@ -303,7 +303,7 @@ msgstr "Inställningar"
 msgid "Are you sure you want to quit?"
 msgstr "Är du säker på att du vill avsluta?"
 
-#: data/ui/quit-dialog.ui:10
+#: data/ui/quit-dialog.ui:10 data/ui/restart-dialog.ui:10
 msgid "All unsaved progress will be lost."
 msgstr "Alla osparade framsteg kommer gå förlorade."
 
@@ -336,13 +336,17 @@ msgctxt "Confirm controller configuration factory reset"
 msgid "Reset"
 msgstr "Återställ"
 
+#: data/ui/restart-dialog.ui:9
+msgid "Are you sure you want to restart?"
+msgstr "Är du säker på att du vill starta om?"
+
+#: data/ui/restart-dialog.ui:21 data/ui/resume-dialog.ui:13
+msgid "Restart"
+msgstr "Starta om"
+
 #: data/ui/resume-dialog.ui:9
 msgid "Resume last game?"
 msgstr "Återuppta senaste spel?"
-
-#: data/ui/resume-dialog.ui:13
-msgid "Restart"
-msgstr "Starta om"
 
 #: data/ui/resume-dialog.ui:20
 msgid "Resume"
@@ -356,22 +360,6 @@ msgstr "Misslyckades med att återuppta. Vill du starta om spelet?"
 msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Återställ"
-
-#: data/ui/savestates-list.ui:64
-msgid "Create new snapshot"
-msgstr "Skapa ny ögonblicksbild"
-
-#: data/ui/savestates-list.ui:89
-msgid "_Delete"
-msgstr "_Ta bort"
-
-#: data/ui/savestates-list.ui:103 data/ui/savestates-list.ui:153
-msgid "_Rename"
-msgstr "_Byt namn"
-
-#: data/ui/savestates-list.ui:129
-msgid "Name"
-msgstr "Namn"
 
 #: data/ui/shortcuts-window.ui:11
 msgid "Shortcuts"
@@ -562,46 +550,62 @@ msgctxt "shortcut window"
 msgid "Contribute"
 msgstr "Bidra"
 
+#: data/ui/snapshots-list.ui:64
+msgid "Create new snapshot"
+msgstr "Skapa ny ögonblicksbild"
+
+#: data/ui/snapshots-list.ui:89
+msgid "_Delete"
+msgstr "_Ta bort"
+
+#: data/ui/snapshots-list.ui:103 data/ui/snapshots-list.ui:153
+msgid "_Rename"
+msgstr "_Byt namn"
+
+#: data/ui/snapshots-list.ui:129
+msgid "Name"
+msgstr "Namn"
+
 #: plugins/desktop/src/desktop-plugin.vala:6
 msgid "Desktop"
 msgstr "Skrivbord"
 
-#: plugins/desktop/src/desktop-plugin.vala:77
+#: plugins/desktop/src/desktop-plugin.vala:83
 #, c-format
 msgid "Invalid command “%s”."
 msgstr "Ogiltigt kommando ”%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:86
+#: plugins/desktop/src/desktop-plugin.vala:92
 #, c-format
 msgid "Tracker listed file not found: “%s”."
 msgstr "Tracker-listad fil kunde inte hittas: ”%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:92
+#: plugins/desktop/src/desktop-plugin.vala:98
 #, c-format
 msgid "Couldn’t parse desktop entry “%s”."
 msgstr "Det går inte att tolka skrivbordsposten ”%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:102
+#: plugins/desktop/src/desktop-plugin.vala:108
 #, c-format
 msgid "“%s” shouldn’t be displayed."
 msgstr "”%s” borde inte visas."
 
-#: plugins/desktop/src/desktop-plugin.vala:105
+#: plugins/desktop/src/desktop-plugin.vala:111
 #, c-format
 msgid "“%s” is hidden."
 msgstr "”%s” är dold."
 
-#: plugins/desktop/src/desktop-plugin.vala:114
+#: plugins/desktop/src/desktop-plugin.vala:120
 #, c-format
 msgid "“%s” has blacklisted category “%s”."
 msgstr "”%s” har svartlistat kategorin ”%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:123
+#: plugins/desktop/src/desktop-plugin.vala:129
 #, c-format
 msgid "“%s” has blacklisted executable “%s”."
 msgstr "”%s” har svartlistat körbara filen ”%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:130
+#: plugins/desktop/src/desktop-plugin.vala:136
 #, c-format
 msgid "“%s” is blacklisted."
 msgstr "”%s” är svartlistad."
@@ -703,19 +707,19 @@ msgid "Sega CD 32X"
 msgstr "Sega CD 32X"
 
 #: plugins/sega-cd/src/sega-cd-plugin.vala:99
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:81
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:88
 #, c-format
 msgid "The file “%s” doesn’t have a track."
 msgstr "Filen ”%s” har inget spår."
 
 #: plugins/sega-cd/src/sega-cd-plugin.vala:105
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:87
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:94
 #, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr "Filen ”%s” har inte ett giltigt binärt filformat."
 
 #: plugins/sega-cd/src/sega-cd-plugin.vala:108
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:90
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:97
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
 msgstr "Filen ”%s” har inte ett giltigt spårläge för spår %d."
@@ -728,7 +732,7 @@ msgstr "Filen har inte ett Sega Saturn-filhuvud."
 msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:94
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:101
 #, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "Filen ”%s” har inte en giltig Sega Saturn-binärfil."
@@ -804,11 +808,11 @@ msgstr "Filen har inte ett Wii-filhuvud."
 msgid "Wii"
 msgstr "Wii"
 
-#: src/command/command-runner.vala:43
+#: src/command/command-runner.vala:37
 msgid "The game doesn’t have a valid command."
 msgstr "Spelet har inte ett giltigt kommando."
 
-#: src/command/command-runner.vala:86
+#: src/command/command-runner.vala:78
 #, c-format
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "Kunde inte köra ”%s”: exekvering misslyckades."
@@ -827,6 +831,11 @@ msgstr "Ogiltig deskriptor för insticksmodulen: %s"
 #, c-format
 msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr "Det gick inte att skapa en ny instans av insticksmodulen i ”%s”."
+
+#: src/core/snapshot-manager.vala:82 src/core/snapshot-manager.vala:107
+#, c-format
+msgid "New snapshot %s"
+msgstr "Ny ögonblicksbild %s"
 
 #: src/dummy/dummy-platform.vala:9 src/dummy/dummy-platform.vala:17
 msgid "Unknown"
@@ -888,28 +897,23 @@ msgstr ""
 "Detta spel kräver den fasta programvarufilen %s med SHA-512-fingeravtrycket "
 "%s för att köra."
 
-#: src/retro/retro-runner.vala:313
-#, c-format
-msgid "No module found for “%s”."
-msgstr "Ingen modul hittades för ”%s”."
-
-#: src/retro/retro-runner.vala:575
-msgid "Unknown platform"
-msgstr "Okänd plattform"
-
-#: src/retro/retro-runner.vala:593
+#: src/retro/retro-runner.vala:124
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Systemet ”%s” stöds inte ännu, men fullständigt stöd planeras."
 
-#: src/retro/retro-runner.vala:595
+#: src/retro/retro-runner.vala:126
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Systemet stöds inte ännu, men fullständigt stöd planeras."
 
-#: src/retro/retro-runner.vala:604 src/retro/retro-runner.vala:629
+#: src/retro/retro-runner.vala:157
 #, c-format
-msgid "New snapshot %s"
-msgstr "Ny ögonblicksbild %s"
+msgid "No module found for “%s”."
+msgstr "Ingen modul hittades för ”%s”."
+
+#: src/retro/retro-runner.vala:437
+msgid "Unknown platform"
+msgstr "Okänd plattform"
 
 #: src/retro/retro-simple-type.vala:13
 msgid "Amiga"
@@ -1174,26 +1178,26 @@ msgstr "Testar tangentbord"
 msgid "Configuring Keyboard"
 msgstr "Konfigurerar tangentbord"
 
-#: src/ui/savestate-listbox-row.vala:23 src/ui/savestates-list.vala:188
+#: src/ui/snapshot-row.vala:23 src/ui/snapshots-list.vala:185
 msgid "Autosave"
 msgstr "Automatisk sparning"
 
 #. Translators: Time in locale format
-#: src/ui/savestate-listbox-row.vala:192
+#: src/ui/snapshot-row.vala:190
 #, no-c-format
 msgid "%X"
 msgstr "%X"
 
 #. Translators: this is the word Yesterday followed by
 #. * a time in locale format. i.e. "Yesterday 23:04:35"
-#: src/ui/savestate-listbox-row.vala:198
+#: src/ui/snapshot-row.vala:196
 #, no-c-format
 msgid "Yesterday %X"
 msgstr "Igår %X"
 
 #. Translators: this is the abbreviated name of the week day followed by
 #. * a time in locale format. i.e. "Monday 23:04:35"
-#: src/ui/savestate-listbox-row.vala:204
+#: src/ui/snapshot-row.vala:202
 #, no-c-format
 msgid "%a %X"
 msgstr "%a %X"
@@ -1201,7 +1205,7 @@ msgstr "%a %X"
 #. Translators: this is the day of the month followed
 #. * by the abbreviated month name followed by a time in
 #. * locale format i.e. "3 Feb 23:04:35"
-#: src/ui/savestate-listbox-row.vala:211
+#: src/ui/snapshot-row.vala:209
 #, no-c-format
 msgid "%-e %b %X"
 msgstr "%-e %b %X"
@@ -1209,16 +1213,16 @@ msgstr "%-e %b %X"
 #. Translators: this is the day number followed
 #. * by the abbreviated month name followed by the year followed
 #. * by a time in locale format i.e. "3 Feb 2015 23:04:00"
-#: src/ui/savestate-listbox-row.vala:218
+#: src/ui/snapshot-row.vala:216
 #, no-c-format
 msgid "%-e %b %Y %X"
 msgstr "%-e %b %Y %X"
 
-#: src/ui/savestates-list.vala:191
+#: src/ui/snapshots-list.vala:188
 msgid "Invalid name"
 msgstr "Ogiltigt namn"
 
-#: src/ui/savestates-list.vala:209
+#: src/ui/snapshots-list.vala:206
 msgid "A snapshot with this name already exists"
 msgstr "Det finns redan en ögonblicksbild med detta namn"
 
