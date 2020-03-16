@@ -4,6 +4,9 @@ public class Games.GenericGame : Object, Game {
 	private string _name;
 	public string name {
 		get {
+			if (_name != null)
+				return _name;
+
 			try {
 				_name = game_title.get_title ();
 			}
