@@ -92,12 +92,7 @@ private class Games.PreferencesWindow : Gtk.Window {
 		                                      BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
 	}
 
-	[GtkCallback]
-	public void subpage_transition_finished (Object object, ParamSpec param) {
-		if (content_deck.transition_running ||
-		    content_deck.visible_child != content_leaflet)
-			return;
-
+	private void remove_subpage () {
 		foreach (var child in content_subpage_box.get_children ())
 			content_subpage_box.remove (child);
 
@@ -105,6 +100,23 @@ private class Games.PreferencesWindow : Gtk.Window {
 			titlebar_subpage_box.remove (child);
 
 		subpage = null;
+	}
+
+	[GtkCallback]
+	public void subpage_transition_finished (Object object, ParamSpec param) {
+		if (content_deck.transition_running ||
+		    content_deck.visible_child != content_leaflet)
+			return;
+
+		remove_subpage ();
+	}
+
+	[GtkCallback]
+	private void on_visible_child_changed () {
+		if (content_deck.transition_running || subpage == null)
+			return;
+
+		remove_subpage ();
 	}
 
 	[GtkCallback]
