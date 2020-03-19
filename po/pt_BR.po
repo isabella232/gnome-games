@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-03-04 08:01+0000\n"
-"PO-Revision-Date: 2020-03-04 22:10-0300\n"
+"POT-Creation-Date: 2020-03-16 18:24+0000\n"
+"PO-Revision-Date: 2020-03-19 11:53-0300\n"
 "Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
-"X-Generator: Gtranslator 3.32.0\n"
+"X-Generator: Gtranslator 3.36.0\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:7
 #: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:61
-#: data/ui/collection-header-bar.ui:77 src/ui/application.vala:45
+#: data/ui/collection-header-bar.ui:66 src/ui/application.vala:45
 msgid "Games"
 msgstr "Jogos"
 
@@ -156,30 +156,30 @@ msgstr "Adicionar arquivos de jogos…"
 msgid "Menu"
 msgstr "Menu"
 
-#: data/ui/collection-header-bar.ui:96 data/ui/collection-header-bar.ui:151
+#: data/ui/collection-header-bar.ui:82 data/ui/collection-header-bar.ui:137
 msgid "Search"
 msgstr "Pesquisar"
 
-#: data/ui/collection-header-bar.ui:128 data/ui/display-header-bar.ui:30
+#: data/ui/collection-header-bar.ui:114 data/ui/display-header-bar.ui:30
 #: data/ui/display-header-bar.ui:165 data/ui/preferences-subpage-gamepad.ui:84
-#: data/ui/preferences-subpage-keyboard.ui:84 data/ui/preferences-window.ui:34
+#: data/ui/preferences-subpage-keyboard.ui:85 data/ui/preferences-window.ui:34
 #: data/ui/preferences-window.ui:78
 msgid "Back"
 msgstr "Retornar"
 
-#: data/ui/collection-header-bar.ui:174
+#: data/ui/collection-header-bar.ui:160
 msgid "Pr_eferences"
 msgstr "Pr_eferências"
 
-#: data/ui/collection-header-bar.ui:178
+#: data/ui/collection-header-bar.ui:164
 msgid "_Keyboard Shortcuts"
 msgstr "Atalhos de _teclado"
 
-#: data/ui/collection-header-bar.ui:182
+#: data/ui/collection-header-bar.ui:168
 msgid "_Help"
 msgstr "Aj_uda"
 
-#: data/ui/collection-header-bar.ui:186
+#: data/ui/collection-header-bar.ui:172
 msgid "_About Games"
 msgstr "_Sobre o Jogos"
 
@@ -294,8 +294,8 @@ msgid "Skip"
 msgstr "Pular"
 
 #: data/ui/preferences-subpage-gamepad.ui:102
-#: data/ui/preferences-subpage-keyboard.ui:102 data/ui/quit-dialog.ui:15
-#: data/ui/reset-controller-mapping-dialog.ui:15
+#: data/ui/preferences-subpage-keyboard.ui:103 data/ui/quit-dialog.ui:15
+#: data/ui/reset-controller-mapping-dialog.ui:15 data/ui/restart-dialog.ui:15
 #: data/ui/resume-failed-dialog.ui:14
 msgid "Cancel"
 msgstr "Cancelar"
@@ -308,7 +308,7 @@ msgstr "Preferências"
 msgid "Are you sure you want to quit?"
 msgstr "Você tem certeza de que deseja sair?"
 
-#: data/ui/quit-dialog.ui:10
+#: data/ui/quit-dialog.ui:10 data/ui/restart-dialog.ui:10
 msgid "All unsaved progress will be lost."
 msgstr "Todo o progresso não salvo será perdido."
 
@@ -341,13 +341,18 @@ msgctxt "Confirm controller configuration factory reset"
 msgid "Reset"
 msgstr "Redefinir"
 
+#: data/ui/restart-dialog.ui:9
+#| msgid "Are you sure you want to quit?"
+msgid "Are you sure you want to restart?"
+msgstr "Você tem certeza de que deseja reiniciar?"
+
+#: data/ui/restart-dialog.ui:21 data/ui/resume-dialog.ui:13
+msgid "Restart"
+msgstr "Reiniciar"
+
 #: data/ui/resume-dialog.ui:9
 msgid "Resume last game?"
 msgstr "Continuar último jogo?"
-
-#: data/ui/resume-dialog.ui:13
-msgid "Restart"
-msgstr "Reiniciar"
 
 #: data/ui/resume-dialog.ui:20
 msgid "Resume"
@@ -361,22 +366,6 @@ msgstr "Falha ao continuar. Você deseja reiniciar o jogo?"
 msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Reiniciar"
-
-#: data/ui/savestates-list.ui:64
-msgid "Create new snapshot"
-msgstr "Criar novo snapshot"
-
-#: data/ui/savestates-list.ui:89
-msgid "_Delete"
-msgstr "_Excluir"
-
-#: data/ui/savestates-list.ui:103 data/ui/savestates-list.ui:153
-msgid "_Rename"
-msgstr "_Renomear"
-
-#: data/ui/savestates-list.ui:129
-msgid "Name"
-msgstr "Nome"
 
 #: data/ui/shortcuts-window.ui:11
 msgid "Shortcuts"
@@ -567,46 +556,62 @@ msgctxt "shortcut window"
 msgid "Contribute"
 msgstr "Contribuir"
 
+#: data/ui/snapshots-list.ui:64
+msgid "Create new snapshot"
+msgstr "Criar novo snapshot"
+
+#: data/ui/snapshots-list.ui:89
+msgid "_Delete"
+msgstr "_Excluir"
+
+#: data/ui/snapshots-list.ui:103 data/ui/snapshots-list.ui:153
+msgid "_Rename"
+msgstr "_Renomear"
+
+#: data/ui/snapshots-list.ui:129
+msgid "Name"
+msgstr "Nome"
+
 #: plugins/desktop/src/desktop-plugin.vala:6
 msgid "Desktop"
 msgstr "Área de trabalho"
 
-#: plugins/desktop/src/desktop-plugin.vala:77
+#: plugins/desktop/src/desktop-plugin.vala:83
 #, c-format
 msgid "Invalid command “%s”."
 msgstr "Comando inválido “%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:86
+#: plugins/desktop/src/desktop-plugin.vala:92
 #, c-format
 msgid "Tracker listed file not found: “%s”."
 msgstr "Arquivo listado do rastreador não localizado: “%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:92
+#: plugins/desktop/src/desktop-plugin.vala:98
 #, c-format
 msgid "Couldn’t parse desktop entry “%s”."
 msgstr "Não foi possível analisar a entrada desktop “%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:102
+#: plugins/desktop/src/desktop-plugin.vala:108
 #, c-format
 msgid "“%s” shouldn’t be displayed."
 msgstr "“%s” não deveria ser exibido."
 
-#: plugins/desktop/src/desktop-plugin.vala:105
+#: plugins/desktop/src/desktop-plugin.vala:111
 #, c-format
 msgid "“%s” is hidden."
 msgstr "“%s” está oculto."
 
-#: plugins/desktop/src/desktop-plugin.vala:114
+#: plugins/desktop/src/desktop-plugin.vala:120
 #, c-format
 msgid "“%s” has blacklisted category “%s”."
 msgstr "“%s” acrescentou à lista negra a categoria “%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:123
+#: plugins/desktop/src/desktop-plugin.vala:129
 #, c-format
 msgid "“%s” has blacklisted executable “%s”."
 msgstr "“%s” acrescentou à lista negra o executável “%s”."
 
-#: plugins/desktop/src/desktop-plugin.vala:130
+#: plugins/desktop/src/desktop-plugin.vala:136
 #, c-format
 msgid "“%s” is blacklisted."
 msgstr "“%s” está na lista negra."
@@ -708,19 +713,19 @@ msgid "Sega CD 32X"
 msgstr "Sega CD 32X"
 
 #: plugins/sega-cd/src/sega-cd-plugin.vala:99
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:81
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:88
 #, c-format
 msgid "The file “%s” doesn’t have a track."
 msgstr "O arquivo “%s” não possui uma trilha."
 
 #: plugins/sega-cd/src/sega-cd-plugin.vala:105
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:87
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:94
 #, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr "O arquivo “%s” não possui um formato de arquivo binário válido."
 
 #: plugins/sega-cd/src/sega-cd-plugin.vala:108
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:90
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:97
 #, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
 msgstr "O arquivo “%s” não possui um modo de trilha válido para a trilha %d."
@@ -733,7 +738,7 @@ msgstr "O arquivo não possui um cabeçalho de Sega Saturn."
 msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:94
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:101
 #, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "O arquivo “%s” não possui um arquivo binário de Sega Saturn válido."
@@ -809,11 +814,11 @@ msgstr "O arquivo não possui um cabeçalho de Wii."
 msgid "Wii"
 msgstr "Wii"
 
-#: src/command/command-runner.vala:43
+#: src/command/command-runner.vala:37
 msgid "The game doesn’t have a valid command."
 msgstr "O jogo não possui um comando válido."
 
-#: src/command/command-runner.vala:86
+#: src/command/command-runner.vala:78
 #, c-format
 msgid "Couldn’t run “%s”: execution failed."
 msgstr "Não foi possível executar “%s”: execução falhou."
@@ -832,6 +837,11 @@ msgstr "Descritor de plug-in inválido: %s"
 #, c-format
 msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr "Não foi possível criar uma nova instância de plug-in em “%s”."
+
+#: src/core/snapshot-manager.vala:82 src/core/snapshot-manager.vala:107
+#, c-format
+msgid "New snapshot %s"
+msgstr "Novo snapshot %s"
 
 #: src/dummy/dummy-platform.vala:9 src/dummy/dummy-platform.vala:17
 msgid "Unknown"
@@ -893,29 +903,24 @@ msgstr ""
 "Esse jogo requer o arquivo de firmware de %s com uma impressão digital "
 "SHA-512 de %s para jogar."
 
-#: src/retro/retro-runner.vala:313
-#, c-format
-msgid "No module found for “%s”."
-msgstr "Nenhum módulo localizado para “%s”."
-
-#: src/retro/retro-runner.vala:570
-msgid "Unknown platform"
-msgstr "Plataforma desconhecida"
-
-#: src/retro/retro-runner.vala:588
+#: src/retro/retro-runner.vala:124
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
 "Não há suporte ao sistema “%s” ainda, mas suporte complete está nos planos."
 
-#: src/retro/retro-runner.vala:590
+#: src/retro/retro-runner.vala:126
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Não há suporte ao sistema ainda, mas suporte completo está nos planos."
 
-#: src/retro/retro-runner.vala:599 src/retro/retro-runner.vala:624
+#: src/retro/retro-runner.vala:157
 #, c-format
-msgid "New snapshot %s"
-msgstr "Novo snapshot %s"
+msgid "No module found for “%s”."
+msgstr "Nenhum módulo localizado para “%s”."
+
+#: src/retro/retro-runner.vala:437
+msgid "Unknown platform"
+msgstr "Plataforma desconhecida"
 
 #: src/retro/retro-simple-type.vala:13
 msgid "Amiga"
@@ -1097,15 +1102,15 @@ msgstr "Ops! Não foi possível jogar o jogo"
 msgid "Oops! The game “%s” crashed unexpectedly"
 msgstr "Ops! O jogo “%s” foi encerrado inesperadamente"
 
-#: src/ui/gamepad-mapper.vala:137
+#: src/ui/gamepad-mapper.vala:168
 msgid "Press suitable button on your gamepad"
 msgstr "Pressione o botão adequado em seu gamepad"
 
-#: src/ui/gamepad-mapper.vala:142
+#: src/ui/gamepad-mapper.vala:173
 msgid "Move suitable axis left/right on your gamepad"
 msgstr "Mova o eixo adequado para esquerdo/direito em seu gamepad"
 
-#: src/ui/gamepad-mapper.vala:144
+#: src/ui/gamepad-mapper.vala:175
 msgid "Move suitable axis up/down on your gamepad"
 msgstr "Mova o eixo adequado para cima/baixo em seu gamepad"
 
@@ -1159,45 +1164,45 @@ msgid "Video"
 msgstr "Vídeo"
 
 #. translators: testing a gamepad, %s is its name
-#: src/ui/preferences-subpage-gamepad.vala:78
+#: src/ui/preferences-subpage-gamepad.vala:50
 #, c-format
 msgid "Testing %s"
 msgstr "Testando %s"
 
 #. translators: configuring a gamepad, %s is its name
-#: src/ui/preferences-subpage-gamepad.vala:89
+#: src/ui/preferences-subpage-gamepad.vala:61
 #, c-format
 msgid "Configuring %s"
 msgstr "Configurando %s"
 
-#: src/ui/preferences-subpage-keyboard.vala:68
+#: src/ui/preferences-subpage-keyboard.vala:45
 msgid "Testing Keyboard"
 msgstr "Testando teclado"
 
-#: src/ui/preferences-subpage-keyboard.vala:78
+#: src/ui/preferences-subpage-keyboard.vala:55
 msgid "Configuring Keyboard"
 msgstr "Configurando teclado"
 
-#: src/ui/savestate-listbox-row.vala:23 src/ui/savestates-list.vala:188
+#: src/ui/snapshot-row.vala:23 src/ui/snapshots-list.vala:185
 msgid "Autosave"
 msgstr "Salvar automaticamente"
 
 #. Translators: Time in locale format
-#: src/ui/savestate-listbox-row.vala:192
+#: src/ui/snapshot-row.vala:190
 #, no-c-format
 msgid "%X"
 msgstr "%X"
 
 #. Translators: this is the word Yesterday followed by
 #. * a time in locale format. i.e. "Yesterday 23:04:35"
-#: src/ui/savestate-listbox-row.vala:198
+#: src/ui/snapshot-row.vala:196
 #, no-c-format
 msgid "Yesterday %X"
 msgstr "Ontem %X"
 
 #. Translators: this is the abbreviated name of the week day followed by
 #. * a time in locale format. i.e. "Monday 23:04:35"
-#: src/ui/savestate-listbox-row.vala:204
+#: src/ui/snapshot-row.vala:202
 #, no-c-format
 msgid "%a %X"
 msgstr "%a %X"
@@ -1205,7 +1210,7 @@ msgstr "%a %X"
 #. Translators: this is the day of the month followed
 #. * by the abbreviated month name followed by a time in
 #. * locale format i.e. "3 Feb 23:04:35"
-#: src/ui/savestate-listbox-row.vala:211
+#: src/ui/snapshot-row.vala:209
 #, no-c-format
 msgid "%-e %b %X"
 msgstr "%-e %b %X"
@@ -1213,16 +1218,16 @@ msgstr "%-e %b %X"
 #. Translators: this is the day number followed
 #. * by the abbreviated month name followed by the year followed
 #. * by a time in locale format i.e. "3 Feb 2015 23:04:00"
-#: src/ui/savestate-listbox-row.vala:218
+#: src/ui/snapshot-row.vala:216
 #, no-c-format
 msgid "%-e %b %Y %X"
 msgstr "%-e %b %Y %X"
 
-#: src/ui/savestates-list.vala:191
+#: src/ui/snapshots-list.vala:188
 msgid "Invalid name"
 msgstr "Nome inválido"
 
-#: src/ui/savestates-list.vala:209
+#: src/ui/snapshots-list.vala:206
 msgid "A snapshot with this name already exists"
 msgstr "Um snapshot com esse nome já existe"
 
