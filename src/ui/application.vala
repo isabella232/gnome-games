@@ -51,7 +51,7 @@ public class Games.Application : Gtk.Application {
 		add_actions ();
 		add_signal_handlers ();
 
-		try_make_dir (get_data_dir ());
+		make_data_dir ();
 
 		var database_path = get_database_path ();
 		try {
@@ -125,6 +125,22 @@ public class Games.Application : Gtk.Application {
 		return @"$cache_dir/$dir_name/$size";
 	}
 
+	private void make_data_dir () {
+		var data_dir = File.new_for_path (get_data_dir ());
+		try {
+			if (data_dir.query_exists ())
+				return;
+
+			data_dir.make_directory_with_parents ();
+
+			var version_file = data_dir.get_child (".version");
+			version_file.create (FileCreateFlags.NONE);
+		}
+		catch (Error e) {
+			critical ("Couldn't create data dir: %s", e.message);
+		}
+	}
+
 	public static void try_make_dir (string path) {
 		var file = File.new_for_path (path);
 		try {
@@ -132,7 +148,7 @@ public class Games.Application : Gtk.Application {
 				file.make_directory_with_parents ();
 		}
 		catch (Error e) {
-			warning (@"$(e.message)\n");
+			critical ("Couldn't create dir '%s': %s", path, e.message);
 		}
 	}
 
