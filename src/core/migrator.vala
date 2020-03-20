@@ -72,6 +72,11 @@ public class Games.Migrator : Object {
 
 		// Create the savestates dir
 		var savestates_dir = File.new_for_path (get_savestates_dir_path ());
+
+		// If the dir exists, we failed and there's already new data. Just bail
+		if (savestates_dir.query_exists ())
+			return;
+
 		savestates_dir.make_directory ();
 
 		// Currently any game has only one snapshot file
