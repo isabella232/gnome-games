@@ -1,6 +1,8 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public class Games.RetroRunner : Object, Runner {
+	public signal void controllers_changed ();
+
 	public bool can_fullscreen {
 		get { return true; }
 	}
@@ -200,6 +202,10 @@ public class Games.RetroRunner : Object, Runner {
 			core.set_current_media (media_set.selected_media_number);
 
 		input_manager = new RetroInputManager (core, view);
+		input_manager.controllers_changed.connect (() => {
+			controllers_changed ();
+		});
+
 		// Keep the internal values of input_mode in sync between RetroRunner and RetroInputManager
 		input_mode = get_available_input_modes ()[0];
 
