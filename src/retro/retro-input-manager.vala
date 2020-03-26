@@ -1,6 +1,8 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.RetroInputManager : Object {
+	public signal void controllers_changed ();
+
 	private Retro.Core core;
 	private Retro.CoreView view;
 	private Retro.Controller core_view_joypad;
@@ -108,6 +110,8 @@ private class Games.RetroInputManager : Object {
 				devices[core_view_joypad_port] = null;
 				update_core_view_gamepad ();
 
+				controllers_changed ();
+
 				return;
 			}
 		}
@@ -118,6 +122,8 @@ private class Games.RetroInputManager : Object {
 		devices += null;
 		controllers += null;
 		update_core_view_gamepad ();
+
+		controllers_changed ();
 	}
 
 	private void on_device_disconnected (Manette.Device device) {
@@ -144,5 +150,7 @@ private class Games.RetroInputManager : Object {
 			controllers[port] = null;
 			core.set_controller (port, null);
 		}
+
+		controllers_changed ();
 	}
 }
