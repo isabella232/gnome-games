@@ -105,6 +105,10 @@ private class Games.DisplayView : Object, UiView {
 		bind_property ("game-title", header_bar,
 		               "game-title", BindingFlags.BIDIRECTIONAL);
 
+		header_bar.notify["is-menu-open"].connect (() => {
+			box.is_menu_open = header_bar.is_menu_open;
+		});
+
 		focus_out_timeout_id = -1;
 
 		action_group = new SimpleActionGroup ();

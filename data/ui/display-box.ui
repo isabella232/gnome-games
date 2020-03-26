@@ -4,6 +4,7 @@
   <template class="GamesDisplayBox" parent="GtkBin">
     <property name="visible">True</property>
     <signal name="notify::is-showing-snapshots" handler="block_autohide_changed"/>
+    <signal name="notify::is-menu-open" handler="block_autohide_changed"/>
     <child>
       <object class="GamesFullscreenBox" id="fullscreen_box">
         <property name="visible">True</property>

@@ -50,6 +50,7 @@ private class Games.DisplayBox : Gtk.Bin {
 
 	public bool can_fullscreen { get; set; }
 	public string game_title { get; set; }
+	public bool is_menu_open { get; set; }
 
 	[GtkChild]
 	private Gtk.Stack stack;
@@ -82,7 +83,9 @@ private class Games.DisplayBox : Gtk.Bin {
 
 	[GtkCallback]
 	public void block_autohide_changed () {
-		fullscreen_box.autohide = !fullscreen_header_bar.is_menu_open && !is_showing_snapshots;
+		fullscreen_box.autohide = !is_menu_open &&
+		                          !fullscreen_header_bar.is_menu_open &&
+		                          !is_showing_snapshots;
 	}
 
 	[GtkCallback]
