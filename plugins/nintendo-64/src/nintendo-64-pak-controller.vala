@@ -28,7 +28,7 @@ private class Games.Nintendo64PakController : Gtk.Box {
 	}
 
 	construct {
-		title.label = _("Player %u").printf (port);
+		title.label = _("Player %u").printf (port + 1);
 		rumble_btn.sensitive = gamepad.get_supports_rumble ();
 	}
 
