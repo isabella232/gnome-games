@@ -78,8 +78,9 @@ public class Games.RetroRunner : Object, Runner {
 			_media_set = new MediaSet ();
 			_media_set.add_media (media);
 
-			_media_set.notify["selected-media-number"].connect (on_media_number_changed);
 		}
+
+		_media_set.notify["selected-media-number"].connect (on_media_number_changed);
 	}
 
 	public RetroRunner.from_source (Game game, RetroCoreSource source) {
