@@ -1,4 +1,23 @@
 ==============
+Version 3.36.1
+==============
+
+* Fixes
+ - Stop autohiding cursor with open popovers in windowed mode
+ - Correctly create version file for 3.34.0 savestate migration
+ - Stop recalculating game titles when they're already cached
+ - Grab game view focus immediately after focusing it
+ - Fix some issues when restarting the game
+ - Don't show headerbar menus for unsupported games
+ - Reset game metadata when starting new game
+ - Fix info message when mapping gamepads
+ - Stop counting files like GameSomething.jpg as covers for Game.rom
+
+* Translation updates
+ Dutch
+ Ukrainian
+
+==============
 Version 3.36.0
 ==============
 

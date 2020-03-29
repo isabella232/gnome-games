@@ -43,6 +43,23 @@
   </screenshots>
 
   <releases>
+    <release version="3.36.1" type="stable" date="2020-03-31" urgency="medium">
+      <description>
+        <p>Fixes:</p>
+        <ul>
+          <li>Stop autohiding cursor with open popovers in windowed mode</li>
+          <li>Correctly create version file for 3.34.0 savestate migration</li>
+          <li>Stop recalculating game titles when they're already cached</li>
+          <li>Grab game view focus immediately after focusing it</li>
+          <li>Fix some issues when restarting the game</li>
+          <li>Don't show headerbar menus for unsupported games</li>
+          <li>Reset game metadata when starting new game</li>
+          <li>Fix info message when mapping gamepads</li>
+          <li>Stop counting files like GameSomething.jpg as covers for Game.rom</li>
+        </ul>
+        <p>Translation updates.</p>
+      </description>
+    </release>
     <release version="3.36.0" type="stable" date="2020-03-07" urgency="medium">
       <description>
         <p>Translation updates.</p>
