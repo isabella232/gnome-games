@@ -67,8 +67,10 @@ public class Games.RetroRunner : Object, Runner {
 	private bool core_loaded;
 	private bool is_error;
 
-	private RetroRunner (Game game) {
+	public RetroRunner.from_source (Game game, RetroCoreSource source) {
 		this.game = game;
+
+		core_source = source;
 
 		_media_set = game.media_set;
 		if (media_set == null && game.uri != null) {
@@ -77,22 +79,17 @@ public class Games.RetroRunner : Object, Runner {
 
 			_media_set = new MediaSet ();
 			_media_set.add_media (media);
-
 		}
 
 		_media_set.notify["selected-media-number"].connect (on_media_number_changed);
 	}
 
-	public RetroRunner.from_source (Game game, RetroCoreSource source) {
-		this (game);
-
-		core_source = source;
-	}
-
 	public RetroRunner.from_descriptor (Game game, Retro.CoreDescriptor descriptor) {
-		this (game);
+		this.game = game;
 
 		core_descriptor = descriptor;
+
+		_media_set = new MediaSet ();
 	}
 
 	construct {
