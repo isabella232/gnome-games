@@ -40,8 +40,6 @@ private struct Games.RetroSimpleType {
 		case "NintendoEntertainmentSystem":
 			/* translators: known as "Famicom" in eastern Asia */
 			return _("Nintendo Entertainment System");
-		case "Nintendo64":
-			return _("Nintendo 64");
 		case "Sega32X":
 			/* translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places */
 			return _("Genesis 32X");
