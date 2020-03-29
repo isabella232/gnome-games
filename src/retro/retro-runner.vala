@@ -365,11 +365,11 @@ public class Games.RetroRunner : Object, Runner {
 
 		InputMode[] modes = {};
 
-		if (input_capabilities.get_allow_keyboard_mode ())
-			modes += InputMode.KEYBOARD;
-
 		if (input_capabilities.get_allow_gamepad_mode ())
 			modes += InputMode.GAMEPAD;
+
+		if (input_capabilities.get_allow_keyboard_mode ())
+			modes += InputMode.KEYBOARD;
 
 		return modes;
 	}
