@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-03-15 12:08+0000\n"
-"PO-Revision-Date: 2020-03-15 14:24+0100\n"
+"POT-Creation-Date: 2020-03-29 10:31+0000\n"
+"PO-Revision-Date: 2020-03-29 13:08+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -657,6 +657,20 @@ msgstr "Salon gier"
 msgid "MS-DOS"
 msgstr "MS-DOS"
 
+#: plugins/nintendo-64/data/ui/nintendo-64-pak-switcher.ui:14
+msgid "Controller Expansion"
+msgstr "Rozszerzenie kontrolera"
+
+#: plugins/nintendo-64/src/nintendo-64-pak-controller.vala:31
+#, c-format
+msgid "Player %u"
+msgstr "%u. gracz"
+
+#: plugins/nintendo-64/src/nintendo-64-plugin.vala:6
+#: src/retro/retro-simple-type.vala:44
+msgid "Nintendo 64"
+msgstr "Nintendo 64"
+
 #: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:19
 msgid "Change Screen"
 msgstr "Zmień ekran"
@@ -904,21 +918,21 @@ msgstr ""
 "Ta gra do działania wymaga pliku oprogramowania sprzętowego %s o sumie "
 "kontrolnej SHA-512 „%s”."
 
-#: src/retro/retro-runner.vala:124
+#: src/retro/retro-runner.vala:127
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "Konsola „%s” nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: src/retro/retro-runner.vala:126
+#: src/retro/retro-runner.vala:129
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Konsola nie jest jeszcze obsługiwana, ale jest w planach."
 
-#: src/retro/retro-runner.vala:157
+#: src/retro/retro-runner.vala:160
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Nie odnaleziono modułu dla „%s”."
 
-#: src/retro/retro-runner.vala:437
+#: src/retro/retro-runner.vala:444
 msgid "Unknown platform"
 msgstr "Nieznana platforma"
 
@@ -981,10 +995,6 @@ msgstr "Neo Geo Pocket Color"
 msgid "Nintendo Entertainment System"
 msgstr "NES"
 
-#: src/retro/retro-simple-type.vala:44
-msgid "Nintendo 64"
-msgstr "Nintendo 64"
-
 #. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
 #: src/retro/retro-simple-type.vala:47
 msgid "Genesis 32X"
@@ -1033,48 +1043,48 @@ msgstr "Wyszukuje podany termin"
 msgid "Run a game by uid"
 msgstr "Uruchamia grę według jej UID"
 
-#: src/ui/application.vala:152
+#: src/ui/application.vala:168
 msgid "Select game files"
 msgstr "Wybór plików gry"
 
-#: src/ui/application.vala:153 src/ui/preferences-page-import-export.vala:14
+#: src/ui/application.vala:169 src/ui/preferences-page-import-export.vala:14
 #: src/ui/preferences-page-import-export.vala:36
 msgid "_Cancel"
 msgstr "_Anuluj"
 
-#: src/ui/application.vala:154
+#: src/ui/application.vala:170
 msgid "_Add"
 msgstr "_Dodaj"
 
-#: src/ui/application.vala:204
+#: src/ui/application.vala:220
 #, c-format
 msgid "An unexpected error occurred while trying to run %s"
 msgstr "Wystąpił nieoczekiwany błąd podczas uruchamiania „%s”"
 
-#: src/ui/application.vala:240
+#: src/ui/application.vala:256
 #, c-format
 msgid "Cannot find game with UID “%s”."
 msgstr "Nie można odnaleźć gry o UID „%s”."
 
-#: src/ui/application.vala:298
+#: src/ui/application.vala:314
 msgid "Couldn't find Tracker, automatic game discovery may not work."
 msgstr ""
 "Nie można odnaleźć usługi Tracker, automatyczne wykrywanie gier może nie "
 "działać."
 
-#: src/ui/application.vala:469
+#: src/ui/application.vala:485
 msgid "GNOME Games"
 msgstr "Gry GNOME"
 
-#: src/ui/application.vala:471
+#: src/ui/application.vala:487
 msgid "A video game player for GNOME"
 msgstr "Uruchamianie gier w środowisku GNOME"
 
-#: src/ui/application.vala:475
+#: src/ui/application.vala:491
 msgid "Learn more about GNOME Games"
 msgstr "Więcej informacji o Grach GNOME"
 
-#: src/ui/application.vala:482
+#: src/ui/application.vala:498
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2016-2020\n"
@@ -1084,7 +1094,7 @@ msgstr ""
 msgid "Playing a game"
 msgstr "W trakcie gry"
 
-#: src/ui/display-view.vala:360
+#: src/ui/display-view.vala:364
 msgid "No runner found"
 msgstr "Nie odnaleziono programu uruchamiającego"
 
