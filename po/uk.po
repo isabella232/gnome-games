@@ -1,0 +1,1305 @@
+# Ukrainian translation for gnome-games.
+# Copyright (C) 2020 gnome-games's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-games package.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2020.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-games master\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
+"POT-Creation-Date: 2020-03-29 10:31+0000\n"
+"PO-Revision-Date: 2020-03-29 15:14+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 20.03.70\n"
+
+#: data/org.gnome.Games.appdata.xml.in.in:7
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:61
+#: data/ui/collection-header-bar.ui:66 src/ui/application.vala:45
+msgid "Games"
+msgstr "Ігри"
+
+#: data/org.gnome.Games.appdata.xml.in.in:8
+msgid "Simple game launcher for GNOME"
+msgstr "Проста програма для запуску ігор для GNOME"
+
+#: data/org.gnome.Games.appdata.xml.in.in:11
+msgid ""
+"Games is a GNOME 3 application to browse your video games library and to "
+"easily pick and play a game from it. It aims to do for games what Music "
+"already does for your music library."
+msgstr ""
+"«Ігри» є програмою GNOME 3 для навігації вашою бібліотекою відеоігор. За "
+"допомогою програми можна вибрати гру і погратися у неї. Програма має бути "
+"аналогом програми «Музика», яку призначено для вашої фонотеки."
+
+#: data/org.gnome.Games.appdata.xml.in.in:16
+msgid ""
+"You want to install Games if you just want a very simple and comfortable way "
+"to play your games and you don’t need advanced features such as speedrunning "
+"tools or video game development tools."
+msgstr ""
+"Встановлення «Ігор» може знадобитися вам, якщо вам потрібен дуже простий і "
+"зручний спосіб гратися у ваші ігри і не потрібні додаткові можливості, "
+"зокрема інструменти проходження ігор на час або інструменти розробки "
+"відеоігор."
+
+#: data/org.gnome.Games.appdata.xml.in.in:21
+msgid "Features:"
+msgstr "Можливості:"
+
+#: data/org.gnome.Games.appdata.xml.in.in:23
+msgid "List your installed games, your Steam games, your game ROMs…"
+msgstr ""
+"Показ списку встановлених ігор, ваших ігор у Steam, ваших ігрових картриджів…"
+
+#: data/org.gnome.Games.appdata.xml.in.in:24
+msgid "Search in your games collection"
+msgstr "Пошук у вашій збірці ігор"
+
+#: data/org.gnome.Games.appdata.xml.in.in:25
+msgid "Play your games"
+msgstr "Можливість запустити гру"
+
+#: data/org.gnome.Games.appdata.xml.in.in:26
+msgid "Resume your game to where you left it"
+msgstr "Відновлення ігрового процесу з моменту, на якому ви зупинилися"
+
+#: data/org.gnome.Games.appdata.xml.in.in:261
+msgid "The GNOME Project"
+msgstr "Проєкт GNOME"
+
+#: data/org.gnome.Games.desktop.in.in:4
+msgid "Video game player"
+msgstr "Програвач відеоігор"
+
+#: data/org.gnome.Games.desktop.in.in:5
+msgid "View and play your video games collection"
+msgstr "Перегляд і гра у ігри з вашої збірки"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Games.desktop.in.in:7
+msgid "game;videogame;video game;player;"
+msgstr "game;videogame;video game;player;гра;відеогра;відео;гравець;програвач;"
+
+#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:101
+msgid "Fullscreen"
+msgstr "На весь екран"
+
+#: data/org.gnome.Games.gschema.xml:11
+msgid "Whether the games should be displayed in full screen or not."
+msgstr "Чи має вікно гри бути показаним на увесь екран."
+
+#: data/org.gnome.Games.gschema.xml:15
+msgid "Video filter"
+msgstr "Відеофільтр"
+
+#: data/org.gnome.Games.gschema.xml:16
+msgid ""
+"Filter for the game video output. Allowed values are: “smooth” (blurry "
+"pixels), “sharp” (blocky pixels), “crt” (CRT emulation)."
+msgstr ""
+"Фільтр виведення відео для ігор. Можливі значення: «smooth» (розмиті "
+"пікселі), «sharp» (блоки пікселів), «crt» (імітація кінескопа)."
+
+#: data/org.gnome.Games.gschema.xml:20
+msgid "Window maximized"
+msgstr "Вікно розгорнуто"
+
+#: data/org.gnome.Games.gschema.xml:21
+msgid "Window maximized state."
+msgstr "Стан розгорнутого вікна."
+
+#: data/org.gnome.Games.gschema.xml:25
+msgid "Window size"
+msgstr "Розмір вікна"
+
+#: data/org.gnome.Games.gschema.xml:26
+msgid "Window size (width and height)."
+msgstr "Розмір вікна (ширина і висота)."
+
+#: data/org.gnome.Games.gschema.xml:32
+msgid "Preferred core"
+msgstr "Бажане ядро"
+
+#: data/org.gnome.Games.gschema.xml:33
+msgid ""
+"Preferred Libretro core to be used for running games. A different core may "
+"be used if the preferred core is missing firmware."
+msgstr ""
+"Бажане ядро ​​Libretro для використання в іграх. Можна скористатися іншим "
+"ядром, якщо для бажаного ядра немає мікропрограми."
+
+#: data/ui/collection-box.ui:76 src/ui/preferences-page-platforms.vala:9
+msgid "Platforms"
+msgstr "Платформи"
+
+#: data/ui/collection-box.ui:102
+msgid "Loading"
+msgstr "Завантаження"
+
+#: data/ui/collection-header-bar.ui:26
+msgid "Add game files…"
+msgstr "Додайте файли ігор…"
+
+#. Translators: tooltip for the application menu button
+#: data/ui/collection-header-bar.ui:45
+msgid "Menu"
+msgstr "Меню"
+
+#: data/ui/collection-header-bar.ui:82 data/ui/collection-header-bar.ui:137
+msgid "Search"
+msgstr "Пошук"
+
+#: data/ui/collection-header-bar.ui:114 data/ui/display-header-bar.ui:30
+#: data/ui/display-header-bar.ui:165 data/ui/preferences-subpage-gamepad.ui:84
+#: data/ui/preferences-subpage-keyboard.ui:85 data/ui/preferences-window.ui:34
+#: data/ui/preferences-window.ui:78
+msgid "Back"
+msgstr "Назад"
+
+#: data/ui/collection-header-bar.ui:160
+msgid "Pr_eferences"
+msgstr "П_араметри"
+
+#: data/ui/collection-header-bar.ui:164
+msgid "_Keyboard Shortcuts"
+msgstr "_Клавіатурні скорочення"
+
+#: data/ui/collection-header-bar.ui:168
+msgid "_Help"
+msgstr "_Довідка"
+
+#: data/ui/collection-header-bar.ui:172
+msgid "_About Games"
+msgstr "_Про «Ігри»"
+
+#: data/ui/display-header-bar.ui:53
+msgid "Restore"
+msgstr "Відновити"
+
+#: data/ui/display-header-bar.ui:144
+msgid "_Load"
+msgstr "_Завантажити"
+
+#: data/ui/display-header-bar.ui:188
+msgid "_Restart"
+msgstr "_Перезапустити"
+
+#: data/ui/display-header-bar.ui:194
+msgid "_Snapshots"
+msgstr "З_німки вікон"
+
+#: data/ui/empty-collection.ui:23 data/ui/empty-search.ui:25
+msgid "No games found"
+msgstr "Не знайдено жодної гри"
+
+#: data/ui/empty-collection.ui:38
+msgid ""
+"Install games or add directories containing games to your search sources."
+msgstr ""
+"Встановіть ігри або додайте каталоги, у яких зберігаються ігри, до ваших "
+"джерел пошуку."
+
+#: data/ui/empty-search.ui:40
+msgid "Try a different search."
+msgstr "Спробуйте інші критерії пошуку."
+
+#: data/ui/input-mode-switcher.ui:16
+msgid "Gamepad Input"
+msgstr "Введення з ігрового пульта"
+
+#: data/ui/input-mode-switcher.ui:36
+msgid "Keyboard Input"
+msgstr "Введення з клавіатури"
+
+#: data/ui/media-menu-button.ui:14
+msgid "Media"
+msgstr "Носії"
+
+#: data/ui/preferences-page-controllers.ui:10
+msgid "Gamepads"
+msgstr "Ігрові пульти"
+
+#: data/ui/preferences-page-controllers.ui:31
+#: src/ui/preferences-page-controllers.vala:73
+msgid "Keyboard"
+msgstr "Клавіатура"
+
+#: data/ui/preferences-page-import-export.ui:10
+msgid ""
+"Export save states and in-game saves. This can be used for moving the data "
+"to another device or for restoring it later. Desktop, Steam and LÖVE games "
+"cannot be exported."
+msgstr ""
+"Експортувати збережені стани гри та збережені ігри. Цією можливістю можна "
+"скористатися для перенесення даних гри на інший пристрій або відновлення "
+"стані гри. У такий спосіб можна експортувати дані стільничних ігор та ігор "
+"Steam і LÖVE."
+
+#: data/ui/preferences-page-import-export.ui:42
+#: src/ui/preferences-page-import-export.vala:34
+msgid "Export save data"
+msgstr "Експортувати збережені дані"
+
+#: data/ui/preferences-page-import-export.ui:51
+#: src/ui/preferences-page-import-export.vala:36
+msgid "_Export"
+msgstr "_Експортувати"
+
+#: data/ui/preferences-page-import-export.ui:66
+msgid ""
+"Import save data for games from existing backup. This will replace existing "
+"saves and cannot be undone."
+msgstr ""
+"Імпортувати збережені дані для ігор з наявної резервної копії. Імпортовані "
+"дані замінять наявні збережені ігри — скасувати імпортування неможливо."
+
+#: data/ui/preferences-page-import-export.ui:97
+#: src/ui/preferences-page-import-export.vala:12
+msgid "Import save data"
+msgstr "Імпортувати збережені дані"
+
+#: data/ui/preferences-page-import-export.ui:106
+#: src/ui/preferences-page-import-export.vala:14
+msgid "_Import"
+msgstr "_Імпортувати"
+
+#: data/ui/preferences-page-video.ui:10
+msgid "Filter"
+msgstr "Фільтр"
+
+#: data/ui/preferences-subpage-gamepad.ui:22
+#: data/ui/preferences-subpage-keyboard.ui:23
+msgctxt "Keyboard configuration factory reset"
+msgid "Reset"
+msgstr "Скинути"
+
+#: data/ui/preferences-subpage-gamepad.ui:35
+#: data/ui/preferences-subpage-keyboard.ui:36
+msgid "Configure"
+msgstr "Налаштувати"
+
+#: data/ui/preferences-subpage-gamepad.ui:53
+#: data/ui/preferences-subpage-keyboard.ui:54
+msgid "Skip"
+msgstr "Пропустити"
+
+#: data/ui/preferences-subpage-gamepad.ui:102
+#: data/ui/preferences-subpage-keyboard.ui:103 data/ui/quit-dialog.ui:15
+#: data/ui/reset-controller-mapping-dialog.ui:15 data/ui/restart-dialog.ui:15
+#: data/ui/resume-failed-dialog.ui:14
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: data/ui/preferences-window.ui:5 data/ui/preferences-window.ui:23
+msgid "Preferences"
+msgstr "Налаштування"
+
+#: data/ui/quit-dialog.ui:9
+msgid "Are you sure you want to quit?"
+msgstr "Ви дійсно хочете вийти?"
+
+#: data/ui/quit-dialog.ui:10 data/ui/restart-dialog.ui:10
+msgid "All unsaved progress will be lost."
+msgstr "Усі незбережені дані щодо поступу буде втрачено."
+
+#: data/ui/quit-dialog.ui:21
+msgid "Quit"
+msgstr "Вийти"
+
+#: data/ui/remote-display.ui:23
+msgid "Use the game’s own window to play it"
+msgstr "Використовуйте власне вікно гри для ігрового процесу"
+
+#: data/ui/remote-display.ui:36
+msgid "This game isn’t integrated with GNOME Games."
+msgstr "Цю груп не інтегровано до «Ігор» GNOME."
+
+#: data/ui/remote-display.ui:47
+msgid "You have to use its own window to play it."
+msgstr "Вам слід скористатися власним вікном гри для ігрового процесу."
+
+#: data/ui/reset-controller-mapping-dialog.ui:9
+msgid "Factory reset mapping for this controller?"
+msgstr "Скинути налаштування для цього контролера до типових?"
+
+#: data/ui/reset-controller-mapping-dialog.ui:10
+msgid "Your mapping will be lost."
+msgstr "Ваші прив'язки клавіш буде втрачено."
+
+#: data/ui/reset-controller-mapping-dialog.ui:21
+msgctxt "Confirm controller configuration factory reset"
+msgid "Reset"
+msgstr "Скинути"
+
+#: data/ui/restart-dialog.ui:9
+msgid "Are you sure you want to restart?"
+msgstr "Ви справді хочете перезапустити програму?"
+
+#: data/ui/restart-dialog.ui:21 data/ui/resume-dialog.ui:13
+msgid "Restart"
+msgstr "Перезапустити"
+
+#: data/ui/resume-dialog.ui:9
+msgid "Resume last game?"
+msgstr "Поновити останню гру?"
+
+#: data/ui/resume-dialog.ui:20
+msgid "Resume"
+msgstr "Продовжити"
+
+#: data/ui/resume-failed-dialog.ui:9
+msgid "Resuming failed. Do you want to restart the game?"
+msgstr "Не вдалося поновити гру. Хочете перезапустити гру?"
+
+#: data/ui/resume-failed-dialog.ui:20
+msgctxt "Resuming a game failed dialog"
+msgid "Reset"
+msgstr "Скинути"
+
+#: data/ui/shortcuts-window.ui:11
+msgid "Shortcuts"
+msgstr "Скорочення"
+
+#: data/ui/shortcuts-window.ui:15
+msgid "General"
+msgstr "Загальні"
+
+#: data/ui/shortcuts-window.ui:20
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Повернутися"
+
+#: data/ui/shortcuts-window.ui:27
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Вийти"
+
+#: data/ui/shortcuts-window.ui:35 data/ui/shortcuts-window.ui:242
+msgid "Collection"
+msgstr "Збірка"
+
+#: data/ui/shortcuts-window.ui:40
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Пошук"
+
+#: data/ui/shortcuts-window.ui:49 data/ui/shortcuts-window.ui:58
+msgctxt "shortcut window"
+msgid "Navigate"
+msgstr "Навігація"
+
+#: data/ui/shortcuts-window.ui:50
+msgctxt "shortcut window"
+msgid "Left analog stick"
+msgstr "Лівий аналоговий стік"
+
+#: data/ui/shortcuts-window.ui:59
+msgctxt "shortcut window"
+msgid "Directional pad"
+msgstr "Кнопки напрямку"
+
+#: data/ui/shortcuts-window.ui:67
+msgctxt "shortcut window"
+msgid "Select view"
+msgstr "Перегляд вибору"
+
+#: data/ui/shortcuts-window.ui:68
+msgctxt "shortcut window"
+msgid "Front shoulder buttons"
+msgstr "Передні бічні кнопки"
+
+#: data/ui/shortcuts-window.ui:76 data/ui/shortcuts-window.ui:85
+msgctxt "shortcut window"
+msgid "Start game"
+msgstr "Розпочати гру"
+
+#: data/ui/shortcuts-window.ui:77
+msgctxt "shortcut window"
+msgid "Start button"
+msgstr "Кнопка «Старт»"
+
+#: data/ui/shortcuts-window.ui:86 data/ui/shortcuts-window.ui:145
+msgctxt "shortcut window"
+msgid "Bottom action button"
+msgstr "Нижня кнопка дій"
+
+#: data/ui/shortcuts-window.ui:93
+msgid "In Game"
+msgstr "У грі"
+
+#: data/ui/shortcuts-window.ui:98
+msgctxt "shortcut window"
+msgid "Create new snapshot"
+msgstr "Створити знімок вікна"
+
+#: data/ui/shortcuts-window.ui:105
+msgctxt "shortcut window"
+msgid "Load the latest snapshot"
+msgstr "Завантажити найсвіжіший знімок"
+
+#: data/ui/shortcuts-window.ui:112
+msgctxt "shortcut window"
+msgid "Show snapshots"
+msgstr "Показати знімки"
+
+#: data/ui/shortcuts-window.ui:119
+msgctxt "shortcut window"
+msgid "Toggle fullscreen"
+msgstr "Увімкнути/вимкнути повноекранний режим"
+
+#: data/ui/shortcuts-window.ui:126
+msgctxt "shortcut window"
+msgid "Exit fullscreen"
+msgstr "Вийти з повноекранного режиму"
+
+#: data/ui/shortcuts-window.ui:135
+msgctxt "shortcut window"
+msgid "Go back to the collection"
+msgstr "Повернутися до збірки"
+
+#: data/ui/shortcuts-window.ui:136
+msgctxt "shortcut window"
+msgid "Home button"
+msgstr "Кнопка Домівка"
+
+#: data/ui/shortcuts-window.ui:144
+msgctxt "shortcut window"
+msgid "Accept"
+msgstr "Прийняти"
+
+#: data/ui/shortcuts-window.ui:153
+msgctxt "shortcut window"
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: data/ui/shortcuts-window.ui:154
+msgctxt "shortcut window"
+msgid "Right action button"
+msgstr "Права кнопка дії"
+
+#: data/ui/shortcuts-window.ui:165
+#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:6
+msgid "Nintendo DS"
+msgstr "Nintendo DS"
+
+#: data/ui/shortcuts-window.ui:169
+#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:39
+msgid "Screen Layout"
+msgstr "Компонування екрана"
+
+#: data/ui/shortcuts-window.ui:174
+msgctxt "shortcut window"
+msgid "Vertical"
+msgstr "Вертикально"
+
+#: data/ui/shortcuts-window.ui:181 data/ui/shortcuts-window.ui:189
+msgctxt "shortcut window"
+msgid "Side by side"
+msgstr "Обабіч"
+
+#: data/ui/shortcuts-window.ui:182
+msgctxt "shortcut window"
+msgid "Bottom to the right"
+msgstr "Знизу праворуч"
+
+#: data/ui/shortcuts-window.ui:190
+msgctxt "shortcut window"
+msgid "Bottom to the left"
+msgstr "Знизу ліворуч"
+
+#: data/ui/shortcuts-window.ui:197
+msgctxt "shortcut window"
+msgid "Single screen"
+msgstr "Один екран"
+
+#: data/ui/shortcuts-window.ui:205
+msgid "Screen Switching"
+msgstr "Перемикання екранів"
+
+#: data/ui/shortcuts-window.ui:210
+msgctxt "shortcut window"
+msgid "Show top screen"
+msgstr "Показати верхній екран"
+
+#: data/ui/shortcuts-window.ui:217
+msgctxt "shortcut window"
+msgid "Show bottom screen"
+msgstr "Показати нижній екран"
+
+#: data/ui/shortcuts-window.ui:226
+msgctxt "shortcut window"
+msgid "Toggle screen"
+msgstr "Перемкнути екран"
+
+#: data/ui/shortcuts-window.ui:227
+msgctxt "shortcut window"
+msgid "Press right analog stick"
+msgstr "Натискання правого аналогового стіка"
+
+#: data/ui/shortcuts-window.ui:238
+msgid "Cheats"
+msgstr "Чит-коди"
+
+#: data/ui/shortcuts-window.ui:247
+msgctxt "shortcut window"
+msgid "Contribute"
+msgstr "Участь у проєкті"
+
+#: data/ui/snapshots-list.ui:64
+msgid "Create new snapshot"
+msgstr "Створити знімок вікна"
+
+#: data/ui/snapshots-list.ui:89
+msgid "_Delete"
+msgstr "В_илучити"
+
+#: data/ui/snapshots-list.ui:103 data/ui/snapshots-list.ui:153
+msgid "_Rename"
+msgstr "Перей_менувати"
+
+#: data/ui/snapshots-list.ui:129
+msgid "Name"
+msgstr "Назва"
+
+#: plugins/desktop/src/desktop-plugin.vala:6
+msgid "Desktop"
+msgstr "Стільниця"
+
+#: plugins/desktop/src/desktop-plugin.vala:83
+#, c-format
+msgid "Invalid command “%s”."
+msgstr "Некоректна команда «%s»."
+
+#: plugins/desktop/src/desktop-plugin.vala:92
+#, c-format
+msgid "Tracker listed file not found: “%s”."
+msgstr "Не знайдено файла з бази даних Tracker: «%s»."
+
+#: plugins/desktop/src/desktop-plugin.vala:98
+#, c-format
+msgid "Couldn’t parse desktop entry “%s”."
+msgstr "Не вдалося обробити запис .desktop «%s»."
+
+#: plugins/desktop/src/desktop-plugin.vala:108
+#, c-format
+msgid "“%s” shouldn’t be displayed."
+msgstr "«%s» не мало бути показано."
+
+#: plugins/desktop/src/desktop-plugin.vala:111
+#, c-format
+msgid "“%s” is hidden."
+msgstr "«%s» приховано."
+
+#: plugins/desktop/src/desktop-plugin.vala:120
+#, c-format
+msgid "“%s” has blacklisted category “%s”."
+msgstr "«%s» належить до категорії із «чорного» списку «%s»."
+
+#: plugins/desktop/src/desktop-plugin.vala:129
+#, c-format
+msgid "“%s” has blacklisted executable “%s”."
+msgstr "«%s» має виконуваний файл із «чорного» списку «%s»."
+
+#: plugins/desktop/src/desktop-plugin.vala:136
+#, c-format
+msgid "“%s” is blacklisted."
+msgstr "«%s» є у «чорному» списку."
+
+#: plugins/dreamcast/src/dreamcast-header.vala:54
+msgid "The file doesn’t have a Dreamcast header."
+msgstr "Файл не містить заголовка Dreamcast."
+
+#: plugins/dreamcast/src/dreamcast-plugin.vala:6
+msgid "Dreamcast"
+msgstr "Dreamcast"
+
+#: plugins/game-cube/src/game-cube-header.vala:20
+msgid "The file doesn’t have a Game Cube header."
+msgstr "Файл не містить заголовка Game Cube."
+
+#: plugins/game-cube/src/game-cube-plugin.vala:6
+msgid "Nintendo GameCube"
+msgstr "Nintendo GameCube"
+
+#: plugins/libretro/src/libretro-plugin.vala:6
+msgid "Libretro"
+msgstr "Libretro"
+
+#: plugins/love/src/love-package.vala:13 plugins/love/src/love-package.vala:17
+#, c-format
+msgid "This doesn’t represent a valid LÖVE package: “%s”."
+msgstr "Цей пакунок не є коректним пакунком LÖVE: «%s»."
+
+#: plugins/love/src/love-plugin.vala:6
+msgid "LÖVE"
+msgstr "LÖVE"
+
+#: plugins/mame/src/mame-game-uri-adapter.vala:18
+#, c-format
+msgid "Invalid MAME game id “%s” for “%s”."
+msgstr "Некоректний ідентифікатор гри MAME — «%s» для «%s»."
+
+#: plugins/mame/src/mame-plugin.vala:7
+msgid "Arcade"
+msgstr "Аркади"
+
+#: plugins/ms-dos/src/ms-dos-plugin.vala:6
+msgid "MS-DOS"
+msgstr "MS-DOS"
+
+#: plugins/nintendo-64/data/ui/nintendo-64-pak-switcher.ui:14
+#| msgid "Controllers"
+msgid "Controller Expansion"
+msgstr "Розширення контролера"
+
+#: plugins/nintendo-64/src/nintendo-64-pak-controller.vala:31
+#, c-format
+msgid "Player %u"
+msgstr "Гравець %u"
+
+#: plugins/nintendo-64/src/nintendo-64-plugin.vala:6
+#: src/retro/retro-simple-type.vala:44
+msgid "Nintendo 64"
+msgstr "Nintendo 64"
+
+#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:19
+msgid "Change Screen"
+msgstr "Змінити екран"
+
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:50
+msgid "Vertical"
+msgstr "Вертикально"
+
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:53
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:56
+msgid "Side by side"
+msgstr "Обабіч"
+
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:59
+msgid "Single screen"
+msgstr "Один екран"
+
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:69
+msgid "Bottom to the right"
+msgstr "Знизу праворуч"
+
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:72
+msgid "Bottom to the left"
+msgstr "Знизу ліворуч"
+
+#: plugins/playstation/src/playstation-header.vala:27
+#, c-format
+msgid "Not a PlayStation disc: “%s”."
+msgstr "«%s» не є диском PlayStation."
+
+#: plugins/playstation/src/playstation-header.vala:37
+#, c-format
+msgid "Invalid PlayStation header: disc ID not found in “%s”."
+msgstr ""
+"Некоректний заголовок PlayStation: не знайдено ідентифікатора диска у «%s»."
+
+#: plugins/playstation/src/playstation-plugin.vala:7
+msgid "PlayStation"
+msgstr "PlayStation"
+
+#: plugins/sega-cd/src/sega-cd-header.vala:44
+#: plugins/sega-cd/src/sega-cd-header.vala:63
+msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
+msgstr "Файл не містить заголовка Genesis/Sega 32X/Sega CD/Sega Pico."
+
+#. translators: known as "Mega-CD" in most of the world
+#: plugins/sega-cd/src/sega-cd-plugin.vala:13
+msgid "Sega CD"
+msgstr "Sega CD"
+
+#. translators: known as "Mega-CD 32X" in most of the world
+#: plugins/sega-cd/src/sega-cd-plugin.vala:15
+msgid "Sega CD 32X"
+msgstr "Sega CD 32X"
+
+#: plugins/sega-cd/src/sega-cd-plugin.vala:99
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:88
+#, c-format
+msgid "The file “%s” doesn’t have a track."
+msgstr "Файл «%s» не містить доріжки."
+
+#: plugins/sega-cd/src/sega-cd-plugin.vala:105
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:94
+#, c-format
+msgid "The file “%s” doesn’t have a valid binary file format."
+msgstr "Файл «%s» не належить до коректного формату двійкових файлів."
+
+#: plugins/sega-cd/src/sega-cd-plugin.vala:108
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:97
+#, c-format
+msgid "The file “%s” doesn’t have a valid track mode for track %d."
+msgstr "У файлі «%s» не міститься коректного режиму доріжки для доріжки %d."
+
+#: plugins/sega-saturn/src/sega-saturn-header.vala:54
+msgid "The file doesn’t have a Sega Saturn header."
+msgstr "Файл не є файлом заголовка Sega Saturn."
+
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:7
+msgid "Sega Saturn"
+msgstr "Sega Saturn"
+
+#: plugins/sega-saturn/src/sega-saturn-plugin.vala:101
+#, c-format
+msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
+msgstr ""
+"Файл «%s» не належить до коректного формату двійкових файлів Sega Saturn."
+
+#: plugins/steam/src/steam-plugin.vala:10
+msgid "Steam"
+msgstr "Steam"
+
+#: plugins/steam/src/steam-registry.vala:68
+#, c-format
+msgid "File “%s” doesn’t exist."
+msgstr "Файла «%s» не існує."
+
+#: plugins/steam/src/steam-registry.vala:96
+msgid "Unexpected token '{'."
+msgstr "Неочікуваний елемент «{»"
+
+#: plugins/steam/src/steam-registry.vala:110
+msgid "Unexpected end of tokens."
+msgstr "Неочікуване завершення елементів."
+
+#: plugins/steam/src/steam-registry.vala:113
+msgid "Unexpected token '}'."
+msgstr "Неочікуваний елемент «}»"
+
+#. translators: known as "CD-ROM²" in eastern Asia and France
+#: plugins/turbografx-cd/src/turbografx-cd-plugin.vala:9
+msgid "TurboGrafx-CD"
+msgstr "TurboGrafx-CD"
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:20
+msgid "The file is too short."
+msgstr "Файл є надто коротким."
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:26
+#, c-format
+msgid "Invalid Virtual Boy ROM header size: %s"
+msgstr "Некоректний розмір заголовка картриджа Virtual Boy: %s"
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:38
+msgid "Invalid Virtual Boy ROM header size."
+msgstr "Некоректний розмір заголовка картриджа Virtual Boy."
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:42
+msgid "The file doesn’t have a Virtual Boy ROM header."
+msgstr "Файл не містить заголовка картриджа Virtual Boy."
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:51
+#, c-format
+msgid "Couldn’t get file size: %s"
+msgstr "Не вдалося отримати розмір файла: %s"
+
+#: plugins/virtual-boy/src/virtual-boy-header.vala:60
+#: plugins/wii/src/wii-header.vala:55
+#, c-format
+msgid "Couldn’t read file: %s"
+msgstr "Не вдалося прочитати файл: %s"
+
+#: plugins/virtual-boy/src/virtual-boy-plugin.vala:6
+msgid "Virtual Boy"
+msgstr "Virtual Boy"
+
+#: plugins/wii/src/wii-header.vala:20
+#, c-format
+msgid "Invalid Wii header size: %s"
+msgstr "Некоректний розмір заголовка Wii: %s"
+
+#: plugins/wii/src/wii-header.vala:33 plugins/wii/src/wii-header.vala:44
+msgid "The file doesn’t have a Wii header."
+msgstr "У файлі немає заголовка Wii."
+
+#: plugins/wii/src/wii-plugin.vala:6
+msgid "Wii"
+msgstr "Wii"
+
+#: src/command/command-runner.vala:37
+msgid "The game doesn’t have a valid command."
+msgstr "Гра не містить коректної команди."
+
+#: src/command/command-runner.vala:78
+#, c-format
+msgid "Couldn’t run “%s”: execution failed."
+msgstr "Не вдалося запустити «%s»: помилка під час виконання."
+
+#: src/core/media-set/media-set.vala:45
+#, c-format
+msgid "Invalid media index %u."
+msgstr "Некоректний індекс носія %u."
+
+#: src/core/plugin-registrar.vala:27
+#, c-format
+msgid "Invalid plugin descriptor: %s"
+msgstr "Некоректний дескриптор додатка: %s"
+
+#: src/core/plugin-registrar.vala:48 src/core/plugin-registrar.vala:52
+#, c-format
+msgid "Couldn’t create a new instance of plugin in “%s”."
+msgstr "Не вдалося створити екземпляр додатка у «%s»."
+
+#: src/core/snapshot-manager.vala:82 src/core/snapshot-manager.vala:107
+#, c-format
+msgid "New snapshot %s"
+msgstr "Новий знімок %s"
+
+#: src/dummy/dummy-platform.vala:9 src/dummy/dummy-platform.vala:17
+msgid "Unknown"
+msgstr "Невідомий"
+
+#: src/gameinfo/gameinfo-disc-id-disc-title.vala:24
+#, c-format
+msgid "Disc %d"
+msgstr "Диск %d"
+
+#: src/gameinfo/gameinfo-doc.vala:15
+#, c-format
+msgid "No game title found for disc ID “%s”."
+msgstr "Не знайдено назви гри для ідентифікатора диска «%s»."
+
+#: src/gameinfo/gameinfo-doc.vala:31
+#, c-format
+msgid "No disc title found for disc ID “%s”."
+msgstr "Не знайдено назви диска для ідентифікатора диска «%s»."
+
+#: src/gameinfo/gameinfo-doc.vala:41
+#, c-format
+msgid "No disc set ID found for disc ID “%s”."
+msgstr ""
+"Не знайдено ідентифікатора диска у наборі для диска із ідентифікатором «%s»."
+
+#: src/gameinfo/gameinfo-doc.vala:49 src/gameinfo/gameinfo-doc.vala:59
+#, c-format
+msgid "No disc found for disc ID “%s”."
+msgstr "Не знайдено диска для ідентифікатора диска «%s»."
+
+#: src/retro/retro-core-source.vala:29 src/retro/retro-core-source.vala:43
+#, c-format
+msgid "No module found for platform “%s” and MIME types [ “%s” ]."
+msgstr "Не знайдено модуля для платформи «%s» і типів MIME [ «%s» ]."
+
+#: src/retro/retro-core-source.vala:29 src/retro/retro-core-source.vala:43
+msgid "”, “"
+msgstr "», «"
+
+#: src/retro/retro-core-source.vala:70
+#, c-format
+msgid "This game requires the %s firmware file to run."
+msgstr "Для запуску цієї гри потрібен файл мікропрограми %s."
+
+#: src/retro/retro-core-source.vala:87
+#, c-format
+msgid ""
+"This game requires the %s firmware file with a MD5 fingerprint of %s to run."
+msgstr ""
+"Для запуску цієї гри потрібен файл мікропрограми %s із відбитком MD5 %s."
+
+#: src/retro/retro-core-source.vala:93
+#, c-format
+msgid ""
+"This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
+"run."
+msgstr ""
+"Для запуску цієї гри потрібен файл мікропрограми %s із відбитком SHA-512 %s."
+
+#: src/retro/retro-runner.vala:127
+#, c-format
+msgid "The system “%s” isn’t supported yet, but full support is planned."
+msgstr ""
+"Підтримку системи «%s» ще не реалізовано, але ми плануємо реалізувати повну "
+"підтримку."
+
+#: src/retro/retro-runner.vala:129
+msgid "The system isn’t supported yet, but full support is planned."
+msgstr "Підтримку системи ще не реалізовано, але ми її запланували."
+
+#: src/retro/retro-runner.vala:160
+#, c-format
+msgid "No module found for “%s”."
+msgstr "Не знайдено модуля для «%s»."
+
+#: src/retro/retro-runner.vala:444
+msgid "Unknown platform"
+msgstr "Невідома платформа"
+
+#: src/retro/retro-simple-type.vala:13
+msgid "Amiga"
+msgstr "Amiga"
+
+#: src/retro/retro-simple-type.vala:15
+msgid "Atari 2600"
+msgstr "Atari 2600"
+
+#: src/retro/retro-simple-type.vala:17
+msgid "Atari 7800"
+msgstr "Atari 7800"
+
+#: src/retro/retro-simple-type.vala:19
+msgid "Atari Lynx"
+msgstr "Atari Lynx"
+
+#: src/retro/retro-simple-type.vala:21
+msgid "DOOM"
+msgstr "DOOM"
+
+#. translators: only released in eastern Asia
+#: src/retro/retro-simple-type.vala:24
+msgid "Famicom Disk System"
+msgstr "Famicom Disk System"
+
+#: src/retro/retro-simple-type.vala:26
+msgid "Game Boy"
+msgstr "Game Boy"
+
+#: src/retro/retro-simple-type.vala:28
+msgid "Game Boy Color"
+msgstr "Game Boy Color"
+
+#: src/retro/retro-simple-type.vala:30
+msgid "Game Boy Advance"
+msgstr "Game Boy Advance"
+
+#: src/retro/retro-simple-type.vala:32
+msgid "Game Gear"
+msgstr "Game Gear"
+
+#. translators: also known as "Sega Mark III" in eastern asia
+#: src/retro/retro-simple-type.vala:35
+msgid "Master System"
+msgstr "Master System"
+
+#: src/retro/retro-simple-type.vala:37
+msgid "Neo Geo Pocket"
+msgstr "Neo Geo Pocket"
+
+#: src/retro/retro-simple-type.vala:39
+msgid "Neo Geo Pocket Color"
+msgstr "Neo Geo Pocket Color"
+
+#. translators: known as "Famicom" in eastern Asia
+#: src/retro/retro-simple-type.vala:42
+msgid "Nintendo Entertainment System"
+msgstr "Nintendo Entertainment System"
+
+#. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
+#: src/retro/retro-simple-type.vala:47
+msgid "Genesis 32X"
+msgstr "Genesis 32X"
+
+#. translators: known as "Mega Drive" in most of the world
+#: src/retro/retro-simple-type.vala:50
+msgid "Sega Genesis"
+msgstr "Sega Genesis"
+
+#: src/retro/retro-simple-type.vala:52
+msgid "Sega Pico"
+msgstr "Sega Pico"
+
+#: src/retro/retro-simple-type.vala:54
+msgid "SG-1000"
+msgstr "SG-1000"
+
+#. translators: known as "Super Famicom" in eastern Asia
+#: src/retro/retro-simple-type.vala:57
+msgid "Super Nintendo Entertainment System"
+msgstr "Super Nintendo Entertainment System"
+
+#. translators: known as "PC Engine" in eastern Asia and France
+#: src/retro/retro-simple-type.vala:60
+msgid "TurboGrafx-16"
+msgstr "TurboGrafx-16"
+
+#: src/retro/retro-simple-type.vala:62
+msgid "WiiWare"
+msgstr "WiiWare"
+
+#: src/retro/retro-simple-type.vala:64
+msgid "WonderSwan"
+msgstr "WonderSwan"
+
+#: src/retro/retro-simple-type.vala:66
+msgid "WonderSwan Color"
+msgstr "WonderSwan Color"
+
+#: src/ui/application.vala:32
+msgid "Search term"
+msgstr "Ключове слово"
+
+#: src/ui/application.vala:33
+msgid "Run a game by uid"
+msgstr "Запустити гру за ідентифікатором"
+
+#: src/ui/application.vala:168
+msgid "Select game files"
+msgstr "Виберіть файли гри"
+
+#: src/ui/application.vala:169 src/ui/preferences-page-import-export.vala:14
+#: src/ui/preferences-page-import-export.vala:36
+msgid "_Cancel"
+msgstr "_Скасувати"
+
+#: src/ui/application.vala:170
+msgid "_Add"
+msgstr "_Додати"
+
+#: src/ui/application.vala:220
+#, c-format
+msgid "An unexpected error occurred while trying to run %s"
+msgstr "Під час спроби запустити %s сталася неочікувана помилка"
+
+#: src/ui/application.vala:256
+#, c-format
+msgid "Cannot find game with UID “%s”."
+msgstr "Не вдалося знайти гру з UID «%s»."
+
+#: src/ui/application.vala:314
+msgid "Couldn't find Tracker, automatic game discovery may not work."
+msgstr ""
+"Не вдалося знайти Tracker, автоматичне виявлення ігор може не спрацювати."
+
+#: src/ui/application.vala:485
+msgid "GNOME Games"
+msgstr "Ігри GNOME"
+
+#: src/ui/application.vala:487
+msgid "A video game player for GNOME"
+msgstr "Програвач відеоігор для GNOME"
+
+#: src/ui/application.vala:491
+msgid "Learn more about GNOME Games"
+msgstr "Докладніше про «Ігри» GNOME"
+
+#: src/ui/application.vala:498
+msgid "translator-credits"
+msgstr "Юрій Чорноіван <yurchor@ukr.net>"
+
+#: src/ui/application-window.vala:277 src/ui/application-window.vala:294
+msgid "Playing a game"
+msgstr "Граємо у гру"
+
+#: src/ui/display-view.vala:364
+msgid "No runner found"
+msgstr "Не знайдено засобу запуску"
+
+#: src/ui/error-display.vala:15
+#, c-format
+msgid "Oops! Unable to run “%s”"
+msgstr "Оце тобі! Не вдалося запустити «%s»"
+
+#: src/ui/error-display.vala:17
+msgid "Oops! Unable to run the game"
+msgstr "Оце тобі! Не вдалося запустити гру"
+
+#: src/ui/error-display.vala:24
+#, c-format
+msgid "Oops! The game “%s” crashed unexpectedly"
+msgstr "Оце тобі! Неочікуване аварійне завершення гри «%s»"
+
+#: src/ui/gamepad-mapper.vala:168
+msgid "Press suitable button on your gamepad"
+msgstr "Натисніть відповідну кнопку на ігровому пульті"
+
+#: src/ui/gamepad-mapper.vala:173
+msgid "Move suitable axis left/right on your gamepad"
+msgstr "Пересуньте відповідну вісь ліворуч-праворуч на ігровому пульті"
+
+#: src/ui/gamepad-mapper.vala:175
+msgid "Move suitable axis up/down on your gamepad"
+msgstr "Пересуньте відповідну вісь вгору-вниз на ігровому пульті"
+
+#: src/ui/keyboard-mapper.vala:27
+msgid "Press suitable key on your keyboard"
+msgstr "Натисніть відповідну клавішу на клавіатурі"
+
+#: src/ui/media-menu-button.vala:52
+#, c-format
+msgid "Media %d"
+msgstr "Носій %d"
+
+#: src/ui/preferences-page-controllers.vala:22
+msgid "Controllers"
+msgstr "Контролери"
+
+#: src/ui/preferences-page-import-export.vala:6
+msgid "Import & Export"
+msgstr "Імпортування та експортування"
+
+#: src/ui/preferences-page-import-export.vala:23
+#, c-format
+msgid "Couldn’t import save data: %s"
+msgstr "Не вдалося імпортувати збережені дані: %s"
+
+#: src/ui/preferences-page-import-export.vala:53
+#, c-format
+msgid "Couldn’t export save data: %s"
+msgstr "Не вдалося експортувати збережені дані: %s"
+
+#: src/ui/preferences-page-platforms-retro-row.vala:45
+#: src/ui/preferences-page-platforms-retro-row.vala:52
+msgid "None"
+msgstr "Немає"
+
+#. same as video-filters in gschema
+#: src/ui/preferences-page-video.vala:22
+msgid "Smooth"
+msgstr "Згладжування"
+
+#: src/ui/preferences-page-video.vala:22
+msgid "Sharp"
+msgstr "Збільшення різкості"
+
+#: src/ui/preferences-page-video.vala:22
+msgid "CRT"
+msgstr "Електронна трубка"
+
+#: src/ui/preferences-page-video.vala:36
+msgid "Video"
+msgstr "Відео"
+
+#. translators: testing a gamepad, %s is its name
+#: src/ui/preferences-subpage-gamepad.vala:50
+#, c-format
+msgid "Testing %s"
+msgstr "Тестування %s"
+
+#. translators: configuring a gamepad, %s is its name
+#: src/ui/preferences-subpage-gamepad.vala:61
+#, c-format
+msgid "Configuring %s"
+msgstr "Налаштовуємо %s"
+
+#: src/ui/preferences-subpage-keyboard.vala:45
+msgid "Testing Keyboard"
+msgstr "Тестуємо клавіатуру"
+
+#: src/ui/preferences-subpage-keyboard.vala:55
+msgid "Configuring Keyboard"
+msgstr "Налаштовуємо клавіатуру"
+
+#: src/ui/snapshot-row.vala:23 src/ui/snapshots-list.vala:185
+msgid "Autosave"
+msgstr "Автозбереження"
+
+#. Translators: Time in locale format
+#: src/ui/snapshot-row.vala:190
+#, no-c-format
+msgid "%X"
+msgstr "%X"
+
+#. Translators: this is the word Yesterday followed by
+#. * a time in locale format. i.e. "Yesterday 23:04:35"
+#: src/ui/snapshot-row.vala:196
+#, no-c-format
+msgid "Yesterday %X"
+msgstr "Вчора %X"
+
+#. Translators: this is the abbreviated name of the week day followed by
+#. * a time in locale format. i.e. "Monday 23:04:35"
+#: src/ui/snapshot-row.vala:202
+#, no-c-format
+msgid "%a %X"
+msgstr "%a %X"
+
+#. Translators: this is the day of the month followed
+#. * by the abbreviated month name followed by a time in
+#. * locale format i.e. "3 Feb 23:04:35"
+#: src/ui/snapshot-row.vala:209
+#, no-c-format
+msgid "%-e %b %X"
+msgstr "%-e %b %X"
+
+#. Translators: this is the day number followed
+#. * by the abbreviated month name followed by the year followed
+#. * by a time in locale format i.e. "3 Feb 2015 23:04:00"
+#: src/ui/snapshot-row.vala:216
+#, no-c-format
+msgid "%-e %b %Y %X"
+msgstr "%-e %b %Y %X"
+
+#: src/ui/snapshots-list.vala:188
+msgid "Invalid name"
+msgstr "Некоректна назва"
+
+#: src/ui/snapshots-list.vala:206
+msgid "A snapshot with this name already exists"
+msgstr "Знімок із цією назвою вже існує"
+
+#: src/utils/cue-sheet/cue-sheet.vala:25
+#, c-format
+msgid "“%s” doesn’t have a track for index %u."
+msgstr "На «%s» немає доріжки для індексу %u."
+
+#: src/utils/cue-sheet/cue-sheet.vala:114
+#, c-format
+msgid "%s:%lu: Invalid file format %s, expected a valid file format or none."
+msgstr ""
+"%s:%lu: некоректний формат файлів %s, мало бути вказано коректний формат або "
+"нічого."
+
+#: src/utils/cue-sheet/cue-sheet.vala:121
+#, c-format
+msgid "%s:%lu: Unexpected token TRACK before a FILE token."
+msgstr "%s:%lu: неочікуваний елемент TRACK перед елементом FILE."
+
+#: src/utils/cue-sheet/cue-sheet.vala:130
+#, c-format
+msgid "%s:%lu: Invalid track number %s, expected a number in the 1-99 range."
+msgstr ""
+"%s:%lu: некоректний номер доріжки %s, мало бути вказано номер у діапазоні "
+"від 1 до 99."
+
+#: src/utils/cue-sheet/cue-sheet.vala:134
+#, c-format
+msgid "%s:%lu: Invalid track mode %s, expected a valid track mode."
+msgstr ""
+"%s:%lu: некоректний режим доріжки %s, мало бути вказано коректний режим "
+"доріжки."
+
+#: src/utils/cue-sheet/cue-sheet.vala:141
+#, c-format
+msgid "%s:%lu: Unexpected end of file, expected %s."
+msgstr "%s:%lu: неочікуване завершення файла, мало бути %s."
+
+#: src/utils/cue-sheet/cue-sheet.vala:144
+#, c-format
+msgid "%s:%lu: Unexpected token %s, expected %s."
+msgstr "%s:%lu: неочікуваний елемент %s, мало бути %s."
+
+#: src/utils/cue-sheet/cue-sheet.vala:151
+#, c-format
+msgid "%s:%lu: Unexpected end of file, expected a token."
+msgstr "%s:%lu: неочікуване завершення файла, мав бути елемент."
+
+#: src/utils/cue-sheet/cue-sheet.vala:154
+#, c-format
+msgid "%s:%lu: Unexpected end of line, expected a token."
+msgstr "%s:%lu: неочікуване завершення рядка, мав бути елемент."
+
+#: src/utils/cue-sheet/cue-sheet.vala:177
+#, c-format
+msgid "%s:%lu: Unexpected token %s, expected end of line."
+msgstr "%s:%lu: неочікуваний елемент %s, мало бути завершено рядок."
+
+#: src/utils/file-operations.vala:27
+#, c-format
+msgid "Error: %s (%d)"
+msgstr "Помилка: %s (%d)"
+
+#: src/utils/file-operations.vala:85
+#, c-format
+msgid "Error writing “%s”: %s (%d)"
+msgstr "Помилка під час спроби записати «%s»: %s (%d)"
