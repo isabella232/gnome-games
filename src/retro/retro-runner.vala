@@ -289,7 +289,7 @@ public class Games.RetroRunner : Object, Runner {
 
 		input_manager = null;
 
-		if (core.is_initiated)
+		if (!is_error && core.is_initiated)
 			core.stop ();
 
 		core = null;
