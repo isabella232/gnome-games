@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-03-19 15:28+0000\n"
-"PO-Revision-Date: 2020-03-26 15:31+0200\n"
+"POT-Creation-Date: 2020-03-29 10:31+0000\n"
+"PO-Revision-Date: 2020-03-29 15:14+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -35,9 +35,9 @@ msgid ""
 "easily pick and play a game from it. It aims to do for games what Music "
 "already does for your music library."
 msgstr ""
-"«Ігри» є програмою GNOME 3 для навігації вашою бібліотекою відеоігор. За"
-" допомогою програми можна вибрати гру і погратися у неї. Програма має бути"
-" аналогом програми «Музика», яку призначено для вашої фонотеки."
+"«Ігри» є програмою GNOME 3 для навігації вашою бібліотекою відеоігор. За "
+"допомогою програми можна вибрати гру і погратися у неї. Програма має бути "
+"аналогом програми «Музика», яку призначено для вашої фонотеки."
 
 #: data/org.gnome.Games.appdata.xml.in.in:16
 msgid ""
@@ -45,10 +45,10 @@ msgid ""
 "to play your games and you don’t need advanced features such as speedrunning "
 "tools or video game development tools."
 msgstr ""
-"Встановлення «Ігор» може знадобитися вам, якщо вам потрібен дуже простий і"
-" зручний спосіб гратися у ваші ігри і не потрібні додаткові можливості,"
-" зокрема інструменти проходження ігор на час або інструменти розробки"
-" відеоігор."
+"Встановлення «Ігор» може знадобитися вам, якщо вам потрібен дуже простий і "
+"зручний спосіб гратися у ваші ігри і не потрібні додаткові можливості, "
+"зокрема інструменти проходження ігор на час або інструменти розробки "
+"відеоігор."
 
 #: data/org.gnome.Games.appdata.xml.in.in:21
 msgid "Features:"
@@ -105,8 +105,8 @@ msgid ""
 "Filter for the game video output. Allowed values are: “smooth” (blurry "
 "pixels), “sharp” (blocky pixels), “crt” (CRT emulation)."
 msgstr ""
-"Фільтр виведення відео для ігор. Можливі значення: «smooth» (розмиті"
-" пікселі), «sharp» (блоки пікселів), «crt» (імітація кінескопа)."
+"Фільтр виведення відео для ігор. Можливі значення: «smooth» (розмиті "
+"пікселі), «sharp» (блоки пікселів), «crt» (імітація кінескопа)."
 
 #: data/org.gnome.Games.gschema.xml:20
 msgid "Window maximized"
@@ -133,8 +133,8 @@ msgid ""
 "Preferred Libretro core to be used for running games. A different core may "
 "be used if the preferred core is missing firmware."
 msgstr ""
-"Бажане ядро ​​Libretro для використання в іграх. Можна скористатися іншим"
-" ядром, якщо для бажаного ядра немає мікропрограми."
+"Бажане ядро ​​Libretro для використання в іграх. Можна скористатися іншим "
+"ядром, якщо для бажаного ядра немає мікропрограми."
 
 #: data/ui/collection-box.ui:76 src/ui/preferences-page-platforms.vala:9
 msgid "Platforms"
@@ -204,8 +204,8 @@ msgstr "Не знайдено жодної гри"
 msgid ""
 "Install games or add directories containing games to your search sources."
 msgstr ""
-"Встановіть ігри або додайте каталоги, у яких зберігаються ігри, до ваших"
-" джерел пошуку."
+"Встановіть ігри або додайте каталоги, у яких зберігаються ігри, до ваших "
+"джерел пошуку."
 
 #: data/ui/empty-search.ui:40
 msgid "Try a different search."
@@ -238,10 +238,10 @@ msgid ""
 "to another device or for restoring it later. Desktop, Steam and LÖVE games "
 "cannot be exported."
 msgstr ""
-"Експортувати збережені стани гри та збережені ігри. Цією можливістю можна"
-" скористатися для перенесення даних гри на інший пристрій або відновлення"
-" стані гри. У такий спосіб можна експортувати дані стільничних ігор та ігор"
-" Steam і LÖVE."
+"Експортувати збережені стани гри та збережені ігри. Цією можливістю можна "
+"скористатися для перенесення даних гри на інший пристрій або відновлення "
+"стані гри. У такий спосіб можна експортувати дані стільничних ігор та ігор "
+"Steam і LÖVE."
 
 #: data/ui/preferences-page-import-export.ui:42
 #: src/ui/preferences-page-import-export.vala:34
@@ -258,8 +258,8 @@ msgid ""
 "Import save data for games from existing backup. This will replace existing "
 "saves and cannot be undone."
 msgstr ""
-"Імпортувати збережені дані для ігор з наявної резервної копії. Імпортовані"
-" дані замінять наявні збережені ігри — скасувати імпортування неможливо."
+"Імпортувати збережені дані для ігор з наявної резервної копії. Імпортовані "
+"дані замінять наявні збережені ігри — скасувати імпортування неможливо."
 
 #: data/ui/preferences-page-import-export.ui:97
 #: src/ui/preferences-page-import-export.vala:12
@@ -655,6 +655,21 @@ msgstr "Аркади"
 msgid "MS-DOS"
 msgstr "MS-DOS"
 
+#: plugins/nintendo-64/data/ui/nintendo-64-pak-switcher.ui:14
+#| msgid "Controllers"
+msgid "Controller Expansion"
+msgstr "Розширення контролера"
+
+#: plugins/nintendo-64/src/nintendo-64-pak-controller.vala:31
+#, c-format
+msgid "Player %u"
+msgstr "Гравець %u"
+
+#: plugins/nintendo-64/src/nintendo-64-plugin.vala:6
+#: src/retro/retro-simple-type.vala:44
+msgid "Nintendo 64"
+msgstr "Nintendo 64"
+
 #: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:19
 msgid "Change Screen"
 msgstr "Змінити екран"
@@ -901,23 +916,23 @@ msgid ""
 msgstr ""
 "Для запуску цієї гри потрібен файл мікропрограми %s із відбитком SHA-512 %s."
 
-#: src/retro/retro-runner.vala:124
+#: src/retro/retro-runner.vala:127
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
-"Підтримку системи «%s» ще не реалізовано, але ми плануємо реалізувати повну"
-" підтримку."
+"Підтримку системи «%s» ще не реалізовано, але ми плануємо реалізувати повну "
+"підтримку."
 
-#: src/retro/retro-runner.vala:126
+#: src/retro/retro-runner.vala:129
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Підтримку системи ще не реалізовано, але ми її запланували."
 
-#: src/retro/retro-runner.vala:157
+#: src/retro/retro-runner.vala:160
 #, c-format
 msgid "No module found for “%s”."
 msgstr "Не знайдено модуля для «%s»."
 
-#: src/retro/retro-runner.vala:437
+#: src/retro/retro-runner.vala:444
 msgid "Unknown platform"
 msgstr "Невідома платформа"
 
@@ -980,10 +995,6 @@ msgstr "Neo Geo Pocket Color"
 msgid "Nintendo Entertainment System"
 msgstr "Nintendo Entertainment System"
 
-#: src/retro/retro-simple-type.vala:44
-msgid "Nintendo 64"
-msgstr "Nintendo 64"
-
 #. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
 #: src/retro/retro-simple-type.vala:47
 msgid "Genesis 32X"
@@ -1032,47 +1043,47 @@ msgstr "Ключове слово"
 msgid "Run a game by uid"
 msgstr "Запустити гру за ідентифікатором"
 
-#: src/ui/application.vala:152
+#: src/ui/application.vala:168
 msgid "Select game files"
 msgstr "Виберіть файли гри"
 
-#: src/ui/application.vala:153 src/ui/preferences-page-import-export.vala:14
+#: src/ui/application.vala:169 src/ui/preferences-page-import-export.vala:14
 #: src/ui/preferences-page-import-export.vala:36
 msgid "_Cancel"
 msgstr "_Скасувати"
 
-#: src/ui/application.vala:154
+#: src/ui/application.vala:170
 msgid "_Add"
 msgstr "_Додати"
 
-#: src/ui/application.vala:204
+#: src/ui/application.vala:220
 #, c-format
 msgid "An unexpected error occurred while trying to run %s"
 msgstr "Під час спроби запустити %s сталася неочікувана помилка"
 
-#: src/ui/application.vala:240
+#: src/ui/application.vala:256
 #, c-format
 msgid "Cannot find game with UID “%s”."
 msgstr "Не вдалося знайти гру з UID «%s»."
 
-#: src/ui/application.vala:298
+#: src/ui/application.vala:314
 msgid "Couldn't find Tracker, automatic game discovery may not work."
 msgstr ""
 "Не вдалося знайти Tracker, автоматичне виявлення ігор може не спрацювати."
 
-#: src/ui/application.vala:469
+#: src/ui/application.vala:485
 msgid "GNOME Games"
 msgstr "Ігри GNOME"
 
-#: src/ui/application.vala:471
+#: src/ui/application.vala:487
 msgid "A video game player for GNOME"
 msgstr "Програвач відеоігор для GNOME"
 
-#: src/ui/application.vala:475
+#: src/ui/application.vala:491
 msgid "Learn more about GNOME Games"
 msgstr "Докладніше про «Ігри» GNOME"
 
-#: src/ui/application.vala:482
+#: src/ui/application.vala:498
 msgid "translator-credits"
 msgstr "Юрій Чорноіван <yurchor@ukr.net>"
 
@@ -1080,7 +1091,7 @@ msgstr "Юрій Чорноіван <yurchor@ukr.net>"
 msgid "Playing a game"
 msgstr "Граємо у гру"
 
-#: src/ui/display-view.vala:360
+#: src/ui/display-view.vala:364
 msgid "No runner found"
 msgstr "Не знайдено засобу запуску"
 
@@ -1236,8 +1247,8 @@ msgstr "На «%s» немає доріжки для індексу %u."
 #, c-format
 msgid "%s:%lu: Invalid file format %s, expected a valid file format or none."
 msgstr ""
-"%s:%lu: некоректний формат файлів %s, мало бути вказано коректний формат або"
-" нічого."
+"%s:%lu: некоректний формат файлів %s, мало бути вказано коректний формат або "
+"нічого."
 
 #: src/utils/cue-sheet/cue-sheet.vala:121
 #, c-format
@@ -1248,15 +1259,15 @@ msgstr "%s:%lu: неочікуваний елемент TRACK перед еле�
 #, c-format
 msgid "%s:%lu: Invalid track number %s, expected a number in the 1-99 range."
 msgstr ""
-"%s:%lu: некоректний номер доріжки %s, мало бути вказано номер у діапазоні від"
-" 1 до 99."
+"%s:%lu: некоректний номер доріжки %s, мало бути вказано номер у діапазоні "
+"від 1 до 99."
 
 #: src/utils/cue-sheet/cue-sheet.vala:134
 #, c-format
 msgid "%s:%lu: Invalid track mode %s, expected a valid track mode."
 msgstr ""
-"%s:%lu: некоректний режим доріжки %s, мало бути вказано коректний режим"
-" доріжки."
+"%s:%lu: некоректний режим доріжки %s, мало бути вказано коректний режим "
+"доріжки."
 
 #: src/utils/cue-sheet/cue-sheet.vala:141
 #, c-format
