@@ -34,7 +34,7 @@ public class Games.LocalCover : Object, Cover {
 	}
 
 	private string? get_cover_path () throws Error {
-		var cover_path = get_sibbling_cover_path ();
+		var cover_path = get_sibling_cover_path ();
 		if (cover_path != null && FileUtils.test (cover_path, FileTest.EXISTS))
 			return cover_path;
 
@@ -45,7 +45,7 @@ public class Games.LocalCover : Object, Cover {
 		return null;
 	}
 
-	private string? get_sibbling_cover_path () throws Error {
+	private string? get_sibling_cover_path () throws Error {
 		var file = uri.to_file ();
 		var parent = file.get_parent ();
 		if (parent == null)
@@ -58,20 +58,20 @@ public class Games.LocalCover : Object, Cover {
 		string cover_path = null;
 		var directory = new Directory (parent);
 		var attributes = string.join (",", FileAttribute.STANDARD_NAME, FileAttribute.STANDARD_FAST_CONTENT_TYPE);
-		directory.foreach (attributes, (sibbling) => {
-			var sibbling_basename = sibbling.get_name ();
-			if (sibbling_basename == basename)
+		directory.foreach (attributes, (sibling) => {
+			var sibling_basename = sibling.get_name ();
+			if (sibling_basename == basename)
 				return false;
 
-			if (!sibbling_basename.has_prefix (prefix))
+			if (!sibling_basename.has_prefix (prefix))
 				return false;
 
-			var type = sibbling.get_attribute_string (FileAttribute.STANDARD_FAST_CONTENT_TYPE);
+			var type = sibling.get_attribute_string (FileAttribute.STANDARD_FAST_CONTENT_TYPE);
 			if (!type.has_prefix ("image"))
 				return false;
 
-			var sibbling_file = parent.get_child (sibbling_basename);
-			cover_path = sibbling_file.get_path ();
+			var sibling_file = parent.get_child (sibling_basename);
+			cover_path = sibling_file.get_path ();
 
 			return true;
 		});
