@@ -45,6 +45,15 @@ public class Games.LocalCover : Object, Cover {
 		return null;
 	}
 
+	private string get_basename_prefix (string basename) {
+		var pos = basename.last_index_of_char ('.');
+
+		if (pos < 0)
+			return basename;
+
+		return basename.substring (0, pos);
+	}
+
 	private string? get_sibling_cover_path () throws Error {
 		var file = uri.to_file ();
 		var parent = file.get_parent ();
@@ -52,8 +61,7 @@ public class Games.LocalCover : Object, Cover {
 			return null;
 
 		var basename = file.get_basename ();
-		var splitted_basename = basename.split (".");
-		var prefix = splitted_basename.length == 1 ? basename : string.joinv (".", splitted_basename[0:splitted_basename.length - 1]);
+		var prefix = get_basename_prefix (basename);
 
 		string cover_path = null;
 		var directory = new Directory (parent);
@@ -63,7 +71,8 @@ public class Games.LocalCover : Object, Cover {
 			if (sibling_basename == basename)
 				return false;
 
-			if (!sibling_basename.has_prefix (prefix))
+			var sibling_prefix = get_basename_prefix (sibling_basename);
+			if (prefix != sibling_prefix)
 				return false;
 
 			var type = sibling.get_attribute_string (FileAttribute.STANDARD_FAST_CONTENT_TYPE);
