@@ -80,7 +80,7 @@ private class Games.DesktopPlugin : Object, Plugin {
 		string[] args;
 		var command = app_info.get_commandline ();
 		if (!Shell.parse_argv (command, out args))
-			throw new CommandError.INVALID_COMMAND (_("Invalid command “%s”."), command);
+			throw new CommandError.INVALID_COMMAND ("Invalid command “%s”.", command);
 
 		return new CommandRunner (args);
 	}
@@ -89,13 +89,13 @@ private class Games.DesktopPlugin : Object, Plugin {
 		var file = uri.to_file ();
 
 		if (!file.query_exists ())
-			throw new IOError.NOT_FOUND (_("Tracker listed file not found: “%s”."), uri.to_string ());
+			throw new IOError.NOT_FOUND ("Tracker listed file not found: “%s”.", uri.to_string ());
 
 		var path = file.get_path ();
 		var app_info = new DesktopAppInfo.from_filename (path);
 
 		if (app_info == null)
-			throw new DesktopError.INVALID_APPINFO (_("Couldn’t parse desktop entry “%s”."), path);
+			throw new DesktopError.INVALID_APPINFO ("Couldn’t parse desktop entry “%s”.", path);
 
 		check_displayability (app_info);
 		check_categories (app_info);
@@ -105,10 +105,10 @@ private class Games.DesktopPlugin : Object, Plugin {
 
 	private static void check_displayability (DesktopAppInfo app_info) throws Error {
 		if (app_info.get_nodisplay ())
-			throw new DesktopError.BLACKLISTED_GAME (_("“%s” shouldn’t be displayed."), app_info.filename);
+			throw new DesktopError.BLACKLISTED_GAME ("“%s” shouldn’t be displayed.", app_info.filename);
 
 		if (app_info.get_is_hidden ())
-			throw new DesktopError.BLACKLISTED_GAME (_("“%s” is hidden."), app_info.filename);
+			throw new DesktopError.BLACKLISTED_GAME ("“%s” is hidden.", app_info.filename);
 	}
 
 	private static void check_categories (DesktopAppInfo app_info) throws Error {
@@ -117,7 +117,7 @@ private class Games.DesktopPlugin : Object, Plugin {
 
 		foreach (var category in get_categories_black_list ())
 			if (category in categories)
-				throw new DesktopError.BLACKLISTED_GAME (_("“%s” has blacklisted category “%s”."), app_info.filename, category);
+				throw new DesktopError.BLACKLISTED_GAME ("“%s” has blacklisted category “%s”.", app_info.filename, category);
 	}
 
 	private static void check_executable (DesktopAppInfo app_info) throws Error {
@@ -126,14 +126,14 @@ private class Games.DesktopPlugin : Object, Plugin {
 		foreach (var executable in get_executable_black_list ())
 			if (app_executable == executable ||
 			    app_executable.has_suffix ("/" + executable))
-				throw new DesktopError.BLACKLISTED_GAME (_("“%s” has blacklisted executable “%s”."), app_info.filename, executable);
+				throw new DesktopError.BLACKLISTED_GAME ("“%s” has blacklisted executable “%s”.", app_info.filename, executable);
 	}
 
 	private static void check_base_name (File file) throws Error {
 		var base_name = file.get_basename ();
 
 		if (base_name in get_base_name_black_list ())
-			throw new DesktopError.BLACKLISTED_GAME (_("“%s” is blacklisted."), file.get_path ());
+			throw new DesktopError.BLACKLISTED_GAME ("“%s” is blacklisted.", file.get_path ());
 	}
 
 	private static string[] categories_black_list;

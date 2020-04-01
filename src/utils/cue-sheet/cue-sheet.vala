@@ -22,7 +22,7 @@ public class Games.CueSheet : Object {
 
 	public CueSheetTrackNode get_track (uint i) throws Error {
 		if (i >= tracks.length)
-			throw new CueSheetError.NOT_A_TRACK (_("“%s” doesn’t have a track for index %u."), file.get_uri (), i);
+			throw new CueSheetError.NOT_A_TRACK ("“%s” doesn’t have a track for index %u.", file.get_uri (), i);
 
 		return tracks[i];
 	}
@@ -111,14 +111,14 @@ public class Games.CueSheet : Object {
 
 		var file_format = CueSheetFileFormat.parse_string (file_format_string);
 		if (file_format == CueSheetFileFormat.INVALID)
-			throw new CueSheetError.INVALID_FILE_FORMAT (_("%s:%lu: Invalid file format %s, expected a valid file format or none."), file.get_basename (), line, file_format_string);
+			throw new CueSheetError.INVALID_FILE_FORMAT ("%s:%lu: Invalid file format %s, expected a valid file format or none.", file.get_basename (), line, file_format_string);
 
 		return new CueSheetFileNode (child_file, file_format);
 	}
 
 	private CueSheetTrackNode parse_track_line (ref string[] tokens, ref size_t i, size_t line, CueSheetFileNode? parent_file) throws CueSheetError {
 		if (parent_file == null)
-			throw new CueSheetError.UNEXPECTED_TOKEN (_("%s:%lu: Unexpected token TRACK before a FILE token."), file.get_basename (), line);
+			throw new CueSheetError.UNEXPECTED_TOKEN ("%s:%lu: Unexpected token TRACK before a FILE token.", file.get_basename (), line);
 
 		is_token ("TRACK", ref tokens, ref i, line);
 		var track_number_string = get_token (ref tokens, ref i, line);
@@ -127,31 +127,31 @@ public class Games.CueSheet : Object {
 
 		var track_number = int.parse (track_number_string);
 		if (track_number < 1 || track_number > 99)
-			throw new CueSheetError.INVALID_TRACK_NUMBER (_("%s:%lu: Invalid track number %s, expected a number in the 1-99 range."), file.get_basename (), line, track_number_string);
+			throw new CueSheetError.INVALID_TRACK_NUMBER ("%s:%lu: Invalid track number %s, expected a number in the 1-99 range.", file.get_basename (), line, track_number_string);
 
 		var track_mode = CueSheetTrackMode.parse_string (track_mode_string);
 		if (track_mode == CueSheetTrackMode.INVALID)
-			throw new CueSheetError.INVALID_TRACK_MODE (_("%s:%lu: Invalid track mode %s, expected a valid track mode."), file.get_basename (), line, track_mode_string);
+			throw new CueSheetError.INVALID_TRACK_MODE ("%s:%lu: Invalid track mode %s, expected a valid track mode.", file.get_basename (), line, track_mode_string);
 
 		return new CueSheetTrackNode (parent_file, track_number, track_mode);
 	}
 
 	private void is_token (string expected_token, ref string[] tokens, ref size_t i, size_t line) throws CueSheetError {
 		if (i >= tokens.length)
-			throw new CueSheetError.UNEXPECTED_EOF (_("%s:%lu: Unexpected end of file, expected %s."), file.get_basename (), line, expected_token);
+			throw new CueSheetError.UNEXPECTED_EOF ("%s:%lu: Unexpected end of file, expected %s.", file.get_basename (), line, expected_token);
 
 		if (tokens[i] == NEW_LINE)
-			throw new CueSheetError.UNEXPECTED_TOKEN (_("%s:%lu: Unexpected token %s, expected %s."), file.get_basename (), line, tokens[i], expected_token);
+			throw new CueSheetError.UNEXPECTED_TOKEN ("%s:%lu: Unexpected token %s, expected %s.", file.get_basename (), line, tokens[i], expected_token);
 
 		i++;
 	}
 
 	private string get_token (ref string[] tokens, ref size_t i, size_t line) throws CueSheetError {
 		if (i >= tokens.length)
-			throw new CueSheetError.UNEXPECTED_EOF (_("%s:%lu: Unexpected end of file, expected a token."), file.get_basename (), line);
+			throw new CueSheetError.UNEXPECTED_EOF ("%s:%lu: Unexpected end of file, expected a token.", file.get_basename (), line);
 
 		if (tokens[i] == NEW_LINE)
-			throw new CueSheetError.UNEXPECTED_EOL (_("%s:%lu: Unexpected end of line, expected a token."), file.get_basename (), line);
+			throw new CueSheetError.UNEXPECTED_EOL ("%s:%lu: Unexpected end of line, expected a token.", file.get_basename (), line);
 
 		var token = tokens[i];
 		i++;
@@ -174,7 +174,7 @@ public class Games.CueSheet : Object {
 
 	private void is_end_of_line (ref string[] tokens, ref size_t i, size_t line) throws CueSheetError {
 		if (i < tokens.length && tokens[i] != NEW_LINE)
-			throw new CueSheetError.UNEXPECTED_TOKEN (_("%s:%lu: Unexpected token %s, expected end of line."), file.get_basename (), line, tokens[i]);
+			throw new CueSheetError.UNEXPECTED_TOKEN ("%s:%lu: Unexpected token %s, expected end of line.", file.get_basename (), line, tokens[i]);
 
 		i++;
 	}

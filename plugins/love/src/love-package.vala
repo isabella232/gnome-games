@@ -10,11 +10,11 @@ private class Games.LovePackage : Object {
 		this.uri = uri;
 
 		if (!contains_file ("main.lua"))
-			throw new LoveError.INVALID_PACKAGE (_("This doesn’t represent a valid LÖVE package: “%s”."), uri.to_string ());
+			throw new LoveError.INVALID_PACKAGE ("This doesn’t represent a valid LÖVE package: “%s”.", uri.to_string ());
 
 		var config_file = get_file_string ("conf.lua");
 		if (config_file == null)
-			throw new LoveError.INVALID_PACKAGE (_("This doesn’t represent a valid LÖVE package: “%s”."), uri.to_string ());
+			throw new LoveError.INVALID_PACKAGE ("This doesn’t represent a valid LÖVE package: “%s”.", uri.to_string ());
 
 		var regex = /^\s*[^\s]+\.([^\s\.]+)\s*=\s*(.+?)\s*$/;
 

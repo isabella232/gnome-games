@@ -17,13 +17,13 @@ private class Games.VirtualBoyHeader : Object {
 		ssize_t read = 0;
 
 		if (size < MAGIC_OFFSET)
-			throw new VirtualBoyError.INVALID_FILE (_("The file is too short."));
+			throw new VirtualBoyError.INVALID_FILE ("The file is too short.");
 
 		try {
 			stream.seek (size - MAGIC_OFFSET, SeekType.SET);
 		}
 		catch (Error e) {
-			throw new VirtualBoyError.INVALID_SIZE (_("Invalid Virtual Boy ROM header size: %s"), e.message);
+			throw new VirtualBoyError.INVALID_SIZE ("Invalid Virtual Boy ROM header size: %s", e.message);
 		}
 
 		var buffer = new uint8[MAGIC_VALUE.length];
@@ -35,11 +35,11 @@ private class Games.VirtualBoyHeader : Object {
 		}
 
 		if (read < MAGIC_VALUE.length)
-			throw new VirtualBoyError.INVALID_SIZE (_("Invalid Virtual Boy ROM header size."));
+			throw new VirtualBoyError.INVALID_SIZE ("Invalid Virtual Boy ROM header size.");
 
 		for (var i = 0; i < MAGIC_VALUE.length; i++)
 			if (buffer[i] != MAGIC_VALUE[i])
-				throw new VirtualBoyError.INVALID_HEADER (_("The file doesn’t have a Virtual Boy ROM header."));
+				throw new VirtualBoyError.INVALID_HEADER ("The file doesn’t have a Virtual Boy ROM header.");
 	}
 
 	private int64 get_file_size () throws VirtualBoyError {
@@ -48,7 +48,7 @@ private class Games.VirtualBoyHeader : Object {
 			return info.get_size ();
 		}
 		catch (Error e) {
-			throw new VirtualBoyError.CANT_READ_FILE (_("Couldn’t get file size: %s"), e.message);
+			throw new VirtualBoyError.CANT_READ_FILE ("Couldn’t get file size: %s", e.message);
 		}
 	}
 
@@ -57,7 +57,7 @@ private class Games.VirtualBoyHeader : Object {
 			return file.read ();
 		}
 		catch (Error e) {
-			throw new VirtualBoyError.CANT_READ_FILE (_("Couldn’t read file: %s"), e.message);
+			throw new VirtualBoyError.CANT_READ_FILE ("Couldn’t read file: %s", e.message);
 		}
 	}
 }

@@ -42,7 +42,7 @@ public class Games.MediaSet : Object {
 
 	public Media get_media (uint index) throws Error {
 		if (index >= medias.length)
-			throw new MediaSetError.NOT_A_MEDIA (_("Invalid media index %u."), index);
+			throw new MediaSetError.NOT_A_MEDIA ("Invalid media index %u.", index);
 
 		return medias[index];
 	}

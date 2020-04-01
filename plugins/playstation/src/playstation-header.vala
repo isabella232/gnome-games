@@ -24,7 +24,7 @@ private class Games.PlayStationHeader : Object {
 		string label;
 		string exe;
 		if (!get_playstation_info (file.get_path (), out label, out exe, null))
-			throw new PlayStationError.INVALID_HEADER (_("Not a PlayStation disc: “%s”."), file.get_uri ());
+			throw new PlayStationError.INVALID_HEADER ("Not a PlayStation disc: “%s”.", file.get_uri ());
 
 		_disc_id = parse_id_from_exe (exe);
 		if (_disc_id != null)
@@ -34,7 +34,7 @@ private class Games.PlayStationHeader : Object {
 		if (_disc_id != null)
 			return;
 
-		throw new PlayStationError.INVALID_HEADER (_("Invalid PlayStation header: disc ID not found in “%s”."), file.get_uri ());
+		throw new PlayStationError.INVALID_HEADER ("Invalid PlayStation header: disc ID not found in “%s”.", file.get_uri ());
 	}
 
 	private string? parse_id_from_exe (string exe) throws Error {

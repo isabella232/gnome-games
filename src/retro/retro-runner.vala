@@ -154,7 +154,7 @@ public class Games.RetroRunner : Object, Runner {
 		if (core_descriptor != null) {
 			var module_file = core_descriptor.get_module_file ();
 			if (module_file == null)
-				throw new RetroError.MODULE_NOT_FOUND (_("No module found for “%s”."), core_descriptor.get_name ());
+				throw new RetroError.MODULE_NOT_FOUND ("No module found for “%s”.", core_descriptor.get_name ());
 
 			module_path = module_file.get_path ();
 		}

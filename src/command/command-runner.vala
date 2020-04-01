@@ -34,7 +34,7 @@ public class Games.CommandRunner : Object, Runner {
 
 	public void prepare () throws RunnerError {
 		if (args.length <= 0)
-			throw new RunnerError.INVALID_GAME (_("The game doesn’t have a valid command."));
+			throw new RunnerError.INVALID_GAME ("The game doesn’t have a valid command.");
 	}
 
 	public Gtk.Widget get_display () {
@@ -75,7 +75,7 @@ public class Games.CommandRunner : Object, Runner {
 			var result = Process.spawn_async (
 				working_directory, command, envp, flags, child_setup, out pid);
 			if (!result)
-				throw new CommandError.EXECUTION_FAILED (_("Couldn’t run “%s”: execution failed."), args[0]);
+				throw new CommandError.EXECUTION_FAILED ("Couldn’t run “%s”: execution failed.", args[0]);
 		}
 		catch (SpawnError e) {
 			warning ("%s\n", e.message);

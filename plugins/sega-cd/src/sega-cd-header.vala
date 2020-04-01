@@ -41,7 +41,7 @@ private class Games.SegaCDHeader : Object {
 
 	public void check_validity () throws Error {
 		if (system == SegaCDSystem.INVALID)
-			throw new SegaCDError.INVALID_HEADER (_("The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."));
+			throw new SegaCDError.INVALID_HEADER ("The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header.");
 	}
 
 	public size_t get_offset () throws Error {
@@ -60,7 +60,7 @@ private class Games.SegaCDHeader : Object {
 			}
 		}
 
-			throw new SegaCDError.INVALID_HEADER (_("The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."));
+			throw new SegaCDError.INVALID_HEADER ("The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header.");
 	}
 
 	private SegaCDSystem parse_system () throws Error {
