@@ -359,12 +359,8 @@ private class Games.DisplayView : Object, UiView {
 	private Runner? try_get_runner (Game game) {
 		var collection = Application.get_default ().get_collection ();
 		var runner = collection.create_runner (game);
-		if (runner == null) {
-			reset_display_page ();
-			box.display_running_game_failed (game, _("No runner found"));
 
-			return null;
-		}
+		assert (runner != null);
 
 		try {
 			runner.prepare ();
