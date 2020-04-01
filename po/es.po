@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-03-16 18:24+0000\n"
-"PO-Revision-Date: 2020-03-26 13:12+0100\n"
+"POT-Creation-Date: 2020-03-29 20:54+0000\n"
+"PO-Revision-Date: 2020-04-01 12:57+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
@@ -342,7 +342,6 @@ msgid "Reset"
 msgstr "Restaurar"
 
 #: data/ui/restart-dialog.ui:9
-#| msgid "Are you sure you want to quit?"
 msgid "Are you sure you want to restart?"
 msgstr "¿Seguro que quiere reiniciar?"
 
@@ -659,6 +658,21 @@ msgstr "Arcade"
 msgid "MS-DOS"
 msgstr "MS-DOS"
 
+#: plugins/nintendo-64/data/ui/nintendo-64-pak-switcher.ui:14
+#| msgid "Controllers"
+msgid "Controller Expansion"
+msgstr "Expansión de controladores"
+
+#: plugins/nintendo-64/src/nintendo-64-pak-controller.vala:31
+#, c-format
+msgid "Player %u"
+msgstr "Jugador %u"
+
+#: plugins/nintendo-64/src/nintendo-64-plugin.vala:6
+#: src/retro/retro-simple-type.vala:44
+msgid "Nintendo 64"
+msgstr "Nintendo 64"
+
 #: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:19
 msgid "Change Screen"
 msgstr "Cambiar pantalla"
@@ -907,21 +921,21 @@ msgstr ""
 "El juego necesita el archivo de firmware %s con una huella SHA-512 %s para "
 "ejecutarse."
 
-#: src/retro/retro-runner.vala:124
+#: src/retro/retro-runner.vala:127
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr "El sistema «%s» todavía no está soportado, pero llegará pronto."
 
-#: src/retro/retro-runner.vala:126
+#: src/retro/retro-runner.vala:129
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "El sistema todavía no está soportado, pero llegará pronto."
 
-#: src/retro/retro-runner.vala:157
+#: src/retro/retro-runner.vala:160
 #, c-format
 msgid "No module found for “%s”."
 msgstr "No se pudo encontrar un módulo apropiado para «%s»."
 
-#: src/retro/retro-runner.vala:437
+#: src/retro/retro-runner.vala:444
 msgid "Unknown platform"
 msgstr "Plataforma desconocida"
 
@@ -984,10 +998,6 @@ msgstr "Neo Geo Pocket Color"
 msgid "Nintendo Entertainment System"
 msgstr "Nintendo Entertainment System"
 
-#: src/retro/retro-simple-type.vala:44
-msgid "Nintendo 64"
-msgstr "Nintendo 64"
-
 #. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
 #: src/retro/retro-simple-type.vala:47
 msgid "Genesis 32X"
@@ -1036,48 +1046,48 @@ msgstr "Buscar término"
 msgid "Run a game by uid"
 msgstr "Ejecutar un juego por UID"
 
-#: src/ui/application.vala:152
+#: src/ui/application.vala:168
 msgid "Select game files"
 msgstr "Seleccionar archivos de juegos"
 
-#: src/ui/application.vala:153 src/ui/preferences-page-import-export.vala:14
+#: src/ui/application.vala:169 src/ui/preferences-page-import-export.vala:14
 #: src/ui/preferences-page-import-export.vala:36
 msgid "_Cancel"
 msgstr "_Cancelar"
 
-#: src/ui/application.vala:154
+#: src/ui/application.vala:170
 msgid "_Add"
 msgstr "_Añadir"
 
-#: src/ui/application.vala:204
+#: src/ui/application.vala:220
 #, c-format
 msgid "An unexpected error occurred while trying to run %s"
 msgstr "Ha ocurrido un error inesperado al intentar ejecutar %s"
 
-#: src/ui/application.vala:240
+#: src/ui/application.vala:256
 #, c-format
 msgid "Cannot find game with UID “%s”."
 msgstr "No se puede jugar al juego con UID «%s»."
 
-#: src/ui/application.vala:298
+#: src/ui/application.vala:314
 msgid "Couldn't find Tracker, automatic game discovery may not work."
 msgstr ""
 "No se ha podido encontrar Tracker, el descubrimiento automático de juegos "
 "puede que no funcione."
 
-#: src/ui/application.vala:469
+#: src/ui/application.vala:485
 msgid "GNOME Games"
 msgstr "Juegos de GNOME"
 
-#: src/ui/application.vala:471
+#: src/ui/application.vala:487
 msgid "A video game player for GNOME"
 msgstr "Un reproductor de videojuegos para GNOME"
 
-#: src/ui/application.vala:475
+#: src/ui/application.vala:491
 msgid "Learn more about GNOME Games"
 msgstr "Más información acerca de Juegos de GNOME"
 
-#: src/ui/application.vala:482
+#: src/ui/application.vala:498
 msgid "translator-credits"
 msgstr ""
 "Daniel Mustieles <daniel.mustieles@gmail.com>, 2016, 2018, 2019\n"
@@ -1087,7 +1097,7 @@ msgstr ""
 msgid "Playing a game"
 msgstr "Jugando a un juego"
 
-#: src/ui/display-view.vala:360
+#: src/ui/display-view.vala:364
 msgid "No runner found"
 msgstr "No se encontró ningún corredor"
 
