@@ -183,7 +183,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			display_view.update_pause (false);
 
 		if (!(bool) (event.changed_mask & Gdk.WindowState.FOCUSED))
-			return false;
+			return true;
 
 		var focused = (bool) (event.new_window_state & Gdk.WindowState.FOCUSED);
 		var playing = (current_view == display_view);
@@ -194,7 +194,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		if (!focused)
 			uninhibit (Gtk.ApplicationInhibitFlags.IDLE);
 
-		return false;
+		return true;
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {
