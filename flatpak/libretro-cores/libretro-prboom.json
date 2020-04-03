@@ -17,7 +17,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/libretro/libretro-prboom"
+                    "url": "https://github.com/libretro/libretro-prboom",
+                    "commit": "e3fd54321f385b7843fdb11cef1aeb000d450f00"
                 },
                 {
                     "type": "file",
