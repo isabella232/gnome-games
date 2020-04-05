@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games gnome-3-26\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-04-05 08:58+0000\n"
-"PO-Revision-Date: 2020-04-05 20:05+0700\n"
+"POT-Creation-Date: 2020-04-05 13:06+0000\n"
+"PO-Revision-Date: 2020-04-05 20:15+0700\n"
 "Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
@@ -256,7 +256,7 @@ msgid ""
 "Import save data for games from existing backup. This will replace existing "
 "saves and cannot be undone."
 msgstr ""
-"Impor simpanan data untuk permainan dari cadangan yang ada. Ini akan "
+"Impor data simpanan untuk permainan dari cadangan yang ada. Ini akan "
 "menggantikan simpanan yang ada dan tidak dapat dibatalkan."
 
 #: data/ui/preferences-page-import-export.ui:97
@@ -837,7 +837,7 @@ msgstr "Permainan GNOME"
 
 #: src/ui/application.vala:487
 msgid "A video game player for GNOME"
-msgstr "Player permainan video untuk GNOME"
+msgstr "Pemutar video permainan untuk GNOME"
 
 #: src/ui/application.vala:491
 msgid "Learn more about GNOME Games"
