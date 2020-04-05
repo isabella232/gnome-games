@@ -42,7 +42,9 @@ private class Games.PreferencesPagePlatformsRetroRow : PreferencesPagePlatformsR
 		var preferred_core = core_manager.get_preferred_core (platform);
 
 		if (preferred_core == null)
-			/* Translators: No core available for this platform */
+			/* Translators: This is displayed under the platform name when no
+			 * core is available for this platform. To see this message, click
+			 * on the hamburger menu, click on Preferences, then on Platforms */
 			core_label.label = _("None");
 		else {
 			try {
@@ -50,7 +52,9 @@ private class Games.PreferencesPagePlatformsRetroRow : PreferencesPagePlatformsR
 			}
 			catch (Error e) {
 				critical (e.message);
-				/* Translators: No core available for this platform */
+			/* Translators: This is displayed under the platform name when no
+			 * core is available for this platform. To see this message, click
+			 * on the hamburger menu, click on Preferences, then on Platforms */
 				core_label.label = _("None");
 			}
 		}

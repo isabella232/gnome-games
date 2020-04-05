@@ -274,6 +274,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 			return;
 
 		Gtk.ApplicationInhibitFlags new_flags = (inhibit_flags | flags);
+		/* Translators: This is displayed if the user tries to log out of his
+		 * GNOME session, shutdown, or reboot while Games is running */
 		uint new_cookie = application.inhibit (this, new_flags, _("Playing a game"));
 
 		if (inhibit_cookie != 0)
@@ -291,6 +293,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		uint new_cookie = 0;
 
 		if ((bool) new_flags)
+			/* Translators: This is displayed if the user tries to log out of his
+		 	 * GNOME session, shutdown, or reboot while Games is running */
 			new_cookie = application.inhibit (this, new_flags, _("Playing a game"));
 
 		if (inhibit_cookie != 0)

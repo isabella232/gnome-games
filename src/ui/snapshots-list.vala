@@ -185,6 +185,9 @@ private class Games.SnapshotsList : Gtk.Box {
 		if (entry_text == _("Autosave") || entry_text == "") {
 			rename_entry.get_style_context ().add_class ("error");
 			rename_popover_btn.sensitive = false;
+			/* Translators: This message is shown to the user if he tried to rename
+			 * his snapshot either with an empty string, or with the name of the
+			 * autosave */
 			rename_error_label.label = _("Invalid name");
 
 			return false;

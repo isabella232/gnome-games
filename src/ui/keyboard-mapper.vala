@@ -24,6 +24,10 @@ private class Games.KeyboardMapper : Gtk.Bin {
 	}
 
 	construct {
+		/* translators: This message is displayed at the bottom of the window
+		 * when the user maps keyboard keys to controller buttons. To see it,
+		 * click on the hamburger menu, click on preferences > controllers >
+		 * keyboard, and click on the "configure" button */
 		info_message = _("Press suitable key on your keyboard");
 	}
 

@@ -47,15 +47,27 @@ public enum Games.NintendoDsLayout {
 	public string get_title () {
 		switch (this) {
 		case TOP_BOTTOM:
+			/* Translators: This describes the layout for the Nintendo DS
+			 * emulator. This setting means the two screens are stacked one on
+			 * top of the other */
 			return _("Vertical");
 
 		case LEFT_RIGHT:
+			/* Translators: This describes the layout for the Nintendo DS
+			 * emulator. This setting means the two screens are displayed side
+			 * by side */
 			return _("Side by side");
 
 		case RIGHT_LEFT:
+			/* Translators: This describes the layout for the Nintendo DS
+			 * emulator. This setting means the two screens are displayed side
+			 * by side */
 			return _("Side by side");
 
 		case QUICK_SWITCH:
+			/* Translators: This describes the layout for the Nintendo DS
+			 * emulator. This setting means only one screen is displayed at
+			 * once. The screen displayed can then be changed in-game. */
 			return _("Single screen");
 
 		default:
@@ -66,9 +78,17 @@ public enum Games.NintendoDsLayout {
 	public string? get_subtitle () {
 		switch (this) {
 		case LEFT_RIGHT:
+			/* Translators: This describes the layout for the Nintendo DS
+			 * emulator when the two screens are displayed side by side and not
+			 * one on top of the other. The bottom screen is displayed to the
+			 * right of the top screen. */
 			return _("Bottom to the right");
 
 		case RIGHT_LEFT:
+			/* Translators: This describes the layout for the Nintendo DS
+			 * emulator when the two screens are displayed side by side and not
+			 * one on top of the other. The bottom screen is displayed to the
+			 * left of the top screen. */
 			return _("Bottom to the left");
 
 		case TOP_BOTTOM:

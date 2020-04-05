@@ -19,6 +19,9 @@ private class Games.PreferencesPageVideo : PreferencesPage {
 	}
 
 	// same as video-filters in gschema
+	/* Translators: These values are video filters applied to the screen. Smooth
+	 * tries to smoothen the pixels, sharp displays the pixels square, and CRT
+	 * emulates an old TV */
 	private string[] filter_display_names = { _("Smooth"), _("Sharp"), _("CRT") };
 	private string[] filter_names = { "smooth", "sharp", "crt" };
 	[GtkChild]
