@@ -6,7 +6,7 @@ int main (string[] args) {
 	Intl.textdomain (Config.GETTEXT_PACKAGE);
 
 	string[] empty_args = {};
-	unowned var unowned_args = empty_args;
+	unowned string[] unowned_args = empty_args;
 
 	Grl.init (ref unowned_args);
 
