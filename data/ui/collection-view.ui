@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk+" version="3.24"/>
-  <template class="GamesCollectionBox" parent="GtkBox">
+  <template class="GamesCollectionView" parent="GtkBox">
     <property name="visible">True</property>
     <property name="orientation">vertical</property>
     <property name="hexpand">True</property>
@@ -19,7 +19,7 @@
     <child>
       <object class="GamesSearchBar" id="search_bar">
         <property name="visible">True</property>
-        <property name="search-mode-enabled" bind-source="GamesCollectionBox" bind-property="search-mode" bind-flags="bidirectional"/>
+        <property name="search-mode-enabled" bind-source="GamesCollectionView" bind-property="search-mode" bind-flags="bidirectional"/>
         <signal name="notify::text" handler="on_search_text_notify"/>
       </object>
     </child>
@@ -70,9 +70,9 @@
                 <child>
                   <object class="GamesPlatformsView" id="platform_view">
                     <property name="visible">True</property>
-                    <property name="is-folded" bind-source="GamesCollectionBox" bind-property="is-folded" bind-flags="bidirectional"/>
-                    <property name="is-subview-open" bind-source="GamesCollectionBox" bind-property="is-subview-open" bind-flags="bidirectional"/>
-                    <property name="subview-title" bind-source="GamesCollectionBox" bind-property="subview-title" bind-flags="bidirectional"/>
+                    <property name="is-folded" bind-source="GamesCollectionView" bind-property="is-folded" bind-flags="bidirectional"/>
+                    <property name="is-subview-open" bind-source="GamesCollectionView" bind-property="is-subview-open" bind-flags="bidirectional"/>
+                    <property name="subview-title" bind-source="GamesCollectionView" bind-property="subview-title" bind-flags="bidirectional"/>
                     <signal name="game-activated" handler="on_game_activated"/>
                   </object>
                   <packing>
@@ -91,7 +91,7 @@
             <property name="visible">True</property>
             <property name="halign">center</property>
             <property name="valign">start</property>
-            <property name="reveal-child" bind-source="GamesCollectionBox" bind-property="loading-notification" bind-flags="bidirectional"/>
+            <property name="reveal-child" bind-source="GamesCollectionView" bind-property="loading-notification" bind-flags="bidirectional"/>
             <child>
               <object class="GtkBox">
                 <property name="visible">True</property>
