@@ -16,6 +16,9 @@
             <property name="visible">True</property>
             <property name="title" bind-source="GamesDisplayHeaderBar" bind-property="game-title" bind-flags="bidirectional"/>
             <property name="show-close-button" bind-source="GamesDisplayHeaderBar" bind-property="show-title-buttons" bind-flags="bidirectional|sync-create"/>
+            <style>
+              <class name="titlebar"/>
+            </style>
             <child>
               <object class="GtkButton" id="back">
                 <property name="visible">True</property>
@@ -135,6 +138,9 @@
           <object class="HdyHeaderBar" id="snapshots_header_bar">
             <property name="visible">True</property>
             <property name="title" bind-source="GamesDisplayHeaderBar" bind-property="game-title" bind-flags="bidirectional"/>
+            <style>
+              <class name="titlebar"/>
+            </style>
             <child>
               <object class="GtkButton">
                 <property name="sensitive">False</property>
