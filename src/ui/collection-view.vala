@@ -7,6 +7,14 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	public signal void game_activated (Game game);
 
 	[GtkChild]
+	private Hdy.Deck deck;
+	[GtkChild]
+	private Hdy.HeaderBar header_bar;
+	[GtkChild]
+	private Hdy.HeaderBar subview_header_bar;
+	[GtkChild]
+	private Hdy.ViewSwitcherTitle view_switcher_title;
+	[GtkChild]
 	private ErrorInfoBar error_info_bar;
 	[GtkChild]
 	private SearchBar search_bar;
@@ -20,21 +28,15 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	private PlatformsView platform_view;
 	[GtkChild]
 	private Gtk.Stack empty_stack;
-	[GtkChild (name = "viewstack")]
-	private Gtk.Stack _viewstack;
+	[GtkChild]
+	private Gtk.Stack viewstack;
 	[GtkChild]
 	private Hdy.ViewSwitcherBar view_switcher_bar;
-	[GtkChild]
-	private CollectionHeaderBar header_bar;
 	[GtkChild]
 	private Hdy.SwipeGroup swipe_group;
 
 	public Gtk.Widget content_box {
 		get { return this; }
-	}
-
-	public Gtk.Stack viewstack {
-		get { return _viewstack; }
 	}
 
 	private bool _is_view_active;
@@ -105,27 +107,6 @@ private class Games.CollectionView : Gtk.Box, UiView {
 			is_collection_empty = game_model.get_n_items () == 0;
 		});
 
-		bind_property ("viewstack", header_bar,
-		               "viewstack", BindingFlags.SYNC_CREATE);
-
-		bind_property ("search-mode", header_bar,
-		               "search-mode", BindingFlags.BIDIRECTIONAL);
-
-		bind_property ("is-collection-empty", header_bar,
-		               "is-collection-empty", BindingFlags.BIDIRECTIONAL | BindingFlags.SYNC_CREATE);
-
-		bind_property ("is-folded", header_bar,
-		               "is-folded", BindingFlags.BIDIRECTIONAL);
-
-		bind_property ("is-showing-bottom-bar", header_bar,
-		               "is-showing-bottom-bar", BindingFlags.BIDIRECTIONAL);
-
-		bind_property ("is-subview-open", header_bar,
-		               "is-subview-open", BindingFlags.BIDIRECTIONAL);
-
-		bind_property ("subview-title", header_bar,
-		               "subview-title", BindingFlags.BIDIRECTIONAL);
-
 		konami_code = new KonamiCode (window);
 		konami_code.code_performed.connect (on_konami_code_performed);
 	}
@@ -153,7 +134,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		if (((event.state & default_modifiers) == Gdk.ModifierType.MOD1_MASK) &&
 		    (((window.get_direction () == Gtk.TextDirection.LTR) && keyval == Gdk.Key.Left) ||
 		     ((window.get_direction () == Gtk.TextDirection.RTL) && keyval == Gdk.Key.Right)) &&
-		     header_bar.back ())
+		     deck.navigate (Hdy.NavigationDirection.BACK))
 			return true;
 
 		if ((keyval == Gdk.Key.f || keyval == Gdk.Key.F) &&
@@ -302,7 +283,31 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	}
 
 	[GtkCallback]
+	private void on_folded_changed () {
+		if (is_folded) {
+			deck.visible_child = is_subview_open ? subview_header_bar : header_bar;
+			swipe_group.add_swipeable (deck);
+		} else {
+			swipe_group.remove_swipeable (deck);
+			deck.visible_child = header_bar;
+		}
+
+		update_bottom_bar ();
+	}
+
+	[GtkCallback]
 	private void update_bottom_bar () {
 		view_switcher_bar.reveal = is_showing_bottom_bar && (!is_folded || !is_subview_open);
+	}
+
+	[GtkCallback]
+	private void update_adaptive_state () {
+		bool showing_title = view_switcher_title.title_visible;
+		is_showing_bottom_bar = showing_title && !is_collection_empty;
+	}
+
+	[GtkCallback]
+	private void on_subview_back_clicked () {
+		deck.navigate (Hdy.NavigationDirection.BACK);
 	}
 }

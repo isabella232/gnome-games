@@ -100,7 +100,6 @@ vala_sources = [
   'ui/application-window.vala',
   'ui/checkmark-item.vala',
   'ui/collection-icon-view.vala',
-  'ui/collection-header-bar.vala',
   'ui/collection-view.vala',
   'ui/display-bin.vala',
   'ui/display-box.vala',
