@@ -89,7 +89,6 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	public bool is_folded { get; set; }
 	public bool is_showing_bottom_bar { get; set; }
 	public bool is_subview_open { get; set; }
-	public string subview_title { get; set; }
 
 	private KonamiCode konami_code;
 
