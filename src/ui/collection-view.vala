@@ -47,10 +47,9 @@ private class Games.CollectionView : Object, UiView {
 	private KonamiCode konami_code;
 
 	construct {
-		var swipe_group = new Hdy.SwipeGroup ();
+		box = new CollectionBox (game_model);
+		header_bar = box.header_bar;
 
-		box = new CollectionBox (game_model, swipe_group);
-		header_bar = new CollectionHeaderBar (swipe_group);
 		box.game_activated.connect (game => {
 			game_activated (game);
 		});

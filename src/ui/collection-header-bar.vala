@@ -23,7 +23,7 @@ private class Games.CollectionHeaderBar : Gtk.Bin {
 	public bool is_showing_bottom_bar { get; set; }
 	public bool is_subview_open { get; set; }
 	public string subview_title { get; set; }
-	public Hdy.SwipeGroup swipe_group { get; construct; }
+	public Hdy.SwipeGroup swipe_group { get; construct set; }
 
 	[GtkChild]
 	private Hdy.Deck deck;
@@ -35,10 +35,6 @@ private class Games.CollectionHeaderBar : Gtk.Bin {
 	private Hdy.ViewSwitcherTitle view_switcher_title;
 
 	private ulong viewstack_child_changed_id;
-
-	public CollectionHeaderBar (Hdy.SwipeGroup swipe_group) {
-		Object (swipe_group: swipe_group);
-	}
 
 	[GtkCallback]
 	private void update_adaptive_state () {

@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/application-window.ui")]
-private class Games.ApplicationWindow : Gtk.ApplicationWindow {
+private class Games.ApplicationWindow : Hdy.ApplicationWindow {
 	private const uint WINDOW_SIZE_UPDATE_DELAY_MILLISECONDS = 500;
 
 	private UiView _current_view;
@@ -16,8 +16,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 
 			_current_view = value;
 
-			content_box.visible_child = current_view.content_box;
-			header_bar.visible_child = current_view.title_bar;
+			stack.visible_child = current_view.content_box;
 
 			if (current_view != null)
 				current_view.is_view_active = true;
@@ -45,9 +44,7 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 	public bool loading_notification { get; set; }
 
 	[GtkChild]
-	private Gtk.Stack content_box;
-	[GtkChild]
-	private Gtk.Stack header_bar;
+	private Gtk.Stack stack;
 
 	private CollectionView collection_view;
 	private DisplayView display_view;
@@ -85,10 +82,8 @@ private class Games.ApplicationWindow : Gtk.ApplicationWindow {
 		collection_view = new CollectionView (this, game_model);
 		display_view = new DisplayView (this);
 
-		content_box.add (collection_view.content_box);
-		content_box.add (display_view.content_box);
-		header_bar.add (collection_view.title_bar);
-		header_bar.add (display_view.title_bar);
+		stack.add (collection_view.content_box);
+		stack.add (display_view.content_box);
 
 		collection_view.game_activated.connect (on_game_activated);
 		display_view.back.connect (on_display_back);

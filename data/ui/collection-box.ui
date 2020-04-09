@@ -11,6 +11,12 @@
     <signal name="notify::is-showing-bottom-bar" handler="update_bottom_bar"/>
     <signal name="notify::is-subview-open" handler="update_bottom_bar"/>
     <child>
+      <object class="GamesCollectionHeaderBar" id="header_bar">
+        <property name="visible">True</property>
+        <property name="swipe-group">swipe_group</property>
+      </object>
+    </child>
+    <child>
       <object class="GamesSearchBar" id="search_bar">
         <property name="visible">True</property>
         <property name="search-mode-enabled" bind-source="GamesCollectionBox" bind-property="search-mode" bind-flags="bidirectional"/>
@@ -130,6 +136,7 @@
       </object>
     </child>
   </template>
+  <object class="HdySwipeGroup" id="swipe_group"/>
   <object class="GtkImage" id="close_icon">
     <property name="visible">True</property>
     <property name="icon-name">window-close-symbolic</property>

@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/display-box.ui")]
-private class Games.DisplayBox : Gtk.Bin {
+private class Games.DisplayBox : Gtk.Box {
 	public signal void back ();
 	public signal void snapshots_hidden ();
 	public signal void restart ();
@@ -15,6 +15,8 @@ private class Games.DisplayBox : Gtk.Bin {
 			// A top margin is added to the snapshots list in fullscreen mode
 			// so that the fullscreen header bar doesn't cover it
 			snapshots_list.set_margin (value ? fullscreen_header_bar_height : 0);
+
+			windowed_header_bar.visible = !value;
 		}
 	}
 
@@ -69,6 +71,12 @@ private class Games.DisplayBox : Gtk.Bin {
 	private FlashBox flash_box;
 	[GtkChild]
 	private SnapshotsList snapshots_list;
+	[GtkChild (name="header_bar")]
+	private DisplayHeaderBar _header_bar;
+
+	public DisplayHeaderBar windowed_header_bar {
+		get { return _header_bar; }
+	}
 
 	private int fullscreen_header_bar_height;
 

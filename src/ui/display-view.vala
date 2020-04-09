@@ -73,7 +73,7 @@ private class Games.DisplayView : Object, UiView {
 
 	construct {
 		box = new DisplayBox ();
-		header_bar = new DisplayHeaderBar ();
+		header_bar = box.windowed_header_bar;
 
 		box.back.connect (on_display_back);
 		header_bar.back.connect (on_display_back);
