@@ -161,14 +161,6 @@ private class Games.DisplayView : Object, UiView {
 			return true;
 		}
 
-		if (((event.state & default_modifiers) == Gdk.ModifierType.MOD1_MASK) &&
-		    (((window.get_direction () == Gtk.TextDirection.LTR) && keyval == Gdk.Key.Left) ||
-		     ((window.get_direction () == Gtk.TextDirection.RTL) && keyval == Gdk.Key.Right))) {
-			on_display_back ();
-
-			return true;
-		}
-
 		if (runner == null)
 			return false;
 

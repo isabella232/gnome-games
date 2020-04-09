@@ -95,6 +95,7 @@ public class Games.RetroRunner : Object, Runner {
 	construct {
 		settings = new Settings ("org.gnome.Games");
 		view = new Retro.CoreView ();
+//		view.can_grab_pointer = true;
 
 		settings.changed["video-filter"].connect (on_video_filter_changed);
 		on_video_filter_changed ();

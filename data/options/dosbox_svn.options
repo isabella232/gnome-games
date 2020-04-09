@@ -1,0 +1,8 @@
+[Options]
+dosbox_svn_memory_size=32
+dosbox_svn_cpu_cycles_mode=fixed
+dosbox_svn_cpu_cycles_multiplier=100000
+dosbox_svn_cpu_cycles=3
+dosbox_svn_cpu_cycles_multiplier_fine=1000
+dosbox_svn_cpu_cycles_fine=0
+dosbox_svn_core_timing=external

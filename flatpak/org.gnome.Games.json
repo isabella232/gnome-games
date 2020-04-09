@@ -30,7 +30,7 @@
         /* Needed to be able to run desktop and Steam games */
         "--talk-name=org.freedesktop.Flatpak",
         /* Needed to find the ROMs */
-        "--filesystem=host:ro",
+        "--filesystem=host",
         /* Needed to find flatpaked Steam games */
         "--filesystem=~/.var/app/com.valvesoftware.Steam:ro",
         /* Settings migration */
@@ -226,7 +226,8 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/retro-gtk.git"
+                    "url" : "https://gitlab.gnome.org/exalm/retro-gtk.git",
+                    "branch" : "wip/exalm/kbd"
                 }
             ]
         },
