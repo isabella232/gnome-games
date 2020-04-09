@@ -13,6 +13,9 @@
             <property name="visible">True</property>
             <property name="show-close-button">True</property>
             <property name="centering-policy">strict</property>
+            <style>
+              <class name="titlebar"/>
+            </style>
             <child>
               <object class="GtkButton" id="add_game">
                 <property name="visible">True</property>
@@ -101,6 +104,9 @@
             <property name="visible">True</property>
             <property name="show_close_button">True</property>
             <property name="title" bind-source="GamesCollectionHeaderBar" bind-property="subview-title" bind-flags="bidirectional"/>
+            <style>
+              <class name="titlebar"/>
+            </style>
             <child>
               <object class="GtkButton">
                 <property name="visible">True</property>
