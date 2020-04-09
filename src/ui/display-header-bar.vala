@@ -64,7 +64,7 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 	[GtkChild]
 	private Gtk.Stack stack;
 	[GtkChild]
-	private Gtk.HeaderBar ingame_header_bar;
+	private Hdy.HeaderBar ingame_header_bar;
 	[GtkChild]
 	private Gtk.Button fullscreen;
 	[GtkChild]
@@ -72,7 +72,7 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 	[GtkChild]
 	private Gtk.MenuButton secondary_menu_button;
 	[GtkChild]
-	private Gtk.HeaderBar snapshots_header_bar;
+	private Hdy.HeaderBar snapshots_header_bar;
 
 	private Settings settings;
 

@@ -12,7 +12,7 @@
         <property name="transition-type">crossfade</property>
         <property name="transition-duration">250</property>
         <child>
-          <object class="GtkHeaderBar" id="ingame_header_bar">
+          <object class="HdyHeaderBar" id="ingame_header_bar">
             <property name="visible">True</property>
             <property name="title" bind-source="GamesDisplayHeaderBar" bind-property="game-title" bind-flags="bidirectional"/>
             <property name="show-close-button" bind-source="GamesDisplayHeaderBar" bind-property="show-title-buttons" bind-flags="bidirectional|sync-create"/>
@@ -132,7 +132,7 @@
           </object>
         </child>
         <child>
-          <object class="GtkHeaderBar" id="snapshots_header_bar">
+          <object class="HdyHeaderBar" id="snapshots_header_bar">
             <property name="visible">True</property>
             <property name="title" bind-source="GamesDisplayHeaderBar" bind-property="game-title" bind-flags="bidirectional"/>
             <child>
