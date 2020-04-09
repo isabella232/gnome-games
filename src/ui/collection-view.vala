@@ -12,10 +12,6 @@ private class Games.CollectionView : Object, UiView {
 		get { return box; }
 	}
 
-	public Gtk.Widget title_bar {
-		get { return header_bar; }
-	}
-
 	private bool _is_view_active;
 	public bool is_view_active {
 		get { return _is_view_active; }

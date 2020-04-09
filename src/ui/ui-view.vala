@@ -3,8 +3,6 @@
 private interface Games.UiView : Object {
 	public abstract Gtk.Widget content_box { get; }
 
-	public abstract Gtk.Widget title_bar { get; }
-
 	public abstract bool is_view_active { get; set; }
 
 	public abstract bool on_button_pressed (Gdk.EventButton event);
