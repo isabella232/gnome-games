@@ -3,11 +3,7 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-window.ui")]
 private class Games.PreferencesWindow : Gtk.Window {
 	[GtkChild]
-	private Hdy.TitleBar titlebar;
-	[GtkChild]
 	private Hdy.Leaflet titlebar_leaflet;
-	[GtkChild]
-	private Gtk.Box titlebar_subpage_box;
 	[GtkChild]
 	private Gtk.HeaderBar right_header_bar;
 	[GtkChild]
@@ -36,19 +32,11 @@ private class Games.PreferencesWindow : Gtk.Window {
 
 			if (subpage != null) {
 				content_deck.navigate (Hdy.NavigationDirection.BACK);
-				selection_mode_binding.unbind ();
 				swipe_back_binding.unbind ();
 			}
 
 			if (value != null) {
-				var header_bar = value.header_bar;
-
 				content_subpage_box.add (value);
-				titlebar_subpage_box.add (header_bar);
-
-				selection_mode_binding = value.bind_property ("request-selection-mode",
-				                                              titlebar, "selection-mode",
-				                                              BindingFlags.SYNC_CREATE);
 
 				swipe_back_binding = value.bind_property ("allow-back",
 				                                          content_deck, "can-swipe-back",
@@ -63,7 +51,6 @@ private class Games.PreferencesWindow : Gtk.Window {
 	}
 
 	private Binding subpage_binding;
-	private Binding selection_mode_binding;
 	private Binding swipe_back_binding;
 
 	construct {
@@ -101,9 +88,6 @@ private class Games.PreferencesWindow : Gtk.Window {
 	private void remove_subpage () {
 		foreach (var child in content_subpage_box.get_children ())
 			content_subpage_box.remove (child);
-
-		foreach (var child in titlebar_subpage_box.get_children ())
-			titlebar_subpage_box.remove (child);
 
 		subpage = null;
 	}

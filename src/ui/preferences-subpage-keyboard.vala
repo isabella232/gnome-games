@@ -36,8 +36,12 @@ private class Games.PreferencesSubpageKeyboard : Gtk.Box, PreferencesSubpage {
 			back_button.visible = (state == State.TEST);
 			cancel_button.visible = (state == State.CONFIGURE);
 			header_bar.show_close_button = (state == State.TEST);
-			request_selection_mode = (state == State.CONFIGURE);
 			allow_back = (state == State.TEST);
+
+			if (state == State.CONFIGURE)
+				header_bar.get_style_context ().add_class ("selection-mode");
+			else
+				header_bar.get_style_context ().remove_class ("selection-mode");
 
 			switch (value) {
 			case State.TEST:
@@ -66,16 +70,11 @@ private class Games.PreferencesSubpageKeyboard : Gtk.Box, PreferencesSubpage {
 		}
 	}
 
-	[GtkChild (name = "header_bar")]
-	private Hdy.HeaderBar _header_bar;
-	public Hdy.HeaderBar header_bar {
-		get { return _header_bar; }
-	}
-
-	public bool request_selection_mode { get; set; }
 	public bool allow_back { get; set; }
 	public string info_message { get; set; }
 
+	[GtkChild]
+	private Hdy.HeaderBar header_bar;
 	[GtkChild]
 	private Gtk.Stack gamepad_view_stack;
 	[GtkChild]
