@@ -5,6 +5,10 @@ private class Games.ShortcutsWindow : Gtk.ShortcutsWindow {
 	[GtkChild]
 	private Gtk.ShortcutsShortcut general_shortcut_alt_left;
 
+	static construct {
+		typeof (ThemedIcon).ensure ();
+	}
+
 	construct {
 		update_direction ();
 	}
