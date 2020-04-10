@@ -4,8 +4,9 @@
   <template class="GamesDisplayBox" parent="GtkBox">
     <property name="visible">True</property>
     <property name="orientation">vertical</property>
-    <signal name="notify::is-showing-snapshots" handler="block_autohide_changed"/>
-    <signal name="notify::is-menu-open" handler="block_autohide_changed"/>
+    <signal name="notify::is-showing-snapshots" handler="update_fullscreen_box"/>
+    <signal name="notify::is-menu-open" handler="update_fullscreen_box"/>
+    <signal name="notify::is-fullscreen" handler="update_fullscreen_box"/>
     <child>
       <object class="GamesDisplayHeaderBar" id="header_bar">
         <property name="visible">True</property>
@@ -22,9 +23,8 @@
             <property name="can-fullscreen" bind-source="GamesDisplayBox" bind-property="can-fullscreen" bind-flags="bidirectional"/>
             <property name="game-title" bind-source="GamesDisplayBox" bind-property="game-title" bind-flags="bidirectional"/>
             <property name="is-showing-snapshots" bind-source="GamesDisplayBox" bind-property="is-showing-snapshots" bind-flags="bidirectional"/>
-            <signal name="notify::is-menu-open" handler="block_autohide_changed"/>
+            <signal name="notify::is-menu-open" handler="update_fullscreen_box"/>
             <signal name="back" handler="on_fullscreen_header_bar_back"/>
-            <signal name="size-allocate" handler="on_fullscreen_header_bar_size_allocated"/>
           </object>
         </child>
         <child>

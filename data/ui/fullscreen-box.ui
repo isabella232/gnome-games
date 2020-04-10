@@ -6,19 +6,9 @@
     <property name="events">pointer-motion-mask</property>
     <signal name="motion-notify-event" handler="on_motion_event"/>
     <child>
-      <object class="GtkOverlay" id="overlay">
+      <object class="GamesTitlebarBox" id="titlebar_box">
         <property name="visible">True</property>
-        <child type="overlay">
-          <object class="GtkRevealer" id="header_bar_revealer">
-            <property name="visible" bind-source="GamesFullscreenBox" bind-property="is-fullscreen" bind-flags="bidirectional">True</property>
-            <property name="valign">start</property>
-            <property name="hexpand">True</property>
-            <property name="transition-type">slide-down</property>
-            <property name="transition-duration">500</property>
-            <property name="events">pointer-motion-mask</property>
-            <signal name="motion-notify-event" handler="on_motion_event"/>
-          </object>
-        </child>
+        <property name="overlay" bind-source="GamesFullscreenBox" bind-property="overlay" bind-flags="bidirectional|sync-create"/>
       </object>
     </child>
   </template>

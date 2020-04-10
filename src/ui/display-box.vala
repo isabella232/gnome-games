@@ -12,10 +12,6 @@ private class Games.DisplayBox : Gtk.Box {
 		set {
 			_is_fullscreen = value;
 
-			// A top margin is added to the snapshots list in fullscreen mode
-			// so that the fullscreen header bar doesn't cover it
-			snapshots_list.set_margin (value ? fullscreen_header_bar_height : 0);
-
 			windowed_header_bar.visible = !value;
 		}
 	}
@@ -78,8 +74,6 @@ private class Games.DisplayBox : Gtk.Box {
 		get { return _header_bar; }
 	}
 
-	private int fullscreen_header_bar_height;
-
 	public void display_running_game_failed (Game game, string error_message) {
 		stack.visible_child = error_display;
 		error_display.running_game_failed (game, error_message);
@@ -92,10 +86,11 @@ private class Games.DisplayBox : Gtk.Box {
 	}
 
 	[GtkCallback]
-	public void block_autohide_changed () {
+	public void update_fullscreen_box () {
 		fullscreen_box.autohide = !is_menu_open &&
 		                          !fullscreen_header_bar.is_menu_open &&
 		                          !is_showing_snapshots;
+		fullscreen_box.overlay = is_fullscreen && !is_showing_snapshots;
 	}
 
 	[GtkCallback]
@@ -140,11 +135,6 @@ private class Games.DisplayBox : Gtk.Box {
 			return false;
 
 		return runner.gamepad_button_press_event (button);
-	}
-
-	[GtkCallback]
-	private void on_fullscreen_header_bar_size_allocated (Gtk.Allocation allocation) {
-		fullscreen_header_bar_height = allocation.height;
 	}
 
 	[GtkCallback]

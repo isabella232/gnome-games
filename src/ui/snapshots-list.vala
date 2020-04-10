@@ -33,10 +33,6 @@ private class Games.SnapshotsList : Gtk.Box {
 		list_box.set_header_func (update_header);
 	}
 
-	public void set_margin (int margin) {
-		scrolled_window.margin_top = margin;
-	}
-
 	[GtkCallback]
 	private void on_move_cursor () {
 		var row = list_box.get_selected_row ();

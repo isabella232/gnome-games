@@ -23,6 +23,8 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 		}
 	}
 
+	public bool overlay { get; set; }
+
 	private bool _autohide = true;
 	public bool autohide {
 		get { return _autohide; }
@@ -48,7 +50,7 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 					cursor_timeout_id = -1;
 				}
 
-				header_bar_revealer.reveal_child = true;
+				titlebar_box.reveal_titlebar = is_fullscreen;
 				show_cursor (true);
 			}
 		}
@@ -76,9 +78,8 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 	}
 
 	[GtkChild]
-	private Gtk.Overlay overlay;
-	[GtkChild]
-	private Gtk.Revealer header_bar_revealer;
+	private TitlebarBox titlebar_box;
+
 	private Binding fullscreen_binding;
 
 	private uint ui_timeout_id;
@@ -92,17 +93,17 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 	public void add_child (Gtk.Builder builder, Object child, string? type) {
 		var widget = child as Gtk.Widget;
 
-		if (overlay == null || header_bar_revealer == null) {
+		if (titlebar_box == null) {
 			add (widget);
 			return;
 		}
 
 		if (type == "titlebar") {
-			header_bar_revealer.add (widget);
+			titlebar_box.titlebar = widget;
 			header_bar = widget;
 		}
 		else
-			overlay.add (widget);
+			titlebar_box.add (widget);
 	}
 
 	[GtkCallback]
@@ -128,7 +129,7 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 			return;
 
 		ui_timeout_id = Timeout.add (INACTIVITY_TIME_MILLISECONDS, hide_ui);
-		header_bar_revealer.reveal_child = true;
+		titlebar_box.reveal_titlebar = is_fullscreen;
 	}
 
 	private bool hide_ui () {
@@ -137,8 +138,8 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 		if (!is_fullscreen)
 			return false;
 
-		header_bar_revealer.reveal_child = false;
-		overlay.grab_focus ();
+		titlebar_box.reveal_titlebar = false;
+		titlebar_box.grab_focus ();
 
 		return false;
 	}
@@ -172,7 +173,7 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 			cursor_timeout_id = -1;
 		}
 
-		header_bar_revealer.reveal_child = false;
+		titlebar_box.reveal_titlebar = false;
 		on_cursor_moved ();
 	}
 
