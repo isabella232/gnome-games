@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-subpage-keyboard.ui")]
-private class Games.PreferencesSubpageKeyboard : Gtk.Box, PreferencesSubpage {
+private class Games.PreferencesSubpageKeyboard : Gtk.Bin, PreferencesSubpage {
 	private const GamepadInput[] KEYBOARD_GAMEPAD_INPUTS = {
 		{ EventCode.EV_KEY, EventCode.BTN_EAST },
 		{ EventCode.EV_KEY, EventCode.BTN_SOUTH },
@@ -33,23 +33,13 @@ private class Games.PreferencesSubpageKeyboard : Gtk.Box, PreferencesSubpage {
 		get { return _state; }
 		set {
 			_state = value;
-			back_button.visible = (state == State.TEST);
-			cancel_button.visible = (state == State.CONFIGURE);
-			header_bar.show_close_button = (state == State.TEST);
 			allow_back = (state == State.TEST);
-
-			if (state == State.CONFIGURE)
-				header_bar.get_style_context ().add_class ("selection-mode");
-			else
-				header_bar.get_style_context ().remove_class ("selection-mode");
 
 			switch (value) {
 			case State.TEST:
 				reset_button.set_sensitive (!mapping_manager.is_default ());
 
-				header_bar.title = _("Testing Keyboard");
-				gamepad_view_stack.visible_child = tester;
-				action_bar_stack.visible_child = tester_action_bar;
+				stack.visible_child = tester_box;
 
 				tester.start ();
 				mapper.stop ();
@@ -57,9 +47,7 @@ private class Games.PreferencesSubpageKeyboard : Gtk.Box, PreferencesSubpage {
 
 				break;
 			case State.CONFIGURE:
-				header_bar.title = _("Configuring Keyboard");
-				gamepad_view_stack.visible_child = mapper;
-				action_bar_stack.visible_child = mapper_action_bar;
+				stack.visible_child = mapper_box;
 
 				tester.stop ();
 				mapper.start ();
@@ -74,21 +62,13 @@ private class Games.PreferencesSubpageKeyboard : Gtk.Box, PreferencesSubpage {
 	public string info_message { get; set; }
 
 	[GtkChild]
-	private Hdy.HeaderBar header_bar;
+	private Gtk.Stack stack;
 	[GtkChild]
-	private Gtk.Stack gamepad_view_stack;
+	private Gtk.Box tester_box;
 	[GtkChild]
-	private Gtk.Stack action_bar_stack;
-	[GtkChild]
-	private Gtk.ActionBar tester_action_bar;
-	[GtkChild]
-	private Gtk.ActionBar mapper_action_bar;
+	private Gtk.Box mapper_box;
 	[GtkChild]
 	private Gtk.Button reset_button;
-	[GtkChild]
-	private Gtk.Button back_button;
-	[GtkChild]
-	private Gtk.Button cancel_button;
 
 	private KeyboardMapper mapper;
 	private KeyboardTester tester;
@@ -96,10 +76,13 @@ private class Games.PreferencesSubpageKeyboard : Gtk.Box, PreferencesSubpage {
 
 	construct {
 		mapper = new KeyboardMapper (GamepadViewConfiguration.get_default (), KEYBOARD_GAMEPAD_INPUTS);
-		gamepad_view_stack.add (mapper);
 		tester = new KeyboardTester (GamepadViewConfiguration.get_default ());
-		gamepad_view_stack.add (tester);
 		mapping_manager = new KeyboardMappingManager ();
+
+		tester_box.add (tester);
+		tester_box.reorder_child (tester, 1);
+		mapper_box.add (mapper);
+		mapper_box.reorder_child (mapper, 1);
 
 		tester.mapping = mapping_manager.mapping;
 		mapping_manager.changed.connect (() => {
