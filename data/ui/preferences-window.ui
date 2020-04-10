@@ -106,7 +106,6 @@
     <child>
       <object class="HdyDeck" id="content_deck">
         <property name="visible">True</property>
-        <property name="can-swipe-back" bind-source="titlebar" bind-property="selection-mode" bind-flags="sync-create|invert-boolean"/>
         <signal name="notify::transition-running" handler="subpage_transition_finished"/>
         <signal name="notify::visible-child" handler="on_visible_child_changed"/>
         <child>

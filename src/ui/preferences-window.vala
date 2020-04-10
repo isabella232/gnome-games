@@ -37,6 +37,7 @@ private class Games.PreferencesWindow : Gtk.Window {
 			if (subpage != null) {
 				content_deck.navigate (Hdy.NavigationDirection.BACK);
 				selection_mode_binding.unbind ();
+				swipe_back_binding.unbind ();
 			}
 
 			if (value != null) {
@@ -49,6 +50,10 @@ private class Games.PreferencesWindow : Gtk.Window {
 				                                              titlebar, "selection-mode",
 				                                              BindingFlags.SYNC_CREATE);
 
+				swipe_back_binding = value.bind_property ("allow-back",
+				                                          content_deck, "can-swipe-back",
+				                                          BindingFlags.SYNC_CREATE);
+
 				content_deck.navigate (Hdy.NavigationDirection.FORWARD);
 				content_leaflet.navigate (Hdy.NavigationDirection.FORWARD);
 			}
@@ -59,6 +64,7 @@ private class Games.PreferencesWindow : Gtk.Window {
 
 	private Binding subpage_binding;
 	private Binding selection_mode_binding;
+	private Binding swipe_back_binding;
 
 	construct {
 		update_ui ();
