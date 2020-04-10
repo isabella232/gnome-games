@@ -1,14 +1,30 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-private class Games.DisplayView : Object, UiView {
+[GtkTemplate (ui = "/org/gnome/Games/ui/display-view.ui")]
+private class Games.DisplayView : Gtk.Box, UiView {
 	private const uint FOCUS_OUT_DELAY_MILLISECONDS = 500;
 
 	public signal void back ();
 
-	private DisplayBox box;
+	[GtkChild]
+	private Gtk.Stack stack;
+	[GtkChild]
+	private ErrorDisplay error_display;
+	[GtkChild]
+	private Gtk.Overlay display_overlay;
+	[GtkChild]
+	private DisplayBin display_bin;
+	[GtkChild]
+	private FullscreenBox fullscreen_box;
+	[GtkChild]
+	private DisplayHeaderBar header_bar;
+	[GtkChild]
+	private FlashBox flash_box;
+	[GtkChild]
+	private SnapshotsList snapshots_list;
 
 	public Gtk.Widget content_box {
-		get { return box; }
+		get { return this; }
 	}
 
 	private bool _is_view_active;
@@ -38,9 +54,32 @@ private class Games.DisplayView : Object, UiView {
 	public bool can_fullscreen { get; set; }
 	public bool is_fullscreen { get; set; }
 	public bool is_showing_snapshots { get; set; }
-
-	public Runner runner { get; set; }
 	public string game_title { get; set; }
+
+	private Runner _runner;
+	public Runner runner {
+		get { return _runner; }
+		set {
+			if (runner != null)
+				runner.snapshot_created.disconnect (flash_box.flash);
+
+			stack.visible_child = display_overlay;
+
+			_runner = value;
+			remove_display ();
+			header_bar.runner = runner;
+
+			if (runner == null)
+				return;
+
+			var display = runner.get_display ();
+			set_display (display);
+
+			snapshots_list.runner = value;
+
+			runner.snapshot_created.connect (flash_box.flash);
+		}
+	}
 
 	private Settings settings;
 
@@ -67,28 +106,7 @@ private class Games.DisplayView : Object, UiView {
 	}
 
 	construct {
-		box = new DisplayBox ();
-
-		box.back.connect (on_display_back);
-
-		box.snapshots_hidden.connect (on_snapshots_hidden);
-
 		settings = new Settings ("org.gnome.Games");
-
-		bind_property ("can-fullscreen", box,
-		               "can-fullscreen", BindingFlags.BIDIRECTIONAL);
-
-		bind_property ("is-fullscreen", box,
-		               "is-fullscreen", BindingFlags.BIDIRECTIONAL);
-
-		bind_property ("is-showing-snapshots", box,
-		               "is-showing-snapshots", BindingFlags.BIDIRECTIONAL);
-
-		bind_property ("runner", box,
-		               "runner", BindingFlags.BIDIRECTIONAL);
-
-		bind_property ("game-title", box,
-		               "game-title", BindingFlags.BIDIRECTIONAL);
 
 		focus_out_timeout_id = -1;
 
@@ -108,6 +126,9 @@ private class Games.DisplayView : Object, UiView {
 	}
 
 	public bool on_key_pressed (Gdk.EventKey event) {
+		if (!get_mapped ())
+			return false;
+
 		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
 
 		uint keyval;
@@ -116,7 +137,13 @@ private class Games.DisplayView : Object, UiView {
 		                                 event.group, out keyval, null, null, null);
 		var ctrl_pressed = (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK;
 
-		if (box.on_key_press_event (keyval, event.state & default_modifiers))
+		if (runner == null)
+			return false;
+
+		if (is_showing_snapshots)
+			return snapshots_list.on_key_press_event (keyval, event.state & default_modifiers);
+
+		if (runner.key_press_event (keyval, event.state & default_modifiers))
 			return true;
 
 		if ((keyval == Gdk.Key.f || keyval == Gdk.Key.F) && ctrl_pressed &&
@@ -237,7 +264,13 @@ private class Games.DisplayView : Object, UiView {
 		if (!event.get_button (out button))
 			return false;
 
-		if (box.gamepad_button_press_event (event))
+		if (!get_mapped ())
+			return false;
+
+		if (runner == null)
+			return false;
+
+		if (runner.gamepad_button_press_event (button))
 			return true;
 
 		switch (button) {
@@ -301,7 +334,7 @@ private class Games.DisplayView : Object, UiView {
 			return;
 
 		can_fullscreen = runner.can_fullscreen;
-		box.media_set = runner.media_set;
+		header_bar.media_set = runner.media_set;
 
 		runner.crash.connect (message => {
 			runner.stop ();
@@ -313,7 +346,9 @@ private class Games.DisplayView : Object, UiView {
 			if (quit_game_cancellable != null)
 				quit_game_cancellable.cancel ();
 
-			box.display_game_crashed (game, message);
+			stack.visible_child = error_display;
+			is_showing_snapshots = false;
+			error_display.game_crashed (game, message);
 		});
 
 		update_actions ();
@@ -345,7 +380,9 @@ private class Games.DisplayView : Object, UiView {
 		}
 		catch (RunnerError e) {
 			reset_display_page ();
-			box.display_running_game_failed (game, e.message);
+
+			stack.visible_child = error_display;
+			error_display.running_game_failed (game, e.message);
 
 			return null;
 		}
@@ -506,12 +543,13 @@ private class Games.DisplayView : Object, UiView {
 	private void reset_display_page () {
 		can_fullscreen = false;
 		runner = null;
-		box.media_set = null;
+		header_bar.media_set = null;
 
 		update_actions ();
 	}
 
-	public void on_snapshots_hidden () {
+	[GtkCallback]
+	private void on_snapshots_hidden () {
 		if (window.is_active) {
 			runner.resume ();
 			runner.get_display ().grab_focus ();
@@ -622,5 +660,34 @@ private class Games.DisplayView : Object, UiView {
 
 		if (game != null)
 			run_game (game);
+	}
+
+	private void set_display (Gtk.Widget display) {
+		remove_display ();
+		display_bin.add (display);
+		display.visible = true;
+	}
+
+	private void remove_display () {
+		var child = display_bin.get_child ();
+		if (child != null)
+			display_bin.remove (child);
+	}
+
+	[GtkCallback]
+	private void on_snapshots_list_size_allocate (Gtk.Allocation allocation) {
+		display_bin.horizontal_offset = -allocation.width / 2;
+	}
+
+	[GtkCallback]
+	private void on_header_bar_back () {
+		on_display_back ();
+	}
+
+	[GtkCallback]
+	private void update_fullscreen_box () {
+		fullscreen_box.autohide = !header_bar.is_menu_open &&
+		                          !is_showing_snapshots;
+		fullscreen_box.overlay = is_fullscreen && !is_showing_snapshots;
 	}
 }

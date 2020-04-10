@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk+" version="3.24"/>
-  <template class="GamesDisplayBox" parent="GtkBox">
+  <template class="GamesDisplayView" parent="GtkBox">
     <property name="visible">True</property>
     <property name="orientation">vertical</property>
     <signal name="notify::is-showing-snapshots" handler="update_fullscreen_box"/>
@@ -9,13 +9,13 @@
     <child>
       <object class="GamesFullscreenBox" id="fullscreen_box">
         <property name="visible">True</property>
-        <property name="is-fullscreen" bind-source="GamesDisplayBox" bind-property="is-fullscreen" bind-flags="bidirectional"/>
+        <property name="is-fullscreen" bind-source="GamesDisplayView" bind-property="is-fullscreen" bind-flags="bidirectional"/>
         <child type="titlebar">
           <object class="GamesDisplayHeaderBar" id="header_bar">
             <property name="visible">True</property>
-            <property name="can-fullscreen" bind-source="GamesDisplayBox" bind-property="can-fullscreen" bind-flags="bidirectional"/>
-            <property name="game-title" bind-source="GamesDisplayBox" bind-property="game-title" bind-flags="bidirectional"/>
-            <property name="is-showing-snapshots" bind-source="GamesDisplayBox" bind-property="is-showing-snapshots" bind-flags="bidirectional"/>
+            <property name="can-fullscreen" bind-source="GamesDisplayView" bind-property="can-fullscreen" bind-flags="bidirectional"/>
+            <property name="game-title" bind-source="GamesDisplayView" bind-property="game-title" bind-flags="bidirectional"/>
+            <property name="is-showing-snapshots" bind-source="GamesDisplayView" bind-property="is-showing-snapshots" bind-flags="bidirectional"/>
             <signal name="notify::is-menu-open" handler="update_fullscreen_box"/>
             <signal name="back" handler="on_header_bar_back"/>
           </object>
@@ -50,7 +50,7 @@
                   <object class="GamesSnapshotsList" id="snapshots_list">
                     <property name="visible">True</property>
                     <property name="halign">end</property>
-                    <property name="is-revealed" bind-source="GamesDisplayBox" bind-property="is-showing-snapshots" bind-flags="bidirectional"/>
+                    <property name="is-revealed" bind-source="GamesDisplayView" bind-property="is-showing-snapshots" bind-flags="bidirectional"/>
                     <signal name="size-allocate" handler="on_snapshots_list_size_allocate"/>
                     <signal name="hidden" handler="on_snapshots_hidden"/>
                   </object>
