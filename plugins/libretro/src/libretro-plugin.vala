@@ -46,7 +46,7 @@ private class Games.LibretroPlugin : Object, Plugin {
 		var path = file.get_path ();
 		var core_descriptor = new Retro.CoreDescriptor (path);
 		if (!core_descriptor.get_is_game ())
-			throw new LibretroError.NOT_A_GAME ("This Libretro core descriptor doesn't isn’t a game: %s", uri.to_string ());
+			throw new LibretroError.NOT_A_GAME ("This Libretro core descriptor isn’t a game: %s", uri.to_string ());
 
 		return core_descriptor;
 	}
