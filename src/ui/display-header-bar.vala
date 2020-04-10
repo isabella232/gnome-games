@@ -10,7 +10,6 @@ private class Games.DisplayHeaderBar : Gtk.Bin {
 	private MediaMenuButton media_button;
 
 	public string game_title { get; set; }
-	public bool show_title_buttons { get; set; default = true; }
 
 	public bool can_fullscreen { get; set; }
 	public bool is_fullscreen { get; set; }

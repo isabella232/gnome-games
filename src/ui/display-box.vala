@@ -6,21 +6,8 @@ private class Games.DisplayBox : Gtk.Box {
 	public signal void snapshots_hidden ();
 	public signal void restart ();
 
-	private bool _is_fullscreen;
-	public bool is_fullscreen {
-		get { return _is_fullscreen; }
-		set {
-			_is_fullscreen = value;
-
-			windowed_header_bar.visible = !value;
-		}
-	}
-
+	public bool is_fullscreen { get; set; }
 	public bool is_showing_snapshots { get; set; }
-
-	public DisplayHeaderBar header_bar {
-		get { return fullscreen_header_bar; }
-	}
 
 	private Runner _runner;
 	public Runner runner {
@@ -47,9 +34,12 @@ private class Games.DisplayBox : Gtk.Box {
 		}
 	}
 
+	public MediaSet? media_set {
+		set { header_bar.media_set = value; }
+	}
+
 	public bool can_fullscreen { get; set; }
 	public string game_title { get; set; }
-	public bool is_menu_open { get; set; }
 
 	[GtkChild]
 	private Gtk.Stack stack;
@@ -62,17 +52,11 @@ private class Games.DisplayBox : Gtk.Box {
 	[GtkChild]
 	private FullscreenBox fullscreen_box;
 	[GtkChild]
-	private DisplayHeaderBar fullscreen_header_bar;
+	private DisplayHeaderBar header_bar;
 	[GtkChild]
 	private FlashBox flash_box;
 	[GtkChild]
 	private SnapshotsList snapshots_list;
-	[GtkChild (name="header_bar")]
-	private DisplayHeaderBar _header_bar;
-
-	public DisplayHeaderBar windowed_header_bar {
-		get { return _header_bar; }
-	}
 
 	public void display_running_game_failed (Game game, string error_message) {
 		stack.visible_child = error_display;
@@ -87,14 +71,13 @@ private class Games.DisplayBox : Gtk.Box {
 
 	[GtkCallback]
 	public void update_fullscreen_box () {
-		fullscreen_box.autohide = !is_menu_open &&
-		                          !fullscreen_header_bar.is_menu_open &&
+		fullscreen_box.autohide = !header_bar.is_menu_open &&
 		                          !is_showing_snapshots;
 		fullscreen_box.overlay = is_fullscreen && !is_showing_snapshots;
 	}
 
 	[GtkCallback]
-	private void on_fullscreen_header_bar_back () {
+	private void on_header_bar_back () {
 		back ();
 	}
 

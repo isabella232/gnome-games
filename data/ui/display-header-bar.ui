@@ -15,7 +15,7 @@
           <object class="HdyHeaderBar" id="ingame_header_bar">
             <property name="visible">True</property>
             <property name="title" bind-source="GamesDisplayHeaderBar" bind-property="game-title" bind-flags="bidirectional"/>
-            <property name="show-close-button" bind-source="GamesDisplayHeaderBar" bind-property="show-title-buttons" bind-flags="bidirectional|sync-create"/>
+            <property name="show-close-button" bind-source="GamesDisplayHeaderBar" bind-property="is-fullscreen" bind-flags="bidirectional|sync-create|invert-boolean"/>
             <style>
               <class name="titlebar"/>
             </style>

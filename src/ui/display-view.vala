@@ -6,7 +6,6 @@ private class Games.DisplayView : Object, UiView {
 	public signal void back ();
 
 	private DisplayBox box;
-	private DisplayHeaderBar header_bar;
 
 	public Gtk.Widget content_box {
 		get { return box; }
@@ -69,10 +68,8 @@ private class Games.DisplayView : Object, UiView {
 
 	construct {
 		box = new DisplayBox ();
-		header_bar = box.windowed_header_bar;
 
 		box.back.connect (on_display_back);
-		header_bar.back.connect (on_display_back);
 
 		box.snapshots_hidden.connect (on_snapshots_hidden);
 
@@ -80,32 +77,18 @@ private class Games.DisplayView : Object, UiView {
 
 		bind_property ("can-fullscreen", box,
 		               "can-fullscreen", BindingFlags.BIDIRECTIONAL);
-		bind_property ("can-fullscreen", header_bar,
-		               "can-fullscreen", BindingFlags.BIDIRECTIONAL);
 
 		bind_property ("is-fullscreen", box,
-		               "is-fullscreen", BindingFlags.BIDIRECTIONAL);
-		bind_property ("is-fullscreen", header_bar,
 		               "is-fullscreen", BindingFlags.BIDIRECTIONAL);
 
 		bind_property ("is-showing-snapshots", box,
 		               "is-showing-snapshots", BindingFlags.BIDIRECTIONAL);
-		bind_property ("is-showing-snapshots", header_bar,
-		               "is-showing-snapshots", BindingFlags.BIDIRECTIONAL);
 
 		bind_property ("runner", box,
-		               "runner", BindingFlags.BIDIRECTIONAL);
-		bind_property ("runner", header_bar,
 		               "runner", BindingFlags.BIDIRECTIONAL);
 
 		bind_property ("game-title", box,
 		               "game-title", BindingFlags.BIDIRECTIONAL);
-		bind_property ("game-title", header_bar,
-		               "game-title", BindingFlags.BIDIRECTIONAL);
-
-		header_bar.notify["is-menu-open"].connect (() => {
-			box.is_menu_open = header_bar.is_menu_open;
-		});
 
 		focus_out_timeout_id = -1;
 
@@ -318,8 +301,7 @@ private class Games.DisplayView : Object, UiView {
 			return;
 
 		can_fullscreen = runner.can_fullscreen;
-		header_bar.media_set = runner.media_set;
-		box.header_bar.media_set = runner.media_set;
+		box.media_set = runner.media_set;
 
 		runner.crash.connect (message => {
 			runner.stop ();
@@ -524,8 +506,7 @@ private class Games.DisplayView : Object, UiView {
 	private void reset_display_page () {
 		can_fullscreen = false;
 		runner = null;
-		header_bar.media_set = null;
-		box.header_bar.media_set = null;
+		box.media_set = null;
 
 		update_actions ();
 	}

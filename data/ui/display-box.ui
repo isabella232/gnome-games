@@ -5,26 +5,19 @@
     <property name="visible">True</property>
     <property name="orientation">vertical</property>
     <signal name="notify::is-showing-snapshots" handler="update_fullscreen_box"/>
-    <signal name="notify::is-menu-open" handler="update_fullscreen_box"/>
     <signal name="notify::is-fullscreen" handler="update_fullscreen_box"/>
-    <child>
-      <object class="GamesDisplayHeaderBar" id="header_bar">
-        <property name="visible">True</property>
-      </object>
-    </child>
     <child>
       <object class="GamesFullscreenBox" id="fullscreen_box">
         <property name="visible">True</property>
         <property name="is-fullscreen" bind-source="GamesDisplayBox" bind-property="is-fullscreen" bind-flags="bidirectional"/>
         <child type="titlebar">
-          <object class="GamesDisplayHeaderBar" id="fullscreen_header_bar">
+          <object class="GamesDisplayHeaderBar" id="header_bar">
             <property name="visible">True</property>
-            <property name="show-title-buttons">False</property>
             <property name="can-fullscreen" bind-source="GamesDisplayBox" bind-property="can-fullscreen" bind-flags="bidirectional"/>
             <property name="game-title" bind-source="GamesDisplayBox" bind-property="game-title" bind-flags="bidirectional"/>
             <property name="is-showing-snapshots" bind-source="GamesDisplayBox" bind-property="is-showing-snapshots" bind-flags="bidirectional"/>
             <signal name="notify::is-menu-open" handler="update_fullscreen_box"/>
-            <signal name="back" handler="on_fullscreen_header_bar_back"/>
+            <signal name="back" handler="on_header_bar_back"/>
           </object>
         </child>
         <child>

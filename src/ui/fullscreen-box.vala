@@ -50,7 +50,7 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 					cursor_timeout_id = -1;
 				}
 
-				titlebar_box.reveal_titlebar = is_fullscreen;
+				titlebar_box.reveal_titlebar = true;
 				show_cursor (true);
 			}
 		}
@@ -129,7 +129,7 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 			return;
 
 		ui_timeout_id = Timeout.add (INACTIVITY_TIME_MILLISECONDS, hide_ui);
-		titlebar_box.reveal_titlebar = is_fullscreen;
+		titlebar_box.reveal_titlebar = true;
 	}
 
 	private bool hide_ui () {
@@ -173,7 +173,6 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 			cursor_timeout_id = -1;
 		}
 
-		titlebar_box.reveal_titlebar = false;
 		on_cursor_moved ();
 	}
 
