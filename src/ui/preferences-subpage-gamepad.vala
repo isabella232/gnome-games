@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-subpage-gamepad.ui")]
-private class Games.PreferencesSubpageGamepad : Gtk.Box, PreferencesSubpage {
+private class Games.PreferencesSubpageGamepad : Gtk.Bin, PreferencesSubpage {
 	private const GamepadInput[] STANDARD_GAMEPAD_INPUTS = {
 		{ EventCode.EV_KEY, EventCode.BTN_EAST },
 		{ EventCode.EV_KEY, EventCode.BTN_SOUTH },
@@ -37,24 +37,13 @@ private class Games.PreferencesSubpageGamepad : Gtk.Box, PreferencesSubpage {
 	private State state {
 		set {
 			_state = value;
-			back_button.visible = (state == State.TEST);
-			cancel_button.visible = (state == State.CONFIGURE);
-			header_bar.show_close_button = (state == State.TEST);
 			allow_back = (state == State.TEST);
-
-			if (state == State.CONFIGURE)
-				header_bar.get_style_context ().add_class ("selection-mode");
-			else
-				header_bar.get_style_context ().remove_class ("selection-mode");
 
 			switch (value) {
 			case State.TEST:
 				reset_button.set_sensitive (device.has_user_mapping ());
 
-				/* translators: testing a gamepad, %s is its name */
-				header_bar.title = _("Testing %s").printf (device.get_name ());
-				gamepad_view_stack.visible_child = tester;
-				action_bar_stack.visible_child = tester_action_bar;
+				stack.visible_child = tester_box;
 
 				tester.start ();
 				mapper.stop ();
@@ -62,10 +51,7 @@ private class Games.PreferencesSubpageGamepad : Gtk.Box, PreferencesSubpage {
 
 				break;
 			case State.CONFIGURE:
-				/* translators: configuring a gamepad, %s is its name */
-				header_bar.title = _("Configuring %s").printf (device.get_name ());
-				gamepad_view_stack.visible_child = mapper;
-				action_bar_stack.visible_child = mapper_action_bar;
+				stack.visible_child = mapper_box;
 
 				tester.stop ();
 				mapper.start ();
@@ -81,21 +67,17 @@ private class Games.PreferencesSubpageGamepad : Gtk.Box, PreferencesSubpage {
 	public string info_message { get; set; }
 
 	[GtkChild]
-	private Hdy.HeaderBar header_bar;
+	private Gtk.Stack stack;
 	[GtkChild]
-	private Gtk.Stack gamepad_view_stack;
+	private Gtk.Box tester_box;
 	[GtkChild]
-	private Gtk.Stack action_bar_stack;
+	private Gtk.Box mapper_box;
 	[GtkChild]
-	private Gtk.ActionBar tester_action_bar;
+	private Hdy.HeaderBar tester_header_bar;
 	[GtkChild]
-	private Gtk.ActionBar mapper_action_bar;
+	private Hdy.HeaderBar mapper_header_bar;
 	[GtkChild]
 	private Gtk.Button reset_button;
-	[GtkChild]
-	private Gtk.Button back_button;
-	[GtkChild]
-	private Gtk.Button cancel_button;
 
 	private GamepadMapper mapper;
 	private GamepadTester tester;
@@ -106,11 +88,19 @@ private class Games.PreferencesSubpageGamepad : Gtk.Box, PreferencesSubpage {
 		construct {
 			_device = value;
 			mapper = new GamepadMapper (value, GamepadViewConfiguration.get_default (), STANDARD_GAMEPAD_INPUTS);
-			gamepad_view_stack.add (mapper);
 			tester = new GamepadTester (value, GamepadViewConfiguration.get_default ());
-			gamepad_view_stack.add (tester);
+
+			tester_box.add (tester);
+			tester_box.reorder_child (tester, 1);
+			mapper_box.add (mapper);
+			mapper_box.reorder_child (mapper, 1);
 
 			mapper.bind_property ("info-message", this, "info-message", BindingFlags.SYNC_CREATE);
+
+			/* translators: testing a gamepad, %s is its name */
+			tester_header_bar.title = _("Testing %s").printf (device.get_name ());
+			/* translators: configuring a gamepad, %s is its name */
+			mapper_header_bar.title = _("Configuring %s").printf (device.get_name ());
 		}
 	}
 
