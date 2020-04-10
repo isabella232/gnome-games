@@ -56,31 +56,8 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 		}
 	}
 
-	private Gtk.Widget _header_bar;
-	public Gtk.Widget header_bar {
-		get { return _header_bar; }
-		set {
-			if (header_bar == value)
-				return;
-
-			if (fullscreen_binding != null) {
-				fullscreen_binding.unbind ();
-				fullscreen_binding = null;
-			}
-
-			_header_bar = value;
-
-			if (header_bar != null)
-				fullscreen_binding = bind_property ("is-fullscreen", header_bar,
-					                                "is-fullscreen",
-					                                BindingFlags.BIDIRECTIONAL);
-		}
-	}
-
 	[GtkChild]
 	private TitlebarBox titlebar_box;
-
-	private Binding fullscreen_binding;
 
 	private uint ui_timeout_id;
 	private uint cursor_timeout_id;
@@ -98,10 +75,8 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 			return;
 		}
 
-		if (type == "titlebar") {
+		if (type == "titlebar")
 			titlebar_box.titlebar = widget;
-			header_bar = widget;
-		}
 		else
 			titlebar_box.add (widget);
 	}

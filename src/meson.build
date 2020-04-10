@@ -102,7 +102,6 @@ vala_sources = [
   'ui/collection-icon-view.vala',
   'ui/collection-view.vala',
   'ui/display-bin.vala',
-  'ui/display-header-bar.vala',
   'ui/display-view.vala',
   'ui/empty-collection.vala',
   'ui/empty-search.vala',

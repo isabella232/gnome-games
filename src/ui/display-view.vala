@@ -7,6 +7,22 @@ private class Games.DisplayView : Gtk.Box, UiView {
 	public signal void back ();
 
 	[GtkChild]
+	private Gtk.Stack headerbar_stack;
+	[GtkChild]
+	private Hdy.HeaderBar ingame_header_bar;
+	[GtkChild]
+	private Gtk.Button fullscreen;
+	[GtkChild]
+	private Gtk.Button restore;
+	[GtkChild]
+	private Gtk.MenuButton secondary_menu_button;
+	[GtkChild]
+	private Hdy.HeaderBar snapshots_header_bar;
+	[GtkChild]
+	private MediaMenuButton media_button;
+	[GtkChild]
+	private InputModeSwitcher input_mode_switcher;
+	[GtkChild]
 	private Gtk.Stack stack;
 	[GtkChild]
 	private ErrorDisplay error_display;
@@ -16,8 +32,6 @@ private class Games.DisplayView : Gtk.Box, UiView {
 	private DisplayBin display_bin;
 	[GtkChild]
 	private FullscreenBox fullscreen_box;
-	[GtkChild]
-	private DisplayHeaderBar header_bar;
 	[GtkChild]
 	private FlashBox flash_box;
 	[GtkChild]
@@ -50,6 +64,7 @@ private class Games.DisplayView : Gtk.Box, UiView {
 	public bool can_fullscreen { get; set; }
 	public bool is_fullscreen { get; set; }
 	public bool is_showing_snapshots { get; set; }
+	public bool is_menu_open { get; set; }
 	public string game_title { get; set; }
 
 	private Runner _runner;
@@ -63,7 +78,6 @@ private class Games.DisplayView : Gtk.Box, UiView {
 
 			_runner = value;
 			remove_display ();
-			header_bar.runner = runner;
 
 			if (runner == null)
 				return;
@@ -72,8 +86,38 @@ private class Games.DisplayView : Gtk.Box, UiView {
 			set_display (display);
 
 			snapshots_list.runner = value;
+			input_mode_switcher.runner = value;
+
+			if (runner != null)
+				extra_widget = runner.get_extra_widget ();
+			else
+				extra_widget = null;
+
+			secondary_menu_button.visible = runner != null && runner.is_integrated;
 
 			runner.snapshot_created.connect (flash_box.flash);
+		}
+	}
+
+	private HeaderBarWidget _extra_widget;
+	private HeaderBarWidget extra_widget {
+		get { return _extra_widget; }
+		set {
+			if (extra_widget == value)
+				return;
+
+			if (extra_widget != null) {
+				extra_widget.disconnect (extra_widget_notify_block_autohide_id);
+				ingame_header_bar.remove (extra_widget);
+				extra_widget_notify_block_autohide_id = 0;
+			}
+
+			_extra_widget = value;
+
+			if (extra_widget != null) {
+				extra_widget_notify_block_autohide_id = extra_widget.notify["block-autohide"].connect (update_fullscreen_box);
+				ingame_header_bar.pack_end (extra_widget);
+			}
 		}
 	}
 
@@ -88,6 +132,8 @@ private class Games.DisplayView : Gtk.Box, UiView {
 	private RestartDialog restart_dialog;
 
 	private long focus_out_timeout_id;
+	private ulong extra_widget_notify_block_autohide_id;
+
 	private Game game;
 
 	private SimpleActionGroup action_group;
@@ -136,8 +182,9 @@ private class Games.DisplayView : Gtk.Box, UiView {
 		if (runner == null)
 			return false;
 
-		if (is_showing_snapshots)
-			return snapshots_list.on_key_press_event (keyval, event.state & default_modifiers);
+		if (is_showing_snapshots &&
+		    snapshots_list.on_key_press_event (keyval, event.state & default_modifiers))
+			return true;
 
 		if (runner.key_press_event (keyval, event.state & default_modifiers))
 			return true;
@@ -330,7 +377,7 @@ private class Games.DisplayView : Gtk.Box, UiView {
 			return;
 
 		can_fullscreen = runner.can_fullscreen;
-		header_bar.media_set = runner.media_set;
+		media_button.media_set = runner.media_set;
 
 		runner.crash.connect (message => {
 			runner.stop ();
@@ -539,7 +586,7 @@ private class Games.DisplayView : Gtk.Box, UiView {
 	private void reset_display_page () {
 		can_fullscreen = false;
 		runner = null;
-		header_bar.media_set = null;
+		media_button.media_set = null;
 
 		update_actions ();
 	}
@@ -676,14 +723,48 @@ private class Games.DisplayView : Gtk.Box, UiView {
 	}
 
 	[GtkCallback]
-	private void on_header_bar_back () {
+	private void update_fullscreen_box () {
+		var is_menu_open = media_button.active ||
+		                   secondary_menu_button.active ||
+		                   (extra_widget != null && extra_widget.block_autohide);
+
+		fullscreen_box.autohide = !is_menu_open &&
+		                          !is_showing_snapshots;
+		fullscreen_box.overlay = is_fullscreen && !is_showing_snapshots;
+	}
+
+	[GtkCallback]
+	private void on_fullscreen_changed () {
+		fullscreen.visible = can_fullscreen && !is_fullscreen;
+		restore.visible = can_fullscreen && is_fullscreen;
+
+		update_fullscreen_box ();
+	}
+
+	[GtkCallback]
+	private void on_showing_snapshots_changed () {
+		update_fullscreen_box ();
+
+		if (is_showing_snapshots)
+			headerbar_stack.visible_child = snapshots_header_bar;
+		else
+			headerbar_stack.visible_child = ingame_header_bar;
+	}
+
+	[GtkCallback]
+	private void on_back_clicked () {
 		on_display_back ();
 	}
 
 	[GtkCallback]
-	private void update_fullscreen_box () {
-		fullscreen_box.autohide = !header_bar.is_menu_open &&
-		                          !is_showing_snapshots;
-		fullscreen_box.overlay = is_fullscreen && !is_showing_snapshots;
+	private void on_fullscreen_clicked () {
+		is_fullscreen = true;
+		settings.set_boolean ("fullscreen", true);
+	}
+
+	[GtkCallback]
+	private void on_restore_clicked () {
+		is_fullscreen = false;
+		settings.set_boolean ("fullscreen", false);
 	}
 }

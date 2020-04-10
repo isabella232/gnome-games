@@ -4,20 +4,192 @@
   <template class="GamesDisplayView" parent="GtkBox">
     <property name="visible">True</property>
     <property name="orientation">vertical</property>
-    <signal name="notify::is-showing-snapshots" handler="update_fullscreen_box"/>
-    <signal name="notify::is-fullscreen" handler="update_fullscreen_box"/>
+    <signal name="notify::is-showing-snapshots" handler="on_showing_snapshots_changed"/>
+    <signal name="notify::can-fullscreen" handler="on_fullscreen_changed"/>
+    <signal name="notify::is-fullscreen" handler="on_fullscreen_changed"/>
     <child>
       <object class="GamesFullscreenBox" id="fullscreen_box">
         <property name="visible">True</property>
         <property name="is-fullscreen" bind-source="GamesDisplayView" bind-property="is-fullscreen" bind-flags="bidirectional"/>
         <child type="titlebar">
-          <object class="GamesDisplayHeaderBar" id="header_bar">
+          <object class="GtkStack" id="headerbar_stack">
             <property name="visible">True</property>
-            <property name="can-fullscreen" bind-source="GamesDisplayView" bind-property="can-fullscreen" bind-flags="bidirectional"/>
-            <property name="game-title" bind-source="GamesDisplayView" bind-property="game-title" bind-flags="bidirectional"/>
-            <property name="is-showing-snapshots" bind-source="GamesDisplayView" bind-property="is-showing-snapshots" bind-flags="bidirectional"/>
-            <signal name="notify::is-menu-open" handler="update_fullscreen_box"/>
-            <signal name="back" handler="on_header_bar_back"/>
+            <property name="transition-type">crossfade</property>
+            <property name="transition-duration">250</property>
+            <child>
+              <object class="HdyHeaderBar" id="ingame_header_bar">
+                <property name="visible">True</property>
+                <property name="title" bind-source="GamesDisplayView" bind-property="game-title" bind-flags="bidirectional"/>
+                <property name="show-close-button" bind-source="GamesDisplayView" bind-property="is-fullscreen" bind-flags="bidirectional|sync-create|invert-boolean"/>
+                <style>
+                  <class name="titlebar"/>
+                </style>
+                <child>
+                  <object class="GtkButton" id="back">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="valign">center</property>
+                    <signal name="clicked" handler="on_back_clicked"/>
+                    <style>
+                      <class name="image-button"/>
+                    </style>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="a11y-back">
+                        <property name="accessible-name" translatable="yes">Back</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImage" id="back_image">
+                        <property name="visible">True</property>
+                        <property name="icon-name">go-previous-symbolic</property>
+                        <property name="icon-size">1</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="restore">
+                    <property name="visible">False</property>
+                    <property name="can_focus">False</property>
+                    <property name="valign">center</property>
+                    <signal name="clicked" handler="on_restore_clicked"/>
+                    <style>
+                      <class name="image-button"/>
+                    </style>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="a11y-restore">
+                        <property name="accessible-name" translatable="yes">Restore</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImage" id="restore_image">
+                        <property name="visible">True</property>
+                        <property name="icon-name">view-restore-symbolic</property>
+                        <property name="icon-size">1</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="pack-type">end</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkMenuButton" id="secondary_menu_button">
+                    <property name="visible">False</property>
+                    <property name="valign">center</property>
+                    <property name="can-focus">False</property>
+                    <property name="menu-model">secondary_menu</property>
+                    <signal name="notify::active" handler="update_fullscreen_box"/>
+                    <style>
+                      <class name="image-button"/>
+                    </style>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="visible">True</property>
+                        <property name="icon-name">view-more-symbolic</property>
+                        <property name="icon-size">1</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="pack-type">end</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="fullscreen">
+                    <property name="visible">False</property>
+                    <property name="can_focus">False</property>
+                    <property name="valign">center</property>
+                    <signal name="clicked" handler="on_fullscreen_clicked"/>
+                    <style>
+                      <class name="image-button"/>
+                    </style>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="a11y-fullscreen">
+                        <property name="accessible-name" translatable="yes">Fullscreen</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImage" id="fullscreen_image">
+                        <property name="visible">True</property>
+                        <property name="icon-name">view-fullscreen-symbolic</property>
+                        <property name="icon-size">1</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="pack-type">end</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GamesMediaMenuButton" id="media_button">
+                    <signal name="notify::active" handler="update_fullscreen_box"/>
+                  </object>
+                  <packing>
+                    <property name="pack-type">end</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GamesInputModeSwitcher" id="input_mode_switcher">
+                    <property name="visible">False</property>
+                  </object>
+                  <packing>
+                    <property name="pack-type">end</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="HdyHeaderBar" id="snapshots_header_bar">
+                <property name="visible">True</property>
+                <property name="title" bind-source="GamesDisplayView" bind-property="game-title" bind-flags="bidirectional"/>
+                <style>
+                  <class name="titlebar"/>
+                </style>
+                <child>
+                  <object class="GtkButton">
+                    <property name="sensitive">False</property>
+                    <property name="visible">True</property>
+                    <property name="valign">center</property>
+                    <property name="use-underline">True</property>
+                    <property name="label" translatable="yes">_Load</property>
+                    <property name="action-name">display.load-snapshot</property>
+                    <style>
+                      <class name="suggested-action"/>
+                    </style>
+                  </object>
+                  <packing>
+                    <property name="pack-type">end</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="valign">center</property>
+                    <signal name="clicked" handler="on_back_clicked"/>
+                    <style>
+                      <class name="image-button"/>
+                    </style>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="a11y-snapshots-back">
+                        <property name="accessible-name" translatable="yes">Back</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="visible">True</property>
+                        <property name="icon-name">go-previous-symbolic</property>
+                        <property name="icon-size">1</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="pack-type">start</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
           </object>
         </child>
         <child>
@@ -65,4 +237,18 @@
       </object>
     </child>
   </template>
+  <menu id="secondary_menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Restart</attribute>
+        <attribute name="action">display.restart</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Snapshots</attribute>
+        <attribute name="action">display.show-snapshots</attribute>
+      </item>
+    </section>
+  </menu>
 </interface>
