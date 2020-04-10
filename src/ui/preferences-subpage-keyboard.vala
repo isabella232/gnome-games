@@ -66,8 +66,8 @@ private class Games.PreferencesSubpageKeyboard : Gtk.Box, PreferencesSubpage {
 	}
 
 	[GtkChild (name = "header_bar")]
-	private Gtk.HeaderBar _header_bar;
-	public Gtk.HeaderBar header_bar {
+	private Hdy.HeaderBar _header_bar;
+	public Hdy.HeaderBar header_bar {
 		get { return _header_bar; }
 	}
 

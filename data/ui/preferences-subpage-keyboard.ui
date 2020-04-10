@@ -70,7 +70,7 @@
       </object>
     </child>
   </template>
-  <object class="GtkHeaderBar" id="header_bar">
+  <object class="HdyHeaderBar" id="header_bar">
     <property name="visible">True</property>
     <property name="expand">True</property>
     <child>
