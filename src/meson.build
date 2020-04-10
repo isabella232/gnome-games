@@ -151,6 +151,7 @@ vala_sources = [
   'ui/shortcuts-window.vala',
   'ui/snapshot-row.vala',
   'ui/snapshots-list.vala',
+  'ui/titlebar-box.vala',
   'ui/ui-view.vala',
 
   'utils/composite-cover.vala',
