@@ -1,108 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk+" version="3.24"/>
-  <template class="GamesPreferencesWindow" parent="GtkWindow">
+  <template class="GamesPreferencesWindow" parent="HdyWindow">
     <property name="title" translatable="yes">Preferences</property>
     <property name="default-width">800</property>
     <property name="default-height">500</property>
     <property name="window-position">center-on-parent</property>
-    <child type="titlebar">
-      <object class="HdyTitleBar" id="titlebar">
-        <property name="visible">True</property>
-        <child>
-          <object class="HdyDeck" id="titlebar_deck">
-            <property name="visible">True</property>
-            <child>
-              <object class="HdyLeaflet" id="titlebar_leaflet">
-                <property name="visible">True</property>
-                <signal name="notify::visible-child" handler="update_header_group"/>
-                <child>
-                  <object class="GtkHeaderBar" id="left_header_bar">
-                    <property name="name">left_header_bar</property>
-                    <property name="visible">True</property>
-                    <property name="title" translatable="yes">Preferences</property>
-                    <property name="show-close-button">True</property>
-                    <child>
-                      <object class="GtkButton" id="window_back_button">
-                        <property name="visible">False</property>
-                        <signal name="clicked" handler="on_back_clicked"/>
-                        <style>
-                          <class name="image-button"/>
-                        </style>
-                        <child internal-child="accessible">
-                          <object class="AtkObject">
-                            <property name="accessible-name" translatable="yes">Back</property>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkImage">
-                            <property name="visible">True</property>
-                            <property name="icon-name">go-previous-symbolic</property>
-                            <property name="icon-size">1</property>
-                          </object>
-                        </child>
-                      </object>
-                      <packing>
-                        <property name="pack-type">start</property>
-                      </packing>
-                    </child>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkSeparator" id="header_separator">
-                    <property name="orientation">vertical</property>
-                    <property name="visible">True</property>
-                    <style>
-                      <class name="sidebar"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="allow-visible">False</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkHeaderBar" id="right_header_bar">
-                    <property name="name">right_header_bar</property>
-                    <property name="visible">True</property>
-                    <property name="hexpand">True</property>
-                    <property name="show-close-button">True</property>
-                    <child>
-                      <object class="GtkButton" id="page_back_button">
-                        <property name="visible">False</property>
-                        <signal name="clicked" handler="on_back_clicked"/>
-                        <style>
-                          <class name="image-button"/>
-                        </style>
-                        <child internal-child="accessible">
-                          <object class="AtkObject">
-                            <property name="accessible-name" translatable="yes">Back</property>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkImage">
-                            <property name="visible">True</property>
-                            <property name="icon-name">go-previous-symbolic</property>
-                            <property name="icon-size">1</property>
-                          </object>
-                        </child>
-                      </object>
-                      <packing>
-                        <property name="pack-type">start</property>
-                      </packing>
-                    </child>
-                  </object>
-                </child>
-              </object>
-            </child>
-            <child>
-              <object class="GtkBox" id="titlebar_subpage_box">
-                <property name="visible">True</property>
-              </object>
-            </child>
-          </object>
-        </child>
-      </object>
-    </child>
     <child>
       <object class="HdyDeck" id="content_deck">
         <property name="visible">True</property>
@@ -113,52 +16,161 @@
             <property name="visible">True</property>
             <property name="can-swipe-back">True</property>
             <signal name="notify::folded" handler="on_folded_changed" after="yes"/>
+            <signal name="notify::visible-child" handler="update_header_group"/>
             <child>
-              <object class="GamesPreferencesSidebar" id="sidebar">
-                <property name="stack">stack</property>
-                <property name="vexpand">True</property>
+              <object class="GtkBox">
                 <property name="visible">True</property>
-                <property name="width-request">150</property>
-                <signal name="row-selected" handler="sidebar_row_selected"/>
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="HdyWindowHandle">
+                    <property name="visible">True</property>
+                    <child>
+                      <object class="GtkHeaderBar" id="left_header_bar">
+                        <property name="visible">True</property>
+                        <property name="title" translatable="yes">Preferences</property>
+                        <property name="show-close-button">True</property>
+                        <style>
+                          <class name="titlebar"/>
+                        </style>
+                        <child>
+                          <object class="GtkButton" id="window_back_button">
+                            <property name="visible">False</property>
+                            <signal name="clicked" handler="on_back_clicked"/>
+                            <style>
+                              <class name="image-button"/>
+                            </style>
+                            <child internal-child="accessible">
+                              <object class="AtkObject">
+                                <property name="accessible-name" translatable="yes">Back</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkImage">
+                                <property name="visible">True</property>
+                                <property name="icon-name">go-previous-symbolic</property>
+                                <property name="icon-size">1</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="pack-type">start</property>
+                          </packing>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GamesPreferencesSidebar" id="sidebar">
+                    <property name="visible">True</property>
+                    <property name="stack">stack</property>
+                    <property name="vexpand">True</property>
+                    <property name="width-request">150</property>
+                    <signal name="row-selected" handler="sidebar_row_selected"/>
+                  </object>
+                </child>
               </object>
             </child>
             <child>
-              <object class="GtkSeparator" id="separator">
-                <property name="orientation">vertical</property>
+              <object class="GtkBox">
                 <property name="visible">True</property>
-                <style>
-                  <class name="sidebar"/>
-                </style>
+                <property name="orientation">vertical</property>
+                <property name="vexpand">True</property>
+                <child>
+                  <object class="HdyWindowHandle">
+                    <property name="visible">True</property>
+                    <child>
+                      <object class="GtkSeparator" id="header_separator">
+                        <property name="orientation">vertical</property>
+                        <property name="visible">True</property>
+                        <style>
+                          <class name="sidebar"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkSeparator">
+                    <property name="orientation">vertical</property>
+                    <property name="visible">True</property>
+                    <property name="vexpand">True</property>
+                    <style>
+                      <class name="sidebar"/>
+                    </style>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="allow-visible">False</property>
               </packing>
             </child>
             <child>
-              <object class="GtkStack" id="stack">
+              <object class="GtkBox">
                 <property name="visible">True</property>
-                <property name="expand">True</property>
-                <property name="visible-child">video_page</property>
-                <property name="transition-type">crossfade</property>
-                <property name="width-request">300</property>
+                <property name="orientation">vertical</property>
                 <child>
-                  <object class="GamesPreferencesPageVideo" id="video_page">
+                  <object class="HdyWindowHandle">
                     <property name="visible">True</property>
+                    <child>
+                      <object class="GtkHeaderBar" id="right_header_bar">
+                        <property name="visible">True</property>
+                        <property name="show-close-button">True</property>
+                        <child>
+                          <object class="GtkButton" id="page_back_button">
+                            <property name="visible">False</property>
+                            <signal name="clicked" handler="on_back_clicked"/>
+                            <style>
+                              <class name="image-button"/>
+                            </style>
+                            <child internal-child="accessible">
+                              <object class="AtkObject">
+                                <property name="accessible-name" translatable="yes">Back</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkImage">
+                                <property name="visible">True</property>
+                                <property name="icon-name">go-previous-symbolic</property>
+                                <property name="icon-size">1</property>
+                              </object>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="pack-type">start</property>
+                          </packing>
+                        </child>
+                      </object>
+                    </child>
                   </object>
                 </child>
                 <child>
-                  <object class="GamesPreferencesPageControllers" id="controllers_page">
+                  <object class="GtkStack" id="stack">
                     <property name="visible">True</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GamesPreferencesPagePlatforms" id="platforms_page">
-                    <property name="visible">True</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GamesPreferencesPageImportExport" id="import_export_page">
-                    <property name="visible">True</property>
+                    <property name="expand">True</property>
+                    <property name="visible-child">video_page</property>
+                    <property name="transition-type">crossfade</property>
+                    <property name="width-request">300</property>
+                    <child>
+                      <object class="GamesPreferencesPageVideo" id="video_page">
+                        <property name="visible">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GamesPreferencesPageControllers" id="controllers_page">
+                        <property name="visible">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GamesPreferencesPagePlatforms" id="platforms_page">
+                        <property name="visible">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GamesPreferencesPageImportExport" id="import_export_page">
+                        <property name="visible">True</property>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>
@@ -175,17 +187,11 @@
     </child>
   </template>
   <object class="GtkSizeGroup">
-    <property name="mode">horizontal</property>
+    <property name="mode">vertical</property>
     <widgets>
       <widget name="left_header_bar"/>
-      <widget name="sidebar"/>
-    </widgets>
-  </object>
-  <object class="GtkSizeGroup">
-    <property name="mode">horizontal</property>
-    <widgets>
+      <widget name="header_separator"/>
       <widget name="right_header_bar"/>
-      <widget name="stack"/>
     </widgets>
   </object>
   <object class="HdyHeaderGroup" id="header_group">
@@ -193,17 +199,5 @@
       <headerbar name="left_header_bar"/>
       <headerbar name="right_header_bar"/>
     </headerbars>
-  </object>
-  <object class="HdySwipeGroup">
-    <swipeables>
-      <swipeable name="titlebar_deck"/>
-      <swipeable name="content_deck"/>
-    </swipeables>
-  </object>
-  <object class="HdySwipeGroup">
-    <swipeables>
-      <swipeable name="titlebar_leaflet"/>
-      <swipeable name="content_leaflet"/>
-    </swipeables>
   </object>
 </interface>

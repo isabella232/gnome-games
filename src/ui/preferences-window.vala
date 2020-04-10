@@ -1,9 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-window.ui")]
-private class Games.PreferencesWindow : Gtk.Window {
-	[GtkChild]
-	private Hdy.Leaflet titlebar_leaflet;
+private class Games.PreferencesWindow : Hdy.Window {
 	[GtkChild]
 	private Gtk.HeaderBar right_header_bar;
 	[GtkChild]
@@ -133,7 +131,7 @@ private class Games.PreferencesWindow : Gtk.Window {
 	[GtkCallback]
 	private void update_header_group () {
 		var folded = content_leaflet.folded;
-		var visible_header_bar = titlebar_leaflet.visible_child as Gtk.HeaderBar;
+		var visible_header_bar = content_leaflet.visible_child as Gtk.HeaderBar;
 
 		if (folded)
 			header_group.focus = visible_header_bar;
