@@ -23,10 +23,6 @@ private class Games.DisplayView : Gtk.Box, UiView {
 	[GtkChild]
 	private SnapshotsList snapshots_list;
 
-	public Gtk.Widget content_box {
-		get { return this; }
-	}
-
 	private bool _is_view_active;
 	public bool is_view_active {
 		get { return _is_view_active; }

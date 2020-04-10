@@ -1,8 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-private interface Games.UiView : Object {
-	public abstract Gtk.Widget content_box { get; }
-
+private interface Games.UiView : Gtk.Widget {
 	public abstract bool is_view_active { get; set; }
 
 	public abstract bool on_button_pressed (Gdk.EventButton event);

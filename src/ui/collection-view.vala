@@ -35,10 +35,6 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	[GtkChild]
 	private Hdy.SwipeGroup swipe_group;
 
-	public Gtk.Widget content_box {
-		get { return this; }
-	}
-
 	private bool _is_view_active;
 	public bool is_view_active {
 		get { return _is_view_active; }

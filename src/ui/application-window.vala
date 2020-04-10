@@ -16,7 +16,7 @@ private class Games.ApplicationWindow : Hdy.ApplicationWindow {
 
 			_current_view = value;
 
-			stack.visible_child = current_view.content_box;
+			stack.visible_child = current_view;
 
 			if (current_view != null)
 				current_view.is_view_active = true;
@@ -82,8 +82,8 @@ private class Games.ApplicationWindow : Hdy.ApplicationWindow {
 		collection_view = new CollectionView (this, game_model);
 		display_view = new DisplayView (this);
 
-		stack.add (collection_view.content_box);
-		stack.add (display_view.content_box);
+		stack.add (collection_view);
+		stack.add (display_view);
 
 		collection_view.game_activated.connect (on_game_activated);
 		display_view.back.connect (on_display_back);
