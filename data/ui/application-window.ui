@@ -13,6 +13,22 @@
     <child>
       <object class="GtkStack" id="stack">
         <property name="visible">True</property>
+        <child>
+          <object class="GamesCollectionView" id="collection_view">
+            <property name="visible">True</property>
+            <property name="window">GamesApplicationWindow</property>
+            <property name="loading-notification" bind-source="GamesApplicationWindow" bind-property="loading-notification"/>
+            <signal name="game-activated" handler="on_game_activated"/>
+          </object>
+        </child>
+        <child>
+          <object class="GamesDisplayView" id="display_view">
+            <property name="visible">True</property>
+            <property name="window">GamesApplicationWindow</property>
+            <property name="is-fullscreen" bind-source="GamesApplicationWindow" bind-property="is-fullscreen" bind-flags="bidirectional"/>
+            <signal name="back" handler="on_display_back"/>
+          </object>
+        </child>
       </object>
     </child>
   </template>

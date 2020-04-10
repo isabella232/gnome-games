@@ -77,7 +77,22 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	}
 
 	public Gtk.Window window { get; construct; }
-	public GameModel game_model { get; construct; }
+
+	private GameModel _game_model;
+	public GameModel game_model {
+		get { return _game_model; }
+		set {
+			_game_model = value;
+
+			collection_view.game_model = game_model;
+			platform_view.game_model = game_model;
+
+			is_collection_empty = game_model.get_n_items () == 0;
+			game_model.items_changed.connect (() => {
+				is_collection_empty = game_model.get_n_items () == 0;
+			});
+		}
+	}
 
 	public bool loading_notification { get; set; }
 	public bool search_mode { get; set; }
@@ -92,22 +107,10 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		var icon_name = Config.APPLICATION_ID + "-symbolic";
 		viewstack.child_set (collection_view, "icon-name", icon_name);
 
-		collection_view.game_model = game_model;
-		platform_view.game_model = game_model;
-
 		swipe_group.add_swipeable (platform_view.get_leaflet ());
-
-		is_collection_empty = game_model.get_n_items () == 0;
-		game_model.items_changed.connect (() => {
-			is_collection_empty = game_model.get_n_items () == 0;
-		});
 
 		konami_code = new KonamiCode (window);
 		konami_code.code_performed.connect (on_konami_code_performed);
-	}
-
-	public CollectionView (Gtk.Window window, GameModel game_model) {
-		Object (window: window, game_model: game_model);
 	}
 
 	public void show_error (string error_message) {

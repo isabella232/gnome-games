@@ -4,6 +4,13 @@
 private class Games.ApplicationWindow : Hdy.ApplicationWindow {
 	private const uint WINDOW_SIZE_UPDATE_DELAY_MILLISECONDS = 500;
 
+	[GtkChild]
+	private Gtk.Stack stack;
+	[GtkChild]
+	private CollectionView collection_view;
+	[GtkChild]
+	private DisplayView display_view;
+
 	private UiView _current_view;
 	public UiView current_view {
 		get { return _current_view; }
@@ -43,12 +50,6 @@ private class Games.ApplicationWindow : Hdy.ApplicationWindow {
 
 	public bool loading_notification { get; set; }
 
-	[GtkChild]
-	private Gtk.Stack stack;
-
-	private CollectionView collection_view;
-	private DisplayView display_view;
-
 	private Settings settings;
 
 	private long window_size_update_timeout;
@@ -67,6 +68,8 @@ private class Games.ApplicationWindow : Hdy.ApplicationWindow {
 	construct {
 		settings = new Settings ("org.gnome.Games");
 
+		collection_view.game_model = game_model;
+
 		int width, height;
 		settings.get ("window-size", "(ii)", out width, out height);
 		var geometry = get_geometry ();
@@ -78,21 +81,6 @@ private class Games.ApplicationWindow : Hdy.ApplicationWindow {
 
 		if (settings.get_boolean ("window-maximized"))
 			maximize ();
-
-		collection_view = new CollectionView (this, game_model);
-		display_view = new DisplayView (this);
-
-		stack.add (collection_view);
-		stack.add (display_view);
-
-		collection_view.game_activated.connect (on_game_activated);
-		display_view.back.connect (on_display_back);
-
-		bind_property ("loading-notification", collection_view,
-                       "loading-notification", BindingFlags.DEFAULT);
-
-		bind_property ("is-fullscreen", display_view,
-		               "is-fullscreen", BindingFlags.BIDIRECTIONAL);
 
 		window_size_update_timeout = -1;
 		inhibit_cookie = 0;
@@ -210,10 +198,12 @@ private class Games.ApplicationWindow : Hdy.ApplicationWindow {
 		return false;
 	}
 
+	[GtkCallback]
 	private void on_game_activated (Game game) {
 		run_game (game);
 	}
 
+	[GtkCallback]
 	private void on_display_back () {
 		if (quit_game ())
 			current_view = collection_view;

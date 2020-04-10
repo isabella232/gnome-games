@@ -143,10 +143,6 @@ private class Games.DisplayView : Gtk.Box, UiView {
 		{ "restart",        restart        },
 	};
 
-	public DisplayView (Gtk.Window window) {
-		Object (window: window);
-	}
-
 	construct {
 		settings = new Settings ("org.gnome.Games");
 
