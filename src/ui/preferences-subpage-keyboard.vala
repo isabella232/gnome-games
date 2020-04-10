@@ -37,6 +37,7 @@ private class Games.PreferencesSubpageKeyboard : Gtk.Box, PreferencesSubpage {
 			cancel_button.visible = (state == State.CONFIGURE);
 			header_bar.show_close_button = (state == State.TEST);
 			request_selection_mode = (state == State.CONFIGURE);
+			allow_back = (state == State.TEST);
 
 			switch (value) {
 			case State.TEST:
@@ -72,6 +73,7 @@ private class Games.PreferencesSubpageKeyboard : Gtk.Box, PreferencesSubpage {
 	}
 
 	public bool request_selection_mode { get; set; }
+	public bool allow_back { get; set; }
 	public string info_message { get; set; }
 
 	[GtkChild]
