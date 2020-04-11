@@ -84,8 +84,10 @@ add_project_arguments (
   language: 'c'
 )
 
+# FIXME Disable --disable-since-check after libhandy 1.0 is released
 add_project_arguments (
   '--target-glib=' + glib_min_version,
+  '--disable-since-check',
   language: 'vala'
 )
 
