@@ -81,6 +81,9 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 
 		var drawn = false;
 
+		context.style.render_background (cr, 0.0, 0.0, width, height);
+		context.style.render_frame (cr, 0.0, 0.0, width, height);
+
 		drawn = draw_image (context);
 
 		// Draw the default thumbnail if no thumbnail have been drawn
@@ -88,6 +91,18 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 			draw_default (context);
 
 		return true;
+	}
+
+	private void update_style_classes () {
+		if (cover_pixbuf != null)
+			get_style_context ().add_class ("cover");
+		else
+			get_style_context ().remove_class ("cover");
+
+		if (icon_pixbuf != null && cover_pixbuf == null)
+			get_style_context ().add_class ("icon");
+		else
+			get_style_context ().remove_class ("icon");
 	}
 
 	public bool draw_image (DrawingContext context) {
@@ -98,19 +113,13 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 			var border_radius = (int) context.style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS, context.state);
 			border_radius = border_radius.clamp (0, int.max (context.width / 2, context.height / 2));
 
-			context.cr.set_source_rgb (0, 0, 0);
-			rounded_rectangle (context.cr, 0.5, 0.5, context.width - 1, context.height - 1, border_radius);
-			context.cr.fill ();
 			draw_pixbuf (context, cover);
-			draw_border (context);
 
 			return true;
 		}
 
 		if (icon != null) {
-			draw_background (context);
 			draw_pixbuf (context, icon);
-			draw_border (context);
 
 			return true;
 		}
@@ -119,9 +128,7 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 	}
 
 	public void draw_default (DrawingContext context) {
-		draw_background (context);
 		draw_emblem_icon (context, Config.APPLICATION_ID + "-symbolic", EMBLEM_SCALE);
-		draw_border (context);
 	}
 
 	private void draw_emblem_icon (DrawingContext context, string icon_name, double scale) {
@@ -161,6 +168,7 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 		if (cover_size != last_cover_size) {
 			cover_pixbuf = null;
 			icon_pixbuf = null;
+			update_style_classes ();
 			try_load_cover = true;
 		}
 
@@ -189,6 +197,8 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 				if (icon_pixbuf != null)
 					this.icon_pixbuf = icon_pixbuf;
 			}
+
+			update_style_classes ();
 
 			queue_draw ();
 		});
@@ -225,14 +235,6 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 		cr.fill ();
 
 		return mask;
-	}
-
-	private void draw_background (DrawingContext context) {
-		context.style.render_background (context.cr, 0.0, 0.0, context.width, context.height);
-	}
-
-	private void draw_border (DrawingContext context) {
-		context.style.render_frame (context.cr, 0.0, 0.0, context.width, context.height);
 	}
 
 	private void rounded_rectangle (Cairo.Context cr, double x, double y, double width, double height, double radius) {

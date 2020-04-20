@@ -34,6 +34,10 @@ gamesgamethumbnail {
 	color: @theme_fg_color;
 }
 
+gamesgamethumbnail.cover {
+	background-color: black;
+}
+
 gamescollectioniconview flowboxchild {
 	min-width: 128px;
 }
