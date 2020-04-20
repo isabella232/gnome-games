@@ -79,16 +79,10 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 		if (cover == null)
 			return false;
 
-		var drawn = false;
-
 		context.style.render_background (cr, 0.0, 0.0, width, height);
 		context.style.render_frame (cr, 0.0, 0.0, width, height);
 
-		drawn = draw_image (context);
-
-		// Draw the default thumbnail if no thumbnail have been drawn
-		if (!drawn)
-			draw_default (context);
+		draw_image (context);
 
 		return true;
 	}
@@ -105,60 +99,45 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 			get_style_context ().remove_class ("icon");
 	}
 
-	public bool draw_image (DrawingContext context) {
+	public void draw_image (DrawingContext context) {
 		Gdk.Pixbuf cover, icon;
 		get_icon_and_cover (context, out cover, out icon);
 
 		if (cover != null) {
-			var border_radius = (int) context.style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS, context.state);
-			border_radius = border_radius.clamp (0, int.max (context.width / 2, context.height / 2));
-
 			draw_pixbuf (context, cover);
 
-			return true;
+			return;
 		}
 
 		if (icon != null) {
 			draw_pixbuf (context, icon);
 
-			return true;
+			return;
 		}
 
-		return false;
+		var emblem = get_emblem (context);
+
+		if (emblem != null)
+			draw_pixbuf (context, emblem);
 	}
 
-	public void draw_default (DrawingContext context) {
-		draw_emblem_icon (context, Config.APPLICATION_ID + "-symbolic", EMBLEM_SCALE);
-	}
-
-	private void draw_emblem_icon (DrawingContext context, string icon_name, double scale) {
+	private Gdk.Pixbuf? get_emblem (DrawingContext context) {
+		string icon_name = @"$(Config.APPLICATION_ID)-symbolic";
 		Gdk.Pixbuf? emblem = null;
 
 		var color = context.style.get_color (context.state);
 
 		var theme = Gtk.IconTheme.get_default ();
-		var size = int.min (context.width, context.height) * scale * scale_factor;
+		var size = int.min (context.width, context.height) * EMBLEM_SCALE * scale_factor;
 		try {
 			var icon_info = theme.lookup_icon (icon_name, (int) size, Gtk.IconLookupFlags.FORCE_SIZE);
 			emblem = icon_info.load_symbolic (color);
-		} catch (GLib.Error error) {
+		}
+		catch (GLib.Error error) {
 			warning (@"Unable to get icon “$icon_name”: $(error.message)");
-			return;
 		}
 
-		if (emblem == null)
-			return;
-
-		double offset_x = context.width * scale_factor / 2.0 - emblem.width / 2.0;
-		double offset_y = context.height * scale_factor / 2.0 - emblem.height / 2.0;
-
-		context.cr.save ();
-		context.cr.scale (1.0 / scale_factor, 1.0 / scale_factor);
-
-		Gdk.cairo_set_source_pixbuf (context.cr, emblem, offset_x, offset_y);
-		context.cr.paint ();
-
-		context.cr.restore ();
+		return emblem;
 	}
 
 	private void get_icon_and_cover (DrawingContext context, out Gdk.Pixbuf cover, out Gdk.Pixbuf icon) {

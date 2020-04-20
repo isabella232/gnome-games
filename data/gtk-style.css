@@ -31,7 +31,6 @@ gamesgamethumbnail {
 	border-style: solid;
 	border-radius: 2px;
 	border-color: @theme_bg_color;
-	color: @theme_fg_color;
 }
 
 gamesgamethumbnail.cover {
