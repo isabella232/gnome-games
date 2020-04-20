@@ -74,17 +74,17 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 		};
 
 		if (icon == null)
-			return false;
+			return Gdk.EVENT_PROPAGATE;
 
 		if (cover == null)
-			return false;
+			return Gdk.EVENT_PROPAGATE;
 
 		context.style.render_background (cr, 0.0, 0.0, width, height);
 		context.style.render_frame (cr, 0.0, 0.0, width, height);
 
 		draw_image (context);
 
-		return true;
+		return Gdk.EVENT_PROPAGATE;
 	}
 
 	private void update_style_classes () {
