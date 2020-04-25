@@ -43,6 +43,64 @@
   </screenshots>
 
   <releases>
+    <release version="3.37.1" type="development" date="2020-04-25" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>Support running Nintendo 64 games
+            <ul>
+              <li>Show a menu for switching controller expansion paks</li>
+            </ul>
+          </li>
+          <li>Run games in a secondary process</li>
+          <li>Show an error if a game crashes</li>
+          <li>Cache collection in the database, dramatically improving loading times after the first run</li>
+          <li>Speed up and reenable MAME plugin</li>
+          <li>Cache game icons</li>
+          <li>Add a search provider for GNOME Shell</li>
+          <li>Add screen gap for Nintendo DS games when using top/bottom layout
+            <ul>
+              <li>Optimize the gap width for 15 known games, use 80px for others</li>
+            </ul>
+          </li>
+          <li>Disable keyboard gamepad emulation for MS-DOS games, as most games use keyboard
+            <ul>
+              <li>Physical gamepads are still recognized as gamepads</li>
+            </ul>
+          </li>
+          <li>Ask for confirmation when trying to restart a game that doesn't support snapshots</li>
+          <li>Show a message when there are no search results</li>
+          <li>Prevent headerbar from hiding while there are open popovers</li>
+          <li>Show a warning when Tracker is not present</li>
+          <li>Show analog sticks in controller preferences as moving dots, animate them in mapping mode</li>
+          <li>Support back swipe:
+            <ul>
+              <li>In platforms view in mobile mode</li>
+              <li>In preferences window in mobile mode</li>
+              <li>In controller preferences</li>
+            </ul>
+          </li>
+          <li>Switch to HdyWindow, allowing round bottom corners</li>
+        </ul>
+        <p>Fixes:</p>
+        <ul>
+          <li>Ensure analog works for pcsx_rearmed core</li>
+          <li>Ensure loading notification is shown after unpausing</li>
+          <li>Correctly create version file for 3.34.0 savestate migration</li>
+          <li>Stop recalculating game titles when they're already cached</li>
+          <li>Don't show headerbar menus for unsupported games</li>
+          <li>Grab game view focus immediately after running a game</li>
+          <li>Stop counting files like GameSomething.jpg as covers for Game.rom</li>
+          <li>Don't open files when a game is already running</li>
+          <li>Fix --help command line option output</li>
+          <li>Use display name instead of basename for user-facing strings</li>
+          <li>Stop translating internal errors that are never shown in the UI</li>
+          <li>Stop listing application/x-desktop MIME type in desktop file</li>
+          <li>Stop using core descriptor as URI for standalone libretro games</li>
+        </ul>
+        <p>Translation updates.</p>
+      </description>
+    </release>
     <release version="3.35.90" type="development" date="2020-02-03" urgency="medium">
       <description>
         <p>Improvements:</p>

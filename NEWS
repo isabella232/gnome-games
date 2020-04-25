@@ -1,3 +1,79 @@
+==============
+Version 3.37.1
+==============
+
+* Support running Nintendo 64 games
+ - Show a menu for switching controller expansion paks
+
+* Adapt to API changes in retro-gtk
+ - Run games into a secondary process
+ - Show an error when the game crashes
+
+* Performance
+ - Cache collection in the database dramatically improving loading times after the first run
+ - MAME plugin game database loading was drastically simplified and should be a lot faster than before
+ - Cache game icons
+
+* Add a search provider for GNOME Shell
+
+* Add screen gap for Nintendo DS games when using top/bottom layout
+ - Optimize the gap width for 15 known games, use 80px for others.
+
+* Disable keyboard gamepad emulation for MS-DOS games, as most games use keyboard
+ - Physical gamepads are still recognized as gamepads
+
+* UI
+ - Ask for confirmation when trying to restart a game that doesn't support snapshots
+ - Show a message when there are no search results
+ - Prevent headerbar from hiding while there are open popovers
+ - Show a warning when Tracker is not present
+ - Show analog sticks in controller preferences as moving dots, animate them in mapping mode
+ - Support back swipe:
+   - In platforms view in mobile mode
+   - In preferences window in mobile mode
+   - In controller preferences
+ - Switch to HdyWindow, allowing round bottom corners
+
+* Fixes
+ - Ensure analog works for pcsx_rearmed core
+ - Ensure loading notification is shown after unpausing
+ - Correctly create version file for 3.34.0 savestate migration
+ - Stop recalculating game titles when they're already cached
+ - Don't show headerbar menus for unsupported games
+ - Grab game view focus immediately after running a game
+ - Stop counting files like GameSomething.jpg as covers for Game.rom
+ - Don't open files when a game is already running
+ - Fix --help command line option output
+ - Use display name instead of basename for user-facing strings
+ - Stop translating internal errors that are never shown in the UI
+ - Stop listing application/x-desktop MIME type in desktop file
+ - Stop using core descriptor as URI for standalone libretro games
+
+* Build
+ - Depend on unreleased retro-gtk version
+ - Depend on unreleased libhandy version
+ - Re-enable MAME plugin
+ - Pass --disable-since-check to valac
+
+* Various cleanups
+
+* Translation updates
+ Brazilian Portuguese
+ Croatian
+ Danish
+ Dutch
+ Finnish
+ French
+ German
+ Hungarian
+ Indonesian
+ Italian
+ Polish
+ Spanish
+ Swedish
+ Turkish
+ Ukrainian
+
 ===============
 Version 3.35.90
 ===============
