@@ -46,8 +46,12 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 
 	// TODO support unknown games (not in DB)
 	private void add_uri_with_error (Uri uri) throws Error {
-		if (game_for_uri.contains (uri))
+		print (@"Trying to add uri $uri\n");
+
+		if (game_for_uri.contains (uri)) {
+			print ("Already added, exiting\n");
 			return;
+		}
 
 		var file = uri.to_file ();
 		var file_info = file.query_info (FileAttribute.STANDARD_CONTENT_TYPE, FileQueryInfoFlags.NONE);
@@ -73,12 +77,18 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 			return;
 		}
 
+		print (@"Found bin file: $(bin_file.get_path())\n");
+
 		var header = new PlayStationHeader (bin_file);
 		header.check_validity ();
 		var disc_id = header.disc_id;
 
+		print (@"Disc id: $disc_id\n");
+
 		var gameinfo = get_gameinfo ();
 		var disc_set_id = gameinfo.get_disc_set_id_for_disc_id (disc_id);
+
+		print (@"Disc set id: $disc_set_id\n");
 
 		return_if_fail (media_for_disc_id.contains (disc_id) == game_for_disc_set_id.contains (disc_set_id));
 
@@ -89,6 +99,8 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 			media.add_uri (uri);
 			game_for_uri[uri] = game_for_disc_set_id[disc_set_id];
 
+			print (@"Game already exists, exiting\n");
+
 			try_add_game (game_for_uri[uri]);
 
 			return;
@@ -96,10 +108,15 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 
 		// A game correspond to this URI but we don't have it yet: create it.
 
+		print (@"Creating game\n");
+
 		var new_medias = new HashTable<string, Media> (str_hash, str_equal);
 		Media[] new_medias_array = {};
 		var new_disc_ids = gameinfo.get_disc_set_ids_for_disc_id (disc_id);
 		foreach (var new_disc_id in new_disc_ids) {
+			print (@"Checking id $new_disc_id\n");
+			if (media_for_disc_id.contains (new_disc_id))
+				print ("And it crashes here\n");
 			assert (!media_for_disc_id.contains (new_disc_id));
 
 			var title = new GameinfoDiscIdDiscTitle (gameinfo, new_disc_id);
@@ -117,10 +134,14 @@ public class Games.PlayStationGameFactory : Object, UriGameFactory {
 		media_set.icon_name = ICON_NAME;
 		var game = create_game (media_set, disc_set_id, uri);
 
+		print (@"Created game\n");
+
 		// Creating the Medias, MediaSet and Game worked, we can save them.
 
-		foreach (var new_disc_id in new_medias.get_keys ())
+		foreach (var new_disc_id in new_medias.get_keys ()) {
+			print (@"Adding $new_disc_id to media_for_disc_id\n");
 			media_for_disc_id[new_disc_id] = new_medias[new_disc_id];
+		}
 
 		game_for_uri[uri] = game;
 		game_for_disc_set_id[disc_set_id] = game;
