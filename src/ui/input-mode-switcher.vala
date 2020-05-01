@@ -49,6 +49,9 @@ private class Games.InputModeSwitcher : Gtk.Box {
 			keyboard_mode.active = true;
 
 			break;
+
+		case InputMode.NONE:
+			break;
 		}
 	}
 }
