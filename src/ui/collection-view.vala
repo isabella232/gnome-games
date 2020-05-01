@@ -144,6 +144,15 @@ private class Games.CollectionView : Gtk.Box, UiView {
 			return true;
 		}
 
+		if ((keyval == Gdk.Key.question) &&
+			(event.state & default_modifiers) == (Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.SHIFT_MASK)) {
+
+			var shortcuts_window = new ShortcutsWindow ();
+			shortcuts_window.show_all();
+
+			return true;
+		}
+
 		if (is_collection_empty)
 			return false;
 
