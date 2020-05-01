@@ -10,7 +10,6 @@
                 "core_installdir=/app/lib/libretro"
             ],
             "post-install": [
-                /* TODO: Send that upstream */
                 "mkdir -p /app/lib/libretro/",
                 "install -m644 -p mednafen_ngp.libretro /app/lib/libretro/"
             ],

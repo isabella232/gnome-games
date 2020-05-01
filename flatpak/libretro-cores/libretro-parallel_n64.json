@@ -10,7 +10,6 @@
                 "prefix=/app"
             ],
             "post-install": [
-                /* TODO: Send that upstream */
                 "mkdir -p /app/lib/libretro/",
                 "install -m644 -p parallel_n64.libretro /app/lib/libretro/"
             ],

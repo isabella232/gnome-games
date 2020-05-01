@@ -12,7 +12,6 @@
                 "profile=balanced"
             ],
             "post-install": [
-                /* TODO: Send that upstream */
                 "mkdir -p /app/lib/libretro/",
                 "install -m644 -p bsnes_mercury_balanced.libretro /app/lib/libretro/"
             ],

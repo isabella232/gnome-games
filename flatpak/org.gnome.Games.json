@@ -11,29 +11,18 @@
     ],
     "desktop-file-name-suffix" : " (Development)",
     "finish-args" : [
-        /* X11 + XShm access */
         "--share=ipc",
         "--socket=x11",
-        /* Wayland access */
         "--socket=wayland",
-        /* OpenGL + DRI access */
         "--device=dri",
-        /* PulseAudio access */
         "--socket=pulseaudio",
-        /* Tracker access */
         "--talk-name=org.freedesktop.Tracker1",
         "--env=TRACKER_SPARQL_BACKEND=bus",
-        /* Needed to get the games info from The Games DB */
         "--share=network",
-        /* Needed for joypads, until we have a proper portal */
         "--device=all",
-        /* Needed to be able to run desktop and Steam games */
         "--talk-name=org.freedesktop.Flatpak",
-        /* Needed to find the ROMs */
         "--filesystem=host:ro",
-        /* Needed to find flatpaked Steam games */
         "--filesystem=~/.var/app/com.valvesoftware.Steam:ro",
-        /* Settings migration */
         "--metadata=X-DConf=migrate-path=/org/gnome/Games/"
     ],
     "add-extensions": {
@@ -60,14 +49,9 @@
         "/share/gir-1.0"
     ],
     "modules" : [
-        /* Common dependencies */
         "shared-modules/lua5.3/lua-5.3.5.json",
         "shared-modules/SDL/SDL-1.2.15.json",
         "shared-modules/SDL/SDL_net-1.2.8.json",
-        /* Emulator cores for libretro
-
-           We build them first, because some of them are very big, and they
-           change more rarely than the rest of the modules. */
         "libretro-cores/libretro-blastem.json",
         "libretro-cores/libretro-bsnes-mercury.json",
         "libretro-cores/libretro-desmume2015.json",
@@ -94,7 +78,6 @@
                 "mkdir -p /app/lib/libretro/extra.d"
             ]
         },
-        /* End libretro cores */
         {
             "name" : "tracker",
             "buildsystem" : "meson",
@@ -137,7 +120,6 @@
                 "/bin"
             ]
         },
-        /* XXX Remove the Lua sources we won't use */
         {
             "name" : "grilo-plugins",
             "buildsystem" : "meson",

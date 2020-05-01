@@ -6,7 +6,6 @@
     "sdk": "org.gnome.Sdk",
     "tags": ["nightly"],
     "finish-args": [
-        /* Needed to find the ROMs */
         "--filesystem=home:ro"
     ],
     "build-options" : {
@@ -21,8 +20,6 @@
                 "/share/dbus-1", "/share/doc", "/share/gir-1.0"
     ],
     "modules": [
-        /* Emulator cores for libretro */
         "libretro-cores/libretro-picodrive.json"
-        /* End libretro cores */
     ]
 }

@@ -14,7 +14,6 @@
                 "prefix=/app"
             ],
             "post-install": [
-                /* TODO: Send that upstream */
                 "mkdir -p /app/lib/libretro/",
                 "install -m644 -p pcsx_rearmed.libretro /app/lib/libretro/"
             ],

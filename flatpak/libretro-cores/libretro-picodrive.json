@@ -11,7 +11,6 @@
                 "prefix=/app"
             ],
             "post-install": [
-                /* TODO: Send a generic version of that upstream */
                 "mkdir -p /app/lib/libretro/extra.d/PicoDrive",
                 "install -m644 -p picodrive.libretro /app/lib/libretro/extra.d/PicoDrive"
             ],
