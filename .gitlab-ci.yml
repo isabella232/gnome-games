@@ -29,7 +29,6 @@ flatpak:
     RUNTIME_REPO: 'https://nightly.gnome.org/gnome-nightly.flatpakrepo'
     FLATPAK_MODULE: 'gnome-games'
     APP_ID: 'org.gnome.GamesDevel'
-    MESON_ARGS: '-Dprofile=development'
     GIT_SUBMODULE_STRATEGY: recursive
 
 review:
