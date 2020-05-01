@@ -44,6 +44,13 @@
             <child>
               <object class="GtkShortcutsShortcut">
                 <property name="visible">True</property>
+                <property name="title" translatable="yes" context="shortcut window">Show Shortcuts</property>
+                <property name="accelerator">&lt;ctrl&gt;question</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="visible">True</property>
                 <property name="shortcut-type">gesture</property>
                 <property name="icon">stick_icon</property>
                 <property name="title" translatable="yes" context="shortcut window">Navigate</property>
