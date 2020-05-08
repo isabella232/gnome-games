@@ -29,16 +29,16 @@
 
   <screenshots>
     <screenshot type="default">
-      <image width="800" height="450">https://gitlab.gnome.org/GNOME/gnome-games/raw/master/data/appdata/3-30-games-search.png</image>
+      <image width="1313" height="802">https://gitlab.gnome.org/GNOME/gnome-games/raw/master/data/appdata/3-36-games-colletion.png</image>
     </screenshot>
     <screenshot>
-      <image width="800" height="450">https://gitlab.gnome.org/GNOME/gnome-games/raw/master/data/appdata/3-30-platforms-steam.png</image>
+      <image width="1313" height="802">https://gitlab.gnome.org/GNOME/gnome-games/raw/master/data/appdata/3-36-platforms.png</image>
     </screenshot>
     <screenshot>
-      <image width="800" height="450">https://gitlab.gnome.org/GNOME/gnome-games/raw/master/data/appdata/3-30-retro-resume.png</image>
+      <image width="1313" height="802">https://gitlab.gnome.org/GNOME/gnome-games/raw/master/data/appdata/3-36-retro-snapshots.png</image>
     </screenshot>
     <screenshot>
-      <image width="800" height="450">https://gitlab.gnome.org/GNOME/gnome-games/raw/master/data/appdata/3-30-gamepad-test.png</image>
+      <image width="852" height="599">https://gitlab.gnome.org/GNOME/gnome-games/raw/master/data/appdata/3-36-gamepad-test.png</image>
     </screenshot>
   </screenshots>
 
