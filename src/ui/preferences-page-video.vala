@@ -6,9 +6,7 @@ private class Games.PreferencesPageVideo : PreferencesPage {
 	public string filter_active {
 		set {
 			for (var i = 0; i < filter_names.length; i++) {
-				var row_item = filter_list_box.get_row_at_index (i);
-				var checkmark_item = row_item as CheckmarkItem;
-				checkmark_item.checkmark_visible = (value == filter_names[i]);
+				filter_radios[i].active = (value == filter_names[i]);
 			}
 			_filter_active = value;
 		}
@@ -20,19 +18,37 @@ private class Games.PreferencesPageVideo : PreferencesPage {
 
 	// same as video-filters in gschema
 	/* Translators: These values are video filters applied to the screen. Smooth
-	 * tries to smoothen the pixels, sharp displays the pixels square, and CRT
-	 * emulates an old TV */
+	* tries to smoothen the pixels, sharp displays the pixels square, and CRT
+	* emulates an old TV */
 	private string[] filter_display_names = { _("Smooth"), _("Sharp"), _("CRT") };
 	private string[] filter_names = { "smooth", "sharp", "crt" };
 	[GtkChild]
 	private Gtk.ListBox filter_list_box;
 	private Settings settings;
+	private Gtk.RadioButton filter_radios[3];
 
 	construct {
-		foreach (var filter_display_name in filter_display_names) {
-			var checkmark_item = new CheckmarkItem (filter_display_name);
-			filter_list_box.add (checkmark_item);
+		for (var i = 0; i < filter_display_names.length; i++) {
+			var row = new Hdy.ActionRow ();
+			row.title = filter_display_names [i];
+
+			filter_radios[i] = new Gtk.RadioButton.from_widget (filter_radios[0]);
+			filter_radios[i].name = filter_names[i];
+			filter_radios[i].valign = Gtk.Align.CENTER;
+			filter_radios[i].can_focus = false;
+			filter_radios[i].toggled.connect ((radio) => {
+				if (!radio.active)
+					return;
+
+				filter_active = radio.name;
+			});
+
+			row.add_prefix (filter_radios[i]);
+			row.activatable_widget = filter_radios[i];
+			row.show_all ();
+			filter_list_box.add (row);
 		}
+
 		settings = new Settings ("org.gnome.Games");
 		settings.bind ("video-filter", this, "filter-active",
 		               SettingsBindFlags.DEFAULT);
