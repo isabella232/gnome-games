@@ -1,11 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-page-platforms-retro-row.ui")]
-private class Games.PreferencesPagePlatformsRetroRow : PreferencesPagePlatformsRow, Gtk.ListBoxRow {
-	[GtkChild]
-	private Gtk.Label name_label;
-	[GtkChild]
-	private Gtk.Label core_label;
+private class Games.PreferencesPagePlatformsRetroRow : Hdy.ActionRow {
 	[GtkChild]
 	private Gtk.Popover details_popover;
 	[GtkChild]
@@ -23,7 +19,7 @@ private class Games.PreferencesPagePlatformsRetroRow : PreferencesPagePlatformsR
 	construct {
 		list_box.set_header_func (update_header);
 
-		name_label.label = platform.get_name ();
+		title = platform.get_name ();
 
 		refresh_cores ();
 
@@ -45,17 +41,17 @@ private class Games.PreferencesPagePlatformsRetroRow : PreferencesPagePlatformsR
 			/* Translators: This is displayed under the platform name when no
 			 * core is available for this platform. To see this message, click
 			 * on the hamburger menu, click on Preferences, then on Platforms */
-			core_label.label = _("None");
+			subtitle = _("None");
 		else {
 			try {
-				core_label.label = preferred_core.get_name ();
+				subtitle = preferred_core.get_name ();
 			}
 			catch (Error e) {
 				critical (e.message);
 			/* Translators: This is displayed under the platform name when no
 			 * core is available for this platform. To see this message, click
 			 * on the hamburger menu, click on Preferences, then on Platforms */
-				core_label.label = _("None");
+				subtitle = _("None");
 			}
 		}
 	}
@@ -68,6 +64,7 @@ private class Games.PreferencesPagePlatformsRetroRow : PreferencesPagePlatformsR
 
 		sensitive = (num_cores > 0);
 		dropdown_arrow.visible = (num_cores > 1);
+		activatable = (num_cores > 1);
 
 		row_cores = new HashTable<Gtk.Widget, Retro.CoreDescriptor> (null, null);
 
@@ -93,7 +90,7 @@ private class Games.PreferencesPagePlatformsRetroRow : PreferencesPagePlatformsR
 		update_label ();
 	}
 
-	public void on_activated () {
+	public override void activate () {
 		if (num_cores <= 1)
 			return;
 

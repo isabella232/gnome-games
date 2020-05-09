@@ -7,7 +7,7 @@ public interface Games.Platform : Object {
 
 	public abstract string get_uid_prefix ();
 
-	public abstract PreferencesPagePlatformsRow get_row ();
+	public abstract Hdy.ActionRow get_row ();
 
 	public abstract Type get_snapshot_type ();
 

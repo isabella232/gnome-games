@@ -1,46 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk+" version="3.24"/>
-  <template class="GamesPreferencesPagePlatformsRetroRow" parent="GtkListBoxRow">
+  <template class="GamesPreferencesPagePlatformsRetroRow" parent="HdyActionRow">
     <property name="visible">True</property>
-    <child>
-      <object class="GtkBox">
-        <property name="visible">True</property>
-        <property name="margin">10</property>
-        <property name="spacing">6</property>
-        <child>
-          <object class="GtkBox">
-            <property name="visible">True</property>
-            <property name="orientation">vertical</property>
-            <property name="hexpand">true</property>
-            <child>
-              <object class="GtkLabel" id="name_label">
-                <property name="visible">True</property>
-                <property name="ellipsize">end</property>
-                <property name="halign">start</property>
-                <property name="hexpand">true</property>
-              </object>
-            </child>
-            <child>
-              <object class="GtkLabel" id="core_label">
-                <property name="visible">True</property>
-                <property name="ellipsize">end</property>
-                <property name="halign">start</property>
-                <style>
-                  <class name="dim-label"/>
-                </style>
-              </object>
-            </child>
-          </object>
-        </child>
-        <child>
-          <object class="GtkImage" id="dropdown_arrow">
-            <property name="visible">False</property>
-            <property name="icon-name">pan-down-symbolic</property>
-          </object>
-        </child>
-      </object>
-    </child>
+      <child>
+        <object class="GtkImage" id="dropdown_arrow">
+          <property name="visible">False</property>
+          <property name="icon-name">pan-down-symbolic</property>
+        </object>
+      </child>
   </template>
   <object class="GtkPopover" id="details_popover">
     <property name="visible">False</property>

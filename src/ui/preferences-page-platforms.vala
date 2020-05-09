@@ -18,13 +18,4 @@ private class Games.PreferencesPagePlatforms : PreferencesPage {
 			list_box.add (row);
 		}
 	}
-
-	[GtkCallback]
-	private void on_row_activated (Gtk.ListBoxRow row) {
-		assert (row is PreferencesPagePlatformsRow);
-
-		var platforms_row = row as PreferencesPagePlatformsRow;
-
-		platforms_row.on_activated ();
-	}
 }

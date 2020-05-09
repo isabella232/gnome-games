@@ -23,8 +23,10 @@ public class Games.GenericPlatform : Object, Platform {
 		return uid_prefix;
 	}
 
-	public PreferencesPagePlatformsRow get_row () {
-		return new PreferencesPagePlatformsGenericRow (name);
+	public Hdy.ActionRow get_row () {
+		var generic_row = new Hdy.ActionRow ();
+		generic_row.title = name;
+		return generic_row;
 	}
 
 	public Type get_snapshot_type () {

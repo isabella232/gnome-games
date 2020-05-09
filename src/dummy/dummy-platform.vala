@@ -13,8 +13,10 @@ public class Games.DummyPlatform : Object, Platform {
 		return "unknown";
 	}
 
-	public PreferencesPagePlatformsRow get_row () {
-		return new PreferencesPagePlatformsGenericRow (_("Unknown"));
+	public Hdy.ActionRow get_row () {
+		var generic_row = new Hdy.ActionRow ();
+		generic_row.title = _("Unknown");
+		return generic_row;
 	}
 
 	public Type get_snapshot_type () {
