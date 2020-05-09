@@ -33,11 +33,12 @@ private class Games.PreferencesPageControllers : PreferencesPage {
 		var iterator = monitor.iterate ();
 		while (iterator.next (out device)) {
 			i += 1;
-			var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-			box.add (new Gtk.Label (device.get_name ()));
-			box.margin = 10;
-			box.show_all ();
-			gamepads_list_box.add (box);
+			var row = new Hdy.ActionRow ();
+			row.title = device.get_name ();
+			row.add (new Gtk.Image.from_icon_name ("go-next-symbolic", Gtk.IconSize.BUTTON));
+			row.activatable = true;
+			row.show_all ();
+			gamepads_list_box.add (row);
 		}
 		gamepads_label.visible = i > 0;
 		gamepads_list_box.visible = i > 0;
@@ -69,11 +70,12 @@ private class Games.PreferencesPageControllers : PreferencesPage {
 	}
 
 	private void build_keyboard_list () {
-		var box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
-		box.add (new Gtk.Label (_("Keyboard")));
-		box.margin = 10;
-		box.show_all ();
-		keyboard_list_box.add (box);
+		var row = new Hdy.ActionRow ();
+		row.title = _("Keyboard");
+		row.add (new Gtk.Image.from_icon_name ("go-next-symbolic", Gtk.IconSize.BUTTON));
+		row.activatable = true;
+		row.show_all ();
+		keyboard_list_box.add (row);
 	}
 
 	[GtkCallback]
