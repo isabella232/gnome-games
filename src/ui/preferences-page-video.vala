@@ -16,14 +16,16 @@ private class Games.PreferencesPageVideo : PreferencesPage {
 		}
 	}
 
+	[GtkChild]
+	private Hdy.PreferencesGroup filter_group;
+
 	// same as video-filters in gschema
 	/* Translators: These values are video filters applied to the screen. Smooth
 	* tries to smoothen the pixels, sharp displays the pixels square, and CRT
 	* emulates an old TV */
 	private string[] filter_display_names = { _("Smooth"), _("Sharp"), _("CRT") };
 	private string[] filter_names = { "smooth", "sharp", "crt" };
-	[GtkChild]
-	private Gtk.ListBox filter_list_box;
+
 	private Settings settings;
 	private Gtk.RadioButton filter_radios[3];
 
@@ -46,17 +48,17 @@ private class Games.PreferencesPageVideo : PreferencesPage {
 			row.add_prefix (filter_radios[i]);
 			row.activatable_widget = filter_radios[i];
 			row.show_all ();
-			filter_list_box.add (row);
+
+			row.activated.connect (() => {
+				filter_active = filter_names[i];
+			});
+
+			filter_group.add (row);
 		}
 
 		settings = new Settings ("org.gnome.Games");
 		settings.bind ("video-filter", this, "filter-active",
 		               SettingsBindFlags.DEFAULT);
 		title = _("Video");
-	}
-
-	[GtkCallback]
-	private void filter_list_box_row_activated (Gtk.ListBoxRow row_item) {
-		filter_active = filter_names[row_item.get_index ()];
 	}
 }

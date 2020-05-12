@@ -4,24 +4,9 @@
   <template class="GamesPreferencesPageVideo" parent="GamesPreferencesPage">
     <property name="visible">True</property>
     <child>
-      <object class="GtkLabel">
+      <object class="HdyPreferencesGroup" id="filter_group">
         <property name="visible">True</property>
-        <property name="halign">start</property>
-        <property name="label" translatable="yes">Filter</property>
-        <attributes>
-          <attribute name="weight" value="bold"/>
-        </attributes>
-      </object>
-    </child>
-    <child>
-      <object class="GtkListBox" id="filter_list_box">
-        <property name="visible">True</property>
-        <property name="selection-mode">none</property>
-        <signal name="row-activated" handler="filter_list_box_row_activated"/>
-        <style>
-          <class name="rounded"/>
-          <class name="separators"/>
-        </style>
+        <property name="title" translatable="yes">Filter</property>
       </object>
     </child>
   </template>
