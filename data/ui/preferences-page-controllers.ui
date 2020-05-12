@@ -4,45 +4,15 @@
   <template class="GamesPreferencesPageControllers" parent="GamesPreferencesPage">
     <property name="visible">True</property>
     <child>
-      <object class="GtkLabel" id="gamepads_label">
+      <object class="HdyPreferencesGroup" id="gamepads_group">
         <property name="visible">True</property>
-        <property name="halign">start</property>
-        <property name="label" translatable="yes">Gamepads</property>
-        <attributes>
-          <attribute name="weight" value="bold"/>
-        </attributes>
+        <property name="title" translatable="yes">Gamepads</property>
       </object>
     </child>
     <child>
-      <object class="GtkListBox" id="gamepads_list_box">
+      <object class="HdyPreferencesGroup" id="keyboard_group">
         <property name="visible">True</property>
-        <property name="selection-mode">none</property>
-        <signal name="row-activated" handler="gamepads_list_box_row_activated"/>
-        <style>
-          <class name="rounded"/>
-          <class name="separators"/>
-        </style>
-      </object>
-    </child>
-    <child>
-      <object class="GtkLabel">
-        <property name="visible">True</property>
-        <property name="halign">start</property>
-        <property name="label" translatable="yes">Keyboard</property>
-        <attributes>
-          <attribute name="weight" value="bold"/>
-        </attributes>
-      </object>
-    </child>
-    <child>
-      <object class="GtkListBox" id="keyboard_list_box">
-        <property name="visible">True</property>
-        <property name="selection-mode">none</property>
-        <signal name="row-activated" handler="keyboard_list_box_row_activated"/>
-        <style>
-          <class name="rounded"/>
-          <class name="separators"/>
-        </style>
+        <property name="title" translatable="yes">Keyboard</property>
       </object>
     </child>
   </template>
