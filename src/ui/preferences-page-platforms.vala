@@ -3,7 +3,7 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-page-platforms.ui")]
 private class Games.PreferencesPagePlatforms : PreferencesPage {
 	[GtkChild]
-	private Gtk.ListBox list_box;
+	private Hdy.PreferencesGroup platforms_group;
 
 	construct {
 		title = _("Platforms");
@@ -15,7 +15,7 @@ private class Games.PreferencesPagePlatforms : PreferencesPage {
 			var row = platform.get_row ();
 			row.show ();
 
-			list_box.add (row);
+			platforms_group.add (row);
 		}
 	}
 }

@@ -4,13 +4,8 @@
   <template class="GamesPreferencesPagePlatforms" parent="GamesPreferencesPage">
     <property name="visible">True</property>
     <child>
-      <object class="GtkListBox" id="list_box">
-        <property name="selection-mode">none</property>
-        <property name="visible">true</property>
-        <style>
-          <class name="rounded"/>
-          <class name="separators"/>
-        </style>
+      <object class="HdyPreferencesGroup" id="platforms_group">
+        <property name="visible" translatable="yes">True</property>
       </object>
     </child>
   </template>
