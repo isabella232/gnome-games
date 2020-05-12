@@ -7,7 +7,7 @@ public interface Games.Platform : Object {
 
 	public abstract string get_uid_prefix ();
 
-	public abstract Hdy.ActionRow get_row ();
+	public abstract Gtk.ListBoxRow get_row ();
 
 	public abstract Type get_snapshot_type ();
 

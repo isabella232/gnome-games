@@ -242,7 +242,6 @@ plugin_dependencies = [
   gio_dep,
   glib_dep,
   gtk_dep,
-  handy_dep,
   retro_gtk_dep,
   soup_dep,
   tracker_sparql_dep,

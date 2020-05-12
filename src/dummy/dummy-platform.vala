@@ -13,7 +13,7 @@ public class Games.DummyPlatform : Object, Platform {
 		return "unknown";
 	}
 
-	public Hdy.ActionRow get_row () {
+	public Gtk.ListBoxRow get_row () {
 		var generic_row = new Hdy.ActionRow ();
 		generic_row.title = _("Unknown");
 		return generic_row;

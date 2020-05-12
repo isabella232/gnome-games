@@ -23,7 +23,7 @@ public class Games.GenericPlatform : Object, Platform {
 		return uid_prefix;
 	}
 
-	public Hdy.ActionRow get_row () {
+	public Gtk.ListBoxRow get_row () {
 		var generic_row = new Hdy.ActionRow ();
 		generic_row.title = name;
 		return generic_row;

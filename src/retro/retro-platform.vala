@@ -29,7 +29,7 @@ public class Games.RetroPlatform : Object, Platform {
 		return mime_types;
 	}
 
-	public Hdy.ActionRow get_row () {
+	public Gtk.ListBoxRow get_row () {
 		return new PreferencesPagePlatformsRetroRow (this);
 	}
 
