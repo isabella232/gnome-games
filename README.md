@@ -18,7 +18,7 @@ speedrunning tools or video game development tools.
 - IRC channel:  #gnome-games on irc.gnome.org
 
 ## Contribution guide
-https://gitlab.gnome.org/GNOME/gnome-games/blob/master/HACKING
+https://gitlab.gnome.org/GNOME/gnome-games/blob/master/HACKING.md
 
 ## Developing
 We support development using Flatpak via GNOME Builder. At the Builder
