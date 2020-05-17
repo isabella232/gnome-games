@@ -19,6 +19,7 @@ public class Games.Application : Gtk.Application {
 	private Manette.Monitor manette_monitor;
 
 	private bool tracker_failed;
+	private bool initialized;
 
 	private const ActionEntry[] action_entries = {
 		{ "preferences",    preferences      },
@@ -236,17 +237,6 @@ public class Games.Application : Gtk.Application {
 
 		var icon_theme = Gtk.IconTheme.get_default ();
 		icon_theme.add_resource_path ("/org/gnome/Games/gesture");
-
-		init_game_sources ();
-
-		game_model = new GameModel ();
-		game_collection.game_added.connect (game_model.add_game);
-		game_collection.game_replaced.connect (game_model.replace_game);
-		game_collection.game_removed.connect (game_model.remove_game);
-
-		load_game_list.begin ();
-
-		cover_loader = new CoverLoader ();
 	}
 
 	private async void run_by_uid (string uid) {
@@ -299,6 +289,21 @@ public class Games.Application : Gtk.Application {
 	}
 
 	protected override void activate () {
+		if (!initialized) {
+			init_game_sources ();
+
+			game_model = new GameModel ();
+			game_collection.game_added.connect (game_model.add_game);
+			game_collection.game_replaced.connect (game_model.replace_game);
+			game_collection.game_removed.connect (game_model.remove_game);
+
+			load_game_list.begin ();
+
+			cover_loader = new CoverLoader ();
+
+			initialized = true;
+		}
+
 		if (window != null) {
 			window.present_with_time (Gtk.get_current_event_time ());
 			return;
