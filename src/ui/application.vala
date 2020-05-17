@@ -188,8 +188,7 @@ public class Games.Application : Gtk.Application {
 	}
 
 	protected override void open (File[] files, string hint) {
-		if (window == null)
-			activate ();
+		activate ();
 
 		if (files.length == 0)
 			return;
