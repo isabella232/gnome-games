@@ -56,10 +56,10 @@ endif
 
 dbus_conf = configuration_data()
 dbus_conf.set('appid', application_id)
-dbus_conf.set('libexecdir', libexecdir)
+dbus_conf.set('bindir', bindir)
 configure_file (
-  input: 'org.gnome.Games.SearchProvider.service.in',
-  output: '@0@.SearchProvider.service'.format(application_id),
+  input: 'org.gnome.Games.service.in',
+  output: '@0@.service'.format(application_id),
   configuration: dbus_conf,
   install: true,
   install_dir: servicedir
@@ -84,6 +84,17 @@ configure_file(
   install_dir: join_paths(datadir, 'gnome-shell', 'search-providers'),
   install: true,
   output: '@0@.SearchProvider.ini'.format(application_id)
+)
+
+search_provider_dbus_conf = configuration_data()
+search_provider_dbus_conf.set('appid', application_id)
+search_provider_dbus_conf.set('libexecdir', libexecdir)
+configure_file (
+  input: 'org.gnome.Games.SearchProvider.service.in',
+  output: '@0@.SearchProvider.service'.format(application_id),
+  configuration: search_provider_dbus_conf,
+  install: true,
+  install_dir: servicedir
 )
 
 subdir ('icons')
