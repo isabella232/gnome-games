@@ -188,10 +188,6 @@ public class Games.Application : Gtk.Application {
 	}
 
 	protected override void open (File[] files, string hint) {
-		open_async.begin (files, hint);
-	}
-
-	private async void open_async (File[] files, string hint) {
 		if (window == null)
 			activate ();
 
