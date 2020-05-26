@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-04-01 21:56+0000\n"
-"PO-Revision-Date: 2020-04-04 11:10+0200\n"
+"POT-Creation-Date: 2020-05-17 09:18+0000\n"
+"PO-Revision-Date: 2020-05-27 01:06+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.3.1\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:7
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:61
-#: data/ui/collection-header-bar.ui:66 src/ui/application.vala:45
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-view.ui:75
+#: data/ui/collection-view.ui:217 src/ui/application.vala:45
 msgid "Games"
 msgstr "Spel"
 
@@ -69,7 +69,7 @@ msgstr "Spela dina spel"
 msgid "Resume your game to where you left it"
 msgstr "Återuppta ditt spel där du lämnade det"
 
-#: data/org.gnome.Games.appdata.xml.in.in:261
+#: data/org.gnome.Games.appdata.xml.in.in:319
 msgid "The GNOME Project"
 msgstr "GNOME-projektet"
 
@@ -86,7 +86,7 @@ msgstr "Visa och spela din spelsamling"
 msgid "game;videogame;video game;player;"
 msgstr "spel;videospel;tvspel;spelare;"
 
-#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:101
+#: data/org.gnome.Games.gschema.xml:10 data/ui/display-view.ui:108
 msgid "Fullscreen"
 msgstr "Helskärm"
 
@@ -134,70 +134,72 @@ msgstr ""
 "Föredragen Libretro-kärna att använda för att köra spel. En annan kärna kan "
 "användas om den föredragna kärnan saknar fast programvara."
 
-#: data/ui/collection-box.ui:76 src/ui/preferences-page-platforms.vala:9
-msgid "Platforms"
-msgstr "Plattformar"
-
-#: data/ui/collection-box.ui:102
-msgid "Loading"
-msgstr "Läser in"
-
-#: data/ui/collection-header-bar.ui:26
+#: data/ui/collection-view.ui:35
 msgid "Add game files…"
 msgstr "Lägg till spelfiler…"
 
 #. Translators: tooltip for the application menu button
-#: data/ui/collection-header-bar.ui:45
+#: data/ui/collection-view.ui:54
 msgid "Menu"
 msgstr "Meny"
 
-#: data/ui/collection-header-bar.ui:82 data/ui/collection-header-bar.ui:137
+#: data/ui/collection-view.ui:92 data/ui/collection-view.ui:150
 msgid "Search"
 msgstr "Sök"
 
-#: data/ui/collection-header-bar.ui:114 data/ui/display-header-bar.ui:30
-#: data/ui/display-header-bar.ui:165 data/ui/preferences-subpage-gamepad.ui:84
-#: data/ui/preferences-subpage-keyboard.ui:85 data/ui/preferences-window.ui:34
-#: data/ui/preferences-window.ui:78
+#: data/ui/collection-view.ui:127 data/ui/display-view.ui:37
+#: data/ui/display-view.ui:175 data/ui/preferences-subpage-gamepad.ui:30
+#: data/ui/preferences-subpage-keyboard.ui:32 data/ui/preferences-window.ui:44
+#: data/ui/preferences-window.ui:128
 msgid "Back"
 msgstr "Bakåt"
 
-#: data/ui/collection-header-bar.ui:160
+#: data/ui/collection-view.ui:231 src/ui/preferences-page-platforms.vala:9
+msgid "Platforms"
+msgstr "Plattformar"
+
+#: data/ui/collection-view.ui:257
+msgid "Loading"
+msgstr "Läser in"
+
+#: data/ui/collection-view.ui:297
 msgid "Pr_eferences"
 msgstr "I_nställningar"
 
-#: data/ui/collection-header-bar.ui:164
+#: data/ui/collection-view.ui:301
 msgid "_Keyboard Shortcuts"
 msgstr "_Tangentbordsgenvägar"
 
-#: data/ui/collection-header-bar.ui:168
+#: data/ui/collection-view.ui:305
 msgid "_Help"
 msgstr "_Hjälp"
 
-#: data/ui/collection-header-bar.ui:172
+#: data/ui/collection-view.ui:309
 msgid "_About Games"
 msgstr "_Om Spel"
 
-#: data/ui/display-header-bar.ui:53
+#: data/ui/display-view.ui:60
 msgid "Restore"
 msgstr "Återställ"
 
-#: data/ui/display-header-bar.ui:144
+#: data/ui/display-view.ui:154
 msgid "_Load"
 msgstr "_Läs in"
 
-#: data/ui/display-header-bar.ui:188
+#: data/ui/display-view.ui:242
 msgid "_Restart"
 msgstr "Sta_rta om"
 
-#: data/ui/display-header-bar.ui:194
+#: data/ui/display-view.ui:248
 msgid "_Snapshots"
 msgstr "Ö_gonblicksbilder"
 
+#. Translators: This is displayed when the games library is empty.
 #: data/ui/empty-collection.ui:23 data/ui/empty-search.ui:25
 msgid "No games found"
 msgstr "Inga spel hittades"
 
+#. Translators: This is displayed when the games library is empty.
 #: data/ui/empty-collection.ui:38
 msgid ""
 "Install games or add directories containing games to your search sources."
@@ -226,7 +228,7 @@ msgid "Gamepads"
 msgstr "Handkontroller"
 
 #: data/ui/preferences-page-controllers.ui:31
-#: src/ui/preferences-page-controllers.vala:73
+#: src/ui/preferences-page-controllers.vala:74
 msgid "Keyboard"
 msgstr "Tangentbord"
 
@@ -240,17 +242,17 @@ msgstr ""
 "att flytta data till en annan enhet eller för att återställa dem senare. "
 "Spel för skrivbordet, Steam och LÖVE kan inte exporteras."
 
-#: data/ui/preferences-page-import-export.ui:42
+#: data/ui/preferences-page-import-export.ui:28
 #: src/ui/preferences-page-import-export.vala:34
 msgid "Export save data"
 msgstr "Exportera sparningsdata"
 
-#: data/ui/preferences-page-import-export.ui:51
+#: data/ui/preferences-page-import-export.ui:35
 #: src/ui/preferences-page-import-export.vala:36
 msgid "_Export"
 msgstr "_Exportera"
 
-#: data/ui/preferences-page-import-export.ui:66
+#: data/ui/preferences-page-import-export.ui:48
 msgid ""
 "Import save data for games from existing backup. This will replace existing "
 "saves and cannot be undone."
@@ -258,12 +260,12 @@ msgstr ""
 "Importera sparningsdata för spel från en befintlig säkerhetskopia. Detta "
 "kommer att ersätta befintliga sparningar och kan inte ångras."
 
-#: data/ui/preferences-page-import-export.ui:97
+#: data/ui/preferences-page-import-export.ui:66
 #: src/ui/preferences-page-import-export.vala:12
 msgid "Import save data"
 msgstr "Importera sparningsdata"
 
-#: data/ui/preferences-page-import-export.ui:106
+#: data/ui/preferences-page-import-export.ui:72
 #: src/ui/preferences-page-import-export.vala:14
 msgid "_Import"
 msgstr "_Importera"
@@ -272,30 +274,30 @@ msgstr "_Importera"
 msgid "Filter"
 msgstr "Filter"
 
-#: data/ui/preferences-subpage-gamepad.ui:22
-#: data/ui/preferences-subpage-keyboard.ui:23
+#: data/ui/preferences-subpage-gamepad.ui:53
+#: data/ui/preferences-subpage-keyboard.ui:55
 msgctxt "Keyboard configuration factory reset"
 msgid "Reset"
 msgstr "Återställ"
 
-#: data/ui/preferences-subpage-gamepad.ui:35
-#: data/ui/preferences-subpage-keyboard.ui:36
+#: data/ui/preferences-subpage-gamepad.ui:66
+#: data/ui/preferences-subpage-keyboard.ui:68
 msgid "Configure"
 msgstr "Konfigurera"
 
-#: data/ui/preferences-subpage-gamepad.ui:53
-#: data/ui/preferences-subpage-keyboard.ui:54
-msgid "Skip"
-msgstr "Hoppa över"
-
-#: data/ui/preferences-subpage-gamepad.ui:102
-#: data/ui/preferences-subpage-keyboard.ui:103 data/ui/quit-dialog.ui:15
+#: data/ui/preferences-subpage-gamepad.ui:94
+#: data/ui/preferences-subpage-keyboard.ui:97 data/ui/quit-dialog.ui:15
 #: data/ui/reset-controller-mapping-dialog.ui:15 data/ui/restart-dialog.ui:15
 #: data/ui/resume-failed-dialog.ui:14
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: data/ui/preferences-window.ui:5 data/ui/preferences-window.ui:23
+#: data/ui/preferences-subpage-gamepad.ui:109
+#: data/ui/preferences-subpage-keyboard.ui:112
+msgid "Skip"
+msgstr "Hoppa över"
+
+#: data/ui/preferences-window.ui:5 data/ui/preferences-window.ui:30
 msgid "Preferences"
 msgstr "Inställningar"
 
@@ -363,7 +365,7 @@ msgstr "Återställ"
 
 #: data/ui/shortcuts-window.ui:11
 msgid "Shortcuts"
-msgstr "Genvägar"
+msgstr "Kortkommandon"
 
 #: data/ui/shortcuts-window.ui:15
 msgid "General"
@@ -379,7 +381,7 @@ msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Avsluta"
 
-#: data/ui/shortcuts-window.ui:35 data/ui/shortcuts-window.ui:242
+#: data/ui/shortcuts-window.ui:35 data/ui/shortcuts-window.ui:249
 msgid "Collection"
 msgstr "Samling"
 
@@ -388,164 +390,179 @@ msgctxt "shortcut window"
 msgid "Search"
 msgstr "Sök"
 
-#: data/ui/shortcuts-window.ui:49 data/ui/shortcuts-window.ui:58
+#: data/ui/shortcuts-window.ui:47
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Visa kortkommandon"
+
+#: data/ui/shortcuts-window.ui:56 data/ui/shortcuts-window.ui:65
 msgctxt "shortcut window"
 msgid "Navigate"
 msgstr "Navigera"
 
-#: data/ui/shortcuts-window.ui:50
+#: data/ui/shortcuts-window.ui:57
 msgctxt "shortcut window"
 msgid "Left analog stick"
 msgstr "Vänster analog spak"
 
-#: data/ui/shortcuts-window.ui:59
+#: data/ui/shortcuts-window.ui:66
 msgctxt "shortcut window"
 msgid "Directional pad"
 msgstr "Styrkors"
 
-#: data/ui/shortcuts-window.ui:67
+#: data/ui/shortcuts-window.ui:74
 msgctxt "shortcut window"
 msgid "Select view"
 msgstr "Välj vy"
 
-#: data/ui/shortcuts-window.ui:68
+#: data/ui/shortcuts-window.ui:75
 msgctxt "shortcut window"
 msgid "Front shoulder buttons"
 msgstr "Främre axelknappar"
 
-#: data/ui/shortcuts-window.ui:76 data/ui/shortcuts-window.ui:85
+#: data/ui/shortcuts-window.ui:83 data/ui/shortcuts-window.ui:92
 msgctxt "shortcut window"
 msgid "Start game"
 msgstr "Starta spel"
 
-#: data/ui/shortcuts-window.ui:77
+#: data/ui/shortcuts-window.ui:84
 msgctxt "shortcut window"
 msgid "Start button"
 msgstr "Startknapp"
 
-#: data/ui/shortcuts-window.ui:86 data/ui/shortcuts-window.ui:145
+#: data/ui/shortcuts-window.ui:93 data/ui/shortcuts-window.ui:152
 msgctxt "shortcut window"
 msgid "Bottom action button"
 msgstr "Nedre åtgärdsknapp"
 
-#: data/ui/shortcuts-window.ui:93
+#: data/ui/shortcuts-window.ui:100
 msgid "In Game"
 msgstr "I spel"
 
-#: data/ui/shortcuts-window.ui:98
+#: data/ui/shortcuts-window.ui:105
 msgctxt "shortcut window"
 msgid "Create new snapshot"
 msgstr "Skapa ny ögonblicksbild"
 
-#: data/ui/shortcuts-window.ui:105
+#: data/ui/shortcuts-window.ui:112
 msgctxt "shortcut window"
 msgid "Load the latest snapshot"
 msgstr "Läs in senaste ögonblicksbild"
 
-#: data/ui/shortcuts-window.ui:112
+#: data/ui/shortcuts-window.ui:119
 msgctxt "shortcut window"
 msgid "Show snapshots"
 msgstr "Visa ögonblicksbilder"
 
-#: data/ui/shortcuts-window.ui:119
+#: data/ui/shortcuts-window.ui:126
 msgctxt "shortcut window"
 msgid "Toggle fullscreen"
 msgstr "Växla helskärm"
 
-#: data/ui/shortcuts-window.ui:126
+#: data/ui/shortcuts-window.ui:133
 msgctxt "shortcut window"
 msgid "Exit fullscreen"
 msgstr "Lämna helskärmsläge"
 
-#: data/ui/shortcuts-window.ui:135
+#: data/ui/shortcuts-window.ui:142
 msgctxt "shortcut window"
 msgid "Go back to the collection"
 msgstr "Gå tillbaka till samlingen"
 
-#: data/ui/shortcuts-window.ui:136
+#: data/ui/shortcuts-window.ui:143
 msgctxt "shortcut window"
 msgid "Home button"
 msgstr "Hemknapp"
 
-#: data/ui/shortcuts-window.ui:144
+#: data/ui/shortcuts-window.ui:151
 msgctxt "shortcut window"
 msgid "Accept"
 msgstr "Acceptera"
 
-#: data/ui/shortcuts-window.ui:153
+#: data/ui/shortcuts-window.ui:160
 msgctxt "shortcut window"
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: data/ui/shortcuts-window.ui:154
+#: data/ui/shortcuts-window.ui:161
 msgctxt "shortcut window"
 msgid "Right action button"
 msgstr "Höger åtgärdsknapp"
 
-#: data/ui/shortcuts-window.ui:165
+#: data/ui/shortcuts-window.ui:172
 #: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:6
 msgid "Nintendo DS"
 msgstr "Nintendo DS"
 
-#: data/ui/shortcuts-window.ui:169
+#. Translators: This is displayed in the shortcuts window. This corresponds to the screens layout for the Nintendo DS.
+#: data/ui/shortcuts-window.ui:176
 #: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:39
 msgid "Screen Layout"
 msgstr "Skärmlayout"
 
-#: data/ui/shortcuts-window.ui:174
+#. Translators: This describes the layout for the Nintendo DS emulator. This setting means the two screens are stacked one on top of the other
+#: data/ui/shortcuts-window.ui:181
 msgctxt "shortcut window"
 msgid "Vertical"
 msgstr "Vertikal"
 
-#: data/ui/shortcuts-window.ui:181 data/ui/shortcuts-window.ui:189
+#. Translators: This describes the layout for the Nintendo DS emulator. This setting means the two screens are displayed side by side
+#. Translators: This describes the Nintendo DS screens layout, side by side
+#: data/ui/shortcuts-window.ui:188 data/ui/shortcuts-window.ui:196
 msgctxt "shortcut window"
 msgid "Side by side"
 msgstr "Sida vid sida"
 
-#: data/ui/shortcuts-window.ui:182
+#. Translators: This describes the layout for the Nintendo DS emulator when the two screens are displayed side by side and not one on top of the other. The bottom screen is displayed to the right of the top screen.
+#: data/ui/shortcuts-window.ui:189
 msgctxt "shortcut window"
 msgid "Bottom to the right"
 msgstr "Nedre till höger"
 
-#: data/ui/shortcuts-window.ui:190
+#. Translators: This describes the layout for the Nintendo DS emulator when the two screens are displayed side by side and not one on top of the other. The bottom screen is displayed to the left of the top screen
+#: data/ui/shortcuts-window.ui:197
 msgctxt "shortcut window"
 msgid "Bottom to the left"
 msgstr "Nedre till vänster"
 
-#: data/ui/shortcuts-window.ui:197
+#. Translators: This describes the layout for the Nintendo DS emulator. This setting means only one screen is displayed at once. The screen displayed can then be changed in-game
+#: data/ui/shortcuts-window.ui:204
 msgctxt "shortcut window"
 msgid "Single screen"
 msgstr "Ensam skärm"
 
-#: data/ui/shortcuts-window.ui:205
+#: data/ui/shortcuts-window.ui:212
 msgid "Screen Switching"
 msgstr "Skärmväxling"
 
-#: data/ui/shortcuts-window.ui:210
+#. Translators: This describes the shortcut for showing the top screen, when the Nintendo DS emulator is single screen mode.
+#: data/ui/shortcuts-window.ui:217
 msgctxt "shortcut window"
 msgid "Show top screen"
 msgstr "Visa övre skärm"
 
-#: data/ui/shortcuts-window.ui:217
+#. Translators: This describes the shortcut for showing the bottom screen, when the Nintendo DS emulator is single screen mode.
+#: data/ui/shortcuts-window.ui:224
 msgctxt "shortcut window"
 msgid "Show bottom screen"
 msgstr "Visa nedre skärm"
 
-#: data/ui/shortcuts-window.ui:226
+#. Translators: This describes the shortcut for toggling whether the top or bottom screen is displayed, when the Nintendo DS emulator is single screen mode.
+#: data/ui/shortcuts-window.ui:233
 msgctxt "shortcut window"
 msgid "Toggle screen"
 msgstr "Växla skärm"
 
-#: data/ui/shortcuts-window.ui:227
+#: data/ui/shortcuts-window.ui:234
 msgctxt "shortcut window"
 msgid "Press right analog stick"
 msgstr "Tryck höger analog spak"
 
-#: data/ui/shortcuts-window.ui:238
+#: data/ui/shortcuts-window.ui:245
 msgid "Cheats"
 msgstr "Fusk"
 
-#: data/ui/shortcuts-window.ui:247
+#: data/ui/shortcuts-window.ui:254
 msgctxt "shortcut window"
 msgid "Contribute"
 msgstr "Bidra"
@@ -611,24 +628,41 @@ msgstr "Nintendo 64"
 msgid "Change Screen"
 msgstr "Ändra skärm"
 
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:50
+#. Translators: This describes the layout for the Nintendo DS
+#. * emulator. This setting means the two screens are stacked one on
+#. * top of the other
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:53
 msgid "Vertical"
 msgstr "Vertikal"
 
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:53
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:56
+#. Translators: This describes the layout for the Nintendo DS
+#. * emulator. This setting means the two screens are displayed side
+#. * by side
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:59
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:65
 msgid "Side by side"
 msgstr "Sida vid sida"
 
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:59
+#. Translators: This describes the layout for the Nintendo DS
+#. * emulator. This setting means only one screen is displayed at
+#. * once. The screen displayed can then be changed in-game.
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:71
 msgid "Single screen"
 msgstr "Ensam skärm"
 
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:69
+#. Translators: This describes the layout for the Nintendo DS
+#. * emulator when the two screens are displayed side by side and not
+#. * one on top of the other. The bottom screen is displayed to the
+#. * right of the top screen.
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:85
 msgid "Bottom to the right"
 msgstr "Nedre till höger"
 
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:72
+#. Translators: This describes the layout for the Nintendo DS
+#. * emulator when the two screens are displayed side by side and not
+#. * one on top of the other. The bottom screen is displayed to the
+#. * left of the top screen.
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:92
 msgid "Bottom to the left"
 msgstr "Nedre till vänster"
 
@@ -672,7 +706,7 @@ msgstr "Wii"
 msgid "New snapshot %s"
 msgstr "Ny ögonblicksbild %s"
 
-#: src/dummy/dummy-platform.vala:9 src/dummy/dummy-platform.vala:17
+#: src/dummy/dummy-platform.vala:9 src/dummy/dummy-platform.vala:18
 msgid "Unknown"
 msgstr "Okänd"
 
@@ -849,7 +883,9 @@ msgstr ""
 "Skicka synpunkter på översättningen till\n"
 "<tp-sv@listor.tp-sv.se>."
 
-#: src/ui/application-window.vala:277 src/ui/application-window.vala:294
+#. Translators: This is displayed if the user tries to log out of his
+#. * GNOME session, shutdown, or reboot while Games is running
+#: src/ui/application-window.vala:264 src/ui/application-window.vala:283
 msgid "Playing a game"
 msgstr "Spela"
 
@@ -879,7 +915,11 @@ msgstr "Flytta passande axel vänster/höger på din handkontroll"
 msgid "Move suitable axis up/down on your gamepad"
 msgstr "Flytta passande axel upp/ned på din handkontroll"
 
-#: src/ui/keyboard-mapper.vala:27
+#. translators: This message is displayed at the bottom of the window
+#. * when the user maps keyboard keys to controller buttons. To see it,
+#. * click on the hamburger menu, click on preferences > controllers >
+#. * keyboard, and click on the "configure" button
+#: src/ui/keyboard-mapper.vala:31
 msgid "Press suitable key on your keyboard"
 msgstr "Tryck ned passande knapp på ditt tangentbord"
 
@@ -906,50 +946,47 @@ msgstr "Det gick inte att importera sparningsdata: %s"
 msgid "Couldn’t export save data: %s"
 msgstr "Det gick inte att exportera sparningsdata: %s"
 
-#. Translators: No core available for this platform
-#: src/ui/preferences-page-platforms-retro-row.vala:46
+#. Translators: This is displayed under the platform name when no
+#. * core is available for this platform. To see this message, click
+#. * on the hamburger menu, click on Preferences, then on Platforms
+#: src/ui/preferences-page-platforms-retro-row.vala:44
 #: src/ui/preferences-page-platforms-retro-row.vala:54
 msgid "None"
 msgstr "Ingen"
 
 #. same as video-filters in gschema
-#: src/ui/preferences-page-video.vala:22
+#. Translators: These values are video filters applied to the screen. Smooth
+#. * tries to smoothen the pixels, sharp displays the pixels square, and CRT
+#. * emulates an old TV
+#: src/ui/preferences-page-video.vala:23
 msgid "Smooth"
 msgstr "Mjuk"
 
-#: src/ui/preferences-page-video.vala:22
+#: src/ui/preferences-page-video.vala:23
 msgid "Sharp"
 msgstr "Skarp"
 
-#: src/ui/preferences-page-video.vala:22
+#: src/ui/preferences-page-video.vala:23
 msgid "CRT"
 msgstr "CRT"
 
-#: src/ui/preferences-page-video.vala:36
+#: src/ui/preferences-page-video.vala:55
 msgid "Video"
 msgstr "Video"
 
 #. translators: testing a gamepad, %s is its name
-#: src/ui/preferences-subpage-gamepad.vala:50
+#: src/ui/preferences-subpage-gamepad.vala:101
 #, c-format
 msgid "Testing %s"
 msgstr "Testar %s"
 
 #. translators: configuring a gamepad, %s is its name
-#: src/ui/preferences-subpage-gamepad.vala:61
+#: src/ui/preferences-subpage-gamepad.vala:103
 #, c-format
 msgid "Configuring %s"
 msgstr "Konfigurerar %s"
 
-#: src/ui/preferences-subpage-keyboard.vala:45
-msgid "Testing Keyboard"
-msgstr "Testar tangentbord"
-
-#: src/ui/preferences-subpage-keyboard.vala:55
-msgid "Configuring Keyboard"
-msgstr "Konfigurerar tangentbord"
-
-#: src/ui/snapshot-row.vala:23 src/ui/snapshots-list.vala:185
+#: src/ui/snapshot-row.vala:23 src/ui/snapshots-list.vala:181
 msgid "Autosave"
 msgstr "Automatisk sparning"
 
@@ -989,11 +1026,14 @@ msgstr "%-e %b %X"
 msgid "%-e %b %Y %X"
 msgstr "%-e %b %Y %X"
 
-#: src/ui/snapshots-list.vala:188
+#. Translators: This message is shown to the user if he tried to rename
+#. * his snapshot either with an empty string, or with the name of the
+#. * autosave
+#: src/ui/snapshots-list.vala:187
 msgid "Invalid name"
 msgstr "Ogiltigt namn"
 
-#: src/ui/snapshots-list.vala:206
+#: src/ui/snapshots-list.vala:205
 msgid "A snapshot with this name already exists"
 msgstr "Det finns redan en ögonblicksbild med detta namn"
 
@@ -1006,6 +1046,12 @@ msgstr "Fel: %s (%d)"
 #, c-format
 msgid "Error writing “%s”: %s (%d)"
 msgstr "Fel vid skrivning av ”%s”: %s (%d)"
+
+#~ msgid "Testing Keyboard"
+#~ msgstr "Testar tangentbord"
+
+#~ msgid "Configuring Keyboard"
+#~ msgstr "Konfigurerar tangentbord"
 
 #~ msgid "Invalid command “%s”."
 #~ msgstr "Ogiltigt kommando ”%s”."
