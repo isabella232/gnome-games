@@ -116,6 +116,9 @@
                       <object class="GtkHeaderBar" id="right_header_bar">
                         <property name="visible">True</property>
                         <property name="show-close-button">True</property>
+                        <style>
+                          <class name="titlebar"/>
+                        </style>
                         <child>
                           <object class="GtkButton" id="page_back_button">
                             <property name="visible">False</property>
