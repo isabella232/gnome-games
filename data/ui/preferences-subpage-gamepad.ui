@@ -15,9 +15,6 @@
               <object class="HdyHeaderBar" id="tester_header_bar">
                 <property name="visible">True</property>
                 <property name="show-close-button">True</property>
-                <style>
-                  <class name="titlebar"/>
-                </style>
                 <child>
                   <object class="GtkButton">
                     <property name="visible">True</property>
@@ -85,7 +82,6 @@
               <object class="HdyHeaderBar" id="mapper_header_bar">
                 <property name="visible">True</property>
                 <style>
-                  <class name="titlebar"/>
                   <class name="selection-mode"/>
                 </style>
                 <child>
