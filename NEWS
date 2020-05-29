@@ -1,4 +1,29 @@
 ==============
+Version 3.37.2
+==============
+
+* Support DBus activation
+
+* Add a Ctrl+? shortcut for opening the shortcuts window
+
+* Use libhandy rows in the preferences window
+
+* Add an option override to disable pcsx_rearmed dynarec for now
+
+* Update screenshots in appdata
+
+* Various cleanups
+
+* Translation updates
+ Brazilian Portuguese
+ Indonesian
+ Polish
+ Spanish
+ Swedish
+ Turkish
+ Ukrainian
+
+==============
 Version 3.37.1
 ==============
 
