@@ -9,7 +9,7 @@ private class Games.PlatformsView : Gtk.Bin {
 	[GtkChild]
 	private Gtk.ListBox list_box;
 	[GtkChild]
-	private CollectionIconView collection_view;
+	private GamesPage games_page;
 	[GtkChild]
 	private GamepadBrowse gamepad_browse;
 
@@ -23,7 +23,7 @@ private class Games.PlatformsView : Gtk.Bin {
 		get { return _game_model; }
 		set {
 			_game_model = value;
-			collection_view.game_model = value;
+			games_page.game_model = value;
 
 			var platform_model = new PlatformModel (value);
 			list_box.bind_model (platform_model, add_platform);
@@ -50,7 +50,7 @@ private class Games.PlatformsView : Gtk.Bin {
 	public string subview_title { get; set; }
 
 	construct {
-		collection_view.set_game_filter (filter_game);
+		games_page.set_game_filter (filter_game);
 		list_box.set_filter_func (filter_list);
 	}
 
@@ -105,7 +105,7 @@ private class Games.PlatformsView : Gtk.Bin {
 
 	public void set_filter (string[] filtering_terms) {
 		this.filtering_terms = filtering_terms;
-		collection_view.set_filter (filtering_terms);
+		games_page.set_filter (filtering_terms);
 
 		list_box.invalidate_filter ();
 		select_first_visible_row ();
@@ -115,8 +115,8 @@ private class Games.PlatformsView : Gtk.Bin {
 		if (!get_mapped ())
 			return false;
 
-		if (collection_view.has_game_selected ())
-			if (collection_view.gamepad_button_press_event (event))
+		if (games_page.has_game_selected ())
+			if (games_page.gamepad_button_press_event (event))
 				return true;
 
 		return gamepad_browse.gamepad_button_press_event (event);
@@ -126,8 +126,8 @@ private class Games.PlatformsView : Gtk.Bin {
 		if (!get_mapped ())
 			return false;
 
-		if (collection_view.has_game_selected ())
-			if (collection_view.gamepad_button_release_event (event))
+		if (games_page.has_game_selected ())
+			if (games_page.gamepad_button_release_event (event))
 				return true;
 
 		return gamepad_browse.gamepad_button_release_event (event);
@@ -137,8 +137,8 @@ private class Games.PlatformsView : Gtk.Bin {
 		if (!get_mapped ())
 			return false;
 
-		if (collection_view.has_game_selected ())
-			if (collection_view.gamepad_absolute_axis_event (event))
+		if (games_page.has_game_selected ())
+			if (games_page.gamepad_absolute_axis_event (event))
 				return true;
 
 		return gamepad_browse.gamepad_absolute_axis_event (event);
@@ -173,7 +173,7 @@ private class Games.PlatformsView : Gtk.Bin {
 			return true;
 		case Gtk.DirectionType.RIGHT:
 			leaflet.navigate (Hdy.NavigationDirection.FORWARD);
-			collection_view.select_default_game (Gtk.DirectionType.RIGHT);
+			games_page.select_default_game (Gtk.DirectionType.RIGHT);
 
 			return true;
 		default:
@@ -184,14 +184,14 @@ private class Games.PlatformsView : Gtk.Bin {
 	[GtkCallback]
 	private bool on_gamepad_accept () {
 		leaflet.navigate (Hdy.NavigationDirection.FORWARD);
-		collection_view.select_default_game (Gtk.DirectionType.RIGHT);
+		games_page.select_default_game (Gtk.DirectionType.RIGHT);
 
 		return true;
 	}
 
 	[GtkCallback]
 	private bool on_gamepad_cancel () {
-		collection_view.unselect_game ();
+		games_page.unselect_game ();
 		leaflet.navigate (Hdy.NavigationDirection.BACK);
 
 		return true;
@@ -209,8 +209,8 @@ private class Games.PlatformsView : Gtk.Bin {
 		selected_platform = row.platform;
 		subview_title = selected_platform.get_name ();
 
-		collection_view.invalidate_filter ();
-		collection_view.reset_scroll_position ();
+		games_page.invalidate_filter ();
+		games_page.reset_scroll_position ();
 	}
 
 	public void reset () {
@@ -275,7 +275,7 @@ private class Games.PlatformsView : Gtk.Bin {
 
 	[GtkCallback]
 	private void on_visible_child_changed () {
-		is_subview_open = (leaflet.visible_child == collection_view);
+		is_subview_open = (leaflet.visible_child == games_page);
 	}
 
 	public Hdy.Leaflet get_leaflet () {

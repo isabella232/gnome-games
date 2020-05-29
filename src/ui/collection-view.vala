@@ -23,7 +23,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	[GtkChild]
 	private EmptySearch empty_search;
 	[GtkChild]
-	private CollectionIconView collection_view;
+	private GamesPage games_page;
 	[GtkChild]
 	private PlatformsView platform_view;
 	[GtkChild]
@@ -72,7 +72,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 				filtering_terms = value.split (" ");
 
 			platform_view.set_filter (filtering_terms);
-			collection_view.set_filter (filtering_terms);
+			games_page.set_filter (filtering_terms);
 		}
 	}
 
@@ -84,7 +84,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		set {
 			_game_model = value;
 
-			collection_view.game_model = game_model;
+			games_page.game_model = game_model;
 			platform_view.game_model = game_model;
 
 			is_collection_empty = game_model.get_n_items () == 0;
@@ -105,7 +105,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 
 	construct {
 		var icon_name = Config.APPLICATION_ID + "-symbolic";
-		viewstack.child_set (collection_view, "icon-name", icon_name);
+		viewstack.child_set (games_page, "icon-name", icon_name);
 
 		swipe_group.add_swipeable (platform_view.get_leaflet ());
 
@@ -198,7 +198,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 			if (viewstack.visible_child == platform_view)
 				return platform_view.gamepad_button_press_event (event);
 			else
-				return collection_view.gamepad_button_press_event (event);
+				return games_page.gamepad_button_press_event (event);
 		}
 	}
 
@@ -212,7 +212,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		if (viewstack.visible_child == platform_view)
 			return platform_view.gamepad_button_release_event (event);
 		else
-			return collection_view.gamepad_button_release_event (event);
+			return games_page.gamepad_button_release_event (event);
 	}
 
 	public bool gamepad_absolute_axis_event (Manette.Event event) {
@@ -225,7 +225,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		if (viewstack.visible_child == platform_view)
 			return platform_view.gamepad_absolute_axis_event (event);
 		else
-			return collection_view.gamepad_absolute_axis_event (event);
+			return games_page.gamepad_absolute_axis_event (event);
 	}
 
 	private void on_konami_code_performed () {
@@ -257,8 +257,8 @@ private class Games.CollectionView : Gtk.Box, UiView {
 
 	[GtkCallback]
 	private void on_visible_child_changed () {
-		if (viewstack.visible_child == collection_view)
-			collection_view.reset_scroll_position ();
+		if (viewstack.visible_child == games_page)
+			games_page.reset_scroll_position ();
 		else
 			platform_view.reset ();
 	}

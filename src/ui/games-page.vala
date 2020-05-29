@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-[GtkTemplate (ui = "/org/gnome/Games/ui/collection-icon-view.ui")]
-private class Games.CollectionIconView : Gtk.Bin {
+[GtkTemplate (ui = "/org/gnome/Games/ui/games-page.ui")]
+private class Games.GamesPage : Gtk.Bin {
 	public signal void game_activated (Game game);
 
 	private string[] filtering_terms;
@@ -45,7 +45,7 @@ private class Games.CollectionIconView : Gtk.Bin {
 	private GamepadBrowse gamepad_browse;
 
 	static construct {
-		set_css_name ("gamescollectioniconview");
+		set_css_name ("gamesgamespage");
 	}
 
 	construct {

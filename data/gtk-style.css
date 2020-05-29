@@ -37,11 +37,11 @@ gamesgamethumbnail.cover {
 	background-color: black;
 }
 
-gamescollectioniconview flowboxchild {
+gamesgamespage flowboxchild {
 	min-width: 128px;
 }
 
-gamescollectioniconview.large flowboxchild {
+gamesgamespage.large flowboxchild {
 	min-width: 256px;
 }
 

@@ -51,7 +51,7 @@
           </packing>
         </child>
         <child>
-          <object class="GamesCollectionIconView" id="collection_view">
+          <object class="GamesGamesPage" id="games_page">
             <property name="visible">True</property>
             <property name="expand">True</property>
             <signal name="game-activated" handler="on_game_activated"/>
