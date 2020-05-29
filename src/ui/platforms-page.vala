@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-[GtkTemplate (ui = "/org/gnome/Games/ui/platforms-view.ui")]
-private class Games.PlatformsView : Gtk.Bin {
+[GtkTemplate (ui = "/org/gnome/Games/ui/platforms-page.ui")]
+private class Games.PlatformsPage : Gtk.Bin {
 	public signal void game_activated (Game game);
 
 	[GtkChild]

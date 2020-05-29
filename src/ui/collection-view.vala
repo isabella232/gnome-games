@@ -25,7 +25,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	[GtkChild]
 	private GamesPage games_page;
 	[GtkChild]
-	private PlatformsView platform_view;
+	private PlatformsPage platforms_page;
 	[GtkChild]
 	private Gtk.Stack empty_stack;
 	[GtkChild]
@@ -71,7 +71,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 			else
 				filtering_terms = value.split (" ");
 
-			platform_view.set_filter (filtering_terms);
+			platforms_page.set_filter (filtering_terms);
 			games_page.set_filter (filtering_terms);
 		}
 	}
@@ -85,7 +85,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 			_game_model = value;
 
 			games_page.game_model = game_model;
-			platform_view.game_model = game_model;
+			platforms_page.game_model = game_model;
 
 			is_collection_empty = game_model.get_n_items () == 0;
 			game_model.items_changed.connect (() => {
@@ -107,7 +107,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		var icon_name = Config.APPLICATION_ID + "-symbolic";
 		viewstack.child_set (games_page, "icon-name", icon_name);
 
-		swipe_group.add_swipeable (platform_view.get_leaflet ());
+		swipe_group.add_swipeable (platforms_page.get_leaflet ());
 
 		konami_code = new KonamiCode (window);
 		konami_code.code_performed.connect (on_konami_code_performed);
@@ -195,8 +195,8 @@ private class Games.CollectionView : Gtk.Box, UiView {
 
 			return true;
 		default:
-			if (viewstack.visible_child == platform_view)
-				return platform_view.gamepad_button_press_event (event);
+			if (viewstack.visible_child == platforms_page)
+				return platforms_page.gamepad_button_press_event (event);
 			else
 				return games_page.gamepad_button_press_event (event);
 		}
@@ -209,8 +209,8 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		if (!get_mapped ())
 			return false;
 
-		if (viewstack.visible_child == platform_view)
-			return platform_view.gamepad_button_release_event (event);
+		if (viewstack.visible_child == platforms_page)
+			return platforms_page.gamepad_button_release_event (event);
 		else
 			return games_page.gamepad_button_release_event (event);
 	}
@@ -222,8 +222,8 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		if (!get_mapped ())
 			return false;
 
-		if (viewstack.visible_child == platform_view)
-			return platform_view.gamepad_absolute_axis_event (event);
+		if (viewstack.visible_child == platforms_page)
+			return platforms_page.gamepad_absolute_axis_event (event);
 		else
 			return games_page.gamepad_absolute_axis_event (event);
 	}
@@ -260,7 +260,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		if (viewstack.visible_child == games_page)
 			games_page.reset_scroll_position ();
 		else
-			platform_view.reset ();
+			platforms_page.reset ();
 	}
 
 	[GtkCallback]
@@ -271,7 +271,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		else
 			empty_stack.visible_child = empty_search;
 
-		// Changing the filtering_text for the PlatformView might
+		// Changing the filtering_text for the PlatformsPage might
 		// cause the currently selected sidebar row to become empty and therefore
 		// hidden. In this case the first visible row will become selected and
 		// this causes the search bar to lose focus so we have to regrab it here
