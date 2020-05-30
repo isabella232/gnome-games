@@ -2,7 +2,7 @@
 
 public class Games.Application : Gtk.Application {
 	const string HELP_URI = "https://wiki.gnome.org/Apps/Games/Documentation";
-	const string TEST_QUERY = "SELECT nie:url(?f) WHERE { ?f fts:match 'test query to check tracker' }";
+	const string TEST_QUERY = "SELECT nie:isStoredAs(?f) WHERE { GRAPH tracker:Software { ?f fts:match 'test query to check tracker' } }";
 
 	private static bool? is_flatpak;
 
@@ -345,7 +345,7 @@ public class Games.Application : Gtk.Application {
 
 		TrackerUriSource tracker_uri_source = null;
 		try {
-			var connection = Tracker.Sparql.Connection.@get ();
+			var connection = Tracker.Sparql.Connection.@bus_new ("org.freedesktop.Tracker3.Miner.Files", null, null);
 			connection.query (TEST_QUERY);
 			tracker_uri_source = new TrackerUriSource (connection);
 		}

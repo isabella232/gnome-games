@@ -8,6 +8,6 @@ public class Games.MimeTypeTrackerUriQuery : Object, TrackerUriQuery {
 	}
 
 	public string get_query () {
-		return @"SELECT DISTINCT nie:url(?urn) WHERE { ?urn nie:mimeType \"$mime_type\" . }";
+		return @"SELECT DISTINCT nie:isStoredAs(?urn) { GRAPH tracker:Software { ?urn nie:mimeType \"$mime_type\" . } }";
 	}
 }

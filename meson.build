@@ -45,7 +45,7 @@ retro_gtk_dep = dependency ('retro-gtk-1', version: '>=' + retro_gtk_min_version
 rsvg_dep = dependency ('librsvg-2.0')
 soup_dep = dependency ('libsoup-2.4')
 sqlite_dep = dependency ('sqlite3')
-tracker_sparql_dep = dependency ('tracker-sparql-2.0')
+tracker_sparql_dep = dependency ('tracker-sparql-3.0')
 xml_dep = dependency ('libxml-2.0')
 
 srcdir = join_paths (meson.source_root (), 'src')

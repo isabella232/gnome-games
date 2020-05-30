@@ -19,7 +19,7 @@ private class Games.DesktopPlugin : Object, Plugin {
 	public UriSource[] get_uri_sources () {
 		var query = new DesktopTrackerUriQuery ();
 		try {
-			var connection = Tracker.Sparql.Connection.@get ();
+			var connection = Tracker.Sparql.Connection.@bus_new ("org.freedesktop.Tracker3.Miner.Files", null, null);
 			var uri_source = new TrackerUriSource (connection);
 			uri_source.add_query (query);
 
