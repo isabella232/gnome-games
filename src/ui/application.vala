@@ -459,6 +459,10 @@ public class Games.Application : Gtk.Application {
 	private void preferences () {
 		if (preferences_window == null) {
 			preferences_window = new PreferencesWindow ();
+
+			preferences_window.transient_for = window;
+			preferences_window.modal = true;
+
 			preferences_window.destroy.connect (() => {
 				preferences_window = null;
 			});
