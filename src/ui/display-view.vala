@@ -131,7 +131,6 @@ private class Games.DisplayView : Gtk.Box, UiView {
 	private QuitDialog quit_dialog;
 	private RestartDialog restart_dialog;
 
-	private long focus_out_timeout_id;
 	private ulong extra_widget_notify_block_autohide_id;
 
 	private Game game;
@@ -145,8 +144,6 @@ private class Games.DisplayView : Gtk.Box, UiView {
 
 	construct {
 		settings = new Settings ("org.gnome.Games");
-
-		focus_out_timeout_id = -1;
 
 		action_group = new SimpleActionGroup ();
 		action_group.add_action_entries (action_entries, this);
@@ -595,12 +592,7 @@ private class Games.DisplayView : Gtk.Box, UiView {
 		}
 	}
 
-	public void update_pause (bool with_delay) {
-		if (focus_out_timeout_id != -1) {
-			Source.remove ((uint) focus_out_timeout_id);
-			focus_out_timeout_id = -1;
-		}
-
+	public void update_pause () {
 		if (!can_update_pause ())
 			return;
 
@@ -610,22 +602,8 @@ private class Games.DisplayView : Gtk.Box, UiView {
 				runner.get_display ().grab_focus ();
 			}
 		}
-		else if (with_delay)
-			focus_out_timeout_id = Timeout.add (FOCUS_OUT_DELAY_MILLISECONDS, on_focus_out_delay_elapsed);
 		else
 			runner.pause ();
-	}
-
-	private bool on_focus_out_delay_elapsed () {
-		focus_out_timeout_id = -1;
-
-		if (!can_update_pause ())
-			return false;
-
-		if (!window.is_active)
-			runner.pause ();
-
-		return false;
 	}
 
 	private bool can_update_pause () {

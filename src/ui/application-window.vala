@@ -163,7 +163,7 @@ private class Games.ApplicationWindow : Hdy.ApplicationWindow {
 
 		is_fullscreen = (bool) (event.new_window_state & Gdk.WindowState.FULLSCREEN);
 		if (current_view == display_view)
-			display_view.update_pause (false);
+			display_view.update_pause ();
 
 		if (!(bool) (event.changed_mask & Gdk.WindowState.FOCUSED))
 			return true;
@@ -214,7 +214,7 @@ private class Games.ApplicationWindow : Hdy.ApplicationWindow {
 	[GtkCallback]
 	private void on_active_changed () {
 		if (current_view == display_view)
-			display_view.update_pause (true);
+			display_view.update_pause ();
 	}
 
 	private Gdk.Rectangle? get_geometry () {
