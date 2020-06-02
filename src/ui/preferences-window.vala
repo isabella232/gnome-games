@@ -3,23 +3,13 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-window.ui")]
 private class Games.PreferencesWindow : Hdy.Window {
 	[GtkChild]
-	private Gtk.HeaderBar right_header_bar;
-	[GtkChild]
 	private Hdy.Deck content_deck;
 	[GtkChild]
-	private Hdy.Leaflet content_leaflet;
+	private Gtk.Box main_box;
 	[GtkChild]
 	private Gtk.Box content_subpage_box;
 	[GtkChild]
-	private PreferencesSidebar sidebar;
-	[GtkChild]
 	private Gtk.Stack stack;
-	[GtkChild]
-	private Hdy.HeaderGroup header_group;
-	[GtkChild]
-	private Gtk.Button page_back_button;
-	[GtkChild]
-	private Gtk.Button window_back_button;
 
 	private PreferencesSubpage _subpage;
 	public PreferencesSubpage subpage {
@@ -41,7 +31,6 @@ private class Games.PreferencesWindow : Hdy.Window {
 				                                          BindingFlags.SYNC_CREATE);
 
 				content_deck.navigate (Hdy.NavigationDirection.FORWARD);
-				content_leaflet.navigate (Hdy.NavigationDirection.FORWARD);
 			}
 
 			_subpage = value;
@@ -56,12 +45,6 @@ private class Games.PreferencesWindow : Hdy.Window {
 	}
 
 	[GtkCallback]
-	private void sidebar_row_selected () {
-		content_leaflet.navigate (Hdy.NavigationDirection.FORWARD);
-
-		update_ui ();
-	}
-
 	private void update_ui () {
 		var page = stack.visible_child as PreferencesPage;
 
@@ -71,13 +54,10 @@ private class Games.PreferencesWindow : Hdy.Window {
 		}
 
 		if (page == null) {
-			right_header_bar.title = "";
 			subpage = null;
 
 			return;
 		}
-
-		right_header_bar.title = page.title;
 
 		subpage_binding = page.bind_property ("subpage", this, "subpage",
 		                                      BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
@@ -91,9 +71,9 @@ private class Games.PreferencesWindow : Hdy.Window {
 	}
 
 	[GtkCallback]
-	public void subpage_transition_finished (Object object, ParamSpec param) {
+	public void subpage_transition_finished () {
 		if (content_deck.transition_running ||
-		    content_deck.visible_child != content_leaflet)
+		    content_deck.visible_child != main_box)
 			return;
 
 		remove_subpage ();
@@ -105,37 +85,5 @@ private class Games.PreferencesWindow : Hdy.Window {
 			return;
 
 		remove_subpage ();
-	}
-
-	[GtkCallback]
-	private void on_back_clicked () {
-		if (!content_leaflet.navigate (Hdy.NavigationDirection.BACK))
-			close ();
-	}
-
-	[GtkCallback]
-	private void on_folded_changed () {
-		var folded = content_leaflet.folded;
-
-		update_header_group ();
-		page_back_button.visible = folded;
-		window_back_button.visible = folded;
-		sidebar.show_selection = !folded;
-
-		if (folded)
-			stack.transition_type = Gtk.StackTransitionType.NONE;
-		else
-			stack.transition_type = Gtk.StackTransitionType.CROSSFADE;
-	}
-
-	[GtkCallback]
-	private void update_header_group () {
-		var folded = content_leaflet.folded;
-		var visible_header_bar = content_leaflet.visible_child as Gtk.HeaderBar;
-
-		if (folded)
-			header_group.focus = visible_header_bar;
-		else
-			header_group.focus = null;
 	}
 }
