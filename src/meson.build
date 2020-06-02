@@ -131,8 +131,6 @@ vala_sources = [
   'ui/preferences-page-platforms.vala',
   'ui/preferences-page-platforms-retro-row.vala',
   'ui/preferences-page-video.vala',
-  'ui/preferences-sidebar.vala',
-  'ui/preferences-sidebar-item.vala',
   'ui/preferences-subpage.vala',
   'ui/preferences-subpage-gamepad.vala',
   'ui/preferences-subpage-keyboard.vala',

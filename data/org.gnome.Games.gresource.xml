@@ -35,8 +35,6 @@
     <file preprocess="xml-stripblanks">ui/preferences-page-platforms.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page-platforms-retro-row.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-page-video.ui</file>
-    <file preprocess="xml-stripblanks">ui/preferences-sidebar.ui</file>
-    <file preprocess="xml-stripblanks">ui/preferences-sidebar-item.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-subpage-gamepad.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-subpage-keyboard.ui</file>
     <file preprocess="xml-stripblanks">ui/preferences-window.ui</file>
