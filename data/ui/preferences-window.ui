@@ -7,7 +7,7 @@
     <property name="default-height">500</property>
     <property name="window-position">center-on-parent</property>
     <child>
-      <object class="HdyDeck" id="content_deck">
+      <object class="HdyDeck" id="deck">
         <property name="visible">True</property>
         <signal name="notify::transition-running" handler="subpage_transition_finished"/>
         <signal name="notify::visible-child" handler="on_visible_child_changed"/>
@@ -87,7 +87,7 @@
           </object>
         </child>
         <child>
-          <object class="GtkBox" id="content_subpage_box">
+          <object class="GtkBox" id="subpage_box">
             <property name="visible">True</property>
             <property name="orientation">vertical</property>
           </object>
