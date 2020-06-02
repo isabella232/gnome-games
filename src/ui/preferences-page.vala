@@ -3,7 +3,6 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-page.ui")]
 private class Games.PreferencesPage : Gtk.Bin, Gtk.Buildable {
 	public PreferencesSubpage subpage { get; set; }
-	public string title { get; construct set; }
 
 	[GtkChild]
 	private Gtk.Label error_label;

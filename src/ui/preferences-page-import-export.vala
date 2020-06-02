@@ -2,10 +2,6 @@
 
 [GtkTemplate (ui = "/org/gnome/Games/ui/preferences-page-import-export.ui")]
 private class Games.PreferencesPageImportExport : PreferencesPage {
-	construct {
-		title = _("Import & Export");
-	}
-
 	[GtkCallback]
 	private void on_import_clicked () {
 		var toplevel = get_toplevel () as Gtk.Window;

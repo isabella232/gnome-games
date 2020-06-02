@@ -59,6 +59,5 @@ private class Games.PreferencesPageVideo : PreferencesPage {
 		settings = new Settings ("org.gnome.Games");
 		settings.bind ("video-filter", this, "filter-active",
 		               SettingsBindFlags.DEFAULT);
-		title = _("Video");
 	}
 }

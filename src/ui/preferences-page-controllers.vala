@@ -17,7 +17,6 @@ private class Games.PreferencesPageControllers : PreferencesPage {
 		monitor.device_disconnected.connect (rebuild_gamepad_list);
 		build_gamepad_list ();
 		build_keyboard_list ();
-		title = _("Controllers");
 	}
 
 	private void rebuild_gamepad_list () {

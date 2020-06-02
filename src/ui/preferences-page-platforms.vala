@@ -6,8 +6,6 @@ private class Games.PreferencesPagePlatforms : PreferencesPage {
 	private Hdy.PreferencesGroup platforms_group;
 
 	construct {
-		title = _("Platforms");
-
 		var register = PlatformRegister.get_register ();
 		var platforms = register.get_all_platforms ();
 
