@@ -9,8 +9,6 @@ private class Games.PreferencesPageControllers : PreferencesPage {
 
 	private Manette.Monitor monitor;
 
-	private ulong back_handler_id;
-
 	construct {
 		monitor = new Manette.Monitor ();
 		monitor.device_connected.connect (rebuild_gamepad_list);
@@ -41,9 +39,7 @@ private class Games.PreferencesPageControllers : PreferencesPage {
 			var this_device = device;
 
 			row.activated.connect (() => {
-				var subpage_gamepad = new PreferencesSubpageGamepad (this_device);
-				back_handler_id = subpage_gamepad.back.connect (on_back);
-				subpage = subpage_gamepad;
+				window.open_subpage (new PreferencesSubpageGamepad (this_device));
 			});
 
 			row.show_all ();
@@ -66,17 +62,10 @@ private class Games.PreferencesPageControllers : PreferencesPage {
 		row.activatable = true;
 
 		row.activated.connect (() => {
-			var subpage_keyboard = new PreferencesSubpageKeyboard ();
-			back_handler_id = subpage_keyboard.back.connect (on_back);
-			subpage = subpage_keyboard;
+			window.open_subpage (new PreferencesSubpageKeyboard ());
 		});
 
 		row.show_all ();
 		keyboard_group.add (row);
-	}
-
-	private void on_back () {
-		subpage.disconnect (back_handler_id);
-		subpage = null;
 	}
 }

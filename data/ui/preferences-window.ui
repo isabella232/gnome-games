@@ -9,8 +9,8 @@
     <child>
       <object class="HdyDeck" id="deck">
         <property name="visible">True</property>
-        <signal name="notify::transition-running" handler="subpage_transition_finished"/>
-        <signal name="notify::visible-child" handler="on_visible_child_changed"/>
+        <signal name="notify::transition-running" handler="try_remove_subpage"/>
+        <signal name="notify::visible-child" handler="try_remove_subpage"/>
         <child>
           <object class="GtkBox" id="main_box">
             <property name="visible">True</property>
@@ -38,10 +38,10 @@
                 <property name="visible-child">video_page</property>
                 <property name="transition-type">crossfade</property>
                 <property name="width-request">300</property>
-                <signal name="notify::visible-child" handler="update_ui"/>
                 <child>
                   <object class="GamesPreferencesPageVideo" id="video_page">
                     <property name="visible">True</property>
+                    <property name="window">GamesPreferencesWindow</property>
                   </object>
                   <packing>
                     <property name="title" translatable="yes">Video</property>
@@ -51,6 +51,7 @@
                 <child>
                   <object class="GamesPreferencesPageControllers" id="controllers_page">
                     <property name="visible">True</property>
+                    <property name="window">GamesPreferencesWindow</property>
                   </object>
                   <packing>
                     <property name="title" translatable="yes">Controllers</property>
@@ -60,6 +61,7 @@
                 <child>
                   <object class="GamesPreferencesPagePlatforms" id="platforms_page">
                     <property name="visible">True</property>
+                    <property name="window">GamesPreferencesWindow</property>
                   </object>
                   <packing>
                     <property name="title" translatable="yes">Platforms</property>
@@ -69,6 +71,7 @@
                 <child>
                   <object class="GamesPreferencesPageImportExport" id="import_export_page">
                     <property name="visible">True</property>
+                    <property name="window">GamesPreferencesWindow</property>
                   </object>
                   <packing>
                     <property name="title" translatable="yes">Import &amp; Export</property>

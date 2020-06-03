@@ -31,8 +31,6 @@ private class Games.PreferencesSubpageGamepad : Gtk.Bin, PreferencesSubpage {
 		CONFIGURE,
 	}
 
-	public signal void back ();
-
 	private State _state;
 	private State state {
 		set {

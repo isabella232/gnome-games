@@ -26,8 +26,6 @@ private class Games.PreferencesSubpageKeyboard : Gtk.Bin, PreferencesSubpage {
 		CONFIGURE,
 	}
 
-	public signal void back ();
-
 	private State _state;
 	private State state {
 		get { return _state; }
