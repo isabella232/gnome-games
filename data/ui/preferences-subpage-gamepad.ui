@@ -12,32 +12,40 @@
             <property name="visible">True</property>
             <property name="orientation">vertical</property>
             <child>
-              <object class="HdyHeaderBar" id="tester_header_bar">
+              <object class="HdyWindowHandle">
                 <property name="visible">True</property>
-                <property name="show-close-button">True</property>
                 <child>
-                  <object class="GtkButton">
+                  <object class="GtkHeaderBar" id="tester_header_bar">
                     <property name="visible">True</property>
-                    <signal name="clicked" handler="on_back_clicked"/>
+                    <property name="show-close-button">True</property>
                     <style>
-                      <class name="image-button"/>
+                      <class name="titlebar"/>
                     </style>
-                    <child internal-child="accessible">
-                      <object class="AtkObject" id="a11y-back">
-                        <property name="accessible-name" translatable="yes">Back</property>
-                      </object>
-                    </child>
                     <child>
-                      <object class="GtkImage">
+                      <object class="GtkButton">
                         <property name="visible">True</property>
-                        <property name="icon-name">go-previous-symbolic</property>
-                        <property name="icon-size">1</property>
+                        <signal name="clicked" handler="on_back_clicked"/>
+                        <style>
+                          <class name="image-button"/>
+                        </style>
+                        <child internal-child="accessible">
+                          <object class="AtkObject" id="a11y-back">
+                            <property name="accessible-name" translatable="yes">Back</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="visible">True</property>
+                            <property name="icon-name">go-previous-symbolic</property>
+                            <property name="icon-size">1</property>
+                          </object>
+                        </child>
                       </object>
+                      <packing>
+                        <property name="pack-type">start</property>
+                      </packing>
                     </child>
                   </object>
-                  <packing>
-                    <property name="pack-type">start</property>
-                  </packing>
                 </child>
               </object>
             </child>
@@ -79,20 +87,26 @@
             <property name="visible">True</property>
             <property name="orientation">vertical</property>
             <child>
-              <object class="HdyHeaderBar" id="mapper_header_bar">
+              <object class="HdyWindowHandle">
                 <property name="visible">True</property>
-                <style>
-                  <class name="selection-mode"/>
-                </style>
                 <child>
-                  <object class="GtkButton">
+                  <object class="GtkHeaderBar" id="mapper_header_bar">
                     <property name="visible">True</property>
-                    <property name="label" translatable="yes">Cancel</property>
-                    <signal name="clicked" handler="on_cancel_clicked"/>
+                    <style>
+                      <class name="titlebar"/>
+                      <class name="selection-mode"/>
+                    </style>
+                    <child>
+                      <object class="GtkButton">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Cancel</property>
+                        <signal name="clicked" handler="on_cancel_clicked"/>
+                      </object>
+                      <packing>
+                        <property name="pack-type">end</property>
+                      </packing>
+                    </child>
                   </object>
-                  <packing>
-                    <property name="pack-type">end</property>
-                  </packing>
                 </child>
               </object>
             </child>

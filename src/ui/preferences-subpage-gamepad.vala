@@ -73,9 +73,9 @@ private class Games.PreferencesSubpageGamepad : Gtk.Bin, PreferencesSubpage {
 	[GtkChild]
 	private Gtk.Box mapper_box;
 	[GtkChild]
-	private Hdy.HeaderBar tester_header_bar;
+	private Gtk.HeaderBar tester_header_bar;
 	[GtkChild]
-	private Hdy.HeaderBar mapper_header_bar;
+	private Gtk.HeaderBar mapper_header_bar;
 	[GtkChild]
 	private Gtk.Button reset_button;
 
