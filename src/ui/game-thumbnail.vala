@@ -63,6 +63,20 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 		minimum_height = natural_height = width;
 	}
 
+	public override void size_allocate (Gtk.Allocation alloc) {
+		var context = get_style_context ();
+		var clip = context.render_background_get_clip (
+			alloc.x,
+			alloc.y,
+			alloc.width,
+			alloc.height
+		);
+
+		base.size_allocate (alloc);
+
+		set_clip (clip);
+	}
+
 	public override bool draw (Cairo.Context cr) {
 		var style = get_style_context ();
 		var state = get_state_flags ();
