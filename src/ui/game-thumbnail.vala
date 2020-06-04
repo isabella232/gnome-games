@@ -224,7 +224,7 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 		var cr = new Cairo.Context (mask);
 		cr.scale (scale_factor, scale_factor);
 		cr.set_source_rgb (0, 0, 0);
-		rounded_rectangle (cr, 0.5, 0.5, context.width - 1, context.height - 1, border_radius);
+		rounded_rectangle (cr, 0, 0, context.width, context.height, border_radius);
 		cr.fill ();
 
 		return mask;
