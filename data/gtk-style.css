@@ -27,10 +27,8 @@
 
 gamesgamethumbnail {
 	background-color: mix(@theme_base_color, @theme_bg_color, 0.5);
-	border-width: 1px;
-	border-style: solid;
 	border-radius: 2px;
-	border-color: @theme_bg_color;
+	box-shadow: 0 0 0 1px @theme_bg_color;
 }
 
 gamesgamethumbnail.cover {
