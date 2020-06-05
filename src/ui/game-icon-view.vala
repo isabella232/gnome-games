@@ -28,11 +28,22 @@ private class Games.GameIconView : Gtk.FlowBoxChild {
 		}
 	}
 
+	public bool checked { get; set; }
+	public bool is_selection_mode { get; set; }
+
 	public GameIconView (Game game) {
 		Object (game: game);
 	}
 
 	private void game_replaced (Game new_game) {
 		game = new_game;
+	}
+
+	public static uint hash (GameIconView key) {
+		return Game.hash (key.game);
+	}
+
+	public static bool equal (GameIconView a, GameIconView b) {
+		return Game.equal (a.game, b.game);
 	}
 }
