@@ -9,55 +9,242 @@
     <signal name="notify::is-folded" handler="on_folded_changed"/>
     <signal name="notify::is-showing-bottom-bar" handler="update_bottom_bar"/>
     <signal name="notify::is-subview-open" handler="update_bottom_bar"/>
-    <signal name="notify::is-collection-empty" handler="update_adaptive_state"/>
+    <signal name="notify::is-selection-mode" handler="on_selection_mode_changed"/>
+    <signal name="notify::is-collection-empty" handler="on_collection_empty_changed"/>
     <child>
-      <object class="HdyDeck" id="deck">
+      <object class="GtkStack" id="header_bar_stack">
         <property name="visible">True</property>
-        <property name="can-swipe-back">True</property>
+        <property name="transition-type">crossfade</property>
         <child>
-          <object class="HdyHeaderBar" id="header_bar">
+          <object class="HdyDeck" id="deck">
             <property name="visible">True</property>
-            <property name="show-close-button">True</property>
-            <property name="centering-policy">strict</property>
+            <property name="can-swipe-back">True</property>
             <child>
-              <object class="GtkButton" id="add_game">
+              <object class="HdyHeaderBar" id="header_bar">
                 <property name="visible">True</property>
-                <property name="valign">center</property>
-                <property name="action-name">app.add-game-files</property>
-                <style>
-                  <class name="image-button"/>
-                </style>
-                <child internal-child="accessible">
-                  <object class="AtkObject" id="a11y-back">
-                    <property name="accessible-name" translatable="yes">Add game files…</property>
+                <property name="show-close-button">True</property>
+                <property name="centering-policy">strict</property>
+                <child>
+                  <object class="GtkButton" id="add_game">
+                    <property name="visible">True</property>
+                    <property name="valign">center</property>
+                    <property name="action-name">app.add-game-files</property>
+                    <style>
+                      <class name="image-button"/>
+                    </style>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="a11y-back">
+                        <property name="accessible-name" translatable="yes">Add game files…</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImage" id="add_game_image">
+                        <property name="visible">True</property>
+                        <property name="icon-name">list-add-symbolic</property>
+                        <property name="icon-size">1</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="pack-type">start</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkMenuButton" id="menu">
+                    <property name="menu-model">primary_menu</property>
+                    <!-- Translators: tooltip for the application menu button -->
+                    <property name="tooltip-text" translatable="yes">Menu</property>
+                    <property name="valign">center</property>
+                    <property name="visible">True</property>
+                    <style>
+                      <class name="image-button"/>
+                    </style>
+                    <child>
+                      <object class="GtkImage" id="menu_image">
+                        <property name="visible">True</property>
+                        <property name="icon-name">open-menu-symbolic</property>
+                        <property name="icon-size">1</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="pack-type">end</property>
+                  </packing>
+                </child>
+                <child type="title">
+                  <object class="HdyViewSwitcherTitle" id="view_switcher_title">
+                    <property name="visible">True</property>
+                    <property name="title" translatable="yes">Games</property>
+                    <property name="stack">viewstack</property>
+                    <property name="view-switcher-enabled" bind-source="GamesCollectionView" bind-property="is-collection-empty" bind-flags="bidirectional|sync-create|invert-boolean"/>
+                    <signal name="notify::title-visible" handler="update_adaptive_state"/>
                   </object>
                 </child>
                 <child>
-                  <object class="GtkImage" id="add_game_image">
+                  <object class="GtkButton" id="selection_button">
+                    <property name="visible" bind-source="GamesCollectionView" bind-property="is_selection_available" bind-flags="bidirectional"/>
+                    <property name="valign">center</property>
+                    <property name="action-name">view.toggle-select</property>
+                    <child>
+                      <object class="GtkImage" id="select_image">
+                        <property name="visible">True</property>
+                        <property name="icon-name">object-select-symbolic</property>
+                      </object>
+                    </child>
+                    <child internal-child="accessible">
+                      <object class="AtkObject">
+                        <property name="accessible-name" translatable="yes">Select games</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="pack-type">end</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="search">
                     <property name="visible">True</property>
-                    <property name="icon-name">list-add-symbolic</property>
-                    <property name="icon-size">1</property>
+                    <property name="valign">center</property>
+                    <property name="active" bind-source="GamesCollectionView" bind-property="search-mode" bind-flags="bidirectional"/>
+                    <property name="sensitive" bind-source="GamesCollectionView" bind-property="is-collection-empty" bind-flags="bidirectional|invert-boolean"/>
+                    <style>
+                      <class name="image-button"/>
+                    </style>
+                    <child internal-child="accessible">
+                      <object class="AtkObject" id="a11y-search">
+                        <property name="accessible-name" translatable="yes">Search</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImage" id="search_image">
+                        <property name="visible">True</property>
+                        <property name="icon-name">edit-find-symbolic</property>
+                        <property name="icon-size">1</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="pack-type">end</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="HdyHeaderBar" id="subview_header_bar">
+                <property name="visible">True</property>
+                <property name="show_close_button">True</property>
+                <property name="title" bind-source="platforms_page" bind-property="subview-title"/>
+                <child>
+                  <object class="GtkButton">
+                    <property name="visible">True</property>
+                    <property name="valign">center</property>
+                    <signal name="clicked" handler="on_subview_back_clicked"/>
+                    <style>
+                      <class name="image-button"/>
+                    </style>
+                    <child internal-child="accessible">
+                      <object class="AtkObject">
+                        <property name="accessible-name" translatable="yes">Back</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="visible">True</property>
+                        <property name="icon-name">go-previous-symbolic</property>
+                        <property name="icon-size">1</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="subview_selection_button">
+                    <property name="visible">True</property>
+                    <property name="valign">center</property>
+                    <property name="action-name">view.toggle-select</property>"
+                    <child>
+                      <object class="GtkImage" id="subview_select_image">
+                        <property name="visible">True</property>
+                        <property name="icon-name">object-select-symbolic</property>
+                      </object>
+                    </child>
+                    <child internal-child="accessible">
+                      <object class="AtkObject">
+                        <property name="accessible-name" translatable="yes">Select games</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="pack-type">end</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkToggleButton" id="search_subview">
+                    <property name="visible">True</property>
+                    <property name="valign">center</property>
+                    <property name="active" bind-source="GamesCollectionView" bind-property="search-mode" bind-flags="bidirectional"/>
+                    <property name="sensitive" bind-source="GamesCollectionView" bind-property="is-collection-empty" bind-flags="bidirectional|invert-boolean"/>
+                    <style>
+                      <class name="image-button"/>
+                    </style>
+                    <child internal-child="accessible">
+                      <object class="AtkObject">
+                        <property name="accessible-name" translatable="yes">Search</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="visible">True</property>
+                        <property name="icon-name">edit-find-symbolic</property>
+                        <property name="icon-size">1</property>
+                      </object>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="pack-type">end</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="HdyHeaderBar" id="selection_mode_header_bar">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkButton" id="cancel_selection_button">
+                <property name="visible">True</property>
+                <property name="valign">center</property>
+                <property name="label" translatable="yes">_Cancel</property>
+                <property name="action-name">view.toggle-select</property>
+                <property name="use-underline">True</property>
+                <child internal-child="accessible">
+                  <object class="AtkObject">
+                    <property name="accessible-name" translatable="yes">Cancel</property>
                   </object>
                 </child>
               </object>
               <packing>
-                <property name="pack-type">start</property>
+                <property name="pack-type">end</property>
               </packing>
             </child>
             <child>
-              <object class="GtkMenuButton" id="menu">
-                <property name="menu-model">primary_menu</property>
-                <!-- Translators: tooltip for the application menu button -->
-                <property name="tooltip-text" translatable="yes">Menu</property>
-                <property name="valign">center</property>
+              <object class="GtkToggleButton" id="selection_mode_search">
                 <property name="visible">True</property>
+                <property name="valign">center</property>
+                <property name="active" bind-source="GamesCollectionView" bind-property="search-mode" bind-flags="bidirectional"/>
+                <property name="sensitive" bind-source="GamesCollectionView" bind-property="is-collection-empty" bind-flags="bidirectional|invert-boolean"/>
                 <style>
                   <class name="image-button"/>
                 </style>
+                <child internal-child="accessible">
+                  <object class="AtkObject">
+                    <property name="accessible-name" translatable="yes">Search</property>
+                  </object>
+                </child>
                 <child>
-                  <object class="GtkImage" id="menu_image">
+                  <object class="GtkImage">
                     <property name="visible">True</property>
-                    <property name="icon-name">open-menu-symbolic</property>
+                    <property name="icon-name">edit-find-symbolic</property>
                     <property name="icon-size">1</property>
                   </object>
                 </child>
@@ -67,95 +254,34 @@
               </packing>
             </child>
             <child type="title">
-              <object class="HdyViewSwitcherTitle" id="view_switcher_title">
+              <object class="GtkMenuButton">
+                <property name="menu-model">selection-menu</property>
                 <property name="visible">True</property>
-                <property name="title" translatable="yes">Games</property>
-                <property name="stack">viewstack</property>
-                <property name="view-switcher-enabled" bind-source="GamesCollectionView" bind-property="is-collection-empty" bind-flags="bidirectional|sync-create|invert-boolean"/>
-                <signal name="notify::title-visible" handler="update_adaptive_state"/>
-              </object>
-            </child>
-            <child>
-              <object class="GtkToggleButton" id="search">
-                <property name="visible">True</property>
-                <property name="valign">center</property>
-                <property name="active" bind-source="GamesCollectionView" bind-property="search-mode" bind-flags="bidirectional"/>
-                <property name="sensitive" bind-source="GamesCollectionView" bind-property="is-collection-empty" bind-flags="bidirectional|invert-boolean"/>
-                <style>
-                  <class name="image-button"/>
-                </style>
-                <child internal-child="accessible">
-                  <object class="AtkObject" id="a11y-search">
-                    <property name="accessible-name" translatable="yes">Search</property>
-                  </object>
-                </child>
+                <property name="relief">none</property>
                 <child>
-                  <object class="GtkImage" id="search_image">
+                  <object class="GtkBox">
                     <property name="visible">True</property>
-                    <property name="icon-name">edit-find-symbolic</property>
-                    <property name="icon-size">1</property>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="pack-type">end</property>
-              </packing>
-            </child>
-          </object>
-        </child>
-        <child>
-          <object class="HdyHeaderBar" id="subview_header_bar">
-            <property name="visible">True</property>
-            <property name="show_close_button">True</property>
-            <property name="title" bind-source="platforms_page" bind-property="subview-title"/>
-            <child>
-              <object class="GtkButton">
-                <property name="visible">True</property>
-                <property name="valign">center</property>
-                <signal name="clicked" handler="on_subview_back_clicked"/>
-                <style>
-                  <class name="image-button"/>
-                </style>
-                <child internal-child="accessible">
-                  <object class="AtkObject">
-                    <property name="accessible-name" translatable="yes">Back</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkImage">
-                    <property name="visible">True</property>
-                    <property name="icon-name">go-previous-symbolic</property>
-                    <property name="icon-size">1</property>
+                    <property name="spacing">6</property>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="visible">True</property>
+                        <property name="label" translatable="yes">Click on items to select them</property>
+                        <property name="ellipsize">end</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImage">
+                        <property name="visible">True</property>
+                        <property name="icon-name">pan-down-symbolic</property>
+                      </object>
+                    </child>
                   </object>
                 </child>
               </object>
             </child>
-            <child>
-              <object class="GtkToggleButton" id="search_subview">
-                <property name="visible">True</property>
-                <property name="valign">center</property>
-                <property name="active" bind-source="GamesCollectionView" bind-property="search-mode" bind-flags="bidirectional"/>
-                <property name="sensitive" bind-source="GamesCollectionView" bind-property="is-collection-empty" bind-flags="bidirectional|invert-boolean"/>
-                <style>
-                  <class name="image-button"/>
-                </style>
-                <child internal-child="accessible">
-                  <object class="AtkObject">
-                    <property name="accessible-name" translatable="yes">Search</property>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkImage">
-                    <property name="visible">True</property>
-                    <property name="icon-name">edit-find-symbolic</property>
-                    <property name="icon-size">1</property>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="pack-type">end</property>
-              </packing>
-            </child>
+            <style>
+              <class name="selection-mode"/>
+            </style>
           </object>
         </child>
       </object>
@@ -204,6 +330,7 @@
                 <child>
                   <object class="GamesGamesPage" id="games_page">
                     <property name="visible">True</property>
+                    <property name="is-selection-mode" bind-source="GamesCollectionView" bind-property="is-selection-mode"/>
                     <signal name="game-activated" handler="on_game_activated"/>
                   </object>
                   <packing>
@@ -216,7 +343,9 @@
                     <property name="visible">True</property>
                     <property name="is-folded" bind-source="GamesCollectionView" bind-property="is-folded" bind-flags="bidirectional"/>
                     <property name="is-subview-open" bind-source="GamesCollectionView" bind-property="is-subview-open" bind-flags="bidirectional"/>
+                    <property name="is-selection-mode" bind-source="GamesCollectionView" bind-property="is-selection-mode"/>
                     <signal name="game-activated" handler="on_game_activated"/>
+                    <signal name="notify::is-subview-open" handler="update_selection_availability"/>
                   </object>
                   <packing>
                     <property name="name">platform</property>
@@ -302,6 +431,18 @@
       <item>
         <attribute name="label" translatable="yes">_About Games</attribute>
         <attribute name="action">app.about</attribute>
+      </item>
+    </section>
+  </menu>
+  <menu id="selection-menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Select All</attribute>
+        <attribute name="action">view.select-all</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Select None</attribute>
+        <attribute name="action">view.select-none</attribute>
       </item>
     </section>
   </menu>

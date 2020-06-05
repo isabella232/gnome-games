@@ -9,9 +9,13 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	[GtkChild]
 	private Hdy.Deck deck;
 	[GtkChild]
+	private Gtk.Stack header_bar_stack;
+	[GtkChild]
 	private Hdy.HeaderBar header_bar;
 	[GtkChild]
 	private Hdy.HeaderBar subview_header_bar;
+	[GtkChild]
+	private Hdy.HeaderBar selection_mode_header_bar;
 	[GtkChild]
 	private Hdy.ViewSwitcherTitle view_switcher_title;
 	[GtkChild]
@@ -100,8 +104,16 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	public bool is_folded { get; set; }
 	public bool is_showing_bottom_bar { get; set; }
 	public bool is_subview_open { get; set; }
+	public bool is_selection_mode { get; set; }
+	public bool is_selection_available { get; set; }
 
 	private KonamiCode konami_code;
+	private SimpleActionGroup action_group;
+	private const ActionEntry[] action_entries = {
+		{ "select-all",    select_all },
+		{ "select-none",   select_none },
+		{ "toggle-select", toggle_select }
+	};
 
 	construct {
 		var icon_name = Config.APPLICATION_ID + "-symbolic";
@@ -111,6 +123,10 @@ private class Games.CollectionView : Gtk.Box, UiView {
 
 		konami_code = new KonamiCode (window);
 		konami_code.code_performed.connect (on_konami_code_performed);
+
+		action_group = new SimpleActionGroup ();
+		action_group.add_action_entries (action_entries, this);
+		window.insert_action_group ("view", action_group);
 	}
 
 	public void show_error (string error_message) {
@@ -132,6 +148,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		if (((event.state & default_modifiers) == Gdk.ModifierType.MOD1_MASK) &&
 		    (((window.get_direction () == Gtk.TextDirection.LTR) && keyval == Gdk.Key.Left) ||
 		     ((window.get_direction () == Gtk.TextDirection.RTL) && keyval == Gdk.Key.Right)) &&
+		     !is_selection_mode &&
 		     deck.navigate (Hdy.NavigationDirection.BACK))
 			return true;
 
@@ -156,6 +173,11 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		if (is_collection_empty)
 			return false;
 
+		if (is_selection_mode && keyval == Gdk.Key.Escape) {
+			toggle_select ();
+			return true;
+		}
+
 		return search_bar.handle_event (event);
 	}
 
@@ -175,6 +197,9 @@ private class Games.CollectionView : Gtk.Box, UiView {
 
 		switch (button) {
 		case EventCode.BTN_TL:
+			if (is_selection_mode)
+				return true;
+
 			var views = viewstack.get_children ();
 			unowned List<weak Gtk.Widget> current_view = views.find (viewstack.visible_child);
 
@@ -185,6 +210,9 @@ private class Games.CollectionView : Gtk.Box, UiView {
 
 			return true;
 		case EventCode.BTN_TR:
+			if (is_selection_mode)
+				return true;
+
 			var views = viewstack.get_children ();
 			unowned List<weak Gtk.Widget> current_view = views.find (viewstack.visible_child);
 
@@ -245,6 +273,47 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		search_bar.run_search (query);
 	}
 
+	private void select_none () {
+		platforms_page.select_none ();
+		games_page.select_none ();
+	}
+
+	private void select_all () {
+		if (viewstack.visible_child == platforms_page)
+			platforms_page.select_all ();
+		else
+			games_page.select_all ();
+	}
+
+	private void toggle_select () {
+		is_selection_mode = !is_selection_mode;
+	}
+
+	[GtkCallback]
+	private void on_selection_mode_changed () {
+		if (is_selection_mode) {
+			header_bar_stack.visible_child = selection_mode_header_bar;
+		}
+		else {
+			select_none ();
+			header_bar_stack.visible_child = deck;
+		}
+
+		update_bottom_bar ();
+	}
+
+	[GtkCallback]
+	private void on_collection_empty_changed () {
+		update_adaptive_state ();
+		update_selection_availability ();
+	}
+
+	[GtkCallback]
+	private void update_selection_availability () {
+		is_selection_available = (viewstack.visible_child != platforms_page || !is_folded)
+		                          && !is_collection_empty;
+	}
+
 	[GtkCallback]
 	private void on_loading_notification_closed () {
 		loading_notification = false;
@@ -261,6 +330,8 @@ private class Games.CollectionView : Gtk.Box, UiView {
 			games_page.reset_scroll_position ();
 		else
 			platforms_page.reset ();
+
+		update_selection_availability ();
 	}
 
 	[GtkCallback]
@@ -300,11 +371,13 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		}
 
 		update_bottom_bar ();
+		update_selection_availability ();
 	}
 
 	[GtkCallback]
 	private void update_bottom_bar () {
-		view_switcher_bar.reveal = is_showing_bottom_bar && (!is_folded || !is_subview_open);
+		view_switcher_bar.reveal = !is_selection_mode && is_showing_bottom_bar
+		                           && (!is_folded || !is_subview_open);
 	}
 
 	[GtkCallback]
