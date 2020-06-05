@@ -5,6 +5,7 @@ private class Games.GamesPage : Gtk.Bin {
 	public signal void game_activated (Game game);
 
 	private string[] filtering_terms;
+	public bool is_selection_mode { get; set; }
 
 	public delegate bool GameFilter (Game game);
 	private unowned GameFilter? game_filter;
@@ -21,6 +22,7 @@ private class Games.GamesPage : Gtk.Bin {
 		}
 	}
 
+	private GenericSet<GameIconView> selected_games;
 	private Binding window_active_binding;
 	private bool _is_active;
 	public bool is_active {
@@ -51,6 +53,8 @@ private class Games.GamesPage : Gtk.Bin {
 	construct {
 		flow_box.max_children_per_line = uint.MAX;
 		flow_box.set_filter_func (filter_box);
+
+		selected_games = new GenericSet<GameIconView> (GameIconView.hash, GameIconView.equal);
 	}
 
 	[GtkCallback]
@@ -129,6 +133,21 @@ private class Games.GamesPage : Gtk.Bin {
 		flow_box.unselect_all ();
 	}
 
+	public void select_none () {
+		foreach (var game_icon_view in selected_games.get_values ())
+			game_icon_view.checked = false;
+	}
+
+	public void select_all () {
+		foreach (var child in flow_box.get_children ()) {
+			var game_icon_view = child as GameIconView;
+			if (game_filter == null)
+				game_icon_view.checked = filtering_terms == null || filter_game (game_icon_view.game);
+			else if (filter_game (game_icon_view.game))
+				game_icon_view.checked = true;
+		}
+	}
+
 	[GtkCallback]
 	private bool on_gamepad_browse (Gtk.DirectionType direction) {
 		if (!has_game_selected ())
@@ -160,11 +179,26 @@ private class Games.GamesPage : Gtk.Bin {
 	private void on_child_activated (Gtk.FlowBoxChild child) {
 		var game_view = child as GameIconView;
 
+		if (is_selection_mode) {
+			game_view.checked = !game_view.checked;
+			return;
+		}
+
 		game_activated (game_view.game);
 	}
 
 	private Gtk.Widget add_game (Object item) {
-		return new GameIconView (item as Game);
+		var game_icon = new GameIconView (item as Game);
+		bind_property ("is-selection-mode", game_icon, "is-selection-mode", BindingFlags.DEFAULT);
+
+		game_icon.notify["checked"].connect (() => {
+			if (game_icon.checked)
+				selected_games.add (game_icon);
+			else
+				selected_games.remove (game_icon);
+		});
+
+		return game_icon;
 	}
 
 	public void invalidate_filter () {

@@ -48,6 +48,7 @@ private class Games.PlatformsPage : Gtk.Bin {
 	public bool is_folded { get; set; }
 	public bool is_subview_open { get; set; }
 	public string subview_title { get; set; }
+	public bool is_selection_mode { get; set; }
 
 	construct {
 		games_page.set_game_filter (filter_game);
@@ -142,6 +143,14 @@ private class Games.PlatformsPage : Gtk.Bin {
 				return true;
 
 		return gamepad_browse.gamepad_absolute_axis_event (event);
+	}
+
+	public void select_all () {
+		games_page.select_all ();
+	}
+
+	public void select_none () {
+		games_page.select_none ();
 	}
 
 	[GtkCallback]
@@ -254,13 +263,20 @@ private class Games.PlatformsPage : Gtk.Bin {
 		return item;
 	}
 
-	[GtkCallback]
 	private void update_selection_mode () {
 		if (!is_folded || has_used_gamepad)
 			list_box.selection_mode = Gtk.SelectionMode.SINGLE;
 		else
 			list_box.selection_mode = Gtk.SelectionMode.NONE;
 		select_current_row ();
+	}
+
+	[GtkCallback]
+	private void on_folded_changed () {
+		update_selection_mode ();
+
+		if (is_selection_mode && is_folded)
+			leaflet.navigate (Hdy.NavigationDirection.FORWARD);
 	}
 
 	[GtkCallback]

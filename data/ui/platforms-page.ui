@@ -6,12 +6,13 @@
     <property name="expand">True</property>
     <signal name="map" after="yes" handler="on_map"/>
     <signal name="unmap" after="no" handler="on_unmap"/>
-    <signal name="notify::is-folded" handler="update_selection_mode"/>
+    <signal name="notify::is-folded" handler="on_folded_changed"/>
     <child>
       <object class="HdyLeaflet" id="leaflet">
         <property name="visible">True</property>
         <property name="can-swipe-back">True</property>
         <property name="mode-transition-duration">200</property>
+        <property name="can-swipe-back" bind-source="GamesPlatformsPage" bind-property="is-selection-mode" bind-flags="invert-boolean"/>
         <signal name="notify::folded" handler="on_leaflet_folded_changed"/>
         <signal name="notify::visible-child" handler="on_visible_child_changed"/>
         <child>
@@ -54,6 +55,7 @@
           <object class="GamesGamesPage" id="games_page">
             <property name="visible">True</property>
             <property name="expand">True</property>
+            <property name="is-selection-mode" bind-source="GamesPlatformsPage" bind-property="is-selection-mode"/>
             <signal name="game-activated" handler="on_game_activated"/>
           </object>
         </child>
