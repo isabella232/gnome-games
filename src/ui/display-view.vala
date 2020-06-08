@@ -74,13 +74,13 @@ private class Games.DisplayView : Gtk.Box, UiView {
 			if (runner != null)
 				runner.snapshot_created.disconnect (flash_box.flash);
 
-			stack.visible_child = display_overlay;
-
 			_runner = value;
 			remove_display ();
 
 			if (runner == null)
 				return;
+
+			stack.visible_child = display_overlay;
 
 			var display = runner.get_display ();
 			set_display (display);
@@ -580,7 +580,7 @@ private class Games.DisplayView : Gtk.Box, UiView {
 		can_fullscreen = false;
 		runner = null;
 		media_button.media_set = null;
-		secondary_menu_button.visible = null;
+		secondary_menu_button.visible = false;
 
 		update_actions ();
 	}
