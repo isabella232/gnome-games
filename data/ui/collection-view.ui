@@ -85,6 +85,7 @@
                     <property name="visible" bind-source="GamesCollectionView" bind-property="is_selection_available" bind-flags="bidirectional"/>
                     <property name="valign">center</property>
                     <property name="action-name">view.toggle-select</property>
+                    <property name="sensitive" bind-source="GamesCollectionView" bind-property="is-collection-empty" bind-flags="bidirectional|invert-boolean"/>
                     <child>
                       <object class="GtkImage" id="select_image">
                         <property name="visible">True</property>
@@ -160,6 +161,7 @@
                   <object class="GtkButton" id="subview_selection_button">
                     <property name="visible">True</property>
                     <property name="valign">center</property>
+                    <property name="sensitive" bind-source="GamesCollectionView" bind-property="is-collection-empty" bind-flags="bidirectional|invert-boolean"/>
                     <property name="action-name">view.toggle-select</property>"
                     <child>
                       <object class="GtkImage" id="subview_select_image">

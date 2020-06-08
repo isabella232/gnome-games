@@ -310,8 +310,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 
 	[GtkCallback]
 	private void update_selection_availability () {
-		is_selection_available = (viewstack.visible_child != platforms_page || !is_folded)
-		                          && !is_collection_empty;
+		is_selection_available = viewstack.visible_child != platforms_page || !is_folded;
 	}
 
 	[GtkCallback]
