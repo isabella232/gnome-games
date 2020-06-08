@@ -113,3 +113,19 @@ list.rounded:backdrop,
 list.separators row:not(:last-child) {
 	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
+
+window.fullscreen {
+  background: black;
+}
+
+window.fullscreen headerbar {
+  color: #EEEEEC;
+  border-color: alpha(#070707, .75);
+  background: linear-gradient(to top, alpha(#262626, .75), alpha(#2b2b2b, .75));
+}
+
+window.fullscreen headerbar:backdrop {
+  color: #919190;
+  border-color: alpha(#202020, .75);
+  background: image(alpha(#353535, .75));
+}
