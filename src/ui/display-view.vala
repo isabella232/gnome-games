@@ -580,6 +580,7 @@ private class Games.DisplayView : Gtk.Box, UiView {
 		can_fullscreen = false;
 		runner = null;
 		media_button.media_set = null;
+		secondary_menu_button.visible = null;
 
 		update_actions ();
 	}
