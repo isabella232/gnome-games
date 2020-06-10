@@ -231,7 +231,7 @@ public class Games.RetroRunner : Object, Runner {
 			debug ("%s\n", e.message);
 			throw new RunnerError.UNSUPPORTED_SYSTEM (get_unsupported_system_message ());
 		}
-		catch (RetroError.FIRMWARE_NOT_FOUND e) {
+		catch (FirmwareError.FIRMWARE_NOT_FOUND e) {
 			debug ("%s\n", e.message);
 			throw new RunnerError.UNSUPPORTED_SYSTEM (get_unsupported_system_message ());
 		}
