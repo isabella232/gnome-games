@@ -78,6 +78,7 @@ vala_sources = [
   'keyboard/keyboard-mapping-builder.vala',
   'keyboard/keyboard-mapping-manager.vala',
 
+  'retro/retro-core.vala',
   'retro/retro-core-manager.vala',
   'retro/retro-core-source.vala',
   'retro/retro-error.vala',
