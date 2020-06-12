@@ -27,12 +27,13 @@
 
 gamesgamethumbnail {
 	background-color: mix(@theme_base_color, @theme_bg_color, 0.5);
-	border-radius: 2px;
-	box-shadow: 0 0 0 1px @theme_bg_color;
+	border-radius: 6px;
+	border: 1px solid @borders;
 }
 
 gamesgamethumbnail.cover {
 	background-color: black;
+	border: none;
 }
 
 gamesgamespage flowboxchild {
