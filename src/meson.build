@@ -148,6 +148,7 @@ vala_sources = [
   'ui/titlebar-box.vala',
   'ui/ui-view.vala',
 
+  'utils/cairo-blur.vala',
   'utils/composite-cover.vala',
   'utils/composite-title.vala',
   'utils/cue-sheet/cue-sheet.vala',
