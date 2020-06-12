@@ -1,6 +1,8 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public class Games.CoverLoader : Object {
+	const double COVER_BLUR_RADIUS_FACTOR = 30.0 / 128.0;
+
 	public delegate void CoverReadyCallback (int cover_size, Gdk.Pixbuf? cover_pixbuf, int icon_size, Gdk.Pixbuf? icon_pixbuf);
 
 	private struct CoverRequest {
@@ -25,25 +27,6 @@ public class Games.CoverLoader : Object {
 		});
 	}
 
-	private void get_dimensions (File file, int size, out int width, out int height) {
-		int w, h;
-		Gdk.Pixbuf.get_file_info (file.get_path (), out w, out h);
-
-		double aspect_ratio = (double) w / h;
-
-		width = w;
-		height = (int) (w / aspect_ratio);
-
-		if (width > h) {
-			width = size;
-			height = (int) (size / aspect_ratio);
-		}
-		else {
-			height = size;
-			width = (int) (size * aspect_ratio);
-		}
-	}
-
 	private Gdk.Pixbuf? try_load_cover (Game game, int size) {
 		var pixbuf = load_cache_from_disk (game, size, "covers");
 		if (pixbuf != null)
@@ -52,16 +35,8 @@ public class Games.CoverLoader : Object {
 		var file = game.get_cover ().get_cover ();
 
 		if (file != null) {
-			int width, height;
-			get_dimensions (file, size, out width, out height);
-
-			try {
-				pixbuf = new Gdk.Pixbuf.from_file_at_scale (file.get_path (), width, height, false);
-				save_cache_to_disk (game, pixbuf, size, "covers");
-			}
-			catch (Error e) {
-				return null;
-			}
+			pixbuf = create_cover_thumbnail (file, size);
+			save_cache_to_disk (game, pixbuf, size, "covers");
 		}
 
 		return pixbuf;
@@ -146,6 +121,78 @@ public class Games.CoverLoader : Object {
 		catch (Error e) {
 			critical (e.message);
 		}
+	}
+
+	private Gdk.Pixbuf? create_cover_thumbnail (File file, int size) {
+		Gdk.Pixbuf overlay_pixbuf, blur_pixbuf;
+		int blur_x, blur_y, overlay_x, overlay_y;
+		int width, height, radius;
+		double aspect_ratio;
+
+		radius = (int) (COVER_BLUR_RADIUS_FACTOR * size);
+		Gdk.Pixbuf.get_file_info (file.get_path (), out width, out height);
+		aspect_ratio = (double) width / height;
+
+		if (height >= width) {
+			height = size;
+			width = (int) (size * aspect_ratio);
+			aspect_ratio = (double) width / height;
+
+			blur_x = 0;
+			blur_y = (int) (height * (1 - aspect_ratio) / 2);
+
+			overlay_x = (int) ((width/aspect_ratio - width) / 2);
+			overlay_y = 0;
+		}
+		else {
+			width = size;
+			height = (int) (size / aspect_ratio);
+			aspect_ratio = (double) height / width;
+
+			blur_x = (int) (width * (1 - aspect_ratio) / 2);
+			blur_y = 0;
+
+			overlay_x = 0;
+			overlay_y = (int) ((height/aspect_ratio - height) / 2);
+		}
+
+		var zoom_width = (int) (width / aspect_ratio);
+		var zoom_height = (int) (height / aspect_ratio);
+
+		var image_surface = new Cairo.ImageSurface (Cairo.Format.ARGB32, size, size);
+		var target_cr = new Cairo.Context (image_surface);
+
+		try {
+			overlay_pixbuf = new Gdk.Pixbuf.from_file_at_scale (file.get_path (), width, height, false);
+			var temp_pixbuf = new Gdk.Pixbuf.from_file_at_scale (file.get_path (), zoom_width, zoom_height, false);
+			blur_pixbuf = new Gdk.Pixbuf.subpixbuf (temp_pixbuf, blur_x, blur_y, size, size);
+		}
+		catch (Error e) {
+			critical ("Failed to load cover image: %s", e.message);
+			return null;
+		}
+
+		var surface = Gdk.cairo_surface_create_from_pixbuf (blur_pixbuf, 0, null);
+		var shadow_cr = new Cairo.Context (surface);
+		shadow_cr.rectangle (overlay_x, overlay_y, width, height);
+		shadow_cr.set_source_rgba (0, 0, 0, 0.2);
+		shadow_cr.fill ();
+
+		shadow_cr.set_source_rgba (0, 0, 0, 0.1);
+		shadow_cr.paint ();
+
+		CairoBlur.blur_surface (surface, radius);
+		target_cr.set_source_surface (surface, 0, 0);
+		target_cr.paint ();
+
+		target_cr.rectangle (overlay_x - 1, overlay_y - 1, width + 2, height + 2);
+		target_cr.set_source_rgba (0, 0, 0, 0.2);
+		target_cr.fill ();
+
+		Gdk.cairo_set_source_pixbuf (target_cr, overlay_pixbuf, overlay_x, overlay_y);
+		target_cr.paint ();
+
+		return Gdk.pixbuf_get_from_surface (image_surface, 0, 0, size, size);
 	}
 
 	public void fetch_cover (Game game, int cover_size, int icon_size, CoverReadyCallback cb) {
