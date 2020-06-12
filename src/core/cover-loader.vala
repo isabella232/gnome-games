@@ -2,6 +2,7 @@
 
 public class Games.CoverLoader : Object {
 	const double COVER_BLUR_RADIUS_FACTOR = 30.0 / 128.0;
+	const double SHADOW_FACTOR = 20.0 / 128;
 
 	public delegate void CoverReadyCallback (int cover_size, Gdk.Pixbuf? cover_pixbuf, int icon_size, Gdk.Pixbuf? icon_pixbuf);
 
@@ -123,74 +124,145 @@ public class Games.CoverLoader : Object {
 		}
 	}
 
+	private void draw_cover_blur_rect (Cairo.Context cr, Gdk.Pixbuf pixbuf, int size, bool reverse, int x, int y, int w, int h) {
+		int radius = (int) (COVER_BLUR_RADIUS_FACTOR * size);
+		int shadow_width = (int) (SHADOW_FACTOR * size);
+
+		if (w == 0 || h == 0)
+			return;
+
+		var gradient = new Cairo.Pattern.linear (0, 0,
+		                                         h > w ? -shadow_width : 0,
+		                                         h < w ? -shadow_width : 0);
+		gradient.add_color_stop_rgba (0, 0, 0, 0, 0.15);
+		gradient.add_color_stop_rgba (1, 0, 0, 0, 0);
+
+		cr.save ();
+
+		cr.rectangle (0, 0, w, h);
+		cr.clip ();
+
+		var subpixbuf = new Gdk.Pixbuf.subpixbuf (pixbuf, x, y, w, h);
+		var surface = Gdk.cairo_surface_create_from_pixbuf (subpixbuf, 0, null);
+		CairoBlur.blur_surface (surface, radius);
+		cr.set_source_surface (surface, 0, 0);
+		cr.paint ();
+
+		if (reverse)
+			cr.rotate (Math.PI);
+		else if (h > w)
+			cr.translate (w, 0);
+		else
+			cr.translate (0, h);
+
+		cr.set_source (gradient);
+		cr.paint ();
+
+		cr.rotate (Math.PI);
+
+		if (h > w)
+			cr.rectangle (0, reverse ? 0 : -h, 1, h);
+		else
+			cr.rectangle (reverse ? 0 : -w, 0, w, 1);
+
+		cr.set_source_rgba (0, 0, 0, 0.2);
+		cr.fill ();
+
+		cr.set_source_rgba (0, 0, 0, 0.1);
+		cr.paint ();
+
+		cr.restore ();
+	}
+
 	private Gdk.Pixbuf? create_cover_thumbnail (File file, int size) {
 		Gdk.Pixbuf overlay_pixbuf, blur_pixbuf;
-		int blur_x, blur_y, overlay_x, overlay_y;
-		int width, height, radius;
+		int overlay_x, overlay_y;
+		int width, height, zoom_width, zoom_height;
 		double aspect_ratio;
 
-		radius = (int) (COVER_BLUR_RADIUS_FACTOR * size);
 		Gdk.Pixbuf.get_file_info (file.get_path (), out width, out height);
+
 		aspect_ratio = (double) width / height;
 
 		if (height >= width) {
 			height = size;
 			width = (int) (size * aspect_ratio);
-			aspect_ratio = (double) width / height;
 
-			blur_x = 0;
-			blur_y = (int) (height * (1 - aspect_ratio) / 2);
+			zoom_width = size;
+			zoom_height = (int) (size * height / (double) width);
 
-			overlay_x = (int) ((width/aspect_ratio - width) / 2);
+			overlay_x = (int) ((height - width) / 2);
 			overlay_y = 0;
 		}
 		else {
 			width = size;
 			height = (int) (size / aspect_ratio);
-			aspect_ratio = (double) height / width;
 
-			blur_x = (int) (width * (1 - aspect_ratio) / 2);
-			blur_y = 0;
+			zoom_height = size;
+			zoom_width = (int) (size * width / (double) height);
 
 			overlay_x = 0;
-			overlay_y = (int) ((height/aspect_ratio - height) / 2);
+			overlay_y = (int) ((width - height) / 2);
 		}
 
-		var zoom_width = (int) (width / aspect_ratio);
-		var zoom_height = (int) (height / aspect_ratio);
+		if (width == height) {
+			try {
+				return new Gdk.Pixbuf.from_file_at_scale (file.get_path (), width, height, false);
+			}
+			catch (Error e) {
+				critical ("Failed to load cover: %s", e.message);
+			}
+		}
 
 		var image_surface = new Cairo.ImageSurface (Cairo.Format.ARGB32, size, size);
-		var target_cr = new Cairo.Context (image_surface);
+		var cr = new Cairo.Context (image_surface);
 
 		try {
 			overlay_pixbuf = new Gdk.Pixbuf.from_file_at_scale (file.get_path (), width, height, false);
-			var temp_pixbuf = new Gdk.Pixbuf.from_file_at_scale (file.get_path (), zoom_width, zoom_height, false);
-			blur_pixbuf = new Gdk.Pixbuf.subpixbuf (temp_pixbuf, blur_x, blur_y, size, size);
+			blur_pixbuf = new Gdk.Pixbuf.from_file_at_scale (file.get_path (), zoom_width, zoom_height, false);
 		}
 		catch (Error e) {
 			critical ("Failed to load cover image: %s", e.message);
 			return null;
 		}
 
-		var surface = Gdk.cairo_surface_create_from_pixbuf (blur_pixbuf, 0, null);
-		var shadow_cr = new Cairo.Context (surface);
-		shadow_cr.rectangle (overlay_x, overlay_y, width, height);
-		shadow_cr.set_source_rgba (0, 0, 0, 0.2);
-		shadow_cr.fill ();
+		cr.save ();
 
-		shadow_cr.set_source_rgba (0, 0, 0, 0.1);
-		shadow_cr.paint ();
+		if (height >= width) {
+			var blur_y = (int) ((double) (height - width) / 2);
 
-		CairoBlur.blur_surface (surface, radius);
-		target_cr.set_source_surface (surface, 0, 0);
-		target_cr.paint ();
+			draw_cover_blur_rect (cr, blur_pixbuf, size, false,
+			                      0, blur_y, overlay_x, size);
 
-		target_cr.rectangle (overlay_x - 1, overlay_y - 1, width + 2, height + 2);
-		target_cr.set_source_rgba (0, 0, 0, 0.2);
-		target_cr.fill ();
+			if (height > width)
+				cr.translate (overlay_x + width, 0);
+			else
+				cr.translate (0, blur_y);
 
-		Gdk.cairo_set_source_pixbuf (target_cr, overlay_pixbuf, overlay_x, overlay_y);
-		target_cr.paint ();
+			draw_cover_blur_rect (cr, blur_pixbuf, size, true,
+			                      overlay_x + width, blur_y,
+			                      size - width - overlay_x, size);
+		}
+		else {
+			var blur_x = (int) ((double) (width - height) / 2);
+
+			draw_cover_blur_rect (cr, blur_pixbuf, size, false,
+			                      blur_x, 0, size, overlay_y);
+
+			if (height > width)
+				cr.translate (blur_x, 0);
+			else
+				cr.translate (0, overlay_y + height);
+
+			draw_cover_blur_rect (cr, blur_pixbuf, size, true,
+			                      blur_x, overlay_y + height,
+			                      size, size - height - overlay_y);
+		}
+
+		cr.restore ();
+
+		Gdk.cairo_set_source_pixbuf (cr, overlay_pixbuf, overlay_x, overlay_y);
+		cr.paint ();
 
 		return Gdk.pixbuf_get_from_surface (image_surface, 0, 0, size, size);
 	}
