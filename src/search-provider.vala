@@ -50,17 +50,43 @@ private class Games.SearchProvider : Object {
 		return results;
 	}
 
+	private static void parse_cache_name (string basename, out int size, out int scale) {
+		var pos = basename.last_index_of ("x");
+
+		if (pos <= 0) {
+			size = scale = 0;
+			return;
+		}
+
+		var split = basename.substring (0, pos).split("@");
+
+		if (split.length != 2) {
+			size = scale = 0;
+			return;
+		}
+
+		size = int.parse (split[0]);
+		scale = int.parse (split[1]);
+	}
+
 	private static int compare_cache_dirs (File file1, File file2) {
 		var name1 = file1.get_basename ();
 		var name2 = file2.get_basename ();
 
-		int size1 = int.parse (name1);
-		int size2 = int.parse (name2);
+		int scale1, scale2, size1, size2;
+		parse_cache_name (file1.get_basename (), out size1, out scale1);
+		parse_cache_name (file2.get_basename (), out size2, out scale2);
 
 		if (size1 < size2)
 			return -1;
 
 		if (size1 > size2)
+			return 1;
+
+		if (scale1 < scale2)
+			return -1;
+
+		if (scale1 > scale2)
 			return 1;
 
 		return strcmp (name1, name2);

@@ -37,6 +37,7 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 	private Gdk.Pixbuf? cover_pixbuf;
 	private Gdk.Pixbuf? icon_pixbuf;
 	private bool try_load_cover;
+	private int last_scale_factor;
 	private int last_cover_size;
 
 	public struct DrawingContext {
@@ -158,7 +159,7 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 		var cover_size = int.min (context.width, context.height) * scale_factor;
 		var icon_size = (int) (cover_size * ICON_SCALE);
 
-		if (cover_size != last_cover_size) {
+		if (cover_size != last_cover_size || scale_factor != last_scale_factor) {
 			cover_pixbuf = null;
 			icon_pixbuf = null;
 			update_style_classes ();
@@ -174,10 +175,11 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 		var loader = Application.get_default ().get_cover_loader ();
 
 		last_cover_size = cover_size;
+		last_scale_factor = scale_factor;
 
 		try_load_cover = false;
-		loader.fetch_cover (game, cover_size, icon_size, (cover_size, cover_pixbuf, icon_size, icon_pixbuf) => {
-			if (cover_size != last_cover_size) {
+		loader.fetch_cover (game, scale_factor, cover_size, icon_size, (scale_factor, cover_size, cover_pixbuf, icon_size, icon_pixbuf) => {
+			if (scale_factor != last_scale_factor || cover_size != last_cover_size) {
 				this.cover_pixbuf = null;
 				this.icon_pixbuf = null;
 

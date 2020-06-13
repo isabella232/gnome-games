@@ -4,10 +4,11 @@ public class Games.CoverLoader : Object {
 	const double COVER_BLUR_RADIUS_FACTOR = 30.0 / 128.0;
 	const double SHADOW_FACTOR = 20.0 / 128;
 
-	public delegate void CoverReadyCallback (int cover_size, Gdk.Pixbuf? cover_pixbuf, int icon_size, Gdk.Pixbuf? icon_pixbuf);
+	public delegate void CoverReadyCallback (int scale_factor, int cover_size, Gdk.Pixbuf? cover_pixbuf, int icon_size, Gdk.Pixbuf? icon_pixbuf);
 
 	private struct CoverRequest {
 		Game game;
+		int scale_factor;
 		int cover_size;
 		int icon_size;
 		unowned CoverReadyCallback cb;
@@ -21,30 +22,30 @@ public class Games.CoverLoader : Object {
 		thread = new Thread<void> (null, run_loader_thread);
 	}
 
-	private void run_callback (CoverRequest request, int cover_size, Gdk.Pixbuf? cover_pixbuf, int icon_size, Gdk.Pixbuf? icon_pixbuf) {
+	private void run_callback (CoverRequest request, int scale_factor, int cover_size, Gdk.Pixbuf? cover_pixbuf, int icon_size, Gdk.Pixbuf? icon_pixbuf) {
 		Idle.add (() => {
-			request.cb (cover_size, cover_pixbuf, icon_size, icon_pixbuf);
+			request.cb (scale_factor, cover_size, cover_pixbuf, icon_size, icon_pixbuf);
 			return Source.REMOVE;
 		});
 	}
 
-	private Gdk.Pixbuf? try_load_cover (Game game, int size) {
-		var pixbuf = load_cache_from_disk (game, size, "covers");
+	private Gdk.Pixbuf? try_load_cover (Game game, int size, int scale_factor) {
+		var pixbuf = load_cache_from_disk (game, size, scale_factor, "covers");
 		if (pixbuf != null)
 			return pixbuf;
 
 		var file = game.get_cover ().get_cover ();
 
 		if (file != null) {
-			pixbuf = create_cover_thumbnail (file, size);
-			save_cache_to_disk (game, pixbuf, size, "covers");
+			pixbuf = create_cover_thumbnail (file, size, scale_factor);
+			save_cache_to_disk (game, pixbuf, size, scale_factor, "covers");
 		}
 
 		return pixbuf;
 	}
 
-	private Gdk.Pixbuf? try_load_icon (Game game, int size) {
-		var pixbuf = load_cache_from_disk (game, size, "icons");
+	private Gdk.Pixbuf? try_load_icon (Game game, int size, int scale_factor) {
+		var pixbuf = load_cache_from_disk (game, size, scale_factor, "icons");
 		if (pixbuf != null)
 			return pixbuf;
 
@@ -61,7 +62,7 @@ public class Games.CoverLoader : Object {
 
 		try {
 			pixbuf = icon_info.load_icon ();
-			save_cache_to_disk (game, pixbuf, size, "icons");
+			save_cache_to_disk (game, pixbuf, size, scale_factor, "icons");
 		}
 		catch (Error e) {
 			critical ("Couldn’t load the icon: %s", e.message);
@@ -75,29 +76,32 @@ public class Games.CoverLoader : Object {
 		while (true) {
 			var request = request_queue.pop ();
 			var game = request.game;
+			var scale_factor = request.scale_factor;
 			var cover_size = request.cover_size;
 			var icon_size = request.icon_size;
 
-			var cover_pixbuf = try_load_cover (game, cover_size);
+			var cover_pixbuf = try_load_cover (game, cover_size, scale_factor);
 			if (cover_pixbuf != null)
-				run_callback (request, cover_size, cover_pixbuf, icon_size, null);
+				run_callback (request, scale_factor, cover_size, cover_pixbuf, icon_size, null);
 
-			var icon_pixbuf = try_load_icon (game, icon_size);
+			var icon_pixbuf = try_load_icon (game, icon_size, scale_factor);
 
-			run_callback (request, cover_size, cover_pixbuf, icon_size, icon_pixbuf);
+			run_callback (request, scale_factor,
+			              cover_size, cover_pixbuf,
+			              icon_size, icon_pixbuf);
 		}
 	}
 
-	private string get_cache_path (Game game, int size, string dir_name) {
-		var dir = Application.get_image_cache_dir (dir_name, size);
+	private string get_cache_path (Game game, int size, int scale_factor, string dir_name) {
+		var dir = Application.get_image_cache_dir (dir_name, size, scale_factor);
 
 		var uid = game.uid;
 
 		return @"$dir/$uid.png";
 	}
 
-	private Gdk.Pixbuf? load_cache_from_disk (Game game, int size, string dir) {
-		var cache_path = get_cache_path (game, size, dir);
+	private Gdk.Pixbuf? load_cache_from_disk (Game game, int size, int scale_factor, string dir) {
+		var cache_path = get_cache_path (game, size, scale_factor, dir);
 
 		try {
 			return new Gdk.Pixbuf.from_file (cache_path);
@@ -107,13 +111,13 @@ public class Games.CoverLoader : Object {
 		}
 	}
 
-	private void save_cache_to_disk (Game game, Gdk.Pixbuf pixbuf, int size, string dir_name) {
-		Application.try_make_dir (Application.get_image_cache_dir (dir_name, size));
+	private void save_cache_to_disk (Game game, Gdk.Pixbuf pixbuf, int size, int scale_factor, string dir_name) {
+		Application.try_make_dir (Application.get_image_cache_dir (dir_name, size, scale_factor));
 		var now = new GLib.DateTime.now_local ();
 		var creation_time = now.to_string ();
 
 		try {
-			var cover_cache_path = get_cache_path (game, size, dir_name);
+			var cover_cache_path = get_cache_path (game, size, scale_factor, dir_name);
 			pixbuf.save (cover_cache_path, "png",
 			            "tEXt::Software", "GNOME Games",
 			            "tEXt::Creation Time", creation_time.to_string (),
@@ -124,7 +128,7 @@ public class Games.CoverLoader : Object {
 		}
 	}
 
-	private void draw_cover_blur_rect (Cairo.Context cr, Gdk.Pixbuf pixbuf, int size, bool reverse, int x, int y, int w, int h) {
+	private void draw_cover_blur_rect (Cairo.Context cr, Gdk.Pixbuf pixbuf, int size, int scale_factor, bool reverse, int x, int y, int w, int h) {
 		int radius = (int) (COVER_BLUR_RADIUS_FACTOR * size);
 		int shadow_width = (int) (SHADOW_FACTOR * size);
 
@@ -174,7 +178,7 @@ public class Games.CoverLoader : Object {
 		cr.restore ();
 	}
 
-	private Gdk.Pixbuf? create_cover_thumbnail (File file, int size) {
+	private Gdk.Pixbuf? create_cover_thumbnail (File file, int size, int scale_factor) {
 		Gdk.Pixbuf overlay_pixbuf, blur_pixbuf;
 		int overlay_x, overlay_y;
 		int width, height, zoom_width, zoom_height;
@@ -231,7 +235,7 @@ public class Games.CoverLoader : Object {
 		if (height >= width) {
 			var blur_y = (int) ((double) (height - width) / 2);
 
-			draw_cover_blur_rect (cr, blur_pixbuf, size, false,
+			draw_cover_blur_rect (cr, blur_pixbuf, size, scale_factor, false,
 			                      0, blur_y, overlay_x, size);
 
 			if (height > width)
@@ -239,14 +243,14 @@ public class Games.CoverLoader : Object {
 			else
 				cr.translate (0, blur_y);
 
-			draw_cover_blur_rect (cr, blur_pixbuf, size, true,
+			draw_cover_blur_rect (cr, blur_pixbuf, size, scale_factor, true,
 			                      overlay_x + width, blur_y,
 			                      size - width - overlay_x, size);
 		}
 		else {
 			var blur_x = (int) ((double) (width - height) / 2);
 
-			draw_cover_blur_rect (cr, blur_pixbuf, size, false,
+			draw_cover_blur_rect (cr, blur_pixbuf, size, scale_factor, false,
 			                      blur_x, 0, size, overlay_y);
 
 			if (height > width)
@@ -254,7 +258,7 @@ public class Games.CoverLoader : Object {
 			else
 				cr.translate (0, overlay_y + height);
 
-			draw_cover_blur_rect (cr, blur_pixbuf, size, true,
+			draw_cover_blur_rect (cr, blur_pixbuf, size, scale_factor, true,
 			                      blur_x, overlay_y + height,
 			                      size, size - height - overlay_y);
 		}
@@ -267,7 +271,7 @@ public class Games.CoverLoader : Object {
 		return Gdk.pixbuf_get_from_surface (image_surface, 0, 0, size, size);
 	}
 
-	public void fetch_cover (Game game, int cover_size, int icon_size, CoverReadyCallback cb) {
-		request_queue.push ({ game, cover_size, icon_size, cb });
+	public void fetch_cover (Game game, int scale_factor, int cover_size, int icon_size, CoverReadyCallback cb) {
+		request_queue.push ({ game, scale_factor, cover_size, icon_size, cb });
 	}
 }
