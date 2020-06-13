@@ -165,9 +165,9 @@ public class Games.CoverLoader : Object {
 		cr.rotate (Math.PI);
 
 		if (h > w)
-			cr.rectangle (0, reverse ? 0 : -h, 1, h);
+			cr.rectangle (0, reverse ? 0 : -h, scale_factor, h);
 		else
-			cr.rectangle (reverse ? 0 : -w, 0, w, 1);
+			cr.rectangle (reverse ? 0 : -w, 0, w, scale_factor);
 
 		cr.set_source_rgba (0, 0, 0, 0.2);
 		cr.fill ();
