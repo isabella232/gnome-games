@@ -204,32 +204,22 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 
 	private void draw_pixbuf (DrawingContext context, Gdk.Pixbuf pixbuf) {
 		context.cr.save ();
-		context.cr.scale (1.0 / scale_factor, 1.0 / scale_factor);
-
-		var mask = get_mask (context);
-
-		var x_offset = (context.width * scale_factor - pixbuf.width) / 2;
-		var y_offset = (context.height * scale_factor - pixbuf.height) / 2;
-
-		Gdk.cairo_set_source_pixbuf (context.cr, pixbuf, x_offset, y_offset);
-		context.cr.mask_surface (mask, 0, 0);
-
-		context.cr.restore ();
-	}
-
-	private Cairo.Surface get_mask (DrawingContext context) {
-		var mask = new Cairo.ImageSurface (Cairo.Format.A8, context.width * scale_factor, context.height * scale_factor);
 
 		var border_radius = (int) context.style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS, context.state);
 		border_radius = border_radius.clamp (0, int.max (context.width / 2, context.height / 2));
 
-		var cr = new Cairo.Context (mask);
-		cr.scale (scale_factor, scale_factor);
-		cr.set_source_rgb (0, 0, 0);
-		rounded_rectangle (cr, 0, 0, context.width, context.height, border_radius);
-		cr.fill ();
+		rounded_rectangle (context.cr, 0, 0, context.width, context.height, border_radius);
+		context.cr.clip ();
 
-		return mask;
+		var x_offset = (context.width * scale_factor - pixbuf.width) / 2;
+		var y_offset = (context.height * scale_factor - pixbuf.height) / 2;
+
+		context.cr.scale (1.0 / scale_factor, 1.0 / scale_factor);
+
+		Gdk.cairo_set_source_pixbuf (context.cr, pixbuf, x_offset, y_offset);
+		context.cr.paint ();
+
+		context.cr.restore ();
 	}
 
 	private void rounded_rectangle (Cairo.Context cr, double x, double y, double width, double height, double radius) {
