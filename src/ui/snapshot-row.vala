@@ -48,7 +48,7 @@ private class Games.SnapshotRow : Gtk.ListBoxRow {
 
 		Gdk.Pixbuf.get_file_info (screenshot_path, out screenshot_width, out screenshot_height);
 
-		var aspect_ratio = snapshot.screenshot_aspect_ratio;
+		var aspect_ratio = 1.0;//snapshot.screenshot_aspect_ratio;
 
 		// A fallback for migrated snapshots
 		if (aspect_ratio == 0)
@@ -121,42 +121,25 @@ private class Games.SnapshotRow : Gtk.ListBoxRow {
 		if (pixbuf == null)
 			return Gdk.EVENT_PROPAGATE;
 
+		var flags = image.get_state_flags ();
+		var border_radius = (int) style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS, flags);
+		border_radius = border_radius.clamp (0, int.max (width / 2, height / 2));
+
+		rounded_rectangle (cr, 0.5, 0.5, width - 1, height - 1, border_radius);
+		cr.clip ();
+
 		cr.save ();
 		cr.scale (1.0 / scale_factor, 1.0 / scale_factor);
-
-		var mask = get_mask ();
 
 		var x_offset = (width * scale_factor - pixbuf.width) / 2;
 		var y_offset = (height * scale_factor - pixbuf.height) / 2;
 
 		Gdk.cairo_set_source_pixbuf (cr, pixbuf, x_offset, y_offset);
-
-		cr.mask_surface (mask, 0, 0);
+		cr.paint ();
 
 		cr.restore ();
 
 		return Gdk.EVENT_PROPAGATE;
-	}
-
-	// TODO: Share this with GameThumbnail
-	private Cairo.Surface get_mask () {
-		var width = image.get_allocated_width ();
-		var height = image.get_allocated_height ();
-
-		var mask = new Cairo.ImageSurface (Cairo.Format.A8, width * scale_factor, height * scale_factor);
-
-		var style = image.get_style_context ();
-		var flags = image.get_state_flags ();
-		var border_radius = (int) style.get_property (Gtk.STYLE_PROPERTY_BORDER_RADIUS, flags);
-		border_radius = border_radius.clamp (0, int.max (width / 2, height / 2));
-
-		var cr = new Cairo.Context (mask);
-		cr.scale (scale_factor, scale_factor);
-		cr.set_source_rgb (0, 0, 0);
-		rounded_rectangle (cr, 0.5, 0.5, width - 1, height - 1, border_radius);
-		cr.fill ();
-
-		return mask;
 	}
 
 	// TODO: Share this with GameThumbnail
