@@ -15,11 +15,9 @@
                 <property name="visible">True</property>
                 <property name="vexpand">True</property>
                 <child>
-                  <object class="HdyColumn">
+                  <object class="HdyClamp">
                     <property name="visible">True</property>
                     <property name="expand">True</property>
-                    <property name="maximum-width">600</property>
-                    <property name="linear-growth-width">300</property>
                     <child>
                       <object class="GtkBox" id="box">
                         <property name="visible">True</property>

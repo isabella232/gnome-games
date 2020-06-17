@@ -8,10 +8,10 @@
         <property name="visible">True</property>
         <property name="search-mode-enabled" bind-source="GamesSearchBar" bind-property="search-mode-enabled" bind-flags="sync-create|bidirectional"/>
         <child>
-          <object class="HdyColumn">
+          <object class="HdyClamp">
             <property name="visible">True</property>
-            <property name="maximum-width">400</property>
-            <property name="linear-growth-width">300</property>
+            <property name="maximum-size">400</property>
+            <property name="tightening-threshold">300</property>
             <child>
               <object class="GtkSearchEntry" id="entry">
                 <property name="visible">True</property>
