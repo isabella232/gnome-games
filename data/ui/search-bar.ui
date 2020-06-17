@@ -10,8 +10,6 @@
         <child>
           <object class="HdyClamp">
             <property name="visible">True</property>
-            <property name="maximum-size">400</property>
-            <property name="tightening-threshold">300</property>
             <child>
               <object class="GtkSearchEntry" id="entry">
                 <property name="visible">True</property>
