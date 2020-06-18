@@ -52,6 +52,7 @@ private class Games.GameModel : Object, ListModel {
 
 		var pos = iter.get_position ();
 		iter.remove ();
+		n_games--;
 
 		items_changed (pos, 1, 0);
 		game_removed (game);
