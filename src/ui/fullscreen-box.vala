@@ -148,6 +148,10 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 			cursor_timeout_id = -1;
 		}
 
+		// This is needed when restoring via a keyboard shortcut when the
+		// titlebar is concealed.
+		titlebar_box.reveal_titlebar = true;
+
 		on_cursor_moved ();
 	}
 
