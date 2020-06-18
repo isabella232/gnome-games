@@ -27,6 +27,7 @@ public class Games.Game : Object {
 	public Uri uri { get; private set; }
 	public Platform platform { get; private set; }
 	public MediaSet? media_set { get; set; }
+	public bool is_favorite { get; set; }
 
 	private Title game_title;
 	private Icon game_icon;
