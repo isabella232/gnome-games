@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.24"/>
+  <template class="GamesSelectionActionBar" parent="GtkActionBar">
+    <property name="visible">True</property>
+    <child>
+      <object class="GtkButton" id="favorite_button">
+        <property name="visible">True</property>
+        <property name="action-name">view.favorite-action</property>
+        <property name="tooltip-text" translatable="yes">Add/Remove games to favorite</property>
+        <child>
+          <object class="GtkStack" id="icon_stack">
+            <property name="visible">True</property>
+            <property name="transition-type">crossfade</property>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">True</property>
+                <property name="icon-name">starred-symbolic</property>
+              </object>
+              <packing>
+                <property name="name">starred-icon</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">True</property>
+                <property name="icon-name">non-starred-symbolic</property>
+              </object>
+              <packing>
+                <property name="name">non-starred-icon</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">True</property>
+                <property name="icon-name">semi-starred-symbolic</property>
+              </object>
+              <packing>
+                <property name="name">semi-starred-icon</property>
+              </packing>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>
