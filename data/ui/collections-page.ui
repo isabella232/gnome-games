@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk+" version="3.24"/>
+  <template class="GamesCollectionsPage" parent="GtkBin">
+    <property name="visible">True</property>
+    <signal name="notify::is-search-mode" handler="update_can_swipe_back"/>
+    <signal name="notify::is-selection-mode" handler="update_can_swipe_back"/>
+    <child>
+      <object class="HdyDeck" id="collections_deck">
+        <property name="visible">True</property>
+        <property name="visible-child">collections_main_page</property>
+        <property name="can-swipe-back" bind-source="GamesCollectionsPage" bind-property="can-swipe-back"/>
+        <signal name="notify::visible-child" handler="on_visible_child_changed"/>
+        <child>
+          <object class="GamesCollectionsMainPage" id="collections_main_page">
+            <property name="visible">True</property>
+            <signal name="collection-activated" handler="on_collection_activated"/>
+          </object>
+        </child>
+        <child>
+          <object class="GtkStack" id="collections_subpage_stack">
+            <property name="visible">True</property>
+            <property name="visible-child">collections_subpage</property>
+            <child>
+              <object class="GamesGamesPage" id="collections_subpage">
+                <property name="visible">True</property>
+                <property name="is-selection-mode" bind-source="GamesCollectionsPage" bind-property="is-selection-mode"/>
+                <signal name="game-activated" handler="on_game_activated"/>
+                <signal name="gamepad-cancel-clicked" handler="on_subpage_back_clicked"/>
+                <style>
+                  <class name="gamesgamespage"/>
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GamesCollectionEmpty" id="collection_empty_subpage"/>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>
