@@ -48,7 +48,7 @@ private class Games.SnapshotRow : Gtk.ListBoxRow {
 
 		Gdk.Pixbuf.get_file_info (screenshot_path, out screenshot_width, out screenshot_height);
 
-		var aspect_ratio = 1.0;//snapshot.screenshot_aspect_ratio;
+		var aspect_ratio = snapshot.screenshot_aspect_ratio;
 
 		// A fallback for migrated snapshots
 		if (aspect_ratio == 0)
