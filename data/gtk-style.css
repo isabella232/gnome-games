@@ -1,5 +1,15 @@
 /* This file is part of GNOME Games. License: GPL-3.0+. */
 
+.favorite-star {
+	color: white;
+	-gtk-icon-shadow: 0 1px black, 0 -1px black, 1px 0 black, -1px 0 black;
+	margin: 6px;
+}
+
+.hide-stars .favorite-star {
+	opacity: 0;
+}
+
 .snapshot-row {
 	padding: 0;
 }
