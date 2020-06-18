@@ -24,12 +24,14 @@ private class Games.GameIconView : Gtk.FlowBoxChild {
 			thumbnail.game = game;
 			title.label = game.name;
 
+			game.bind_property ("is-favorite", this, "is-favorite", BindingFlags.SYNC_CREATE);
 			game_replaced_id = game.replaced.connect (game_replaced);
 		}
 	}
 
 	public bool checked { get; set; }
 	public bool is_selection_mode { get; set; }
+	public bool is_favorite { get; set; }
 
 	public GameIconView (Game game) {
 		Object (game: game);
