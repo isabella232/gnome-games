@@ -11,6 +11,8 @@ c_args = [
 ]
 
 vala_sources = [
+  'collection/collection.vala',
+
   'command/command-error.vala',
   'command/command-runner.vala',
 
