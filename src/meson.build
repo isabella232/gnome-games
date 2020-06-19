@@ -112,6 +112,7 @@ vala_sources = [
   'ui/checkmark-item.vala',
   'ui/collection-empty.vala',
   'ui/collection-icon-view.vala',
+  'ui/collection-thumbnail.vala',
   'ui/collection-view.vala',
   'ui/collections-main-page.vala',
   'ui/collections-page.vala',
