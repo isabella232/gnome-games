@@ -7,35 +7,13 @@ private class Games.RetroCore : Object, Core {
 		this.core_descriptor = core_descriptor;
 	}
 
-	public string[] get_all_firmware (Platform platform) throws Error {
+	public Firmware[] get_all_firmware (Platform platform) throws Error {
 		var platform_id = platform.get_id ();
+		Firmware[] firmware_list = {};
 		if (core_descriptor.has_firmwares (platform_id))
-			return core_descriptor.get_firmwares (platform_id);
-		else
-			return {};
-	}
+			foreach (var firmware in core_descriptor.get_firmwares (platform_id))
+				firmware_list += new RetroFirmware (firmware, core_descriptor);
 
-	public bool has_firmware_md5 (string firmware) throws Error {
-		return core_descriptor.has_firmware_md5 (firmware);
-	}
-
-	public bool has_firmware_sha512 (string firmware) throws Error {
-		return core_descriptor.has_firmware_sha512 (firmware);
-	}
-
-	public string? get_firmware_md5 (string firmware) throws Error {
-		return core_descriptor.get_firmware_md5 (firmware);
-	}
-
-	public string? get_firmware_sha512 (string firmware) throws Error {
-		return core_descriptor.get_firmware_sha512 (firmware);
-	}
-
-	public bool get_is_firmware_mandatory (string firmware) throws Error {
-		return core_descriptor.get_is_firmware_mandatory (firmware);
-	}
-
-	public string? get_firmware_path (string firmware) throws Error {
-		return core_descriptor.get_firmware_path (firmware);
+		return firmware_list;
 	}
 }
