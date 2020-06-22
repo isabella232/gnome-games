@@ -22,4 +22,12 @@ public interface Games.Platform : Object {
 	public static int compare (Platform a, Platform b) {
 		return a.get_name ().collate (b.get_name ());
 	}
+
+	public string get_system_dir () {
+		var platforms_dir = Application.get_platforms_dir ();
+		var id = get_id ();
+
+		return @"$platforms_dir/$id/system";
+	}
+
 }
