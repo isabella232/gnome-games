@@ -18,6 +18,7 @@ vala_sources = [
   'core/cover.vala',
   'core/cover-loader.vala',
   'core/firmware.vala',
+  'core/firmware-error.vala',
   'core/firmware-manager.vala',
   'core/game.vala',
   'core/game-callback.vala',

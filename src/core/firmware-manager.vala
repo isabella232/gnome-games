@@ -1,9 +1,5 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-errordomain Games.FirmwareError {
-	FIRMWARE_NOT_FOUND,
-}
-
 public class Games.FirmwareManager : Object {
 	public void is_all_firmware_valid (Core core, Platform platform) throws Error {
 		foreach (var firmware in core.get_all_firmware (platform)) {
