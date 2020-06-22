@@ -84,6 +84,7 @@ vala_sources = [
   'retro/retro-core-manager.vala',
   'retro/retro-core-source.vala',
   'retro/retro-error.vala',
+  'retro/retro-firmware.vala',
   'retro/retro-gamepad.vala',
   'retro/retro-input-manager.vala',
   'retro/retro-options.vala',
