@@ -3,6 +3,7 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/games-page.ui")]
 private class Games.GamesPage : Gtk.Bin {
 	public signal void game_activated (Game game);
+	public signal void selected_items_changed ();
 
 	private string[] filtering_terms;
 	public bool is_selection_mode { get; set; }
@@ -217,6 +218,8 @@ private class Games.GamesPage : Gtk.Bin {
 				selected_games.add (game_icon);
 			else
 				selected_games.remove (game_icon);
+
+			selected_items_changed ();
 		});
 
 		return game_icon;

@@ -3,6 +3,7 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/platforms-page.ui")]
 private class Games.PlatformsPage : Gtk.Bin {
 	public signal void game_activated (Game game);
+	public signal void selected_items_changed ();
 
 	[GtkChild]
 	private Hdy.Leaflet leaflet;
@@ -53,6 +54,10 @@ private class Games.PlatformsPage : Gtk.Bin {
 	construct {
 		games_page.set_game_filter (filter_game);
 		list_box.set_filter_func (filter_list);
+
+		games_page.selected_items_changed.connect (() => {
+			selected_items_changed ();
+		});
 	}
 
 	private bool filter_list (Gtk.ListBoxRow? row) {
