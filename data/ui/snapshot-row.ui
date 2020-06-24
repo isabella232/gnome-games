@@ -3,7 +3,6 @@
   <requires lib="gtk+" version="3.24"/>
   <template class="GamesSnapshotRow" parent="GtkListBoxRow">
     <property name="visible">true</property>
-    <signal name="notify::scale-factor" handler="on_scale_factor_changed"/>
     <style>
       <class name="snapshot-row"/>
     </style>
@@ -16,16 +15,10 @@
             <property name="visible">true</property>
             <property name="margin">2</property>
             <child>
-              <object class="GtkDrawingArea" id="image">
+              <object class="GamesSnapshotThumbnail" id="thumbnail">
                 <property name="visible">true</property>
                 <property name="valign">start</property>
-                <property name="width-request">66</property>
-                <property name="height-request">66</property>
                 <property name="margin">6</property>
-                <signal name="draw" handler="on_draw_image"/>
-                <style>
-                  <class name="snapshot-thumbnail"/>
-                </style>
               </object>
             </child>
             <child>
