@@ -22,6 +22,19 @@ private class Games.GamesPage : Gtk.Bin {
 		}
 	}
 
+	private bool _hide_stars;
+	public bool hide_stars {
+		get { return _hide_stars; }
+		set {
+			_hide_stars = value;
+
+			if (hide_stars)
+				get_style_context ().add_class ("hide-stars");
+			else
+				get_style_context ().remove_class ("hide-stars");
+		}
+	}
+
 	private GenericSet<GameIconView> selected_games;
 	private Binding window_active_binding;
 	private bool _is_active;
