@@ -148,6 +148,14 @@ private class Games.GamesPage : Gtk.Bin {
 		}
 	}
 
+	public Game[] get_selected_games () {
+		Game[] games = {};
+		foreach (var game_icon_view in selected_games.get_values ())
+			games += game_icon_view.game;
+
+		return games;
+	}
+
 	[GtkCallback]
 	private bool on_gamepad_browse (Gtk.DirectionType direction) {
 		if (!has_game_selected ())

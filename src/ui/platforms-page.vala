@@ -153,6 +153,10 @@ private class Games.PlatformsPage : Gtk.Bin {
 		games_page.select_none ();
 	}
 
+	public Game[] get_selected_games () {
+		return games_page.get_selected_games ();
+	}
+
 	[GtkCallback]
 	private bool on_gamepad_browse (Gtk.DirectionType direction) {
 		if (list_box.get_selected_rows ().length () == 0) {
