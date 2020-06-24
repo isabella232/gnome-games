@@ -18,7 +18,7 @@
               <object class="GamesSnapshotThumbnail" id="thumbnail">
                 <property name="visible">true</property>
                 <property name="valign">start</property>
-                <property name="margin">6</property>
+                <property name="margin">7</property>
               </object>
             </child>
             <child>

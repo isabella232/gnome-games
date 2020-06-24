@@ -48,7 +48,7 @@
                                 <property name="pixel-size">32</property>
                                 <property name="width-request">64</property>
                                 <property name="height-request">64</property>
-                                <property name="margin">6</property>
+                                <property name="margin">7</property>
                                 <style>
                                   <class name="snapshot-thumbnail"/>
                                 </style>
