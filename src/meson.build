@@ -150,6 +150,7 @@ vala_sources = [
   'ui/search-bar.vala',
   'ui/shortcuts-window.vala',
   'ui/snapshot-row.vala',
+  'ui/snapshot-thumbnail.vala',
   'ui/snapshots-list.vala',
   'ui/titlebar-box.vala',
   'ui/ui-view.vala',
