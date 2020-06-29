@@ -9,15 +9,8 @@
           <property name="orientation">vertical</property>
           <property name="spacing">6</property>
           <child>
-            <object class="GtkImage">
+            <object class="GamesCollectionThumbnail" id="thumbnail">
               <property name="visible">True</property>
-              <property name="icon-name">starred-symbolic</property>
-              <property name="halign">center</property>
-              <property name="valign">center</property>
-              <property name="pixel-size">64</property>
-              <style>
-                <class name="favorite-placeholder"/>
-              </style>
             </object>
           </child>
           <child>

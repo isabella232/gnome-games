@@ -4,6 +4,8 @@
 private class Games.CollectionIconView : Gtk.FlowBoxChild {
 	[GtkChild]
 	private Gtk.Label title;
+	[GtkChild]
+	private CollectionThumbnail thumbnail;
 
 	private Collection _collection;
 	public Collection collection {
