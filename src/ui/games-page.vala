@@ -4,6 +4,7 @@
 private class Games.GamesPage : Gtk.Bin {
 	public signal void game_activated (Game game);
 	public signal void selected_items_changed ();
+	public signal bool gamepad_cancel_clicked ();
 
 	private string[] filtering_terms;
 	public bool is_selection_mode { get; set; }
@@ -195,6 +196,11 @@ private class Games.GamesPage : Gtk.Bin {
 		flow_box.activate_cursor_child ();
 
 		return true;
+	}
+
+	[GtkCallback]
+	private bool on_gamepad_cancel () {
+		return gamepad_cancel_clicked ();
 	}
 
 	[GtkCallback]

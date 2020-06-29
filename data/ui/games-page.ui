@@ -37,5 +37,6 @@
   <object class="GamesGamepadBrowse" id="gamepad_browse">
     <signal name="browse" handler="on_gamepad_browse"/>
     <signal name="accept" handler="on_gamepad_accept"/>
+    <signal name="cancel" handler="on_gamepad_cancel"/>
   </object>
 </interface>
