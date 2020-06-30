@@ -151,6 +151,8 @@ private class Games.GamesPage : Gtk.Bin {
 	public void select_none () {
 		foreach (var game_icon_view in selected_games.get_values ())
 			game_icon_view.checked = false;
+
+		selected_games.remove_all ();
 	}
 
 	public void select_all () {
