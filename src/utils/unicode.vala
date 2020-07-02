@@ -27,7 +27,7 @@ namespace Games.Unicode {
 	private Encoding parse_encoding (FileInputStream stream, out int bom_length) throws Error {
 		stream.seek (0, SeekType.SET);
 
-		uint8[4] c = { 0, 0, 0, 0 };
+		uint8[] c = { 0, 0, 0, 0 };
 		var size = stream.read (c);
 		if (size < 4) {
 			bom_length = 0;
