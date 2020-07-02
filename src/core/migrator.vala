@@ -1,9 +1,103 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-public class Games.Migrator : Object {
+class Games.Migrator : Object {
+	// LATEST_VERSION should match the total number of migrations
+	private const uint LATEST_VERSION = 2;
+
+	private static uint version = 0;
+	private static bool skip_migration;
+
+	public static void bump_to_latest_version () {
+		info ("[Migrator]: Skipping migration");
+		while (version < LATEST_VERSION)
+			bump_version ();
+
+		skip_migration = true;
+	}
+
 	// Returns true if the migration wasn't necessary or
 	// if it was performed succesfully
-	public static bool apply_migration_if_necessary () {
+	public static bool apply_migration_if_necessary (Database database) {
+		if (skip_migration)
+			return true;
+
+		version = get_version ();
+
+		if (version == 0) {
+			if (!apply_data_dir_migration ())
+				return false;
+
+			bump_version ();
+		}
+
+		if (version < 2) {
+			try {
+				database.apply_favorites_migration ();
+			}
+			catch (Error e) {
+				critical ("Failed to apply favorites migration: %s", e.message);
+				return false;
+			}
+
+			bump_version ();
+		}
+
+		return true;
+	}
+
+	private static uint get_version () {
+		var data_dir_path = Application.get_data_dir ();
+		var data_dir = File.new_for_path (data_dir_path);
+		var version_file = data_dir.get_child (".version");
+
+		if (version_file.query_exists ()) {
+			try {
+				var @file_input_stream = version_file.read ();
+				var data_input_stream = new DataInputStream (@file_input_stream);
+				string line;
+
+				// .version contains version number => version 2+
+				if ((line = data_input_stream.read_line ()) != null)
+					return uint.parse (line);
+
+				//has .version file but no version in it => version 1
+				return 1;
+			} catch (Error e) {
+				critical ("Failed to bump version: %s", e.message);
+			}
+		}
+
+		// no .version file => version 0
+		return 0;
+	}
+
+	public static void bump_version () {
+		var data_dir_path = Application.get_data_dir ();
+		var data_dir = File.new_for_path (data_dir_path);
+		var version_file = data_dir.get_child (".version");
+
+		if (version > 0) {
+			try {
+				version_file.replace_contents ((++version).to_string ().data, null, false, FileCreateFlags.NONE, null);
+			} catch (Error e) {
+				critical ("Failed to bump version to %u: %s", version--, e.message);
+			}
+
+			return;
+		}
+
+		try {
+			version_file.create (FileCreateFlags.NONE);
+		}
+		catch (Error e) {
+			critical ("Failed to create .version file: %s", e.message);
+			return;
+		}
+
+		version++;
+	}
+
+	private static bool apply_data_dir_migration () {
 		var data_dir_path = Application.get_data_dir ();
 		var data_dir = File.new_for_path (data_dir_path);
 
@@ -12,14 +106,7 @@ public class Games.Migrator : Object {
 		var database_path = Application.get_database_path ();
 		string[] backup_excluded_files = { database_path, backup_archive_path };
 
-		var version_file = data_dir.get_child (".version");
-
-		// If the version file exists, there's no need
-		// to apply the migration
-		if (version_file.query_exists ())
-			return true;
-
-		info ("[Migrator]: Migration is necessary");
+		info ("[Migrator]: Data directory migration is necessary");
 
 		// Attempt to create a backup of the previous data
 		try {
@@ -34,7 +121,7 @@ public class Games.Migrator : Object {
 		try {
 			// The migration executes file I/O which may result in errors being
 			// thrown
-			apply_migration (version_file);
+			apply_migration ();
 		}
 		catch (Error e) {
 			critical ("Migration failed: %s", e.message);
@@ -62,14 +149,10 @@ public class Games.Migrator : Object {
 
 		// Migration applied succesfully, deleting backup
 		delete_files_no_errors (backup_archive);
-
 		return true;
 	}
 
-	private static void apply_migration (File version_file) throws Error {
-		// Create the version file
-		version_file.create (FileCreateFlags.NONE);
-
+	private static void apply_migration () throws Error {
 		// Create the savestates dir
 		var savestates_dir = File.new_for_path (get_savestates_dir_path ());
 

@@ -16,7 +16,8 @@ private class Games.Database : Object {
 			uid TEXT NOT NULL UNIQUE,
 			title TEXT NOT NULL,
 			platform TEXT NOT NULL,
-			media_set TEXT NULL
+			media_set TEXT NULL,
+			is_favorite INTEGER NOT NULL DEFAULT 0
 		);
 	""";
 
@@ -54,11 +55,11 @@ private class Games.Database : Object {
 	""";
 
 	private const string GET_CACHED_GAME_QUERY = """
-		SELECT uri, title, platform, media_set FROM games JOIN uris ON games.uid == uris.uid WHERE games.uid == $UID;
+		SELECT uri, title, platform, media_set, is_favorite FROM games JOIN uris ON games.uid == uris.uid WHERE games.uid == $UID;
 	""";
 
 	private const string LIST_CACHED_GAMES_QUERY = """
-		SELECT games.uid, uri, title, platform, media_set FROM games JOIN uris ON games.uid == uris.uid ORDER BY title;
+		SELECT games.uid, uri, title, platform, media_set, is_favorite FROM games JOIN uris ON games.uid == uris.uid ORDER BY title;
 	""";
 
 	private const string ADD_GAME_RESOURCE_QUERY = """
@@ -67,6 +68,18 @@ private class Games.Database : Object {
 
 	private const string HAS_URI_QUERY = """
 		SELECT EXISTS (SELECT 1 FROM game_resources WHERE uri=$URI LIMIT 1);
+	""";
+
+	private const string SET_IS_FAVORITE_QUERY = """
+		UPDATE games SET is_favorite = $IS_FAVORITE WHERE uid = $UID;
+	""";
+
+	private const string IS_GAME_FAVORITE_QUERY = """
+		SELECT EXISTS (SELECT 1 FROM games WHERE uid = $UID AND is_favorite = 1 LIMIT 1);
+	""";
+
+	private const string LIST_FAVORITE_GAMES_QUERY = """
+		SELECT uid FROM games WHERE is_favorite = 1;
 	""";
 
 	private Sqlite.Statement add_game_query;
@@ -82,6 +95,10 @@ private class Games.Database : Object {
 	private Sqlite.Statement add_game_resource_query;
 	private Sqlite.Statement has_uri_query;
 
+	private Sqlite.Statement set_is_favorite_query;
+	private Sqlite.Statement is_game_favorite_query;
+	private Sqlite.Statement list_favorite_games_query;
+
 	public Database (string path) throws Error {
 		if (Sqlite.Database.open (path, out database) != Sqlite.OK)
 			throw new DatabaseError.COULDNT_OPEN ("Couldn’t open the database for “%s”.", path);
@@ -89,19 +106,35 @@ private class Games.Database : Object {
 		exec (CREATE_RESOURCES_TABLE_QUERY, null);
 		exec (CREATE_GAMES_TABLE_QUERY, null);
 		exec (CREATE_URIS_TABLE_QUERY, null);
+	}
 
-		add_game_query = prepare (database, ADD_GAME_QUERY);
-		add_game_uri_query = prepare (database, ADD_GAME_URI_QUERY);
-		update_game_query = prepare (database, UPDATE_GAME_QUERY);
-		delete_game_query = prepare (database, DELETE_GAME_QUERY);
-		delete_uri_query = prepare (database, DELETE_URI_QUERY);
+	public void prepare_statements () {
+		try {
+			add_game_query = prepare (database, ADD_GAME_QUERY);
+			add_game_uri_query = prepare (database, ADD_GAME_URI_QUERY);
+			update_game_query = prepare (database, UPDATE_GAME_QUERY);
+			delete_game_query = prepare (database, DELETE_GAME_QUERY);
+			delete_uri_query = prepare (database, DELETE_URI_QUERY);
 
-		find_game_uris_query = prepare (database, FIND_GAME_URIS_QUERY);
-		get_cached_game_query = prepare (database, GET_CACHED_GAME_QUERY);
-		list_cached_games_query = prepare (database, LIST_CACHED_GAMES_QUERY);
+			find_game_uris_query = prepare (database, FIND_GAME_URIS_QUERY);
+			get_cached_game_query = prepare (database, GET_CACHED_GAME_QUERY);
+			list_cached_games_query = prepare (database, LIST_CACHED_GAMES_QUERY);
 
-		add_game_resource_query = prepare (database, ADD_GAME_RESOURCE_QUERY);
-		has_uri_query = prepare (database, HAS_URI_QUERY);
+			add_game_resource_query = prepare (database, ADD_GAME_RESOURCE_QUERY);
+			has_uri_query = prepare (database, HAS_URI_QUERY);
+
+			set_is_favorite_query = prepare (database, SET_IS_FAVORITE_QUERY);
+			is_game_favorite_query = prepare (database, IS_GAME_FAVORITE_QUERY);
+			list_favorite_games_query = prepare (database, LIST_FAVORITE_GAMES_QUERY);
+		}
+		catch (Error e) {
+			assert_not_reached ();
+		}
+	}
+
+	public void apply_favorites_migration () throws Error {
+		info ("Applying database migration to support favorites");
+		exec ("ALTER TABLE games ADD COLUMN is_favorite INTEGER NOT NULL DEFAULT 0;", null);
 	}
 
 	public void add_uri (Uri uri) throws Error {
@@ -155,6 +188,17 @@ private class Games.Database : Object {
 
 		if (text != null)
 			statement.bind_text (position, text);
+		else
+			statement.bind_null (position);
+	}
+
+	internal static void bind_int (Sqlite.Statement statement, string parameter, int? integer) throws Error {
+		var position = statement.bind_parameter_index (parameter);
+		if (position <= 0)
+			throw new DatabaseError.BINDING_FAILED ("Couldn't bind text to the parameter “%s”, unexpected position: %d.", parameter, position);
+
+		if (integer != null)
+			statement.bind_int (position, integer);
 		else
 			statement.bind_null (position);
 	}
@@ -290,8 +334,9 @@ private class Games.Database : Object {
 			var title = get_cached_game_query.column_text (1);
 			var platform = get_cached_game_query.column_text (2);
 			var media_set = get_cached_game_query.column_text (3);
+			var is_favorite = get_cached_game_query.column_int (4);
 
-			return create_game (uid, uri, title, platform, media_set);
+			return create_game (uid, uri, title, platform, media_set, is_favorite);
 		}
 
 		throw new DatabaseError.EXECUTION_FAILED ("Couldn't get game for uid (%s)", uid);
@@ -306,13 +351,14 @@ private class Games.Database : Object {
 			var title = list_cached_games_query.column_text (2);
 			var platform = list_cached_games_query.column_text (3);
 			var media_set = list_cached_games_query.column_text (4);
+			var is_favorite = list_cached_games_query.column_int (5);
 
-			var game = create_game (uid, uri, title, platform, media_set);
+			var game = create_game (uid, uri, title, platform, media_set, is_favorite);
 			game_callback (game);
 		}
 	}
 
-	private Game create_game (string uid, string uri, string title, string platform, string? media_set) {
+	private Game create_game (string uid, string uri, string title, string platform, string? media_set, int is_favorite) {
 		var game_uid = new Uid (uid);
 		var game_uri = new Uri (uri);
 		var game_title = new GenericTitle (title);
@@ -322,10 +368,50 @@ private class Games.Database : Object {
 			game_platform = new DummyPlatform ();
 
 		var game = new Game (game_uid, game_uri, game_title, game_platform);
+		game.is_favorite = is_favorite == 1;
 
 		if (media_set != null)
 			game.media_set = new MediaSet.parse (new Variant.parsed (media_set));
 
 		return game;
+	}
+
+	public bool set_is_favorite (Game game) throws Error {
+		if (game.is_favorite == is_game_favorite (game))
+			return false;
+
+		set_is_favorite_query.reset ();
+		bind_int (set_is_favorite_query, "$IS_FAVORITE", game.is_favorite ? 1 : 0);
+		bind_text (set_is_favorite_query, "$UID", game.uid.to_string ());
+
+		var result = set_is_favorite_query.step ();
+		if (result != Sqlite.DONE)
+			throw new DatabaseError.EXECUTION_FAILED ("Failed to make %s %sfavorite",
+			                                           game.name, game.is_favorite ? "" : "non-");
+
+		return true;
+	}
+
+	public string[] list_favorite_games () throws Error {
+		list_favorite_games_query.reset ();
+		string[] games = {};
+
+		while (list_favorite_games_query.step () == Sqlite.ROW)
+			games += list_favorite_games_query.column_text (0);
+
+		return games;
+	}
+
+	private bool is_game_favorite (Game game) throws Error {
+		var uid = game.uid.to_string ();
+		is_game_favorite_query.reset ();
+		bind_text (is_game_favorite_query, "$UID", uid);
+
+		switch (is_game_favorite_query.step ()) {
+		case Sqlite.ROW:
+			return is_game_favorite_query.column_int (0) == 1;
+		default:
+			throw new DatabaseError.EXECUTION_FAILED ("Execution failed.");
+		}
 	}
 }

@@ -133,9 +133,7 @@ public class Games.Application : Gtk.Application {
 				return;
 
 			data_dir.make_directory_with_parents ();
-
-			var version_file = data_dir.get_child (".version");
-			version_file.create (FileCreateFlags.NONE);
+			Migrator.bump_to_latest_version ();
 		}
 		catch (Error e) {
 			critical ("Couldn't create data dir: %s", e.message);
@@ -331,6 +329,12 @@ public class Games.Application : Gtk.Application {
 		if (game_collection != null)
 			return;
 
+		// Re-organize data_dir layout if necessary
+		// This operation has to be executed _after_ the PlatformsRegister has
+		// been populated and therefore this call is placed here
+		Migrator.apply_migration_if_necessary (database);
+		database.prepare_statements ();
+
 		TrackerUriSource tracker_uri_source = null;
 		try {
 			var connection = Tracker.Sparql.Connection.@get ();
@@ -407,11 +411,6 @@ public class Games.Application : Gtk.Application {
 				debug ("Error: %s", e.message);
 			}
 		}
-
-		// Re-organize data_dir layout if necessary
-		// This operation has to be executed _after_ the PlatformsRegister has
-		// been populated and therefore this call is placed here
-		Migrator.apply_migration_if_necessary ();
 	}
 
 	private Game? game_for_uris (Uri[] uris) {
