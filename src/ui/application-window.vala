@@ -58,9 +58,10 @@ private class Games.ApplicationWindow : Hdy.ApplicationWindow {
 	private Gtk.ApplicationInhibitFlags inhibit_flags;
 
 	public GameModel game_model { get; construct; }
+	public CollectionModel collection_model { get; construct; }
 
-	public ApplicationWindow (Application application, GameModel game_model) {
-		Object (application: application, game_model: game_model);
+	public ApplicationWindow (Application application, GameModel game_model, CollectionModel collection_model) {
+		Object (application: application, game_model: game_model, collection_model: collection_model);
 
 		current_view = collection_view;
 	}
@@ -69,6 +70,7 @@ private class Games.ApplicationWindow : Hdy.ApplicationWindow {
 		settings = new Settings ("org.gnome.Games");
 
 		collection_view.game_model = game_model;
+		collection_view.collection_model = collection_model;
 
 		int width, height;
 		settings.get ("window-size", "(ii)", out width, out height);

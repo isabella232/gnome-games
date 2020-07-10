@@ -16,6 +16,9 @@ public class Games.Application : Gtk.Application {
 	private GameModel game_model;
 	private CoverLoader cover_loader;
 
+	private CollectionManager collection_manager;
+	private CollectionModel collection_model;
+
 	private Manette.Monitor manette_monitor;
 
 	private bool tracker_failed;
@@ -292,6 +295,10 @@ public class Games.Application : Gtk.Application {
 			game_collection.game_replaced.connect (game_model.replace_game);
 			game_collection.game_removed.connect (game_model.remove_game);
 
+			collection_model = new CollectionModel ();
+			collection_manager = new CollectionManager (database);
+			collection_manager.collection_added.connect (collection_model.add_collection);
+
 			load_game_list.begin ();
 
 			cover_loader = new CoverLoader ();
@@ -304,7 +311,7 @@ public class Games.Application : Gtk.Application {
 			return;
 		}
 
-		window = new ApplicationWindow (this, game_model);
+		window = new ApplicationWindow (this, game_model, collection_model);
 		window.destroy.connect (() => {
 			quit_application ();
 		});
@@ -557,6 +564,10 @@ public class Games.Application : Gtk.Application {
 
 	internal GameCollection get_collection () {
 		return game_collection;
+	}
+
+	internal CollectionManager get_collection_manager () {
+		return collection_manager;
 	}
 
 	internal CoverLoader get_cover_loader () {
