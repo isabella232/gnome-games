@@ -3,6 +3,7 @@
 private class Games.GameThumbnail : Gtk.DrawingArea {
 	private const double EMBLEM_SCALE = 0.125;
 	private const double ICON_SCALE = 0.75;
+	private const double EMBLEM_MIN_SIZE = 16;
 
 	private ulong cover_changed_id;
 	private Icon icon;
@@ -144,6 +145,7 @@ private class Games.GameThumbnail : Gtk.DrawingArea {
 
 		var theme = Gtk.IconTheme.get_default ();
 		var size = int.min (context.width, context.height) * EMBLEM_SCALE * scale_factor;
+		size = double.max (size, EMBLEM_MIN_SIZE * scale_factor);
 		try {
 			var icon_info = theme.lookup_icon (icon_name, (int) size, Gtk.IconLookupFlags.FORCE_SIZE);
 			emblem = icon_info.load_symbolic (color);
