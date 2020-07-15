@@ -65,12 +65,12 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		}
 	}
 
-	private bool _is_collection_empty;
-	public bool is_collection_empty {
-		get { return _is_collection_empty; }
+	private bool _is_empty_collection;
+	public bool is_empty_collection {
+		get { return _is_empty_collection; }
 		set {
-			_is_collection_empty = value;
-			if (_is_collection_empty)
+			_is_empty_collection = value;
+			if (_is_empty_collection)
 				empty_stack.visible_child = empty_collection;
 			else
 				empty_stack.visible_child = viewstack;
@@ -102,9 +102,9 @@ private class Games.CollectionView : Gtk.Box, UiView {
 			games_page.game_model = game_model;
 			platforms_page.game_model = game_model;
 
-			is_collection_empty = game_model.get_n_items () == 0;
+			is_empty_collection = game_model.get_n_items () == 0;
 			game_model.items_changed.connect (() => {
-				is_collection_empty = game_model.get_n_items () == 0;
+				is_empty_collection = game_model.get_n_items () == 0;
 			});
 		}
 	}
@@ -184,8 +184,8 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK &&
 		    (viewstack.visible_child != collections_page ||
 		     collections_page.is_subpage_open) &&
-		     !collections_page.is_empty_collection &&
-		     !is_collection_empty) {
+		     !collections_page.is_collection_empty &&
+		     !is_empty_collection) {
 			if (!search_mode)
 				search_mode = true;
 
@@ -201,7 +201,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 			return true;
 		}
 
-		if (is_collection_empty)
+		if (is_empty_collection)
 			return false;
 
 		if (is_selection_mode && keyval == Gdk.Key.Escape) {
@@ -211,8 +211,8 @@ private class Games.CollectionView : Gtk.Box, UiView {
 
 		if ((viewstack.visible_child == collections_page
 		     && !collections_page.is_subpage_open) ||
-		     is_collection_empty ||
-		     collections_page.is_empty_collection)
+		     is_empty_collection ||
+		     collections_page.is_collection_empty)
 			return false;
 
 		return search_bar.handle_event (event);
@@ -229,7 +229,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		if (!event.get_button (out button))
 			return false;
 
-		if (is_collection_empty)
+		if (is_empty_collection)
 			return false;
 
 		switch (button) {
@@ -347,7 +347,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		else {
 			collection_manager.toggle_favorite (collections_page.get_selected_games ());
 
-			collections_page.update_is_empty_collection ();
+			collections_page.update_is_collection_empty ();
 			select_none ();
 			toggle_select ();
 
@@ -393,7 +393,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	}
 
 	[GtkCallback]
-	private void on_collection_empty_changed () {
+	private void on_empty_collection_changed () {
 		update_adaptive_state ();
 		update_selection_availability ();
 	}
@@ -478,7 +478,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	[GtkCallback]
 	private void update_adaptive_state () {
 		bool showing_title = view_switcher_title.title_visible;
-		is_showing_bottom_bar = showing_title && !is_collection_empty;
+		is_showing_bottom_bar = showing_title && !is_empty_collection;
 	}
 
 	[GtkCallback]

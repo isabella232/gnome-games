@@ -16,13 +16,13 @@ private class Games.CollectionsPage : Gtk.Bin {
 	[GtkChild]
 	private CollectionEmpty collection_empty_subpage;
 
-	private bool _is_empty_collection;
-	public bool is_empty_collection {
-		get { return _is_empty_collection; }
+	private bool _is_collection_empty;
+	public bool is_collection_empty {
+		get { return _is_collection_empty; }
 		set {
-			_is_empty_collection = value;
+			_is_collection_empty = value;
 
-			if (is_empty_collection)
+			if (is_collection_empty)
 				collections_subpage_stack.visible_child = collection_empty_subpage;
 			else
 				collections_subpage_stack.visible_child = collections_subpage;
@@ -88,8 +88,8 @@ private class Games.CollectionsPage : Gtk.Bin {
 			collections_main_page.reset_scroll_position ();
 	}
 
-	public void update_is_empty_collection () {
-		is_empty_collection = collections_subpage.game_model.get_n_items () == 0;
+	public void update_is_collection_empty () {
+		is_collection_empty = collections_subpage.game_model.get_n_items () == 0;
 	}
 
 	public void set_filter (string[] filtering_terms) {
@@ -120,8 +120,8 @@ private class Games.CollectionsPage : Gtk.Bin {
 		collection_title = collection.get_title ();
 		collections_deck.visible_child = collections_subpage_stack;
 
-		is_empty_collection = collection.get_game_model ().get_n_items () == 0;
-		if (is_empty_collection)
+		is_collection_empty = collection.get_game_model ().get_n_items () == 0;
+		if (is_collection_empty)
 			return;
 
 		collections_subpage.hide_stars = collection.get_hide_stars ();

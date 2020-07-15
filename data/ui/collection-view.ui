@@ -10,7 +10,7 @@
     <signal name="notify::is-showing-bottom-bar" handler="update_bottom_bar"/>
     <signal name="notify::is-subview-open" handler="update_bottom_bar"/>
     <signal name="notify::is-selection-mode" handler="on_selection_mode_changed"/>
-    <signal name="notify::is-collection-empty" handler="on_collection_empty_changed"/>
+    <signal name="notify::is-empty-collection" handler="on_empty_collection_changed"/>
     <child>
       <object class="GtkStack" id="header_bar_stack">
         <property name="visible">True</property>
@@ -79,7 +79,7 @@
                           <property name="visible">True</property>
                           <property name="title" translatable="yes">Games</property>
                           <property name="stack">viewstack</property>
-                          <property name="view-switcher-enabled" bind-source="GamesCollectionView" bind-property="is-collection-empty" bind-flags="bidirectional|sync-create|invert-boolean"/>
+                          <property name="view-switcher-enabled" bind-source="GamesCollectionView" bind-property="is-empty-collection" bind-flags="bidirectional|sync-create|invert-boolean"/>
                           <signal name="notify::title-visible" handler="update_adaptive_state"/>
                         </object>
                       </child>
@@ -88,7 +88,7 @@
                           <property name="visible" bind-source="GamesCollectionView" bind-property="is_selection_available" bind-flags="bidirectional"/>
                           <property name="valign">center</property>
                           <property name="action-name">view.toggle-select</property>
-                          <property name="sensitive" bind-source="GamesCollectionView" bind-property="is-collection-empty" bind-flags="bidirectional|invert-boolean"/>
+                          <property name="sensitive" bind-source="GamesCollectionView" bind-property="is-empty-collection" bind-flags="bidirectional|invert-boolean"/>
                           <child>
                             <object class="GtkImage" id="select_image">
                               <property name="visible">True</property>
@@ -110,7 +110,7 @@
                           <property name="visible" bind-source="GamesCollectionView" bind-property="is-search-available"/>
                           <property name="valign">center</property>
                           <property name="active" bind-source="GamesCollectionView" bind-property="search-mode" bind-flags="bidirectional"/>
-                          <property name="sensitive" bind-source="GamesCollectionView" bind-property="is-collection-empty" bind-flags="bidirectional|invert-boolean"/>
+                          <property name="sensitive" bind-source="GamesCollectionView" bind-property="is-empty-collection" bind-flags="bidirectional|invert-boolean"/>
                           <style>
                             <class name="image-button"/>
                           </style>
@@ -164,7 +164,7 @@
                         <object class="GtkButton" id="subview_selection_button">
                           <property name="visible">True</property>
                           <property name="valign">center</property>
-                          <property name="sensitive" bind-source="GamesCollectionView" bind-property="is-collection-empty" bind-flags="bidirectional|invert-boolean"/>
+                          <property name="sensitive" bind-source="GamesCollectionView" bind-property="is-empty-collection" bind-flags="bidirectional|invert-boolean"/>
                           <property name="action-name">view.toggle-select</property>"
                           <child>
                             <object class="GtkImage" id="subview_select_image">
@@ -187,7 +187,7 @@
                           <property name="visible">True</property>
                           <property name="valign">center</property>
                           <property name="active" bind-source="GamesCollectionView" bind-property="search-mode" bind-flags="bidirectional"/>
-                          <property name="sensitive" bind-source="GamesCollectionView" bind-property="is-collection-empty" bind-flags="bidirectional|invert-boolean"/>
+                          <property name="sensitive" bind-source="GamesCollectionView" bind-property="is-empty-collection" bind-flags="bidirectional|invert-boolean"/>
                           <style>
                             <class name="image-button"/>
                           </style>
@@ -252,7 +252,7 @@
                       <property name="visible">True</property>
                       <property name="valign">center</property>
                       <property name="action-name">view.toggle-select</property>
-                      <property name="sensitive" bind-source="collections_page" bind-property="is-empty-collection" bind-flags="invert-boolean"/>
+                      <property name="sensitive" bind-source="collections_page" bind-property="is-collection-empty" bind-flags="invert-boolean"/>
                       <child>
                         <object class="GtkImage">
                           <property name="visible">True</property>
@@ -274,7 +274,7 @@
                       <property name="visible">True</property>
                       <property name="valign">center</property>
                       <property name="active" bind-source="GamesCollectionView" bind-property="search-mode" bind-flags="bidirectional"/>
-                      <property name="sensitive" bind-source="collections_page" bind-property="is-empty-collection" bind-flags="invert-boolean"/>
+                      <property name="sensitive" bind-source="collections_page" bind-property="is-collection-empty" bind-flags="invert-boolean"/>
                       <style>
                         <class name="image-button"/>
                       </style>
@@ -324,7 +324,7 @@
                 <property name="visible">True</property>
                 <property name="valign">center</property>
                 <property name="active" bind-source="GamesCollectionView" bind-property="search-mode" bind-flags="bidirectional"/>
-                <property name="sensitive" bind-source="GamesCollectionView" bind-property="is-collection-empty" bind-flags="bidirectional|invert-boolean"/>
+                <property name="sensitive" bind-source="GamesCollectionView" bind-property="is-empty-collection" bind-flags="bidirectional|invert-boolean"/>
                 <style>
                   <class name="image-button"/>
                 </style>
