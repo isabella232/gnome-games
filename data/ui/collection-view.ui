@@ -16,10 +16,10 @@
         <property name="visible">True</property>
         <property name="transition-type">crossfade</property>
         <child>
-          <object class="HdyDeck" id="deck_stack">
+          <object class="HdyDeck" id="collections_deck">
             <property name="visible">True</property>
               <child>
-                <object class="HdyDeck" id="deck">
+                <object class="HdyDeck" id="platforms_deck">
                   <property name="visible">True</property>
                   <property name="can-swipe-back">True</property>
                   <child>
@@ -535,7 +535,7 @@
   <object class="HdySwipeGroup" id="swipe_group"/>
   <object class="HdySwipeGroup" id="collections_swipe_group">
     <swipeables>
-      <swipeable name="deck_stack"/>
+      <swipeable name="collections_deck"/>
     </swipeables>
   </object>
   <menu id="primary_menu">

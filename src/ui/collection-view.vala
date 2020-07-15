@@ -7,9 +7,9 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	public signal void game_activated (Game game);
 
 	[GtkChild]
-	private Hdy.Deck deck;
+	private Hdy.Deck platforms_deck;
 	[GtkChild]
-	private Hdy.Deck deck_stack;
+	private Hdy.Deck collections_deck;
 	[GtkChild]
 	private Gtk.Stack header_bar_stack;
 	[GtkChild]
@@ -175,7 +175,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		    (((window.get_direction () == Gtk.TextDirection.LTR) && keyval == Gdk.Key.Left) ||
 		     ((window.get_direction () == Gtk.TextDirection.RTL) && keyval == Gdk.Key.Right)) &&
 		     !is_selection_mode &&
-		     (deck.navigate (Hdy.NavigationDirection.BACK) ||
+		     (platforms_deck.navigate (Hdy.NavigationDirection.BACK) ||
 		      collections_page.exit_subpage ())) {
 			return true;
 		}
@@ -382,11 +382,11 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		}
 		else {
 			select_none ();
-			header_bar_stack.visible_child = deck_stack;
+			header_bar_stack.visible_child = collections_deck;
 			if (collections_page.is_subpage_open)
-				deck_stack.visible_child = collection_subpage_header_bar;
+				collections_deck.visible_child = collection_subpage_header_bar;
 			else
-				deck_stack.visible_child = deck;
+				collections_deck.visible_child = platforms_deck;
 		}
 
 		update_bottom_bar ();
@@ -456,11 +456,11 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	[GtkCallback]
 	private void on_folded_changed () {
 		if (is_folded) {
-			deck.visible_child = is_subview_open ? subview_header_bar : header_bar;
-			swipe_group.add_swipeable (deck);
+			platforms_deck.visible_child = is_subview_open ? subview_header_bar : header_bar;
+			swipe_group.add_swipeable (platforms_deck);
 		} else {
-			swipe_group.remove_swipeable (deck);
-			deck.visible_child = header_bar;
+			swipe_group.remove_swipeable (platforms_deck);
+			platforms_deck.visible_child = header_bar;
 		}
 
 		update_bottom_bar ();
@@ -483,6 +483,6 @@ private class Games.CollectionView : Gtk.Box, UiView {
 
 	[GtkCallback]
 	private void on_subview_back_clicked () {
-		deck.navigate (Hdy.NavigationDirection.BACK);
+		platforms_deck.navigate (Hdy.NavigationDirection.BACK);
 	}
 }
