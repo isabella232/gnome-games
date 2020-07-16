@@ -18,6 +18,7 @@
         <child>
           <object class="HdyDeck" id="collections_deck">
             <property name="visible">True</property>
+            <property name="can-swipe-back">True</property>
               <child>
                 <object class="HdyDeck" id="platforms_deck">
                   <property name="visible">True</property>
