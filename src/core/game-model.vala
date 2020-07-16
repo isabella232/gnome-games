@@ -7,6 +7,8 @@ private class Games.GameModel : Object, ListModel {
 	private Sequence<Game> sequence;
 	private int n_games;
 
+	public bool always_replace;
+
 	construct {
 		sequence = new Sequence<Game> ();
 		n_games = 0;
@@ -36,7 +38,8 @@ private class Games.GameModel : Object, ListModel {
 
 	public void replace_game (Game game, Game prev_game) {
 		// Title changed, just hope it doesn't happen too often
-		if (prev_game.name != game.name) {
+		// FIX ME always_replace is a temporary hack until on_game_replaced is redone
+		if (prev_game.name != game.name || always_replace) {
 			remove_game (prev_game);
 			add_game (game);
 

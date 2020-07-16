@@ -17,6 +17,7 @@ private class Games.FavoritesCollection : Object, Collection {
 		favorite_game_uids = new GenericSet<Uid> (Uid.hash, Uid.equal);
 
 		game_model = new GameModel ();
+		game_model.always_replace = true;
 	}
 
 	public FavoritesCollection (Database database) {
