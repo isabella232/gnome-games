@@ -30,6 +30,7 @@ plugins/virtual-boy/src/virtual-boy-header.c
 plugins/virtual-boy/src/virtual-boy-plugin.c
 plugins/wii/src/wii-header.c
 plugins/wii/src/wii-plugin.c
+src/collection/favorites-collection.c
 src/command/command-runner.c
 src/core/media-set/media-set.c
 src/core/plugin-registrar.c
@@ -54,6 +55,7 @@ src/ui/preferences-page-platforms-retro-row.c
 src/ui/preferences-page-video.c
 src/ui/preferences-subpage-gamepad.c
 src/ui/preferences-subpage-keyboard.c
+src/ui/selection-action-bar.c
 src/ui/snapshot-row.c
 src/ui/snapshots-list.c
 src/utils/cue-sheet/cue-sheet.c

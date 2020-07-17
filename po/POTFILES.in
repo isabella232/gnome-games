@@ -3,6 +3,7 @@
 data/org.gnome.Games.appdata.xml.in.in
 data/org.gnome.Games.desktop.in.in
 data/org.gnome.Games.gschema.xml
+data/ui/collection-empty.ui
 data/ui/collection-view.ui
 data/ui/display-view.ui
 data/ui/empty-collection.ui
@@ -23,6 +24,7 @@ data/ui/reset-controller-mapping-dialog.ui
 data/ui/restart-dialog.ui
 data/ui/resume-dialog.ui
 data/ui/resume-failed-dialog.ui
+data/ui/selection-action-bar.ui
 data/ui/shortcuts-window.ui
 data/ui/snapshots-list.ui
 plugins/desktop/src/desktop-plugin.vala
@@ -56,6 +58,7 @@ plugins/virtual-boy/src/virtual-boy-header.vala
 plugins/virtual-boy/src/virtual-boy-plugin.vala
 plugins/wii/src/wii-header.vala
 plugins/wii/src/wii-plugin.vala
+src/collection/favorites-collection.vala
 src/command/command-runner.vala
 src/core/media-set/media-set.vala
 src/core/plugin-registrar.vala
@@ -80,6 +83,7 @@ src/ui/preferences-page-platforms.vala
 src/ui/preferences-page-video.vala
 src/ui/preferences-subpage-gamepad.vala
 src/ui/preferences-subpage-keyboard.vala
+src/ui/selection-action-bar.vala
 src/ui/snapshot-row.vala
 src/ui/snapshots-list.vala
 src/utils/cue-sheet/cue-sheet.vala
