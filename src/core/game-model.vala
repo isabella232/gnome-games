@@ -6,10 +6,45 @@ private class Games.GameModel : Object, ListModel {
 
 	private Sequence<Game> sequence;
 	private int n_games;
+	private CompareDataFunc<Game> compare_func;
 
 	public bool always_replace;
 
+	public enum SortType {
+		BY_NAME,
+		BY_LAST_PLAYED;
+
+		public CompareDataFunc<Game> get_sort_function () {
+			switch (this) {
+			case BY_NAME:
+				return Game.compare;
+
+			case BY_LAST_PLAYED:
+				return Game.compare_by_date_time;
+
+			default:
+				assert_not_reached ();
+			}
+		}
+	}
+
+	private SortType _sort_type = BY_NAME;
+	public SortType sort_type {
+		get { return _sort_type; }
+		set {
+			if (sort_type == value)
+				return;
+
+			_sort_type = value;
+
+			compare_func = sort_type.get_sort_function ();
+			sequence.sort (compare_func);
+			items_changed (0, n_games, n_games);
+		}
+	}
+
 	construct {
+		compare_func = sort_type.get_sort_function ();
 		sequence = new Sequence<Game> ();
 		n_games = 0;
 	}
@@ -29,7 +64,7 @@ private class Games.GameModel : Object, ListModel {
 	}
 
 	public void add_game (Game game) {
-		var iter = sequence.insert_sorted (game, Game.compare);
+		var iter = sequence.insert_sorted (game, compare_func);
 		n_games++;
 
 		items_changed (iter.get_position (), 0, 1);
@@ -51,7 +86,18 @@ private class Games.GameModel : Object, ListModel {
 	}
 
 	public void remove_game (Game game) {
-		var iter = sequence.lookup (game, Game.compare);
+		SequenceIter<Game> iter = null;
+		// Might be expensive so only do it when sequence is sorted by recently played
+		if (sort_type == BY_LAST_PLAYED)
+			iter = get_game_iter (game);
+		else
+			iter = sequence.lookup (game, compare_func);
+
+		if (iter == null)
+			return;
+
+		if (iter == null)
+			return;
 
 		var pos = iter.get_position ();
 		iter.remove ();
@@ -59,5 +105,13 @@ private class Games.GameModel : Object, ListModel {
 
 		items_changed (pos, 1, 0);
 		game_removed (game);
+	}
+
+	private SequenceIter<Game>? get_game_iter (Game game) {
+		for (var iter = sequence.get_begin_iter (); !iter.is_end (); iter = iter.next ())
+			if (Game.equal (iter.get (), game))
+				return iter;
+
+		return null;
 	}
 }
