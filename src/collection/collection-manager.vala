@@ -8,12 +8,14 @@ private class Games.CollectionManager : Object {
 	private Database database;
 
 	private FavoritesCollection favorites_collection;
+	private RecentlyPlayedCollection recently_played_collection;
 
 	public CollectionManager (Database database) {
 		this.database = database;
 		collections = new HashTable<string, Collection> (str_hash, str_equal);
 
 		add_favorites_collection ();
+		add_recently_played_collection ();
 
 		collections.foreach ((key, val) => {
 			val.load ();
@@ -40,6 +42,15 @@ private class Games.CollectionManager : Object {
 		collections[favorites_collection.get_id ()] = favorites_collection;
 		Idle.add (() => {
 			collection_added (favorites_collection);
+			return Source.REMOVE;
+		});
+	}
+
+	private void add_recently_played_collection () {
+		recently_played_collection = new RecentlyPlayedCollection (database);
+		collections[recently_played_collection.get_id ()] = recently_played_collection;
+		Idle.add (() => {
+			collection_added (recently_played_collection);
 			return Source.REMOVE;
 		});
 	}
