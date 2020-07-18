@@ -265,6 +265,6 @@ private class Games.TitlebarBox : Gtk.Container, Gtk.Buildable {
 		if (type == "titlebar")
 			titlebar = widget;
 		else
-			content = content;
+			content = widget;
 	}
 }
