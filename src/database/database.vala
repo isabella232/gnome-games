@@ -17,7 +17,8 @@ private class Games.Database : Object {
 			title TEXT NOT NULL,
 			platform TEXT NOT NULL,
 			media_set TEXT NULL,
-			is_favorite INTEGER NOT NULL DEFAULT 0
+			is_favorite INTEGER NOT NULL DEFAULT 0,
+			last_played TEXT DEFAULT NULL
 		);
 	""";
 
@@ -55,11 +56,13 @@ private class Games.Database : Object {
 	""";
 
 	private const string GET_CACHED_GAME_QUERY = """
-		SELECT uri, title, platform, media_set, is_favorite FROM games JOIN uris ON games.uid == uris.uid WHERE games.uid == $UID;
+		SELECT uri, title, platform, media_set, is_favorite, last_played
+		FROM games JOIN uris ON games.uid == uris.uid WHERE games.uid == $UID;
 	""";
 
 	private const string LIST_CACHED_GAMES_QUERY = """
-		SELECT games.uid, uri, title, platform, media_set, is_favorite FROM games JOIN uris ON games.uid == uris.uid ORDER BY title;
+		SELECT games.uid, uri, title, platform, media_set, is_favorite, last_played
+		FROM games JOIN uris ON games.uid == uris.uid ORDER BY title;
 	""";
 
 	private const string ADD_GAME_RESOURCE_QUERY = """
@@ -82,6 +85,14 @@ private class Games.Database : Object {
 		SELECT uid FROM games WHERE is_favorite = 1;
 	""";
 
+	private const string UPDATE_RECENTLY_PLAYED_GAME_QUERY = """
+		UPDATE games SET last_played = $LAST_PLAYED WHERE uid = $UID;
+	""";
+
+	private const string LIST_RECENTLY_PLAYED_GAMES_QUERY = """
+		SELECT uid FROM games WHERE last_played IS NOT NULL;
+	""";
+
 	private Sqlite.Statement add_game_query;
 	private Sqlite.Statement add_game_uri_query;
 	private Sqlite.Statement update_game_query;
@@ -98,6 +109,9 @@ private class Games.Database : Object {
 	private Sqlite.Statement set_is_favorite_query;
 	private Sqlite.Statement is_game_favorite_query;
 	private Sqlite.Statement list_favorite_games_query;
+
+	private Sqlite.Statement update_recently_played_game_query;
+	private Sqlite.Statement list_recently_played_games_query;
 
 	public Database (string path) throws Error {
 		if (Sqlite.Database.open (path, out database) != Sqlite.OK)
@@ -126,8 +140,12 @@ private class Games.Database : Object {
 			set_is_favorite_query = prepare (database, SET_IS_FAVORITE_QUERY);
 			is_game_favorite_query = prepare (database, IS_GAME_FAVORITE_QUERY);
 			list_favorite_games_query = prepare (database, LIST_FAVORITE_GAMES_QUERY);
+
+			update_recently_played_game_query = prepare (database, UPDATE_RECENTLY_PLAYED_GAME_QUERY);
+			list_recently_played_games_query = prepare (database, LIST_RECENTLY_PLAYED_GAMES_QUERY);
 		}
 		catch (Error e) {
+			critical ("Failed to prepare statements: %s", e.message);
 			assert_not_reached ();
 		}
 	}
@@ -135,6 +153,11 @@ private class Games.Database : Object {
 	public void apply_favorites_migration () throws Error {
 		info ("Applying database migration to support favorites");
 		exec ("ALTER TABLE games ADD COLUMN is_favorite INTEGER NOT NULL DEFAULT 0;", null);
+	}
+
+	public void apply_recently_played_migration () throws Error {
+		info ("Applying database migration to support recently played games");
+		exec ("ALTER TABLE games ADD COLUMN last_played TEXT DEFAULT NULL;", null);
 	}
 
 	public void add_uri (Uri uri) throws Error {
@@ -335,8 +358,9 @@ private class Games.Database : Object {
 			var platform = get_cached_game_query.column_text (2);
 			var media_set = get_cached_game_query.column_text (3);
 			var is_favorite = get_cached_game_query.column_int (4);
+			var last_played = get_cached_game_query.column_text (5);
 
-			return create_game (uid, uri, title, platform, media_set, is_favorite);
+			return create_game (uid, uri, title, platform, media_set, is_favorite, last_played);
 		}
 
 		throw new DatabaseError.EXECUTION_FAILED ("Couldn't get game for uid (%s)", uid);
@@ -352,13 +376,16 @@ private class Games.Database : Object {
 			var platform = list_cached_games_query.column_text (3);
 			var media_set = list_cached_games_query.column_text (4);
 			var is_favorite = list_cached_games_query.column_int (5);
+			var last_played = list_cached_games_query.column_text (6);
 
-			var game = create_game (uid, uri, title, platform, media_set, is_favorite);
+			var game = create_game (uid, uri, title, platform, media_set, is_favorite, last_played);
 			game_callback (game);
 		}
 	}
 
-	private Game create_game (string uid, string uri, string title, string platform, string? media_set, int is_favorite) {
+	private Game create_game (string uid, string uri, string title,
+	                          string platform, string? media_set,
+	                          int is_favorite, string? last_played) {
 		var game_uid = new Uid (uid);
 		var game_uri = new Uri (uri);
 		var game_title = new GenericTitle (title);
@@ -369,6 +396,9 @@ private class Games.Database : Object {
 
 		var game = new Game (game_uid, game_uri, game_title, game_platform);
 		game.is_favorite = is_favorite == 1;
+
+		if (last_played != null)
+			game.last_played = new DateTime.from_iso8601 (last_played, null);
 
 		if (media_set != null)
 			game.media_set = new MediaSet.parse (new Variant.parsed (media_set));
@@ -413,5 +443,27 @@ private class Games.Database : Object {
 		default:
 			throw new DatabaseError.EXECUTION_FAILED ("Execution failed.");
 		}
+	}
+
+	public GenericSet<Uid> list_recently_played_games () throws Error {
+		list_recently_played_games_query.reset ();
+		var games = new GenericSet<Uid> (Uid.hash, Uid.equal);
+
+		while (list_recently_played_games_query.step () == Sqlite.ROW)
+			games.add (new Uid (list_recently_played_games_query.column_text (0)));
+
+		return games;
+	}
+
+	public void update_recently_played_game (Game game, bool remove = false) throws Error {
+		var last_played = remove ? null : game.last_played.to_string ();
+
+		update_recently_played_game_query.reset ();
+		bind_text (update_recently_played_game_query, "$LAST_PLAYED", last_played);
+		bind_text (update_recently_played_game_query, "$UID", game.uid.to_string ());
+
+		var result = update_recently_played_game_query.step ();
+		if (result != Sqlite.DONE)
+			throw new DatabaseError.EXECUTION_FAILED ("Failed to update last played date-time of %s", game.name);
 	}
 }

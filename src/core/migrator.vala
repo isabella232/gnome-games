@@ -2,7 +2,7 @@
 
 class Games.Migrator : Object {
 	// LATEST_VERSION should match the total number of migrations
-	private const uint LATEST_VERSION = 2;
+	private const uint LATEST_VERSION = 3;
 
 	private static uint version = 0;
 	private static bool skip_migration;
@@ -36,6 +36,18 @@ class Games.Migrator : Object {
 			}
 			catch (Error e) {
 				critical ("Failed to apply favorites migration: %s", e.message);
+				return false;
+			}
+
+			bump_version ();
+		}
+
+		if (version < 3) {
+			try {
+				database.apply_recently_played_migration ();
+			}
+			catch (Error e) {
+				critical ("Failed to apply recently played migration: %s", e.message);
 				return false;
 			}
 
