@@ -28,6 +28,7 @@ public class Games.Game : Object {
 	public Platform platform { get; private set; }
 	public MediaSet? media_set { get; set; }
 	public bool is_favorite { get; set; }
+	public DateTime? last_played { get; set; }
 
 	private Title game_title;
 	private Icon game_icon;
@@ -71,6 +72,10 @@ public class Games.Game : Object {
 		return true;
 	}
 
+	public void update_last_played () {
+		last_played = new DateTime.now ();
+	}
+
 	public static uint hash (Game key) {
 		return Uid.hash (key.uid);
 	}
@@ -92,5 +97,18 @@ public class Games.Game : Object {
 			return ret;
 
 		return Uid.compare (a.uid, b.uid);
+	}
+
+	public static int compare_by_date_time (Game a, Game b) {
+		if (a.last_played == null && b.last_played == null)
+			return 0;
+
+		if (a.last_played == null)
+			return 1;
+
+		if (b.last_played == null)
+			return -1;
+
+		return b.last_played.compare (a.last_played);
 	}
 }
