@@ -14,8 +14,6 @@ private class Games.FavoritesCollection : Object, Collection {
 		game_collection.game_removed.connect (on_game_removed);
 		game_collection.game_replaced.connect (on_game_replaced);
 
-		favorite_game_uids = new GenericSet<Uid> (Uid.hash, Uid.equal);
-
 		game_model = new GameModel ();
 		game_model.always_replace = true;
 	}
@@ -42,8 +40,7 @@ private class Games.FavoritesCollection : Object, Collection {
 
 	public void load () {
 		try {
-			foreach (var uid in database.list_favorite_games ())
-				favorite_game_uids.add (new Uid (uid));
+			favorite_game_uids = database.list_favorite_games ();
 		}
 		catch (Error e) {
 			critical ("Failed to load favorite game uids: %s", e.message);

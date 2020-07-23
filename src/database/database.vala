@@ -422,12 +422,12 @@ private class Games.Database : Object {
 		return true;
 	}
 
-	public string[] list_favorite_games () throws Error {
+	public GenericSet<Uid> list_favorite_games () throws Error {
 		list_favorite_games_query.reset ();
-		string[] games = {};
+		var games = new GenericSet<Uid> (Uid.hash, Uid.equal);
 
 		while (list_favorite_games_query.step () == Sqlite.ROW)
-			games += list_favorite_games_query.column_text (0);
+			games.add (new Uid (list_favorite_games_query.column_text (0)));
 
 		return games;
 	}
