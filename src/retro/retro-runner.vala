@@ -182,6 +182,7 @@ public class Games.RetroRunner : Object, Runner {
 		core.shutdown.connect (stop);
 		core.crashed.connect ((core, error) => {
 			is_error = true;
+			game.update_last_played ();
 			crash (error);
 		});
 
@@ -274,6 +275,7 @@ public class Games.RetroRunner : Object, Runner {
 		if (!core_loaded)
 			return;
 
+		game.update_last_played ();
 		deinit ();
 		stopped ();
 	}
