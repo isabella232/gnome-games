@@ -98,14 +98,14 @@ private class Games.FavoritesCollection : Object, Collection {
 	}
 
 	public void on_game_replaced (Game game, Game prev_game) {
-		SignalHandler.disconnect_by_data (prev_game, this);
-		game.notify["is-favorite"].connect (() => {
-			on_is_favorite_changed (game);
-		});
-
 		if (prev_game.is_favorite) {
 			game.is_favorite = true;
 			game_model.replace_game (game, prev_game);
 		}
+
+		SignalHandler.disconnect_by_data (prev_game, this);
+		game.notify["is-favorite"].connect (() => {
+			on_is_favorite_changed (game);
+		});
 	}
 }
