@@ -1,4 +1,3 @@
-flatpak export-ignore
 tools export-ignore
 .editorconfig export-ignore
 .gitattributes export-ignore

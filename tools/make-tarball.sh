@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# A replacement for `ninja dist` until it can exclude `flatpak` and `tools` directories.
+# A replacement for `ninja dist` until it can exclude the `tools` directory.
 
 PROJECT=gnome-games
 VERSION=$(grep -Pom1 "version:\s+'\K[\w.]+" ../meson.build)
