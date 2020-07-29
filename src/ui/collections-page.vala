@@ -16,6 +16,8 @@ private class Games.CollectionsPage : Gtk.Bin {
 	[GtkChild]
 	private CollectionEmpty collection_empty_subpage;
 
+	private Collection current_collection;
+
 	private bool _is_collection_empty;
 	public bool is_collection_empty {
 		get { return _is_collection_empty; }
@@ -105,6 +107,13 @@ private class Games.CollectionsPage : Gtk.Bin {
 		return on_subpage_back_clicked ();
 	}
 
+	public Collection? get_current_collection () {
+		if (!is_subpage_open)
+			return null;
+
+		return current_collection;
+	}
+
 	[GtkCallback]
 	private bool on_subpage_back_clicked () {
 		if (!is_subpage_open)
@@ -117,6 +126,7 @@ private class Games.CollectionsPage : Gtk.Bin {
 
 	[GtkCallback]
 	private void on_collection_activated (Collection collection) {
+		current_collection = collection;
 		collection_title = collection.get_title ();
 		collections_deck.visible_child = collections_subpage_stack;
 
