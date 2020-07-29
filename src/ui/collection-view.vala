@@ -347,11 +347,13 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		else {
 			collection_manager.toggle_favorite (collections_page.get_selected_games ());
 
-			collections_page.update_is_collection_empty ();
-			select_none ();
-			toggle_select ();
-
-			return;
+			var current_collection = collections_page.get_current_collection ();
+			if (current_collection != null && current_collection.get_id () == "Favorites") {
+				collections_page.update_is_collection_empty ();
+				select_none ();
+				toggle_select ();
+				return;
+			}
 		}
 
 		update_selection_action_bar ();
@@ -364,6 +366,8 @@ private class Games.CollectionView : Gtk.Box, UiView {
 			games = games_page.get_selected_games ();
 		else if (viewstack.visible_child == platforms_page)
 			games = platforms_page.get_selected_games ();
+		else
+			games = collections_page.get_selected_games ();
 
 		selection_action_bar.update (games);
 	}
