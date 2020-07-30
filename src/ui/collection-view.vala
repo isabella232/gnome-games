@@ -138,6 +138,9 @@ private class Games.CollectionView : Gtk.Box, UiView {
 
 	construct {
 		collection_manager = Application.get_default ().get_collection_manager ();
+		collection_manager.collection_empty_changed.connect (() => {
+			collections_page.invalidate_filter ();
+		});
 
 		var icon_name = Config.APPLICATION_ID + "-symbolic";
 		viewstack.child_set (games_page, "icon-name", icon_name);
