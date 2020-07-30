@@ -114,6 +114,10 @@ private class Games.CollectionsPage : Gtk.Bin {
 		return current_collection;
 	}
 
+	public void invalidate_filter () {
+		collections_main_page.invalidate_filter ();
+	}
+
 	[GtkCallback]
 	private bool on_subpage_back_clicked () {
 		if (!is_subpage_open)
