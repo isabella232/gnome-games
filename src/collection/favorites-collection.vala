@@ -6,6 +6,11 @@ private class Games.FavoritesCollection : Object, Collection {
 	private Database database;
 	private GenericSet<Uid> favorite_game_uids;
 
+	private bool _is_empty = true;
+	public bool is_empty {
+		get { return _is_empty; }
+	}
+
 	private ulong idle_id = 0;
 
 	construct {
@@ -16,10 +21,24 @@ private class Games.FavoritesCollection : Object, Collection {
 
 		game_model = new GameModel ();
 		game_model.always_replace = true;
+		game_model.game_added.connect (() => {
+			set_is_empty (false);
+		});
+		game_model.game_removed.connect (() => {
+			set_is_empty (game_model.get_n_items () == 0);
+		});
 	}
 
 	public FavoritesCollection (Database database) {
 		this.database = database;
+	}
+
+	private void set_is_empty (bool value) {
+		if (is_empty == value)
+			return;
+
+		_is_empty = value;
+		notify_property ("is-empty");
 	}
 
 	public string get_id () {

@@ -6,6 +6,11 @@ private class Games.RecentlyPlayedCollection : Object, Collection {
 	private Database database;
 	private GenericSet<Uid> game_uids;
 
+	private bool _is_empty = true;
+	public bool is_empty {
+		get { return _is_empty; }
+	}
+
 	public RecentlyPlayedCollection (Database database) {
 		this.database = database;
 
@@ -17,6 +22,20 @@ private class Games.RecentlyPlayedCollection : Object, Collection {
 		game_model = new GameModel ();
 		game_model.always_replace = true;
 		game_model.sort_type = GameModel.SortType.BY_LAST_PLAYED;
+		game_model.game_added.connect (() => {
+			set_is_empty (false);
+		});
+		game_model.game_removed.connect (() => {
+			set_is_empty (game_model.get_n_items () == 0);
+		});
+	}
+
+	private void set_is_empty (bool value) {
+		if (is_empty == value)
+			return;
+
+		_is_empty = value;
+		notify_property ("is-empty");
 	}
 
 	public string get_id () {

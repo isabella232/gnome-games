@@ -3,6 +3,8 @@
 private interface Games.Collection : Object {
 	public signal void games_changed ();
 
+	public abstract bool is_empty { get; }
+
 	public abstract void load ();
 
 	public abstract string get_id ();
