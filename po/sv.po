@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-05-17 09:18+0000\n"
-"PO-Revision-Date: 2020-05-27 01:06+0200\n"
+"POT-Creation-Date: 2020-07-17 12:43+0000\n"
+"PO-Revision-Date: 2020-07-30 14:30+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -20,8 +20,8 @@ msgstr ""
 "X-Generator: Poedit 2.3.1\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:7
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-view.ui:75
-#: data/ui/collection-view.ui:217 src/ui/application.vala:45
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-view.ui:81
+#: data/ui/collection-view.ui:432 src/ui/application.vala:49
 msgid "Games"
 msgstr "Spel"
 
@@ -69,7 +69,7 @@ msgstr "Spela dina spel"
 msgid "Resume your game to where you left it"
 msgstr "Återuppta ditt spel där du lämnade det"
 
-#: data/org.gnome.Games.appdata.xml.in.in:319
+#: data/org.gnome.Games.appdata.xml.in.in:331
 msgid "The GNOME Project"
 msgstr "GNOME-projektet"
 
@@ -86,7 +86,7 @@ msgstr "Visa och spela din spelsamling"
 msgid "game;videogame;video game;player;"
 msgstr "spel;videospel;tvspel;spelare;"
 
-#: data/org.gnome.Games.gschema.xml:10 data/ui/display-view.ui:108
+#: data/org.gnome.Games.gschema.xml:10 data/ui/display-view.ui:105
 msgid "Fullscreen"
 msgstr "Helskärm"
 
@@ -134,63 +134,106 @@ msgstr ""
 "Föredragen Libretro-kärna att använda för att köra spel. En annan kärna kan "
 "användas om den föredragna kärnan saknar fast programvara."
 
-#: data/ui/collection-view.ui:35
+#: data/ui/collection-empty.ui:24
+msgid "This collection is empty"
+msgstr "Denna samling är tom"
+
+#: data/ui/collection-empty.ui:39
+msgid "Please add some games to this collection to see them here."
+msgstr "Lägg till några spel till denna samling för att se dem här."
+
+#: data/ui/collection-view.ui:41
 msgid "Add game files…"
 msgstr "Lägg till spelfiler…"
 
 #. Translators: tooltip for the application menu button
-#: data/ui/collection-view.ui:54
+#: data/ui/collection-view.ui:60
 msgid "Menu"
 msgstr "Meny"
 
-#: data/ui/collection-view.ui:92 data/ui/collection-view.ui:150
+#: data/ui/collection-view.ui:101 data/ui/collection-view.ui:178
+#: data/ui/collection-view.ui:265
+msgid "Select games"
+msgstr "Välj spel"
+
+#: data/ui/collection-view.ui:120 data/ui/collection-view.ui:197
+#: data/ui/collection-view.ui:284 data/ui/collection-view.ui:334
 msgid "Search"
 msgstr "Sök"
 
-#: data/ui/collection-view.ui:127 data/ui/display-view.ui:37
-#: data/ui/display-view.ui:175 data/ui/preferences-subpage-gamepad.ui:30
-#: data/ui/preferences-subpage-keyboard.ui:32 data/ui/preferences-window.ui:44
-#: data/ui/preferences-window.ui:128
+#: data/ui/collection-view.ui:152 data/ui/collection-view.ui:230
+#: data/ui/display-view.ui:34 data/ui/display-view.ui:169
+#: data/ui/preferences-subpage-gamepad.ui:33
+#: data/ui/preferences-subpage-keyboard.ui:35
 msgid "Back"
 msgstr "Bakåt"
 
-#: data/ui/collection-view.ui:231 src/ui/preferences-page-platforms.vala:9
+#: data/ui/collection-view.ui:310 src/ui/application.vala:171
+#: src/ui/preferences-page-import-export.vala:10
+#: src/ui/preferences-page-import-export.vala:32
+msgid "_Cancel"
+msgstr "_Avbryt"
+
+#: data/ui/collection-view.ui:315 data/ui/preferences-subpage-gamepad.ui:102
+#: data/ui/preferences-subpage-keyboard.ui:105 data/ui/quit-dialog.ui:15
+#: data/ui/reset-controller-mapping-dialog.ui:15 data/ui/restart-dialog.ui:15
+#: data/ui/resume-failed-dialog.ui:14
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: data/ui/collection-view.ui:361
+msgid "Click on items to select them"
+msgstr "Klicka på objekt för att markera dem"
+
+#: data/ui/collection-view.ui:449 data/ui/preferences-window.ui:67
 msgid "Platforms"
 msgstr "Plattformar"
 
-#: data/ui/collection-view.ui:257
+#: data/ui/collection-view.ui:464
+msgid "Collections"
+msgstr "Samlingar"
+
+#: data/ui/collection-view.ui:490
 msgid "Loading"
 msgstr "Läser in"
 
-#: data/ui/collection-view.ui:297
+#: data/ui/collection-view.ui:545
 msgid "Pr_eferences"
 msgstr "I_nställningar"
 
-#: data/ui/collection-view.ui:301
+#: data/ui/collection-view.ui:549
 msgid "_Keyboard Shortcuts"
 msgstr "_Tangentbordsgenvägar"
 
-#: data/ui/collection-view.ui:305
+#: data/ui/collection-view.ui:553
 msgid "_Help"
 msgstr "_Hjälp"
 
-#: data/ui/collection-view.ui:309
+#: data/ui/collection-view.ui:557
 msgid "_About Games"
 msgstr "_Om Spel"
 
-#: data/ui/display-view.ui:60
+#: data/ui/collection-view.ui:565
+msgid "Select All"
+msgstr "Markera alla"
+
+#: data/ui/collection-view.ui:569
+msgid "Select None"
+msgstr "Markera inget"
+
+#: data/ui/display-view.ui:57
 msgid "Restore"
 msgstr "Återställ"
 
-#: data/ui/display-view.ui:154
+#: data/ui/display-view.ui:148
 msgid "_Load"
 msgstr "_Läs in"
 
-#: data/ui/display-view.ui:242
+#: data/ui/display-view.ui:236
 msgid "_Restart"
 msgstr "Sta_rta om"
 
-#: data/ui/display-view.ui:248
+#: data/ui/display-view.ui:242
 msgid "_Snapshots"
 msgstr "Ö_gonblicksbilder"
 
@@ -223,16 +266,16 @@ msgstr "Tangentbordsinmatning"
 msgid "Media"
 msgstr "Media"
 
-#: data/ui/preferences-page-controllers.ui:10
+#: data/ui/preferences-page-controllers.ui:9
 msgid "Gamepads"
 msgstr "Handkontroller"
 
-#: data/ui/preferences-page-controllers.ui:31
-#: src/ui/preferences-page-controllers.vala:74
+#: data/ui/preferences-page-controllers.ui:15
+#: src/ui/preferences-page-controllers.vala:60
 msgid "Keyboard"
 msgstr "Tangentbord"
 
-#: data/ui/preferences-page-import-export.ui:10
+#: data/ui/preferences-page-import-export.ui:9
 msgid ""
 "Export save states and in-game saves. This can be used for moving the data "
 "to another device or for restoring it later. Desktop, Steam and LÖVE games "
@@ -242,17 +285,17 @@ msgstr ""
 "att flytta data till en annan enhet eller för att återställa dem senare. "
 "Spel för skrivbordet, Steam och LÖVE kan inte exporteras."
 
-#: data/ui/preferences-page-import-export.ui:28
-#: src/ui/preferences-page-import-export.vala:34
+#: data/ui/preferences-page-import-export.ui:13
+#: src/ui/preferences-page-import-export.vala:30
 msgid "Export save data"
 msgstr "Exportera sparningsdata"
 
-#: data/ui/preferences-page-import-export.ui:35
-#: src/ui/preferences-page-import-export.vala:36
+#: data/ui/preferences-page-import-export.ui:20
+#: src/ui/preferences-page-import-export.vala:32
 msgid "_Export"
 msgstr "_Exportera"
 
-#: data/ui/preferences-page-import-export.ui:48
+#: data/ui/preferences-page-import-export.ui:31
 msgid ""
 "Import save data for games from existing backup. This will replace existing "
 "saves and cannot be undone."
@@ -260,46 +303,51 @@ msgstr ""
 "Importera sparningsdata för spel från en befintlig säkerhetskopia. Detta "
 "kommer att ersätta befintliga sparningar och kan inte ångras."
 
-#: data/ui/preferences-page-import-export.ui:66
-#: src/ui/preferences-page-import-export.vala:12
+#: data/ui/preferences-page-import-export.ui:35
+#: src/ui/preferences-page-import-export.vala:8
 msgid "Import save data"
 msgstr "Importera sparningsdata"
 
-#: data/ui/preferences-page-import-export.ui:72
-#: src/ui/preferences-page-import-export.vala:14
+#: data/ui/preferences-page-import-export.ui:41
+#: src/ui/preferences-page-import-export.vala:10
 msgid "_Import"
 msgstr "_Importera"
 
-#: data/ui/preferences-page-video.ui:10
+#: data/ui/preferences-page-video.ui:9
 msgid "Filter"
 msgstr "Filter"
 
-#: data/ui/preferences-subpage-gamepad.ui:53
-#: data/ui/preferences-subpage-keyboard.ui:55
+#: data/ui/preferences-subpage-gamepad.ui:58
+#: data/ui/preferences-subpage-keyboard.ui:60
 msgctxt "Keyboard configuration factory reset"
 msgid "Reset"
 msgstr "Återställ"
 
-#: data/ui/preferences-subpage-gamepad.ui:66
-#: data/ui/preferences-subpage-keyboard.ui:68
+#: data/ui/preferences-subpage-gamepad.ui:71
+#: data/ui/preferences-subpage-keyboard.ui:73
 msgid "Configure"
 msgstr "Konfigurera"
 
-#: data/ui/preferences-subpage-gamepad.ui:94
-#: data/ui/preferences-subpage-keyboard.ui:97 data/ui/quit-dialog.ui:15
-#: data/ui/reset-controller-mapping-dialog.ui:15 data/ui/restart-dialog.ui:15
-#: data/ui/resume-failed-dialog.ui:14
-msgid "Cancel"
-msgstr "Avbryt"
-
-#: data/ui/preferences-subpage-gamepad.ui:109
-#: data/ui/preferences-subpage-keyboard.ui:112
+#: data/ui/preferences-subpage-gamepad.ui:119
+#: data/ui/preferences-subpage-keyboard.ui:122
 msgid "Skip"
 msgstr "Hoppa över"
 
-#: data/ui/preferences-window.ui:5 data/ui/preferences-window.ui:30
+#: data/ui/preferences-window.ui:5 data/ui/preferences-window.ui:21
 msgid "Preferences"
 msgstr "Inställningar"
+
+#: data/ui/preferences-window.ui:47
+msgid "Video"
+msgstr "Video"
+
+#: data/ui/preferences-window.ui:57
+msgid "Controllers"
+msgstr "Kontroller"
+
+#: data/ui/preferences-window.ui:77
+msgid "Import & Export"
+msgstr "Import & export"
 
 #: data/ui/quit-dialog.ui:9
 msgid "Are you sure you want to quit?"
@@ -362,6 +410,10 @@ msgstr "Misslyckades med att återuppta. Vill du starta om spelet?"
 msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Återställ"
+
+#: data/ui/selection-action-bar.ui:10
+msgid "Add/Remove games to favorite"
+msgstr "Lägg till / ta bort spel från favoriter"
 
 #: data/ui/shortcuts-window.ui:11
 msgid "Shortcuts"
@@ -701,6 +753,10 @@ msgstr "Virtual Boy"
 msgid "Wii"
 msgstr "Wii"
 
+#: src/collection/favorites-collection.vala:32
+msgid "Favorites"
+msgstr "Favoriter"
+
 #: src/core/snapshot-manager.vala:82 src/core/snapshot-manager.vala:107
 #, c-format
 msgid "New snapshot %s"
@@ -827,56 +883,51 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:32
+#: src/ui/application.vala:36
 msgid "Search term"
 msgstr "Sökterm"
 
-#: src/ui/application.vala:33
+#: src/ui/application.vala:37
 msgid "Run a game by uid"
 msgstr "Kör ett spel enligt uid"
 
-#: src/ui/application.vala:168
+#: src/ui/application.vala:170
 msgid "Select game files"
 msgstr "Välj spelfiler"
 
-#: src/ui/application.vala:169 src/ui/preferences-page-import-export.vala:14
-#: src/ui/preferences-page-import-export.vala:36
-msgid "_Cancel"
-msgstr "_Avbryt"
-
-#: src/ui/application.vala:170
+#: src/ui/application.vala:172
 msgid "_Add"
 msgstr "_Lägg till"
 
-#: src/ui/application.vala:220
+#: src/ui/application.vala:217
 #, c-format
 msgid "An unexpected error occurred while trying to run %s"
 msgstr "Ett oväntat fel inträffade vid försök att köra %s"
 
-#: src/ui/application.vala:256
+#: src/ui/application.vala:244
 #, c-format
 msgid "Cannot find game with UID “%s”."
 msgstr "Hittade inget spel med UID ”%s”."
 
-#: src/ui/application.vala:314
+#: src/ui/application.vala:321
 msgid "Couldn't find Tracker, automatic game discovery may not work."
 msgstr ""
 "Kunde inte hitta Tracker, automatisk upptäckt av spel kommer kanske inte att "
 "fungera."
 
-#: src/ui/application.vala:485
+#: src/ui/application.vala:497
 msgid "GNOME Games"
 msgstr "GNOME Spel"
 
-#: src/ui/application.vala:487
+#: src/ui/application.vala:499
 msgid "A video game player for GNOME"
 msgstr "En spelarkad för GNOME"
 
-#: src/ui/application.vala:491
+#: src/ui/application.vala:503
 msgid "Learn more about GNOME Games"
 msgstr "Lär dig mer om GNOME Spel"
 
-#: src/ui/application.vala:498
+#: src/ui/application.vala:510
 msgid "translator-credits"
 msgstr ""
 "Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
@@ -885,7 +936,7 @@ msgstr ""
 
 #. Translators: This is displayed if the user tries to log out of his
 #. * GNOME session, shutdown, or reboot while Games is running
-#: src/ui/application-window.vala:264 src/ui/application-window.vala:283
+#: src/ui/application-window.vala:266 src/ui/application-window.vala:285
 msgid "Playing a game"
 msgstr "Spela"
 
@@ -928,20 +979,12 @@ msgstr "Tryck ned passande knapp på ditt tangentbord"
 msgid "Media %d"
 msgstr "Media %d"
 
-#: src/ui/preferences-page-controllers.vala:22
-msgid "Controllers"
-msgstr "Kontroller"
-
-#: src/ui/preferences-page-import-export.vala:6
-msgid "Import & Export"
-msgstr "Import & export"
-
-#: src/ui/preferences-page-import-export.vala:23
+#: src/ui/preferences-page-import-export.vala:19
 #, c-format
 msgid "Couldn’t import save data: %s"
 msgstr "Det gick inte att importera sparningsdata: %s"
 
-#: src/ui/preferences-page-import-export.vala:53
+#: src/ui/preferences-page-import-export.vala:49
 #, c-format
 msgid "Couldn’t export save data: %s"
 msgstr "Det gick inte att exportera sparningsdata: %s"
@@ -958,54 +1001,58 @@ msgstr "Ingen"
 #. Translators: These values are video filters applied to the screen. Smooth
 #. * tries to smoothen the pixels, sharp displays the pixels square, and CRT
 #. * emulates an old TV
-#: src/ui/preferences-page-video.vala:23
+#: src/ui/preferences-page-video.vala:26
 msgid "Smooth"
 msgstr "Mjuk"
 
-#: src/ui/preferences-page-video.vala:23
+#: src/ui/preferences-page-video.vala:26
 msgid "Sharp"
 msgstr "Skarp"
 
-#: src/ui/preferences-page-video.vala:23
+#: src/ui/preferences-page-video.vala:26
 msgid "CRT"
 msgstr "CRT"
 
-#: src/ui/preferences-page-video.vala:55
-msgid "Video"
-msgstr "Video"
-
 #. translators: testing a gamepad, %s is its name
-#: src/ui/preferences-subpage-gamepad.vala:101
+#: src/ui/preferences-subpage-gamepad.vala:99
 #, c-format
 msgid "Testing %s"
 msgstr "Testar %s"
 
 #. translators: configuring a gamepad, %s is its name
-#: src/ui/preferences-subpage-gamepad.vala:103
+#: src/ui/preferences-subpage-gamepad.vala:101
 #, c-format
 msgid "Configuring %s"
 msgstr "Konfigurerar %s"
 
-#: src/ui/snapshot-row.vala:23 src/ui/snapshots-list.vala:181
+#: src/ui/selection-action-bar.vala:45
+msgid "Remove selected games from favorites"
+msgstr "Ta bort markerade spel från favoriter"
+
+#: src/ui/selection-action-bar.vala:49
+msgid "Add selected games to favorites"
+msgstr "Lägg till markerade spel till favoriter"
+
+#: src/ui/snapshot-row.vala:21 src/ui/snapshots-list.vala:181
 msgid "Autosave"
 msgstr "Automatisk sparning"
 
 #. Translators: Time in locale format
-#: src/ui/snapshot-row.vala:190
+#: src/ui/snapshot-row.vala:74
 #, no-c-format
 msgid "%X"
 msgstr "%X"
 
 #. Translators: this is the word Yesterday followed by
 #. * a time in locale format. i.e. "Yesterday 23:04:35"
-#: src/ui/snapshot-row.vala:196
+#: src/ui/snapshot-row.vala:80
 #, no-c-format
 msgid "Yesterday %X"
 msgstr "Igår %X"
 
 #. Translators: this is the abbreviated name of the week day followed by
 #. * a time in locale format. i.e. "Monday 23:04:35"
-#: src/ui/snapshot-row.vala:202
+#: src/ui/snapshot-row.vala:86
 #, no-c-format
 msgid "%a %X"
 msgstr "%a %X"
@@ -1013,7 +1060,7 @@ msgstr "%a %X"
 #. Translators: this is the day of the month followed
 #. * by the abbreviated month name followed by a time in
 #. * locale format i.e. "3 Feb 23:04:35"
-#: src/ui/snapshot-row.vala:209
+#: src/ui/snapshot-row.vala:93
 #, no-c-format
 msgid "%-e %b %X"
 msgstr "%-e %b %X"
@@ -1021,7 +1068,7 @@ msgstr "%-e %b %X"
 #. Translators: this is the day number followed
 #. * by the abbreviated month name followed by the year followed
 #. * by a time in locale format i.e. "3 Feb 2015 23:04:00"
-#: src/ui/snapshot-row.vala:216
+#: src/ui/snapshot-row.vala:100
 #, no-c-format
 msgid "%-e %b %Y %X"
 msgstr "%-e %b %Y %X"
