@@ -3,6 +3,7 @@
 private class Games.CollectionManager : Object {
 	public signal void collection_added (Collection collection);
 	public signal void collection_removed (Collection collection);
+	public signal void collection_empty_changed (Collection collection);
 
 	private HashTable<string, Collection> collections;
 	private Database database;
@@ -39,6 +40,12 @@ private class Games.CollectionManager : Object {
 
 	private void add_favorites_collection () {
 		favorites_collection = new FavoritesCollection (database);
+		favorites_collection.notify["is-empty"].connect (() => {
+			Idle.add (() => {
+				collection_empty_changed (favorites_collection);
+				return Source.REMOVE;
+			});
+		});
 		collections[favorites_collection.get_id ()] = favorites_collection;
 		Idle.add (() => {
 			collection_added (favorites_collection);
@@ -48,6 +55,12 @@ private class Games.CollectionManager : Object {
 
 	private void add_recently_played_collection () {
 		recently_played_collection = new RecentlyPlayedCollection (database);
+		recently_played_collection.notify["is-empty"].connect (() => {
+			Idle.add (() => {
+				collection_empty_changed (recently_played_collection);
+				return Source.REMOVE;
+			});
+		});
 		collections[recently_played_collection.get_id ()] = recently_played_collection;
 		Idle.add (() => {
 			collection_added (recently_played_collection);
