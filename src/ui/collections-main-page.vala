@@ -26,6 +26,7 @@ private class Games.CollectionsMainPage : Gtk.Bin {
 		set {
 			_collection_model = value;
 			flow_box.bind_model (collection_model, add_collection);
+			flow_box.set_filter_func (collection_filter_func);
 		}
 	}
 
@@ -95,6 +96,18 @@ private class Games.CollectionsMainPage : Gtk.Bin {
 	public void reset_scroll_position () {
 		var adjustment = scrolled_window.get_vadjustment ();
 		adjustment.value = 0;
+	}
+
+	public void invalidate_filter () {
+		flow_box.invalidate_filter ();
+	}
+
+	private bool collection_filter_func (Gtk.FlowBoxChild child) {
+		var collection_icon_view = child as CollectionIconView;
+		if (collection_icon_view == null)
+			return false;
+
+		return !collection_icon_view.collection.is_empty;
 	}
 
 	[GtkCallback]
