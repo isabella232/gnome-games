@@ -13,7 +13,9 @@ private class Games.FavoritesCollection : Object, Collection {
 
 	private ulong idle_id = 0;
 
-	construct {
+	public FavoritesCollection (Database database) {
+		this.database = database;
+
 		var game_collection = Application.get_default ().get_collection ();
 		game_collection.game_added.connect (on_game_added);
 		game_collection.game_removed.connect (on_game_removed);
@@ -27,10 +29,6 @@ private class Games.FavoritesCollection : Object, Collection {
 		game_model.game_removed.connect (() => {
 			set_is_empty (game_model.get_n_items () == 0);
 		});
-	}
-
-	public FavoritesCollection (Database database) {
-		this.database = database;
 	}
 
 	private void set_is_empty (bool value) {
