@@ -1,9 +1,5 @@
 include: 'https://gitlab.gnome.org/GNOME/citemplates/raw/master/flatpak/flatpak_ci_initiative.yml'
 
-stages:
-  - test
-  - deploy
-
 variables:
   BUNDLE: 'gnome-games-git.flatpak'
 
@@ -30,14 +26,6 @@ flatpak:
     FLATPAK_MODULE: 'gnome-games'
     APP_ID: 'org.gnome.GamesDevel'
     GIT_SUBMODULE_STRATEGY: recursive
-
-review:
-  dependencies:
-    - 'flatpak'
-  extends: '.review'
-
-stop_review:
-  extends: '.stop_review'
 
 nightly:
   extends: '.publish_nightly'
