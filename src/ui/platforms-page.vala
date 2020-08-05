@@ -65,8 +65,10 @@ private class Games.PlatformsPage : Gtk.Bin {
 		if (item == null)
 			return false;
 
-		if (item.platform == null)
+		if (item.platform == null) {
+			row.hide ();
 			return false;
+		}
 
 		Game[] visible_games = {};
 		for (int i = 0; i < game_model.get_n_items (); i++) {
@@ -77,9 +79,12 @@ private class Games.PlatformsPage : Gtk.Bin {
 		}
 
 		foreach (var game in visible_games)
-			if (game.platform == item.platform)
+			if (game.platform == item.platform) {
+				row.show ();
 				return true;
+			}
 
+		row.hide ();
 		return false;
 	}
 
