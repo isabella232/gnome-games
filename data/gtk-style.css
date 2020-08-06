@@ -35,6 +35,12 @@
 	border-right: none;
 }
 
+.pill-button {
+	border-radius: 9999px;
+	-gtk-outline-radius: 9999px;
+	padding: 6px 32px;
+}
+
 gamescollectionsmainpage grid {
 	background: mix(@theme_base_color, @theme_bg_color, 0.5);
 	min-width: 116px;

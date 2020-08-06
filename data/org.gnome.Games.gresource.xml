@@ -12,6 +12,7 @@
     <file preprocess="xml-stripblanks">gesture/stick-symbolic.svg</file>
     <file preprocess="xml-stripblanks">ui/application-window.ui</file>
     <file preprocess="xml-stripblanks">ui/checkmark-item.ui</file>
+    <file preprocess="xml-stripblanks">ui/collection-action-window.ui</file>
     <file preprocess="xml-stripblanks">ui/collection-empty.ui</file>
     <file preprocess="xml-stripblanks">ui/collection-icon-view.ui</file>
     <file preprocess="xml-stripblanks">ui/collection-list-item.ui</file>
