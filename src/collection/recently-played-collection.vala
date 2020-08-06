@@ -54,6 +54,10 @@ private class Games.RecentlyPlayedCollection : Object, Collection {
 		return false;
 	}
 
+	public CollectionType get_collection_type () {
+		return AUTO;
+	}
+
 	public void load () {
 		try {
 			game_uids = database.list_recently_played_games ();

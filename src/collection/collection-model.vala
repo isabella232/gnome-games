@@ -26,7 +26,7 @@ private class Games.CollectionModel : Object, ListModel {
 	}
 
 	public void add_collection (Collection collection) {
-		var iter = sequence.append (collection);
+		var iter = sequence.insert_sorted (collection, Collection.compare);
 		n_collections++;
 
 		items_changed (iter.get_position (), 0, 1);

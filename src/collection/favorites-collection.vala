@@ -55,6 +55,10 @@ private class Games.FavoritesCollection : Object, Collection {
 		return true;
 	}
 
+	public CollectionType get_collection_type () {
+		return AUTO;
+	}
+
 	public void load () {
 		try {
 			favorite_game_uids = database.list_favorite_games ();
