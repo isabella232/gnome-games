@@ -130,10 +130,11 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	private KonamiCode konami_code;
 	private SimpleActionGroup action_group;
 	private const ActionEntry[] action_entries = {
-		{ "select-all",      select_all },
-		{ "select-none",     select_none },
-		{ "toggle-select",   toggle_select },
-		{ "favorite-action", favorite_action }
+		{ "select-all",        select_all },
+		{ "select-none",       select_none },
+		{ "toggle-select",     toggle_select },
+		{ "favorite-action",   favorite_action },
+		{ "add-to-collection", add_to_collection }
 	};
 
 	construct {
@@ -340,6 +341,40 @@ private class Games.CollectionView : Gtk.Box, UiView {
 
 	private void toggle_select () {
 		is_selection_mode = !is_selection_mode;
+	}
+
+	private Game[] get_currently_selected_games () {
+		Game[] games;
+
+		if (viewstack.visible_child == games_page)
+			games = games_page.get_selected_games ();
+		else if (viewstack.visible_child == platforms_page)
+			games = platforms_page.get_selected_games ();
+		else
+			games = collections_page.get_selected_games ();
+
+		return games;
+	}
+
+	private void add_to_collection () {
+		// Finalize any pending removal of collection and dismiss undo notification if shown.
+		collections_page.finalize_collection_removal ();
+
+		var current_collection = !collections_page.is_subpage_open ? null :
+		                         collections_page.current_collection;
+		var dialog = new CollectionActionWindow (false, current_collection);
+		dialog.collection_model = collection_model;
+		dialog.transient_for = get_toplevel () as ApplicationWindow;
+		dialog.modal = true;
+		dialog.visible = true;
+
+		dialog.confirmed.connect ((collections) => {
+			var games = get_currently_selected_games ();
+			foreach (var collection in collections)
+				collection.add_games (games);
+
+			select_none ();
+		});
 	}
 
 	private void favorite_action () {

@@ -44,5 +44,14 @@
         </child>
       </object>
     </child>
+    <child>
+      <object class="GtkButton" id="add_to_collection_button">
+        <property name="visible">True</property>
+        <property name="label" translatable="yes">_Add to Collection</property>
+        <property name="use-underline">True</property>
+        <property name="action-name">view.add-to-collection</property>
+        <property name="tooltip-text" translatable="yes">Add selected games to a collection</property>
+      </object>
+    </child>
   </template>
 </interface>
