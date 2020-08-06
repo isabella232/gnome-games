@@ -55,6 +55,8 @@ private class Games.SelectionActionBar : Gtk.ActionBar {
 	}
 
 	public void update (Game[] games) {
+		sensitive = games.length != 0;
+
 		if (is_all_favorite (games)) {
 			favorite_state = ALL_FAVORITE;
 			return;
