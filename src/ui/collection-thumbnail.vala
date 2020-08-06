@@ -7,7 +7,11 @@ private class Games.CollectionThumbnail : Gtk.Bin {
 	const uint N_COLUMNS = 2;
 
 	[GtkChild]
+	private Gtk.Stack thumbnail_stack;
+	[GtkChild]
 	private Gtk.Grid grid;
+	[GtkChild]
+	private Gtk.Image new_collection_image;
 
 	private ulong games_changed_id = 0;
 
@@ -19,6 +23,11 @@ private class Games.CollectionThumbnail : Gtk.Bin {
 				collection.disconnect (games_changed_id);
 
 			_collection = value;
+
+			if (collection.get_collection_type () == Collection.CollectionType.PLACEHOLDER) {
+				thumbnail_stack.visible_child = new_collection_image;
+				return;
+			}
 
 			games_changed_id = collection.games_changed.connect (on_games_changed);
 		}

@@ -17,6 +17,7 @@ private class Games.CollectionsPage : Gtk.Bin {
 	private CollectionEmpty collection_empty_subpage;
 
 	private Collection current_collection;
+	private CollectionManager collection_manager;
 
 	private bool _is_collection_empty;
 	public bool is_collection_empty {
@@ -45,6 +46,8 @@ private class Games.CollectionsPage : Gtk.Bin {
 	public string collection_title { get; set; }
 
 	construct {
+		collection_manager = Application.get_default ().get_collection_manager ();
+
 		collections_main_page.gamepad_accepted.connect (() => {
 			collections_subpage.select_default_game (Gtk.DirectionType.RIGHT);
 		});
@@ -130,6 +133,15 @@ private class Games.CollectionsPage : Gtk.Bin {
 
 	[GtkCallback]
 	private void on_collection_activated (Collection collection) {
+		if (collection.get_collection_type () ==
+		    Collection.CollectionType.NEW_COLLECTION_PLACEHOLDER) {
+				var dialog = new CollectionActionWindow ();
+				dialog.transient_for = get_toplevel () as ApplicationWindow;
+				dialog.modal = true;
+				dialog.visible = true;
+				return;
+		}
+
 		current_collection = collection;
 		collection_title = collection.get_title ();
 		collections_deck.visible_child = collections_subpage_stack;

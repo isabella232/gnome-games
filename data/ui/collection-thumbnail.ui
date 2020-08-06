@@ -4,47 +4,65 @@
   <template class="GamesCollectionThumbnail" parent="GtkBin">
     <property name="visible">True</property>
     <child>
-      <object class="GtkGrid" id="grid">
+      <object class="GtkStack" id="thumbnail_stack">
         <property name="visible">True</property>
-        <property name="row-spacing">6</property>
-        <property name="column-spacing">6</property>
-        <property name="row-homogeneous">True</property>
-        <property name="column-homogeneous">True</property>
+        <property name="visible-child">grid</property>
         <child>
-          <object class="GtkEventBox">
+          <object class="GtkGrid" id="grid">
             <property name="visible">True</property>
+            <property name="row-spacing">6</property>
+            <property name="column-spacing">6</property>
+            <property name="row-homogeneous">True</property>
+            <property name="column-homogeneous">True</property>
+            <child>
+              <object class="GtkEventBox">
+                <property name="visible">True</property>
+              </object>
+              <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEventBox">
+                <property name="visible">True</property>
+              </object>
+              <packing>
+                <property name="left-attach">1</property>
+                <property name="top-attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEventBox">
+                <property name="visible">True</property>
+              </object>
+              <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEventBox">
+                <property name="visible">True</property>
+              </object>
+              <packing>
+                <property name="left-attach">1</property>
+                <property name="top-attach">1</property>
+              </packing>
+            </child>
           </object>
-          <packing>
-            <property name="left-attach">0</property>
-            <property name="top-attach">0</property>
-          </packing>
         </child>
         <child>
-          <object class="GtkEventBox">
+          <object class="GtkImage" id="new_collection_image">
             <property name="visible">True</property>
+            <property name="icon-name">list-add-symbolic</property>
+            <property name="halign">center</property>
+            <property name="valign">center</property>
+            <property name="pixel-size">32</property>
+            <style>
+              <class name="dim-label"/>
+            </style>
           </object>
-          <packing>
-            <property name="left-attach">1</property>
-            <property name="top-attach">0</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkEventBox">
-            <property name="visible">True</property>
-          </object>
-          <packing>
-            <property name="left-attach">0</property>
-            <property name="top-attach">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkEventBox">
-            <property name="visible">True</property>
-          </object>
-          <packing>
-            <property name="left-attach">1</property>
-            <property name="top-attach">1</property>
-          </packing>
         </child>
       </object>
     </child>
