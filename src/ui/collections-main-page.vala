@@ -107,7 +107,8 @@ private class Games.CollectionsMainPage : Gtk.Bin {
 		if (collection_icon_view == null)
 			return false;
 
-		return !collection_icon_view.collection.is_empty;
+		return collection_icon_view.collection.get_collection_type () != AUTO ||
+		       !collection_icon_view.collection.is_empty;
 	}
 
 	[GtkCallback]
