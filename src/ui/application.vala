@@ -298,6 +298,7 @@ public class Games.Application : Gtk.Application {
 			collection_model = new CollectionModel ();
 			collection_manager = new CollectionManager (database);
 			collection_manager.collection_added.connect (collection_model.add_collection);
+			collection_manager.collection_removed.connect (collection_model.remove_collection);
 
 			load_game_list.begin ();
 

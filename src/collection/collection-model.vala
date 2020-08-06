@@ -2,6 +2,7 @@
 
 private class Games.CollectionModel : Object, ListModel {
 	public signal void collection_added (Collection collection);
+	public signal void collection_removed (Collection collection);
 
 	private Sequence<Collection> sequence;
 	private int n_collections;
@@ -31,5 +32,19 @@ private class Games.CollectionModel : Object, ListModel {
 
 		items_changed (iter.get_position (), 0, 1);
 		collection_added (collection);
+	}
+
+	public void remove_collection (Collection collection) {
+		var iter = sequence.lookup (collection, Collection.compare);
+
+		if (iter == null)
+			return;
+
+		var pos = iter.get_position ();
+		iter.remove ();
+		n_collections--;
+
+		items_changed (pos, 1, 0);
+		collection_removed (collection);
 	}
 }
