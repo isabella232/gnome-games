@@ -31,6 +31,24 @@ private class Games.Database : Object {
 		);
 	""";
 
+	private const string CREATE_USER_COLLECTIONS_TABLE_QUERY = """
+		CREATE TABLE IF NOT EXISTS user_collections (
+			id INTEGER PRIMARY KEY NOT NULL,
+			collection_id TEXT NOT NULL UNIQUE,
+			title TEXT NOT NULL UNIQUE
+		);
+	""";
+
+	private const string CREATE_USER_COLLECTIONS_GAMES_TABLE_QUERY = """
+		CREATE TABLE IF NOT EXISTS user_collections_games (
+			id INTEGER PRIMARY KEY NOT NULL,
+			collection TEXT NOT NULL,
+			game TEXT NOT NULL,
+			FOREIGN KEY(collection) REFERENCES user_collections(collection_id) ON DELETE CASCADE,
+			FOREIGN KEY(game) REFERENCES games(uid) ON DELETE CASCADE
+		);
+	""";
+
 	private const string ADD_GAME_QUERY = """
 		INSERT INTO games (uid, title, platform, media_set) VALUES ($UID, $TITLE, $PLATFORM, $MEDIA_SET);
 	""";
@@ -93,6 +111,46 @@ private class Games.Database : Object {
 		SELECT uid FROM games WHERE last_played IS NOT NULL;
 	""";
 
+	private const string ADD_USER_COLLECTION_QUERY = """
+		INSERT INTO user_collections (collection_id, title) VALUES ($COLLECTION_ID, $TITLE);
+	""";
+
+	private const string ADD_GAME_TO_USER_COLLECTION_QUERY = """
+		INSERT INTO user_collections_games (collection, game)
+		VALUES ($COLLECTION_ID, $GAME_UID);
+	""";
+
+	private const string DOES_USER_COLLECTION_EXIST_QUERY = """
+		SELECT EXISTS (SELECT 1 FROM user_collections
+		WHERE collection_id = $COLLECTION_ID LIMIT 1);
+	""";
+
+	private const string IS_GAME_IN_USER_COLLECTION_QUERY = """
+		SELECT EXISTS (SELECT 1 FROM user_collections_games
+		WHERE game = $GAME_UID AND collection = $COLLECTION_ID LIMIT 1);
+	""";
+
+	private const string LIST_USER_COLLECTIONS_QUERY = """
+		SELECT collection_id, title FROM user_collections;
+	""";
+
+	private const string LIST_GAMES_IN_USER_COLLECTION_QUERY = """
+		SELECT games.uid FROM games JOIN user_collections_games
+		ON games.uid = game WHERE collection = $COLLECTION_ID;
+	""";
+
+	private const string REMOVE_USER_COLLECTION_QUERY = """
+		DELETE FROM user_collections WHERE collection_id = $COLLECTION_ID;
+	""";
+
+	private const string REMOVE_GAME_FROM_USER_COLLECTION_QUERY = """
+		DELETE FROM user_collections_games WHERE collection = $COLLECTION_ID AND game = $GAME_UID;
+	""";
+
+	private const string RENAME_USER_COLLECTION_QUERY = """
+		UPDATE user_collections SET title = $TITLE WHERE collection_id = $COLLECTION_ID;
+	""";
+
 	private Sqlite.Statement add_game_query;
 	private Sqlite.Statement add_game_uri_query;
 	private Sqlite.Statement update_game_query;
@@ -113,6 +171,16 @@ private class Games.Database : Object {
 	private Sqlite.Statement update_recently_played_game_query;
 	private Sqlite.Statement list_recently_played_games_query;
 
+	private Sqlite.Statement add_user_collection_query;
+	private Sqlite.Statement add_game_to_user_collection_query;
+	private Sqlite.Statement does_user_collection_exist_query;
+	private Sqlite.Statement is_game_in_user_collection_query;
+	private Sqlite.Statement list_user_collections_query;
+	private Sqlite.Statement list_games_in_user_collection_query;
+	private Sqlite.Statement remove_user_collection_query;
+	private Sqlite.Statement remove_game_from_user_collection_query;
+	private Sqlite.Statement rename_user_collection_query;
+
 	public Database (string path) throws Error {
 		if (Sqlite.Database.open (path, out database) != Sqlite.OK)
 			throw new DatabaseError.COULDNT_OPEN ("Couldn’t open the database for “%s”.", path);
@@ -120,6 +188,8 @@ private class Games.Database : Object {
 		exec (CREATE_RESOURCES_TABLE_QUERY, null);
 		exec (CREATE_GAMES_TABLE_QUERY, null);
 		exec (CREATE_URIS_TABLE_QUERY, null);
+		exec (CREATE_USER_COLLECTIONS_TABLE_QUERY, null);
+		exec (CREATE_USER_COLLECTIONS_GAMES_TABLE_QUERY, null);
 	}
 
 	public void prepare_statements () {
@@ -143,6 +213,16 @@ private class Games.Database : Object {
 
 			update_recently_played_game_query = prepare (database, UPDATE_RECENTLY_PLAYED_GAME_QUERY);
 			list_recently_played_games_query = prepare (database, LIST_RECENTLY_PLAYED_GAMES_QUERY);
+
+			add_user_collection_query = prepare (database, ADD_USER_COLLECTION_QUERY);
+			add_game_to_user_collection_query = prepare (database, ADD_GAME_TO_USER_COLLECTION_QUERY);
+			does_user_collection_exist_query = prepare (database, DOES_USER_COLLECTION_EXIST_QUERY);
+			is_game_in_user_collection_query = prepare (database, IS_GAME_IN_USER_COLLECTION_QUERY);
+			list_user_collections_query = prepare (database, LIST_USER_COLLECTIONS_QUERY);
+			list_games_in_user_collection_query = prepare (database, LIST_GAMES_IN_USER_COLLECTION_QUERY);
+			remove_user_collection_query = prepare (database, REMOVE_USER_COLLECTION_QUERY);
+			remove_game_from_user_collection_query = prepare (database, REMOVE_GAME_FROM_USER_COLLECTION_QUERY);
+			rename_user_collection_query = prepare (database, RENAME_USER_COLLECTION_QUERY);
 		}
 		catch (Error e) {
 			critical ("Failed to prepare statements: %s", e.message);
@@ -465,5 +545,134 @@ private class Games.Database : Object {
 		var result = update_recently_played_game_query.step ();
 		if (result != Sqlite.DONE)
 			throw new DatabaseError.EXECUTION_FAILED ("Failed to update last played date-time of %s", game.name);
+	}
+
+	private bool does_user_collection_exist (string uuid) throws Error {
+		if (!Uuid.string_is_valid (uuid))
+			return false;
+
+		does_user_collection_exist_query.reset ();
+		bind_text (does_user_collection_exist_query, "$COLLECTION_ID", uuid);
+
+		if (does_user_collection_exist_query.step () == Sqlite.ROW)
+			return does_user_collection_exist_query.column_int (0) == 1;
+
+		return false;
+	}
+
+	private bool is_game_in_user_collection (string game_uid, string collection_id) throws Error {
+		is_game_in_user_collection_query.reset ();
+		bind_text (is_game_in_user_collection_query, "$GAME_UID", game_uid);
+		bind_text (is_game_in_user_collection_query, "$COLLECTION_ID", collection_id);
+
+		if (is_game_in_user_collection_query.step () == Sqlite.ROW)
+			return is_game_in_user_collection_query.column_text (0) == "1";
+
+		return false;
+	}
+
+	public bool add_user_collection (UserCollection collection) throws Error {
+		if (does_user_collection_exist (collection.get_id ())) {
+			critical ("A collection named %s already exists", collection.get_title ());
+			return false;
+		}
+
+		add_user_collection_query.reset ();
+		bind_text (add_user_collection_query, "$COLLECTION_ID", collection.get_id ());
+		bind_text (add_user_collection_query, "$TITLE", collection.get_title ());
+
+		var result = add_user_collection_query.step ();
+		if (result != Sqlite.DONE)
+			throw new DatabaseError.EXECUTION_FAILED ("Failed to add user collection %s: %s",
+			                                          collection.get_title (), result.to_string ());
+
+		return true;
+	}
+
+	public bool add_game_to_user_collection (Game game, UserCollection collection) throws Error {
+		if (is_game_in_user_collection (game.uid.to_string (), collection.get_id ()))
+			return false;
+
+		add_game_to_user_collection_query.reset ();
+		bind_text (add_game_to_user_collection_query, "$COLLECTION_ID", collection.get_id ());
+		bind_text (add_game_to_user_collection_query, "$GAME_UID", game.uid.to_string ());
+
+		var result = add_game_to_user_collection_query.step ();
+		if (result != Sqlite.DONE)
+			throw new DatabaseError.EXECUTION_FAILED ("Failed to add %s to user collection %s",
+			                                          game.name, collection.get_title ());
+
+		return true;
+	}
+
+	public GenericSet<UserCollection> get_user_collections () throws Error {
+		var collections = new GenericSet<UserCollection> (Collection.hash, Collection.equal);
+
+		while (list_user_collections_query.step () == Sqlite.ROW) {
+			var uuid = list_user_collections_query.column_text (0);
+			var title = list_user_collections_query.column_text (1);
+			var collection = new UserCollection (uuid, title, this);
+			collections.add (collection);
+		}
+
+		return collections;
+	}
+
+	public GenericSet<Uid> list_games_in_user_collection (UserCollection collection) throws Error {
+		var games = new GenericSet<Uid> (Uid.hash, Uid.equal);
+
+		list_games_in_user_collection_query.reset ();
+		bind_text (list_games_in_user_collection_query, "$COLLECTION_ID", collection.get_id ());
+
+		while (list_games_in_user_collection_query.step () == Sqlite.ROW)
+			games.add (new Uid (list_games_in_user_collection_query.column_text (0)));
+
+		return games;
+	}
+
+	public bool remove_user_collection (UserCollection collection) throws Error {
+		if (!does_user_collection_exist (collection.get_id ()))
+			return false;
+
+		remove_user_collection_query.reset ();
+		bind_text (remove_user_collection_query, "$COLLECTION_ID", collection.get_id ());
+
+		var result = remove_user_collection_query.step ();
+		if (result != Sqlite.DONE)
+			throw new DatabaseError.EXECUTION_FAILED ("Failed to remove user collection %s", collection.get_title ());
+
+		return true;
+	}
+
+	public bool remove_game_from_user_collection (Game game, UserCollection collection) throws Error {
+		if (!is_game_in_user_collection (game.uid.to_string (), collection.get_id ()))
+			return false;
+
+		remove_game_from_user_collection_query.reset ();
+		bind_text (remove_game_from_user_collection_query, "$GAME_UID", game.uid.to_string ());
+		bind_text (remove_game_from_user_collection_query, "$COLLECTION_ID", collection.get_id ());
+
+		var result = remove_game_from_user_collection_query.step ();
+		if (result != Sqlite.DONE)
+			throw new DatabaseError.EXECUTION_FAILED ("Failed to remove %s from user collection %s",
+			                                          game.name, collection.get_title ());
+
+		return true;
+	}
+
+	public bool rename_user_collection (UserCollection collection, string title) throws Error {
+		if (!does_user_collection_exist (collection.get_id ()))
+			return false;
+
+		rename_user_collection_query.reset ();
+		bind_text (rename_user_collection_query, "$TITLE", title);
+		bind_text (rename_user_collection_query, "$COLLECTION_ID", collection.get_id ());
+
+		var result = rename_user_collection_query.step ();
+		if (result != Sqlite.DONE)
+			throw new DatabaseError.EXECUTION_FAILED ("Failed to rename user collection %s",
+			                                           collection.get_title ());
+
+		return true;
 	}
 }

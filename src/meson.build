@@ -17,6 +17,7 @@ vala_sources = [
   'collection/dummy-add-collection.vala',
   'collection/favorites-collection.vala',
   'collection/recently-played-collection.vala',
+  'collection/user-collection.vala',
 
   'command/command-error.vala',
   'command/command-runner.vala',
