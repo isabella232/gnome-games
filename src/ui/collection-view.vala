@@ -385,7 +385,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		else {
 			collection_manager.toggle_favorite (collections_page.get_selected_games ());
 
-			var current_collection = collections_page.get_current_collection ();
+			var current_collection = collections_page.current_collection;
 			if (current_collection != null && current_collection.get_id () == "Favorites") {
 				collections_page.update_is_collection_empty ();
 				select_none ();

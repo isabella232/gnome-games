@@ -16,7 +16,6 @@ private class Games.CollectionsPage : Gtk.Bin {
 	[GtkChild]
 	private CollectionEmpty collection_empty_subpage;
 
-	private Collection current_collection;
 	private CollectionManager collection_manager;
 
 	private bool _is_collection_empty;
@@ -39,9 +38,22 @@ private class Games.CollectionsPage : Gtk.Bin {
 		}
 	}
 
+	private Collection? _current_collection;
+	public Collection? current_collection {
+		get { return _current_collection; }
+		set {
+			_current_collection = value;
+
+			if (current_collection != null)
+				is_showing_user_collection = current_collection.get_collection_type () ==
+				                             Collection.CollectionType.USER;
+		}
+	}
+
 	public bool is_search_mode { get; set; }
 	public bool is_subpage_open { get; set; }
 	public bool is_selection_mode { get; set; }
+	public bool is_showing_user_collection { get; set; }
 	public bool can_swipe_back { get; set; }
 	public string collection_title { get; set; }
 
@@ -110,13 +122,6 @@ private class Games.CollectionsPage : Gtk.Bin {
 		return on_subpage_back_clicked ();
 	}
 
-	public Collection? get_current_collection () {
-		if (!is_subpage_open)
-			return null;
-
-		return current_collection;
-	}
-
 	public void invalidate_filter () {
 		collections_main_page.invalidate_filter ();
 	}
@@ -128,13 +133,14 @@ private class Games.CollectionsPage : Gtk.Bin {
 
 		is_search_mode = false;
 		collections_deck.visible_child = collections_main_page;
+		current_collection = null;
 		return true;
 	}
 
 	[GtkCallback]
 	private void on_collection_activated (Collection collection) {
 		if (collection.get_collection_type () ==
-		    Collection.CollectionType.NEW_COLLECTION_PLACEHOLDER) {
+		    Collection.CollectionType.PLACEHOLDER) {
 				var dialog = new CollectionActionWindow ();
 				dialog.transient_for = get_toplevel () as ApplicationWindow;
 				dialog.modal = true;
