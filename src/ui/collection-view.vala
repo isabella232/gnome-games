@@ -48,6 +48,8 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	private Hdy.SwipeGroup swipe_group;
 	[GtkChild]
 	private Hdy.SwipeGroup collections_swipe_group;
+	[GtkChild]
+	private UndoNotification undo_notification;
 
 	private bool _is_view_active;
 	public bool is_view_active {
@@ -134,7 +136,8 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		{ "select-none",       select_none },
 		{ "toggle-select",     toggle_select },
 		{ "favorite-action",   favorite_action },
-		{ "add-to-collection", add_to_collection }
+		{ "add-to-collection", add_to_collection },
+		{ "remove-collection", remove_collection }
 	};
 
 	construct {
@@ -142,6 +145,10 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		collection_manager.collection_empty_changed.connect (() => {
 			collections_page.invalidate_filter ();
 		});
+
+		undo_notification.undo.connect (collections_page.undo_remove_collection);
+		undo_notification.closed.connect (collections_page.finalize_collection_removal);
+		window.destroy.connect (collections_page.finalize_collection_removal);
 
 		var icon_name = Config.APPLICATION_ID + "-symbolic";
 		viewstack.child_set (games_page, "icon-name", icon_name);
@@ -395,6 +402,11 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		}
 
 		update_selection_action_bar ();
+	}
+
+	public void remove_collection () {
+		collections_page.remove_current_user_collection ();
+		undo_notification.show_notification ();
 	}
 
 	[GtkCallback]

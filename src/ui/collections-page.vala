@@ -16,6 +16,7 @@ private class Games.CollectionsPage : Gtk.Bin {
 	[GtkChild]
 	private CollectionEmpty collection_empty_subpage;
 
+	private UserCollection? last_removed_collection;
 	private CollectionManager collection_manager;
 
 	private bool _is_collection_empty;
@@ -50,12 +51,14 @@ private class Games.CollectionsPage : Gtk.Bin {
 		}
 	}
 
+	public ApplicationWindow application_window { get; set; }
 	public bool is_search_mode { get; set; }
 	public bool is_subpage_open { get; set; }
 	public bool is_selection_mode { get; set; }
 	public bool is_showing_user_collection { get; set; }
 	public bool can_swipe_back { get; set; }
 	public string collection_title { get; set; }
+	public string removed_notification_title { get; set; }
 
 	construct {
 		collection_manager = Application.get_default ().get_collection_manager ();
@@ -126,6 +129,40 @@ private class Games.CollectionsPage : Gtk.Bin {
 		collections_main_page.invalidate_filter ();
 	}
 
+	public void remove_current_user_collection () {
+		if (!is_showing_user_collection || current_collection == null)
+			return;
+
+		/* translators: This is displayed in an undo notification when a game collection is removed */
+		removed_notification_title = _("%s removed").printf (current_collection.get_title ());
+
+		if (last_removed_collection != null)
+			collection_manager.remove_user_collection (last_removed_collection);
+
+		assert (current_collection is UserCollection);
+		last_removed_collection = current_collection as UserCollection;
+		collection_model.remove_collection (current_collection);
+
+		on_subpage_back_clicked ();
+	}
+
+	public void undo_remove_collection () {
+		if (last_removed_collection == null)
+			return;
+
+		collection_model.add_collection (last_removed_collection);
+		last_removed_collection.games_changed ();
+		last_removed_collection = null;
+	}
+
+	public void finalize_collection_removal () {
+		if (last_removed_collection == null)
+			return;
+
+		collection_manager.remove_user_collection (last_removed_collection);
+		last_removed_collection = null;
+	}
+
 	[GtkCallback]
 	private bool on_subpage_back_clicked () {
 		if (!is_subpage_open)
@@ -141,6 +178,9 @@ private class Games.CollectionsPage : Gtk.Bin {
 	private void on_collection_activated (Collection collection) {
 		if (collection.get_collection_type () ==
 		    Collection.CollectionType.PLACEHOLDER) {
+				// Finalize any pending removal of collection and dismiss undo notification if shown.
+				finalize_collection_removal ();
+
 				var dialog = new CollectionActionWindow ();
 				dialog.transient_for = get_toplevel () as ApplicationWindow;
 				dialog.modal = true;

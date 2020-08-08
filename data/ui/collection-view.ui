@@ -249,6 +249,26 @@
                     </object>
                   </child>
                   <child>
+                    <object class="GtkMenuButton">
+                      <property name="menu-model">collection_menu</property>
+                      <property name="tooltip-text" translatable="yes">Collection menu</property>
+                      <property name="valign">center</property>
+                      <property name="visible" bind-source="collections_page" bind-property="is-showing-user-collection"/>
+                      <child>
+                        <object class="GtkImage">
+                          <property name="visible">True</property>
+                          <property name="icon-name">view-more-symbolic</property>
+                        </object>
+                      </child>
+                      <style>
+                        <class name="image-button"/>
+                      </style>
+                    </object>
+                    <packing>
+                      <property name="pack-type">end</property>
+                    </packing>
+                  </child>
+                  <child>
                     <object class="GtkButton">
                       <property name="visible">True</property>
                       <property name="valign">center</property>
@@ -514,6 +534,12 @@
             </child>
           </object>
         </child>
+        <child type="overlay">
+          <object class="GamesUndoNotification" id="undo_notification">
+            <property name="visible">True</property>
+            <property name="label" bind-source="collections_page" bind-property="removed-notification-title"/>
+          </object>
+        </child>
       </object>
     </child>
     <child>
@@ -568,6 +594,14 @@
       <item>
         <attribute name="label" translatable="yes">Select None</attribute>
         <attribute name="action">view.select-none</attribute>
+      </item>
+    </section>
+  </menu>
+  <menu id="collection_menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">R_emove</attribute>
+        <attribute name="action">view.remove-collection</attribute>
       </item>
     </section>
   </menu>
