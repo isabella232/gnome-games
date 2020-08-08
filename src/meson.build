@@ -170,6 +170,7 @@ vala_sources = [
   'ui/snapshots-list.vala',
   'ui/titlebar-box.vala',
   'ui/ui-view.vala',
+  'ui/undo-notification.vala',
 
   'utils/cairo-blur.vala',
   'utils/composite-cover.vala',
