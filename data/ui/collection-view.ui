@@ -217,6 +217,7 @@
                 <object class="HdyHeaderBar" id="collection_subpage_header_bar">
                   <property name="visible">True</property>
                   <property name="show-close-button">True</property>
+                  <property name="title" bind-source="collections_page" bind-property="collection-title"/>
                   <child>
                     <object class="GtkButton">
                       <property name="visible">True</property>
@@ -237,15 +238,6 @@
                           <property name="icon-size">1</property>
                         </object>
                       </child>
-                    </object>
-                  </child>
-                  <child type="title">
-                    <object class="GtkLabel">
-                      <property name="visible">True</property>
-                      <property name="label" bind-source="collections_page" bind-property="collection-title"/>
-                      <style>
-                        <class name="title"/>
-                      </style>
                     </object>
                   </child>
                   <child>
@@ -559,6 +551,71 @@
       </object>
     </child>
   </template>
+  <object class="GtkPopover" id="rename_popover">
+    <property name="position">top</property>
+    <property name="relative-to">collection_subpage_header_bar</property>
+    <property name="width-request">360</property>
+    <child>
+      <object class="GtkBox">
+        <property name="visible">true</property>
+        <property name="orientation">vertical</property>
+        <property name="margin">12</property>
+        <property name="spacing">12</property>
+        <child>
+          <object class="GtkLabel">
+            <property name="visible">true</property>
+            <property name="label" translatable="yes">Rename Collection</property>
+            <attributes>
+              <attribute name="weight" value="bold"/>
+            </attributes>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox">
+            <property name="visible">true</property>
+            <property name="spacing">12</property>
+            <child>
+              <object class="GtkEntry" id="collection_rename_entry">
+                <property name="visible">true</property>
+                <property name="hexpand">true</property>
+                <signal name="notify::text" handler="update_collection_name_validity"/>
+                <signal name="activate" handler="on_collection_rename_activated"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton">
+                <property name="visible">true</property>
+                <property name="label" translatable="yes">_Rename</property>
+                <property name="use-underline">True</property>
+                <property name="sensitive" bind-source="GamesCollectionView" bind-property="is-collection-rename-valid"/>
+                <signal name="clicked" handler="on_collection_rename_activated"/>
+                <style>
+                  <class name="suggested-action"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkRevealer">
+            <property name="visible">True</property>
+            <property name="reveal-child" bind-source="GamesCollectionView" bind-property="is-collection-rename-valid" bind-flags="invert-boolean|sync-create"/>
+            <child>
+              <object class="GtkLabel" id="collection_rename_error_label">
+                <property name="visible">true</property>
+                <property name="halign">center</property>
+                <property name="wrap">true</property>
+                <property name="wrap-mode">word</property>
+                <style>
+                  <class name="dim-label"/>
+                </style>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
   <object class="HdySwipeGroup" id="swipe_group"/>
   <object class="HdySwipeGroup" id="collections_swipe_group">
     <swipeables>
@@ -599,6 +656,10 @@
   </menu>
   <menu id="collection_menu">
     <section>
+      <item>
+        <attribute name="label" translatable="yes">_Rename</attribute>
+        <attribute name="action">view.rename-collection</attribute>
+      </item>
       <item>
         <attribute name="label" translatable="yes">R_emove</attribute>
         <attribute name="action">view.remove-collection</attribute>

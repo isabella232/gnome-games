@@ -50,6 +50,12 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	private Hdy.SwipeGroup collections_swipe_group;
 	[GtkChild]
 	private UndoNotification undo_notification;
+	[GtkChild]
+	private Gtk.Entry collection_rename_entry;
+	[GtkChild]
+	private Gtk.Popover rename_popover;
+	[GtkChild]
+	private Gtk.Label collection_rename_error_label;
 
 	private bool _is_view_active;
 	public bool is_view_active {
@@ -127,6 +133,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	public bool is_subview_open { get; set; }
 	public bool is_selection_mode { get; set; }
 	public bool is_selection_available { get; set; }
+	public bool is_collection_rename_valid { get; set; }
 
 	private CollectionManager collection_manager;
 	private KonamiCode konami_code;
@@ -137,7 +144,8 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		{ "toggle-select",     toggle_select },
 		{ "favorite-action",   favorite_action },
 		{ "add-to-collection", add_to_collection },
-		{ "remove-collection", remove_collection }
+		{ "remove-collection", remove_collection },
+		{ "rename-collection", rename_collection }
 	};
 
 	construct {
@@ -407,6 +415,58 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	public void remove_collection () {
 		collections_page.remove_current_user_collection ();
 		undo_notification.show_notification ();
+	}
+
+	public void rename_collection () {
+		assert (collections_page.current_collection is UserCollection);
+		collection_rename_entry.text = collections_page.collection_title;
+		rename_popover.popup ();
+		collection_rename_entry.grab_focus ();
+	}
+
+	[GtkCallback]
+	private void update_collection_name_validity () {
+		var name = collection_rename_entry.text.strip ();
+
+		if (name == collections_page.collection_title) {
+			is_collection_rename_valid = true;
+			collection_rename_error_label.label = "";
+		}
+		else if (name == "") {
+			is_collection_rename_valid = false;
+			collection_rename_error_label.label = _("Collection name cannot be empty");
+		}
+		else if (collection_manager.does_collection_title_exist (name)) {
+			is_collection_rename_valid = false;
+			collection_rename_error_label.label = _("A collection with this name already exists");
+		}
+		else {
+			is_collection_rename_valid = true;
+			collection_rename_error_label.label = "";
+		}
+
+		if (is_collection_rename_valid)
+			collection_rename_entry.get_style_context ().remove_class ("error");
+		else
+			collection_rename_entry.get_style_context ().add_class ("error");
+	}
+
+	[GtkCallback]
+	private void on_collection_rename_activated () {
+		assert (collections_page.current_collection is UserCollection);
+
+		if (!is_collection_rename_valid)
+			return;
+
+		var name = collection_rename_entry.text.strip ();
+		var collection = collections_page.current_collection as UserCollection;
+		if (collection == null)
+			return;
+
+		collection.set_title (name);
+		collections_page.collection_title = name;
+		rename_popover.popdown ();
+		collections_page.invalidate_sort ();
 	}
 
 	[GtkCallback]
