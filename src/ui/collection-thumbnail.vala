@@ -30,6 +30,7 @@ private class Games.CollectionThumbnail : Gtk.Bin {
 			}
 
 			games_changed_id = collection.games_changed.connect (on_games_changed);
+			on_games_changed ();
 		}
 	}
 
