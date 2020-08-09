@@ -47,4 +47,9 @@ private class Games.CollectionModel : Object, ListModel {
 		items_changed (pos, 1, 0);
 		collection_removed (collection);
 	}
+
+	public void invalidate_sort () {
+		sequence.sort (Collection.compare);
+		items_changed (0, n_collections, n_collections);
+	}
 }

@@ -102,6 +102,10 @@ private class Games.CollectionsMainPage : Gtk.Bin {
 		flow_box.invalidate_filter ();
 	}
 
+	public void invalidate_sort () {
+		collection_model.invalidate_sort ();
+	}
+
 	private bool collection_filter_func (Gtk.FlowBoxChild child) {
 		var collection_icon_view = child as CollectionIconView;
 		if (collection_icon_view == null)

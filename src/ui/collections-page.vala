@@ -129,6 +129,10 @@ private class Games.CollectionsPage : Gtk.Bin {
 		collections_main_page.invalidate_filter ();
 	}
 
+	public void invalidate_sort () {
+		collections_main_page.invalidate_sort ();
+	}
+
 	public void remove_current_user_collection () {
 		if (!is_showing_user_collection || current_collection == null)
 			return;
