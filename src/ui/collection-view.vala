@@ -396,20 +396,15 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	}
 
 	private void favorite_action () {
-		if (viewstack.visible_child == games_page)
-			collection_manager.toggle_favorite (games_page.get_selected_games ());
-		else if (viewstack.visible_child == platforms_page)
-			collection_manager.toggle_favorite (platforms_page.get_selected_games ());
-		else {
-			collection_manager.toggle_favorite (collections_page.get_selected_games ());
+		collection_manager.toggle_favorite (get_currently_selected_games ());
 
-			var current_collection = collections_page.current_collection;
-			if (current_collection != null && current_collection.get_id () == "Favorites") {
-				collections_page.update_is_collection_empty ();
-				select_none ();
-				toggle_select ();
-				return;
-			}
+		if (viewstack.visible_child == collections_page &&
+		    collections_page.is_subpage_open &&
+		    collections_page.current_collection.get_id () == "Favorites") {
+			collections_page.update_is_collection_empty ();
+			select_none ();
+			toggle_select ();
+			return;
 		}
 
 		update_selection_action_bar ();
