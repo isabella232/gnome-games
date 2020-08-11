@@ -36,7 +36,7 @@
     <child>
       <object class="GtkLabel">
         <property name="visible">True</property>
-        <property name="label" translatable="yes">Please add some games to this collection to see them here.</property>
+        <property name="label" translatable="yes">Add some games to this collection to see them here.</property>
         <property name="justify">left</property>
         <property name="wrap">true</property>
         <style>
