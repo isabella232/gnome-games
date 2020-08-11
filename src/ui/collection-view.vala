@@ -215,7 +215,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		if ((viewstack.visible_child == collections_page
 		     && !collections_page.is_subpage_open) ||
 		     is_empty_collection ||
-		     collections_page.is_collection_empty)
+		     (collections_page.is_subpage_open && collections_page.is_collection_empty))
 			return false;
 
 		return search_bar.handle_event (event);
