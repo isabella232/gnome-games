@@ -546,7 +546,10 @@
         <property name="reveal-child" bind-source="GamesCollectionView" bind-property="is-selection-mode"/>
         <property name="transition-type">slide-up</property>
         <child>
-          <object class="GamesSelectionActionBar" id="selection_action_bar"/>
+          <object class="GamesSelectionActionBar" id="selection_action_bar">
+            <property name="visible">True</property>
+            <property name="show-remove-button" bind-source="collections_page" bind-property="is-showing-user-collection"/>
+          </object>
         </child>
       </object>
     </child>

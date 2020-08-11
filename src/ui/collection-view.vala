@@ -139,13 +139,14 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	private KonamiCode konami_code;
 	private SimpleActionGroup action_group;
 	private const ActionEntry[] action_entries = {
-		{ "select-all",        select_all },
-		{ "select-none",       select_none },
-		{ "toggle-select",     toggle_select },
-		{ "favorite-action",   favorite_action },
-		{ "add-to-collection", add_to_collection },
-		{ "remove-collection", remove_collection },
-		{ "rename-collection", rename_collection }
+		{ "select-all",             select_all },
+		{ "select-none",            select_none },
+		{ "toggle-select",          toggle_select },
+		{ "favorite-action",        favorite_action },
+		{ "add-to-collection",      add_to_collection },
+		{ "remove-collection",      remove_collection },
+		{ "rename-collection",      rename_collection },
+		{ "remove-from-collection", remove_from_collection }
 	};
 
 	construct {
@@ -343,6 +344,8 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		platforms_page.select_none ();
 		games_page.select_none ();
 		collections_page.select_none ();
+
+		update_selection_action_bar ();
 	}
 
 	private void select_all () {
@@ -422,6 +425,16 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		collection_rename_entry.text = collections_page.collection_title;
 		rename_popover.popup ();
 		collection_rename_entry.grab_focus ();
+	}
+
+	private void remove_from_collection () {
+		if (!collections_page.is_subpage_open || collections_page.current_collection == null)
+			return;
+
+		var games = get_currently_selected_games ();
+		collections_page.current_collection.remove_games (games);
+		collections_page.update_is_collection_empty ();
+		select_none ();
 	}
 
 	[GtkCallback]

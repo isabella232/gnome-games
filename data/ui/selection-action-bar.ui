@@ -53,5 +53,20 @@
         <property name="tooltip-text" translatable="yes">Add selected games to a collection</property>
       </object>
     </child>
+    <child>
+      <object class="GtkButton">
+        <property name="visible" bind-source="GamesSelectionActionBar" bind-property="show-remove-button"/>
+        <property name="label" translatable="yes">_Remove</property>
+        <property name="use-underline">True</property>
+        <property name="action-name">view.remove-from-collection</property>
+        <property name="tooltip-text" translatable="yes">Remove selected games from this collection</property>
+        <style>
+          <class name="destructive-action"/>
+        </style>
+      </object>
+      <packing>
+        <property name="pack-type">end</property>
+      </packing>
+    </child>
   </template>
 </interface>
