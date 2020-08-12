@@ -7,7 +7,6 @@ private class Games.UserCollection : Object, Collection {
 	private GenericSet<Uid> game_uids;
 	private GameCollection game_collection;
 	private string id;
-	private string title;
 	private ulong idle_id = 0;
 	private ulong on_game_added_id = 0;
 
@@ -15,9 +14,14 @@ private class Games.UserCollection : Object, Collection {
 		get { return false; }
 	}
 
+	private string _title;
+	public string title {
+		get { return _title; }
+	}
+
 	public UserCollection (string id, string title, Database database) {
 		this.id = id;
-		this.title = title;
+		_title = title;
 		this.database = database;
 
 		game_uids = new GenericSet<Uid> (Uid.hash, Uid.equal);
@@ -35,17 +39,15 @@ private class Games.UserCollection : Object, Collection {
 		return id;
 	}
 
-	public string get_title () {
-		return title;
-	}
-
 	public void set_title (string value) {
 		if (title == value)
 			return;
 
 		try {
-			if (database.rename_user_collection (this, value))
-				title = value;
+			if (database.rename_user_collection (this, value)) {
+				_title = value;
+				notify_property ("title");
+			}
 		}
 		catch (Error e) {
 			critical ("%s", e.message);

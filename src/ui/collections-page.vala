@@ -138,7 +138,7 @@ private class Games.CollectionsPage : Gtk.Bin {
 			return;
 
 		/* translators: This is displayed in an undo notification when a game collection is removed */
-		removed_notification_title = _("%s removed").printf (current_collection.get_title ());
+		removed_notification_title = _("%s removed").printf (current_collection.title);
 
 		if (last_removed_collection != null)
 			collection_manager.remove_user_collection (last_removed_collection);
@@ -193,7 +193,7 @@ private class Games.CollectionsPage : Gtk.Bin {
 		}
 
 		current_collection = collection;
-		collection_title = collection.get_title ();
+		collection_title = collection.title;
 		collections_deck.visible_child = collections_subpage_stack;
 
 		is_collection_empty = collection.get_game_model ().get_n_items () == 0;

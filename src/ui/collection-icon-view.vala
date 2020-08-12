@@ -13,7 +13,7 @@ private class Games.CollectionIconView : Gtk.FlowBoxChild {
 		construct set {
 			_collection = value;
 
-			title.label = collection.get_title ();
+			title.label = collection.title;
 			thumbnail.collection = collection;
 		}
 	}

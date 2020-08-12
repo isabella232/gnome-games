@@ -11,6 +11,10 @@ private class Games.FavoritesCollection : Object, Collection {
 		get { return _is_empty; }
 	}
 
+	public string title {
+		get { return _("Favorites"); }
+	}
+
 	private ulong idle_id = 0;
 
 	public FavoritesCollection (Database database) {
@@ -41,10 +45,6 @@ private class Games.FavoritesCollection : Object, Collection {
 
 	public string get_id () {
 		return "Favorites";
-	}
-
-	public string get_title () {
-		return _("Favorites");
 	}
 
 	public GameModel get_game_model () {

@@ -85,7 +85,7 @@ private class Games.CollectionManager : Object {
 
 	public bool does_collection_title_exist (string title) {
 		foreach (var collection in collections.get_values ())
-			if (collection.get_title () == title)
+			if (collection.title == title)
 				return true;
 
 		return false;

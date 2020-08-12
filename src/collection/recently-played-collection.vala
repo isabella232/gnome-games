@@ -11,6 +11,10 @@ private class Games.RecentlyPlayedCollection : Object, Collection {
 		get { return _is_empty; }
 	}
 
+	public string title {
+		get { return _("Recently Played"); }
+	}
+
 	public RecentlyPlayedCollection (Database database) {
 		this.database = database;
 
@@ -40,10 +44,6 @@ private class Games.RecentlyPlayedCollection : Object, Collection {
 
 	public string get_id () {
 		return "Recently Played";
-	}
-
-	public string get_title () {
-		return _("Recently Played");
 	}
 
 	public GameModel get_game_model () {

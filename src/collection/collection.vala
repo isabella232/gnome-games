@@ -12,11 +12,11 @@ private interface Games.Collection : Object {
 
 	public abstract bool is_empty { get; }
 
+	public abstract string title { get; }
+
 	public abstract void load ();
 
 	public abstract string get_id ();
-
-	public abstract string get_title ();
 
 	public abstract bool get_hide_stars ();
 
@@ -35,7 +35,7 @@ private interface Games.Collection : Object {
 	public abstract void on_game_replaced (Game game, Game prev_game);
 
 	public bool matches_search_terms (string[] search_terms) {
-		var name = get_title ();
+		var name = title;
 		if (search_terms.length != 0)
 			foreach (var term in search_terms)
 				if (!(term.casefold () in name.casefold ()))
@@ -56,8 +56,8 @@ private interface Games.Collection : Object {
 	}
 
 	public static int compare (Collection a, Collection b) {
-		var title_a = a.get_title ();
-		var title_b = b.get_title ();
+		var title_a = a.title;
+		var title_b = b.title;
 		var type_a = a.get_collection_type ();
 		var type_b = b.get_collection_type ();
 

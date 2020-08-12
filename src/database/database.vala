@@ -573,18 +573,18 @@ private class Games.Database : Object {
 
 	public bool add_user_collection (UserCollection collection) throws Error {
 		if (does_user_collection_exist (collection.get_id ())) {
-			critical ("A collection named %s already exists", collection.get_title ());
+			critical ("A collection named %s already exists", collection.title);
 			return false;
 		}
 
 		add_user_collection_query.reset ();
 		bind_text (add_user_collection_query, "$COLLECTION_ID", collection.get_id ());
-		bind_text (add_user_collection_query, "$TITLE", collection.get_title ());
+		bind_text (add_user_collection_query, "$TITLE", collection.title);
 
 		var result = add_user_collection_query.step ();
 		if (result != Sqlite.DONE)
 			throw new DatabaseError.EXECUTION_FAILED ("Failed to add user collection %s: %s",
-			                                          collection.get_title (), result.to_string ());
+			                                          collection.title, result.to_string ());
 
 		return true;
 	}
@@ -600,7 +600,7 @@ private class Games.Database : Object {
 		var result = add_game_to_user_collection_query.step ();
 		if (result != Sqlite.DONE)
 			throw new DatabaseError.EXECUTION_FAILED ("Failed to add %s to user collection %s",
-			                                          game.name, collection.get_title ());
+			                                          game.name, collection.title);
 
 		return true;
 	}
@@ -639,7 +639,7 @@ private class Games.Database : Object {
 
 		var result = remove_user_collection_query.step ();
 		if (result != Sqlite.DONE)
-			throw new DatabaseError.EXECUTION_FAILED ("Failed to remove user collection %s", collection.get_title ());
+			throw new DatabaseError.EXECUTION_FAILED ("Failed to remove user collection %s", collection.title);
 
 		return true;
 	}
@@ -655,7 +655,7 @@ private class Games.Database : Object {
 		var result = remove_game_from_user_collection_query.step ();
 		if (result != Sqlite.DONE)
 			throw new DatabaseError.EXECUTION_FAILED ("Failed to remove %s from user collection %s",
-			                                          game.name, collection.get_title ());
+			                                          game.name, collection.title);
 
 		return true;
 	}
@@ -671,7 +671,7 @@ private class Games.Database : Object {
 		var result = rename_user_collection_query.step ();
 		if (result != Sqlite.DONE)
 			throw new DatabaseError.EXECUTION_FAILED ("Failed to rename user collection %s",
-			                                           collection.get_title ());
+			                                           collection.title);
 
 		return true;
 	}

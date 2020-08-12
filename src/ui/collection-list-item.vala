@@ -5,7 +5,7 @@ private class Games.CollectionListItem : Hdy.ActionRow {
 	public Collection collection { get; construct; }
 
 	construct {
-		title = collection.get_title ();
+		title = collection.title;
 	}
 
 	public CollectionListItem (Collection collection) {

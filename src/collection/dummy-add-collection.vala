@@ -5,12 +5,12 @@ private class Games.DummyAddCollection : Object, Collection {
 		get { return true; }
 	}
 
-	public string get_id () {
-		return "Add Collection";
+	public string title {
+		get { return _("Add Collection"); }
 	}
 
-	public string get_title () {
-		return _("Add Collection");
+	public string get_id () {
+		return "Add Collection";
 	}
 
 	public GameModel get_game_model () {
