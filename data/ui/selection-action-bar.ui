@@ -8,7 +8,7 @@
       <object class="GtkButton" id="favorite_button">
         <property name="visible">True</property>
         <property name="action-name">view.favorite-action</property>
-        <property name="tooltip-text" translatable="yes">Add/Remove games to favorite</property>
+        <property name="tooltip-text" translatable="yes">Add/Remove selected games to favorite</property>
         <child>
           <object class="GtkStack" id="icon_stack">
             <property name="visible">True</property>
