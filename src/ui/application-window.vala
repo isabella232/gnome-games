@@ -140,7 +140,12 @@ private class Games.ApplicationWindow : Hdy.ApplicationWindow {
 	public bool on_key_pressed (Gdk.EventKey event) {
 		var default_modifiers = Gtk.accelerator_get_default_mod_mask ();
 
-		if ((event.keyval == Gdk.Key.q || event.keyval == Gdk.Key.Q) &&
+		uint keyval;
+		var keymap = Gdk.Keymap.get_for_display (get_display ());
+		keymap.translate_keyboard_state (event.hardware_keycode, event.state,
+		                                 event.group, out keyval, null, null, null);
+
+		if ((keyval == Gdk.Key.q || keyval == Gdk.Key.Q) &&
 		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK) {
 			if (!quit_game ())
 				return false;
