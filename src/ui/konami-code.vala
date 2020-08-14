@@ -41,14 +41,14 @@ private class Games.KonamiCode : Object {
 
 	private uint current_index;
 
-	public Gtk.Widget widget {
-		construct {
-			value.key_press_event.connect (on_key_pressed);
-		}
-	}
+	public Gtk.Widget widget { get; construct; }
 
 	public KonamiCode (Gtk.Widget widget) {
 		Object (widget: widget);
+	}
+
+	construct {
+		widget.key_press_event.connect (on_key_pressed);
 	}
 
 	public void reset () {
@@ -56,8 +56,13 @@ private class Games.KonamiCode : Object {
 	}
 
 	private bool on_key_pressed (Gdk.EventKey event) {
-		if (event.keyval != CODE_LOWER_KEYS[current_index] &&
-		    event.keyval != CODE_UPPER_KEYS[current_index]) {
+		uint keyval;
+		var keymap = Gdk.Keymap.get_for_display (widget.get_display ());
+		keymap.translate_keyboard_state (event.hardware_keycode, event.state,
+		                                 event.group, out keyval, null, null, null);
+
+		if (keyval != CODE_LOWER_KEYS[current_index] &&
+		    keyval != CODE_UPPER_KEYS[current_index]) {
 			current_index = 0;
 
 			return false;
