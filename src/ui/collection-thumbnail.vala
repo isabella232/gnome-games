@@ -34,7 +34,7 @@ private class Games.CollectionThumbnail : Gtk.Bin {
 		}
 	}
 
-	public void on_games_changed () {
+	private void on_games_changed () {
 		var max_subcovers = N_ROWS * N_COLUMNS;
 
 		var children = grid.get_children ();
