@@ -56,6 +56,8 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	private Gtk.Popover rename_popover;
 	[GtkChild]
 	private Gtk.Label collection_rename_error_label;
+	[GtkChild]
+	private Gtk.Label selection_mode_label;
 
 	private bool _is_view_active;
 	public bool is_view_active {
@@ -345,7 +347,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		games_page.select_none ();
 		collections_page.select_none ();
 
-		update_selection_action_bar ();
+		on_selected_items_changed ();
 	}
 
 	private void select_all () {
@@ -355,6 +357,8 @@ private class Games.CollectionView : Gtk.Box, UiView {
 			games_page.select_all ();
 		else
 			collections_page.select_all ();
+
+		on_selected_items_changed ();
 	}
 
 	private void toggle_select () {
@@ -407,7 +411,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 			return;
 		}
 
-		update_selection_action_bar ();
+		on_selected_items_changed ();
 	}
 
 	public void remove_collection () {
@@ -478,15 +482,17 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	}
 
 	[GtkCallback]
-	private void update_selection_action_bar () {
-		Game[] games = {};
-		if (viewstack.visible_child == games_page)
-			games = games_page.get_selected_games ();
-		else if (viewstack.visible_child == platforms_page)
-			games = platforms_page.get_selected_games ();
-		else
-			games = collections_page.get_selected_games ();
+	private void on_selected_items_changed () {
+		var games = get_currently_selected_games ();
 
+		var length = games.length;
+		string label;
+		if (length != 0)
+			label = ngettext ("Selected %d item", "Selected %d items", length).printf (length);
+		else
+			label = _("Click on items to select them");
+
+		selection_mode_label.label = label;
 		selection_action_bar.update (games);
 	}
 

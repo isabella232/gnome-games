@@ -368,10 +368,13 @@
                     <property name="visible">True</property>
                     <property name="spacing">6</property>
                     <child>
-                      <object class="GtkLabel">
+                      <object class="GtkLabel" id="selection_mode_label">
                         <property name="visible">True</property>
                         <property name="label" translatable="yes">Click on items to select them</property>
                         <property name="ellipsize">end</property>
+                        <attributes>
+                          <attribute name="font-features" value="tnum=1"/>
+                        </attributes>
                       </object>
                     </child>
                     <child>
@@ -437,7 +440,7 @@
                     <property name="visible">True</property>
                     <property name="is-selection-mode" bind-source="GamesCollectionView" bind-property="is-selection-mode"/>
                     <signal name="game-activated" handler="on_game_activated"/>
-                    <signal name="selected-items-changed" handler="update_selection_action_bar"/>
+                    <signal name="selected-items-changed" handler="on_selected_items_changed"/>
                   </object>
                   <packing>
                     <property name="name">games</property>
@@ -452,7 +455,7 @@
                     <property name="is-selection-mode" bind-source="GamesCollectionView" bind-property="is-selection-mode"/>
                     <signal name="game-activated" handler="on_game_activated"/>
                     <signal name="notify::is-subview-open" handler="update_selection_availability"/>
-                    <signal name="selected-items-changed" handler="update_selection_action_bar"/>
+                    <signal name="selected-items-changed" handler="on_selected_items_changed"/>
                   </object>
                   <packing>
                     <property name="name">platform</property>
@@ -467,7 +470,7 @@
                     <property name="is-selection-mode" bind-source="GamesCollectionView" bind-property="is-selection-mode"/>
                     <property name="is-search-mode" bind-source="GamesCollectionView" bind-property="search-mode" bind-flags="bidirectional"/>
                     <signal name="game-activated" handler="on_game_activated"/>
-                    <signal name="selected-items-changed" handler="update_selection_action_bar"/>
+                    <signal name="selected-items-changed" handler="on_selected_items_changed"/>
                     <signal name="notify::is-subpage-open" handler="update_bottom_bar"/>
                   </object>
                   <packing>
