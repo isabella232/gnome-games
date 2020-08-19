@@ -30,7 +30,9 @@ plugins/virtual-boy/src/virtual-boy-header.c
 plugins/virtual-boy/src/virtual-boy-plugin.c
 plugins/wii/src/wii-header.c
 plugins/wii/src/wii-plugin.c
+src/collection/dummy-add-collection.c
 src/collection/favorites-collection.c
+src/collection/recently-played-collection.c
 src/command/command-runner.c
 src/core/media-set/media-set.c
 src/core/plugin-registrar.c
@@ -43,6 +45,9 @@ src/retro/retro-runner.c
 src/retro/retro-simple-type.c
 src/ui/application.c
 src/ui/application-window.c
+src/ui/collection-action-window.c
+src/ui/collections-page.c
+src/ui/collection-view.c
 src/ui/display-view.c
 src/ui/error-display.c
 src/ui/gamepad-mapper.c

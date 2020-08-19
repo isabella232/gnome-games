@@ -3,6 +3,7 @@
 data/org.gnome.Games.appdata.xml.in.in
 data/org.gnome.Games.desktop.in.in
 data/org.gnome.Games.gschema.xml
+data/ui/collection-action-window.ui
 data/ui/collection-empty.ui
 data/ui/collection-view.ui
 data/ui/display-view.ui
@@ -27,6 +28,7 @@ data/ui/resume-failed-dialog.ui
 data/ui/selection-action-bar.ui
 data/ui/shortcuts-window.ui
 data/ui/snapshots-list.ui
+data/ui/undo-notification.ui
 plugins/desktop/src/desktop-plugin.vala
 plugins/dreamcast/src/dreamcast-header.vala
 plugins/dreamcast/src/dreamcast-plugin.vala
@@ -58,7 +60,9 @@ plugins/virtual-boy/src/virtual-boy-header.vala
 plugins/virtual-boy/src/virtual-boy-plugin.vala
 plugins/wii/src/wii-header.vala
 plugins/wii/src/wii-plugin.vala
+src/collection/dummy-add-collection.vala
 src/collection/favorites-collection.vala
+src/collection/recently-played-collection.vala
 src/command/command-runner.vala
 src/core/media-set/media-set.vala
 src/core/plugin-registrar.vala
@@ -71,6 +75,9 @@ src/retro/retro-runner.vala
 src/retro/retro-simple-type.vala
 src/ui/application.vala
 src/ui/application-window.vala
+src/ui/collection-action-window.vala
+src/ui/collections-page.vala
+src/ui/collection-view.vala
 src/ui/display-view.vala
 src/ui/error-display.vala
 src/ui/gamepad-mapper.vala
