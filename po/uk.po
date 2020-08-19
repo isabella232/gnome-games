@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-08-19 18:50+0000\n"
-"PO-Revision-Date: 2020-08-19 23:22+0300\n"
+"POT-Creation-Date: 2020-08-19 20:28+0000\n"
+"PO-Revision-Date: 2020-08-19 23:36+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -136,12 +136,78 @@ msgstr ""
 "Бажане ядро ​​Libretro для використання в іграх. Можна скористатися іншим "
 "ядром, якщо для бажаного ядра немає мікропрограми."
 
+#: data/ui/collection-action-window.ui:5 data/ui/collection-action-window.ui:22
+#| msgid "_Add to Collection"
+msgid "Add to Collection"
+msgstr "Додати до збірки"
+
+#: data/ui/collection-action-window.ui:27 data/ui/collection-view.ui:322
+#: src/ui/application.vala:171 src/ui/preferences-page-import-export.vala:10
+#: src/ui/preferences-page-import-export.vala:32
+msgid "_Cancel"
+msgstr "_Скасувати"
+
+#: data/ui/collection-action-window.ui:35 src/ui/application.vala:172
+msgid "_Add"
+msgstr "_Додати"
+
+#: data/ui/collection-action-window.ui:61 data/ui/collection-view.ui:120
+#: data/ui/collection-view.ui:197 data/ui/collection-view.ui:296
+#: data/ui/collection-view.ui:346
+msgid "Search"
+msgstr "Пошук"
+
+#: data/ui/collection-action-window.ui:144
+#| msgid "No games found"
+msgid "No collections found"
+msgstr "Не знайдено жодної збірки"
+
+#: data/ui/collection-action-window.ui:160
+#| msgid "Add selected games to favorites"
+msgid "Add a new collection to add games to it."
+msgstr "Додати нову збірку для додавання до неї ігор."
+
+#: data/ui/collection-action-window.ui:173
+#| msgid "Rename Collection"
+msgid "Create Collection"
+msgstr "Створити збірку"
+
+#: data/ui/collection-action-window.ui:179
+#| msgid "Rename Collection"
+msgid "Create a collection"
+msgstr "Створити збірку"
+
+#: data/ui/collection-action-window.ui:204
+#| msgid "_Add to Collection"
+msgid "Add a Collection"
+msgstr "Додати збірку"
+
+#: data/ui/collection-action-window.ui:212 data/ui/collection-view.ui:152
+#: data/ui/collection-view.ui:231 data/ui/display-view.ui:34
+#: data/ui/display-view.ui:169 data/ui/preferences-subpage-gamepad.ui:33
+#: data/ui/preferences-subpage-keyboard.ui:35
+msgid "Back"
+msgstr "Назад"
+
+#: data/ui/collection-action-window.ui:251
+#| msgid "Collection menu"
+msgid "Enter a collection name"
+msgstr "Введіть назву збірки"
+
+#: data/ui/collection-action-window.ui:280
+msgid "C_reate"
+msgstr "С_творити"
+
+#: data/ui/collection-action-window.ui:289
+#| msgid "Rename Collection"
+msgid "Create collection"
+msgstr "Створити збірку"
+
 #: data/ui/collection-empty.ui:24
 msgid "This collection is empty"
 msgstr "Ця збірка є порожньою"
 
 #: data/ui/collection-empty.ui:39
-#| msgid "Please add some games to this collection to see them here."
 msgid "Add some games to this collection to see them here."
 msgstr "Додайте якісь ігри до цієї збірки, щоб побачити їх тут."
 
@@ -159,28 +225,9 @@ msgstr "Меню"
 msgid "Select games"
 msgstr "Вибір ігор"
 
-#: data/ui/collection-view.ui:120 data/ui/collection-view.ui:197
-#: data/ui/collection-view.ui:296 data/ui/collection-view.ui:346
-msgid "Search"
-msgstr "Пошук"
-
-#: data/ui/collection-view.ui:152 data/ui/collection-view.ui:231
-#: data/ui/display-view.ui:34 data/ui/display-view.ui:169
-#: data/ui/preferences-subpage-gamepad.ui:33
-#: data/ui/preferences-subpage-keyboard.ui:35
-msgid "Back"
-msgstr "Назад"
-
 #: data/ui/collection-view.ui:246
-#| msgid "Collection"
 msgid "Collection menu"
 msgstr "Меню збірки"
-
-#: data/ui/collection-view.ui:322 src/ui/application.vala:171
-#: src/ui/preferences-page-import-export.vala:10
-#: src/ui/preferences-page-import-export.vala:32
-msgid "_Cancel"
-msgstr "_Скасувати"
 
 #: data/ui/collection-view.ui:327 data/ui/preferences-subpage-gamepad.ui:102
 #: data/ui/preferences-subpage-keyboard.ui:105 data/ui/quit-dialog.ui:15
@@ -189,7 +236,7 @@ msgstr "_Скасувати"
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: data/ui/collection-view.ui:373
+#: data/ui/collection-view.ui:373 src/ui/collection-view.vala:493
 msgid "Click on items to select them"
 msgstr "Щоб вибрати пункти, клацніть на них"
 
@@ -206,7 +253,6 @@ msgid "Loading"
 msgstr "Завантаження"
 
 #: data/ui/collection-view.ui:573
-#| msgid "Collection"
 msgid "Rename Collection"
 msgstr "Перейменувати збірку"
 
@@ -435,17 +481,14 @@ msgid "Reset"
 msgstr "Скинути"
 
 #: data/ui/selection-action-bar.ui:11
-#| msgid "Add selected games to favorites"
 msgid "Add/Remove selected games to favorite"
 msgstr "Додати позначені ігри до улюблених або вилучити їх з улюблених"
 
 #: data/ui/selection-action-bar.ui:50
-#| msgid "Collection"
 msgid "_Add to Collection"
 msgstr "_Додати до збірки"
 
 #: data/ui/selection-action-bar.ui:53
-#| msgid "Add selected games to favorites"
 msgid "Add selected games to a collection"
 msgstr "Додати позначені ігри до збірки"
 
@@ -454,7 +497,6 @@ msgid "_Remove"
 msgstr "В_илучити"
 
 #: data/ui/selection-action-bar.ui:62
-#| msgid "Remove selected games from favorites"
 msgid "Remove selected games from this collection"
 msgstr "Вилучити позначені ігри з цієї збірки"
 
@@ -674,6 +716,10 @@ msgstr "В_илучити"
 msgid "Name"
 msgstr "Назва"
 
+#: data/ui/undo-notification.ui:28
+msgid "_Undo"
+msgstr "_Скасувати"
+
 #: plugins/desktop/src/desktop-plugin.vala:6
 msgid "Desktop"
 msgstr "Стільниця"
@@ -792,9 +838,18 @@ msgstr "Virtual Boy"
 msgid "Wii"
 msgstr "Wii"
 
+#: src/collection/dummy-add-collection.vala:9
+#| msgid "_Add to Collection"
+msgid "Add Collection"
+msgstr "Додати збірку"
+
 #: src/collection/favorites-collection.vala:15
 msgid "Favorites"
 msgstr "Улюблені"
+
+#: src/collection/recently-played-collection.vala:15
+msgid "Recently Played"
+msgstr "Нещодавно зіграні"
 
 #: src/core/snapshot-manager.vala:82 src/core/snapshot-manager.vala:107
 #, c-format
@@ -936,10 +991,6 @@ msgstr "Запустити гру за ідентифікатором"
 msgid "Select game files"
 msgstr "Виберіть файли гри"
 
-#: src/ui/application.vala:172
-msgid "_Add"
-msgstr "_Додати"
-
 #: src/ui/application.vala:217
 #, c-format
 msgid "An unexpected error occurred while trying to run %s"
@@ -976,6 +1027,33 @@ msgstr "Юрій Чорноіван <yurchor@ukr.net>"
 #: src/ui/application-window.vala:271 src/ui/application-window.vala:290
 msgid "Playing a game"
 msgstr "Граємо у гру"
+
+#: src/ui/collection-action-window.vala:226 src/ui/collection-view.vala:449
+#| msgid "Collection menu"
+msgid "Collection name cannot be empty"
+msgstr "Назва збірки не може бути порожньою"
+
+#: src/ui/collection-action-window.vala:233 src/ui/collection-view.vala:453
+#| msgid "A snapshot with this name already exists"
+msgid "A collection with this name already exists"
+msgstr "Збірка із цією назвою вже існує"
+
+#. translators: This is displayed in an undo notification when a game collection is removed
+#: src/ui/collections-page.vala:141
+#, c-format
+msgid "%s removed"
+msgstr "%s вилучений"
+
+#: src/ui/collection-view.vala:491
+#, c-format
+#| msgctxt "shortcut window"
+#| msgid "Select view"
+msgid "Selected %d item"
+msgid_plural "Selected %d items"
+msgstr[0] "Позначено %d запис"
+msgstr[1] "Позначено %d записи"
+msgstr[2] "Позначено %d записів"
+msgstr[3] "Позначено %d запис"
 
 #: src/ui/error-display.vala:15
 #, c-format
