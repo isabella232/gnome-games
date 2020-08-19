@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-07-17 12:43+0000\n"
-"PO-Revision-Date: 2020-07-17 17:12+0300\n"
+"POT-Creation-Date: 2020-08-19 18:50+0000\n"
+"PO-Revision-Date: 2020-08-19 23:22+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 20.07.70\n"
+"X-Generator: Lokalize 20.11.70\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:7
 #: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-view.ui:81
-#: data/ui/collection-view.ui:432 src/ui/application.vala:49
+#: data/ui/collection-view.ui:447 src/ui/application.vala:49
 msgid "Games"
 msgstr "Ігри"
 
@@ -141,8 +141,9 @@ msgid "This collection is empty"
 msgstr "Ця збірка є порожньою"
 
 #: data/ui/collection-empty.ui:39
-msgid "Please add some games to this collection to see them here."
-msgstr "Будь ласка, додайте якісь ігри до цієї збірки, щоб побачити їх тут."
+#| msgid "Please add some games to this collection to see them here."
+msgid "Add some games to this collection to see them here."
+msgstr "Додайте якісь ігри до цієї збірки, щоб побачити їх тут."
 
 #: data/ui/collection-view.ui:41
 msgid "Add game files…"
@@ -154,74 +155,93 @@ msgid "Menu"
 msgstr "Меню"
 
 #: data/ui/collection-view.ui:101 data/ui/collection-view.ui:178
-#: data/ui/collection-view.ui:265
+#: data/ui/collection-view.ui:277
 msgid "Select games"
 msgstr "Вибір ігор"
 
 #: data/ui/collection-view.ui:120 data/ui/collection-view.ui:197
-#: data/ui/collection-view.ui:284 data/ui/collection-view.ui:334
+#: data/ui/collection-view.ui:296 data/ui/collection-view.ui:346
 msgid "Search"
 msgstr "Пошук"
 
-#: data/ui/collection-view.ui:152 data/ui/collection-view.ui:230
+#: data/ui/collection-view.ui:152 data/ui/collection-view.ui:231
 #: data/ui/display-view.ui:34 data/ui/display-view.ui:169
 #: data/ui/preferences-subpage-gamepad.ui:33
 #: data/ui/preferences-subpage-keyboard.ui:35
 msgid "Back"
 msgstr "Назад"
 
-#: data/ui/collection-view.ui:310 src/ui/application.vala:171
+#: data/ui/collection-view.ui:246
+#| msgid "Collection"
+msgid "Collection menu"
+msgstr "Меню збірки"
+
+#: data/ui/collection-view.ui:322 src/ui/application.vala:171
 #: src/ui/preferences-page-import-export.vala:10
 #: src/ui/preferences-page-import-export.vala:32
 msgid "_Cancel"
 msgstr "_Скасувати"
 
-#: data/ui/collection-view.ui:315 data/ui/preferences-subpage-gamepad.ui:102
+#: data/ui/collection-view.ui:327 data/ui/preferences-subpage-gamepad.ui:102
 #: data/ui/preferences-subpage-keyboard.ui:105 data/ui/quit-dialog.ui:15
 #: data/ui/reset-controller-mapping-dialog.ui:15 data/ui/restart-dialog.ui:15
 #: data/ui/resume-failed-dialog.ui:14
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: data/ui/collection-view.ui:361
+#: data/ui/collection-view.ui:373
 msgid "Click on items to select them"
 msgstr "Щоб вибрати пункти, клацніть на них"
 
-#: data/ui/collection-view.ui:449 data/ui/preferences-window.ui:67
+#: data/ui/collection-view.ui:464 data/ui/preferences-window.ui:67
 msgid "Platforms"
 msgstr "Платформи"
 
-#: data/ui/collection-view.ui:464
+#: data/ui/collection-view.ui:479
 msgid "Collections"
 msgstr "Збірки"
 
-#: data/ui/collection-view.ui:490
+#: data/ui/collection-view.ui:505
 msgid "Loading"
 msgstr "Завантаження"
 
-#: data/ui/collection-view.ui:545
+#: data/ui/collection-view.ui:573
+#| msgid "Collection"
+msgid "Rename Collection"
+msgstr "Перейменувати збірку"
+
+#: data/ui/collection-view.ui:594 data/ui/collection-view.ui:666
+#: data/ui/snapshots-list.ui:103 data/ui/snapshots-list.ui:153
+msgid "_Rename"
+msgstr "Перей_менувати"
+
+#: data/ui/collection-view.ui:634
 msgid "Pr_eferences"
 msgstr "П_араметри"
 
-#: data/ui/collection-view.ui:549
+#: data/ui/collection-view.ui:638
 msgid "_Keyboard Shortcuts"
 msgstr "_Клавіатурні скорочення"
 
-#: data/ui/collection-view.ui:553
+#: data/ui/collection-view.ui:642
 msgid "_Help"
 msgstr "_Довідка"
 
-#: data/ui/collection-view.ui:557
+#: data/ui/collection-view.ui:646
 msgid "_About Games"
 msgstr "_Про «Ігри»"
 
-#: data/ui/collection-view.ui:565
+#: data/ui/collection-view.ui:654
 msgid "Select All"
 msgstr "Вибрати все"
 
-#: data/ui/collection-view.ui:569
+#: data/ui/collection-view.ui:658
 msgid "Select None"
 msgstr "Зняти вибір"
+
+#: data/ui/collection-view.ui:670
+msgid "R_emove"
+msgstr "Ви_лучити"
 
 #: data/ui/display-view.ui:57
 msgid "Restore"
@@ -414,9 +434,29 @@ msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Скинути"
 
-#: data/ui/selection-action-bar.ui:10
-msgid "Add/Remove games to favorite"
-msgstr "Додати ігри до улюблених або вилучити їх з улюблених"
+#: data/ui/selection-action-bar.ui:11
+#| msgid "Add selected games to favorites"
+msgid "Add/Remove selected games to favorite"
+msgstr "Додати позначені ігри до улюблених або вилучити їх з улюблених"
+
+#: data/ui/selection-action-bar.ui:50
+#| msgid "Collection"
+msgid "_Add to Collection"
+msgstr "_Додати до збірки"
+
+#: data/ui/selection-action-bar.ui:53
+#| msgid "Add selected games to favorites"
+msgid "Add selected games to a collection"
+msgstr "Додати позначені ігри до збірки"
+
+#: data/ui/selection-action-bar.ui:59
+msgid "_Remove"
+msgstr "В_илучити"
+
+#: data/ui/selection-action-bar.ui:62
+#| msgid "Remove selected games from favorites"
+msgid "Remove selected games from this collection"
+msgstr "Вилучити позначені ігри з цієї збірки"
 
 #: data/ui/shortcuts-window.ui:11
 msgid "Shortcuts"
@@ -630,10 +670,6 @@ msgstr "Створити знімок вікна"
 msgid "_Delete"
 msgstr "В_илучити"
 
-#: data/ui/snapshots-list.ui:103 data/ui/snapshots-list.ui:153
-msgid "_Rename"
-msgstr "Перей_менувати"
-
 #: data/ui/snapshots-list.ui:129
 msgid "Name"
 msgstr "Назва"
@@ -756,7 +792,7 @@ msgstr "Virtual Boy"
 msgid "Wii"
 msgstr "Wii"
 
-#: src/collection/favorites-collection.vala:32
+#: src/collection/favorites-collection.vala:15
 msgid "Favorites"
 msgstr "Улюблені"
 
@@ -785,7 +821,7 @@ msgstr ""
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Підтримку системи ще не реалізовано, але ми її запланували."
 
-#: src/retro/retro-runner.vala:441
+#: src/retro/retro-runner.vala:443
 msgid "Unknown platform"
 msgstr "Невідома платформа"
 
@@ -914,30 +950,30 @@ msgstr "Під час спроби запустити %s сталася неоч
 msgid "Cannot find game with UID “%s”."
 msgstr "Не вдалося знайти гру з UID «%s»."
 
-#: src/ui/application.vala:321
+#: src/ui/application.vala:322
 msgid "Couldn't find Tracker, automatic game discovery may not work."
 msgstr ""
 "Не вдалося знайти Tracker, автоматичне виявлення ігор може не спрацювати."
 
-#: src/ui/application.vala:497
+#: src/ui/application.vala:498
 msgid "GNOME Games"
 msgstr "Ігри GNOME"
 
-#: src/ui/application.vala:499
+#: src/ui/application.vala:500
 msgid "A video game player for GNOME"
 msgstr "Програвач відеоігор для GNOME"
 
-#: src/ui/application.vala:503
+#: src/ui/application.vala:504
 msgid "Learn more about GNOME Games"
 msgstr "Докладніше про «Ігри» GNOME"
 
-#: src/ui/application.vala:510
+#: src/ui/application.vala:511
 msgid "translator-credits"
 msgstr "Юрій Чорноіван <yurchor@ukr.net>"
 
 #. Translators: This is displayed if the user tries to log out of his
 #. * GNOME session, shutdown, or reboot while Games is running
-#: src/ui/application-window.vala:266 src/ui/application-window.vala:285
+#: src/ui/application-window.vala:271 src/ui/application-window.vala:290
 msgid "Playing a game"
 msgstr "Граємо у гру"
 
@@ -993,8 +1029,7 @@ msgstr "Не вдалося експортувати збережені дані
 #. Translators: This is displayed under the platform name when no
 #. * core is available for this platform. To see this message, click
 #. * on the hamburger menu, click on Preferences, then on Platforms
-#: src/ui/preferences-page-platforms-retro-row.vala:44
-#: src/ui/preferences-page-platforms-retro-row.vala:54
+#: src/ui/preferences-page-platforms-retro-row.vala:18
 msgid "None"
 msgstr "Немає"
 
@@ -1026,12 +1061,11 @@ msgstr "Тестування %s"
 msgid "Configuring %s"
 msgstr "Налаштовуємо %s"
 
-#: src/ui/selection-action-bar.vala:45
+#: src/ui/selection-action-bar.vala:47
 msgid "Remove selected games from favorites"
 msgstr "Вилучити позначені ігри з улюблених"
 
-#: src/ui/selection-action-bar.vala:49
-#| msgid "Select game files"
+#: src/ui/selection-action-bar.vala:51
 msgid "Add selected games to favorites"
 msgstr "Додати позначені ігри до улюблених"
 
@@ -1095,203 +1129,3 @@ msgstr "Помилка: %s (%d)"
 #, c-format
 msgid "Error writing “%s”: %s (%d)"
 msgstr "Помилка під час спроби записати «%s»: %s (%d)"
-
-#~ msgid "Invalid command “%s”."
-#~ msgstr "Некоректна команда «%s»."
-
-#~ msgid "Tracker listed file not found: “%s”."
-#~ msgstr "Не знайдено файла з бази даних Tracker: «%s»."
-
-#~ msgid "Couldn’t parse desktop entry “%s”."
-#~ msgstr "Не вдалося обробити запис .desktop «%s»."
-
-#~ msgid "“%s” shouldn’t be displayed."
-#~ msgstr "«%s» не мало бути показано."
-
-#~ msgid "“%s” is hidden."
-#~ msgstr "«%s» приховано."
-
-#~ msgid "“%s” has blacklisted category “%s”."
-#~ msgstr "«%s» належить до категорії із «чорного» списку «%s»."
-
-#~ msgid "“%s” has blacklisted executable “%s”."
-#~ msgstr "«%s» має виконуваний файл із «чорного» списку «%s»."
-
-#~ msgid "“%s” is blacklisted."
-#~ msgstr "«%s» є у «чорному» списку."
-
-#~ msgid "The file doesn’t have a Dreamcast header."
-#~ msgstr "Файл не містить заголовка Dreamcast."
-
-#~ msgid "The file doesn’t have a Game Cube header."
-#~ msgstr "Файл не містить заголовка Game Cube."
-
-#~ msgid "This doesn’t represent a valid LÖVE package: “%s”."
-#~ msgstr "Цей пакунок не є коректним пакунком LÖVE: «%s»."
-
-#~ msgid "Invalid MAME game id “%s” for “%s”."
-#~ msgstr "Некоректний ідентифікатор гри MAME — «%s» для «%s»."
-
-#~ msgid "Not a PlayStation disc: “%s”."
-#~ msgstr "«%s» не є диском PlayStation."
-
-#~ msgid "Invalid PlayStation header: disc ID not found in “%s”."
-#~ msgstr ""
-#~ "Некоректний заголовок PlayStation: не знайдено ідентифікатора диска у "
-#~ "«%s»."
-
-#~ msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
-#~ msgstr "Файл не містить заголовка Genesis/Sega 32X/Sega CD/Sega Pico."
-
-#~ msgid "The file “%s” doesn’t have a track."
-#~ msgstr "Файл «%s» не містить доріжки."
-
-#~ msgid "The file “%s” doesn’t have a valid binary file format."
-#~ msgstr "Файл «%s» не належить до коректного формату двійкових файлів."
-
-#~ msgid "The file “%s” doesn’t have a valid track mode for track %d."
-#~ msgstr "У файлі «%s» не міститься коректного режиму доріжки для доріжки %d."
-
-#~ msgid "The file doesn’t have a Sega Saturn header."
-#~ msgstr "Файл не є файлом заголовка Sega Saturn."
-
-#~ msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
-#~ msgstr ""
-#~ "Файл «%s» не належить до коректного формату двійкових файлів Sega Saturn."
-
-#~ msgid "File “%s” doesn’t exist."
-#~ msgstr "Файла «%s» не існує."
-
-#~ msgid "Unexpected token '{'."
-#~ msgstr "Неочікуваний елемент «{»"
-
-#~ msgid "Unexpected end of tokens."
-#~ msgstr "Неочікуване завершення елементів."
-
-#~ msgid "Unexpected token '}'."
-#~ msgstr "Неочікуваний елемент «}»"
-
-#~ msgid "The file is too short."
-#~ msgstr "Файл є надто коротким."
-
-#~ msgid "Invalid Virtual Boy ROM header size: %s"
-#~ msgstr "Некоректний розмір заголовка картриджа Virtual Boy: %s"
-
-#~ msgid "Invalid Virtual Boy ROM header size."
-#~ msgstr "Некоректний розмір заголовка картриджа Virtual Boy."
-
-#~ msgid "The file doesn’t have a Virtual Boy ROM header."
-#~ msgstr "Файл не містить заголовка картриджа Virtual Boy."
-
-#~ msgid "Couldn’t get file size: %s"
-#~ msgstr "Не вдалося отримати розмір файла: %s"
-
-#~ msgid "Couldn’t read file: %s"
-#~ msgstr "Не вдалося прочитати файл: %s"
-
-#~ msgid "Invalid Wii header size: %s"
-#~ msgstr "Некоректний розмір заголовка Wii: %s"
-
-#~ msgid "The file doesn’t have a Wii header."
-#~ msgstr "У файлі немає заголовка Wii."
-
-#~ msgid "The game doesn’t have a valid command."
-#~ msgstr "Гра не містить коректної команди."
-
-#~ msgid "Couldn’t run “%s”: execution failed."
-#~ msgstr "Не вдалося запустити «%s»: помилка під час виконання."
-
-#~ msgid "Invalid media index %u."
-#~ msgstr "Некоректний індекс носія %u."
-
-#~ msgid "Invalid plugin descriptor: %s"
-#~ msgstr "Некоректний дескриптор додатка: %s"
-
-#~ msgid "Couldn’t create a new instance of plugin in “%s”."
-#~ msgstr "Не вдалося створити екземпляр додатка у «%s»."
-
-#~ msgid "No game title found for disc ID “%s”."
-#~ msgstr "Не знайдено назви гри для ідентифікатора диска «%s»."
-
-#~ msgid "No disc title found for disc ID “%s”."
-#~ msgstr "Не знайдено назви диска для ідентифікатора диска «%s»."
-
-#~ msgid "No disc set ID found for disc ID “%s”."
-#~ msgstr ""
-#~ "Не знайдено ідентифікатора диска у наборі для диска із ідентифікатором "
-#~ "«%s»."
-
-#~ msgid "No disc found for disc ID “%s”."
-#~ msgstr "Не знайдено диска для ідентифікатора диска «%s»."
-
-#~ msgid "No module found for platform “%s” and MIME types [ “%s” ]."
-#~ msgstr "Не знайдено модуля для платформи «%s» і типів MIME [ «%s» ]."
-
-#~ msgid "”, “"
-#~ msgstr "», «"
-
-#~ msgid "This game requires the %s firmware file to run."
-#~ msgstr "Для запуску цієї гри потрібен файл мікропрограми %s."
-
-#~ msgid ""
-#~ "This game requires the %s firmware file with a MD5 fingerprint of %s to "
-#~ "run."
-#~ msgstr ""
-#~ "Для запуску цієї гри потрібен файл мікропрограми %s із відбитком MD5 %s."
-
-#~ msgid ""
-#~ "This game requires the %s firmware file with a SHA-512 fingerprint of %s "
-#~ "to run."
-#~ msgstr ""
-#~ "Для запуску цієї гри потрібен файл мікропрограми %s із відбитком SHA-512 "
-#~ "%s."
-
-#~ msgid "No module found for “%s”."
-#~ msgstr "Не знайдено модуля для «%s»."
-
-#~ msgid "No runner found"
-#~ msgstr "Не знайдено засобу запуску"
-
-#~ msgid "Testing Keyboard"
-#~ msgstr "Тестуємо клавіатуру"
-
-#~ msgid "Configuring Keyboard"
-#~ msgstr "Налаштовуємо клавіатуру"
-
-#~ msgid "“%s” doesn’t have a track for index %u."
-#~ msgstr "На «%s» немає доріжки для індексу %u."
-
-#~ msgid ""
-#~ "%s:%lu: Invalid file format %s, expected a valid file format or none."
-#~ msgstr ""
-#~ "%s:%lu: некоректний формат файлів %s, мало бути вказано коректний формат "
-#~ "або нічого."
-
-#~ msgid "%s:%lu: Unexpected token TRACK before a FILE token."
-#~ msgstr "%s:%lu: неочікуваний елемент TRACK перед елементом FILE."
-
-#~ msgid ""
-#~ "%s:%lu: Invalid track number %s, expected a number in the 1-99 range."
-#~ msgstr ""
-#~ "%s:%lu: некоректний номер доріжки %s, мало бути вказано номер у діапазоні "
-#~ "від 1 до 99."
-
-#~ msgid "%s:%lu: Invalid track mode %s, expected a valid track mode."
-#~ msgstr ""
-#~ "%s:%lu: некоректний режим доріжки %s, мало бути вказано коректний режим "
-#~ "доріжки."
-
-#~ msgid "%s:%lu: Unexpected end of file, expected %s."
-#~ msgstr "%s:%lu: неочікуване завершення файла, мало бути %s."
-
-#~ msgid "%s:%lu: Unexpected token %s, expected %s."
-#~ msgstr "%s:%lu: неочікуваний елемент %s, мало бути %s."
-
-#~ msgid "%s:%lu: Unexpected end of file, expected a token."
-#~ msgstr "%s:%lu: неочікуване завершення файла, мав бути елемент."
-
-#~ msgid "%s:%lu: Unexpected end of line, expected a token."
-#~ msgstr "%s:%lu: неочікуване завершення рядка, мав бути елемент."
-
-#~ msgid "%s:%lu: Unexpected token %s, expected end of line."
-#~ msgstr "%s:%lu: неочікуваний елемент %s, мало бути завершено рядок."
