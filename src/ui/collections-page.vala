@@ -45,9 +45,9 @@ private class Games.CollectionsPage : Gtk.Bin {
 		set {
 			_current_collection = value;
 
-			if (current_collection != null)
-				is_showing_user_collection = current_collection.get_collection_type () ==
-				                             Collection.CollectionType.USER;
+			is_showing_user_collection = current_collection != null &&
+			                             current_collection.get_collection_type () ==
+			                             Collection.CollectionType.USER;
 		}
 	}
 
