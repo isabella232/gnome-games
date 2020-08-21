@@ -7,6 +7,9 @@ private class Games.CollectionIconView : Gtk.FlowBoxChild {
 	[GtkChild]
 	private CollectionThumbnail thumbnail;
 
+	public bool checked { get; set; }
+	public bool is_selection_mode { get; set; }
+
 	private Collection _collection;
 	public Collection collection {
 		get { return _collection; }
@@ -18,7 +21,19 @@ private class Games.CollectionIconView : Gtk.FlowBoxChild {
 		}
 	}
 
+	construct {
+		get_style_context ().add_class ("collection-icon-view");
+	}
+
 	public CollectionIconView (Collection collection) {
 		Object (collection: collection);
+	}
+
+	public static uint hash (CollectionIconView key) {
+		return Collection.hash (key.collection);
+	}
+
+	public static bool equal (CollectionIconView a, CollectionIconView b) {
+		return Collection.equal (a.collection, b.collection);
 	}
 }

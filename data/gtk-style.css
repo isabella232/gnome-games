@@ -41,6 +41,15 @@
 	padding: 6px 32px;
 }
 
+.collection-icon-view {
+	transition: opacity 250ms;
+  }
+
+.collection-icon-view:disabled {
+	opacity: 0.5;
+	background: none;
+}
+
 gamescollectionsmainpage flowboxchild stack {
 	background: mix(@theme_base_color, @theme_bg_color, 0.5);
 	border-radius: 6px;

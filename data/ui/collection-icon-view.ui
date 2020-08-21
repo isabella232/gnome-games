@@ -9,8 +9,31 @@
           <property name="orientation">vertical</property>
           <property name="spacing">6</property>
           <child>
-            <object class="GamesCollectionThumbnail" id="thumbnail">
+            <object class="GtkOverlay">
               <property name="visible">True</property>
+              <child>
+                <object class="GamesCollectionThumbnail" id="thumbnail">
+                  <property name="visible">True</property>
+                </object>
+              </child>
+              <child type="overlay">
+                <object class="GtkRevealer">
+                  <property name="visible">True</property>
+                  <property name="transition-type">crossfade</property>
+                  <property name="reveal-child" bind-source="GamesCollectionIconView" bind-property="is_selection_mode"/>
+                  <child>
+                    <object class="GtkCheckButton" id="checkbox">
+                      <property name="visible">True</property>
+                      <property name="halign">end</property>
+                      <property name="valign">end</property>
+                      <property name="active" bind-source="GamesCollectionIconView" bind-property="checked" bind-flags="bidirectional"/>
+                      <style>
+                        <class name="check"/>
+                      </style>
+                    </object>
+                  </child>
+                </object>
+              </child>
             </object>
           </child>
           <child>
