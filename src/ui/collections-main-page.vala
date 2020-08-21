@@ -3,9 +3,19 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/collections-main-page.ui")]
 private class Games.CollectionsMainPage : Gtk.Bin {
 	public signal void collection_activated (Collection collection);
+	public signal void selected_items_changed ();
 	public signal void gamepad_accepted ();
 
+	[GtkChild]
+	private Gtk.FlowBox flow_box;
+	[GtkChild]
+	private GamepadBrowse gamepad_browse;
+	[GtkChild]
+	private Gtk.ScrolledWindow scrolled_window;
+
 	private Binding window_active_binding;
+	private GenericSet<CollectionIconView> selected_collections;
+
 	private bool _is_active;
 	public bool is_active {
 		get { return _is_active; }
@@ -30,12 +40,7 @@ private class Games.CollectionsMainPage : Gtk.Bin {
 		}
 	}
 
-	[GtkChild]
-	private Gtk.FlowBox flow_box;
-	[GtkChild]
-	private GamepadBrowse gamepad_browse;
-	[GtkChild]
-	private Gtk.ScrolledWindow scrolled_window;
+	public bool is_selection_mode { get; set; }
 
 	static construct {
 		set_css_name ("gamescollectionsmainpage");
@@ -43,6 +48,8 @@ private class Games.CollectionsMainPage : Gtk.Bin {
 
 	construct {
 		flow_box.max_children_per_line = uint.MAX;
+
+		selected_collections = new GenericSet<CollectionIconView> (CollectionIconView.hash, CollectionIconView.equal);
 	}
 
 	public bool has_collection_selected () {
@@ -69,7 +76,49 @@ private class Games.CollectionsMainPage : Gtk.Bin {
 	}
 
 	private Gtk.Widget add_collection (Object item) {
-		return new CollectionIconView (item as Collection);
+		var collection_icon_view = new CollectionIconView (item as Collection);
+		if (item is UserCollection) {
+			bind_property ("is-selection-mode", collection_icon_view, "is-selection-mode", BindingFlags.DEFAULT);
+			collection_icon_view.notify["checked"].connect (() => {
+				assert (collection_icon_view.collection is UserCollection);
+
+				if (collection_icon_view.checked)
+					selected_collections.add (collection_icon_view);
+				else
+					selected_collections.remove (collection_icon_view);
+
+				selected_items_changed ();
+			});
+		}
+		else
+			bind_property ("is-selection-mode", collection_icon_view, "sensitive", BindingFlags.INVERT_BOOLEAN);
+
+		return collection_icon_view;
+	}
+
+	public void select_none () {
+		foreach (var icon_view in selected_collections.get_values ())
+			icon_view.checked = false;
+
+		selected_collections.remove_all ();
+		selected_items_changed ();
+	}
+
+	public void select_all () {
+		foreach (var child in flow_box.get_children ()) {
+			var collection_icon_view = child as CollectionIconView;
+			collection_icon_view.checked = collection_icon_view.collection is UserCollection;
+		}
+
+		selected_items_changed ();
+	}
+
+	public UserCollection[] get_selected_collections () {
+		UserCollection[] collections = {};
+		foreach (var collection_icon_view in selected_collections.get_values ())
+			collections += collection_icon_view.collection as UserCollection;
+
+		return collections;
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {
@@ -164,6 +213,12 @@ private class Games.CollectionsMainPage : Gtk.Bin {
 	[GtkCallback]
 	private void on_child_activated (Gtk.FlowBoxChild child) {
 		var collection_icon_view = child as CollectionIconView;
+
+		if (is_selection_mode) {
+			collection_icon_view.checked = !collection_icon_view.checked;
+			return;
+		}
+
 		if (collection_icon_view != null)
 			collection_activated (collection_icon_view.collection);
 	}
