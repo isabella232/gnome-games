@@ -471,7 +471,7 @@
                     <property name="is-search-mode" bind-source="GamesCollectionView" bind-property="search-mode" bind-flags="bidirectional"/>
                     <signal name="game-activated" handler="on_game_activated"/>
                     <signal name="selected-items-changed" handler="on_selected_items_changed"/>
-                    <signal name="notify::is-subpage-open" handler="update_bottom_bar"/>
+                    <signal name="notify::is-subpage-open" handler="on_collection_subpage_opened"/>
                   </object>
                   <packing>
                     <property name="name">collections</property>
@@ -552,6 +552,8 @@
           <object class="GamesSelectionActionBar" id="selection_action_bar">
             <property name="visible">True</property>
             <property name="show-remove-button" bind-source="collections_page" bind-property="is-showing-user-collection"/>
+            <property name="show-game-actions" bind-source="GamesCollectionView" bind-property="show-game-actions"/>
+            <property name="show-remove-collection-button" bind-source="GamesCollectionView" bind-property="show-remove-action-button"/>
           </object>
         </child>
       </object>

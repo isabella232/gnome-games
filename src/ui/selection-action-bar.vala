@@ -19,6 +19,8 @@ private class Games.SelectionActionBar : Gtk.ActionBar {
 	}
 
 	public bool show_remove_button { get; set; }
+	public bool show_game_actions { get; set; }
+	public bool show_remove_collection_button { get; set; }
 
 	public enum FavoriteState {
 		NONE_FAVORITE,

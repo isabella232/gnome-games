@@ -136,6 +136,8 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	public bool is_selection_mode { get; set; }
 	public bool is_selection_available { get; set; }
 	public bool is_collection_rename_valid { get; set; }
+	public bool show_game_actions { get; set; }
+	public bool show_remove_action_button { get; set; }
 
 	private CollectionManager collection_manager;
 	private KonamiCode konami_code;
@@ -175,6 +177,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		window.insert_action_group ("view", action_group);
 
 		update_search_availablity ();
+		update_available_selection_actions ();
 	}
 
 	public void show_error (string error_message) {
@@ -415,8 +418,16 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	}
 
 	public void remove_collection () {
-		collections_page.remove_current_user_collection ();
+		if (viewstack.visible_child != collections_page)
+			return;
+
+		if (collections_page.is_subpage_open && collections_page.is_showing_user_collection)
+			collections_page.remove_current_user_collection ();
+		else
+			collections_page.remove_currently_selected_user_collections ();
+
 		undo_notification.show_notification ();
+		is_selection_mode = false;
 	}
 
 	public void rename_collection () {
@@ -434,6 +445,20 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		collections_page.current_collection.remove_games (games);
 		collections_page.update_is_collection_empty ();
 		select_none ();
+	}
+
+	private void update_available_selection_actions () {
+		show_game_actions = viewstack.visible_child != collections_page ||
+		                    collections_page.is_subpage_open;
+
+		show_remove_action_button = viewstack.visible_child == collections_page &&
+		                            !collections_page.is_subpage_open;
+	}
+
+	[GtkCallback]
+	private void on_collection_subpage_opened () {
+		update_bottom_bar ();
+		update_available_selection_actions ();
 	}
 
 	[GtkCallback]
@@ -483,9 +508,19 @@ private class Games.CollectionView : Gtk.Box, UiView {
 
 	[GtkCallback]
 	private void on_selected_items_changed () {
-		var games = get_currently_selected_games ();
+		int length = 0;
 
-		var length = games.length;
+		if (viewstack.visible_child == collections_page && !collections_page.is_subpage_open) {
+			var collections = collections_page.get_selected_collections ();
+			length = collections.length;
+			selection_action_bar.sensitive = length != 0;
+		}
+		else {
+			var games = get_currently_selected_games ();
+			length = games.length;
+			selection_action_bar.update (games);
+		}
+
 		string label;
 		if (length != 0)
 			label = ngettext ("Selected %d item", "Selected %d items", length).printf (length);
@@ -493,7 +528,6 @@ private class Games.CollectionView : Gtk.Box, UiView {
 			label = _("Click on items to select them");
 
 		selection_mode_label.label = label;
-		selection_action_bar.update (games);
 	}
 
 	[GtkCallback]
@@ -528,8 +562,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 
 	[GtkCallback]
 	private void update_selection_availability () {
-		is_selection_available = (viewstack.visible_child != platforms_page || !is_folded)
-		                         && viewstack.visible_child != collections_page;
+		is_selection_available = viewstack.visible_child != platforms_page || !is_folded;
 	}
 
 	[GtkCallback]
@@ -553,6 +586,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 
 		update_selection_availability ();
 		update_search_availablity ();
+		update_available_selection_actions ();
 	}
 
 	[GtkCallback]
