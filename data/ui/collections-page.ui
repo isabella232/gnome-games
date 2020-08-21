@@ -14,6 +14,7 @@
         <child>
           <object class="GamesCollectionsMainPage" id="collections_main_page">
             <property name="visible">True</property>
+            <property name="is-selection-mode" bind-source="GamesCollectionsPage" bind-property="is-selection-mode"/>
             <signal name="collection-activated" handler="on_collection_activated"/>
           </object>
         </child>

@@ -16,7 +16,7 @@ private class Games.CollectionsPage : Gtk.Bin {
 	[GtkChild]
 	private CollectionEmpty collection_empty_subpage;
 
-	private UserCollection? last_removed_collection;
+	private UserCollection[]? last_removed_collections;
 	private CollectionManager collection_manager;
 
 	private bool _is_collection_empty;
@@ -69,21 +69,32 @@ private class Games.CollectionsPage : Gtk.Bin {
 		collections_subpage.selected_items_changed.connect (() => {
 			selected_items_changed ();
 		});
+		collections_main_page.selected_items_changed.connect (() => {
+			selected_items_changed ();
+		});
 		update_can_swipe_back ();
 	}
 
 	public void select_all () {
 		if (is_subpage_open)
 			collections_subpage.select_all ();
+		else
+			collections_main_page.select_all ();
 	}
 
 	public void select_none () {
 		if (is_subpage_open)
 			collections_subpage.select_none ();
+		else
+			collections_main_page.select_none ();
 	}
 
 	public Game[] get_selected_games () {
 		return collections_subpage.get_selected_games ();
+	}
+
+	public UserCollection[] get_selected_collections () {
+		return collections_main_page.get_selected_collections ();
 	}
 
 	public bool gamepad_button_press_event (Manette.Event event) {
@@ -137,34 +148,51 @@ private class Games.CollectionsPage : Gtk.Bin {
 		if (!is_showing_user_collection || current_collection == null)
 			return;
 
-		/* translators: This is displayed in an undo notification when a game collection is removed */
-		removed_notification_title = _("%s removed").printf (current_collection.title);
-
-		if (last_removed_collection != null)
-			collection_manager.remove_user_collection (last_removed_collection);
-
-		assert (current_collection is UserCollection);
-		last_removed_collection = current_collection as UserCollection;
-		collection_model.remove_collection (current_collection);
-
+		remove_collections ({ current_collection as UserCollection });
 		on_subpage_back_clicked ();
 	}
 
+	public void remove_currently_selected_user_collections () {
+		remove_collections (collections_main_page.get_selected_collections ());
+	}
+
 	public void undo_remove_collection () {
-		if (last_removed_collection == null)
+		if (last_removed_collections == null)
 			return;
 
-		collection_model.add_collection (last_removed_collection);
-		last_removed_collection.games_changed ();
-		last_removed_collection = null;
+		foreach (var collection in last_removed_collections) {
+			collection_model.add_collection (collection);
+			collection.games_changed ();
+		}
+
+		last_removed_collections = null;
 	}
 
 	public void finalize_collection_removal () {
-		if (last_removed_collection == null)
+		if (last_removed_collections == null)
 			return;
 
-		collection_manager.remove_user_collection (last_removed_collection);
-		last_removed_collection = null;
+		foreach (var collection in last_removed_collections)
+			collection_manager.remove_user_collection (collection);
+
+		last_removed_collections = null;
+	}
+
+	private void remove_collections (UserCollection[] collections) {
+		if (collections.length == 0)
+			return;
+
+		finalize_collection_removal ();
+
+		foreach (var collection in collections)
+			collection_model.remove_collection (collection);
+
+		removed_notification_title = collections.length == 1 ?
+		                             _("%s removed").printf (collections[0].title) :
+		                             ngettext ("Removed %d collection", "Removed %d collections", collections.length)
+		                             .printf (collections.length);
+
+		last_removed_collections = collections;
 	}
 
 	[GtkCallback]
