@@ -56,6 +56,7 @@ private class Games.CollectionsPage : Gtk.Bin {
 	public bool is_subpage_open { get; set; }
 	public bool is_selection_mode { get; set; }
 	public bool is_showing_user_collection { get; set; }
+	public bool is_search_empty { get; set; }
 	public bool can_swipe_back { get; set; }
 	public string collection_title { get; set; }
 	public string removed_notification_title { get; set; }
@@ -126,6 +127,8 @@ private class Games.CollectionsPage : Gtk.Bin {
 	public void set_filter (string[] filtering_terms) {
 		if (is_subpage_open)
 			collections_subpage.set_filter (filtering_terms);
+		else
+			collections_main_page.set_filter (filtering_terms);
 	}
 
 	public Hdy.Deck get_collections_deck () {

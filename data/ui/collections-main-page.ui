@@ -6,6 +6,7 @@
     <signal name="map" after="yes" handler="on_map"/>
     <signal name="unmap" after="no" handler="on_unmap"/>
     <signal name="size-allocate" after="no" handler="on_size_allocate"/>
+    <signal name="notify::is-search-mode" handler="on_search_mode_changed"/>
     <child>
       <object class="GtkScrolledWindow" id="scrolled_window">
         <property name="visible">True</property>

@@ -13,6 +13,7 @@ private class Games.CollectionsMainPage : Gtk.Bin {
 	[GtkChild]
 	private Gtk.ScrolledWindow scrolled_window;
 
+	private string[] filtering_terms;
 	private Binding window_active_binding;
 	private GenericSet<CollectionIconView> selected_collections;
 
@@ -41,6 +42,8 @@ private class Games.CollectionsMainPage : Gtk.Bin {
 	}
 
 	public bool is_selection_mode { get; set; }
+	public bool is_search_mode { get; set; }
+	public bool is_search_empty { get; set; }
 
 	static construct {
 		set_css_name ("gamescollectionsmainpage");
@@ -107,7 +110,11 @@ private class Games.CollectionsMainPage : Gtk.Bin {
 	public void select_all () {
 		foreach (var child in flow_box.get_children ()) {
 			var collection_icon_view = child as CollectionIconView;
-			collection_icon_view.checked = collection_icon_view.collection is UserCollection;
+			if (is_search_mode)
+				collection_icon_view.checked = filtering_terms == null ||
+				                               filter_collection (collection_icon_view.collection);
+			else
+				collection_icon_view.checked = collection_icon_view.collection is UserCollection;
 		}
 
 		selected_items_changed ();
@@ -155,13 +162,67 @@ private class Games.CollectionsMainPage : Gtk.Bin {
 		collection_model.invalidate_sort ();
 	}
 
+	public void set_filter (string[] filtering_terms) {
+		this.filtering_terms = filtering_terms;
+		invalidate_filter ();
+		update_search_empty ();
+	}
+
+	private void update_search_empty () {
+		if (!is_search_mode || filtering_terms == null) {
+			is_search_empty = false;
+			return;
+		}
+
+		for (var i = 0; i < collection_model.get_n_items (); i++) {
+			var collection = collection_model.get_item (i) as Collection;
+			var type = collection.get_collection_type ();
+
+			if (type == Collection.CollectionType.PLACEHOLDER ||
+			   (type == Collection.CollectionType.AUTO && collection.is_empty))
+				continue;
+
+			if (collection.matches_search_terms (filtering_terms)) {
+				is_search_empty = false;
+				return;
+			}
+		}
+
+		is_search_empty = true;
+	}
+
+	private bool filter_collection (Collection collection) {
+		return collection.matches_search_terms (filtering_terms);
+	}
+
 	private bool collection_filter_func (Gtk.FlowBoxChild child) {
 		var collection_icon_view = child as CollectionIconView;
 		if (collection_icon_view == null)
 			return false;
 
-		return collection_icon_view.collection.get_collection_type () != AUTO ||
-		       !collection_icon_view.collection.is_empty;
+		var collection = collection_icon_view.collection;
+		var type = collection.get_collection_type ();
+
+		if (is_search_mode && filtering_terms.length != 0) {
+			switch (type) {
+			case Collection.CollectionType.AUTO:
+				return !collection.is_empty && filter_collection (collection);
+
+			case Collection.CollectionType.USER:
+				return filter_collection (collection);
+
+			case Collection.CollectionType.PLACEHOLDER:
+				return false;
+			}
+		}
+
+		return !collection_icon_view.collection.is_empty || type != Collection.CollectionType.AUTO;
+	}
+
+	[GtkCallback]
+	private void on_search_mode_changed () {
+		update_search_empty ();
+		invalidate_filter ();
 	}
 
 	[GtkCallback]

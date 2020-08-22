@@ -15,6 +15,8 @@
           <object class="GamesCollectionsMainPage" id="collections_main_page">
             <property name="visible">True</property>
             <property name="is-selection-mode" bind-source="GamesCollectionsPage" bind-property="is-selection-mode"/>
+            <property name="is-search-mode" bind-source="GamesCollectionsPage" bind-property="is-search-mode"/>
+            <property name="is-search-empty" bind-source="GamesCollectionsPage" bind-property="is-search-empty" bind-flags="bidirectional"/>
             <signal name="collection-activated" handler="on_collection_activated"/>
           </object>
         </child>
