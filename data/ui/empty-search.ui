@@ -20,9 +20,8 @@
       </object>
     </child>
     <child>
-      <object class="GtkLabel">
+      <object class="GtkLabel" id="title">
         <property name="visible">True</property>
-        <property name="label" translatable="yes">No games found</property>
         <property name="justify">center</property>
         <property name="wrap">True</property>
         <style>
