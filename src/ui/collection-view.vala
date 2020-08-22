@@ -95,9 +95,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 			else
 				filtering_terms = value.split (" ");
 
-			platforms_page.set_filter (filtering_terms);
-			games_page.set_filter (filtering_terms);
-			collections_page.set_filter (filtering_terms);
+			update_search_filters ();
 		}
 	}
 
@@ -138,6 +136,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	public bool is_collection_rename_valid { get; set; }
 	public bool show_game_actions { get; set; }
 	public bool show_remove_action_button { get; set; }
+	public bool is_add_available { get; set; }
 
 	private CollectionManager collection_manager;
 	private KonamiCode konami_code;
@@ -176,7 +175,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		action_group.add_action_entries (action_entries, this);
 		window.insert_action_group ("view", action_group);
 
-		update_search_availablity ();
+		update_add_game_availablity ();
 		update_available_selection_actions ();
 	}
 
@@ -207,8 +206,6 @@ private class Games.CollectionView : Gtk.Box, UiView {
 
 		if ((keyval == Gdk.Key.f || keyval == Gdk.Key.F) &&
 		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK &&
-		    (viewstack.visible_child != collections_page ||
-		     collections_page.is_subpage_open) &&
 		     !collections_page.is_collection_empty &&
 		     !is_empty_collection) {
 			if (!search_mode)
@@ -234,10 +231,8 @@ private class Games.CollectionView : Gtk.Box, UiView {
 			return true;
 		}
 
-		if ((viewstack.visible_child == collections_page
-		     && !collections_page.is_subpage_open) ||
-		     is_empty_collection ||
-		     (collections_page.is_subpage_open && collections_page.is_collection_empty))
+		if (is_empty_collection || (collections_page.is_subpage_open &&
+		    collections_page.is_collection_empty))
 			return false;
 
 		return search_bar.handle_event (event);
@@ -334,10 +329,6 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		catch (Error e) {
 			critical (e.message);
 		}
-	}
-
-	public void update_search_availablity () {
-		is_search_available = viewstack.visible_child != collections_page;
 	}
 
 	public void run_search (string query) {
@@ -455,10 +446,24 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		                            !collections_page.is_subpage_open;
 	}
 
+	private void update_add_game_availablity () {
+		is_add_available = viewstack.visible_child != collections_page;
+	}
+
+	private void update_search_filters () {
+		if (viewstack.visible_child == games_page)
+			games_page.set_filter (filtering_terms);
+		else if (viewstack.visible_child == platforms_page)
+			platforms_page.set_filter (filtering_terms);
+		else
+			collections_page.set_filter (filtering_terms);
+	}
+
 	[GtkCallback]
 	private void on_collection_subpage_opened () {
 		update_bottom_bar ();
 		update_available_selection_actions ();
+		search_mode = false;
 	}
 
 	[GtkCallback]
@@ -584,18 +589,39 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		else
 			collections_page.reset_scroll_position ();
 
+		filtering_text = null;
+
+		if (search_mode) {
+			on_search_text_notify ();
+		}
+
 		update_selection_availability ();
-		update_search_availablity ();
+		update_add_game_availablity ();
 		update_available_selection_actions ();
 	}
 
 	[GtkCallback]
 	private void on_search_text_notify () {
 		filtering_text = search_bar.text;
-		if (found_games ())
-			empty_stack.visible_child = viewstack;
-		else
+
+		bool is_search_empty;
+		EmptySearch.SearchItem search_item;
+		if (viewstack.visible_child != collections_page) {
+			is_search_empty = games_page.is_search_empty || platforms_page.is_search_empty;
+			search_item = EmptySearch.SearchItem.GAME;
+		}
+		else {
+			is_search_empty = collections_page.is_search_empty;
+			search_item = collections_page.is_subpage_open ? EmptySearch.SearchItem.GAME:
+			                                                 EmptySearch.SearchItem.COLLECTION;
+		}
+
+		if (is_search_empty) {
 			empty_stack.visible_child = empty_search;
+			empty_search.search_item = search_item;
+		}
+		else
+			empty_stack.visible_child = viewstack;
 
 		// Changing the filtering_text for the PlatformsPage might
 		// cause the currently selected sidebar row to become empty and therefore
@@ -604,15 +630,10 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		search_bar.focus_entry ();
 	}
 
-	private bool found_games () {
-		for (int i = 0; i < game_model.get_n_items (); i++) {
-			var game = game_model.get_item (i) as Game;
-
-			if (game.matches_search_terms (filtering_terms))
-				return true;
-		}
-
-		return false;
+	[GtkCallback]
+	private void on_search_mode_changed () {
+		if (!search_mode)
+			empty_stack.visible_child = viewstack;
 	}
 
 	[GtkCallback]
@@ -627,7 +648,6 @@ private class Games.CollectionView : Gtk.Box, UiView {
 
 		update_bottom_bar ();
 		update_selection_availability ();
-		update_search_availablity ();
 	}
 
 	[GtkCallback]

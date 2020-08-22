@@ -11,6 +11,7 @@
     <signal name="notify::is-subview-open" handler="update_bottom_bar"/>
     <signal name="notify::is-selection-mode" handler="on_selection_mode_changed"/>
     <signal name="notify::is-empty-collection" handler="on_empty_collection_changed"/>
+    <signal name="notify::search-mode" handler="on_search_mode_changed"/>
     <child>
       <object class="GtkStack" id="header_bar_stack">
         <property name="visible">True</property>
@@ -30,7 +31,7 @@
                       <property name="centering-policy">strict</property>
                       <child>
                         <object class="GtkButton" id="add_game">
-                          <property name="visible" bind-source="GamesCollectionView" bind-property="is-search-available"/>
+                          <property name="visible" bind-source="GamesCollectionView" bind-property="is-add-available"/>
                           <property name="valign">center</property>
                           <property name="action-name">app.add-game-files</property>
                           <style>
@@ -108,7 +109,7 @@
                       </child>
                       <child>
                         <object class="GtkToggleButton" id="search">
-                          <property name="visible" bind-source="GamesCollectionView" bind-property="is-search-available"/>
+                          <property name="visible">True</property>
                           <property name="valign">center</property>
                           <property name="active" bind-source="GamesCollectionView" bind-property="search-mode" bind-flags="bidirectional"/>
                           <property name="sensitive" bind-source="GamesCollectionView" bind-property="is-empty-collection" bind-flags="bidirectional|invert-boolean"/>
