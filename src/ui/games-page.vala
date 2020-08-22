@@ -61,6 +61,8 @@ private class Games.GamesPage : Gtk.Bin {
 	[GtkChild]
 	private GamepadBrowse gamepad_browse;
 
+	public bool is_search_empty { get; set; }
+
 	static construct {
 		set_css_name ("gamesgamespage");
 	}
@@ -114,6 +116,7 @@ private class Games.GamesPage : Gtk.Bin {
 	public void set_filter (string[] filtering_terms) {
 		this.filtering_terms = filtering_terms;
 		flow_box.invalidate_filter ();
+		update_is_search_empty ();
 	}
 
 	public void reset_scroll_position () {
@@ -253,6 +256,24 @@ private class Games.GamesPage : Gtk.Bin {
 			return false;
 
 		return game.matches_search_terms (filtering_terms);
+	}
+
+	private bool found_games () {
+		for (int i = 0; i < game_model.get_n_items (); i++) {
+			var game = game_model.get_item (i) as Game;
+
+			if (game.matches_search_terms (filtering_terms))
+				return true;
+		}
+
+		return false;
+	}
+
+	private void update_is_search_empty () {
+		if (filtering_terms == null || filtering_terms.length == 0)
+			is_search_empty = false;
+
+		is_search_empty = !found_games ();
 	}
 
 	[GtkCallback]

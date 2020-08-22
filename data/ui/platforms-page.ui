@@ -56,6 +56,7 @@
             <property name="visible">True</property>
             <property name="expand">True</property>
             <property name="is-selection-mode" bind-source="GamesPlatformsPage" bind-property="is-selection-mode"/>
+            <property name="is-search-empty" bind-source="GamesPlatformsPage" bind-property="is-search-empty" bind-flags="bidirectional"/>
             <signal name="game-activated" handler="on_game_activated"/>
           </object>
         </child>

@@ -50,6 +50,7 @@ private class Games.PlatformsPage : Gtk.Bin {
 	public bool is_subview_open { get; set; }
 	public string subview_title { get; set; }
 	public bool is_selection_mode { get; set; }
+	public bool is_search_empty { get; set; }
 
 	construct {
 		games_page.set_game_filter (filter_game);
