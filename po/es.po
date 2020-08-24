@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-07-17 12:43+0000\n"
-"PO-Revision-Date: 2020-08-13 10:55+0200\n"
+"POT-Creation-Date: 2020-08-19 20:28+0000\n"
+"PO-Revision-Date: 2020-08-24 12:03+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: data/org.gnome.Games.appdata.xml.in.in:7
 #: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-view.ui:81
-#: data/ui/collection-view.ui:432 src/ui/application.vala:49
+#: data/ui/collection-view.ui:447 src/ui/application.vala:49
 msgid "Games"
 msgstr "Juegos"
 
@@ -139,13 +139,80 @@ msgstr ""
 "Núcleo de Libretro preferido usado para ejecutar juegos. Se puede usar otro "
 "si al núcleo preferido le falta el «firmware»."
 
+#: data/ui/collection-action-window.ui:5 data/ui/collection-action-window.ui:22
+#| msgid "Collection"
+msgid "Add to Collection"
+msgstr "Añadir a su colección"
+
+#: data/ui/collection-action-window.ui:27 data/ui/collection-view.ui:322
+#: src/ui/application.vala:171 src/ui/preferences-page-import-export.vala:10
+#: src/ui/preferences-page-import-export.vala:32
+msgid "_Cancel"
+msgstr "_Cancelar"
+
+#: data/ui/collection-action-window.ui:35 src/ui/application.vala:172
+msgid "_Add"
+msgstr "_Añadir"
+
+#: data/ui/collection-action-window.ui:61 data/ui/collection-view.ui:120
+#: data/ui/collection-view.ui:197 data/ui/collection-view.ui:296
+#: data/ui/collection-view.ui:346
+msgid "Search"
+msgstr "Buscar"
+
+#: data/ui/collection-action-window.ui:144
+#| msgid "No games found"
+msgid "No collections found"
+msgstr "No se encontraron colecciones"
+
+#: data/ui/collection-action-window.ui:160
+#| msgid "Add selected games to favorites"
+msgid "Add a new collection to add games to it."
+msgstr "Cree una colección nuevo para añadirle juegos."
+
+#: data/ui/collection-action-window.ui:173
+#| msgid "Collection"
+msgid "Create Collection"
+msgstr "Crear colección"
+
+#: data/ui/collection-action-window.ui:179
+#| msgid "Collection"
+msgid "Create a collection"
+msgstr "Crear una colección"
+
+#: data/ui/collection-action-window.ui:204
+#| msgid "Collection"
+msgid "Add a Collection"
+msgstr "Añadir a una colección"
+
+#: data/ui/collection-action-window.ui:212 data/ui/collection-view.ui:152
+#: data/ui/collection-view.ui:231 data/ui/display-view.ui:34
+#: data/ui/display-view.ui:169 data/ui/preferences-subpage-gamepad.ui:33
+#: data/ui/preferences-subpage-keyboard.ui:35
+msgid "Back"
+msgstr "Atrás"
+
+#: data/ui/collection-action-window.ui:251
+msgid "Enter a collection name"
+msgstr "Introduzca el nombre de la colección"
+
+#: data/ui/collection-action-window.ui:280
+msgid "C_reate"
+msgstr "C_rear"
+
+#: data/ui/collection-action-window.ui:289
+#| msgid "Collection"
+msgid "Create collection"
+msgstr "Crear colección"
+
 #: data/ui/collection-empty.ui:24
 msgid "This collection is empty"
 msgstr "Esta colección está vacía"
 
 #: data/ui/collection-empty.ui:39
-msgid "Please add some games to this collection to see them here."
-msgstr "Añada algunos juegos para verlos aquí."
+#| msgid "Please add some games to this collection to see them here."
+msgid "Add some games to this collection to see them here."
+msgstr "Añada algunos juegos a esta colección para verlos aquí."
 
 #: data/ui/collection-view.ui:41
 msgid "Add game files…"
@@ -157,75 +224,75 @@ msgid "Menu"
 msgstr "Menú"
 
 #: data/ui/collection-view.ui:101 data/ui/collection-view.ui:178
-#: data/ui/collection-view.ui:265
+#: data/ui/collection-view.ui:277
 msgid "Select games"
 msgstr "Seleccionar juegos"
 
-#: data/ui/collection-view.ui:120 data/ui/collection-view.ui:197
-#: data/ui/collection-view.ui:284 data/ui/collection-view.ui:334
-msgid "Search"
-msgstr "Buscar"
+#: data/ui/collection-view.ui:246
+#| msgid "Collection"
+msgid "Collection menu"
+msgstr "Menú de la colección"
 
-#: data/ui/collection-view.ui:152 data/ui/collection-view.ui:230
-#: data/ui/display-view.ui:34 data/ui/display-view.ui:169
-#: data/ui/preferences-subpage-gamepad.ui:33
-#: data/ui/preferences-subpage-keyboard.ui:35
-msgid "Back"
-msgstr "Atrás"
-
-#: data/ui/collection-view.ui:310 src/ui/application.vala:171
-#: src/ui/preferences-page-import-export.vala:10
-#: src/ui/preferences-page-import-export.vala:32
-msgid "_Cancel"
-msgstr "_Cancelar"
-
-#: data/ui/collection-view.ui:315 data/ui/preferences-subpage-gamepad.ui:102
+#: data/ui/collection-view.ui:327 data/ui/preferences-subpage-gamepad.ui:102
 #: data/ui/preferences-subpage-keyboard.ui:105 data/ui/quit-dialog.ui:15
 #: data/ui/reset-controller-mapping-dialog.ui:15 data/ui/restart-dialog.ui:15
 #: data/ui/resume-failed-dialog.ui:14
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: data/ui/collection-view.ui:361
+#: data/ui/collection-view.ui:373 src/ui/collection-view.vala:493
 msgid "Click on items to select them"
 msgstr "Pulse sobre los elementos para seleccionarlos"
 
-#: data/ui/collection-view.ui:449 data/ui/preferences-window.ui:67
+#: data/ui/collection-view.ui:464 data/ui/preferences-window.ui:67
 msgid "Platforms"
 msgstr "Plataformas"
 
-#: data/ui/collection-view.ui:464
-#| msgid "Collection"
+#: data/ui/collection-view.ui:479
 msgid "Collections"
 msgstr "Colecciones"
 
-#: data/ui/collection-view.ui:490
+#: data/ui/collection-view.ui:505
 msgid "Loading"
 msgstr "Cargando"
 
-#: data/ui/collection-view.ui:545
+#: data/ui/collection-view.ui:573
+#| msgid "Collection"
+msgid "Rename Collection"
+msgstr "Renombrar colección"
+
+#: data/ui/collection-view.ui:594 data/ui/collection-view.ui:666
+#: data/ui/snapshots-list.ui:103 data/ui/snapshots-list.ui:153
+msgid "_Rename"
+msgstr "_Renombrar"
+
+#: data/ui/collection-view.ui:634
 msgid "Pr_eferences"
 msgstr "Prefere_ncias"
 
-#: data/ui/collection-view.ui:549
+#: data/ui/collection-view.ui:638
 msgid "_Keyboard Shortcuts"
 msgstr "Atajos de _teclado"
 
-#: data/ui/collection-view.ui:553
+#: data/ui/collection-view.ui:642
 msgid "_Help"
 msgstr "A_yuda"
 
-#: data/ui/collection-view.ui:557
+#: data/ui/collection-view.ui:646
 msgid "_About Games"
 msgstr "_Acerca de Juegos"
 
-#: data/ui/collection-view.ui:565
+#: data/ui/collection-view.ui:654
 msgid "Select All"
 msgstr "Seleccionar todos"
 
-#: data/ui/collection-view.ui:569
+#: data/ui/collection-view.ui:658
 msgid "Select None"
 msgstr "Seleccionar vista"
+
+#: data/ui/collection-view.ui:670
+msgid "R_emove"
+msgstr "_Quitar"
 
 #: data/ui/display-view.ui:57
 msgid "Restore"
@@ -417,9 +484,29 @@ msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Reiniciar"
 
-#: data/ui/selection-action-bar.ui:10
-msgid "Add/Remove games to favorite"
-msgstr "Añadir/quitar juegos de sus favoritos"
+#: data/ui/selection-action-bar.ui:11
+#| msgid "Add selected games to favorites"
+msgid "Add/Remove selected games to favorite"
+msgstr "Añadir/quitar los juegos seleccionados a sus favoritos"
+
+#: data/ui/selection-action-bar.ui:50
+#| msgid "Collection"
+msgid "_Add to Collection"
+msgstr "_Añadir a la colección"
+
+#: data/ui/selection-action-bar.ui:53
+#| msgid "Add selected games to favorites"
+msgid "Add selected games to a collection"
+msgstr "Añadir los juegos seleccionados a una colección"
+
+#: data/ui/selection-action-bar.ui:59
+msgid "_Remove"
+msgstr "_Quitar"
+
+#: data/ui/selection-action-bar.ui:62
+#| msgid "Remove selected games from favorites"
+msgid "Remove selected games from this collection"
+msgstr "Quitar los juegos seleccionados de esta colección"
 
 #: data/ui/shortcuts-window.ui:11
 msgid "Shortcuts"
@@ -634,13 +721,13 @@ msgstr "Crear instantánea nueva"
 msgid "_Delete"
 msgstr "_Eliminar"
 
-#: data/ui/snapshots-list.ui:103 data/ui/snapshots-list.ui:153
-msgid "_Rename"
-msgstr "_Renombrar"
-
 #: data/ui/snapshots-list.ui:129
 msgid "Name"
 msgstr "Nombre"
+
+#: data/ui/undo-notification.ui:28
+msgid "_Undo"
+msgstr "Des_hacer"
 
 #: plugins/desktop/src/desktop-plugin.vala:6
 msgid "Desktop"
@@ -760,9 +847,18 @@ msgstr "Virtual Boy"
 msgid "Wii"
 msgstr "Wii"
 
-#: src/collection/favorites-collection.vala:32
+#: src/collection/dummy-add-collection.vala:9
+#| msgid "Collection"
+msgid "Add Collection"
+msgstr "Añadir colección"
+
+#: src/collection/favorites-collection.vala:15
 msgid "Favorites"
 msgstr "Favoritos"
+
+#: src/collection/recently-played-collection.vala:15
+msgid "Recently Played"
+msgstr "Jugados recientemente"
 
 #: src/core/snapshot-manager.vala:82 src/core/snapshot-manager.vala:107
 #, c-format
@@ -787,7 +883,7 @@ msgstr "El sistema «%s» todavía no está soportado, pero llegará pronto."
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "El sistema todavía no está soportado, pero llegará pronto."
 
-#: src/retro/retro-runner.vala:441
+#: src/retro/retro-runner.vala:443
 msgid "Unknown platform"
 msgstr "Plataforma desconocida"
 
@@ -902,10 +998,6 @@ msgstr "Ejecutar un juego por UID"
 msgid "Select game files"
 msgstr "Seleccionar archivos de juegos"
 
-#: src/ui/application.vala:172
-msgid "_Add"
-msgstr "_Añadir"
-
 #: src/ui/application.vala:217
 #, c-format
 msgid "An unexpected error occurred while trying to run %s"
@@ -916,25 +1008,25 @@ msgstr "Ha ocurrido un error inesperado al intentar ejecutar %s"
 msgid "Cannot find game with UID “%s”."
 msgstr "No se puede jugar al juego con UID «%s»."
 
-#: src/ui/application.vala:321
+#: src/ui/application.vala:322
 msgid "Couldn't find Tracker, automatic game discovery may not work."
 msgstr ""
 "No se ha podido encontrar Tracker, el descubrimiento automático de juegos "
 "puede que no funcione."
 
-#: src/ui/application.vala:497
+#: src/ui/application.vala:498
 msgid "GNOME Games"
 msgstr "Juegos de GNOME"
 
-#: src/ui/application.vala:499
+#: src/ui/application.vala:500
 msgid "A video game player for GNOME"
 msgstr "Un reproductor de videojuegos para GNOME"
 
-#: src/ui/application.vala:503
+#: src/ui/application.vala:504
 msgid "Learn more about GNOME Games"
 msgstr "Más información acerca de Juegos de GNOME"
 
-#: src/ui/application.vala:510
+#: src/ui/application.vala:511
 msgid "translator-credits"
 msgstr ""
 "Daniel Mustieles <daniel.mustieles@gmail.com>, 2016, 2018, 2019\n"
@@ -942,9 +1034,33 @@ msgstr ""
 
 #. Translators: This is displayed if the user tries to log out of his
 #. * GNOME session, shutdown, or reboot while Games is running
-#: src/ui/application-window.vala:266 src/ui/application-window.vala:285
+#: src/ui/application-window.vala:271 src/ui/application-window.vala:290
 msgid "Playing a game"
 msgstr "Jugando a un juego"
+
+#: src/ui/collection-action-window.vala:226 src/ui/collection-view.vala:449
+msgid "Collection name cannot be empty"
+msgstr "El nombre de la colección no puede estar vacío"
+
+#: src/ui/collection-action-window.vala:233 src/ui/collection-view.vala:453
+#| msgid "A snapshot with this name already exists"
+msgid "A collection with this name already exists"
+msgstr "Ya existe una colección con este nombre"
+
+#. translators: This is displayed in an undo notification when a game collection is removed
+#: src/ui/collections-page.vala:141
+#, c-format
+msgid "%s removed"
+msgstr "%s quitado"
+
+#: src/ui/collection-view.vala:491
+#, c-format
+#| msgctxt "shortcut window"
+#| msgid "Select view"
+msgid "Selected %d item"
+msgid_plural "Selected %d items"
+msgstr[0] "Seleccionado %d elemento"
+msgstr[1] "Seleccionados %d elementos"
 
 #: src/ui/error-display.vala:15
 #, c-format
@@ -998,8 +1114,7 @@ msgstr "No se han podido exportar los datos guardados: %s"
 #. Translators: This is displayed under the platform name when no
 #. * core is available for this platform. To see this message, click
 #. * on the hamburger menu, click on Preferences, then on Platforms
-#: src/ui/preferences-page-platforms-retro-row.vala:44
-#: src/ui/preferences-page-platforms-retro-row.vala:54
+#: src/ui/preferences-page-platforms-retro-row.vala:18
 msgid "None"
 msgstr "Ninguna"
 
@@ -1031,12 +1146,11 @@ msgstr "Probando %s"
 msgid "Configuring %s"
 msgstr "Configurando %s"
 
-#: src/ui/selection-action-bar.vala:45
+#: src/ui/selection-action-bar.vala:47
 msgid "Remove selected games from favorites"
 msgstr "Quitar los juegos seleccionados de sus favoritos"
 
-#: src/ui/selection-action-bar.vala:49
-#| msgid "Select game files"
+#: src/ui/selection-action-bar.vala:51
 msgid "Add selected games to favorites"
 msgstr "Añadir los juegos seleccionados a sus favoritos"
 
@@ -1100,6 +1214,9 @@ msgstr "Error: %s (%d)"
 #, c-format
 msgid "Error writing “%s”: %s (%d)"
 msgstr "Error al escribir «%s»: %s (%d)"
+
+#~ msgid "Add/Remove games to favorite"
+#~ msgstr "Añadir/quitar juegos de sus favoritos"
 
 #~ msgid "Invalid command “%s”."
 #~ msgstr "Comando «%s» no válido."
