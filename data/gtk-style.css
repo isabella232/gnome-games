@@ -43,10 +43,10 @@
 
 .collection-icon-view {
 	transition: opacity 250ms;
-  }
+}
 
 .collection-icon-view:disabled {
-	opacity: 0.5;
+	opacity: 0.2;
 	background: none;
 }
 
