@@ -1,3 +1,39 @@
+===============
+Version 3.37.90
+===============
+
+* Introduce collections
+ - Favorites
+ - Recently Played
+ - Manual collections
+ - Selection mode to manage collections and favorite games
+
+* UI
+ - Blur background behind game covers
+ - Overhaul preferences window to match HdyPreferencesWindow layout
+ - Remove delay before pausing the game after focusing out
+ - Make headerbar semi-transparent in fullscreen mode
+
+* Fixes
+ - Fix desktop game detection
+ - Fix criticals after removing games
+ - Properly reveal the titlebar after exiting fullscreen mode
+ - Fix Ctrl+Q shortcut on non-latin keyboard layouts
+ - Don't use unsupported Vala syntax
+
+* Build
+ - Depend on libhandy 0.90.0
+
+* Translation updates
+ Brazilian Portuguese
+ Finnish
+ Indonesian
+ Polish
+ Romanian
+ Spanish
+ Swedish
+ Ukrainian
+
 ==============
 Version 3.37.2
 ==============

@@ -43,6 +43,34 @@
   </screenshots>
 
   <releases>
+    <release version="3.37.90" type="development" date="2020-08-25" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>Introduce collections
+            <ul>
+              <li>Favorites</li>
+              <li>Recently Played</li>
+              <li>Manual collections</li>
+              <li>Favorites</li>
+              <li>Selection mode to manage collections and favorite games</li>
+            </ul>
+          </li>
+          <li>Blur background behind game covers</li>
+          <li>Overhaul preferences window to match HdyPreferencesWindow layout</li>
+          <li>Remove delay before pausing the game after focusing out</li>
+          <li>Make headerbar semi-transparent in fullscreen mode</li>
+        </ul>
+        <p>Fixes:</p>
+        <ul>
+          <li>Fix desktop game detection</li>
+          <li>Fix criticals after removing games</li>
+          <li>Properly reveal the titlebar after exiting fullscreen mode</li>
+          <li>Fix Ctrl+Q shortcut on non-latin keyboard layouts</li>
+        </ul>
+        <p>Translation updates.</p>
+      </description>
+    </release>
     <release version="3.37.2" type="development" date="2020-05-29" urgency="medium">
       <description>
         <p>Improvements:</p>
