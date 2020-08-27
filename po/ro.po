@@ -7,21 +7,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-07-24 10:53+0000\n"
-"PO-Revision-Date: 2020-07-24 14:52+0300\n"
+"POT-Creation-Date: 2020-08-25 11:12+0000\n"
+"PO-Revision-Date: 2020-08-27 10:14+0200\n"
+"Last-Translator: Florentina Mușat <florentina.musat.28@gmail.com>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
-"20)) ? 1 : 2);;\n"
-"Last-Translator: Florentina Mușat <florentina.musat.28@gmail.com>\n"
-"X-Generator: Poedit 2.4\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n==0 || (n!=1 && n%100>=1 && n"
+"%100<=19) ? 1 : 2);\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:7
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-view.ui:81
-#: data/ui/collection-view.ui:432 src/ui/application.vala:49
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-view.ui:82
+#: data/ui/collection-view.ui:448 src/ui/application.vala:49
 msgid "Games"
 msgstr "Jocuri"
 
@@ -137,92 +137,150 @@ msgstr ""
 "nucleu diferit poate fi utilizat dacă nucleului preferat îi lipsește "
 "firmware."
 
+#: data/ui/collection-action-window.ui:5 data/ui/collection-action-window.ui:22
+msgid "Add to Collection"
+msgstr "Adaugă la colecție"
+
+#: data/ui/collection-action-window.ui:27 data/ui/collection-view.ui:323
+#: src/ui/application.vala:171 src/ui/preferences-page-import-export.vala:10
+#: src/ui/preferences-page-import-export.vala:32
+msgid "_Cancel"
+msgstr "_Anulează"
+
+#: data/ui/collection-action-window.ui:35 src/ui/application.vala:172
+msgid "_Add"
+msgstr "_Adaugă"
+
+#: data/ui/collection-action-window.ui:61 data/ui/collection-view.ui:121
+#: data/ui/collection-view.ui:198 data/ui/collection-view.ui:297
+#: data/ui/collection-view.ui:347
+msgid "Search"
+msgstr "Caută"
+
+#: data/ui/collection-action-window.ui:144
+msgid "No collections found"
+msgstr "Nu au fost găsite colecții"
+
+#: data/ui/collection-action-window.ui:160
+msgid "Add a new collection to add games to it."
+msgstr "Adaugă o nouă colecție pentru a adăuga jocuri la ea."
+
+#: data/ui/collection-action-window.ui:173
+msgid "Create Collection"
+msgstr "Creează colecție"
+
+#: data/ui/collection-action-window.ui:179
+msgid "Create a collection"
+msgstr "Creează o colecție"
+
+#: data/ui/collection-action-window.ui:204
+msgid "Add a Collection"
+msgstr "Adaugă o colecție"
+
+#: data/ui/collection-action-window.ui:212 data/ui/collection-view.ui:153
+#: data/ui/collection-view.ui:232 data/ui/display-view.ui:34
+#: data/ui/display-view.ui:169 data/ui/preferences-subpage-gamepad.ui:33
+#: data/ui/preferences-subpage-keyboard.ui:35
+msgid "Back"
+msgstr "Înapoi"
+
+#: data/ui/collection-action-window.ui:251
+msgid "Enter a collection name"
+msgstr "Introdu un nume de colecție"
+
+#: data/ui/collection-action-window.ui:280
+msgid "C_reate"
+msgstr "C_rează"
+
+#: data/ui/collection-action-window.ui:289
+msgid "Create collection"
+msgstr "Creează colecție"
+
 #: data/ui/collection-empty.ui:24
 msgid "This collection is empty"
 msgstr "Această colecție este goală"
 
 #: data/ui/collection-empty.ui:39
-msgid "Please add some games to this collection to see them here."
+msgid "Add some games to this collection to see them here."
 msgstr "Adăugați niște jocuri la această colecție pentru a le vedea aici."
 
-#: data/ui/collection-view.ui:41
+#: data/ui/collection-view.ui:42
 msgid "Add game files…"
 msgstr "Adaugă fișiere de joc…"
 
 #. Translators: tooltip for the application menu button
-#: data/ui/collection-view.ui:60
+#: data/ui/collection-view.ui:61
 msgid "Menu"
 msgstr "Meniu"
 
-#: data/ui/collection-view.ui:101 data/ui/collection-view.ui:178
-#: data/ui/collection-view.ui:265
+#: data/ui/collection-view.ui:102 data/ui/collection-view.ui:179
+#: data/ui/collection-view.ui:278
 msgid "Select games"
 msgstr "Selectează jocurile"
 
-#: data/ui/collection-view.ui:120 data/ui/collection-view.ui:197
-#: data/ui/collection-view.ui:284 data/ui/collection-view.ui:334
-msgid "Search"
-msgstr "Caută"
+#: data/ui/collection-view.ui:247
+msgid "Collection menu"
+msgstr "Meniu colecție"
 
-#: data/ui/collection-view.ui:152 data/ui/collection-view.ui:230
-#: data/ui/display-view.ui:34 data/ui/display-view.ui:169
-#: data/ui/preferences-subpage-gamepad.ui:33
-#: data/ui/preferences-subpage-keyboard.ui:35
-msgid "Back"
-msgstr "Înapoi"
-
-#: data/ui/collection-view.ui:310 src/ui/application.vala:171
-#: src/ui/preferences-page-import-export.vala:10
-#: src/ui/preferences-page-import-export.vala:32
-msgid "_Cancel"
-msgstr "_Anulează"
-
-#: data/ui/collection-view.ui:315 data/ui/preferences-subpage-gamepad.ui:102
+#: data/ui/collection-view.ui:328 data/ui/preferences-subpage-gamepad.ui:102
 #: data/ui/preferences-subpage-keyboard.ui:105 data/ui/quit-dialog.ui:15
 #: data/ui/reset-controller-mapping-dialog.ui:15 data/ui/restart-dialog.ui:15
 #: data/ui/resume-failed-dialog.ui:14
 msgid "Cancel"
 msgstr "Anulează"
 
-#: data/ui/collection-view.ui:361
+#: data/ui/collection-view.ui:374 src/ui/collection-view.vala:533
 msgid "Click on items to select them"
 msgstr "Apăsați clic pe elemente pentru a le selecta"
 
-#: data/ui/collection-view.ui:449 data/ui/preferences-window.ui:67
+#: data/ui/collection-view.ui:465 data/ui/preferences-window.ui:67
 msgid "Platforms"
 msgstr "Platforme"
 
-#: data/ui/collection-view.ui:464
+#: data/ui/collection-view.ui:480
 msgid "Collections"
 msgstr "Colecții"
 
-#: data/ui/collection-view.ui:490
+#: data/ui/collection-view.ui:506
 msgid "Loading"
 msgstr "Se încarcă"
 
-#: data/ui/collection-view.ui:545
+#: data/ui/collection-view.ui:576
+msgid "Rename Collection"
+msgstr "Redenumire colecție"
+
+#: data/ui/collection-view.ui:597 data/ui/collection-view.ui:669
+#: data/ui/snapshots-list.ui:103 data/ui/snapshots-list.ui:153
+msgid "_Rename"
+msgstr "Rede_numește"
+
+#: data/ui/collection-view.ui:637
 msgid "Pr_eferences"
 msgstr "Pr_eferințe"
 
-#: data/ui/collection-view.ui:549
+#: data/ui/collection-view.ui:641
 msgid "_Keyboard Shortcuts"
 msgstr "Scurtături de _tastatură"
 
-#: data/ui/collection-view.ui:553
+#: data/ui/collection-view.ui:645
 msgid "_Help"
 msgstr "_Ajutor"
 
-#: data/ui/collection-view.ui:557
+#: data/ui/collection-view.ui:649
 msgid "_About Games"
 msgstr "_Despre jocuri"
 
-#: data/ui/collection-view.ui:565
+#: data/ui/collection-view.ui:657
 msgid "Select All"
 msgstr "Selectează toate"
 
-#: data/ui/collection-view.ui:569
+#: data/ui/collection-view.ui:661
 msgid "Select None"
 msgstr "Nu selecta nimic"
+
+#: data/ui/collection-view.ui:673
+msgid "R_emove"
+msgstr "_Elimină"
 
 #: data/ui/display-view.ui:57
 msgid "Restore"
@@ -241,7 +299,7 @@ msgid "_Snapshots"
 msgstr "_Instantanee"
 
 #. Translators: This is displayed when the games library is empty.
-#: data/ui/empty-collection.ui:23 data/ui/empty-search.ui:25
+#: data/ui/empty-collection.ui:23
 msgid "No games found"
 msgstr "Nu au fost găsite jocuri"
 
@@ -253,7 +311,7 @@ msgstr ""
 "Instalează jocuri sau adaugă directoare care conțin jocuri la sursele de "
 "căutare proprii."
 
-#: data/ui/empty-search.ui:40
+#: data/ui/empty-search.ui:39
 msgid "Try a different search."
 msgstr "Încearcă o căutare diferită."
 
@@ -414,9 +472,29 @@ msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Restabilește"
 
-#: data/ui/selection-action-bar.ui:10
-msgid "Add/Remove games to favorite"
-msgstr "Adaugă/Elimină jocuri la favorite"
+#: data/ui/selection-action-bar.ui:16
+msgid "Add/Remove selected games to favorite"
+msgstr "Adaugă/elimină jocurile selectate la favorite"
+
+#: data/ui/selection-action-bar.ui:55
+msgid "_Add to Collection"
+msgstr "_Adaugă la colecție"
+
+#: data/ui/selection-action-bar.ui:58
+msgid "Add selected games to a collection"
+msgstr "Adaugă jocurile selectate la o colecție"
+
+#: data/ui/selection-action-bar.ui:64 data/ui/selection-action-bar.ui:81
+msgid "_Remove"
+msgstr "E_limină"
+
+#: data/ui/selection-action-bar.ui:67
+msgid "Remove selected games from this collection"
+msgstr "Elimină jocurile selectate de la această colecție"
+
+#: data/ui/selection-action-bar.ui:84
+msgid "Remove selected collections"
+msgstr "Elimină colecțiile selectate"
 
 #: data/ui/shortcuts-window.ui:11
 msgid "Shortcuts"
@@ -630,13 +708,13 @@ msgstr "Creează un instantaneu nou"
 msgid "_Delete"
 msgstr "Ș_terge"
 
-#: data/ui/snapshots-list.ui:103 data/ui/snapshots-list.ui:153
-msgid "_Rename"
-msgstr "Rede_numește"
-
 #: data/ui/snapshots-list.ui:129
 msgid "Name"
 msgstr "Nume"
+
+#: data/ui/undo-notification.ui:28
+msgid "_Undo"
+msgstr "An_ulează"
 
 #: plugins/desktop/src/desktop-plugin.vala:6
 msgid "Desktop"
@@ -756,9 +834,17 @@ msgstr "Virtual Boy"
 msgid "Wii"
 msgstr "Wii"
 
-#: src/collection/favorites-collection.vala:32
+#: src/collection/dummy-add-collection.vala:9
+msgid "Add Collection"
+msgstr "Adaugă colecție"
+
+#: src/collection/favorites-collection.vala:15
 msgid "Favorites"
 msgstr "Favorite"
+
+#: src/collection/recently-played-collection.vala:15
+msgid "Recently Played"
+msgstr "Jucate recent"
 
 #: src/core/snapshot-manager.vala:82 src/core/snapshot-manager.vala:107
 #, c-format
@@ -784,7 +870,7 @@ msgstr ""
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Sistemul nu este încă suportat, dar suportul complet este planificat."
 
-#: src/retro/retro-runner.vala:441
+#: src/retro/retro-runner.vala:443
 msgid "Unknown platform"
 msgstr "Platformă necunoscută"
 
@@ -899,10 +985,6 @@ msgstr "Rulează un joc după uid"
 msgid "Select game files"
 msgstr "Selectează fișierele jocului"
 
-#: src/ui/application.vala:172
-msgid "_Add"
-msgstr "_Adaugă"
-
 #: src/ui/application.vala:217
 #, c-format
 msgid "An unexpected error occurred while trying to run %s"
@@ -913,34 +995,65 @@ msgstr "A apărut o eroare neașteptată în timp ce se încerca rularea lui %s"
 msgid "Cannot find game with UID “%s”."
 msgstr "Nu se poate găsi jocul cu UID-ul „%s”."
 
-#: src/ui/application.vala:321
+#: src/ui/application.vala:322
 msgid "Couldn't find Tracker, automatic game discovery may not work."
 msgstr ""
 "Nu s-a putut găsi urmăritorul, descoperirea de jocuri automată poate să nu "
 "funcționeze."
 
-#: src/ui/application.vala:497
+#: src/ui/application.vala:498
 msgid "GNOME Games"
 msgstr "Jocuri GNOME"
 
-#: src/ui/application.vala:499
+#: src/ui/application.vala:500
 msgid "A video game player for GNOME"
 msgstr "Un player de jocuri video pentru GNOME"
 
-#: src/ui/application.vala:503
+#: src/ui/application.vala:504
 msgid "Learn more about GNOME Games"
 msgstr "Află mai multe despre Jocuri GNOME"
 
-#: src/ui/application.vala:510
+#: src/ui/application.vala:511
 msgid "translator-credits"
 msgstr ""
-"Florentina Mușat <florentina [dot] musat [dot] 28 [at] gmail [dot] com>, 2020"
+"Florentina Mușat <florentina [dot] musat [dot] 28 [at] gmail [dot] com>, "
+"2020\n"
+"Daniel Șerbănescu <daniel [at] serbanescu [dot] dk>, 2020"
 
 #. Translators: This is displayed if the user tries to log out of his
 #. * GNOME session, shutdown, or reboot while Games is running
-#: src/ui/application-window.vala:266 src/ui/application-window.vala:285
+#: src/ui/application-window.vala:271 src/ui/application-window.vala:290
 msgid "Playing a game"
 msgstr "Se joacă un joc"
+
+#: src/ui/collection-action-window.vala:226 src/ui/collection-view.vala:479
+msgid "Collection name cannot be empty"
+msgstr "Numele de colecție nu poate fi gol"
+
+#: src/ui/collection-action-window.vala:233 src/ui/collection-view.vala:483
+msgid "A collection with this name already exists"
+msgstr "O colecție cu acest nume există deja"
+
+#: src/ui/collections-page.vala:194
+#, c-format
+msgid "%s removed"
+msgstr "%s eliminat"
+
+#: src/ui/collections-page.vala:195
+#, c-format
+msgid "Removed %d collection"
+msgid_plural "Removed %d collections"
+msgstr[0] "S-a eliminat %d colecție"
+msgstr[1] "S-au eliminat %d colecții"
+msgstr[2] "S-au eliminat %d de colecții"
+
+#: src/ui/collection-view.vala:531
+#, c-format
+msgid "Selected %d item"
+msgid_plural "Selected %d items"
+msgstr[0] "%d element selectat"
+msgstr[1] "%d elemente selectate"
+msgstr[2] "%d de elemente selectate"
 
 #: src/ui/error-display.vala:15
 #, c-format
@@ -994,8 +1107,7 @@ msgstr "Nu s-au putut exporta datele de salvare: %s"
 #. Translators: This is displayed under the platform name when no
 #. * core is available for this platform. To see this message, click
 #. * on the hamburger menu, click on Preferences, then on Platforms
-#: src/ui/preferences-page-platforms-retro-row.vala:44
-#: src/ui/preferences-page-platforms-retro-row.vala:54
+#: src/ui/preferences-page-platforms-retro-row.vala:18
 msgid "None"
 msgstr "Nimic"
 
@@ -1027,11 +1139,11 @@ msgstr "Se testează %s"
 msgid "Configuring %s"
 msgstr "Se configurează %s"
 
-#: src/ui/selection-action-bar.vala:45
+#: src/ui/selection-action-bar.vala:49
 msgid "Remove selected games from favorites"
 msgstr "Elimină jocurile selectate de la favorite"
 
-#: src/ui/selection-action-bar.vala:49
+#: src/ui/selection-action-bar.vala:53
 msgid "Add selected games to favorites"
 msgstr "Adaugă jocurile selectate la favorite"
 
@@ -1095,3 +1207,6 @@ msgstr "Eroare: %s (%d)"
 #, c-format
 msgid "Error writing “%s”: %s (%d)"
 msgstr "Eroare la scrierea lui „%s”: %s (%d)"
+
+#~ msgid "Add/Remove games to favorite"
+#~ msgstr "Adaugă/Elimină jocuri la favorite"
