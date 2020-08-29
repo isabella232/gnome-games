@@ -178,8 +178,8 @@ private class Games.CollectionsMainPage : Gtk.Bin {
 			var collection = collection_model.get_item (i) as Collection;
 			var type = collection.get_collection_type ();
 
-			if (type == Collection.CollectionType.PLACEHOLDER ||
-			   (type == Collection.CollectionType.AUTO && collection.is_empty))
+			if (type == CollectionType.PLACEHOLDER ||
+			   (type == CollectionType.AUTO && collection.is_empty))
 				continue;
 
 			if (collection.matches_search_terms (filtering_terms)) {
@@ -205,18 +205,18 @@ private class Games.CollectionsMainPage : Gtk.Bin {
 
 		if (is_search_mode && filtering_terms.length != 0) {
 			switch (type) {
-			case Collection.CollectionType.AUTO:
+			case CollectionType.AUTO:
 				return !collection.is_empty && filter_collection (collection);
 
-			case Collection.CollectionType.USER:
+			case CollectionType.USER:
 				return filter_collection (collection);
 
-			case Collection.CollectionType.PLACEHOLDER:
+			case CollectionType.PLACEHOLDER:
 				return false;
 			}
 		}
 
-		return !collection_icon_view.collection.is_empty || type != Collection.CollectionType.AUTO;
+		return !collection_icon_view.collection.is_empty || type != CollectionType.AUTO;
 	}
 
 	[GtkCallback]

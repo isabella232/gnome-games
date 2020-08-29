@@ -1,13 +1,13 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-private interface Games.Collection : Object {
-	// Collection types are in decreasing order of precedence while comparing between them.
-	public enum CollectionType {
-		AUTO,
-		USER,
-		PLACEHOLDER
-	}
+// Collection types are in decreasing order of precedence while comparing between them.
+private enum Games.CollectionType {
+	AUTO,
+	USER,
+	PLACEHOLDER
+}
 
+private interface Games.Collection : Object {
 	public signal void games_changed ();
 
 	public abstract bool is_empty { get; }

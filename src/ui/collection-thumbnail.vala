@@ -24,7 +24,7 @@ private class Games.CollectionThumbnail : Gtk.Bin {
 
 			_collection = value;
 
-			if (collection.get_collection_type () == Collection.CollectionType.PLACEHOLDER) {
+			if (collection.get_collection_type () == CollectionType.PLACEHOLDER) {
 				thumbnail_stack.visible_child = new_collection_image;
 				return;
 			}

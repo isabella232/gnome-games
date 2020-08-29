@@ -106,7 +106,7 @@ private class Games.CollectionActionWindow : Hdy.Window {
 
 	private Gtk.Widget add_collection_row (Object object) {
 		var collection = object as Collection;
-		if (collection.get_collection_type () == Collection.CollectionType.PLACEHOLDER)
+		if (collection.get_collection_type () == CollectionType.PLACEHOLDER)
 			return add_row;
 
 		var row = new CollectionListItem (collection);
@@ -124,7 +124,7 @@ private class Games.CollectionActionWindow : Hdy.Window {
 			var collection = list_item.collection;
 			var type = collection.get_collection_type ();
 
-			show_row = (type == Collection.CollectionType.USER) &&
+			show_row = (type == CollectionType.USER) &&
 				       ((is_search_mode && collection.matches_search_terms (filtering_terms)) ||
 				        (!is_search_mode));
 		}
@@ -140,7 +140,7 @@ private class Games.CollectionActionWindow : Hdy.Window {
 
 		foreach (var child in list_box.get_children ()) {
 			var row = child as CollectionListItem;
-			if (row == null || row.collection.get_collection_type () != Collection.CollectionType.USER)
+			if (row == null || row.collection.get_collection_type () != CollectionType.USER)
 				continue;
 
 			var check_button = row.activatable_widget as Gtk.CheckButton;

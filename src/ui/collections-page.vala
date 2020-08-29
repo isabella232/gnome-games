@@ -47,7 +47,7 @@ private class Games.CollectionsPage : Gtk.Bin {
 
 			is_showing_user_collection = current_collection != null &&
 			                             current_collection.get_collection_type () ==
-			                             Collection.CollectionType.USER;
+			                             CollectionType.USER;
 		}
 	}
 
@@ -212,7 +212,7 @@ private class Games.CollectionsPage : Gtk.Bin {
 	[GtkCallback]
 	private void on_collection_activated (Collection collection) {
 		if (collection.get_collection_type () ==
-		    Collection.CollectionType.PLACEHOLDER) {
+		    CollectionType.PLACEHOLDER) {
 				// Finalize any pending removal of collection and dismiss undo notification if shown.
 				finalize_collection_removal ();
 
