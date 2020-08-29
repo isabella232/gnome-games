@@ -49,6 +49,7 @@ src/ui/collection-action-window.c
 src/ui/collections-page.c
 src/ui/collection-view.c
 src/ui/display-view.c
+src/ui/empty-search.c
 src/ui/error-display.c
 src/ui/gamepad-mapper.c
 src/ui/keyboard-mapper.c

@@ -79,6 +79,7 @@ src/ui/collection-action-window.vala
 src/ui/collections-page.vala
 src/ui/collection-view.vala
 src/ui/display-view.vala
+src/ui/empty-search.vala
 src/ui/error-display.vala
 src/ui/gamepad-mapper.vala
 src/ui/keyboard-mapper.vala
