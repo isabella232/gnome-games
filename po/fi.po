@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-07-17 12:43+0000\n"
-"PO-Revision-Date: 2020-08-17 17:56+0300\n"
+"POT-Creation-Date: 2020-08-29 10:10+0000\n"
+"PO-Revision-Date: 2020-08-30 21:59+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <lokalisointi-lista@googlegroups.com>\n"
 "Language: fi\n"
@@ -19,8 +19,8 @@ msgstr ""
 "X-Generator: Poedit 2.4.1\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:7
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-view.ui:81
-#: data/ui/collection-view.ui:432 src/ui/application.vala:49
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-view.ui:82
+#: data/ui/collection-view.ui:448 src/ui/application.vala:49
 msgid "Games"
 msgstr "Pelit"
 
@@ -68,7 +68,7 @@ msgstr "Pelaa pelejäsi"
 msgid "Resume your game to where you left it"
 msgstr "Jatka peliä siitä, mihin jäit"
 
-#: data/org.gnome.Games.appdata.xml.in.in:331
+#: data/org.gnome.Games.appdata.xml.in.in:359
 msgid "The GNOME Project"
 msgstr "Gnome-projekti"
 
@@ -102,6 +102,8 @@ msgid ""
 "Filter for the game video output. Allowed values are: “smooth” (blurry "
 "pixels), “sharp” (blocky pixels), “crt” (CRT emulation)."
 msgstr ""
+"Pelivideon ulostulon suodatin. Sallitut arvot: “smooth” (sumeat pikselit), "
+"“sharp” (lohkomaiset pikselit), “crt” (CRT-emulaatio)."
 
 #: data/org.gnome.Games.gschema.xml:20
 msgid "Window maximized"
@@ -131,92 +133,150 @@ msgstr ""
 "Ensisijainen Libretro-ydin, jota käytetään pelien suorittamiseen. Eri ydintä "
 "voidaan käyttää, jos ensisijaiselta ytimeltä puuttuu laiteohjelmisto."
 
+#: data/ui/collection-action-window.ui:5 data/ui/collection-action-window.ui:22
+msgid "Add to Collection"
+msgstr "Lisää kokoelmaan"
+
+#: data/ui/collection-action-window.ui:27 data/ui/collection-view.ui:323
+#: src/ui/application.vala:171 src/ui/preferences-page-import-export.vala:10
+#: src/ui/preferences-page-import-export.vala:32
+msgid "_Cancel"
+msgstr "_Peru"
+
+#: data/ui/collection-action-window.ui:35 src/ui/application.vala:172
+msgid "_Add"
+msgstr "_Lisää"
+
+#: data/ui/collection-action-window.ui:61 data/ui/collection-view.ui:121
+#: data/ui/collection-view.ui:198 data/ui/collection-view.ui:297
+#: data/ui/collection-view.ui:347
+msgid "Search"
+msgstr "Etsi"
+
+#: data/ui/collection-action-window.ui:144 src/ui/empty-search.vala:15
+msgid "No collections found"
+msgstr "Kokoelmia ei löytynyt"
+
+#: data/ui/collection-action-window.ui:160
+msgid "Add a new collection to add games to it."
+msgstr "Lisää uusi kokoelma ja lisää pelejä siihen."
+
+#: data/ui/collection-action-window.ui:173
+msgid "Create Collection"
+msgstr "Luo kokoelma"
+
+#: data/ui/collection-action-window.ui:179
+msgid "Create a collection"
+msgstr "Luo kokoelma"
+
+#: data/ui/collection-action-window.ui:204
+msgid "Add a Collection"
+msgstr "Lisää kokoelma"
+
+#: data/ui/collection-action-window.ui:212 data/ui/collection-view.ui:153
+#: data/ui/collection-view.ui:232 data/ui/display-view.ui:34
+#: data/ui/display-view.ui:169 data/ui/preferences-subpage-gamepad.ui:33
+#: data/ui/preferences-subpage-keyboard.ui:35
+msgid "Back"
+msgstr "Takaisin"
+
+#: data/ui/collection-action-window.ui:251
+msgid "Enter a collection name"
+msgstr "Anna nimi kokoelmalle"
+
+#: data/ui/collection-action-window.ui:280
+msgid "C_reate"
+msgstr "_Luo"
+
+#: data/ui/collection-action-window.ui:289
+msgid "Create collection"
+msgstr "Luo kokoelma"
+
 #: data/ui/collection-empty.ui:24
 msgid "This collection is empty"
 msgstr "Kokoelma on tyhjä"
 
 #: data/ui/collection-empty.ui:39
-msgid "Please add some games to this collection to see them here."
-msgstr "Lisää pelejä kokoelmaan nähdäksesi ne täällä."
+msgid "Add some games to this collection to see them here."
+msgstr "Lisää pelejä tähän kokoelmaan nähdäksesi ne täällä."
 
-#: data/ui/collection-view.ui:41
+#: data/ui/collection-view.ui:42
 msgid "Add game files…"
 msgstr "Lisää pelitiedostoja…"
 
 #. Translators: tooltip for the application menu button
-#: data/ui/collection-view.ui:60
+#: data/ui/collection-view.ui:61
 msgid "Menu"
 msgstr "Valikko"
 
-#: data/ui/collection-view.ui:101 data/ui/collection-view.ui:178
-#: data/ui/collection-view.ui:265
+#: data/ui/collection-view.ui:102 data/ui/collection-view.ui:179
+#: data/ui/collection-view.ui:278
 msgid "Select games"
 msgstr "Valitse pelit"
 
-#: data/ui/collection-view.ui:120 data/ui/collection-view.ui:197
-#: data/ui/collection-view.ui:284 data/ui/collection-view.ui:334
-msgid "Search"
-msgstr "Etsi"
+#: data/ui/collection-view.ui:247
+msgid "Collection menu"
+msgstr "Kokoelmavalikko"
 
-#: data/ui/collection-view.ui:152 data/ui/collection-view.ui:230
-#: data/ui/display-view.ui:34 data/ui/display-view.ui:169
-#: data/ui/preferences-subpage-gamepad.ui:33
-#: data/ui/preferences-subpage-keyboard.ui:35
-msgid "Back"
-msgstr "Takaisin"
-
-#: data/ui/collection-view.ui:310 src/ui/application.vala:171
-#: src/ui/preferences-page-import-export.vala:10
-#: src/ui/preferences-page-import-export.vala:32
-msgid "_Cancel"
-msgstr "_Peru"
-
-#: data/ui/collection-view.ui:315 data/ui/preferences-subpage-gamepad.ui:102
+#: data/ui/collection-view.ui:328 data/ui/preferences-subpage-gamepad.ui:102
 #: data/ui/preferences-subpage-keyboard.ui:105 data/ui/quit-dialog.ui:15
 #: data/ui/reset-controller-mapping-dialog.ui:15 data/ui/restart-dialog.ui:15
 #: data/ui/resume-failed-dialog.ui:14
 msgid "Cancel"
 msgstr "Peru"
 
-#: data/ui/collection-view.ui:361
+#: data/ui/collection-view.ui:374 src/ui/collection-view.vala:533
 msgid "Click on items to select them"
 msgstr "Napsauta kohteita valitaksesi ne"
 
-#: data/ui/collection-view.ui:449 data/ui/preferences-window.ui:67
+#: data/ui/collection-view.ui:465 data/ui/preferences-window.ui:67
 msgid "Platforms"
 msgstr "Alustat"
 
-#: data/ui/collection-view.ui:464
+#: data/ui/collection-view.ui:480
 msgid "Collections"
 msgstr "Kokoelmat"
 
-#: data/ui/collection-view.ui:490
+#: data/ui/collection-view.ui:506
 msgid "Loading"
 msgstr "Ladataan"
 
-#: data/ui/collection-view.ui:545
+#: data/ui/collection-view.ui:576
+msgid "Rename Collection"
+msgstr "Nimeä kokoelma uudelleen"
+
+#: data/ui/collection-view.ui:597 data/ui/collection-view.ui:669
+#: data/ui/snapshots-list.ui:103 data/ui/snapshots-list.ui:153
+msgid "_Rename"
+msgstr "_Nimeä uudelleen"
+
+#: data/ui/collection-view.ui:637
 msgid "Pr_eferences"
 msgstr "_Asetukset"
 
-#: data/ui/collection-view.ui:549
+#: data/ui/collection-view.ui:641
 msgid "_Keyboard Shortcuts"
 msgstr "_Pikanäppäimet"
 
-#: data/ui/collection-view.ui:553
+#: data/ui/collection-view.ui:645
 msgid "_Help"
 msgstr "_Ohje"
 
-#: data/ui/collection-view.ui:557
+#: data/ui/collection-view.ui:649
 msgid "_About Games"
 msgstr "_Tietoja - Pelit"
 
-#: data/ui/collection-view.ui:565
+#: data/ui/collection-view.ui:657
 msgid "Select All"
 msgstr "Valitse kaikki"
 
-#: data/ui/collection-view.ui:569
+#: data/ui/collection-view.ui:661
 msgid "Select None"
 msgstr "Älä valitse mitään"
+
+#: data/ui/collection-view.ui:673
+msgid "R_emove"
+msgstr "P_oista"
 
 #: data/ui/display-view.ui:57
 msgid "Restore"
@@ -235,7 +295,7 @@ msgid "_Snapshots"
 msgstr "_Tilannevedokset"
 
 #. Translators: This is displayed when the games library is empty.
-#: data/ui/empty-collection.ui:23 data/ui/empty-search.ui:25
+#: data/ui/empty-collection.ui:23 src/ui/empty-search.vala:12
 msgid "No games found"
 msgstr "Pelejä ei löytynyt"
 
@@ -245,7 +305,7 @@ msgid ""
 "Install games or add directories containing games to your search sources."
 msgstr "Asenna pelejä tai lisää pelejä sisältäviä kansioita hakulähteisiin."
 
-#: data/ui/empty-search.ui:40
+#: data/ui/empty-search.ui:39
 msgid "Try a different search."
 msgstr "Kokeile eri hakuehtoja."
 
@@ -406,9 +466,29 @@ msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Nollaa"
 
-#: data/ui/selection-action-bar.ui:10
-msgid "Add/Remove games to favorite"
-msgstr "Lisää/poista pelejä suosikeista"
+#: data/ui/selection-action-bar.ui:16
+msgid "Add/Remove selected games to favorite"
+msgstr "Lisää/poista valitut pelit suosikeista"
+
+#: data/ui/selection-action-bar.ui:55
+msgid "_Add to Collection"
+msgstr "_Lisää kokoelmaan"
+
+#: data/ui/selection-action-bar.ui:58
+msgid "Add selected games to a collection"
+msgstr "Lisää valitut pelit kokoelmaan"
+
+#: data/ui/selection-action-bar.ui:64 data/ui/selection-action-bar.ui:81
+msgid "_Remove"
+msgstr "_Poista"
+
+#: data/ui/selection-action-bar.ui:67
+msgid "Remove selected games from this collection"
+msgstr "Poista valitut pelit tästä kokoelmasta"
+
+#: data/ui/selection-action-bar.ui:84
+msgid "Remove selected collections"
+msgstr "Palaa valitut kokoelmat"
 
 #: data/ui/shortcuts-window.ui:11
 msgid "Shortcuts"
@@ -450,12 +530,12 @@ msgstr "Liikkuminen"
 #: data/ui/shortcuts-window.ui:57
 msgctxt "shortcut window"
 msgid "Left analog stick"
-msgstr ""
+msgstr "Vasen analoginen sauva"
 
 #: data/ui/shortcuts-window.ui:66
 msgctxt "shortcut window"
 msgid "Directional pad"
-msgstr ""
+msgstr "Suuntanäppäimet"
 
 #: data/ui/shortcuts-window.ui:74
 msgctxt "shortcut window"
@@ -465,7 +545,7 @@ msgstr "Valitse näkymä"
 #: data/ui/shortcuts-window.ui:75
 msgctxt "shortcut window"
 msgid "Front shoulder buttons"
-msgstr ""
+msgstr "Etusormipainikkeet"
 
 #: data/ui/shortcuts-window.ui:83 data/ui/shortcuts-window.ui:92
 msgctxt "shortcut window"
@@ -551,7 +631,7 @@ msgstr "Näytön asettelu"
 #: data/ui/shortcuts-window.ui:181
 msgctxt "shortcut window"
 msgid "Vertical"
-msgstr ""
+msgstr "Pystytasossa"
 
 #. Translators: This describes the layout for the Nintendo DS emulator. This setting means the two screens are displayed side by side
 #. Translators: This describes the Nintendo DS screens layout, side by side
@@ -603,7 +683,7 @@ msgstr "Vaihtele näyttöä"
 #: data/ui/shortcuts-window.ui:234
 msgctxt "shortcut window"
 msgid "Press right analog stick"
-msgstr ""
+msgstr "Paina oikeaa analogista sauvaa"
 
 #: data/ui/shortcuts-window.ui:245
 msgid "Cheats"
@@ -622,13 +702,13 @@ msgstr "Luo uusi tilannevedos"
 msgid "_Delete"
 msgstr "_Poista"
 
-#: data/ui/snapshots-list.ui:103 data/ui/snapshots-list.ui:153
-msgid "_Rename"
-msgstr "_Nimeä uudelleen"
-
 #: data/ui/snapshots-list.ui:129
 msgid "Name"
 msgstr "Nimi"
+
+#: data/ui/undo-notification.ui:28
+msgid "_Undo"
+msgstr "_Kumoa"
 
 #: plugins/desktop/src/desktop-plugin.vala:6
 msgid "Desktop"
@@ -659,10 +739,8 @@ msgid "MS-DOS"
 msgstr "MS-DOS"
 
 #: plugins/nintendo-64/data/ui/nintendo-64-pak-switcher.ui:14
-#, fuzzy
-#| msgid "Controllers"
 msgid "Controller Expansion"
-msgstr "Ohjaimet"
+msgstr "Ohjainlaajennus"
 
 #: plugins/nintendo-64/src/nintendo-64-pak-controller.vala:31
 #, c-format
@@ -750,9 +828,17 @@ msgstr "Virtual Boy"
 msgid "Wii"
 msgstr "Wii"
 
-#: src/collection/favorites-collection.vala:32
+#: src/collection/dummy-add-collection.vala:9
+msgid "Add Collection"
+msgstr "Lisää kokoelma"
+
+#: src/collection/favorites-collection.vala:15
 msgid "Favorites"
 msgstr "Suosikit"
+
+#: src/collection/recently-played-collection.vala:15
+msgid "Recently Played"
+msgstr "Äskettäin pelattu"
 
 #: src/core/snapshot-manager.vala:82 src/core/snapshot-manager.vala:107
 #, c-format
@@ -778,7 +864,7 @@ msgstr ""
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Järjestelmä ei ole vielä tuettu, mutta täysi tuki on suunnitelmissa."
 
-#: src/retro/retro-runner.vala:441
+#: src/retro/retro-runner.vala:443
 msgid "Unknown platform"
 msgstr "Tuntematon alusta"
 
@@ -833,7 +919,6 @@ msgid "Neo Geo Pocket"
 msgstr "Neo Geo Pocket"
 
 #: src/retro/retro-simple-type.vala:39
-#| msgid "Neo Geo Pocket"
 msgid "Neo Geo Pocket Color"
 msgstr "Neo Geo Pocket Color"
 
@@ -894,10 +979,6 @@ msgstr "Suorita peli uid:n perusteella"
 msgid "Select game files"
 msgstr "Valitse pelitiedostot"
 
-#: src/ui/application.vala:172
-msgid "_Add"
-msgstr "_Lisää"
-
 #: src/ui/application.vala:217
 #, c-format
 msgid "An unexpected error occurred while trying to run %s"
@@ -908,32 +989,61 @@ msgstr "Tapahtui odottamaton virhe, kun yritettiin suorittaa %s"
 msgid "Cannot find game with UID “%s”."
 msgstr "Peliä UID:llä “%s” ei löydy."
 
-#: src/ui/application.vala:321
+#: src/ui/application.vala:322
 msgid "Couldn't find Tracker, automatic game discovery may not work."
 msgstr ""
 "Trackeria ei löytynyt, pelien automaattinen löytäminen ei välttämättä toimi."
 
-#: src/ui/application.vala:497
+#: src/ui/application.vala:498
 msgid "GNOME Games"
 msgstr "Gnomen pelit"
 
-#: src/ui/application.vala:499
+#: src/ui/application.vala:500
 msgid "A video game player for GNOME"
 msgstr "Videopelitoistin Gnomelle"
 
-#: src/ui/application.vala:503
+#: src/ui/application.vala:504
 msgid "Learn more about GNOME Games"
 msgstr "Lisätietoja Gnomen peleistä"
 
-#: src/ui/application.vala:510
+#: src/ui/application.vala:511
 msgid "translator-credits"
 msgstr "Jiri Grönroos"
 
 #. Translators: This is displayed if the user tries to log out of his
 #. * GNOME session, shutdown, or reboot while Games is running
-#: src/ui/application-window.vala:266 src/ui/application-window.vala:285
+#: src/ui/application-window.vala:271 src/ui/application-window.vala:290
 msgid "Playing a game"
 msgstr "Peli meneillään"
+
+#: src/ui/collection-action-window.vala:226 src/ui/collection-view.vala:479
+msgid "Collection name cannot be empty"
+msgstr "Kokoelman nimi ei voi olla tyhjä"
+
+#: src/ui/collection-action-window.vala:233 src/ui/collection-view.vala:483
+msgid "A collection with this name already exists"
+msgstr "Kokoelma samalla nimellä on jo olemassa"
+
+#: src/ui/collections-page.vala:194
+#, c-format
+msgid "%s removed"
+msgstr "%s poistettu"
+
+#: src/ui/collections-page.vala:195
+#, c-format
+msgid "Removed %d collection"
+msgid_plural "Removed %d collections"
+msgstr[0] "Poistettu %d kokoelma"
+msgstr[1] "Poistettu %d kokoelmaa"
+
+#: src/ui/collection-view.vala:531
+#, c-format
+#| msgctxt "shortcut window"
+#| msgid "Select view"
+msgid "Selected %d item"
+msgid_plural "Selected %d items"
+msgstr[0] "Valittu %d kohde"
+msgstr[1] "Valittu %d kohdetta"
 
 #: src/ui/error-display.vala:15
 #, c-format
@@ -955,11 +1065,11 @@ msgstr "Paina soveltuvaa painiketta peliohjaimesta"
 
 #: src/ui/gamepad-mapper.vala:173
 msgid "Move suitable axis left/right on your gamepad"
-msgstr ""
+msgstr "Liikuta ohjaimesi soveltuvaa akselia vasemmalle/oikealle"
 
 #: src/ui/gamepad-mapper.vala:175
 msgid "Move suitable axis up/down on your gamepad"
-msgstr ""
+msgstr "Liikuta ohjaimesi soveltuvaa akselia ylös/alas"
 
 #. translators: This message is displayed at the bottom of the window
 #. * when the user maps keyboard keys to controller buttons. To see it,
@@ -987,8 +1097,7 @@ msgstr "Tallennustietoja ei voitu viedä: %s"
 #. Translators: This is displayed under the platform name when no
 #. * core is available for this platform. To see this message, click
 #. * on the hamburger menu, click on Preferences, then on Platforms
-#: src/ui/preferences-page-platforms-retro-row.vala:44
-#: src/ui/preferences-page-platforms-retro-row.vala:54
+#: src/ui/preferences-page-platforms-retro-row.vala:18
 msgid "None"
 msgstr "Ei mitään"
 
@@ -1020,11 +1129,11 @@ msgstr "Testataan %s"
 msgid "Configuring %s"
 msgstr "Määritetään %s"
 
-#: src/ui/selection-action-bar.vala:45
+#: src/ui/selection-action-bar.vala:49
 msgid "Remove selected games from favorites"
 msgstr "Poista valitut pelit suosikeista"
 
-#: src/ui/selection-action-bar.vala:49
+#: src/ui/selection-action-bar.vala:53
 msgid "Add selected games to favorites"
 msgstr "Lisää valitut pelit suosikkeihin"
 
@@ -1088,6 +1197,9 @@ msgstr "Virhe: %s (%d)"
 #, c-format
 msgid "Error writing “%s”: %s (%d)"
 msgstr "Virhe kirjoittaessa “%s”: %s (%d)"
+
+#~ msgid "Add/Remove games to favorite"
+#~ msgstr "Lisää/poista pelejä suosikeista"
 
 #~ msgid "Invalid command “%s”."
 #~ msgstr "Virheellinen komento “%s”."
