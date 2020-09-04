@@ -15,8 +15,7 @@
         "--socket=wayland",
         "--device=dri",
         "--socket=pulseaudio",
-        "--talk-name=org.freedesktop.Tracker1",
-        "--env=TRACKER_SPARQL_BACKEND=bus",
+        "--add-policy=Tracker3.dbus:org.freedesktop.Tracker3.Miner.Files=tracker:Software",
         "--share=network",
         "--device=all",
         "--talk-name=org.freedesktop.Flatpak",
@@ -74,28 +73,6 @@
             "buildsystem" : "simple",
             "build-commands": [
                 "mkdir -p /app/lib/libretro/extra.d"
-            ]
-        },
-        {
-            "name" : "tracker",
-            "buildsystem" : "meson",
-            "config-opts" : [
-                "-Ddocs=false",
-                "-Dfts=false",
-                "-Dfunctional_tests=false",
-                "-Djournal=false",
-                "-Dnetwork_manager=disabled",
-                "-Dstemmer=disabled",
-                "-Dbash_completion=no",
-                "-Ddbus_services=/app/share/dbus-1/services",
-                "-Dsystemd_user_services=no"
-            ],
-            "sources" : [
-                {
-                    "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/tracker.git",
-                    "branch" : "tracker-2.3"
-                }
             ]
         },
         {
