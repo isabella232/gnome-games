@@ -579,4 +579,3 @@ public class Games.Application : Gtk.Application {
 		return GLib.Application.get_default () as Application;
 	}
 }
-
