@@ -4,36 +4,36 @@
 # Bernd Homuth <dev@hmt.im>, 2016.
 # Paul Seyfert <pseyfert@mathphys.fsk.uni-heidelberg.de>, 2017.
 # Robin Naumann <constorux@gmail.com>, 2017.
-# Mario Blättermann <mario.blaettermann@gmail.com>, 2016-2018.
+# Mario Blättermann <mario.blaettermann@gmail.com>, 2016-2018, 2020.
 # Tim Sabsch <tim@sabsch.com>, 2018-2019.
-#
+# Stephan Woidowski <swoidowski@t-online.de>, 2020. 
+# Christian Kirbach <christian.kirbach@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2019-03-09 16:03+0000\n"
-"PO-Revision-Date: 2019-03-09 17:15+0100\n"
-"Last-Translator: Tim Sabsch <tim@sabsch.com>\n"
+"POT-Creation-Date: 2020-09-02 11:05+0000\n"
+"PO-Revision-Date: 2020-08-31 18:21+0200\n"
+"Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.2.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.4.1\n"
 
-#: data/org.gnome.Games.appdata.xml.in.in:6
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-box.ui:40
-#: data/ui/collection-header-bar.ui:67 data/ui/display-header-bar.ui:6
-#: src/ui/application.vala:25
+#: data/org.gnome.Games.appdata.xml.in.in:7
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-view.ui:82
+#: data/ui/collection-view.ui:448 src/ui/application.vala:49
 msgid "Games"
 msgstr "Spiele"
 
-#: data/org.gnome.Games.appdata.xml.in.in:7
+#: data/org.gnome.Games.appdata.xml.in.in:8
 msgid "Simple game launcher for GNOME"
 msgstr "Einfacher Starter für Spiele unter GNOME"
 
-#: data/org.gnome.Games.appdata.xml.in.in:10
+#: data/org.gnome.Games.appdata.xml.in.in:11
 msgid ""
 "Games is a GNOME 3 application to browse your video games library and to "
 "easily pick and play a game from it. It aims to do for games what Music "
@@ -44,7 +44,7 @@ msgstr ""
 "wollen. Es verfolgt den gleichen Zweck für Spiele wie eine Musikverwaltung "
 "für Musik."
 
-#: data/org.gnome.Games.appdata.xml.in.in:15
+#: data/org.gnome.Games.appdata.xml.in.in:16
 msgid ""
 "You want to install Games if you just want a very simple and comfortable way "
 "to play your games and you don’t need advanced features such as speedrunning "
@@ -54,28 +54,28 @@ msgstr ""
 "Weg suchen, Ihre Spiele zu spielen und keine speziellen Werkzeuge wie "
 "Software für Geschwindigkeitstests oder Entwicklungswerkzeuge benötigen."
 
-#: data/org.gnome.Games.appdata.xml.in.in:20
+#: data/org.gnome.Games.appdata.xml.in.in:21
 msgid "Features:"
 msgstr "Funktionsmerkmale:"
 
-#: data/org.gnome.Games.appdata.xml.in.in:22
+#: data/org.gnome.Games.appdata.xml.in.in:23
 msgid "List your installed games, your Steam games, your game ROMs…"
 msgstr ""
 "Listen Sie Ihre installierten Spiele, Steam-Spiele oder Spiele-ROMs auf …"
 
-#: data/org.gnome.Games.appdata.xml.in.in:23
+#: data/org.gnome.Games.appdata.xml.in.in:24
 msgid "Search in your games collection"
 msgstr "Durchsuchen Sie Ihre Spielesammlung"
 
-#: data/org.gnome.Games.appdata.xml.in.in:24
+#: data/org.gnome.Games.appdata.xml.in.in:25
 msgid "Play your games"
 msgstr "Spielen Sie Ihre Spiele"
 
-#: data/org.gnome.Games.appdata.xml.in.in:25
+#: data/org.gnome.Games.appdata.xml.in.in:26
 msgid "Resume your game to where you left it"
 msgstr "Nehmen Sie Ihr Spiel dort wieder auf, wo Sie es verlassen haben"
 
-#: data/org.gnome.Games.appdata.xml.in.in:53
+#: data/org.gnome.Games.appdata.xml.in.in:359
 msgid "The GNOME Project"
 msgstr "Das GNOME-Projekt"
 
@@ -92,12 +92,7 @@ msgstr "Ihre Videospiele-Sammlung ansehen und spielen"
 msgid "game;videogame;video game;player;"
 msgstr "Spiel;Videospiel;Spieler;"
 
-#. Translators: Do NOT translate or transliterate this text (this is an icon file name)!
-#: data/org.gnome.Games.desktop.in.in:10
-msgid "@icon@"
-msgstr "@icon@"
-
-#: data/org.gnome.Games.gschema.xml:10 data/ui/display-header-bar.ui:43
+#: data/org.gnome.Games.gschema.xml:10 data/ui/display-view.ui:105
 msgid "Fullscreen"
 msgstr "Vollbildschirm"
 
@@ -135,79 +130,197 @@ msgstr "Fenstergröße"
 msgid "Window size (width and height)."
 msgstr "Fenstergröße (Breite und Höhe)."
 
-#: data/ui/collection-box.ui:50
-msgid "Developers"
-msgstr "Entwickler"
+#: data/org.gnome.Games.gschema.xml:32
+msgid "Preferred core"
+msgstr "Bevorzugter Kern"
 
-#: data/ui/collection-box.ui:60
-msgid "Platforms"
-msgstr "Plattformen"
+#: data/org.gnome.Games.gschema.xml:33
+msgid ""
+"Preferred Libretro core to be used for running games. A different core may "
+"be used if the preferred core is missing firmware."
+msgstr ""
+"Bevorzugter Libretro-Kern zur Ausführung von Spielen. Ein anderer Kern kann "
+"verwendet werden, sollte dem bevorzugten Kern Firmware fehlen."
 
-#: data/ui/collection-box.ui:83
-msgid "Loading"
-msgstr "Wird geladen"
+#: data/ui/collection-action-window.ui:5 data/ui/collection-action-window.ui:22
+msgid "Add to Collection"
+msgstr "Zu Sammlung hinzufügen"
 
-#: data/ui/collection-header-bar.ui:17
+#: data/ui/collection-action-window.ui:27 data/ui/collection-view.ui:323
+#: src/ui/application.vala:171 src/ui/preferences-page-import-export.vala:10
+#: src/ui/preferences-page-import-export.vala:32
+msgid "_Cancel"
+msgstr "A_bbrechen"
+
+#: data/ui/collection-action-window.ui:35 src/ui/application.vala:172
+msgid "_Add"
+msgstr "_Hinzufügen"
+
+#: data/ui/collection-action-window.ui:61 data/ui/collection-view.ui:121
+#: data/ui/collection-view.ui:198 data/ui/collection-view.ui:297
+#: data/ui/collection-view.ui:347
+msgid "Search"
+msgstr "Suchen"
+
+#: data/ui/collection-action-window.ui:144 src/ui/empty-search.vala:15
+msgid "No collections found"
+msgstr "Keine Sammlungen gefunden"
+
+#: data/ui/collection-action-window.ui:160
+msgid "Add a new collection to add games to it."
+msgstr "Fügen Sie eine neue Sammlung hinzu, um dieser Spiele hinzuzufügen."
+
+#: data/ui/collection-action-window.ui:173
+msgid "Create Collection"
+msgstr "Sammlung erstellen"
+
+#: data/ui/collection-action-window.ui:179
+msgid "Create a collection"
+msgstr "Eine Sammlung erstellen"
+
+#: data/ui/collection-action-window.ui:204
+msgid "Add a Collection"
+msgstr "Eine Sammlung hinzufügen"
+
+#: data/ui/collection-action-window.ui:212 data/ui/collection-view.ui:153
+#: data/ui/collection-view.ui:232 data/ui/display-view.ui:34
+#: data/ui/display-view.ui:169 data/ui/preferences-subpage-gamepad.ui:33
+#: data/ui/preferences-subpage-keyboard.ui:35
+msgid "Back"
+msgstr "Zurück"
+
+#: data/ui/collection-action-window.ui:251
+msgid "Enter a collection name"
+msgstr "Geben Sie einen Namen für die Sammlung ein"
+
+#: data/ui/collection-action-window.ui:280
+msgid "C_reate"
+msgstr "Er_stellen"
+
+#: data/ui/collection-action-window.ui:289
+msgid "Create collection"
+msgstr "Sammlung erstellen"
+
+#: data/ui/collection-empty.ui:24
+msgid "This collection is empty"
+msgstr "Diese Sammlung ist leer"
+
+#: data/ui/collection-empty.ui:39
+msgid "Add some games to this collection to see them here."
+msgstr ""
+"Fügen Sie einige Spiele zu dieser Sammlung hinzu, um sie hier sehen zu "
+"können."
+
+#: data/ui/collection-view.ui:42
 msgid "Add game files…"
 msgstr "Spieledateien hinzufügen …"
 
 #. Translators: tooltip for the application menu button
-#: data/ui/collection-header-bar.ui:36
+#: data/ui/collection-view.ui:61
 msgid "Menu"
 msgstr "Menü"
 
-#: data/ui/collection-header-bar.ui:85
-msgid "Search"
-msgstr "Suchen"
+#: data/ui/collection-view.ui:102 data/ui/collection-view.ui:179
+#: data/ui/collection-view.ui:278
+msgid "Select games"
+msgstr "Spiele auswählen"
 
-#: data/ui/collection-header-bar.ui:111 data/ui/preferences-window.ui:5
-#: data/ui/preferences-window.ui:26
-msgid "Preferences"
-msgstr "Einstellungen"
+#: data/ui/collection-view.ui:247
+msgid "Collection menu"
+msgstr "Sammlungsmenü"
 
-#: data/ui/collection-header-bar.ui:119
-msgid "Keyboard Shortcuts"
-msgstr "Tastenkombinationen"
+#: data/ui/collection-view.ui:328 data/ui/preferences-subpage-gamepad.ui:102
+#: data/ui/preferences-subpage-keyboard.ui:105 data/ui/quit-dialog.ui:15
+#: data/ui/reset-controller-mapping-dialog.ui:15 data/ui/restart-dialog.ui:15
+#: data/ui/resume-failed-dialog.ui:14
+msgid "Cancel"
+msgstr "Abbrechen"
 
-#: data/ui/collection-header-bar.ui:127
-msgid "Help"
-msgstr "Hilfe"
+#: data/ui/collection-view.ui:374 src/ui/collection-view.vala:533
+msgid "Click on items to select them"
+msgstr "Klicken Sie auf Elemente, um sie auszuwählen"
 
-#: data/ui/collection-header-bar.ui:135
-msgid "About Games"
-msgstr "Info zu Spiele"
+#: data/ui/collection-view.ui:465 data/ui/preferences-window.ui:67
+msgid "Platforms"
+msgstr "Plattformen"
 
-#: data/ui/display-header-bar.ui:20 data/ui/preferences-subpage-gamepad.ui:82
-#: data/ui/preferences-subpage-keyboard.ui:83 data/ui/preferences-window.ui:54
-msgid "Back"
-msgstr "Zurück"
+#: data/ui/collection-view.ui:480
+msgid "Collections"
+msgstr "Sammlungen"
 
-#: data/ui/display-header-bar.ui:69
+#: data/ui/collection-view.ui:506
+msgid "Loading"
+msgstr "Wird geladen"
+
+#: data/ui/collection-view.ui:576
+msgid "Rename Collection"
+msgstr "Sammlung umbenennen"
+
+#: data/ui/collection-view.ui:597 data/ui/collection-view.ui:669
+#: data/ui/snapshots-list.ui:103 data/ui/snapshots-list.ui:153
+msgid "_Rename"
+msgstr "_Umbenennen"
+
+#: data/ui/collection-view.ui:637
+msgid "Pr_eferences"
+msgstr "_Einstellungen"
+
+#: data/ui/collection-view.ui:641
+msgid "_Keyboard Shortcuts"
+msgstr "_Tastenkombinationen"
+
+#: data/ui/collection-view.ui:645
+msgid "_Help"
+msgstr "_Hilfe"
+
+#: data/ui/collection-view.ui:649
+msgid "_About Games"
+msgstr "_Info zu Spiele"
+
+#: data/ui/collection-view.ui:657
+msgid "Select All"
+msgstr "Alle auswählen"
+
+#: data/ui/collection-view.ui:661
+msgid "Select None"
+msgstr "Keine auswählen"
+
+#: data/ui/collection-view.ui:673
+msgid "R_emove"
+msgstr "Ent_fernen"
+
+#: data/ui/display-view.ui:57
 msgid "Restore"
 msgstr "Wiederherstellen"
 
-#: data/ui/dummy-display.ui:36
-msgid "This is a dummy game display"
-msgstr "Dies ist ein Platzhalter für ein angezeigtes Spiel"
+#: data/ui/display-view.ui:148
+msgid "_Load"
+msgstr "_Laden"
 
-#: data/ui/dummy-display.ui:51
-msgid "If you see this, this is a bug."
-msgstr "Wenn Sie dies sehen, ist ein Fehler aufgetreten."
+#: data/ui/display-view.ui:236
+msgid "_Restart"
+msgstr "_Neu starten"
 
-#: data/ui/dummy-display.ui:64
-msgid "Please contact the developers."
-msgstr "Bitte nehmen Sie Kontakt mit den Entwicklern auf."
+#: data/ui/display-view.ui:242
+msgid "_Snapshots"
+msgstr "_Schnappschüsse"
 
-#: data/ui/empty-collection.ui:29
+#. Translators: This is displayed when the games library is empty.
+#: data/ui/empty-collection.ui:23 src/ui/empty-search.vala:12
 msgid "No games found"
 msgstr "Keine Spiele gefunden"
 
-#: data/ui/empty-collection.ui:43
+#. Translators: This is displayed when the games library is empty.
+#: data/ui/empty-collection.ui:38
 msgid ""
 "Install games or add directories containing games to your search sources."
 msgstr ""
 "Installieren Sie Spiele oder fügen Sie Ordner zu Ihren Suchquellen hinzu, "
 "die Spiele enthalten."
+
+#: data/ui/empty-search.ui:39
+msgid "Try a different search."
+msgstr "Versuchen Sie es mit einer anderen Suche."
 
 #: data/ui/input-mode-switcher.ui:16
 msgid "Gamepad Input"
@@ -217,7 +330,7 @@ msgstr "Gamepad-Eingabe"
 msgid "Keyboard Input"
 msgstr "Tastatur-Eingabe"
 
-#: data/ui/media-menu-button.ui:11
+#: data/ui/media-menu-button.ui:14
 msgid "Media"
 msgstr "Medien"
 
@@ -225,43 +338,92 @@ msgstr "Medien"
 msgid "Gamepads"
 msgstr "Gamepads"
 
-#: data/ui/preferences-page-controllers.ui:32
-#: src/ui/preferences-page-controllers.vala:75
+#: data/ui/preferences-page-controllers.ui:15
+#: src/ui/preferences-page-controllers.vala:60
 msgid "Keyboard"
 msgstr "Tastatur"
+
+#: data/ui/preferences-page-import-export.ui:9
+msgid ""
+"Export save states and in-game saves. This can be used for moving the data "
+"to another device or for restoring it later. Desktop, Steam and LÖVE games "
+"cannot be exported."
+msgstr ""
+"Speicherpunkte und Spielstandsicherungen exportieren. Dies kann genutzt "
+"werden, um die Daten zu einem anderen Gerät zu übertragen oder sie zu einem "
+"späteren Zeitpunkt wiederherzustellen. Desktop-, Steam- und LÖVE-Spiele "
+"können nicht exportiert werden."
+
+#: data/ui/preferences-page-import-export.ui:13
+#: src/ui/preferences-page-import-export.vala:30
+msgid "Export save data"
+msgstr "Speicherstände exportieren"
+
+#: data/ui/preferences-page-import-export.ui:20
+#: src/ui/preferences-page-import-export.vala:32
+msgid "_Export"
+msgstr "_Exportieren"
+
+#: data/ui/preferences-page-import-export.ui:31
+msgid ""
+"Import save data for games from existing backup. This will replace existing "
+"saves and cannot be undone."
+msgstr ""
+"Importieren Sie Speicherdaten für Spiele aus vorhandenen Sicherungen. "
+"Dadurch werden vorhandene Speicherdaten ersetzt, was nicht rückgängig "
+"gemacht werden kann."
+
+#: data/ui/preferences-page-import-export.ui:35
+#: src/ui/preferences-page-import-export.vala:8
+msgid "Import save data"
+msgstr "Speicherdaten importieren"
+
+#: data/ui/preferences-page-import-export.ui:41
+#: src/ui/preferences-page-import-export.vala:10
+msgid "_Import"
+msgstr "_Importieren"
 
 #: data/ui/preferences-page-video.ui:9
 msgid "Filter"
 msgstr "Filter"
 
-#: data/ui/preferences-subpage-gamepad.ui:21
-#: data/ui/preferences-subpage-keyboard.ui:22
+#: data/ui/preferences-subpage-gamepad.ui:58
+#: data/ui/preferences-subpage-keyboard.ui:60
 msgctxt "Keyboard configuration factory reset"
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: data/ui/preferences-subpage-gamepad.ui:34
-#: data/ui/preferences-subpage-keyboard.ui:35
+#: data/ui/preferences-subpage-gamepad.ui:71
+#: data/ui/preferences-subpage-keyboard.ui:73
 msgid "Configure"
 msgstr "Konfigurieren"
 
-#: data/ui/preferences-subpage-gamepad.ui:52
-#: data/ui/preferences-subpage-keyboard.ui:53
+#: data/ui/preferences-subpage-gamepad.ui:119
+#: data/ui/preferences-subpage-keyboard.ui:122
 msgid "Skip"
 msgstr "Überspringen"
 
-#: data/ui/preferences-subpage-gamepad.ui:100
-#: data/ui/preferences-subpage-keyboard.ui:101 data/ui/quit-dialog.ui:15
-#: data/ui/reset-controller-mapping-dialog.ui:15
-#: data/ui/resume-failed-dialog.ui:14
-msgid "Cancel"
-msgstr "Abbrechen"
+#: data/ui/preferences-window.ui:5 data/ui/preferences-window.ui:21
+msgid "Preferences"
+msgstr "Einstellungen"
+
+#: data/ui/preferences-window.ui:47
+msgid "Video"
+msgstr "Video"
+
+#: data/ui/preferences-window.ui:57
+msgid "Controllers"
+msgstr "Controller"
+
+#: data/ui/preferences-window.ui:77
+msgid "Import & Export"
+msgstr "Import und Export"
 
 #: data/ui/quit-dialog.ui:9
 msgid "Are you sure you want to quit?"
 msgstr "Sind Sie sicher, dass Sie das Programm beenden wollen?"
 
-#: data/ui/quit-dialog.ui:10
+#: data/ui/quit-dialog.ui:10 data/ui/restart-dialog.ui:10
 msgid "All unsaved progress will be lost."
 msgstr "Nicht gespeicherte Spielverläufe gehen verloren."
 
@@ -269,15 +431,15 @@ msgstr "Nicht gespeicherte Spielverläufe gehen verloren."
 msgid "Quit"
 msgstr "Beenden"
 
-#: data/ui/remote-display.ui:36
+#: data/ui/remote-display.ui:23
 msgid "Use the game’s own window to play it"
 msgstr "Eigenes Fenster des Spiels verwenden, um es zu spielen"
 
-#: data/ui/remote-display.ui:51
-msgid "This game isn’t integrated to GNOME Games."
-msgstr "Dieses Spiel ist nicht in den GNOME-Spielen integriert."
+#: data/ui/remote-display.ui:36
+msgid "This game isn’t integrated with GNOME Games."
+msgstr "Dieses Spiel ist nicht in GNOME Spiele integriert."
 
-#: data/ui/remote-display.ui:64
+#: data/ui/remote-display.ui:47
 msgid "You have to use its own window to play it."
 msgstr "Sie müssen dessen eigenes Fenster verwenden, um es zu spielen."
 
@@ -294,13 +456,17 @@ msgctxt "Confirm controller configuration factory reset"
 msgid "Reset"
 msgstr "Zurücksetzen"
 
+#: data/ui/restart-dialog.ui:9
+msgid "Are you sure you want to restart?"
+msgstr "Sind Sie sicher, dass Sie neu starten wollen?"
+
+#: data/ui/restart-dialog.ui:21 data/ui/resume-dialog.ui:13
+msgid "Restart"
+msgstr "Neu starten"
+
 #: data/ui/resume-dialog.ui:9
 msgid "Resume last game?"
 msgstr "Letztes Spiel fortsetzen?"
-
-#: data/ui/resume-dialog.ui:13
-msgid "Restart"
-msgstr "Neu starten"
 
 #: data/ui/resume-dialog.ui:20
 msgid "Resume"
@@ -316,171 +482,257 @@ msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Zurücksetzen"
 
-#: data/ui/shortcuts-window.ui:10
+#: data/ui/selection-action-bar.ui:16
+msgid "Add/Remove selected games to favorite"
+msgstr "Ausgewählte Spiele zu den Favoriten hinzufügen oder daraus entfernen"
+
+#: data/ui/selection-action-bar.ui:55
+msgid "_Add to Collection"
+msgstr "Zur Sammlung hinz_ufügen"
+
+#: data/ui/selection-action-bar.ui:58
+msgid "Add selected games to a collection"
+msgstr "Ausgewählte Spiele zu einer Sammlung hinzufügen"
+
+#: data/ui/selection-action-bar.ui:64 data/ui/selection-action-bar.ui:81
+msgid "_Remove"
+msgstr "_Entfernen"
+
+#: data/ui/selection-action-bar.ui:67
+msgid "Remove selected games from this collection"
+msgstr "Ausgewählte Spiele aus dieser Sammlung entfernen"
+
+#: data/ui/selection-action-bar.ui:84
+msgid "Remove selected collections"
+msgstr "Ausgewählte Sammlungen entfernen"
+
+#: data/ui/shortcuts-window.ui:11
 msgid "Shortcuts"
 msgstr "Tastenkombinationen"
 
-#: data/ui/shortcuts-window.ui:14
+#: data/ui/shortcuts-window.ui:15
 msgid "General"
 msgstr "Allgemein"
 
-#: data/ui/shortcuts-window.ui:19
+#: data/ui/shortcuts-window.ui:20
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Zurückgehen"
+
+#: data/ui/shortcuts-window.ui:27
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr "Beenden"
 
-#: data/ui/shortcuts-window.ui:27 data/ui/shortcuts-window.ui:139
+#: data/ui/shortcuts-window.ui:35 data/ui/shortcuts-window.ui:249
 msgid "Collection"
 msgstr "Sammlung"
 
-#: data/ui/shortcuts-window.ui:32
+#: data/ui/shortcuts-window.ui:40
 msgctxt "shortcut window"
 msgid "Search"
 msgstr "Suchen"
 
-#: data/ui/shortcuts-window.ui:40 data/ui/shortcuts-window.ui:48
+#: data/ui/shortcuts-window.ui:47
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Tastenkürzel anzeigen"
+
+#: data/ui/shortcuts-window.ui:56 data/ui/shortcuts-window.ui:65
 msgctxt "shortcut window"
 msgid "Navigate"
 msgstr "Navigieren"
 
-#: data/ui/shortcuts-window.ui:41
+#: data/ui/shortcuts-window.ui:57
 msgctxt "shortcut window"
 msgid "Left analog stick"
 msgstr "Linker analoger Stick"
 
-#: data/ui/shortcuts-window.ui:49
+#: data/ui/shortcuts-window.ui:66
 msgctxt "shortcut window"
 msgid "Directional pad"
 msgstr "Steuerkreuz"
 
-#: data/ui/shortcuts-window.ui:56
+#: data/ui/shortcuts-window.ui:74
 msgctxt "shortcut window"
 msgid "Select view"
 msgstr "Ansicht auswählen"
 
-#: data/ui/shortcuts-window.ui:57
+#: data/ui/shortcuts-window.ui:75
 msgctxt "shortcut window"
 msgid "Front shoulder buttons"
 msgstr "Vordere Schultertasten"
 
-#: data/ui/shortcuts-window.ui:64 data/ui/shortcuts-window.ui:72
+#: data/ui/shortcuts-window.ui:83 data/ui/shortcuts-window.ui:92
 msgctxt "shortcut window"
 msgid "Start game"
 msgstr "Spiel starten"
 
-#: data/ui/shortcuts-window.ui:65
+#: data/ui/shortcuts-window.ui:84
 msgctxt "shortcut window"
 msgid "Start button"
 msgstr "Startknopf"
 
-#: data/ui/shortcuts-window.ui:73 data/ui/shortcuts-window.ui:116
+#: data/ui/shortcuts-window.ui:93 data/ui/shortcuts-window.ui:152
 msgctxt "shortcut window"
 msgid "Bottom action button"
 msgstr "Untere Aktionstaste"
 
-#: data/ui/shortcuts-window.ui:80
+#: data/ui/shortcuts-window.ui:100
 msgid "In Game"
 msgstr "Im Spiel"
 
-#: data/ui/shortcuts-window.ui:85
+#: data/ui/shortcuts-window.ui:105
+msgctxt "shortcut window"
+msgid "Create new snapshot"
+msgstr "Neuen Schnappschuss erstellen"
+
+#: data/ui/shortcuts-window.ui:112
+msgctxt "shortcut window"
+msgid "Load the latest snapshot"
+msgstr "Den neuesten Schnappschuss laden"
+
+#: data/ui/shortcuts-window.ui:119
+msgctxt "shortcut window"
+msgid "Show snapshots"
+msgstr "Schnappschüsse anzeigen"
+
+#: data/ui/shortcuts-window.ui:126
 msgctxt "shortcut window"
 msgid "Toggle fullscreen"
 msgstr "Vollbildmodus aktivieren/deaktivieren"
 
-#: data/ui/shortcuts-window.ui:92
+#: data/ui/shortcuts-window.ui:133
 msgctxt "shortcut window"
 msgid "Exit fullscreen"
 msgstr "Vollbildmodus verlassen"
 
-#: data/ui/shortcuts-window.ui:99 data/ui/shortcuts-window.ui:107
+#: data/ui/shortcuts-window.ui:142
 msgctxt "shortcut window"
 msgid "Go back to the collection"
 msgstr "Zurück zur Sammlung"
 
-#: data/ui/shortcuts-window.ui:108
+#: data/ui/shortcuts-window.ui:143
 msgctxt "shortcut window"
 msgid "Home button"
 msgstr "Home-Taste"
 
-#: data/ui/shortcuts-window.ui:115
+#: data/ui/shortcuts-window.ui:151
 msgctxt "shortcut window"
 msgid "Accept"
 msgstr "Annehmen"
 
-#: data/ui/shortcuts-window.ui:123
+#: data/ui/shortcuts-window.ui:160
 msgctxt "shortcut window"
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: data/ui/shortcuts-window.ui:124
+#: data/ui/shortcuts-window.ui:161
 msgctxt "shortcut window"
 msgid "Right action button"
 msgstr "Rechte Aktionstaste"
 
-#: data/ui/shortcuts-window.ui:135
+#: data/ui/shortcuts-window.ui:172
+#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:6
+msgid "Nintendo DS"
+msgstr "Nintendo DS"
+
+#. Translators: This is displayed in the shortcuts window. This corresponds to the screens layout for the Nintendo DS.
+#: data/ui/shortcuts-window.ui:176
+#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:39
+msgid "Screen Layout"
+msgstr "Bildschirmlayout"
+
+#. Translators: This describes the layout for the Nintendo DS emulator. This setting means the two screens are stacked one on top of the other
+#: data/ui/shortcuts-window.ui:181
+msgctxt "shortcut window"
+msgid "Vertical"
+msgstr "Vertikal"
+
+#. Translators: This describes the layout for the Nintendo DS emulator. This setting means the two screens are displayed side by side
+#. Translators: This describes the Nintendo DS screens layout, side by side
+#: data/ui/shortcuts-window.ui:188 data/ui/shortcuts-window.ui:196
+msgctxt "shortcut window"
+msgid "Side by side"
+msgstr "Nebeneinander"
+
+#. Translators: This describes the layout for the Nintendo DS emulator when the two screens are displayed side by side and not one on top of the other. The bottom screen is displayed to the right of the top screen.
+#: data/ui/shortcuts-window.ui:189
+msgctxt "shortcut window"
+msgid "Bottom to the right"
+msgstr "Unten nach rechts"
+
+#. Translators: This describes the layout for the Nintendo DS emulator when the two screens are displayed side by side and not one on top of the other. The bottom screen is displayed to the left of the top screen
+#: data/ui/shortcuts-window.ui:197
+msgctxt "shortcut window"
+msgid "Bottom to the left"
+msgstr "Unten nach links"
+
+#. Translators: This describes the layout for the Nintendo DS emulator. This setting means only one screen is displayed at once. The screen displayed can then be changed in-game
+#: data/ui/shortcuts-window.ui:204
+msgctxt "shortcut window"
+msgid "Single screen"
+msgstr "Einzelner Bildschirm"
+
+#: data/ui/shortcuts-window.ui:212
+msgid "Screen Switching"
+msgstr "Bildschirme umschalten"
+
+#. Translators: This describes the shortcut for showing the top screen, when the Nintendo DS emulator is single screen mode.
+#: data/ui/shortcuts-window.ui:217
+msgctxt "shortcut window"
+msgid "Show top screen"
+msgstr "Oberen Bildschirm anzeigen"
+
+#. Translators: This describes the shortcut for showing the bottom screen, when the Nintendo DS emulator is single screen mode.
+#: data/ui/shortcuts-window.ui:224
+msgctxt "shortcut window"
+msgid "Show bottom screen"
+msgstr "Unteren Bildschirm anzeigen"
+
+#. Translators: This describes the shortcut for toggling whether the top or bottom screen is displayed, when the Nintendo DS emulator is single screen mode.
+#: data/ui/shortcuts-window.ui:233
+msgctxt "shortcut window"
+msgid "Toggle screen"
+msgstr "Bildschirm ein-/ausschalten"
+
+#: data/ui/shortcuts-window.ui:234
+msgctxt "shortcut window"
+msgid "Press right analog stick"
+msgstr "Rechten Analogstick drücken"
+
+#: data/ui/shortcuts-window.ui:245
 msgid "Cheats"
 msgstr "Cheats"
 
-#: data/ui/shortcuts-window.ui:144
+#: data/ui/shortcuts-window.ui:254
 msgctxt "shortcut window"
 msgid "Contribute"
 msgstr "Beitragen"
+
+#: data/ui/snapshots-list.ui:64
+msgid "Create new snapshot"
+msgstr "Neuen Schnappschuss erstellen"
+
+#: data/ui/snapshots-list.ui:89
+msgid "_Delete"
+msgstr "_Löschen"
+
+#: data/ui/snapshots-list.ui:129
+msgid "Name"
+msgstr "Name"
+
+#: data/ui/undo-notification.ui:28
+msgid "_Undo"
+msgstr "_Rückgängig"
 
 #: plugins/desktop/src/desktop-plugin.vala:6
 msgid "Desktop"
 msgstr "PC"
 
-#: plugins/desktop/src/desktop-plugin.vala:56
-#, c-format
-msgid "Invalid command “%s”."
-msgstr "Ungültiger Befehl »%s«."
-
-#: plugins/desktop/src/desktop-plugin.vala:69
-#, c-format
-msgid "Tracker listed file not found: “%s”."
-msgstr "In Tracker aufgelistete Datei konnte nicht gefunden werden: »%s«."
-
-#: plugins/desktop/src/desktop-plugin.vala:75
-#, c-format
-msgid "Couldn’t parse desktop entry “%s”."
-msgstr "Desktop-Eintrag »%s« konnte nicht ausgewertet werden."
-
-#: plugins/desktop/src/desktop-plugin.vala:85
-#, c-format
-msgid "“%s” shouldn’t be displayed."
-msgstr "»%s« sollte nicht angezeigt werden."
-
-#: plugins/desktop/src/desktop-plugin.vala:88
-#, c-format
-msgid "“%s” is hidden."
-msgstr "»%s« ist verborgen."
-
-#: plugins/desktop/src/desktop-plugin.vala:97
-#, c-format
-msgid "“%s” has blacklisted category “%s”."
-msgstr "»%s« hat Kategorie »%s« ausgeblendet."
-
-#: plugins/desktop/src/desktop-plugin.vala:106
-#, c-format
-msgid "“%s” has blacklisted executable “%s”."
-msgstr "»%s« hat ausführbare Datei »%s« ausgeblendet."
-
-#: plugins/desktop/src/desktop-plugin.vala:113
-#, c-format
-msgid "“%s” is blacklisted."
-msgstr "»%s« ist ausgeblendet."
-
-#: plugins/dreamcast/src/dreamcast-header.vala:54
-msgid "The file doesn’t have a Dreamcast header."
-msgstr "Die Datei hat keinen Dreamcast-Header."
-
 #: plugins/dreamcast/src/dreamcast-plugin.vala:6
 msgid "Dreamcast"
 msgstr "Dreamcast"
-
-#: plugins/game-cube/src/game-cube-header.vala:20
-msgid "The file doesn’t have a Game Cube header."
-msgstr "Die Datei hat keinen GameCube-Header."
 
 #: plugins/game-cube/src/game-cube-plugin.vala:6
 msgid "Nintendo GameCube"
@@ -490,198 +742,126 @@ msgstr "Nintendo GameCube"
 msgid "Libretro"
 msgstr "Libretro"
 
-#: plugins/love/src/love-package.vala:13 plugins/love/src/love-package.vala:17
-#, c-format
-msgid "This doesn’t represent a valid LÖVE package: “%s”."
-msgstr "Dies ist kein gültiges LÖVE-Paket: »%s«."
-
-#: plugins/love/src/love-plugin.vala:7
+#: plugins/love/src/love-plugin.vala:6
 msgid "LÖVE"
 msgstr "LÖVE"
 
-#: plugins/mame/src/mame-game-uri-adapter.vala:21
-#, c-format
-msgid "Invalid MAME game id “%s” for “%s”."
-msgstr "MAME-Spiel-Kennung »%s« für »%s« ist ungültig."
-
-#: plugins/mame/src/mame-plugin.vala:6
+#: plugins/mame/src/mame-plugin.vala:7
 msgid "Arcade"
 msgstr "Arcade"
 
-#: plugins/ms-dos/src/ms-dos-plugin.vala:7
+#: plugins/ms-dos/src/ms-dos-plugin.vala:6
 msgid "MS-DOS"
 msgstr "MS-DOS"
 
-#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:7
-msgid "Nintendo DS"
-msgstr "Nintendo DS"
+#: plugins/nintendo-64/data/ui/nintendo-64-pak-switcher.ui:14
+msgid "Controller Expansion"
+msgstr "Controller-Erweiterung"
 
-#: plugins/playstation/src/playstation-header.vala:27
+#: plugins/nintendo-64/src/nintendo-64-pak-controller.vala:31
 #, c-format
-msgid "Not a PlayStation disc: “%s”."
-msgstr "Keine PlayStation-Disc: »%s«."
+msgid "Player %u"
+msgstr "Spieler %u"
 
-#: plugins/playstation/src/playstation-header.vala:37
-#, c-format
-msgid "Invalid PlayStation header: disc ID not found in “%s”."
-msgstr "Ungültiger PlayStation-Header: Platten-ID nicht gefunden unter »%s«."
+#: plugins/nintendo-64/src/nintendo-64-plugin.vala:6
+msgid "Nintendo 64"
+msgstr "Nintendo 64"
 
-#: plugins/playstation/src/playstation-plugin.vala:6
+#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:19
+msgid "Change Screen"
+msgstr "Bildschirm wechseln"
+
+#. Translators: This describes the layout for the Nintendo DS
+#. * emulator. This setting means the two screens are stacked one on
+#. * top of the other
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:53
+msgid "Vertical"
+msgstr "Vertikal"
+
+#. Translators: This describes the layout for the Nintendo DS
+#. * emulator. This setting means the two screens are displayed side
+#. * by side
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:59
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:65
+msgid "Side by side"
+msgstr "Nebeneinander"
+
+#. Translators: This describes the layout for the Nintendo DS
+#. * emulator. This setting means only one screen is displayed at
+#. * once. The screen displayed can then be changed in-game.
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:71
+msgid "Single screen"
+msgstr "Einzelner Bildschirm"
+
+#. Translators: This describes the layout for the Nintendo DS
+#. * emulator when the two screens are displayed side by side and not
+#. * one on top of the other. The bottom screen is displayed to the
+#. * right of the top screen.
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:85
+msgid "Bottom to the right"
+msgstr "Unten nach rechts"
+
+#. Translators: This describes the layout for the Nintendo DS
+#. * emulator when the two screens are displayed side by side and not
+#. * one on top of the other. The bottom screen is displayed to the
+#. * left of the top screen.
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:92
+msgid "Bottom to the left"
+msgstr "Unten nach links"
+
+#: plugins/playstation/src/playstation-plugin.vala:7
 msgid "PlayStation"
 msgstr "PlayStation"
 
-#: plugins/sega-cd/src/sega-cd-header.vala:44
-#: plugins/sega-cd/src/sega-cd-header.vala:63
-msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
-msgstr "Datei hat keinen Genesis/Sega 32X/Sega CD/Sega Pico-Header."
-
 #. translators: known as "Mega-CD" in most of the world
-#: plugins/sega-cd/src/sega-cd-plugin.vala:12
+#: plugins/sega-cd/src/sega-cd-plugin.vala:13
 msgid "Sega CD"
 msgstr "Sega CD"
 
 #. translators: known as "Mega-CD 32X" in most of the world
-#: plugins/sega-cd/src/sega-cd-plugin.vala:14
+#: plugins/sega-cd/src/sega-cd-plugin.vala:15
 msgid "Sega CD 32X"
 msgstr "Sega CD 32X"
-
-#: plugins/sega-cd/src/sega-cd-plugin.vala:114
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:93
-#, c-format
-msgid "The file “%s” doesn’t have a track."
-msgstr "Datei »%s« hat keinen Titel."
-
-#: plugins/sega-cd/src/sega-cd-plugin.vala:120
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:99
-#, c-format
-msgid "The file “%s” doesn’t have a valid binary file format."
-msgstr "Datei »%s« hat kein gültiges Binärfomat."
-
-#: plugins/sega-cd/src/sega-cd-plugin.vala:123
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:102
-#, c-format
-msgid "The file “%s” doesn’t have a valid track mode for track %d."
-msgstr "Datei »%s« hat keinen gültigen Titelmodus für Titel %d."
-
-#: plugins/sega-saturn/src/sega-saturn-header.vala:54
-msgid "The file doesn’t have a Sega Saturn header."
-msgstr "Die Datei hat keinen Sega-Saturn-Header."
 
 #: plugins/sega-saturn/src/sega-saturn-plugin.vala:7
 msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
-#: plugins/sega-saturn/src/sega-saturn-plugin.vala:106
-#, c-format
-msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
-msgstr "Datei »%s« ist keine gültige Sega Saturn Binärdatei."
-
 #: plugins/steam/src/steam-plugin.vala:10
 msgid "Steam"
 msgstr "Steam"
 
-#: plugins/steam/src/steam-plugin.vala:80
-#, c-format
-msgid "Couldn’t get Steam appid from manifest “%s”."
-msgstr "Steam-App-Kennung konnte aus dem Manifest »%s« nicht ermittelt werden."
-
-#: plugins/steam/src/steam-registry.vala:68
-#, c-format
-msgid "File “%s” doesn’t exist."
-msgstr "Die Datei »%s« existiert nicht."
-
-#: plugins/steam/src/steam-registry.vala:96
-msgid "Unexpected token '{'."
-msgstr "Unerwartetes Zeichen »{«."
-
-# CHECK
-#: plugins/steam/src/steam-registry.vala:110
-msgid "Unexpected end of tokens."
-msgstr "Unerwartetes Ende der Zeichen."
-
-#: plugins/steam/src/steam-registry.vala:113
-msgid "Unexpected token '}'."
-msgstr "Unerwartetes Zeichen »}«."
-
-#: plugins/steam/src/steam-title.vala:17
-msgid "Couldn’t get name from Steam registry."
-msgstr "Der Name konnte nicht aus der Steam-Registry ermittelt werden."
-
 #. translators: known as "CD-ROM²" in eastern Asia and France
-#: plugins/turbografx-cd/src/turbografx-cd-plugin.vala:10
+#: plugins/turbografx-cd/src/turbografx-cd-plugin.vala:9
 msgid "TurboGrafx-CD"
 msgstr "TurboGrafx-CD"
 
-#: plugins/virtual-boy/src/virtual-boy-header.vala:20
-msgid "The file is too short."
-msgstr "Die Datei ist zu kurz."
-
-#: plugins/virtual-boy/src/virtual-boy-header.vala:26
-#, c-format
-msgid "Invalid Virtual Boy ROM header size: %s"
-msgstr "Größe des Virtual-Boy-ROM-Headers ist ungültig: %s"
-
-#: plugins/virtual-boy/src/virtual-boy-header.vala:38
-msgid "Invalid Virtual Boy ROM header size."
-msgstr "Größe des Virtual-Boy-ROM-Headers ist ungültig."
-
-#: plugins/virtual-boy/src/virtual-boy-header.vala:42
-msgid "The file doesn’t have a Virtual Boy ROM header."
-msgstr "Die Datei hat keinen Virtual-Boy-ROM-Header."
-
-#: plugins/virtual-boy/src/virtual-boy-header.vala:51
-#, c-format
-msgid "Couldn’t get file size: %s"
-msgstr "Dateigröße konnte nicht ermittelt werden: %s"
-
-#: plugins/virtual-boy/src/virtual-boy-header.vala:60
-#: plugins/wii/src/wii-header.vala:55
-#, c-format
-msgid "Couldn’t read file: %s"
-msgstr "Datei konnte nicht gelesen werden: %s"
-
-#: plugins/virtual-boy/src/virtual-boy-plugin.vala:7
+#: plugins/virtual-boy/src/virtual-boy-plugin.vala:6
 msgid "Virtual Boy"
 msgstr "Virtual Boy"
-
-#: plugins/wii/src/wii-header.vala:20
-#, c-format
-msgid "Invalid Wii header size: %s"
-msgstr "Größe des Wii-Headers ist ungültig: %s"
-
-#: plugins/wii/src/wii-header.vala:33 plugins/wii/src/wii-header.vala:44
-msgid "The file doesn’t have a Wii header."
-msgstr "Die Datei hat keinen Wii-Header."
 
 #: plugins/wii/src/wii-plugin.vala:6
 msgid "Wii"
 msgstr "Wii"
 
-#: src/command/command-runner.vala:39
-msgid "The game doesn’t have a valid command."
-msgstr "Es gibt keinen gültigen Befehl für das Spiel."
+#: src/collection/dummy-add-collection.vala:9
+msgid "Add Collection"
+msgstr "Sammlung hinzufügen"
 
-#: src/command/command-runner.vala:65
+#: src/collection/favorites-collection.vala:15
+msgid "Favorites"
+msgstr "Favoriten"
+
+#: src/collection/recently-played-collection.vala:15
+msgid "Recently Played"
+msgstr "Kürzlich gespielt"
+
+#: src/core/snapshot-manager.vala:82 src/core/snapshot-manager.vala:107
 #, c-format
-msgid "Couldn’t run “%s”: execution failed."
-msgstr "Ausführung von »%s« ist fehlgeschlagen."
+msgid "New snapshot %s"
+msgstr "Neuer Schnappschuss %s"
 
-#: src/core/media-set/media-set.vala:30
-#, c-format
-msgid "Invalid media index %u."
-msgstr "Ungültiger Medienindex %u."
-
-#: src/core/plugin-registrar.vala:27
-#, c-format
-msgid "Invalid plugin descriptor: %s"
-msgstr "Ungültiger Plugin-Deskriptor: %s"
-
-#: src/core/plugin-registrar.vala:48 src/core/plugin-registrar.vala:52
-#, c-format
-msgid "Couldn’t create a new instance of plugin in “%s”."
-msgstr "Eine neue Instanz des Plugins konnte nicht in »%s« angelegt werden."
-
-#: src/dummy/dummy-platform.vala:9 src/ui/developer-list-item.vala:26
+#: src/dummy/dummy-platform.vala:9 src/dummy/dummy-platform.vala:18
 msgid "Unknown"
 msgstr "Unbekannt"
 
@@ -690,86 +870,22 @@ msgstr "Unbekannt"
 msgid "Disc %d"
 msgstr "Platte %d"
 
-#: src/gameinfo/gameinfo-doc.vala:15
-#, c-format
-msgid "No game title found for disc ID “%s”."
-msgstr "Kein Spiel-Titel für Platten-ID »%s« gefunden."
-
-#: src/gameinfo/gameinfo-doc.vala:31
-#, c-format
-msgid "No disc title found for disc ID “%s”."
-msgstr "Keinen Platten-Titel für Platten-ID »%s« gefunden."
-
-#: src/gameinfo/gameinfo-doc.vala:41
-#, c-format
-msgid "No disc set ID found for disc ID “%s”."
-msgstr "Keine Plattensatz-ID für Platten-ID »%s« gefunden."
-
-#: src/gameinfo/gameinfo-doc.vala:49 src/gameinfo/gameinfo-doc.vala:59
-#, c-format
-msgid "No disc found for disc ID “%s”."
-msgstr "Keine Platte gefunden für Platten-ID »%s«."
-
-#: src/grilo/grilo-players.vala:40
-msgid "Single-player"
-msgstr "Einzelspieler"
-
-#: src/grilo/grilo-players.vala:42
-msgid "Multi-player"
-msgstr "Mehrspieler"
-
-#: src/retro/retro-core-source.vala:25 src/retro/retro-core-source.vala:39
-#, c-format
-msgid "No module found for platform “%s” and MIME types [ “%s” ]."
-msgstr "Kein Modul für Plattform »%s« und MIME-Typen gefunden [ »%s« ]."
-
-#: src/retro/retro-core-source.vala:25 src/retro/retro-core-source.vala:39
-msgid "”, “"
-msgstr "”, “"
-
-#: src/retro/retro-core-source.vala:84
-#, c-format
-msgid "This game requires the %s firmware file to run."
-msgstr "Zur Ausführung benötigt das Spiel die Firmwaredatei %s."
-
-#: src/retro/retro-core-source.vala:101
-#, c-format
-msgid ""
-"This game requires the %s firmware file with a MD5 fingerprint of %s to run."
-msgstr ""
-"Zur Ausführung benötigt das Spiel die Firmwaredatei %s mit dem MD5-"
-"Fingerabdruck von %s."
-
-#: src/retro/retro-core-source.vala:107
-#, c-format
-msgid ""
-"This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
-"run."
-msgstr ""
-"Zur Ausführung benötigt das Spiel die Firmwaredatei %s mit dem SHA-512-"
-"Fingerabdruck von %s."
-
-#: src/retro/retro-runner.vala:224
-#, c-format
-msgid "No module found for “%s”."
-msgstr "Kein passendes Modul für »%s« gefunden."
-
-#: src/retro/retro-runner.vala:527
-msgid "Unknown platform"
-msgstr "Unbekannte Plattform"
-
-#: src/retro/retro-runner.vala:570
+#: src/retro/retro-runner.vala:124
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
 msgstr ""
 "Das System »%s« wird derzeit noch nicht unterstützt, die vollständige "
 "Unterstützung ist aber bereits in Planung."
 
-#: src/retro/retro-runner.vala:572
+#: src/retro/retro-runner.vala:126
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr ""
 "Das System wird derzeit noch nicht unterstützt, die vollständige "
 "Unterstützung ist aber bereits in Planung."
+
+#: src/retro/retro-runner.vala:443
+msgid "Unknown platform"
+msgstr "Unbekannte Plattform"
 
 #: src/retro/retro-simple-type.vala:13
 msgid "Amiga"
@@ -830,223 +946,529 @@ msgstr "Neo Geo Pocket Color"
 msgid "Nintendo Entertainment System"
 msgstr "Nintendo Entertainment System"
 
-#: src/retro/retro-simple-type.vala:44
-msgid "Nintendo 64"
-msgstr "Nintendo 64"
-
 #. translators: known as "Mega Drive 32X", "Mega 32X" or "Super 32X" in other places
-#: src/retro/retro-simple-type.vala:47
+#: src/retro/retro-simple-type.vala:45
 msgid "Genesis 32X"
 msgstr "Genesis 32X"
 
 #. translators: known as "Mega Drive" in most of the world
-#: src/retro/retro-simple-type.vala:50
+#: src/retro/retro-simple-type.vala:48
 msgid "Sega Genesis"
 msgstr "Sega Genesis"
 
-#: src/retro/retro-simple-type.vala:52
+#: src/retro/retro-simple-type.vala:50
 msgid "Sega Pico"
 msgstr "Sega Pico"
 
-#: src/retro/retro-simple-type.vala:54
+#: src/retro/retro-simple-type.vala:52
 msgid "SG-1000"
 msgstr "SG-1000"
 
 #. translators: known as "Super Famicom" in eastern Asia
-#: src/retro/retro-simple-type.vala:57
+#: src/retro/retro-simple-type.vala:55
 msgid "Super Nintendo Entertainment System"
 msgstr "Super Nintendo Entertainment System"
 
 #. translators: known as "PC Engine" in eastern Asia and France
-#: src/retro/retro-simple-type.vala:60
+#: src/retro/retro-simple-type.vala:58
 msgid "TurboGrafx-16"
 msgstr "TurboGrafx-16"
 
-#: src/retro/retro-simple-type.vala:62
+#: src/retro/retro-simple-type.vala:60
 msgid "WiiWare"
 msgstr "WiiWare"
 
-#: src/retro/retro-simple-type.vala:64
+#: src/retro/retro-simple-type.vala:62
 msgid "WonderSwan"
 msgstr "WonderSwan"
 
-#: src/retro/retro-simple-type.vala:66
+#: src/retro/retro-simple-type.vala:64
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
-#: src/ui/application.vala:171
+#: src/ui/application.vala:36
+msgid "Search term"
+msgstr "Suchbegriff"
+
+#: src/ui/application.vala:37
+msgid "Run a game by uid"
+msgstr "Ein Spiel anhand der UID ausführen"
+
+#: src/ui/application.vala:170
 msgid "Select game files"
 msgstr "Spieledateien auswählen"
 
-#: src/ui/application.vala:172
-msgid "_Cancel"
-msgstr "A_bbrechen"
+#: src/ui/application.vala:217
+#, c-format
+msgid "An unexpected error occurred while trying to run %s"
+msgstr "Ein unerwarteter Fehler ist beim Versuch aufgetreten, %s auszuführen"
 
-#: src/ui/application.vala:173
-msgid "_Add"
-msgstr "_Hinzufügen"
+#: src/ui/application.vala:244
+#, c-format
+msgid "Cannot find game with UID “%s”."
+msgstr "Es konnte kein Spiel mit der UID »%s« gefunden werden."
 
-#: src/ui/application.vala:382
+#: src/ui/application.vala:322
+msgid "Couldn't find Tracker, automatic game discovery may not work."
+msgstr ""
+"Tracker konnte nicht gefunden werden. Die automatische Spielermittlung "
+"funktioniert möglicherweise nicht."
+
+#: src/ui/application.vala:498
 msgid "GNOME Games"
 msgstr "GNOME Spiele"
 
-#: src/ui/application.vala:384
+#: src/ui/application.vala:500
 msgid "A video game player for GNOME"
 msgstr "Ein Videospiel-Programm für GNOME"
 
-#: src/ui/application.vala:388
+#: src/ui/application.vala:504
 msgid "Learn more about GNOME Games"
 msgstr "Mehr über GNOME Spiele erfahren"
 
-#: src/ui/application.vala:395
+#: src/ui/application.vala:511
 msgid "translator-credits"
 msgstr ""
 "Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Bernd Homuth <dev@hmt.im>\n"
 "Paul Seyfert <pseyfert@mathphys.fsk.uni-heidelberg.de>\n"
-"Tim Sabsch <tim@sabsch.com>"
+"Tim Sabsch <tim@sabsch.com>\n"
+"Christian Kirbach <christian.kirbach@gmail.com>"
 
-#: src/ui/application-window.vala:403
-msgid "An unexpected error occurred."
-msgstr "Ein unerwarteter Fehler ist aufgetreten."
-
-#: src/ui/application-window.vala:690 src/ui/application-window.vala:707
+#. Translators: This is displayed if the user tries to log out of his
+#. * GNOME session, shutdown, or reboot while Games is running
+#: src/ui/application-window.vala:271 src/ui/application-window.vala:290
 msgid "Playing a game"
 msgstr "Ein Spiel spielen"
 
-#: src/ui/error-display.vala:13
+#: src/ui/collection-action-window.vala:226 src/ui/collection-view.vala:479
+msgid "Collection name cannot be empty"
+msgstr "Der Name der Sammlung darf nicht leer sein"
+
+#: src/ui/collection-action-window.vala:233 src/ui/collection-view.vala:483
+msgid "A collection with this name already exists"
+msgstr "Eine Sammlung mit diesem Namen existiert bereits"
+
+#: src/ui/collections-page.vala:194
+#, c-format
+msgid "%s removed"
+msgstr "%s entfernt"
+
+#: src/ui/collections-page.vala:195
+#, c-format
+msgid "Removed %d collection"
+msgid_plural "Removed %d collections"
+msgstr[0] "%d Sammlung entfernt"
+msgstr[1] "%d Sammlungen entfernt"
+
+#: src/ui/collection-view.vala:531
+#, c-format
+msgid "Selected %d item"
+msgid_plural "Selected %d items"
+msgstr[0] "%d Element ausgewählt"
+msgstr[1] "%d Elemente ausgewählt"
+
+#: src/ui/error-display.vala:15
 #, c-format
 msgid "Oops! Unable to run “%s”"
 msgstr "Hoppla, »%s« kann nicht ausgeführt werden"
 
-#: src/ui/error-display.vala:15
+#: src/ui/error-display.vala:17
 msgid "Oops! Unable to run the game"
 msgstr "Hoppla, das Spiel kann nicht ausgeführt werden"
 
-#: src/ui/gamepad-mapper.vala:137
+#: src/ui/error-display.vala:24
+#, c-format
+msgid "Oops! The game “%s” crashed unexpectedly"
+msgstr "Hoppla! Das Spiel »%s« ist unerwartet abgestürzt"
+
+#: src/ui/gamepad-mapper.vala:168
 msgid "Press suitable button on your gamepad"
 msgstr "Drücken Sie den entsprechenden Knopf auf Ihrem Gamepad"
 
-#: src/ui/gamepad-mapper.vala:142
+#: src/ui/gamepad-mapper.vala:173
 msgid "Move suitable axis left/right on your gamepad"
 msgstr ""
 "Bewegen Sie die entsprechende Achse auf Ihrem Gamepad nach links/rechts"
 
-#: src/ui/gamepad-mapper.vala:144
+#: src/ui/gamepad-mapper.vala:175
 msgid "Move suitable axis up/down on your gamepad"
-msgstr "Bewegen Sie die entsprechende Achse nach oben/unten auf Ihrem Gamepad"
+msgstr "Bewegen Sie die entsprechende Achse auf Ihrem Gamepad nach oben/unten"
 
-#: src/ui/keyboard-mapper.vala:27
+#. translators: This message is displayed at the bottom of the window
+#. * when the user maps keyboard keys to controller buttons. To see it,
+#. * click on the hamburger menu, click on preferences > controllers >
+#. * keyboard, and click on the "configure" button
+#: src/ui/keyboard-mapper.vala:31
 msgid "Press suitable key on your keyboard"
 msgstr "Drücken Sie die entsprechende Taste auf Ihrer Tastatur"
 
-#: src/ui/media-selector.vala:38
+#: src/ui/media-menu-button.vala:52
 #, c-format
 msgid "Media %d"
 msgstr "Medium %d"
 
-#: src/ui/preferences-page-controllers.vala:24
-msgid "Controllers"
-msgstr "Controller"
+#: src/ui/preferences-page-import-export.vala:19
+#, c-format
+msgid "Couldn’t import save data: %s"
+msgstr "Speicherdaten konnten nicht importiert werden: %s"
 
-#: src/ui/preferences-page-plugins.vala:12
-msgid "Extensions"
-msgstr "Erweiterungen"
+#: src/ui/preferences-page-import-export.vala:49
+#, c-format
+msgid "Couldn’t export save data: %s"
+msgstr "Speicherdaten konnten nicht exportiert werden: %s"
+
+#. Translators: This is displayed under the platform name when no
+#. * core is available for this platform. To see this message, click
+#. * on the hamburger menu, click on Preferences, then on Platforms
+#: src/ui/preferences-page-platforms-retro-row.vala:18
+msgid "None"
+msgstr "Kein"
 
 #. same as video-filters in gschema
-#: src/ui/preferences-page-video.vala:22
+#. Translators: These values are video filters applied to the screen. Smooth
+#. * tries to smoothen the pixels, sharp displays the pixels square, and CRT
+#. * emulates an old TV
+#: src/ui/preferences-page-video.vala:26
 msgid "Smooth"
 msgstr "Glätten"
 
-#: src/ui/preferences-page-video.vala:22
+#: src/ui/preferences-page-video.vala:26
 msgid "Sharp"
 msgstr "Schärfen"
 
-#: src/ui/preferences-page-video.vala:22
+#: src/ui/preferences-page-video.vala:26
 msgid "CRT"
 msgstr "CRT"
 
-#: src/ui/preferences-page-video.vala:36
-msgid "Video"
-msgstr "Video"
-
 #. translators: testing a gamepad, %s is its name
-#: src/ui/preferences-subpage-gamepad.vala:78
+#: src/ui/preferences-subpage-gamepad.vala:99
 #, c-format
 msgid "Testing %s"
 msgstr "%s wird getestet"
 
 #. translators: configuring a gamepad, %s is its name
-#: src/ui/preferences-subpage-gamepad.vala:89
+#: src/ui/preferences-subpage-gamepad.vala:101
 #, c-format
 msgid "Configuring %s"
 msgstr "%s wird konfiguriert"
 
-#: src/ui/preferences-subpage-keyboard.vala:68
-msgid "Testing Keyboard"
-msgstr "Tastatur wird getestet"
+#: src/ui/selection-action-bar.vala:49
+msgid "Remove selected games from favorites"
+msgstr "Ausgewählte Spiele aus Favoriten entfernen"
 
-#: src/ui/preferences-subpage-keyboard.vala:78
-msgid "Configuring Keyboard"
-msgstr "Tastatur wird konfiguriert"
+#: src/ui/selection-action-bar.vala:53
+msgid "Add selected games to favorites"
+msgstr "Ausgewählte Spiele zu den Favoriten hinzufügen"
 
-#: src/utils/cue-sheet/cue-sheet.vala:25
+#: src/ui/snapshot-row.vala:21 src/ui/snapshots-list.vala:181
+msgid "Autosave"
+msgstr "Automatisch speichern"
+
+#. Translators: Time in locale format
+#: src/ui/snapshot-row.vala:74
+#, no-c-format
+msgid "%X"
+msgstr "%X"
+
+#. Translators: this is the word Yesterday followed by
+#. * a time in locale format. i.e. "Yesterday 23:04:35"
+#: src/ui/snapshot-row.vala:80
+#, no-c-format
+msgid "Yesterday %X"
+msgstr "Gestern um %X"
+
+#. Translators: this is the abbreviated name of the week day followed by
+#. * a time in locale format. i.e. "Monday 23:04:35"
+#: src/ui/snapshot-row.vala:86
+#, no-c-format
+msgid "%a %X"
+msgstr "%a %X"
+
+#. Translators: this is the day of the month followed
+#. * by the abbreviated month name followed by a time in
+#. * locale format i.e. "3 Feb 23:04:35"
+#: src/ui/snapshot-row.vala:93
+#, no-c-format
+msgid "%-e %b %X"
+msgstr "%e. %b %X"
+
+#. Translators: this is the day number followed
+#. * by the abbreviated month name followed by the year followed
+#. * by a time in locale format i.e. "3 Feb 2015 23:04:00"
+#: src/ui/snapshot-row.vala:100
+#, no-c-format
+msgid "%-e %b %Y %X"
+msgstr "%e. %b %Y, %X"
+
+#. Translators: This message is shown to the user if he tried to rename
+#. * his snapshot either with an empty string, or with the name of the
+#. * autosave
+#: src/ui/snapshots-list.vala:187
+msgid "Invalid name"
+msgstr "Ungültiger Name"
+
+#: src/ui/snapshots-list.vala:205
+msgid "A snapshot with this name already exists"
+msgstr "Ein Schnappschuss mit diesem Namen ist bereits vorhanden."
+
+#: src/utils/file-operations.vala:27
 #, c-format
-msgid "“%s” doesn’t have a track for index %u."
-msgstr "»%s« hat keinen Titel für Index %u."
+msgid "Error: %s (%d)"
+msgstr "Fehler: %s (%d)"
 
-#: src/utils/cue-sheet/cue-sheet.vala:114
+#: src/utils/file-operations.vala:85
 #, c-format
-msgid "%s:%lu: Invalid file format %s, expected a valid file format or none."
-msgstr ""
-"%s:%lu: Ungültiges Dateiformat %s. Es wird entweder ein gültiges Dateiformat "
-"erwartet oder nichts."
+msgid "Error writing “%s”: %s (%d)"
+msgstr "Fehler beim Schreiben von »%s«: %s (%d)"
 
-#: src/utils/cue-sheet/cue-sheet.vala:121
-#, c-format
-msgid "%s:%lu: Unexpected token TRACK before a FILE token."
-msgstr "%s:%lu: Unerwarteter Token TRACK vor einem FILE-Token."
+#~ msgid "_Savestates"
+#~ msgstr "_Speicherpunkte"
 
-#: src/utils/cue-sheet/cue-sheet.vala:130
-#, c-format
-msgid "%s:%lu: Invalid track number %s, expected a number in the 1-99 range."
-msgstr ""
-"%s:%lu: Ungültige Titel-Nummer %s. Erwartet wird eine Nummer zwischen 1 und "
-"99."
+#~ msgid "This is a dummy game display"
+#~ msgstr "Dies ist ein Platzhalter für ein angezeigtes Spiel"
 
-#: src/utils/cue-sheet/cue-sheet.vala:134
-#, c-format
-msgid "%s:%lu: Invalid track mode %s, expected a valid track mode."
-msgstr ""
-"%s:%lu: Ungültiger Titelmodus %s. Erwartet wird ein gültiger Titelmodus."
+#~ msgid "If you see this, this is a bug. Please contact the developers."
+#~ msgstr ""
+#~ "Wenn Sie dies sehen, ist ein Fehler aufgetreten. Bitte informieren Sie "
+#~ "die Entwickler."
+
+#~ msgid "Back up save data"
+#~ msgstr "Spielstände sichern"
+
+#~ msgid "_Back Up"
+#~ msgstr "Si_chern"
+
+#~ msgid "_Restore"
+#~ msgstr "_Wiederherstellen"
+
+#~ msgid "Invalid command “%s”."
+#~ msgstr "Ungültiger Befehl »%s«."
+
+#~ msgid "Tracker listed file not found: “%s”."
+#~ msgstr "In Tracker aufgelistete Datei konnte nicht gefunden werden: »%s«."
+
+#~ msgid "Couldn’t parse desktop entry “%s”."
+#~ msgstr "Desktop-Eintrag »%s« konnte nicht ausgewertet werden."
+
+#~ msgid "“%s” shouldn’t be displayed."
+#~ msgstr "»%s« sollte nicht angezeigt werden."
+
+#~ msgid "“%s” is hidden."
+#~ msgstr "»%s« ist verborgen."
+
+#~ msgid "“%s” has blacklisted category “%s”."
+#~ msgstr "»%s« hat Kategorie »%s« ausgeblendet."
+
+#~ msgid "“%s” has blacklisted executable “%s”."
+#~ msgstr "»%s« hat ausführbare Datei »%s« ausgeblendet."
+
+#~ msgid "“%s” is blacklisted."
+#~ msgstr "»%s« ist ausgeblendet."
+
+#~ msgid "The file doesn’t have a Dreamcast header."
+#~ msgstr "Die Datei hat keinen Dreamcast-Header."
+
+#~ msgid "The file doesn’t have a Game Cube header."
+#~ msgstr "Die Datei hat keinen GameCube-Header."
+
+#~ msgid "This doesn’t represent a valid LÖVE package: “%s”."
+#~ msgstr "Dies ist kein gültiges LÖVE-Paket: »%s«."
+
+#~ msgid "Invalid MAME game id “%s” for “%s”."
+#~ msgstr "MAME-Spiel-Kennung »%s« für »%s« ist ungültig."
+
+#~ msgid "Not a PlayStation disc: “%s”."
+#~ msgstr "Keine PlayStation-Disc: »%s«."
+
+#~ msgid "Invalid PlayStation header: disc ID not found in “%s”."
+#~ msgstr ""
+#~ "Ungültiger PlayStation-Header: Platten-ID nicht gefunden unter »%s«."
+
+#~ msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
+#~ msgstr "Datei hat keinen Genesis/Sega 32X/Sega CD/Sega Pico-Header."
+
+#~ msgid "The file “%s” doesn’t have a track."
+#~ msgstr "Datei »%s« hat keinen Titel."
+
+#~ msgid "The file “%s” doesn’t have a valid binary file format."
+#~ msgstr "Datei »%s« hat kein gültiges Binärfomat."
+
+#~ msgid "The file “%s” doesn’t have a valid track mode for track %d."
+#~ msgstr "Datei »%s« hat keinen gültigen Titelmodus für Titel %d."
+
+#~ msgid "The file doesn’t have a Sega Saturn header."
+#~ msgstr "Die Datei hat keinen Sega-Saturn-Header."
+
+#~ msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
+#~ msgstr "Datei »%s« ist keine gültige Sega Saturn Binärdatei."
+
+#~ msgid "Couldn’t get Steam appid from manifest “%s”."
+#~ msgstr ""
+#~ "Steam-App-Kennung konnte aus dem Manifest »%s« nicht ermittelt werden."
+
+#~ msgid "File “%s” doesn’t exist."
+#~ msgstr "Die Datei »%s« existiert nicht."
+
+#~ msgid "Unexpected token '{'."
+#~ msgstr "Unerwartetes Zeichen »{«."
 
 # CHECK
-#: src/utils/cue-sheet/cue-sheet.vala:141
-#, c-format
-msgid "%s:%lu: Unexpected end of file, expected %s."
-msgstr "%s:%lu: Unerwartetes Dateiende, %s erwartet."
+#~ msgid "Unexpected end of tokens."
+#~ msgstr "Unerwartetes Ende der Zeichen."
 
-#: src/utils/cue-sheet/cue-sheet.vala:144
-#, c-format
-msgid "%s:%lu: Unexpected token %s, expected %s."
-msgstr "%s:%lu: Unerwarteter Token %s. Erwartet wird %s."
+#~ msgid "Unexpected token '}'."
+#~ msgstr "Unerwartetes Zeichen »}«."
+
+#~ msgid "Couldn’t get name from Steam registry."
+#~ msgstr "Der Name konnte nicht aus der Steam-Registry ermittelt werden."
+
+#~ msgid "The file is too short."
+#~ msgstr "Die Datei ist zu kurz."
+
+#~ msgid "Invalid Virtual Boy ROM header size: %s"
+#~ msgstr "Größe des Virtual-Boy-ROM-Headers ist ungültig: %s"
+
+#~ msgid "Invalid Virtual Boy ROM header size."
+#~ msgstr "Größe des Virtual-Boy-ROM-Headers ist ungültig."
+
+#~ msgid "The file doesn’t have a Virtual Boy ROM header."
+#~ msgstr "Die Datei hat keinen Virtual-Boy-ROM-Header."
+
+#~ msgid "Couldn’t get file size: %s"
+#~ msgstr "Dateigröße konnte nicht ermittelt werden: %s"
+
+#~ msgid "Couldn’t read file: %s"
+#~ msgstr "Datei konnte nicht gelesen werden: %s"
+
+#~ msgid "Invalid Wii header size: %s"
+#~ msgstr "Größe des Wii-Headers ist ungültig: %s"
+
+#~ msgid "The file doesn’t have a Wii header."
+#~ msgstr "Die Datei hat keinen Wii-Header."
+
+#~ msgid "The game doesn’t have a valid command."
+#~ msgstr "Es gibt keinen gültigen Befehl für das Spiel."
+
+#~ msgid "Couldn’t run “%s”: execution failed."
+#~ msgstr "Ausführung von »%s« ist fehlgeschlagen."
+
+#~ msgid "Invalid media index %u."
+#~ msgstr "Ungültiger Medienindex %u."
+
+#~ msgid "Invalid plugin descriptor: %s"
+#~ msgstr "Ungültiger Plugin-Deskriptor: %s"
+
+#~ msgid "Couldn’t create a new instance of plugin in “%s”."
+#~ msgstr "Eine neue Instanz des Plugins konnte nicht in »%s« angelegt werden."
+
+#~ msgid "No game title found for disc ID “%s”."
+#~ msgstr "Kein Spiel-Titel für Platten-ID »%s« gefunden."
+
+#~ msgid "No disc title found for disc ID “%s”."
+#~ msgstr "Keinen Platten-Titel für Platten-ID »%s« gefunden."
+
+#~ msgid "No disc set ID found for disc ID “%s”."
+#~ msgstr "Keine Plattensatz-ID für Platten-ID »%s« gefunden."
+
+#~ msgid "Single-player"
+#~ msgstr "Einzelspieler"
+
+#~ msgid "Multi-player"
+#~ msgstr "Mehrspieler"
+
+#~ msgid "No module found for platform “%s” and MIME types [ “%s” ]."
+#~ msgstr "Kein Modul für Plattform »%s« und MIME-Typen gefunden [ »%s« ]."
+
+#~ msgid "”, “"
+#~ msgstr "”, “"
+
+#~ msgid "This game requires the %s firmware file to run."
+#~ msgstr "Zur Ausführung benötigt das Spiel die Firmwaredatei %s."
+
+#~ msgid ""
+#~ "This game requires the %s firmware file with a MD5 fingerprint of %s to "
+#~ "run."
+#~ msgstr ""
+#~ "Zur Ausführung benötigt das Spiel die Firmwaredatei %s mit dem MD5-"
+#~ "Fingerabdruck von %s."
+
+#~ msgid ""
+#~ "This game requires the %s firmware file with a SHA-512 fingerprint of %s "
+#~ "to run."
+#~ msgstr ""
+#~ "Zur Ausführung benötigt das Spiel die Firmwaredatei %s mit dem SHA-512-"
+#~ "Fingerabdruck von %s."
+
+#~ msgid "No module found for “%s”."
+#~ msgstr "Kein passendes Modul für »%s« gefunden."
+
+#~ msgid "An unexpected error occurred."
+#~ msgstr "Ein unerwarteter Fehler ist aufgetreten."
+
+#~ msgid "Back Up & Restore"
+#~ msgstr "Sichern & Wiederherstellen"
+
+#~ msgid "Couldn’t back up: %s"
+#~ msgstr "Konnte nicht gesichert werden: %s"
+
+#~ msgid "Testing Keyboard"
+#~ msgstr "Tastatur wird getestet"
+
+#~ msgid "Configuring Keyboard"
+#~ msgstr "Tastatur wird konfiguriert"
+
+#~ msgid "“%s” doesn’t have a track for index %u."
+#~ msgstr "»%s« hat keinen Titel für Index %u."
+
+#~ msgid ""
+#~ "%s:%lu: Invalid file format %s, expected a valid file format or none."
+#~ msgstr ""
+#~ "%s:%lu: Ungültiges Dateiformat %s. Es wird entweder ein gültiges "
+#~ "Dateiformat erwartet oder nichts."
+
+#~ msgid "%s:%lu: Unexpected token TRACK before a FILE token."
+#~ msgstr "%s:%lu: Unerwarteter Token TRACK vor einem FILE-Token."
+
+#~ msgid ""
+#~ "%s:%lu: Invalid track number %s, expected a number in the 1-99 range."
+#~ msgstr ""
+#~ "%s:%lu: Ungültige Titel-Nummer %s. Erwartet wird eine Nummer zwischen 1 "
+#~ "und 99."
+
+#~ msgid "%s:%lu: Invalid track mode %s, expected a valid track mode."
+#~ msgstr ""
+#~ "%s:%lu: Ungültiger Titelmodus %s. Erwartet wird ein gültiger Titelmodus."
 
 # CHECK
-#: src/utils/cue-sheet/cue-sheet.vala:151
-#, c-format
-msgid "%s:%lu: Unexpected end of file, expected a token."
-msgstr "%s:%lu: Unerwartetes Dateiende, Token erwartet."
+#~ msgid "%s:%lu: Unexpected end of file, expected %s."
+#~ msgstr "%s:%lu: Unerwartetes Dateiende, %s erwartet."
+
+#~ msgid "%s:%lu: Unexpected token %s, expected %s."
+#~ msgstr "%s:%lu: Unerwarteter Token %s. Erwartet wird %s."
 
 # CHECK
-#: src/utils/cue-sheet/cue-sheet.vala:154
-#, c-format
-msgid "%s:%lu: Unexpected end of line, expected a token."
-msgstr "%s:%lu: Unerwartetes Zeilenende, Token erwartet."
+#~ msgid "%s:%lu: Unexpected end of file, expected a token."
+#~ msgstr "%s:%lu: Unerwartetes Dateiende, Token erwartet."
 
-#: src/utils/cue-sheet/cue-sheet.vala:177
-#, c-format
-msgid "%s:%lu: Unexpected token %s, expected end of line."
-msgstr "%s:%lu: Unerwarteter Token %s. Erwartet wird das Zeilenende."
+# CHECK
+#~ msgid "%s:%lu: Unexpected end of line, expected a token."
+#~ msgstr "%s:%lu: Unerwartetes Zeilenende, Token erwartet."
+
+#~ msgid "%s:%lu: Unexpected token %s, expected end of line."
+#~ msgstr "%s:%lu: Unerwarteter Token %s. Erwartet wird das Zeilenende."
+
+#~ msgid "@icon@"
+#~ msgstr "@icon@"
+
+#~ msgid "Developers"
+#~ msgstr "Entwickler"
+
+#~ msgid "Please contact the developers."
+#~ msgstr "Bitte nehmen Sie Kontakt mit den Entwicklern auf."
+
+#~ msgid "Extensions"
+#~ msgstr "Erweiterungen"
 
 #~ msgid "About"
 #~ msgstr "Info"
