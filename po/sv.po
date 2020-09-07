@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-07-17 12:43+0000\n"
-"PO-Revision-Date: 2020-07-30 14:30+0200\n"
+"POT-Creation-Date: 2020-09-07 07:49+0000\n"
+"PO-Revision-Date: 2020-09-07 22:13+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:7
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-view.ui:81
-#: data/ui/collection-view.ui:432 src/ui/application.vala:49
+#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-view.ui:82
+#: data/ui/collection-view.ui:448 src/ui/application.vala:49
 msgid "Games"
 msgstr "Spel"
 
@@ -69,7 +69,7 @@ msgstr "Spela dina spel"
 msgid "Resume your game to where you left it"
 msgstr "Återuppta ditt spel där du lämnade det"
 
-#: data/org.gnome.Games.appdata.xml.in.in:331
+#: data/org.gnome.Games.appdata.xml.in.in:359
 msgid "The GNOME Project"
 msgstr "GNOME-projektet"
 
@@ -134,92 +134,150 @@ msgstr ""
 "Föredragen Libretro-kärna att använda för att köra spel. En annan kärna kan "
 "användas om den föredragna kärnan saknar fast programvara."
 
+#: data/ui/collection-action-window.ui:5 data/ui/collection-action-window.ui:22
+msgid "Add to Collection"
+msgstr "Lägg till i samling"
+
+#: data/ui/collection-action-window.ui:27 data/ui/collection-view.ui:323
+#: src/ui/application.vala:171 src/ui/preferences-page-import-export.vala:10
+#: src/ui/preferences-page-import-export.vala:32
+msgid "_Cancel"
+msgstr "_Avbryt"
+
+#: data/ui/collection-action-window.ui:35 src/ui/application.vala:172
+msgid "_Add"
+msgstr "_Lägg till"
+
+#: data/ui/collection-action-window.ui:61 data/ui/collection-view.ui:121
+#: data/ui/collection-view.ui:198 data/ui/collection-view.ui:297
+#: data/ui/collection-view.ui:347
+msgid "Search"
+msgstr "Sök"
+
+#: data/ui/collection-action-window.ui:144 src/ui/empty-search.vala:15
+msgid "No collections found"
+msgstr "Inga samlingar hittades"
+
+#: data/ui/collection-action-window.ui:160
+msgid "Add a new collection to add games to it."
+msgstr "Lägg till en ny samling för att lägga till spel i den."
+
+#: data/ui/collection-action-window.ui:173
+msgid "Create Collection"
+msgstr "Skapa samling"
+
+#: data/ui/collection-action-window.ui:179
+msgid "Create a collection"
+msgstr "Skapa en samling"
+
+#: data/ui/collection-action-window.ui:204
+msgid "Add a Collection"
+msgstr "Lägg till en samling"
+
+#: data/ui/collection-action-window.ui:212 data/ui/collection-view.ui:153
+#: data/ui/collection-view.ui:232 data/ui/display-view.ui:34
+#: data/ui/display-view.ui:169 data/ui/preferences-subpage-gamepad.ui:33
+#: data/ui/preferences-subpage-keyboard.ui:35
+msgid "Back"
+msgstr "Bakåt"
+
+#: data/ui/collection-action-window.ui:251
+msgid "Enter a collection name"
+msgstr "Ange ett samlingsnamn"
+
+#: data/ui/collection-action-window.ui:280
+msgid "C_reate"
+msgstr "S_kapa"
+
+#: data/ui/collection-action-window.ui:289
+msgid "Create collection"
+msgstr "Skapa samling"
+
 #: data/ui/collection-empty.ui:24
 msgid "This collection is empty"
 msgstr "Denna samling är tom"
 
 #: data/ui/collection-empty.ui:39
-msgid "Please add some games to this collection to see them here."
+msgid "Add some games to this collection to see them here."
 msgstr "Lägg till några spel till denna samling för att se dem här."
 
-#: data/ui/collection-view.ui:41
+#: data/ui/collection-view.ui:42
 msgid "Add game files…"
 msgstr "Lägg till spelfiler…"
 
 #. Translators: tooltip for the application menu button
-#: data/ui/collection-view.ui:60
+#: data/ui/collection-view.ui:61
 msgid "Menu"
 msgstr "Meny"
 
-#: data/ui/collection-view.ui:101 data/ui/collection-view.ui:178
-#: data/ui/collection-view.ui:265
+#: data/ui/collection-view.ui:102 data/ui/collection-view.ui:179
+#: data/ui/collection-view.ui:278
 msgid "Select games"
 msgstr "Välj spel"
 
-#: data/ui/collection-view.ui:120 data/ui/collection-view.ui:197
-#: data/ui/collection-view.ui:284 data/ui/collection-view.ui:334
-msgid "Search"
-msgstr "Sök"
+#: data/ui/collection-view.ui:247
+msgid "Collection menu"
+msgstr "Samlingsmeny"
 
-#: data/ui/collection-view.ui:152 data/ui/collection-view.ui:230
-#: data/ui/display-view.ui:34 data/ui/display-view.ui:169
-#: data/ui/preferences-subpage-gamepad.ui:33
-#: data/ui/preferences-subpage-keyboard.ui:35
-msgid "Back"
-msgstr "Bakåt"
-
-#: data/ui/collection-view.ui:310 src/ui/application.vala:171
-#: src/ui/preferences-page-import-export.vala:10
-#: src/ui/preferences-page-import-export.vala:32
-msgid "_Cancel"
-msgstr "_Avbryt"
-
-#: data/ui/collection-view.ui:315 data/ui/preferences-subpage-gamepad.ui:102
+#: data/ui/collection-view.ui:328 data/ui/preferences-subpage-gamepad.ui:102
 #: data/ui/preferences-subpage-keyboard.ui:105 data/ui/quit-dialog.ui:15
 #: data/ui/reset-controller-mapping-dialog.ui:15 data/ui/restart-dialog.ui:15
 #: data/ui/resume-failed-dialog.ui:14
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: data/ui/collection-view.ui:361
+#: data/ui/collection-view.ui:374 src/ui/collection-view.vala:533
 msgid "Click on items to select them"
 msgstr "Klicka på objekt för att markera dem"
 
-#: data/ui/collection-view.ui:449 data/ui/preferences-window.ui:67
+#: data/ui/collection-view.ui:465 data/ui/preferences-window.ui:67
 msgid "Platforms"
 msgstr "Plattformar"
 
-#: data/ui/collection-view.ui:464
+#: data/ui/collection-view.ui:480
 msgid "Collections"
 msgstr "Samlingar"
 
-#: data/ui/collection-view.ui:490
+#: data/ui/collection-view.ui:506
 msgid "Loading"
 msgstr "Läser in"
 
-#: data/ui/collection-view.ui:545
+#: data/ui/collection-view.ui:576
+msgid "Rename Collection"
+msgstr "Byt namn på samling"
+
+#: data/ui/collection-view.ui:597 data/ui/collection-view.ui:669
+#: data/ui/snapshots-list.ui:103 data/ui/snapshots-list.ui:153
+msgid "_Rename"
+msgstr "_Byt namn"
+
+#: data/ui/collection-view.ui:637
 msgid "Pr_eferences"
 msgstr "I_nställningar"
 
-#: data/ui/collection-view.ui:549
+#: data/ui/collection-view.ui:641
 msgid "_Keyboard Shortcuts"
 msgstr "_Tangentbordsgenvägar"
 
-#: data/ui/collection-view.ui:553
+#: data/ui/collection-view.ui:645
 msgid "_Help"
 msgstr "_Hjälp"
 
-#: data/ui/collection-view.ui:557
+#: data/ui/collection-view.ui:649
 msgid "_About Games"
 msgstr "_Om Spel"
 
-#: data/ui/collection-view.ui:565
+#: data/ui/collection-view.ui:657
 msgid "Select All"
 msgstr "Markera alla"
 
-#: data/ui/collection-view.ui:569
+#: data/ui/collection-view.ui:661
 msgid "Select None"
 msgstr "Markera inget"
+
+#: data/ui/collection-view.ui:673
+msgid "R_emove"
+msgstr "_Ta bort"
 
 #: data/ui/display-view.ui:57
 msgid "Restore"
@@ -238,7 +296,7 @@ msgid "_Snapshots"
 msgstr "Ö_gonblicksbilder"
 
 #. Translators: This is displayed when the games library is empty.
-#: data/ui/empty-collection.ui:23 data/ui/empty-search.ui:25
+#: data/ui/empty-collection.ui:23 src/ui/empty-search.vala:12
 msgid "No games found"
 msgstr "Inga spel hittades"
 
@@ -250,7 +308,7 @@ msgstr ""
 "Installera spel eller lägg till kataloger som innehåller spel till dina "
 "sökkällor."
 
-#: data/ui/empty-search.ui:40
+#: data/ui/empty-search.ui:39
 msgid "Try a different search."
 msgstr "Försök med en annan sökning."
 
@@ -411,9 +469,29 @@ msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Återställ"
 
-#: data/ui/selection-action-bar.ui:10
-msgid "Add/Remove games to favorite"
-msgstr "Lägg till / ta bort spel från favoriter"
+#: data/ui/selection-action-bar.ui:16
+msgid "Add/Remove selected games to favorite"
+msgstr "Lägg till / ta bort markerade spel från favoriter"
+
+#: data/ui/selection-action-bar.ui:55
+msgid "_Add to Collection"
+msgstr "_Lägg till i samling"
+
+#: data/ui/selection-action-bar.ui:58
+msgid "Add selected games to a collection"
+msgstr "Lägg till markerade spel till en samling"
+
+#: data/ui/selection-action-bar.ui:64 data/ui/selection-action-bar.ui:81
+msgid "_Remove"
+msgstr "_Ta bort"
+
+#: data/ui/selection-action-bar.ui:67
+msgid "Remove selected games from this collection"
+msgstr "Ta bort markerade spel från denna samling"
+
+#: data/ui/selection-action-bar.ui:84
+msgid "Remove selected collections"
+msgstr "Ta bort markerade samlingar"
 
 #: data/ui/shortcuts-window.ui:11
 msgid "Shortcuts"
@@ -627,13 +705,13 @@ msgstr "Skapa ny ögonblicksbild"
 msgid "_Delete"
 msgstr "_Ta bort"
 
-#: data/ui/snapshots-list.ui:103 data/ui/snapshots-list.ui:153
-msgid "_Rename"
-msgstr "_Byt namn"
-
 #: data/ui/snapshots-list.ui:129
 msgid "Name"
 msgstr "Namn"
+
+#: data/ui/undo-notification.ui:28
+msgid "_Undo"
+msgstr "Å_ngra"
 
 #: plugins/desktop/src/desktop-plugin.vala:6
 msgid "Desktop"
@@ -753,9 +831,17 @@ msgstr "Virtual Boy"
 msgid "Wii"
 msgstr "Wii"
 
-#: src/collection/favorites-collection.vala:32
+#: src/collection/dummy-add-collection.vala:9
+msgid "Add Collection"
+msgstr "Lägg till samling"
+
+#: src/collection/favorites-collection.vala:15
 msgid "Favorites"
 msgstr "Favoriter"
+
+#: src/collection/recently-played-collection.vala:15
+msgid "Recently Played"
+msgstr "Senast spelade"
 
 #: src/core/snapshot-manager.vala:82 src/core/snapshot-manager.vala:107
 #, c-format
@@ -780,7 +866,7 @@ msgstr "Systemet ”%s” stöds inte ännu, men fullständigt stöd planeras."
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Systemet stöds inte ännu, men fullständigt stöd planeras."
 
-#: src/retro/retro-runner.vala:441
+#: src/retro/retro-runner.vala:443
 msgid "Unknown platform"
 msgstr "Okänd plattform"
 
@@ -895,10 +981,6 @@ msgstr "Kör ett spel enligt uid"
 msgid "Select game files"
 msgstr "Välj spelfiler"
 
-#: src/ui/application.vala:172
-msgid "_Add"
-msgstr "_Lägg till"
-
 #: src/ui/application.vala:217
 #, c-format
 msgid "An unexpected error occurred while trying to run %s"
@@ -909,25 +991,25 @@ msgstr "Ett oväntat fel inträffade vid försök att köra %s"
 msgid "Cannot find game with UID “%s”."
 msgstr "Hittade inget spel med UID ”%s”."
 
-#: src/ui/application.vala:321
+#: src/ui/application.vala:322
 msgid "Couldn't find Tracker, automatic game discovery may not work."
 msgstr ""
 "Kunde inte hitta Tracker, automatisk upptäckt av spel kommer kanske inte att "
 "fungera."
 
-#: src/ui/application.vala:497
+#: src/ui/application.vala:498
 msgid "GNOME Games"
 msgstr "GNOME Spel"
 
-#: src/ui/application.vala:499
+#: src/ui/application.vala:500
 msgid "A video game player for GNOME"
 msgstr "En spelarkad för GNOME"
 
-#: src/ui/application.vala:503
+#: src/ui/application.vala:504
 msgid "Learn more about GNOME Games"
 msgstr "Lär dig mer om GNOME Spel"
 
-#: src/ui/application.vala:510
+#: src/ui/application.vala:511
 msgid "translator-credits"
 msgstr ""
 "Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
@@ -936,9 +1018,36 @@ msgstr ""
 
 #. Translators: This is displayed if the user tries to log out of his
 #. * GNOME session, shutdown, or reboot while Games is running
-#: src/ui/application-window.vala:266 src/ui/application-window.vala:285
+#: src/ui/application-window.vala:271 src/ui/application-window.vala:290
 msgid "Playing a game"
 msgstr "Spela"
+
+#: src/ui/collection-action-window.vala:226 src/ui/collection-view.vala:479
+msgid "Collection name cannot be empty"
+msgstr "Samlingsnamn kan inte vara tomt"
+
+#: src/ui/collection-action-window.vala:233 src/ui/collection-view.vala:483
+msgid "A collection with this name already exists"
+msgstr "Det finns redan en samling med detta namn"
+
+#: src/ui/collections-page.vala:194
+#, c-format
+msgid "%s removed"
+msgstr "%s togs bort"
+
+#: src/ui/collections-page.vala:195
+#, c-format
+msgid "Removed %d collection"
+msgid_plural "Removed %d collections"
+msgstr[0] "Tog bort %d samling"
+msgstr[1] "Tog bort %d samlingar"
+
+#: src/ui/collection-view.vala:531
+#, c-format
+msgid "Selected %d item"
+msgid_plural "Selected %d items"
+msgstr[0] "%d objekt markerat"
+msgstr[1] "%d objekt markerade"
 
 #: src/ui/error-display.vala:15
 #, c-format
@@ -992,8 +1101,7 @@ msgstr "Det gick inte att exportera sparningsdata: %s"
 #. Translators: This is displayed under the platform name when no
 #. * core is available for this platform. To see this message, click
 #. * on the hamburger menu, click on Preferences, then on Platforms
-#: src/ui/preferences-page-platforms-retro-row.vala:44
-#: src/ui/preferences-page-platforms-retro-row.vala:54
+#: src/ui/preferences-page-platforms-retro-row.vala:18
 msgid "None"
 msgstr "Ingen"
 
@@ -1025,11 +1133,11 @@ msgstr "Testar %s"
 msgid "Configuring %s"
 msgstr "Konfigurerar %s"
 
-#: src/ui/selection-action-bar.vala:45
+#: src/ui/selection-action-bar.vala:49
 msgid "Remove selected games from favorites"
 msgstr "Ta bort markerade spel från favoriter"
 
-#: src/ui/selection-action-bar.vala:49
+#: src/ui/selection-action-bar.vala:53
 msgid "Add selected games to favorites"
 msgstr "Lägg till markerade spel till favoriter"
 
@@ -1093,6 +1201,9 @@ msgstr "Fel: %s (%d)"
 #, c-format
 msgid "Error writing “%s”: %s (%d)"
 msgstr "Fel vid skrivning av ”%s”: %s (%d)"
+
+#~ msgid "Add/Remove games to favorite"
+#~ msgstr "Lägg till / ta bort spel från favoriter"
 
 #~ msgid "Testing Keyboard"
 #~ msgstr "Testar tangentbord"
