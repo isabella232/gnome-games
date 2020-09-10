@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-09-05 20:21+0000\n"
-"PO-Revision-Date: 2020-09-09 14:53+0200\n"
+"POT-Creation-Date: 2020-09-09 12:53+0000\n"
+"PO-Revision-Date: 2020-09-10 07:48+0200\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -583,12 +583,12 @@ msgstr "Nepodarilo sa analyzovať položku pracovnej plochy „%s“."
 #: plugins/desktop/src/desktop-plugin.vala:102
 #, c-format
 msgid "“%s” shouldn’t be displayed."
-msgstr ""
+msgstr "Hra „%s“ by nemala byť zobrazená."
 
 #: plugins/desktop/src/desktop-plugin.vala:105
 #, c-format
 msgid "“%s” is hidden."
-msgstr ""
+msgstr "Hra „%s“ je skrytá."
 
 #: plugins/desktop/src/desktop-plugin.vala:114
 #, c-format
@@ -606,8 +606,6 @@ msgid "“%s” is blacklisted."
 msgstr "„%s“ je na čiernej listine."
 
 #: plugins/dreamcast/src/dreamcast-header.vala:54
-#, fuzzy
-#| msgid "The file doesn't have a Dreamcast header."
 msgid "The file doesn’t have a Dreamcast header."
 msgstr "Súbor neobsahuje hlavičku konzoly Dreamcast."
 
@@ -616,8 +614,6 @@ msgid "Dreamcast"
 msgstr "Dreamcast"
 
 #: plugins/game-cube/src/game-cube-header.vala:20
-#, fuzzy
-#| msgid "The file doesn't have a Game Cube header."
 msgid "The file doesn’t have a Game Cube header."
 msgstr "Súbor neobsahuje hlavičku konzoly Game Cube."
 
@@ -630,8 +626,7 @@ msgid "Libretro"
 msgstr "Libretro"
 
 #: plugins/love/src/love-package.vala:13 plugins/love/src/love-package.vala:17
-#, fuzzy, c-format
-#| msgid "This doesn't represent a valid LÖVE package: '%s'."
+#, c-format
 msgid "This doesn’t represent a valid LÖVE package: “%s”."
 msgstr "Toto nereprezentuje platný balík LÖVE: „%s“."
 
@@ -640,8 +635,7 @@ msgid "LÖVE"
 msgstr "LÖVE"
 
 #: plugins/mame/src/mame-game-uri-adapter.vala:18
-#, fuzzy, c-format
-#| msgid "Invalid MAME game id '%s' for '%s'."
+#, c-format
 msgid "Invalid MAME game id “%s” for “%s”."
 msgstr "Neplatný identifikátor hry MAME „%s“ pre „%s“."
 
@@ -681,11 +675,10 @@ msgstr "Dole vľavo"
 #: plugins/playstation/src/playstation-header.vala:27
 #, c-format
 msgid "Not a PlayStation disc: “%s”."
-msgstr ""
+msgstr "Nie je diskom pre konzolu PlayStation: „%s“."
 
 #: plugins/playstation/src/playstation-header.vala:37
-#, fuzzy, c-format
-#| msgid "Invalid PlayStation header: disc ID not found in '%s'."
+#, c-format
 msgid "Invalid PlayStation header: disc ID not found in “%s”."
 msgstr ""
 "Neplatná hlavička konzoly PlayStation: identifikátor disku sa nenašiel v "
@@ -697,8 +690,6 @@ msgstr "PlayStation"
 
 #: plugins/sega-cd/src/sega-cd-header.vala:44
 #: plugins/sega-cd/src/sega-cd-header.vala:63
-#, fuzzy
-#| msgid "The file doesn't have a Genesis/Sega 32X/Sega CD/Sega Pico header."
 msgid "The file doesn’t have a Genesis/Sega 32X/Sega CD/Sega Pico header."
 msgstr "Súbor neobsahuje hlavičku konzoly Genesis/Sega 32X/Sega CD/Sega Pico."
 
@@ -714,28 +705,23 @@ msgstr "Sega CD 32X"
 
 #: plugins/sega-cd/src/sega-cd-plugin.vala:99
 #: plugins/sega-saturn/src/sega-saturn-plugin.vala:81
-#, fuzzy, c-format
-#| msgid "The file '%s' doesn't have a track."
+#, c-format
 msgid "The file “%s” doesn’t have a track."
 msgstr "Súbor „%s“ neobsahuje stopu."
 
 #: plugins/sega-cd/src/sega-cd-plugin.vala:105
 #: plugins/sega-saturn/src/sega-saturn-plugin.vala:87
-#, fuzzy, c-format
-#| msgid "The file '%s' doesn't have a valid binary file format."
+#, c-format
 msgid "The file “%s” doesn’t have a valid binary file format."
 msgstr "Súbor „%s“ neobsahuje platný formát binárneho súboru."
 
 #: plugins/sega-cd/src/sega-cd-plugin.vala:108
 #: plugins/sega-saturn/src/sega-saturn-plugin.vala:90
-#, fuzzy, c-format
-#| msgid "The file '%s' doesn't have a valid track mode for track %d."
+#, c-format
 msgid "The file “%s” doesn’t have a valid track mode for track %d."
 msgstr "Súbor „%s“ neobsahuje platný režim stopy pre stopu č. %d."
 
 #: plugins/sega-saturn/src/sega-saturn-header.vala:54
-#, fuzzy
-#| msgid "The file doesn't have a Sega Saturn header."
 msgid "The file doesn’t have a Sega Saturn header."
 msgstr "Súbor neobsahuje hlavičku konzoly Sega Saturn."
 
@@ -744,8 +730,7 @@ msgid "Sega Saturn"
 msgstr "Sega Saturn"
 
 #: plugins/sega-saturn/src/sega-saturn-plugin.vala:94
-#, fuzzy, c-format
-#| msgid "The file '%s' doesn't have a valid Sega Saturn binary file."
+#, c-format
 msgid "The file “%s” doesn’t have a valid Sega Saturn binary file."
 msgstr "Súbor „%s“ neobsahuje platný binárny súbor konzoly Sega Saturn."
 
@@ -754,8 +739,7 @@ msgid "Steam"
 msgstr "Steam"
 
 #: plugins/steam/src/steam-registry.vala:68
-#, fuzzy, c-format
-#| msgid "File '%s' doesn't exist."
+#, c-format
 msgid "File “%s” doesn’t exist."
 msgstr "Súbor „%s“ neexistuje."
 
@@ -781,22 +765,17 @@ msgid "The file is too short."
 msgstr "Súbor je príliš krátky."
 
 #: plugins/virtual-boy/src/virtual-boy-header.vala:26
-#, fuzzy, c-format
-#| msgid "Invalid Wii header size: %s"
+#, c-format
 msgid "Invalid Virtual Boy ROM header size: %s"
-msgstr "Neplatná veľkosť hlavičky konzoly Wii: %s"
+msgstr "Neplatná veľkosť hlavičky Virtual Boy ROM: %s"
 
 #: plugins/virtual-boy/src/virtual-boy-header.vala:38
-#, fuzzy
-#| msgid "Invalid Wii header size: %s"
 msgid "Invalid Virtual Boy ROM header size."
-msgstr "Neplatná veľkosť hlavičky konzoly Wii: %s"
+msgstr "Neplatná veľkosť hlavičky Virtual Boy ROM."
 
 #: plugins/virtual-boy/src/virtual-boy-header.vala:42
-#, fuzzy
-#| msgid "The file doesn't have a Game Boy header."
 msgid "The file doesn’t have a Virtual Boy ROM header."
-msgstr "Súbor neobsahuje hlavičku konzoly Game Boy."
+msgstr "Súbor neobsahuje hlavičku Virtual Boy ROM."
 
 #: plugins/virtual-boy/src/virtual-boy-header.vala:51
 #, c-format
@@ -819,8 +798,6 @@ msgid "Invalid Wii header size: %s"
 msgstr "Neplatná veľkosť hlavičky konzoly Wii: %s"
 
 #: plugins/wii/src/wii-header.vala:33 plugins/wii/src/wii-header.vala:44
-#, fuzzy
-#| msgid "The file doesn't have a Wii header."
 msgid "The file doesn’t have a Wii header."
 msgstr "Súbor neobsahuje hlavičku konzoly Wii."
 
@@ -829,16 +806,13 @@ msgid "Wii"
 msgstr "Wii"
 
 #: src/command/command-runner.vala:43
-#, fuzzy
-#| msgid "The file doesn't have a Wii header."
 msgid "The game doesn’t have a valid command."
-msgstr "Súbor neobsahuje hlavičku konzoly Wii."
+msgstr "Hra neobsahuje platný príkaz."
 
 #: src/command/command-runner.vala:86
-#, fuzzy, c-format
-#| msgid "Couldn't run '%s': execution failed."
+#, c-format
 msgid "Couldn’t run “%s”: execution failed."
-msgstr "Nepodarilo sa spustiť „%s“: spúšťanie zlyhalo."
+msgstr "Nepodarilo sa spustiť „%s“: spustenie zlyhalo."
 
 #: src/core/media-set/media-set.vala:30
 #, c-format
@@ -851,8 +825,7 @@ msgid "Invalid plugin descriptor: %s"
 msgstr "Neplatný popisovač zásuvného modulu: %s"
 
 #: src/core/plugin-registrar.vala:48 src/core/plugin-registrar.vala:52
-#, fuzzy, c-format
-#| msgid "Couldn't create a new instance of plugin in '%s'."
+#, c-format
 msgid "Couldn’t create a new instance of plugin in “%s”."
 msgstr "Nepodarilo sa vytvoriť novú inštanciu zásuvného modulu v „%s“."
 
@@ -866,49 +839,45 @@ msgid "Disc %d"
 msgstr "Disk č. %d"
 
 #: src/gameinfo/gameinfo-doc.vala:15
-#, fuzzy, c-format
-#| msgid "No game title found for disc ID '%s'."
+#, c-format
 msgid "No game title found for disc ID “%s”."
 msgstr "Pre disk s identifikátorom „%s“ sa nenašiel žiadny titul hry."
 
 #: src/gameinfo/gameinfo-doc.vala:31
-#, fuzzy, c-format
-#| msgid "No disc title found for disc ID '%s'."
+#, c-format
 msgid "No disc title found for disc ID “%s”."
 msgstr "Pre disk s identifikátorom „%s“ sa nenašiel žiadny titul disku."
 
 #: src/gameinfo/gameinfo-doc.vala:41
-#, fuzzy, c-format
-#| msgid "No disc set ID found for disc ID '%s'."
+#, c-format
 msgid "No disc set ID found for disc ID “%s”."
 msgstr ""
 "Pre disk s identifikátorom „%s“ sa nenašiel žiadny identifikátor sady diskov."
 
 #: src/gameinfo/gameinfo-doc.vala:49 src/gameinfo/gameinfo-doc.vala:59
-#, fuzzy, c-format
-#| msgid "No disc found for disc ID '%s'."
+#, c-format
 msgid "No disc found for disc ID “%s”."
 msgstr "Pre disk s identifikátorom „%s“ sa nenašiel žiadny disk."
 
 #: src/retro/retro-core-source.vala:29 src/retro/retro-core-source.vala:43
 #, c-format
 msgid "No module found for platform “%s” and MIME types [ “%s” ]."
-msgstr ""
+msgstr "Pre platformu “%s” a typy MIME [ „%s“ ] sa nenašiel žiadny modul."
 
 #: src/retro/retro-core-source.vala:29 src/retro/retro-core-source.vala:43
 msgid "”, “"
-msgstr ""
+msgstr "„, “"
 
 #: src/retro/retro-core-source.vala:70
 #, c-format
 msgid "This game requires the %s firmware file to run."
-msgstr ""
+msgstr "Táto hra vyžaduje na spustenie súbor firmvéru %s."
 
 #: src/retro/retro-core-source.vala:87
 #, c-format
 msgid ""
 "This game requires the %s firmware file with a MD5 fingerprint of %s to run."
-msgstr ""
+msgstr "Táto hra vyžaduje na spustenie súbor firmvéru %s s odtlačkom MD5 %s."
 
 #: src/retro/retro-core-source.vala:93
 #, c-format
@@ -916,12 +885,12 @@ msgid ""
 "This game requires the %s firmware file with a SHA-512 fingerprint of %s to "
 "run."
 msgstr ""
+"Táto hra vyžaduje na spustenie súbor firmvéru %s s odtlačkom SHA-512 %s."
 
 #: src/retro/retro-runner.vala:325
-#, fuzzy, c-format
-#| msgid "No game title found for disc ID '%s'."
+#, c-format
 msgid "No module found for “%s”."
-msgstr "Pre disk s identifikátorom „%s“ sa nenašiel žiadny titul hry."
+msgstr "Nenašiel sa žiadny modul pre „%s“."
 
 #: src/retro/retro-runner.vala:590
 msgid "Unknown platform"
@@ -1085,10 +1054,8 @@ msgid "Playing a game"
 msgstr "Hranie hry"
 
 #: src/ui/display-view.vala:345
-#, fuzzy
-#| msgid "No games found"
 msgid "No runner found"
-msgstr "Nenašli sa žiadne hry"
+msgstr "Nenašiel sa žiadny spúšťač"
 
 #: src/ui/error-display.vala:13
 #, c-format
@@ -1452,7 +1419,6 @@ msgstr "Chyba pri zápise súboru „%s“: %s (%d)"
 #~ msgid "Controller Expansion"
 #~ msgstr "Rozšírenie ovládača"
 
-#, c-format
 #~ msgid "Player %u"
 #~ msgstr "Hráč č. %u"
 
@@ -1473,7 +1439,6 @@ msgstr "Chyba pri zápise súboru „%s“: %s (%d)"
 #~ msgid "Run a game by uid"
 #~ msgstr "Spustí hru podľa identifikátora UID"
 
-#, c-format
 #~ msgid "Cannot find game with UID “%s”."
 #~ msgstr "Nedá sa nájsť hra s UID „%s“."
 
@@ -1488,25 +1453,21 @@ msgstr "Chyba pri zápise súboru „%s“: %s (%d)"
 #~ msgid "A collection with this name already exists"
 #~ msgstr "Zbierka s takýmto názvom už existuje"
 
-#, c-format
 #~ msgid "%s removed"
 #~ msgstr "Zbierka %s bola odstránená"
 
-#, c-format
 #~ msgid "Removed %d collection"
 #~ msgid_plural "Removed %d collections"
 #~ msgstr[0] "Bolo odstránených %d zbierok"
 #~ msgstr[1] "Bola odstránená %d zbierka"
 #~ msgstr[2] "Boli odstránené %d zbierky"
 
-#, c-format
 #~ msgid "Selected %d item"
 #~ msgid_plural "Selected %d items"
 #~ msgstr[0] "Vybraných %d položiek"
 #~ msgstr[1] "Vybraná %d položka"
 #~ msgstr[2] "Vybrané %d položky"
 
-#, c-format
 #~ msgid "Oops! The game “%s” crashed unexpectedly"
 #~ msgstr "Ale nie! Hra „%s“ nečakane skončila."
 
