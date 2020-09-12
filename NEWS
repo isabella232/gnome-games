@@ -1,3 +1,26 @@
+==============
+Version 3.38.0
+==============
+
+* Adapt to retro-gtk 1.0 changes
+
+* Fix criticals when opening preferences
+
+* Fix build with older valac
+
+* Translation updates
+ Dutch
+ Finnish
+ French
+ German
+ Indonesian
+ Italian
+ Polish
+ Romanian
+ Slovak
+ Swedish
+ Ukrainian
+
 ===============
 Version 3.37.90
 ===============

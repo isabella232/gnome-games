@@ -43,6 +43,15 @@
   </screenshots>
 
   <releases>
+    <release version="3.38.0" type="stable" date="2020-08-12" urgency="medium">
+      <description>
+        <p>Fixes:</p>
+        <ul>
+          <li>Fix criticals when opening preferences</li>
+        </ul>
+        <p>Translation updates.</p>
+      </description>
+    </release>
     <release version="3.37.90" type="development" date="2020-08-25" urgency="medium">
       <description>
         <p>Improvements:</p>
