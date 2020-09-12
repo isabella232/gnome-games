@@ -89,8 +89,9 @@
                 {
                     "type" : "git",
                     "url" : "https://gitlab.gnome.org/GNOME/tracker.git",
-                    "branch" : "tracker-2.3"
-                }
+                    "tag" : "2.3.6",
+                    "commit" : "5c27e06e6600122d4e2dc7a133e1b3149e76e4de"
+               }
             ]
         },
         {
@@ -105,7 +106,9 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/grilo.git"
+                    "url" : "https://gitlab.gnome.org/GNOME/grilo.git",
+                    "tag" : "grilo-0.3.13",
+                    "commit" : "b3372233ee509676ab4408f049549c1020cff7a1"
                 }
             ],
             "cleanup" : [
@@ -145,7 +148,9 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/grilo-plugins.git"
+                    "url" : "https://gitlab.gnome.org/GNOME/grilo-plugins.git",
+                    "tag" : "grilo-plugins-0.3.12",
+                    "commit" : "2e8a97e73aed257ef3cbb09340d22478c4cd25e2"
                 }
             ],
             "cleanup" : [
@@ -162,7 +167,9 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://gitlab.freedesktop.org/libevdev/libevdev.git"
+                    "url" : "https://gitlab.freedesktop.org/libevdev/libevdev.git",
+                    "tag" : "libevdev-1.9.1",
+                    "commit" : "bcb79eed391d06fc4e75a39d19da91b41ff344ea"
                 }
             ]
         },
@@ -177,7 +184,9 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/libhandy.git"
+                    "url" : "https://gitlab.gnome.org/GNOME/libhandy.git",
+                    "tag" : "1.0.0",
+                    "commit" : "94313c206258860b2428712e7ece1d02c5177857"
                 }
             ]
         },
@@ -190,7 +199,9 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://gitlab.gnome.org/aplazas/libmanette.git"
+                    "url" : "https://gitlab.gnome.org/aplazas/libmanette.git",
+                    "tag" : "0.2.5",
+                    "commit" : "77d2c2c9fab2a8e08aead23f3ea059ad5d38f005"
                 }
             ]
         },
@@ -200,7 +211,9 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/retro-gtk.git"
+                    "url" : "https://gitlab.gnome.org/GNOME/retro-gtk.git",
+                    "tag" : "1.0.0",
+                    "commit" : "ba822685c572819253bc919fb21aea09ad2cbfee"
                 }
             ]
         },
