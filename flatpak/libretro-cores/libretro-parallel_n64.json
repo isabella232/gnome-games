@@ -20,7 +20,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/libretro/parallel-n64"
+                    "url": "https://github.com/libretro/parallel-n64",
+                    "commit": "7868eea1cee1798836a13623b86948fdc76c0ac1"
                 },
                 {
                     "type": "file",

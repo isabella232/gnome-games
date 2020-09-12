@@ -16,7 +16,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/libretro/beetle-pce-fast-libretro"
+                    "url": "https://github.com/libretro/beetle-pce-fast-libretro",
+                    "commit": "bdcb39400470cfc9457e170e223a2e70130fdd5c"
                 },
                 {
                     "type": "file",

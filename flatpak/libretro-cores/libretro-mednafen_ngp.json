@@ -16,7 +16,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/libretro/beetle-ngp-libretro"
+                    "url": "https://github.com/libretro/beetle-ngp-libretro",
+                    "commit": "dfe869398a5ab0912917397daf3b91c4db484db9"
                 },
                 {
                     "type": "file",
