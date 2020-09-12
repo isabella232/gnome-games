@@ -47,6 +47,9 @@ private class Games.PreferencesPagePlatformsRetroRow : Hdy.ComboRow {
 	private void notify_selected_index_cb () {
 		var core = model.get_item (selected_index) as Retro.CoreDescriptor;
 
+		if (core == null)
+			return;
+
 		var core_manager = RetroCoreManager.get_instance ();
 		core_manager.set_preferred_core (platform, core);
 	}
