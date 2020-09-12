@@ -47,11 +47,12 @@ private class Games.KeyboardMappingManager : Object {
 		}
 
 		var enumc = (EnumClass) typeof (Retro.JoypadId).class_ref ();
-		for (int i = 0; enumc.values[i].value < Retro.JoypadId.COUNT; ++i) {
-			var button = enumc.values[i].value_nick;
+
+		foreach (var id in enumc.values) {
+			var button = id.value_nick;
 			try {
 				var key = mapping_key_file.get_integer (GROUP_NAME, button);
-				mapping.set_button_key ((Retro.JoypadId) enumc.values[i].value, (uint16) key);
+				mapping.set_button_key ((Retro.JoypadId) id.value, (uint16) key);
 			}
 			catch (Error e) {
 				critical (e.message);
@@ -71,9 +72,10 @@ private class Games.KeyboardMappingManager : Object {
 
 		var mapping_key_file = new KeyFile ();
 		var enumc = (EnumClass) typeof (Retro.JoypadId).class_ref ();
-		for (int i = 0; enumc.values[i].value < Retro.JoypadId.COUNT; ++i) {
-			var button = enumc.values[i].value_nick;
-			var key = mapping.get_button_key ((Retro.JoypadId) enumc.values[i].value);
+
+		foreach (var id in enumc.values) {
+			var button = id.value_nick;
+			var key = mapping.get_button_key ((Retro.JoypadId) id.value);
 			mapping_key_file.set_integer (GROUP_NAME, button, key);
 		}
 

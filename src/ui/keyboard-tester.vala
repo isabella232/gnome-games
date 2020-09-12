@@ -54,7 +54,8 @@ private class Games.KeyboardTester : Gtk.Bin {
 	}
 
 	private void update_gamepad_view (Gdk.EventKey key, bool highlight) {
-		for (Retro.JoypadId joypad_id = 0; joypad_id < Retro.JoypadId.COUNT; joypad_id += 1) {
+		int count = Retro.ControllerType.JOYPAD.get_id_count ();
+		for (Retro.JoypadId joypad_id = 0; joypad_id < count; joypad_id += 1) {
 			if (mapping.get_button_key (joypad_id) == key.hardware_keycode) {
 				var code = joypad_id.to_button_code ();
 				gamepad_view.highlight ({ EventCode.EV_KEY, code }, highlight);
