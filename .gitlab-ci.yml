@@ -4,7 +4,7 @@ variables:
   BUNDLE: 'gnome-games-git.flatpak'
 
 tests:
-  image: registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:master
+  image: registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:3.38
   stage: test
   tags:
     - flatpak
@@ -19,10 +19,11 @@ tests:
       - .flatpak-builder/git
 
 flatpak:
+  image: registry.gitlab.gnome.org/gnome/gnome-runtime-images/gnome:3.38
   extends: '.flatpak'
   variables:
     MANIFEST_PATH: 'flatpak/org.gnome.Games.json'
-    RUNTIME_REPO: 'https://nightly.gnome.org/gnome-nightly.flatpakrepo'
+    RUNTIME_REPO: 'https://flathub.org/repo/flathub.flatpakrepo'
     FLATPAK_MODULE: 'gnome-games'
     APP_ID: 'org.gnome.GamesDevel'
     GIT_SUBMODULE_STRATEGY: recursive
