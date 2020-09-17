@@ -1,5 +1,9 @@
         {
             "name": "libretro-parallel_n64",
+            "skip-arches": [
+                "aarch64",
+                "arm"
+            ],
             "no-autogen": true,
             "make-args": [
                 "--makefile=Makefile.install",
