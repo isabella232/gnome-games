@@ -7,23 +7,25 @@ private class Games.NintendoDsLayoutItem : Gtk.ListBoxRow {
 	[GtkChild]
 	private Gtk.Label title;
 	[GtkChild]
-	private Gtk.Label subtitle;
+	private Gtk.Image checkmark;
 
 	public NintendoDsLayout layout { get; construct; }
+
+	public bool selected { get; set; default = false; }
 
 	public NintendoDsLayoutItem (NintendoDsLayout layout) {
 		Object (layout: layout);
 	}
 
+	construct {
+		notify["selected"].connect (() => {
+			checkmark.opacity = selected ? 1 : 0;
+		});
+	}
+
 	public override void constructed () {
 		icon.icon_name = layout.get_icon ();
 		title.label = layout.get_title ();
-
-		var subtitle_str = layout.get_subtitle ();
-		if (subtitle_str != null) {
-			subtitle.label = subtitle_str;
-			subtitle.show ();
-		}
 
 		base.constructed ();
 	}

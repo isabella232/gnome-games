@@ -63,6 +63,9 @@ private class Games.NintendoDsLayoutSwitcher : Gtk.Box, HeaderBarWidget {
 
 		layout_image.icon_name = layout.get_icon ();
 
+		foreach (var item in items.get_values ())
+			item.selected = item.layout == layout;
+
 		var item = items[layout];
 		list_box.select_row (item);
 

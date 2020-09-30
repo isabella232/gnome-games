@@ -55,45 +55,24 @@ public enum Games.NintendoDsLayout {
 		case LEFT_RIGHT:
 			/* Translators: This describes the layout for the Nintendo DS
 			 * emulator. This setting means the two screens are displayed side
-			 * by side */
-			return _("Side by side");
+			 * by side and not one on top of the other. The bottom screen
+			 * (which is the touch screen) is displayed to the right of the top
+			 * screen, making it comfortable for right-handed persons. */
+			return _("Side by side, right-handed");
 
 		case RIGHT_LEFT:
 			/* Translators: This describes the layout for the Nintendo DS
 			 * emulator. This setting means the two screens are displayed side
-			 * by side */
-			return _("Side by side");
+			 * by side and not one on top of the other. The bottom screen
+			 * (which is the touch screen) is displayed to the left of the top
+			 * screen, making it comfortable for left-handed persons. */
+			return _("Side by side, left-handed");
 
 		case QUICK_SWITCH:
 			/* Translators: This describes the layout for the Nintendo DS
 			 * emulator. This setting means only one screen is displayed at
 			 * once. The screen displayed can then be changed in-game. */
 			return _("Single screen");
-
-		default:
-			assert_not_reached ();
-		}
-	}
-
-	public string? get_subtitle () {
-		switch (this) {
-		case LEFT_RIGHT:
-			/* Translators: This describes the layout for the Nintendo DS
-			 * emulator when the two screens are displayed side by side and not
-			 * one on top of the other. The bottom screen is displayed to the
-			 * right of the top screen. */
-			return _("Bottom to the right");
-
-		case RIGHT_LEFT:
-			/* Translators: This describes the layout for the Nintendo DS
-			 * emulator when the two screens are displayed side by side and not
-			 * one on top of the other. The bottom screen is displayed to the
-			 * left of the top screen. */
-			return _("Bottom to the left");
-
-		case TOP_BOTTOM:
-		case QUICK_SWITCH:
-			return null;
 
 		default:
 			assert_not_reached ();

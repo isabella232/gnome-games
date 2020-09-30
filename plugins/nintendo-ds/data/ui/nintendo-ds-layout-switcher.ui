@@ -63,17 +63,14 @@
     <property name="visible">False</property>
     <signal name="show" handler="update_ui"/>
     <child>
-      <object class="GtkFrame">
+      <object class="GtkListBox" id="list_box">
         <property name="visible">True</property>
-        <property name="margin">6</property>
-        <property name="shadow-type">in</property>
-        <child>
-          <object class="GtkListBox" id="list_box">
-            <property name="visible">True</property>
-            <signal name="row-activated" handler="on_row_activated"/>
-          </object>
-        </child>
+        <property name="selection-mode">none</property>
+        <signal name="row-activated" handler="on_row_activated"/>
       </object>
     </child>
+    <style>
+      <class name="combo"/>
+    </style>
   </object>
 </interface>
