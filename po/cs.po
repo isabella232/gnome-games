@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-09-27 12:21+0000\n"
-"PO-Revision-Date: 2020-10-02 12:11+0200\n"
+"POT-Creation-Date: 2020-10-04 08:47+0000\n"
+"PO-Revision-Date: 2020-10-04 10:48+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -357,8 +357,8 @@ msgid ""
 "Import save data for games from existing backup. This will replace existing "
 "saves and cannot be undone."
 msgstr ""
-"Naimportovat z existující zálohy uložené stavy a data uložená přímo ve hrách. "
-"Nahradí se jimi současná data, která pak už nebude možné vrátit zpět."
+"Naimportovat z existující zálohy uložené stavy a data uložená přímo ve "
+"hrách. Nahradí se jimi současná data, která pak už nebude možné vrátit zpět."
 
 #: data/ui/preferences-page-import-export.ui:35
 #: src/ui/preferences-page-import-export.vala:8
@@ -766,34 +766,28 @@ msgstr "Svisle"
 
 #. Translators: This describes the layout for the Nintendo DS
 #. * emulator. This setting means the two screens are displayed side
-#. * by side
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:59
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:65
-msgid "Side by side"
-msgstr "Vedle sebe"
+#. * by side and not one on top of the other. The bottom screen
+#. * (which is the touch screen) is displayed to the right of the top
+#. * screen, making it comfortable for right-handed persons.
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:61
+msgid "Side by side, right-handed"
+msgstr "Vedle sebe, pro praváky"
+
+#. Translators: This describes the layout for the Nintendo DS
+#. * emulator. This setting means the two screens are displayed side
+#. * by side and not one on top of the other. The bottom screen
+#. * (which is the touch screen) is displayed to the left of the top
+#. * screen, making it comfortable for left-handed persons.
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:69
+msgid "Side by side, left-handed"
+msgstr "Vedle sebe, pro leváky"
 
 #. Translators: This describes the layout for the Nintendo DS
 #. * emulator. This setting means only one screen is displayed at
 #. * once. The screen displayed can then be changed in-game.
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:71
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:75
 msgid "Single screen"
 msgstr "Jedna obrazovku"
-
-#. Translators: This describes the layout for the Nintendo DS
-#. * emulator when the two screens are displayed side by side and not
-#. * one on top of the other. The bottom screen is displayed to the
-#. * right of the top screen.
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:85
-msgid "Bottom to the right"
-msgstr "Dolní vpravo"
-
-#. Translators: This describes the layout for the Nintendo DS
-#. * emulator when the two screens are displayed side by side and not
-#. * one on top of the other. The bottom screen is displayed to the
-#. * left of the top screen.
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:92
-msgid "Bottom to the left"
-msgstr "Dolní vlevo"
 
 #: plugins/playstation/src/playstation-plugin.vala:7
 msgid "PlayStation"
@@ -993,7 +987,8 @@ msgstr "Nezdařilo se najít hru s UID „%s“."
 #: src/ui/application.vala:322
 msgid "Couldn't find Tracker, automatic game discovery may not work."
 msgstr ""
-"Nezdařilo se najít Tracker, proto nemusí fungovat automatické vyhledávání her."
+"Nezdařilo se najít Tracker, proto nemusí fungovat automatické vyhledávání "
+"her."
 
 #: src/ui/application.vala:498
 msgid "GNOME Games"
