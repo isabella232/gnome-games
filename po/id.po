@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games gnome-3-26\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-08-25 11:12+0000\n"
-"PO-Revision-Date: 2020-08-26 22:08+0700\n"
-"Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
+"POT-Creation-Date: 2020-10-03 11:01+0000\n"
+"PO-Revision-Date: 2020-10-04 17:21+0700\n"
+"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -70,7 +70,7 @@ msgstr "Mainkan permainan"
 msgid "Resume your game to where you left it"
 msgstr "Lanjutkan permainan Anda dimana Anda meninggalkannya"
 
-#: data/org.gnome.Games.appdata.xml.in.in:331
+#: data/org.gnome.Games.appdata.xml.in.in:368
 msgid "The GNOME Project"
 msgstr "Proyek GNOME"
 
@@ -156,7 +156,7 @@ msgstr "T_ambah"
 msgid "Search"
 msgstr "Cari"
 
-#: data/ui/collection-action-window.ui:144
+#: data/ui/collection-action-window.ui:144 src/ui/empty-search.vala:15
 msgid "No collections found"
 msgstr "Tidak ditemukan koleksi"
 
@@ -298,7 +298,7 @@ msgid "_Snapshots"
 msgstr "_Cuplikan"
 
 #. Translators: This is displayed when the games library is empty.
-#: data/ui/empty-collection.ui:23
+#: data/ui/empty-collection.ui:23 src/ui/empty-search.vala:12
 msgid "No games found"
 msgstr "Tidak ada permainan yang ditemukan"
 
@@ -769,34 +769,28 @@ msgstr "Vertikal"
 
 #. Translators: This describes the layout for the Nintendo DS
 #. * emulator. This setting means the two screens are displayed side
-#. * by side
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:59
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:65
-msgid "Side by side"
-msgstr "Bersebelahan"
+#. * by side and not one on top of the other. The bottom screen
+#. * (which is the touch screen) is displayed to the right of the top
+#. * screen, making it comfortable for right-handed persons.
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:61
+msgid "Side by side, right-handed"
+msgstr "Berdampingan, tangan kanan"
+
+#. Translators: This describes the layout for the Nintendo DS
+#. * emulator. This setting means the two screens are displayed side
+#. * by side and not one on top of the other. The bottom screen
+#. * (which is the touch screen) is displayed to the left of the top
+#. * screen, making it comfortable for left-handed persons.
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:69
+msgid "Side by side, left-handed"
+msgstr "Berdampingan, kidal"
 
 #. Translators: This describes the layout for the Nintendo DS
 #. * emulator. This setting means only one screen is displayed at
 #. * once. The screen displayed can then be changed in-game.
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:71
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:75
 msgid "Single screen"
 msgstr "Layar tunggal"
-
-#. Translators: This describes the layout for the Nintendo DS
-#. * emulator when the two screens are displayed side by side and not
-#. * one on top of the other. The bottom screen is displayed to the
-#. * right of the top screen.
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:85
-msgid "Bottom to the right"
-msgstr "Bawah ke kanan"
-
-#. Translators: This describes the layout for the Nintendo DS
-#. * emulator when the two screens are displayed side by side and not
-#. * one on top of the other. The bottom screen is displayed to the
-#. * left of the top screen.
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:92
-msgid "Bottom to the left"
-msgstr "Bawah ke kiri"
 
 #: plugins/playstation/src/playstation-plugin.vala:7
 msgid "PlayStation"
@@ -1015,7 +1009,8 @@ msgstr "Pelajari lebih lanjut mengenai Permainan GNOME"
 msgid "translator-credits"
 msgstr ""
 "Lorenz Adam Damara <lorenzadam@resolution-consulting.co.id>, 2016.\n"
-"Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017-2020."
+"Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017-2020.\n"
+"Andika Triwidada <andika@gmail.com>, 2017, 2020."
 
 #. Translators: This is displayed if the user tries to log out of his
 #. * GNOME session, shutdown, or reboot while Games is running
@@ -1202,6 +1197,12 @@ msgstr "Galat: %s (%d)"
 #, c-format
 msgid "Error writing “%s”: %s (%d)"
 msgstr "Galat menulis “%s”: %s (%d)"
+
+#~ msgid "Bottom to the right"
+#~ msgstr "Bawah ke kanan"
+
+#~ msgid "Bottom to the left"
+#~ msgstr "Bawah ke kiri"
 
 #~ msgid "Add/Remove games to favorite"
 #~ msgstr "Tambah/Hapus permainan ke favorit"
