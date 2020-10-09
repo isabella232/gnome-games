@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-09-07 07:49+0000\n"
-"PO-Revision-Date: 2020-09-07 22:13+0200\n"
+"POT-Creation-Date: 2020-10-03 11:01+0000\n"
+"PO-Revision-Date: 2020-10-09 11:49+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -69,7 +69,7 @@ msgstr "Spela dina spel"
 msgid "Resume your game to where you left it"
 msgstr "Återuppta ditt spel där du lämnade det"
 
-#: data/org.gnome.Games.appdata.xml.in.in:359
+#: data/org.gnome.Games.appdata.xml.in.in:368
 msgid "The GNOME Project"
 msgstr "GNOME-projektet"
 
@@ -767,34 +767,28 @@ msgstr "Vertikal"
 
 #. Translators: This describes the layout for the Nintendo DS
 #. * emulator. This setting means the two screens are displayed side
-#. * by side
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:59
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:65
-msgid "Side by side"
-msgstr "Sida vid sida"
+#. * by side and not one on top of the other. The bottom screen
+#. * (which is the touch screen) is displayed to the right of the top
+#. * screen, making it comfortable for right-handed persons.
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:61
+msgid "Side by side, right-handed"
+msgstr "Sida vid sida, högerhänt"
+
+#. Translators: This describes the layout for the Nintendo DS
+#. * emulator. This setting means the two screens are displayed side
+#. * by side and not one on top of the other. The bottom screen
+#. * (which is the touch screen) is displayed to the left of the top
+#. * screen, making it comfortable for left-handed persons.
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:69
+msgid "Side by side, left-handed"
+msgstr "Sida vid sida, vänsterhänt"
 
 #. Translators: This describes the layout for the Nintendo DS
 #. * emulator. This setting means only one screen is displayed at
 #. * once. The screen displayed can then be changed in-game.
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:71
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:75
 msgid "Single screen"
 msgstr "Ensam skärm"
-
-#. Translators: This describes the layout for the Nintendo DS
-#. * emulator when the two screens are displayed side by side and not
-#. * one on top of the other. The bottom screen is displayed to the
-#. * right of the top screen.
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:85
-msgid "Bottom to the right"
-msgstr "Nedre till höger"
-
-#. Translators: This describes the layout for the Nintendo DS
-#. * emulator when the two screens are displayed side by side and not
-#. * one on top of the other. The bottom screen is displayed to the
-#. * left of the top screen.
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:92
-msgid "Bottom to the left"
-msgstr "Nedre till vänster"
 
 #: plugins/playstation/src/playstation-plugin.vala:7
 msgid "PlayStation"
@@ -1201,6 +1195,12 @@ msgstr "Fel: %s (%d)"
 #, c-format
 msgid "Error writing “%s”: %s (%d)"
 msgstr "Fel vid skrivning av ”%s”: %s (%d)"
+
+#~ msgid "Bottom to the right"
+#~ msgstr "Nedre till höger"
+
+#~ msgid "Bottom to the left"
+#~ msgstr "Nedre till vänster"
 
 #~ msgid "Add/Remove games to favorite"
 #~ msgstr "Lägg till / ta bort spel från favoriter"
