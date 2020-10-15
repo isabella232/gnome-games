@@ -136,9 +136,21 @@ private class Games.PreferencesSubpageGamepad : Gtk.Bin, PreferencesSubpage {
 	}
 
 	private void reset_mapping () {
-		var message_dialog = new ResetControllerMappingDialog ();
-		message_dialog.transient_for = get_toplevel () as Gtk.Window;
-		message_dialog.response.connect ((response) => {
+		var dialog = new Gtk.MessageDialog (
+			get_toplevel () as Gtk.Window,
+			Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
+			Gtk.MessageType.QUESTION,
+			Gtk.ButtonsType.CANCEL,
+			"%s",
+			_("Factory reset mapping for this controller?")
+		);
+
+		dialog.format_secondary_text ("%s", _("Your mapping will be lost"));
+
+		var button = dialog.add_button (C_("Confirm controller configuration factory reset", "_Reset"), Gtk.ResponseType.ACCEPT);
+		button.get_style_context ().add_class ("destructive-action");
+
+		dialog.response.connect ((response) => {
 			switch (response) {
 				case Gtk.ResponseType.ACCEPT:
 					device.remove_user_mapping ();
@@ -149,9 +161,10 @@ private class Games.PreferencesSubpageGamepad : Gtk.Bin, PreferencesSubpage {
 					break;
 			}
 
-			message_dialog.destroy ();
+			dialog.destroy ();
 		});
-		message_dialog.show ();
+
+		dialog.present ();
 	}
 
 	private void on_mapper_finished (string sdl_string) {
