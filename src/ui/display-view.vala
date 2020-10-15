@@ -129,7 +129,7 @@ private class Games.DisplayView : Gtk.Box, UiView {
 	private Gtk.MessageDialog resume_dialog;
 	private Gtk.MessageDialog resume_failed_dialog;
 	private Gtk.MessageDialog quit_dialog;
-	private RestartDialog restart_dialog;
+	private Gtk.MessageDialog restart_dialog;
 
 	private ulong extra_widget_notify_block_autohide_id;
 
@@ -678,8 +678,19 @@ private class Games.DisplayView : Gtk.Box, UiView {
 			runner.pause ();
 
 			if (runner.try_create_snapshot (true) == null) {
-				restart_dialog = new RestartDialog ();
-				restart_dialog.transient_for = window;
+				restart_dialog = new Gtk.MessageDialog (
+					window,
+					Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
+					Gtk.MessageType.QUESTION,
+					Gtk.ButtonsType.CANCEL,
+					"%s",
+					_("Are you sure you want to restart?")
+				);
+
+				restart_dialog.format_secondary_text ("%s", _("All unsaved progress will be lost."));
+
+				var button = restart_dialog.add_button (_("Restart"), Gtk.ResponseType.ACCEPT);
+				button.get_style_context ().add_class ("destructive-action");
 
 				var response = restart_dialog.run ();
 				restart_dialog.destroy ();

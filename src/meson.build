@@ -156,7 +156,6 @@ vala_sources = [
   'ui/preferences-subpage-keyboard.vala',
   'ui/preferences-window.vala',
   'ui/remote-display.vala',
-  'ui/restart-dialog.vala',
   'ui/search-bar.vala',
   'ui/selection-action-bar.vala',
   'ui/shortcuts-window.vala',
