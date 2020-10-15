@@ -143,7 +143,6 @@ vala_sources = [
   'ui/keyboard-tester.vala',
   'ui/konami-code.vala',
   'ui/media-menu-button.vala',
-  'ui/message-dialog.vala',
   'ui/platform-list-item.vala',
   'ui/platforms-page.vala',
   'ui/preferences-page.vala',

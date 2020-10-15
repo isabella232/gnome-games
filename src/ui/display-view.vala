@@ -282,16 +282,16 @@ private class Games.DisplayView : Gtk.Box, UiView {
 
 	public bool gamepad_button_press_event (Manette.Event event) {
 		if (resume_dialog != null)
-			return resume_dialog.is_active && resume_dialog.gamepad_button_press_event (event);
+			return handle_dialog_gamepad_button_press_event (resume_dialog, event);
 
 		if (resume_failed_dialog != null)
-			return resume_failed_dialog.is_active && resume_failed_dialog.gamepad_button_press_event (event);
+			return handle_dialog_gamepad_button_press_event (resume_failed_dialog, event);
 
 		if (quit_dialog != null)
-			return quit_dialog.is_active && quit_dialog.gamepad_button_press_event (event);
+			return handle_dialog_gamepad_button_press_event (quit_dialog, event);
 
 		if (restart_dialog != null)
-			return restart_dialog.is_active && restart_dialog.gamepad_button_press_event (event);
+			return handle_dialog_gamepad_button_press_event (restart_dialog, event);
 
 		if (!window.is_active || !window.get_mapped ())
 			return false;
@@ -741,5 +741,30 @@ private class Games.DisplayView : Gtk.Box, UiView {
 	private void on_restore_clicked () {
 		is_fullscreen = false;
 		settings.set_boolean ("fullscreen", false);
+	}
+
+	private bool handle_dialog_gamepad_button_press_event (Gtk.Dialog dialog, Manette.Event event) {
+		if (!visible)
+			return false;
+
+		if (!dialog.is_active)
+			return false;
+
+		uint16 button;
+		if (!event.get_button (out button))
+			return false;
+
+		switch (button) {
+		case EventCode.BTN_A:
+			dialog.response (Gtk.ResponseType.ACCEPT);
+
+			return true;
+		case EventCode.BTN_B:
+			dialog.response (Gtk.ResponseType.CANCEL);
+
+			return true;
+		default:
+			return false;
+		}
 	}
 }
