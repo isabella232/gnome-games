@@ -34,7 +34,6 @@
             <child>
               <object class="GtkStack" id="stack">
                 <property name="visible">True</property>
-                <property name="expand">True</property>
                 <property name="visible-child">video_page</property>
                 <property name="transition-type">crossfade</property>
                 <property name="width-request">300</property>

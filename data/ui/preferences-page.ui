@@ -17,7 +17,6 @@
                 <child>
                   <object class="HdyClamp">
                     <property name="visible">True</property>
-                    <property name="expand">True</property>
                     <child>
                       <object class="GtkBox" id="box">
                         <property name="visible">True</property>
