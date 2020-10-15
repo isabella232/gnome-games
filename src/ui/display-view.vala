@@ -127,7 +127,7 @@ private class Games.DisplayView : Gtk.Box, UiView {
 	private Cancellable quit_game_cancellable;
 
 	private Gtk.MessageDialog resume_dialog;
-	private ResumeFailedDialog resume_failed_dialog;
+	private Gtk.MessageDialog resume_failed_dialog;
 	private QuitDialog quit_dialog;
 	private RestartDialog restart_dialog;
 
@@ -480,8 +480,16 @@ private class Games.DisplayView : Gtk.Box, UiView {
 		if (resume_failed_dialog != null)
 			return;
 
-		resume_failed_dialog = new ResumeFailedDialog ();
-		resume_failed_dialog.transient_for = window;
+		resume_failed_dialog = new Gtk.MessageDialog (
+			window,
+			Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
+			Gtk.MessageType.QUESTION,
+			Gtk.ButtonsType.CANCEL,
+			"%s",
+			_("Resume last game?")
+		);
+
+		resume_failed_dialog.add_button (C_("Resuming a game failed dialog", "Reset"), Gtk.ResponseType.ACCEPT);
 
 		cancellable.cancelled.connect (() => {
 			resume_failed_dialog.destroy ();

@@ -158,7 +158,6 @@ vala_sources = [
   'ui/quit-dialog.vala',
   'ui/remote-display.vala',
   'ui/restart-dialog.vala',
-  'ui/resume-failed-dialog.vala',
   'ui/search-bar.vala',
   'ui/selection-action-bar.vala',
   'ui/shortcuts-window.vala',
