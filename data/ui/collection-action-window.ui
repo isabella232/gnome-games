@@ -101,7 +101,10 @@
                       <object class="HdyClamp">
                         <property name="visible">True</property>
                         <property name="maximum-size">400</property>
-                        <property name="margin">18</property>
+                        <property name="margin-top">18</property>
+                        <property name="margin-bottom">18</property>
+                        <property name="margin-start">18</property>
+                        <property name="margin-end">18</property>
                         <child>
                           <object class="GtkListBox" id="list_box">
                             <property name="visible">True</property>
@@ -132,7 +135,10 @@
                             <property name="visible">True</property>
                             <property name="pixel-size">96</property>
                             <property name="icon-name">folder-symbolic</property>
-                            <property name="margin">18</property>
+                            <property name="margin-top">18</property>
+                            <property name="margin-bottom">18</property>
+                            <property name="margin-start">18</property>
+                            <property name="margin-end">18</property>
                             <style>
                               <class name="dim-label"/>
                             </style>
@@ -144,7 +150,10 @@
                             <property name="label" translatable="yes">No collections found</property>
                             <property name="justify">center</property>
                             <property name="wrap">True</property>
-                            <property name="margin">6</property>
+                            <property name="margin-top">6</property>
+                            <property name="margin-bottom">6</property>
+                            <property name="margin-start">6</property>
+                            <property name="margin-end">6</property>
                             <style>
                               <class name="dim-label"/>
                             </style>
@@ -172,7 +181,10 @@
                         <property name="visible">True</property>
                         <property name="label" translatable="yes">Create Collection</property>
                         <property name="halign">center</property>
-                        <property name="margin">24</property>
+                        <property name="margin-top">24</property>
+                        <property name="margin-bottom">24</property>
+                        <property name="margin-start">24</property>
+                        <property name="margin-end">24</property>
                         <property name="action-name">collection-action.new-collection</property>
                         <child internal-child="accessible">
                           <object class="AtkObject">
@@ -240,6 +252,9 @@
                     <property name="icon-name">folder-new-symbolic</property>
                     <property name="vexpand">True</property>
                     <property name="margin-top">18</property>
+                    <property name="margin-bottom">18</property>
+                    <property name="margin-start">18</property>
+                    <property name="margin-end">18</property>
                     <style>
                       <class name="dim-label"/>
                     </style>
@@ -251,6 +266,9 @@
                     <property name="label" translatable="yes">Enter a collection name</property>
                     <property name="valign">end</property>
                     <property name="margin-top">18</property>
+                    <property name="margin-bottom">18</property>
+                    <property name="margin-start">18</property>
+                    <property name="margin-end">18</property>
                   </object>
                 </child>
                 <child>
@@ -259,7 +277,10 @@
                     <property name="width-request">300</property>
                     <property name="height-request">10</property>
                     <property name="halign">center</property>
-                    <property name="margin">12</property>
+                    <property name="margin-top">12</property>
+                    <property name="margin-bottom">12</property>
+                    <property name="margin-start">12</property>
+                    <property name="margin-end">12</property>
                     <signal name="notify::text" handler="on_collection_name_entry_changed"/>
                     <signal name="activate" handler="create_collection"/>
                   </object>
@@ -268,7 +289,10 @@
                   <object class="GtkLabel" id="error_label">
                     <property name="visible">True</property>
                     <property name="valign">end</property>
+                    <property name="margin-top">12</property>
                     <property name="margin-bottom">12</property>
+                    <property name="margin-start">12</property>
+                    <property name="margin-end">12</property>
                     <style>
                       <class name="dim-label"/>
                     </style>
@@ -280,7 +304,10 @@
                     <property name="label" translatable="yes">C_reate</property>
                     <property name="use-underline">True</property>
                     <property name="sensitive" bind-source="GamesCollectionActionWindow" bind-property="is-collection-name-valid" bind-flags="sync-create"/>
-                    <property name="margin">24</property>
+                    <property name="margin-top">24</property>
+                    <property name="margin-bottom">24</property>
+                    <property name="margin-start">24</property>
+                    <property name="margin-end">24</property>
                     <property name="halign">center</property>
                     <property name="valign">center</property>
                     <property name="action-name">collection-action.create-collection</property>
@@ -309,7 +336,10 @@
       <object class="GtkImage">
         <property name="visible">True</property>
         <property name="icon-name">list-add-symbolic</property>
-        <property name="margin">12</property>
+        <property name="margin-top">12</property>
+        <property name="margin-bottom">12</property>
+        <property name="margin-start">12</property>
+        <property name="margin-end">12</property>
       </object>
     </child>
   </object>

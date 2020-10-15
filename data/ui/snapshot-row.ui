@@ -13,12 +13,18 @@
         <child>
           <object class="GtkBox">
             <property name="visible">true</property>
-            <property name="margin">2</property>
+            <property name="margin-top">2</property>
+            <property name="margin-bottom">2</property>
+            <property name="margin-start">2</property>
+            <property name="margin-end">2</property>
             <child>
               <object class="GamesSnapshotThumbnail" id="thumbnail">
                 <property name="visible">true</property>
                 <property name="valign">start</property>
-                <property name="margin">7</property>
+                <property name="margin-top">7</property>
+                <property name="margin-bottom">7</property>
+                <property name="margin-start">7</property>
+                <property name="margin-end">7</property>
               </object>
             </child>
             <child>
