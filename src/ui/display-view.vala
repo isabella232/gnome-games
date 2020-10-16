@@ -338,9 +338,9 @@ private class Games.DisplayView : Gtk.Box, UiView {
 		back ();
 	}
 
-	public void run_game (Game game) {
+	public async void run_game (Game game) {
 		// If there is a game already running we have to quit it first
-		if (runner != null && !quit_game ())
+		if (runner != null && !yield quit_game ())
 			return;
 
 		this.game = game;
@@ -518,7 +518,7 @@ private class Games.DisplayView : Gtk.Box, UiView {
 		}
 	}
 
-	public bool quit_game () {
+	public async bool quit_game () {
 		if (run_game_cancellable != null)
 			run_game_cancellable.cancel ();
 
@@ -528,7 +528,7 @@ private class Games.DisplayView : Gtk.Box, UiView {
 		var cancellable = new Cancellable ();
 		quit_game_cancellable = cancellable;
 
-		var result = quit_game_with_cancellable (cancellable);
+		var result = yield quit_game_with_cancellable (cancellable);
 
 		// Only reset the cancellable if another one didn't replace it.
 		if (quit_game_cancellable == cancellable)
@@ -537,7 +537,7 @@ private class Games.DisplayView : Gtk.Box, UiView {
 		return result;
 	}
 
-	public bool quit_game_with_cancellable (Cancellable cancellable) {
+	private async bool quit_game_with_cancellable (Cancellable cancellable) {
 		if (runner == null)
 			return true;
 
@@ -580,7 +580,17 @@ private class Games.DisplayView : Gtk.Box, UiView {
 			quit_dialog = null;
 		});
 
-		var response = quit_dialog.run ();
+		var response = Gtk.ResponseType.CANCEL;
+
+		quit_dialog.response.connect (r => {
+			response = (Gtk.ResponseType) r;
+
+			quit_game_with_cancellable.callback ();
+		});
+
+		quit_dialog.present ();
+
+		yield;
 
 		// The null check is necessary because the dialog could already
 		// be canceled by this point
@@ -679,7 +689,7 @@ private class Games.DisplayView : Gtk.Box, UiView {
 
 	private async void restart_internal () {
 		if (runner == null || !runner.is_integrated) {
-			run_game (game);
+			yield run_game (game);
 
 			return;
 		}

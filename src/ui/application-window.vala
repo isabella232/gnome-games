@@ -60,6 +60,8 @@ private class Games.ApplicationWindow : Hdy.ApplicationWindow {
 	public GameModel game_model { get; construct; }
 	public CollectionModel collection_model { get; construct; }
 
+	private bool confirm_exit;
+
 	public ApplicationWindow (Application application, GameModel game_model, CollectionModel collection_model) {
 		Object (application: application, game_model: game_model, collection_model: collection_model);
 
@@ -105,23 +107,23 @@ private class Games.ApplicationWindow : Hdy.ApplicationWindow {
 		collection_view.show_error (error_message);
 	}
 
-	public void run_game (Game game) {
+	public async void run_game (Game game) {
 		if (current_view != collection_view)
 			return;
 
 		current_view = display_view;
-		display_view.run_game (game);
+		yield display_view.run_game (game);
 
 		inhibit (Gtk.ApplicationInhibitFlags.IDLE | Gtk.ApplicationInhibitFlags.LOGOUT);
 	}
 
-	public bool quit_game () {
+	public async bool quit_game () {
 		// If the window have been deleted/hidden we probably don't want to
 		// prompt the user.
 		if (!visible)
 			return true;
 
-		return display_view.quit_game ();
+		return yield display_view.quit_game ();
 	}
 
 	public override void size_allocate (Gtk.Allocation allocation) {
@@ -133,7 +135,19 @@ private class Games.ApplicationWindow : Hdy.ApplicationWindow {
 
 	[GtkCallback]
 	public bool on_delete_event () {
-		return !quit_game ();
+		if (confirm_exit)
+			return true;
+
+		quit_game.begin ((obj, res) => {
+			if (!quit_game.end (res))
+				return;
+
+			confirm_exit = true;
+
+			close ();
+		});
+
+		return false;
 	}
 
 	[GtkCallback]
@@ -147,10 +161,13 @@ private class Games.ApplicationWindow : Hdy.ApplicationWindow {
 
 		if ((keyval == Gdk.Key.q || keyval == Gdk.Key.Q) &&
 		    (event.state & default_modifiers) == Gdk.ModifierType.CONTROL_MASK) {
-			if (!quit_game ())
-				return false;
 
-			destroy ();
+			quit_game.begin ((obj, res) => {
+				if (!quit_game.end (res))
+					return;
+
+				destroy ();
+			});
 
 			return true;
 		}
@@ -207,15 +224,17 @@ private class Games.ApplicationWindow : Hdy.ApplicationWindow {
 
 	[GtkCallback]
 	private void on_game_activated (Game game) {
-		run_game (game);
+		run_game.begin (game);
 	}
 
 	[GtkCallback]
 	private void on_display_back () {
-		if (quit_game ())
-			current_view = collection_view;
+		quit_game.begin ((obj, res) => {
+			if (quit_game.end (res))
+				current_view = collection_view;
 
-		uninhibit (Gtk.ApplicationInhibitFlags.IDLE | Gtk.ApplicationInhibitFlags.LOGOUT);
+			uninhibit (Gtk.ApplicationInhibitFlags.IDLE | Gtk.ApplicationInhibitFlags.LOGOUT);
+		});
 	}
 
 	[GtkCallback]

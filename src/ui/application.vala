@@ -219,7 +219,7 @@ public class Games.Application : Gtk.Application {
 			return;
 		}
 
-		window.run_game (game);
+		window.run_game.begin (game);
 	}
 
 	protected override void startup () {
@@ -246,7 +246,7 @@ public class Games.Application : Gtk.Application {
 			return;
 		}
 
-		window.run_game (game);
+		window.run_game.begin (game);
 	}
 
 	protected override int command_line (ApplicationCommandLine command_line) {
@@ -519,7 +519,14 @@ public class Games.Application : Gtk.Application {
 	}
 
 	private void quit_application () {
-		if (window != null && !window.quit_game ())
+		quit_application_internal.begin ();
+	}
+
+	private async void quit_application_internal () {
+		if (window != null)
+			return;
+
+		if (window != null && !yield window.quit_game ())
 			return;
 
 		quit ();
