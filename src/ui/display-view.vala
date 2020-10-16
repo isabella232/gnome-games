@@ -351,14 +351,14 @@ private class Games.DisplayView : Gtk.Box, UiView {
 		var cancellable = new Cancellable ();
 		run_game_cancellable = cancellable;
 
-		run_game_with_cancellable (game, cancellable);
+		yield run_game_with_cancellable (game, cancellable);
 
 		// Only reset the cancellable if another one didn't replace it.
 		if (run_game_cancellable == cancellable)
 			run_game_cancellable = null;
 	}
 
-	private void run_game_with_cancellable (Game game, Cancellable cancellable) {
+	private async void run_game_with_cancellable (Game game, Cancellable cancellable) {
 		game_title = game.name;
 
 		// Reset the UI parts depending on the runner to avoid an
@@ -396,13 +396,13 @@ private class Games.DisplayView : Gtk.Box, UiView {
 			return;
 		}
 
-		var response = prompt_resume_with_cancellable (cancellable);
+		var response = yield prompt_resume_with_cancellable (cancellable);
 
 		if (response == Gtk.ResponseType.NONE)
 			return;
 
 		if (!start_or_resume (runner, response == Gtk.ResponseType.ACCEPT))
-			prompt_resume_fail_with_cancellable (runner, cancellable);
+			yield prompt_resume_fail_with_cancellable (runner, cancellable);
 	}
 
 	private Runner? try_get_runner (Game game) {
@@ -426,7 +426,7 @@ private class Games.DisplayView : Gtk.Box, UiView {
 		return runner;
 	}
 
-	private Gtk.ResponseType prompt_resume_with_cancellable (Cancellable cancellable) {
+	private async Gtk.ResponseType prompt_resume_with_cancellable (Cancellable cancellable) {
 		if (resume_dialog != null)
 			return Gtk.ResponseType.NONE;
 
@@ -448,7 +448,7 @@ private class Games.DisplayView : Gtk.Box, UiView {
 			resume_dialog = null;
 		});
 
-		var response = resume_dialog.run ();
+		var response = yield run_dialog_async (resume_dialog);
 
 		// The null check is necessary because the dialog could already
 		// be canceled by this point
@@ -476,7 +476,7 @@ private class Games.DisplayView : Gtk.Box, UiView {
 		}
 	}
 
-	private void prompt_resume_fail_with_cancellable (Runner runner, Cancellable cancellable) {
+	private async void prompt_resume_fail_with_cancellable (Runner runner, Cancellable cancellable) {
 		if (resume_failed_dialog != null)
 			return;
 
@@ -496,7 +496,8 @@ private class Games.DisplayView : Gtk.Box, UiView {
 			resume_failed_dialog = null;
 		});
 
-		var response = resume_failed_dialog.run ();
+		var response = yield run_dialog_async (resume_failed_dialog);
+
 		resume_failed_dialog.destroy ();
 		resume_failed_dialog = null;
 
