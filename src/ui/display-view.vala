@@ -580,17 +580,7 @@ private class Games.DisplayView : Gtk.Box, UiView {
 			quit_dialog = null;
 		});
 
-		var response = Gtk.ResponseType.CANCEL;
-
-		quit_dialog.response.connect (r => {
-			response = (Gtk.ResponseType) r;
-
-			quit_game_with_cancellable.callback ();
-		});
-
-		quit_dialog.present ();
-
-		yield;
+		var response = yield run_dialog_async (quit_dialog);
 
 		// The null check is necessary because the dialog could already
 		// be canceled by this point
@@ -711,17 +701,7 @@ private class Games.DisplayView : Gtk.Box, UiView {
 			var button = restart_dialog.add_button (_("Restart"), Gtk.ResponseType.ACCEPT);
 			button.get_style_context ().add_class ("destructive-action");
 
-			var response = Gtk.ResponseType.CANCEL;
-
-			restart_dialog.response.connect (r => {
-				response = (Gtk.ResponseType) r;
-
-				restart_internal.callback ();
-			});
-
-			restart_dialog.present ();
-
-			yield;
+			var response = yield run_dialog_async (restart_dialog);
 
 			restart_dialog.destroy ();
 			restart_dialog = null;
@@ -830,5 +810,21 @@ private class Games.DisplayView : Gtk.Box, UiView {
 		default:
 			return false;
 		}
+	}
+
+	private async Gtk.ResponseType run_dialog_async (Gtk.Dialog dialog) {
+		var response = Gtk.ResponseType.CANCEL;
+
+		dialog.response.connect (r => {
+			response = (Gtk.ResponseType) r;
+
+			run_dialog_async.callback ();
+		});
+
+		dialog.present ();
+
+		yield;
+
+		return response;
 	}
 }
