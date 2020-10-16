@@ -674,50 +674,64 @@ private class Games.DisplayView : Gtk.Box, UiView {
 	}
 
 	private void restart () {
-		if (runner != null && runner.is_integrated) {
-			runner.pause ();
+		restart_internal.begin ();
+	}
 
-			if (runner.try_create_snapshot (true) == null) {
-				restart_dialog = new Gtk.MessageDialog (
-					window,
-					Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
-					Gtk.MessageType.QUESTION,
-					Gtk.ButtonsType.CANCEL,
-					"%s",
-					_("Are you sure you want to restart?")
-				);
-
-				restart_dialog.format_secondary_text ("%s", _("All unsaved progress will be lost."));
-
-				var button = restart_dialog.add_button (_("Restart"), Gtk.ResponseType.ACCEPT);
-				button.get_style_context ().add_class ("destructive-action");
-
-				var response = restart_dialog.run ();
-				restart_dialog.destroy ();
-				restart_dialog = null;
-
-				if (response == Gtk.ResponseType.CANCEL || response == Gtk.ResponseType.DELETE_EVENT) {
-					runner.resume ();
-
-					return;
-				}
-			}
-
-			runner.stop ();
-			runner = try_get_runner (game);
-
-			try {
-				runner.start ();
-			}
-			catch (Error e) {
-				critical ("Couldn't restart: %s", e.message);
-			}
+	private async void restart_internal () {
+		if (runner == null || !runner.is_integrated) {
+			run_game (game);
 
 			return;
 		}
 
-		if (game != null)
-			run_game (game);
+		runner.pause ();
+
+		if (runner.try_create_snapshot (true) == null) {
+			restart_dialog = new Gtk.MessageDialog (
+				window,
+				Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
+				Gtk.MessageType.QUESTION,
+				Gtk.ButtonsType.CANCEL,
+				"%s",
+				_("Are you sure you want to restart?")
+			);
+
+			restart_dialog.format_secondary_text ("%s", _("All unsaved progress will be lost."));
+
+			var button = restart_dialog.add_button (_("Restart"), Gtk.ResponseType.ACCEPT);
+			button.get_style_context ().add_class ("destructive-action");
+
+			var response = Gtk.ResponseType.CANCEL;
+
+			restart_dialog.response.connect (r => {
+				response = (Gtk.ResponseType) r;
+
+				restart_internal.callback ();
+			});
+
+			restart_dialog.present ();
+
+			yield;
+
+			restart_dialog.destroy ();
+			restart_dialog = null;
+
+			if (response == Gtk.ResponseType.CANCEL || response == Gtk.ResponseType.DELETE_EVENT) {
+				runner.resume ();
+
+				return;
+			}
+		}
+
+		runner.stop ();
+		runner = try_get_runner (game);
+
+		try {
+			runner.start ();
+		}
+		catch (Error e) {
+			critical ("Couldn't restart: %s", e.message);
+		}
 	}
 
 	private void set_display (Gtk.Widget display) {
