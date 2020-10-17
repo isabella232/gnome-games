@@ -3,6 +3,7 @@
 data/org.gnome.Games.appdata.xml.in.in
 data/org.gnome.Games.desktop.in.in
 data/org.gnome.Games.gschema.xml
+data/gtk/help-overlay.ui
 data/ui/collection-action-window.ui
 data/ui/collection-empty.ui
 data/ui/collection-view.ui
@@ -19,14 +20,8 @@ data/ui/preferences-page-video.ui
 data/ui/preferences-subpage-gamepad.ui
 data/ui/preferences-subpage-keyboard.ui
 data/ui/preferences-window.ui
-data/ui/quit-dialog.ui
 data/ui/remote-display.ui
-data/ui/reset-controller-mapping-dialog.ui
-data/ui/restart-dialog.ui
-data/ui/resume-dialog.ui
-data/ui/resume-failed-dialog.ui
 data/ui/selection-action-bar.ui
-data/ui/shortcuts-window.ui
 data/ui/snapshots-list.ui
 data/ui/undo-notification.ui
 plugins/desktop/src/desktop-plugin.vala
