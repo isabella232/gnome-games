@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-10-03 11:01+0000\n"
-"PO-Revision-Date: 2020-10-03 23:30+0300\n"
+"POT-Creation-Date: 2020-10-17 09:18+0000\n"
+"PO-Revision-Date: 2020-10-17 16:40+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -136,6 +136,210 @@ msgstr ""
 "Бажане ядро ​​Libretro для використання в іграх. Можна скористатися іншим "
 "ядром, якщо для бажаного ядра немає мікропрограми."
 
+#: data/gtk/help-overlay.ui:10
+msgid "Shortcuts"
+msgstr "Скорочення"
+
+#: data/gtk/help-overlay.ui:14
+msgid "General"
+msgstr "Загальні"
+
+#: data/gtk/help-overlay.ui:19
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Повернутися"
+
+#: data/gtk/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Вийти"
+
+#: data/gtk/help-overlay.ui:34 data/gtk/help-overlay.ui:248
+msgid "Collection"
+msgstr "Збірка"
+
+#: data/gtk/help-overlay.ui:39
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Пошук"
+
+#: data/gtk/help-overlay.ui:46
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Показати клавіатурні скорочення"
+
+#: data/gtk/help-overlay.ui:55 data/gtk/help-overlay.ui:64
+msgctxt "shortcut window"
+msgid "Navigate"
+msgstr "Навігація"
+
+#: data/gtk/help-overlay.ui:56
+msgctxt "shortcut window"
+msgid "Left analog stick"
+msgstr "Лівий аналоговий стік"
+
+#: data/gtk/help-overlay.ui:65
+msgctxt "shortcut window"
+msgid "Directional pad"
+msgstr "Кнопки напрямку"
+
+#: data/gtk/help-overlay.ui:73
+msgctxt "shortcut window"
+msgid "Select view"
+msgstr "Перегляд вибору"
+
+#: data/gtk/help-overlay.ui:74
+msgctxt "shortcut window"
+msgid "Front shoulder buttons"
+msgstr "Передні бічні кнопки"
+
+#: data/gtk/help-overlay.ui:82 data/gtk/help-overlay.ui:91
+msgctxt "shortcut window"
+msgid "Start game"
+msgstr "Розпочати гру"
+
+#: data/gtk/help-overlay.ui:83
+msgctxt "shortcut window"
+msgid "Start button"
+msgstr "Кнопка «Старт»"
+
+#: data/gtk/help-overlay.ui:92 data/gtk/help-overlay.ui:151
+msgctxt "shortcut window"
+msgid "Bottom action button"
+msgstr "Нижня кнопка дій"
+
+#: data/gtk/help-overlay.ui:99
+msgid "In Game"
+msgstr "У грі"
+
+#: data/gtk/help-overlay.ui:104
+msgctxt "shortcut window"
+msgid "Create new snapshot"
+msgstr "Створити знімок вікна"
+
+#: data/gtk/help-overlay.ui:111
+msgctxt "shortcut window"
+msgid "Load the latest snapshot"
+msgstr "Завантажити найсвіжіший знімок"
+
+#: data/gtk/help-overlay.ui:118
+msgctxt "shortcut window"
+msgid "Show snapshots"
+msgstr "Показати знімки"
+
+#: data/gtk/help-overlay.ui:125
+msgctxt "shortcut window"
+msgid "Toggle fullscreen"
+msgstr "Увімкнути/вимкнути повноекранний режим"
+
+#: data/gtk/help-overlay.ui:132
+msgctxt "shortcut window"
+msgid "Exit fullscreen"
+msgstr "Вийти з повноекранного режиму"
+
+#: data/gtk/help-overlay.ui:141
+msgctxt "shortcut window"
+msgid "Go back to the collection"
+msgstr "Повернутися до збірки"
+
+#: data/gtk/help-overlay.ui:142
+msgctxt "shortcut window"
+msgid "Home button"
+msgstr "Кнопка Домівка"
+
+#: data/gtk/help-overlay.ui:150
+msgctxt "shortcut window"
+msgid "Accept"
+msgstr "Прийняти"
+
+#: data/gtk/help-overlay.ui:159
+msgctxt "shortcut window"
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: data/gtk/help-overlay.ui:160
+msgctxt "shortcut window"
+msgid "Right action button"
+msgstr "Права кнопка дії"
+
+#: data/gtk/help-overlay.ui:171
+#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:6
+msgid "Nintendo DS"
+msgstr "Nintendo DS"
+
+#. Translators: This is displayed in the shortcuts window. This corresponds to the screens layout for the Nintendo DS.
+#: data/gtk/help-overlay.ui:175
+#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:39
+msgid "Screen Layout"
+msgstr "Компонування екрана"
+
+#. Translators: This describes the layout for the Nintendo DS emulator. This setting means the two screens are stacked one on top of the other
+#: data/gtk/help-overlay.ui:180
+msgctxt "shortcut window"
+msgid "Vertical"
+msgstr "Вертикально"
+
+#. Translators: This describes the layout for the Nintendo DS emulator. This setting means the two screens are displayed side by side
+#. Translators: This describes the Nintendo DS screens layout, side by side
+#: data/gtk/help-overlay.ui:187 data/gtk/help-overlay.ui:195
+msgctxt "shortcut window"
+msgid "Side by side"
+msgstr "Обабіч"
+
+#. Translators: This describes the layout for the Nintendo DS emulator when the two screens are displayed side by side and not one on top of the other. The bottom screen is displayed to the right of the top screen.
+#: data/gtk/help-overlay.ui:188
+msgctxt "shortcut window"
+msgid "Bottom to the right"
+msgstr "Знизу праворуч"
+
+#. Translators: This describes the layout for the Nintendo DS emulator when the two screens are displayed side by side and not one on top of the other. The bottom screen is displayed to the left of the top screen
+#: data/gtk/help-overlay.ui:196
+msgctxt "shortcut window"
+msgid "Bottom to the left"
+msgstr "Знизу ліворуч"
+
+#. Translators: This describes the layout for the Nintendo DS emulator. This setting means only one screen is displayed at once. The screen displayed can then be changed in-game
+#: data/gtk/help-overlay.ui:203
+msgctxt "shortcut window"
+msgid "Single screen"
+msgstr "Один екран"
+
+#: data/gtk/help-overlay.ui:211
+msgid "Screen Switching"
+msgstr "Перемикання екранів"
+
+#. Translators: This describes the shortcut for showing the top screen, when the Nintendo DS emulator is single screen mode.
+#: data/gtk/help-overlay.ui:216
+msgctxt "shortcut window"
+msgid "Show top screen"
+msgstr "Показати верхній екран"
+
+#. Translators: This describes the shortcut for showing the bottom screen, when the Nintendo DS emulator is single screen mode.
+#: data/gtk/help-overlay.ui:223
+msgctxt "shortcut window"
+msgid "Show bottom screen"
+msgstr "Показати нижній екран"
+
+#. Translators: This describes the shortcut for toggling whether the top or bottom screen is displayed, when the Nintendo DS emulator is single screen mode.
+#: data/gtk/help-overlay.ui:232
+msgctxt "shortcut window"
+msgid "Toggle screen"
+msgstr "Перемкнути екран"
+
+#: data/gtk/help-overlay.ui:233
+msgctxt "shortcut window"
+msgid "Press right analog stick"
+msgstr "Натискання правого аналогового стіка"
+
+#: data/gtk/help-overlay.ui:244
+msgid "Cheats"
+msgstr "Чит-коди"
+
+#: data/gtk/help-overlay.ui:253
+msgctxt "shortcut window"
+msgid "Contribute"
+msgstr "Участь у проєкті"
+
 #: data/ui/collection-action-window.ui:5 data/ui/collection-action-window.ui:22
 msgid "Add to Collection"
 msgstr "Додати до збірки"
@@ -156,42 +360,42 @@ msgstr "_Додати"
 msgid "Search"
 msgstr "Пошук"
 
-#: data/ui/collection-action-window.ui:144 src/ui/empty-search.vala:15
+#: data/ui/collection-action-window.ui:150 src/ui/empty-search.vala:15
 msgid "No collections found"
 msgstr "Не знайдено жодної збірки"
 
-#: data/ui/collection-action-window.ui:160
+#: data/ui/collection-action-window.ui:169
 msgid "Add a new collection to add games to it."
 msgstr "Додати нову збірку для додавання до неї ігор."
 
-#: data/ui/collection-action-window.ui:173
+#: data/ui/collection-action-window.ui:182
 msgid "Create Collection"
 msgstr "Створити збірку"
 
-#: data/ui/collection-action-window.ui:179
+#: data/ui/collection-action-window.ui:191
 msgid "Create a collection"
 msgstr "Створити збірку"
 
-#: data/ui/collection-action-window.ui:204
+#: data/ui/collection-action-window.ui:216
 msgid "Add a Collection"
 msgstr "Додати збірку"
 
-#: data/ui/collection-action-window.ui:212 data/ui/collection-view.ui:153
+#: data/ui/collection-action-window.ui:224 data/ui/collection-view.ui:153
 #: data/ui/collection-view.ui:232 data/ui/display-view.ui:34
 #: data/ui/display-view.ui:169 data/ui/preferences-subpage-gamepad.ui:33
 #: data/ui/preferences-subpage-keyboard.ui:35
 msgid "Back"
 msgstr "Назад"
 
-#: data/ui/collection-action-window.ui:251
+#: data/ui/collection-action-window.ui:266
 msgid "Enter a collection name"
 msgstr "Введіть назву збірки"
 
-#: data/ui/collection-action-window.ui:280
+#: data/ui/collection-action-window.ui:304
 msgid "C_reate"
 msgstr "С_творити"
 
-#: data/ui/collection-action-window.ui:289
+#: data/ui/collection-action-window.ui:316
 msgid "Create collection"
 msgstr "Створити збірку"
 
@@ -222,17 +426,15 @@ msgid "Collection menu"
 msgstr "Меню збірки"
 
 #: data/ui/collection-view.ui:328 data/ui/preferences-subpage-gamepad.ui:102
-#: data/ui/preferences-subpage-keyboard.ui:105 data/ui/quit-dialog.ui:15
-#: data/ui/reset-controller-mapping-dialog.ui:15 data/ui/restart-dialog.ui:15
-#: data/ui/resume-failed-dialog.ui:14
+#: data/ui/preferences-subpage-keyboard.ui:105
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: data/ui/collection-view.ui:374 src/ui/collection-view.vala:533
+#: data/ui/collection-view.ui:374 src/ui/collection-view.vala:535
 msgid "Click on items to select them"
 msgstr "Щоб вибрати пункти, клацніть на них"
 
-#: data/ui/collection-view.ui:465 data/ui/preferences-window.ui:67
+#: data/ui/collection-view.ui:465 data/ui/preferences-window.ui:66
 msgid "Platforms"
 msgstr "Платформи"
 
@@ -244,40 +446,40 @@ msgstr "Збірки"
 msgid "Loading"
 msgstr "Завантаження"
 
-#: data/ui/collection-view.ui:576
+#: data/ui/collection-view.ui:579
 msgid "Rename Collection"
 msgstr "Перейменувати збірку"
 
-#: data/ui/collection-view.ui:597 data/ui/collection-view.ui:669
-#: data/ui/snapshots-list.ui:103 data/ui/snapshots-list.ui:153
+#: data/ui/collection-view.ui:600 data/ui/collection-view.ui:672
+#: data/ui/snapshots-list.ui:109 data/ui/snapshots-list.ui:162
 msgid "_Rename"
 msgstr "Перей_менувати"
 
-#: data/ui/collection-view.ui:637
+#: data/ui/collection-view.ui:640
 msgid "Pr_eferences"
 msgstr "П_араметри"
 
-#: data/ui/collection-view.ui:641
+#: data/ui/collection-view.ui:644
 msgid "_Keyboard Shortcuts"
 msgstr "_Клавіатурні скорочення"
 
-#: data/ui/collection-view.ui:645
+#: data/ui/collection-view.ui:648
 msgid "_Help"
 msgstr "_Довідка"
 
-#: data/ui/collection-view.ui:649
+#: data/ui/collection-view.ui:652
 msgid "_About Games"
 msgstr "_Про «Ігри»"
 
-#: data/ui/collection-view.ui:657
+#: data/ui/collection-view.ui:660
 msgid "Select All"
 msgstr "Вибрати все"
 
-#: data/ui/collection-view.ui:661
+#: data/ui/collection-view.ui:664
 msgid "Select None"
 msgstr "Зняти вибір"
 
-#: data/ui/collection-view.ui:673
+#: data/ui/collection-view.ui:676
 msgid "R_emove"
 msgstr "Ви_лучити"
 
@@ -398,29 +600,17 @@ msgstr "Пропустити"
 msgid "Preferences"
 msgstr "Налаштування"
 
-#: data/ui/preferences-window.ui:47
+#: data/ui/preferences-window.ui:46
 msgid "Video"
 msgstr "Відео"
 
-#: data/ui/preferences-window.ui:57
+#: data/ui/preferences-window.ui:56
 msgid "Controllers"
 msgstr "Контролери"
 
-#: data/ui/preferences-window.ui:77
+#: data/ui/preferences-window.ui:76
 msgid "Import & Export"
 msgstr "Імпортування та експортування"
-
-#: data/ui/quit-dialog.ui:9
-msgid "Are you sure you want to quit?"
-msgstr "Ви дійсно хочете вийти?"
-
-#: data/ui/quit-dialog.ui:10 data/ui/restart-dialog.ui:10
-msgid "All unsaved progress will be lost."
-msgstr "Усі незбережені дані щодо поступу буде втрачено."
-
-#: data/ui/quit-dialog.ui:21
-msgid "Quit"
-msgstr "Вийти"
 
 #: data/ui/remote-display.ui:23
 msgid "Use the game’s own window to play it"
@@ -433,44 +623,6 @@ msgstr "Цю груп не інтегровано до «Ігор» GNOME."
 #: data/ui/remote-display.ui:47
 msgid "You have to use its own window to play it."
 msgstr "Вам слід скористатися власним вікном гри для ігрового процесу."
-
-#: data/ui/reset-controller-mapping-dialog.ui:9
-msgid "Factory reset mapping for this controller?"
-msgstr "Скинути налаштування для цього контролера до типових?"
-
-#: data/ui/reset-controller-mapping-dialog.ui:10
-msgid "Your mapping will be lost."
-msgstr "Ваші прив'язки клавіш буде втрачено."
-
-#: data/ui/reset-controller-mapping-dialog.ui:21
-msgctxt "Confirm controller configuration factory reset"
-msgid "Reset"
-msgstr "Скинути"
-
-#: data/ui/restart-dialog.ui:9
-msgid "Are you sure you want to restart?"
-msgstr "Ви справді хочете перезапустити програму?"
-
-#: data/ui/restart-dialog.ui:21 data/ui/resume-dialog.ui:13
-msgid "Restart"
-msgstr "Перезапустити"
-
-#: data/ui/resume-dialog.ui:9
-msgid "Resume last game?"
-msgstr "Поновити останню гру?"
-
-#: data/ui/resume-dialog.ui:20
-msgid "Resume"
-msgstr "Продовжити"
-
-#: data/ui/resume-failed-dialog.ui:9
-msgid "Resuming failed. Do you want to restart the game?"
-msgstr "Не вдалося поновити гру. Хочете перезапустити гру?"
-
-#: data/ui/resume-failed-dialog.ui:20
-msgctxt "Resuming a game failed dialog"
-msgid "Reset"
-msgstr "Скинути"
 
 #: data/ui/selection-action-bar.ui:16
 msgid "Add/Remove selected games to favorite"
@@ -496,219 +648,15 @@ msgstr "Вилучити позначені ігри з цієї збірки"
 msgid "Remove selected collections"
 msgstr "Вилучити позначені збірки"
 
-#: data/ui/shortcuts-window.ui:11
-msgid "Shortcuts"
-msgstr "Скорочення"
-
-#: data/ui/shortcuts-window.ui:15
-msgid "General"
-msgstr "Загальні"
-
-#: data/ui/shortcuts-window.ui:20
-msgctxt "shortcut window"
-msgid "Go back"
-msgstr "Повернутися"
-
-#: data/ui/shortcuts-window.ui:27
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Вийти"
-
-#: data/ui/shortcuts-window.ui:35 data/ui/shortcuts-window.ui:249
-msgid "Collection"
-msgstr "Збірка"
-
-#: data/ui/shortcuts-window.ui:40
-msgctxt "shortcut window"
-msgid "Search"
-msgstr "Пошук"
-
-#: data/ui/shortcuts-window.ui:47
-msgctxt "shortcut window"
-msgid "Show Shortcuts"
-msgstr "Показати клавіатурні скорочення"
-
-#: data/ui/shortcuts-window.ui:56 data/ui/shortcuts-window.ui:65
-msgctxt "shortcut window"
-msgid "Navigate"
-msgstr "Навігація"
-
-#: data/ui/shortcuts-window.ui:57
-msgctxt "shortcut window"
-msgid "Left analog stick"
-msgstr "Лівий аналоговий стік"
-
-#: data/ui/shortcuts-window.ui:66
-msgctxt "shortcut window"
-msgid "Directional pad"
-msgstr "Кнопки напрямку"
-
-#: data/ui/shortcuts-window.ui:74
-msgctxt "shortcut window"
-msgid "Select view"
-msgstr "Перегляд вибору"
-
-#: data/ui/shortcuts-window.ui:75
-msgctxt "shortcut window"
-msgid "Front shoulder buttons"
-msgstr "Передні бічні кнопки"
-
-#: data/ui/shortcuts-window.ui:83 data/ui/shortcuts-window.ui:92
-msgctxt "shortcut window"
-msgid "Start game"
-msgstr "Розпочати гру"
-
-#: data/ui/shortcuts-window.ui:84
-msgctxt "shortcut window"
-msgid "Start button"
-msgstr "Кнопка «Старт»"
-
-#: data/ui/shortcuts-window.ui:93 data/ui/shortcuts-window.ui:152
-msgctxt "shortcut window"
-msgid "Bottom action button"
-msgstr "Нижня кнопка дій"
-
-#: data/ui/shortcuts-window.ui:100
-msgid "In Game"
-msgstr "У грі"
-
-#: data/ui/shortcuts-window.ui:105
-msgctxt "shortcut window"
+#: data/ui/snapshots-list.ui:70
 msgid "Create new snapshot"
 msgstr "Створити знімок вікна"
 
-#: data/ui/shortcuts-window.ui:112
-msgctxt "shortcut window"
-msgid "Load the latest snapshot"
-msgstr "Завантажити найсвіжіший знімок"
-
-#: data/ui/shortcuts-window.ui:119
-msgctxt "shortcut window"
-msgid "Show snapshots"
-msgstr "Показати знімки"
-
-#: data/ui/shortcuts-window.ui:126
-msgctxt "shortcut window"
-msgid "Toggle fullscreen"
-msgstr "Увімкнути/вимкнути повноекранний режим"
-
-#: data/ui/shortcuts-window.ui:133
-msgctxt "shortcut window"
-msgid "Exit fullscreen"
-msgstr "Вийти з повноекранного режиму"
-
-#: data/ui/shortcuts-window.ui:142
-msgctxt "shortcut window"
-msgid "Go back to the collection"
-msgstr "Повернутися до збірки"
-
-#: data/ui/shortcuts-window.ui:143
-msgctxt "shortcut window"
-msgid "Home button"
-msgstr "Кнопка Домівка"
-
-#: data/ui/shortcuts-window.ui:151
-msgctxt "shortcut window"
-msgid "Accept"
-msgstr "Прийняти"
-
-#: data/ui/shortcuts-window.ui:160
-msgctxt "shortcut window"
-msgid "Cancel"
-msgstr "Скасувати"
-
-#: data/ui/shortcuts-window.ui:161
-msgctxt "shortcut window"
-msgid "Right action button"
-msgstr "Права кнопка дії"
-
-#: data/ui/shortcuts-window.ui:172
-#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:6
-msgid "Nintendo DS"
-msgstr "Nintendo DS"
-
-#. Translators: This is displayed in the shortcuts window. This corresponds to the screens layout for the Nintendo DS.
-#: data/ui/shortcuts-window.ui:176
-#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:39
-msgid "Screen Layout"
-msgstr "Компонування екрана"
-
-#. Translators: This describes the layout for the Nintendo DS emulator. This setting means the two screens are stacked one on top of the other
-#: data/ui/shortcuts-window.ui:181
-msgctxt "shortcut window"
-msgid "Vertical"
-msgstr "Вертикально"
-
-#. Translators: This describes the layout for the Nintendo DS emulator. This setting means the two screens are displayed side by side
-#. Translators: This describes the Nintendo DS screens layout, side by side
-#: data/ui/shortcuts-window.ui:188 data/ui/shortcuts-window.ui:196
-msgctxt "shortcut window"
-msgid "Side by side"
-msgstr "Обабіч"
-
-#. Translators: This describes the layout for the Nintendo DS emulator when the two screens are displayed side by side and not one on top of the other. The bottom screen is displayed to the right of the top screen.
-#: data/ui/shortcuts-window.ui:189
-msgctxt "shortcut window"
-msgid "Bottom to the right"
-msgstr "Знизу праворуч"
-
-#. Translators: This describes the layout for the Nintendo DS emulator when the two screens are displayed side by side and not one on top of the other. The bottom screen is displayed to the left of the top screen
-#: data/ui/shortcuts-window.ui:197
-msgctxt "shortcut window"
-msgid "Bottom to the left"
-msgstr "Знизу ліворуч"
-
-#. Translators: This describes the layout for the Nintendo DS emulator. This setting means only one screen is displayed at once. The screen displayed can then be changed in-game
-#: data/ui/shortcuts-window.ui:204
-msgctxt "shortcut window"
-msgid "Single screen"
-msgstr "Один екран"
-
-#: data/ui/shortcuts-window.ui:212
-msgid "Screen Switching"
-msgstr "Перемикання екранів"
-
-#. Translators: This describes the shortcut for showing the top screen, when the Nintendo DS emulator is single screen mode.
-#: data/ui/shortcuts-window.ui:217
-msgctxt "shortcut window"
-msgid "Show top screen"
-msgstr "Показати верхній екран"
-
-#. Translators: This describes the shortcut for showing the bottom screen, when the Nintendo DS emulator is single screen mode.
-#: data/ui/shortcuts-window.ui:224
-msgctxt "shortcut window"
-msgid "Show bottom screen"
-msgstr "Показати нижній екран"
-
-#. Translators: This describes the shortcut for toggling whether the top or bottom screen is displayed, when the Nintendo DS emulator is single screen mode.
-#: data/ui/shortcuts-window.ui:233
-msgctxt "shortcut window"
-msgid "Toggle screen"
-msgstr "Перемкнути екран"
-
-#: data/ui/shortcuts-window.ui:234
-msgctxt "shortcut window"
-msgid "Press right analog stick"
-msgstr "Натискання правого аналогового стіка"
-
-#: data/ui/shortcuts-window.ui:245
-msgid "Cheats"
-msgstr "Чит-коди"
-
-#: data/ui/shortcuts-window.ui:254
-msgctxt "shortcut window"
-msgid "Contribute"
-msgstr "Участь у проєкті"
-
-#: data/ui/snapshots-list.ui:64
-msgid "Create new snapshot"
-msgstr "Створити знімок вікна"
-
-#: data/ui/snapshots-list.ui:89
+#: data/ui/snapshots-list.ui:95
 msgid "_Delete"
 msgstr "В_илучити"
 
-#: data/ui/snapshots-list.ui:129
+#: data/ui/snapshots-list.ui:138
 msgid "Name"
 msgstr "Назва"
 
@@ -774,7 +722,6 @@ msgstr "Вертикально"
 #. * (which is the touch screen) is displayed to the right of the top
 #. * screen, making it comfortable for right-handed persons.
 #: plugins/nintendo-ds/src/nintendo-ds-layout.vala:61
-#| msgid "Side by side"
 msgid "Side by side, right-handed"
 msgstr "Обабіч, для правші"
 
@@ -784,7 +731,6 @@ msgstr "Обабіч, для правші"
 #. * (which is the touch screen) is displayed to the left of the top
 #. * screen, making it comfortable for left-handed persons.
 #: plugins/nintendo-ds/src/nintendo-ds-layout.vala:69
-#| msgid "Side by side"
 msgid "Side by side, left-handed"
 msgstr "Обабіч, для шульги"
 
@@ -1015,15 +961,15 @@ msgstr "Юрій Чорноіван <yurchor@ukr.net>"
 
 #. Translators: This is displayed if the user tries to log out of his
 #. * GNOME session, shutdown, or reboot while Games is running
-#: src/ui/application-window.vala:271 src/ui/application-window.vala:290
+#: src/ui/application-window.vala:307 src/ui/application-window.vala:326
 msgid "Playing a game"
 msgstr "Граємо у гру"
 
-#: src/ui/collection-action-window.vala:226 src/ui/collection-view.vala:479
+#: src/ui/collection-action-window.vala:226 src/ui/collection-view.vala:481
 msgid "Collection name cannot be empty"
 msgstr "Назва збірки не може бути порожньою"
 
-#: src/ui/collection-action-window.vala:233 src/ui/collection-view.vala:483
+#: src/ui/collection-action-window.vala:233 src/ui/collection-view.vala:485
 msgid "A collection with this name already exists"
 msgstr "Збірка із цією назвою вже існує"
 
@@ -1041,7 +987,7 @@ msgstr[1] "Вилучено %d збірки"
 msgstr[2] "Вилучено %d збірок"
 msgstr[3] "Вилучено одну збірку"
 
-#: src/ui/collection-view.vala:531
+#: src/ui/collection-view.vala:533
 #, c-format
 msgid "Selected %d item"
 msgid_plural "Selected %d items"
@@ -1049,6 +995,39 @@ msgstr[0] "Позначено %d запис"
 msgstr[1] "Позначено %d записи"
 msgstr[2] "Позначено %d записів"
 msgstr[3] "Позначено %d запис"
+
+#: src/ui/display-view.vala:439 src/ui/display-view.vala:489
+msgid "Resume last game?"
+msgstr "Поновити останню гру?"
+
+#: src/ui/display-view.vala:442 src/ui/display-view.vala:702
+msgid "Restart"
+msgstr "Перезапустити"
+
+#: src/ui/display-view.vala:443
+msgid "Resume"
+msgstr "Продовжити"
+
+#: src/ui/display-view.vala:492
+msgctxt "Resuming a game failed dialog"
+msgid "Reset"
+msgstr "Скинути"
+
+#: src/ui/display-view.vala:571
+msgid "Are you sure you want to quit?"
+msgstr "Ви дійсно хочете вийти?"
+
+#: src/ui/display-view.vala:574 src/ui/display-view.vala:700
+msgid "All unsaved progress will be lost."
+msgstr "Усі незбережені дані щодо поступу буде втрачено."
+
+#: src/ui/display-view.vala:576
+msgid "Quit"
+msgstr "Вийти"
+
+#: src/ui/display-view.vala:697
+msgid "Are you sure you want to restart?"
+msgstr "Ви справді хочете перезапустити програму?"
 
 #: src/ui/error-display.vala:15
 #, c-format
@@ -1134,6 +1113,25 @@ msgstr "Тестування %s"
 msgid "Configuring %s"
 msgstr "Налаштовуємо %s"
 
+#: src/ui/preferences-subpage-gamepad.vala:145
+#: src/ui/preferences-subpage-keyboard.vala:127
+msgid "Factory reset mapping for this controller?"
+msgstr "Скинути налаштування для цього контролера до типових?"
+
+#: src/ui/preferences-subpage-gamepad.vala:148
+#: src/ui/preferences-subpage-keyboard.vala:130
+#| msgid "Your mapping will be lost."
+msgid "Your mapping will be lost"
+msgstr "Ваші прив'язки клавіш буде втрачено"
+
+#: src/ui/preferences-subpage-gamepad.vala:150
+#: src/ui/preferences-subpage-keyboard.vala:132
+#| msgctxt "Confirm controller configuration factory reset"
+#| msgid "Reset"
+msgctxt "Confirm controller configuration factory reset"
+msgid "_Reset"
+msgstr "С_кинути"
+
 #: src/ui/selection-action-bar.vala:49
 msgid "Remove selected games from favorites"
 msgstr "Вилучити позначені ігри з улюблених"
@@ -1202,6 +1200,9 @@ msgstr "Помилка: %s (%d)"
 #, c-format
 msgid "Error writing “%s”: %s (%d)"
 msgstr "Помилка під час спроби записати «%s»: %s (%d)"
+
+#~ msgid "Resuming failed. Do you want to restart the game?"
+#~ msgstr "Не вдалося поновити гру. Хочете перезапустити гру?"
 
 #~ msgid "Bottom to the right"
 #~ msgstr "Знизу праворуч"
