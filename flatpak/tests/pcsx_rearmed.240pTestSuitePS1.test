@@ -41,6 +41,7 @@ pcsx_rearmed_gpu_peops_old_frame_skip=enabled;disabled;
 pcsx_rearmed_gpu_peops_repeated_triangles=disabled;enabled;
 pcsx_rearmed_gpu_peops_quads_with_triangles=disabled;enabled;
 pcsx_rearmed_gpu_peops_fake_busy_state=disabled;enabled;
+pcsx_rearmed_gpu_thread_rendering=disabled;sync;async;
 pcsx_rearmed_show_bios_bootlogo=disabled;enabled;
 pcsx_rearmed_spu_reverb=enabled;disabled;
 pcsx_rearmed_spu_interpolation=simple;gaussian;cubic;off;
