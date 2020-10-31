@@ -48,18 +48,18 @@ sqlite_dep = dependency ('sqlite3')
 tracker_sparql_dep = dependency ('tracker-sparql-2.0')
 xml_dep = dependency ('libxml-2.0')
 
-srcdir = join_paths (meson.source_root (), 'src')
-podir = join_paths (meson.source_root (), 'po')
+srcdir = meson.source_root () / 'src'
+podir = meson.source_root () / 'po'
 
 prefix = get_option('prefix')
-bindir = join_paths (prefix, get_option ('bindir'))
-datadir = join_paths (prefix, get_option ('datadir'))
-libdir = join_paths (prefix, get_option ('libdir'))
-libexecdir = join_paths (prefix, get_option ('libexecdir'))
-localedir = join_paths (prefix, get_option ('localedir'))
-servicedir = join_paths (datadir, 'dbus-1', 'services')
-options_dir = join_paths (datadir, meson.project_name(), 'options')
-plugins_dir = join_paths (libdir, meson.project_name(), 'plugins')
+bindir = prefix / get_option ('bindir')
+datadir = prefix / get_option ('datadir')
+libdir = prefix / get_option ('libdir')
+libexecdir = prefix / get_option ('libexecdir')
+localedir = prefix / get_option ('localedir')
+servicedir = datadir / 'dbus-1' / 'services'
+options_dir = datadir / meson.project_name() / 'options'
+plugins_dir = libdir / meson.project_name() / 'plugins'
 
 config_h = configuration_data ()
 config_h.set_quoted ('APPLICATION_ID', application_id)
@@ -92,7 +92,7 @@ add_project_arguments (
 )
 
 meson.add_install_script (
-  join_paths ('build-aux', 'post_install.py'),
+  'build-aux' / 'post_install.py',
   datadir
 )
 

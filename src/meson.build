@@ -1,5 +1,5 @@
-vapi_dir = join_paths (datadir, 'vala', 'vapi')
-gamepad_dir = join_paths (srcdir, 'gamepad')
+vapi_dir = datadir / 'vala' / 'vapi'
+gamepad_dir = srcdir / 'gamepad'
 
 vala_args = [
   '--vapidir', vapi_dir,

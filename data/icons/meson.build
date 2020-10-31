@@ -1,14 +1,14 @@
-hicolor_dir = join_paths(datadir, 'icons', 'hicolor')
+hicolor_dir = datadir / 'icons' / 'hicolor'
 
-scalable_dir = join_paths('scalable', 'apps')
+scalable_dir = 'scalable' / 'apps'
 install_data(
-  join_paths(scalable_dir, '@0@.svg'.format(application_id)),
-  install_dir: join_paths(hicolor_dir, scalable_dir)
+  scalable_dir / '@0@.svg'.format(application_id),
+  install_dir: hicolor_dir / scalable_dir
 )
 
-symbolic_dir = join_paths('symbolic', 'apps')
+symbolic_dir = 'symbolic' / 'apps'
 install_data(
-  join_paths(symbolic_dir, 'org.gnome.Games-symbolic.svg'),
-  install_dir: join_paths(hicolor_dir, symbolic_dir),
+  symbolic_dir / 'org.gnome.Games-symbolic.svg',
+  install_dir: hicolor_dir / symbolic_dir,
   rename: '@0@-symbolic.svg'.format(application_id)
 )
