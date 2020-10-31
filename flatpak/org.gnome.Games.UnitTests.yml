@@ -75,6 +75,7 @@ modules:
     builddir: true
     config-opts:
       - -Dinstall-tests=true
+      - -Dpulseaudio=disabled
     sources:
       - type: git
         url: https://gitlab.gnome.org/GNOME/retro-gtk.git
