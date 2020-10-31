@@ -2,7 +2,7 @@ project('gnome-games',
   ['vala', 'c'],
   version: '3.38.0',
   license: 'GPL3+',
-  meson_version: '>= 0.46.1'
+  meson_version: '>= 0.50.0'
 )
 
 if get_option('profile') == 'development'
