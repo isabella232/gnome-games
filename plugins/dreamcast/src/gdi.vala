@@ -3,24 +3,26 @@
 public class Games.Gdi : Object {
 	private const string NEW_LINE = "\n";
 
-	private File _file;
-	public File file {
-		get { return _file; }
-	}
+	public File file { get; construct; }
 
 	public uint tracks_number {
-		get { return tracks.length; }
+		get {
+			assert (parsed);
+
+			return tracks.length;
+		}
 	}
 
+	private bool parsed = false;
 	private GdiTrackNode[] tracks;
 
-	public Gdi (File file) throws Error {
-		_file = file;
-
-		parse ();
+	public Gdi (File file) {
+		Object (file: file);
 	}
 
 	public GdiTrackNode get_track (uint i) throws Error {
+		assert (parsed);
+
 		if (i >= tracks.length)
 			throw new GdiError.NOT_A_TRACK ("“%s” doesn’t have a track for index %u.", file.get_uri (), i);
 
@@ -71,11 +73,15 @@ public class Games.Gdi : Object {
 		return tokens;
 	}
 
-	private void parse () throws Error {
+	public void parse () throws Error {
+		assert (!parsed);
+
+		parsed = true;
+
 		var tokens = tokenize ();
 
 		size_t line = 1;
-		for (size_t i = 0 ; i < tokens.length ; line++)
+		for (size_t i = 0; i < tokens.length; line++)
 			// Each case must consume the line completely.
 			if (line == 1)
 				parse_track_count_line (ref tokens, ref i, line);
@@ -113,7 +119,7 @@ public class Games.Gdi : Object {
 		if (track_number < 1 || track_number > 99)
 			throw new GdiError.INVALID_TRACK_NUMBER ("%s:%lu: Invalid track number %s, expected a number in the 1-99 range.", file.get_basename (), line, track_number_string);
 
-		return new GdiTrackNode (child_file, track_number);
+		return GdiTrackNode () { file = child_file, track_number = track_number };
 	}
 
 	private void skip_token (ref string[] tokens, ref size_t i, size_t line) throws GdiError {
@@ -122,8 +128,6 @@ public class Games.Gdi : Object {
 
 		if (tokens[i] == NEW_LINE)
 			throw new GdiError.UNEXPECTED_EOL ("%s:%lu: Unexpected end of line, expected a token.", file.get_basename (), line);
-
-		warning ("Skipping token `%s`", tokens[i]);
 
 		i++;
 	}
@@ -135,12 +139,7 @@ public class Games.Gdi : Object {
 		if (tokens[i] == NEW_LINE)
 			throw new GdiError.UNEXPECTED_EOL ("%s:%lu: Unexpected end of line, expected a token.", file.get_basename (), line);
 
-		warning ("Getting token `%s`", tokens[i]);
-
-		var token = tokens[i];
-		i++;
-
-		return token;
+		return tokens[i++];
 	}
 
 	private void is_end_of_line (ref string[] tokens, ref size_t i, size_t line) throws GdiError {
@@ -149,4 +148,18 @@ public class Games.Gdi : Object {
 
 		i++;
 	}
+}
+
+public struct Games.GdiTrackNode {
+	public File file;
+	public int track_number;
+}
+
+private errordomain Games.GdiError {
+	UNEXPECTED_TOKEN,
+	UNEXPECTED_EOL,
+	UNEXPECTED_EOF,
+	INVALID_TRACK_NUMBER,
+	INVALID_TRACK_MODE,
+	NOT_A_TRACK,
 }

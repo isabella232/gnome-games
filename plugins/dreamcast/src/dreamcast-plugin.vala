@@ -1,16 +1,18 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.DreamcastPlugin : Object, Plugin {
+	private const string GDI_MIME_TYPE = "application/x-gd-rom-cue";
 	private const string CDI_MIME_TYPE = "application/x-discjuggler-cd-image";
 	private const string DREAMCAST_MIME_TYPE = "application/x-dreamcast-rom";
 	private const string PLATFORM_ID = "Dreamcast";
 	private const string PLATFORM_NAME = _("Dreamcast");
 	private const string PLATFORM_UID_PREFIX = "dreamcast";
+	private const string[] MIME_TYPES = { GDI_MIME_TYPE, CDI_MIME_TYPE };
 
 	private static RetroPlatform platform;
 
 	static construct {
-		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, { CDI_MIME_TYPE }, PLATFORM_UID_PREFIX);
+		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, MIME_TYPES, PLATFORM_UID_PREFIX);
 	}
 
 	public Platform[] get_platforms () {
@@ -18,13 +20,14 @@ private class Games.DreamcastPlugin : Object, Plugin {
 	}
 
 	public string[] get_mime_types () {
-		return { CDI_MIME_TYPE };
+		return MIME_TYPES;
 	}
 
 	public UriGameFactory[] get_uri_game_factories () {
 		var game_uri_adapter = new GenericGameUriAdapter (game_for_uri);
 		var factory = new GenericUriGameFactory (game_uri_adapter);
-		factory.add_mime_type (CDI_MIME_TYPE);
+		foreach (var mime_type in MIME_TYPES)
+			factory.add_mime_type (mime_type);
 
 		return { factory };
 	}
@@ -44,7 +47,26 @@ private class Games.DreamcastPlugin : Object, Plugin {
 
 	private static Game game_for_uri (Uri uri) throws Error {
 		var file = uri.to_file ();
-		var header = new DreamcastHeader (file);
+		var file_info = file.query_info (FileAttribute.STANDARD_CONTENT_TYPE, FileQueryInfoFlags.NONE);
+		var mime_type = file_info.get_content_type ();
+
+		File bin_file;
+		switch (mime_type) {
+		case GDI_MIME_TYPE:
+			var gdi = new Gdi (file);
+			gdi.parse ();
+			bin_file = get_binary_file (gdi);
+
+			break;
+		case CDI_MIME_TYPE:
+			bin_file = file;
+
+			break;
+		default:
+			throw new DreamcastError.INVALID_FILE_TYPE ("Invalid file type: expected %s or %s but got %s for file %s.", GDI_MIME_TYPE, CDI_MIME_TYPE, mime_type, uri.to_string ());
+		}
+
+		var header = new DreamcastHeader (bin_file);
 		header.check_validity ();
 
 		var uid = new Uid (get_uid (header));
@@ -58,6 +80,20 @@ private class Games.DreamcastPlugin : Object, Plugin {
 		game.set_cover (cover);
 
 		return game;
+	}
+
+	private static File get_binary_file (Gdi gdi) throws Error {
+		if (gdi.tracks_number == 0)
+			throw new DreamcastError.INVALID_GDI ("The file “%s” doesn’t have a track.", gdi.file.get_uri ());
+
+		var track = gdi.get_track (0);
+		var file = track.file;
+
+		var file_info = file.query_info ("*", FileQueryInfoFlags.NONE);
+		if (file_info.get_content_type () != DREAMCAST_MIME_TYPE)
+			throw new DreamcastError.INVALID_FILE_TYPE ("The file “%s” doesn’t have a valid Dreamcast binary file.", gdi.file.get_uri ());
+
+		return file;
 	}
 }
 

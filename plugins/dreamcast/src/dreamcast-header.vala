@@ -1,6 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.DreamcastHeader : Object {
+	private const size_t HEADER_OFFSET = 0x10;
 	private const size_t HEADER_SIZE = 0x100;
 
 	private const size_t MAGIC_OFFSET = 0x0;
@@ -43,17 +44,23 @@ private class Games.DreamcastHeader : Object {
 		if (header_offset != null)
 			return header_offset;
 
+		if (lookup_header_offset (HEADER_OFFSET)) {
+			header_offset = HEADER_OFFSET;
+
+			return header_offset;
+		}
+
 		var path = file.get_path ();
 		var header_offsets = Grep.get_offsets (path, MAGIC_VALUE);
 
 		foreach (var offset in header_offsets)
-			if (lookup_header_offset (offset))
+			if (lookup_header_offset (offset)) {
 				header_offset = offset;
 
-		if (header_offset == null)
-			throw new DreamcastError.INVALID_HEADER ("The file doesn’t have a Dreamcast header.");
+				return header_offset;
+			}
 
-		return header_offset;
+		throw new DreamcastError.INVALID_HEADER ("The file doesn’t have a Dreamcast header.");
 	}
 
 	private bool lookup_header_offset (size_t offset) throws Error {
@@ -61,7 +68,7 @@ private class Games.DreamcastHeader : Object {
 		if (!stream.has_string (offset + MAGIC_OFFSET, MAGIC_VALUE))
 			return false;
 
-		var header = stream.read_string_for_size (offset + MAGIC_OFFSET, HEADER_SIZE);
+		var header = stream.read_string_for_size (offset, HEADER_SIZE);
 
 		return header.length == HEADER_SIZE && header.is_ascii ();
 	}
