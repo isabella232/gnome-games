@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 namespace Games.Unicode {
-	private enum Encoding {
+	public enum Encoding {
 		UTF_32BE,
 		UTF_32LE,
 		UTF_16BE,
@@ -67,7 +67,7 @@ namespace Games.Unicode {
 		return Encoding.UTF_8;
 	}
 
-	private InputStream read (File file, Encoding encoding) throws Error {
+	public InputStream read (File file, Encoding encoding) throws Error {
 		var stream = file.read ();
 		int bom_length = 0;
 		var src_encoding = parse_encoding (stream, out bom_length);
