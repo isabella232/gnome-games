@@ -2,6 +2,10 @@ vala_sources = [
   'dreamcast-error.vala',
   'dreamcast-header.vala',
   'dreamcast-plugin.vala',
+
+  'gdi/gdi.vala',
+  'gdi/gdi-error.vala',
+  'gdi/gdi-track-node.vala',
 ]
 
 c_args = [
