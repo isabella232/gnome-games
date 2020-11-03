@@ -66,7 +66,3 @@ private class Games.DreamcastHeader : Object {
 		return header.length == HEADER_SIZE && header.is_ascii ();
 	}
 }
-
-errordomain Games.DreamcastError {
-	INVALID_HEADER,
-}

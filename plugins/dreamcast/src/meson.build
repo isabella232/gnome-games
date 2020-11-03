@@ -1,4 +1,5 @@
 vala_sources = [
+  'dreamcast-error.vala',
   'dreamcast-header.vala',
   'dreamcast-plugin.vala',
 ]
