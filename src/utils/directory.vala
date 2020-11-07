@@ -11,7 +11,7 @@ public class Games.Directory : Object {
 
 	public void @foreach (string attributes, FileInfoTest file_info_test) throws Error {
 		var enumerator = file.enumerate_children (attributes, FileQueryInfoFlags.NONE);
-		for (var file_info = enumerator.next_file () ; file_info != null ; file_info = enumerator.next_file ())
+		for (var file_info = enumerator.next_file (); file_info != null; file_info = enumerator.next_file ())
 			if (file_info_test (file_info))
 				return;
 	}

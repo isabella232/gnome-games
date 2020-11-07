@@ -77,7 +77,7 @@ public class Games.CueSheet : Object {
 		CueSheetFileNode? latest_file = null;
 
 		size_t line = 1;
-		for (size_t i = 0 ; i < tokens.length ; line++)
+		for (size_t i = 0; i < tokens.length; line++)
 			// Each case must consume the line completely.
 			switch (tokens[i]) {
 			case "FILE":
