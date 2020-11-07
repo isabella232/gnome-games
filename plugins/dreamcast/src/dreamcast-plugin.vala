@@ -1,7 +1,8 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 private class Games.DreamcastPlugin : Object, Plugin {
-	private const string MIME_TYPE = "application/x-dc-rom";
+	private const string CDI_MIME_TYPE = "application/x-discjuggler-cd-image";
+	private const string DREAMCAST_MIME_TYPE = "application/x-dreamcast-rom";
 	private const string PLATFORM_ID = "Dreamcast";
 	private const string PLATFORM_NAME = _("Dreamcast");
 	private const string PLATFORM_UID_PREFIX = "dreamcast";
@@ -9,7 +10,7 @@ private class Games.DreamcastPlugin : Object, Plugin {
 	private static RetroPlatform platform;
 
 	static construct {
-		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, { MIME_TYPE }, PLATFORM_UID_PREFIX);
+		platform = new RetroPlatform (PLATFORM_ID, PLATFORM_NAME, { CDI_MIME_TYPE }, PLATFORM_UID_PREFIX);
 	}
 
 	public Platform[] get_platforms () {
@@ -17,13 +18,13 @@ private class Games.DreamcastPlugin : Object, Plugin {
 	}
 
 	public string[] get_mime_types () {
-		return { MIME_TYPE };
+		return { CDI_MIME_TYPE };
 	}
 
 	public UriGameFactory[] get_uri_game_factories () {
 		var game_uri_adapter = new GenericGameUriAdapter (game_for_uri);
 		var factory = new GenericUriGameFactory (game_uri_adapter);
-		factory.add_mime_type (MIME_TYPE);
+		factory.add_mime_type (CDI_MIME_TYPE);
 
 		return { factory };
 	}
@@ -48,7 +49,7 @@ private class Games.DreamcastPlugin : Object, Plugin {
 
 		var uid = new Uid (get_uid (header));
 		var title = new FilenameTitle (uri);
-		var media = new GriloMedia (title, MIME_TYPE);
+		var media = new GriloMedia (title, DREAMCAST_MIME_TYPE);
 		var cover = new CompositeCover ({
 			new LocalCover (uri),
 			new GriloCover (media, uid)});
