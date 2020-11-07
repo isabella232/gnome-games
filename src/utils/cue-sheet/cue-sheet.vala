@@ -153,10 +153,7 @@ public class Games.CueSheet : Object {
 		if (tokens[i] == NEW_LINE)
 			throw new CueSheetError.UNEXPECTED_EOL ("%s:%lu: Unexpected end of line, expected a token.", file.get_basename (), line);
 
-		var token = tokens[i];
-		i++;
-
-		return token;
+		return tokens[i++];
 	}
 
 	private string? get_optional_token (ref string[] tokens, ref size_t i, size_t line) {
@@ -166,10 +163,7 @@ public class Games.CueSheet : Object {
 		if (tokens[i] == NEW_LINE)
 			return null;
 
-		var token = tokens[i];
-		i++;
-
-		return token;
+		return tokens[i++];
 	}
 
 	private void is_end_of_line (ref string[] tokens, ref size_t i, size_t line) throws CueSheetError {
