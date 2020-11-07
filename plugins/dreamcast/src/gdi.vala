@@ -1,6 +1,11 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public class Games.Gdi : Object {
+	public struct TrackNode {
+		File file;
+		int track_number;
+	}
+
 	private const string NEW_LINE = "\n";
 
 	public File file { get; construct; }
@@ -14,13 +19,13 @@ public class Games.Gdi : Object {
 	}
 
 	private bool parsed = false;
-	private GdiTrackNode[] tracks;
+	private TrackNode[] tracks;
 
 	public Gdi (File file) {
 		Object (file: file);
 	}
 
-	public GdiTrackNode get_track (uint i) throws Error {
+	public TrackNode get_track (uint i) throws Error {
 		assert (parsed);
 
 		if (i >= tracks.length)
@@ -95,7 +100,7 @@ public class Games.Gdi : Object {
 		is_end_of_line (ref tokens, ref i, line);
 	}
 
-	private GdiTrackNode parse_track_line (ref string[] tokens, ref size_t i, size_t line) throws GdiError {
+	private TrackNode parse_track_line (ref string[] tokens, ref size_t i, size_t line) throws GdiError {
 		var track_number_string = get_token (ref tokens, ref i, line);
 
 		// Skip the track offset token.
@@ -119,7 +124,7 @@ public class Games.Gdi : Object {
 		if (track_number < 1 || track_number > 99)
 			throw new GdiError.INVALID_TRACK_NUMBER ("%s:%lu: Invalid track number %s, expected a number in the 1-99 range.", file.get_basename (), line, track_number_string);
 
-		return GdiTrackNode () { file = child_file, track_number = track_number };
+		return TrackNode () { file = child_file, track_number = track_number };
 	}
 
 	private void skip_token (ref string[] tokens, ref size_t i, size_t line) throws GdiError {
@@ -148,11 +153,6 @@ public class Games.Gdi : Object {
 
 		i++;
 	}
-}
-
-public struct Games.GdiTrackNode {
-	public File file;
-	public int track_number;
 }
 
 private errordomain Games.GdiError {
