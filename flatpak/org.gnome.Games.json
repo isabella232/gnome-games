@@ -159,6 +159,7 @@
                 "/include"
             ]
         },
+        "mime/mime.json",
         {
             "name" : "libevdev",
             "buildsystem" : "meson",

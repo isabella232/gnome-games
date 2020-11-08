@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-nintendo-3ds-rom">
+    <comment>Nintendo 3DS ROM</comment>
+    <generic-icon name="application-x-executable"/>
+    <glob pattern="*.3ds"/>
+    <glob pattern="*.cci"/>
+    <magic>
+      <match offset="256" type="string" value="NCSD"/>
+    </magic>
+  </mime-type>
+  <mime-type type="application/x-nintendo-3ds-executable">
+    <comment>Nintendo 3DS Executable</comment>
+    <generic-icon name="application-x-executable"/>
+    <glob pattern="*.3dsx"/>
+    <magic>
+      <match offset="0" type="string" value="3DSX"/>
+    </magic>
+  </mime-type>
+</mime-info>
