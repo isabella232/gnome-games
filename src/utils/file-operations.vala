@@ -195,7 +195,7 @@ public class Games.FileOperations {
 
 		if (src_type == FileType.DIRECTORY) {
 			if (!dest.query_exists () || !merge_flag) {
-				dest.make_directory ();
+				dest.make_directory_with_parents ();
 				src.copy_attributes (dest, FileCopyFlags.NONE);
 			}
 
