@@ -1,0 +1,6 @@
+[Plugin]
+Module=libgames-nintendo-3ds-plugin
+Name=Nintendo 3DS Plugin
+Description=Provides support for Nintendo 3DS games.
+Authors=Alexander Mikhaylenko <alexm@gnome.org>
+Copyright=Copyright © 2020 Alexander Mikhaylenko

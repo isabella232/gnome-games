@@ -6,6 +6,7 @@ plugins = [
   'love',
   'mame',
   'ms-dos',
+  'nintendo-3ds',
   'nintendo-64',
   'nintendo-ds',
   'playstation',
