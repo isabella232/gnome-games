@@ -30,6 +30,9 @@ public class Games.SnapshotManager : Object {
 		string snapshot_name = null;
 
 		while ((snapshot_name = dir.read_name ()) != null) {
+			if (snapshot_name == "global")
+				continue;
+
 			var snapshot_path = Path.build_filename (dir_path, snapshot_name);
 			snapshots += Snapshot.load (game.platform, core_id, snapshot_path);
 		}

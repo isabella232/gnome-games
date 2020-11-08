@@ -218,7 +218,19 @@ public class Games.RetroRunner : Object, Runner {
 			var snapshot = snapshot_manager.get_latest_snapshot ();
 
 			tmp_save_dir = create_tmp_save_dir ();
-			if (snapshot != null)
+			if (!supports_snapshots) {
+				var path = get_fallback_save_directory_path ();
+
+				var save_ram_path = Path.build_filename (path, "save");
+				var save_dir = File.new_for_path (Path.build_filename (path, "save-dir"));
+
+				if (FileUtils.test (save_ram_path, FileTest.EXISTS) &&
+				    core.get_memory_size (Retro.MemoryType.SAVE_RAM) > 0)
+					core.load_memory (Retro.MemoryType.SAVE_RAM, save_ram_path);
+
+				FileOperations.copy_contents (save_dir, File.new_for_path (tmp_save_dir));
+			}
+			else if (snapshot != null)
 				snapshot.copy_save_dir_to (tmp_save_dir);
 
 			prepare_core ();
@@ -271,9 +283,38 @@ public class Games.RetroRunner : Object, Runner {
 		running = false;
 	}
 
+	private string get_fallback_save_directory_path () throws Error {
+		var uid = game.uid;
+		var core_id_prefix = get_core_id ().replace (".libretro", "");
+
+		return Path.build_filename (Application.get_data_dir (),
+		                            "savestates",
+		                            @"$uid-$core_id_prefix",
+		                            "global");
+	}
+
 	public void stop () {
 		if (!core_loaded)
 			return;
+
+		if (!supports_snapshots) {
+			try {
+				var path = get_fallback_save_directory_path ();
+
+				if (core.get_memory_size (Retro.MemoryType.SAVE_RAM) > 0)
+					core.save_memory (Retro.MemoryType.SAVE_RAM,
+						              Path.build_filename (path, "save"));
+
+				var tmp_dir = File.new_for_path (tmp_save_dir);
+				var dest_dir = File.new_for_path (Path.build_filename (path, "save-dir"));
+				if (dest_dir.query_exists ())
+					FileOperations.delete_files (dest_dir, {});
+				FileOperations.copy_contents (tmp_dir, dest_dir);
+			}
+			catch (Error e) {
+				critical ("Failed to create snapshot: %s", e.message);
+			}
+		}
 
 		game.update_last_played ();
 		deinit ();
