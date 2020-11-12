@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-10-04 08:47+0000\n"
-"PO-Revision-Date: 2020-10-04 10:48+0200\n"
+"POT-Creation-Date: 2020-10-30 18:33+0000\n"
+"PO-Revision-Date: 2020-11-12 22:37+0100\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -133,6 +133,210 @@ msgstr ""
 "Upřednostňované herní jádro Libretro, které se má používat k hraní her. "
 "Pokud k němu bude scházet firmware, může se použít jiné."
 
+#: data/gtk/help-overlay.ui:10
+msgid "Shortcuts"
+msgstr "Klávesové zkratky"
+
+#: data/gtk/help-overlay.ui:14
+msgid "General"
+msgstr "Obecné"
+
+#: data/gtk/help-overlay.ui:19
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Přejít zpět"
+
+#: data/gtk/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Ukončit"
+
+#: data/gtk/help-overlay.ui:34 data/gtk/help-overlay.ui:248
+msgid "Collection"
+msgstr "Sbírka"
+
+#: data/gtk/help-overlay.ui:39
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Hledat"
+
+#: data/gtk/help-overlay.ui:46
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Zobrazit klávesové zkratky"
+
+#: data/gtk/help-overlay.ui:55 data/gtk/help-overlay.ui:64
+msgctxt "shortcut window"
+msgid "Navigate"
+msgstr "Pohyb"
+
+#: data/gtk/help-overlay.ui:56
+msgctxt "shortcut window"
+msgid "Left analog stick"
+msgstr "Levá analogová páka"
+
+#: data/gtk/help-overlay.ui:65
+msgctxt "shortcut window"
+msgid "Directional pad"
+msgstr "Směrová tlačítka"
+
+#: data/gtk/help-overlay.ui:73
+msgctxt "shortcut window"
+msgid "Select view"
+msgstr "Výběr zobrazení"
+
+#: data/gtk/help-overlay.ui:74
+msgctxt "shortcut window"
+msgid "Front shoulder buttons"
+msgstr "Přední spoušť"
+
+#: data/gtk/help-overlay.ui:82 data/gtk/help-overlay.ui:91
+msgctxt "shortcut window"
+msgid "Start game"
+msgstr "Spustit hru"
+
+#: data/gtk/help-overlay.ui:83
+msgctxt "shortcut window"
+msgid "Start button"
+msgstr "Tlačítko Start"
+
+#: data/gtk/help-overlay.ui:92 data/gtk/help-overlay.ui:151
+msgctxt "shortcut window"
+msgid "Bottom action button"
+msgstr "Dolní akční tlačítko"
+
+#: data/gtk/help-overlay.ui:99
+msgid "In Game"
+msgstr "Během hry"
+
+#: data/gtk/help-overlay.ui:104
+msgctxt "shortcut window"
+msgid "Create new snapshot"
+msgstr "Vytvořit nový uložený stav"
+
+#: data/gtk/help-overlay.ui:111
+msgctxt "shortcut window"
+msgid "Load the latest snapshot"
+msgstr "Načíst poslední uložený stav"
+
+#: data/gtk/help-overlay.ui:118
+msgctxt "shortcut window"
+msgid "Show snapshots"
+msgstr "Zobrazit uložené stavy"
+
+#: data/gtk/help-overlay.ui:125
+msgctxt "shortcut window"
+msgid "Toggle fullscreen"
+msgstr "Přepnout celou obrazovku"
+
+#: data/gtk/help-overlay.ui:132
+msgctxt "shortcut window"
+msgid "Exit fullscreen"
+msgstr "Opustit celou obrazovku"
+
+#: data/gtk/help-overlay.ui:141
+msgctxt "shortcut window"
+msgid "Go back to the collection"
+msgstr "Vrátit se zpět do sbírky"
+
+#: data/gtk/help-overlay.ui:142
+msgctxt "shortcut window"
+msgid "Home button"
+msgstr "Tlačítko Home"
+
+#: data/gtk/help-overlay.ui:150
+msgctxt "shortcut window"
+msgid "Accept"
+msgstr "Přijmout"
+
+#: data/gtk/help-overlay.ui:159
+msgctxt "shortcut window"
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: data/gtk/help-overlay.ui:160
+msgctxt "shortcut window"
+msgid "Right action button"
+msgstr "Pravé akční tlačítko"
+
+#: data/gtk/help-overlay.ui:171
+#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:6
+msgid "Nintendo DS"
+msgstr "Nintendo DS"
+
+#. Translators: This is displayed in the shortcuts window. This corresponds to the screens layout for the Nintendo DS.
+#: data/gtk/help-overlay.ui:175
+#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:39
+msgid "Screen Layout"
+msgstr "Rozložení obrazovky"
+
+#. Translators: This describes the layout for the Nintendo DS emulator. This setting means the two screens are stacked one on top of the other
+#: data/gtk/help-overlay.ui:180
+msgctxt "shortcut window"
+msgid "Vertical"
+msgstr "Svislé"
+
+#. Translators: This describes the layout for the Nintendo DS emulator. This setting means the two screens are displayed side by side
+#. Translators: This describes the Nintendo DS screens layout, side by side
+#: data/gtk/help-overlay.ui:187 data/gtk/help-overlay.ui:195
+msgctxt "shortcut window"
+msgid "Side by side"
+msgstr "Vedle sebe"
+
+#. Translators: This describes the layout for the Nintendo DS emulator when the two screens are displayed side by side and not one on top of the other. The bottom screen is displayed to the right of the top screen.
+#: data/gtk/help-overlay.ui:188
+msgctxt "shortcut window"
+msgid "Bottom to the right"
+msgstr "Dolní vpravo"
+
+#. Translators: This describes the layout for the Nintendo DS emulator when the two screens are displayed side by side and not one on top of the other. The bottom screen is displayed to the left of the top screen
+#: data/gtk/help-overlay.ui:196
+msgctxt "shortcut window"
+msgid "Bottom to the left"
+msgstr "Dolní vlevo"
+
+#. Translators: This describes the layout for the Nintendo DS emulator. This setting means only one screen is displayed at once. The screen displayed can then be changed in-game
+#: data/gtk/help-overlay.ui:203
+msgctxt "shortcut window"
+msgid "Single screen"
+msgstr "Jedna obrazovka"
+
+#: data/gtk/help-overlay.ui:211
+msgid "Screen Switching"
+msgstr "Přepínání obrazovek"
+
+#. Translators: This describes the shortcut for showing the top screen, when the Nintendo DS emulator is single screen mode.
+#: data/gtk/help-overlay.ui:216
+msgctxt "shortcut window"
+msgid "Show top screen"
+msgstr "Zobrazovat horní obrazovku"
+
+#. Translators: This describes the shortcut for showing the bottom screen, when the Nintendo DS emulator is single screen mode.
+#: data/gtk/help-overlay.ui:223
+msgctxt "shortcut window"
+msgid "Show bottom screen"
+msgstr "Zobrazovat dolní obrazovku"
+
+#. Translators: This describes the shortcut for toggling whether the top or bottom screen is displayed, when the Nintendo DS emulator is single screen mode.
+#: data/gtk/help-overlay.ui:232
+msgctxt "shortcut window"
+msgid "Toggle screen"
+msgstr "Přepnout obrazovku"
+
+#: data/gtk/help-overlay.ui:233
+msgctxt "shortcut window"
+msgid "Press right analog stick"
+msgstr "Zmáčknout pravou analogovou páku"
+
+#: data/gtk/help-overlay.ui:244
+msgid "Cheats"
+msgstr "Číty"
+
+#: data/gtk/help-overlay.ui:253
+msgctxt "shortcut window"
+msgid "Contribute"
+msgstr "Přispět"
+
 #: data/ui/collection-action-window.ui:5 data/ui/collection-action-window.ui:22
 msgid "Add to Collection"
 msgstr "Přidání do sbírky"
@@ -153,42 +357,42 @@ msgstr "Přid_at"
 msgid "Search"
 msgstr "Hledat"
 
-#: data/ui/collection-action-window.ui:144 src/ui/empty-search.vala:15
+#: data/ui/collection-action-window.ui:150 src/ui/empty-search.vala:15
 msgid "No collections found"
 msgstr "Nebyla nalezena žádná sbírka"
 
-#: data/ui/collection-action-window.ui:160
+#: data/ui/collection-action-window.ui:169
 msgid "Add a new collection to add games to it."
 msgstr "Přidejte novou sbírku a můžete do ní přidávat hry."
 
-#: data/ui/collection-action-window.ui:173
+#: data/ui/collection-action-window.ui:182
 msgid "Create Collection"
 msgstr "Vytvořit sbírku"
 
-#: data/ui/collection-action-window.ui:179
+#: data/ui/collection-action-window.ui:191
 msgid "Create a collection"
 msgstr "Vytvořit sbírku"
 
-#: data/ui/collection-action-window.ui:204
+#: data/ui/collection-action-window.ui:216
 msgid "Add a Collection"
 msgstr "Přidání sbírky"
 
-#: data/ui/collection-action-window.ui:212 data/ui/collection-view.ui:153
+#: data/ui/collection-action-window.ui:224 data/ui/collection-view.ui:153
 #: data/ui/collection-view.ui:232 data/ui/display-view.ui:34
 #: data/ui/display-view.ui:169 data/ui/preferences-subpage-gamepad.ui:33
 #: data/ui/preferences-subpage-keyboard.ui:35
 msgid "Back"
 msgstr "Zpět"
 
-#: data/ui/collection-action-window.ui:251
+#: data/ui/collection-action-window.ui:266
 msgid "Enter a collection name"
 msgstr "Zadejte název sbírky"
 
-#: data/ui/collection-action-window.ui:280
+#: data/ui/collection-action-window.ui:304
 msgid "C_reate"
 msgstr "_Vytvořit"
 
-#: data/ui/collection-action-window.ui:289
+#: data/ui/collection-action-window.ui:316
 msgid "Create collection"
 msgstr "Vytvořit sbírku"
 
@@ -219,17 +423,15 @@ msgid "Collection menu"
 msgstr "Nabídka sbírky"
 
 #: data/ui/collection-view.ui:328 data/ui/preferences-subpage-gamepad.ui:102
-#: data/ui/preferences-subpage-keyboard.ui:105 data/ui/quit-dialog.ui:15
-#: data/ui/reset-controller-mapping-dialog.ui:15 data/ui/restart-dialog.ui:15
-#: data/ui/resume-failed-dialog.ui:14
+#: data/ui/preferences-subpage-keyboard.ui:105
 msgid "Cancel"
 msgstr "Zrušit"
 
-#: data/ui/collection-view.ui:374 src/ui/collection-view.vala:533
+#: data/ui/collection-view.ui:374 src/ui/collection-view.vala:535
 msgid "Click on items to select them"
 msgstr "Kliknutím na položky je vyberte"
 
-#: data/ui/collection-view.ui:465 data/ui/preferences-window.ui:67
+#: data/ui/collection-view.ui:465 data/ui/preferences-window.ui:66
 msgid "Platforms"
 msgstr "Platformy"
 
@@ -241,40 +443,40 @@ msgstr "Sbírky"
 msgid "Loading"
 msgstr "Načítá se"
 
-#: data/ui/collection-view.ui:576
+#: data/ui/collection-view.ui:579
 msgid "Rename Collection"
 msgstr "Přejmenování sbírky"
 
-#: data/ui/collection-view.ui:597 data/ui/collection-view.ui:669
-#: data/ui/snapshots-list.ui:103 data/ui/snapshots-list.ui:153
+#: data/ui/collection-view.ui:600 data/ui/collection-view.ui:672
+#: data/ui/snapshots-list.ui:109 data/ui/snapshots-list.ui:162
 msgid "_Rename"
 msgstr "_Přejmenovat"
 
-#: data/ui/collection-view.ui:637
+#: data/ui/collection-view.ui:640
 msgid "Pr_eferences"
 msgstr "Př_edvolby"
 
-#: data/ui/collection-view.ui:641
+#: data/ui/collection-view.ui:644
 msgid "_Keyboard Shortcuts"
 msgstr "_Klávesové zkratky"
 
-#: data/ui/collection-view.ui:645
+#: data/ui/collection-view.ui:648
 msgid "_Help"
 msgstr "Nápo_věda"
 
-#: data/ui/collection-view.ui:649
+#: data/ui/collection-view.ui:652
 msgid "_About Games"
 msgstr "O _aplikaci Hry"
 
-#: data/ui/collection-view.ui:657
+#: data/ui/collection-view.ui:660
 msgid "Select All"
 msgstr "Vybrat vše"
 
-#: data/ui/collection-view.ui:661
+#: data/ui/collection-view.ui:664
 msgid "Select None"
 msgstr "Zrušit výběr"
 
-#: data/ui/collection-view.ui:673
+#: data/ui/collection-view.ui:676
 msgid "R_emove"
 msgstr "Od_ebrat"
 
@@ -394,29 +596,17 @@ msgstr "Vynechat"
 msgid "Preferences"
 msgstr "Předvolby"
 
-#: data/ui/preferences-window.ui:47
+#: data/ui/preferences-window.ui:46
 msgid "Video"
 msgstr "Obraz"
 
-#: data/ui/preferences-window.ui:57
+#: data/ui/preferences-window.ui:56
 msgid "Controllers"
 msgstr "Ovladače"
 
-#: data/ui/preferences-window.ui:77
+#: data/ui/preferences-window.ui:76
 msgid "Import & Export"
 msgstr "Import a export"
-
-#: data/ui/quit-dialog.ui:9
-msgid "Are you sure you want to quit?"
-msgstr "Opravdu chcete skončit?"
-
-#: data/ui/quit-dialog.ui:10 data/ui/restart-dialog.ui:10
-msgid "All unsaved progress will be lost."
-msgstr "Všechny neuložené postupy budou ztraceny."
-
-#: data/ui/quit-dialog.ui:21
-msgid "Quit"
-msgstr "Ukončit"
 
 #: data/ui/remote-display.ui:23
 msgid "Use the game’s own window to play it"
@@ -429,44 +619,6 @@ msgstr "Tato hra není integrovaná do her GNOME."
 #: data/ui/remote-display.ui:47
 msgid "You have to use its own window to play it."
 msgstr "K jejímu hraní se musí použít její vlastní okno."
-
-#: data/ui/reset-controller-mapping-dialog.ui:9
-msgid "Factory reset mapping for this controller?"
-msgstr "Nastavit u tohoto herního ovladače originální tovární mapování?"
-
-#: data/ui/reset-controller-mapping-dialog.ui:10
-msgid "Your mapping will be lost."
-msgstr "Vaše vlastní mapování bude ztraceno."
-
-#: data/ui/reset-controller-mapping-dialog.ui:21
-msgctxt "Confirm controller configuration factory reset"
-msgid "Reset"
-msgstr "Tovární nastavení"
-
-#: data/ui/restart-dialog.ui:9
-msgid "Are you sure you want to restart?"
-msgstr "Opravdu chcete restartovat?"
-
-#: data/ui/restart-dialog.ui:21 data/ui/resume-dialog.ui:13
-msgid "Restart"
-msgstr "Od začátku"
-
-#: data/ui/resume-dialog.ui:9
-msgid "Resume last game?"
-msgstr "Obnovit poslední hru?"
-
-#: data/ui/resume-dialog.ui:20
-msgid "Resume"
-msgstr "Obnovit"
-
-#: data/ui/resume-failed-dialog.ui:9
-msgid "Resuming failed. Do you want to restart the game?"
-msgstr "Obnovení selhalo. Chcete hru spustit od začátku?"
-
-#: data/ui/resume-failed-dialog.ui:20
-msgctxt "Resuming a game failed dialog"
-msgid "Reset"
-msgstr "Od začátku"
 
 #: data/ui/selection-action-bar.ui:16
 msgid "Add/Remove selected games to favorite"
@@ -492,219 +644,15 @@ msgstr "Odebrat vybrané hry z této sbírky"
 msgid "Remove selected collections"
 msgstr "Odebrat vybrané sbírky"
 
-#: data/ui/shortcuts-window.ui:11
-msgid "Shortcuts"
-msgstr "Klávesové zkratky"
-
-#: data/ui/shortcuts-window.ui:15
-msgid "General"
-msgstr "Obecné"
-
-#: data/ui/shortcuts-window.ui:20
-msgctxt "shortcut window"
-msgid "Go back"
-msgstr "Přejít zpět"
-
-#: data/ui/shortcuts-window.ui:27
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Ukončit"
-
-#: data/ui/shortcuts-window.ui:35 data/ui/shortcuts-window.ui:249
-msgid "Collection"
-msgstr "Sbírka"
-
-#: data/ui/shortcuts-window.ui:40
-msgctxt "shortcut window"
-msgid "Search"
-msgstr "Hledat"
-
-#: data/ui/shortcuts-window.ui:47
-msgctxt "shortcut window"
-msgid "Show Shortcuts"
-msgstr "Zobrazit klávesové zkratky"
-
-#: data/ui/shortcuts-window.ui:56 data/ui/shortcuts-window.ui:65
-msgctxt "shortcut window"
-msgid "Navigate"
-msgstr "Pohyb"
-
-#: data/ui/shortcuts-window.ui:57
-msgctxt "shortcut window"
-msgid "Left analog stick"
-msgstr "Levá analogová páka"
-
-#: data/ui/shortcuts-window.ui:66
-msgctxt "shortcut window"
-msgid "Directional pad"
-msgstr "Směrová tlačítka"
-
-#: data/ui/shortcuts-window.ui:74
-msgctxt "shortcut window"
-msgid "Select view"
-msgstr "Výběr zobrazení"
-
-#: data/ui/shortcuts-window.ui:75
-msgctxt "shortcut window"
-msgid "Front shoulder buttons"
-msgstr "Přední spoušť"
-
-#: data/ui/shortcuts-window.ui:83 data/ui/shortcuts-window.ui:92
-msgctxt "shortcut window"
-msgid "Start game"
-msgstr "Spustit hru"
-
-#: data/ui/shortcuts-window.ui:84
-msgctxt "shortcut window"
-msgid "Start button"
-msgstr "Tlačítko Start"
-
-#: data/ui/shortcuts-window.ui:93 data/ui/shortcuts-window.ui:152
-msgctxt "shortcut window"
-msgid "Bottom action button"
-msgstr "Dolní akční tlačítko"
-
-#: data/ui/shortcuts-window.ui:100
-msgid "In Game"
-msgstr "Během hry"
-
-#: data/ui/shortcuts-window.ui:105
-msgctxt "shortcut window"
+#: data/ui/snapshots-list.ui:70
 msgid "Create new snapshot"
 msgstr "Vytvořit nový uložený stav"
 
-#: data/ui/shortcuts-window.ui:112
-msgctxt "shortcut window"
-msgid "Load the latest snapshot"
-msgstr "Načíst poslední uložený stav"
-
-#: data/ui/shortcuts-window.ui:119
-msgctxt "shortcut window"
-msgid "Show snapshots"
-msgstr "Zobrazit uložené stavy"
-
-#: data/ui/shortcuts-window.ui:126
-msgctxt "shortcut window"
-msgid "Toggle fullscreen"
-msgstr "Přepnout celou obrazovku"
-
-#: data/ui/shortcuts-window.ui:133
-msgctxt "shortcut window"
-msgid "Exit fullscreen"
-msgstr "Opustit celou obrazovku"
-
-#: data/ui/shortcuts-window.ui:142
-msgctxt "shortcut window"
-msgid "Go back to the collection"
-msgstr "Vrátit se zpět do sbírky"
-
-#: data/ui/shortcuts-window.ui:143
-msgctxt "shortcut window"
-msgid "Home button"
-msgstr "Tlačítko Home"
-
-#: data/ui/shortcuts-window.ui:151
-msgctxt "shortcut window"
-msgid "Accept"
-msgstr "Přijmout"
-
-#: data/ui/shortcuts-window.ui:160
-msgctxt "shortcut window"
-msgid "Cancel"
-msgstr "Zrušit"
-
-#: data/ui/shortcuts-window.ui:161
-msgctxt "shortcut window"
-msgid "Right action button"
-msgstr "Pravé akční tlačítko"
-
-#: data/ui/shortcuts-window.ui:172
-#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:6
-msgid "Nintendo DS"
-msgstr "Nintendo DS"
-
-#. Translators: This is displayed in the shortcuts window. This corresponds to the screens layout for the Nintendo DS.
-#: data/ui/shortcuts-window.ui:176
-#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:39
-msgid "Screen Layout"
-msgstr "Rozložení obrazovky"
-
-#. Translators: This describes the layout for the Nintendo DS emulator. This setting means the two screens are stacked one on top of the other
-#: data/ui/shortcuts-window.ui:181
-msgctxt "shortcut window"
-msgid "Vertical"
-msgstr "Svislé"
-
-#. Translators: This describes the layout for the Nintendo DS emulator. This setting means the two screens are displayed side by side
-#. Translators: This describes the Nintendo DS screens layout, side by side
-#: data/ui/shortcuts-window.ui:188 data/ui/shortcuts-window.ui:196
-msgctxt "shortcut window"
-msgid "Side by side"
-msgstr "Vedle sebe"
-
-#. Translators: This describes the layout for the Nintendo DS emulator when the two screens are displayed side by side and not one on top of the other. The bottom screen is displayed to the right of the top screen.
-#: data/ui/shortcuts-window.ui:189
-msgctxt "shortcut window"
-msgid "Bottom to the right"
-msgstr "Dolní vpravo"
-
-#. Translators: This describes the layout for the Nintendo DS emulator when the two screens are displayed side by side and not one on top of the other. The bottom screen is displayed to the left of the top screen
-#: data/ui/shortcuts-window.ui:197
-msgctxt "shortcut window"
-msgid "Bottom to the left"
-msgstr "Dolní vlevo"
-
-#. Translators: This describes the layout for the Nintendo DS emulator. This setting means only one screen is displayed at once. The screen displayed can then be changed in-game
-#: data/ui/shortcuts-window.ui:204
-msgctxt "shortcut window"
-msgid "Single screen"
-msgstr "Jedna obrazovka"
-
-#: data/ui/shortcuts-window.ui:212
-msgid "Screen Switching"
-msgstr "Přepínání obrazovek"
-
-#. Translators: This describes the shortcut for showing the top screen, when the Nintendo DS emulator is single screen mode.
-#: data/ui/shortcuts-window.ui:217
-msgctxt "shortcut window"
-msgid "Show top screen"
-msgstr "Zobrazovat horní obrazovku"
-
-#. Translators: This describes the shortcut for showing the bottom screen, when the Nintendo DS emulator is single screen mode.
-#: data/ui/shortcuts-window.ui:224
-msgctxt "shortcut window"
-msgid "Show bottom screen"
-msgstr "Zobrazovat dolní obrazovku"
-
-#. Translators: This describes the shortcut for toggling whether the top or bottom screen is displayed, when the Nintendo DS emulator is single screen mode.
-#: data/ui/shortcuts-window.ui:233
-msgctxt "shortcut window"
-msgid "Toggle screen"
-msgstr "Přepnout obrazovku"
-
-#: data/ui/shortcuts-window.ui:234
-msgctxt "shortcut window"
-msgid "Press right analog stick"
-msgstr "Zmáčknout pravou analogovou páku"
-
-#: data/ui/shortcuts-window.ui:245
-msgid "Cheats"
-msgstr "Číty"
-
-#: data/ui/shortcuts-window.ui:254
-msgctxt "shortcut window"
-msgid "Contribute"
-msgstr "Přispět"
-
-#: data/ui/snapshots-list.ui:64
-msgid "Create new snapshot"
-msgstr "Vytvořit nový uložený stav"
-
-#: data/ui/snapshots-list.ui:89
+#: data/ui/snapshots-list.ui:95
 msgid "_Delete"
 msgstr "_Smazat"
 
-#: data/ui/snapshots-list.ui:129
+#: data/ui/snapshots-list.ui:138
 msgid "Name"
 msgstr "Název"
 
@@ -1008,15 +956,15 @@ msgstr "Marek Černocký <marek@manet.cz>"
 
 #. Translators: This is displayed if the user tries to log out of his
 #. * GNOME session, shutdown, or reboot while Games is running
-#: src/ui/application-window.vala:271 src/ui/application-window.vala:290
+#: src/ui/application-window.vala:307 src/ui/application-window.vala:326
 msgid "Playing a game"
 msgstr "Hraje se hra"
 
-#: src/ui/collection-action-window.vala:226 src/ui/collection-view.vala:479
+#: src/ui/collection-action-window.vala:226 src/ui/collection-view.vala:481
 msgid "Collection name cannot be empty"
 msgstr "Název sbírky nemůže být prázdný"
 
-#: src/ui/collection-action-window.vala:233 src/ui/collection-view.vala:483
+#: src/ui/collection-action-window.vala:233 src/ui/collection-view.vala:485
 msgid "A collection with this name already exists"
 msgstr "Sbírka s tímto názvem již existuje."
 
@@ -1033,13 +981,46 @@ msgstr[0] "Byla odebrána %d sbírka"
 msgstr[1] "Byly odebrány %d sbírky"
 msgstr[2] "Bylo odebráno %d sbírek"
 
-#: src/ui/collection-view.vala:531
+#: src/ui/collection-view.vala:533
 #, c-format
 msgid "Selected %d item"
 msgid_plural "Selected %d items"
 msgstr[0] "Vybrána %d položka"
 msgstr[1] "Vybrány %d položky"
 msgstr[2] "Vybráno %d položek"
+
+#: src/ui/display-view.vala:439 src/ui/display-view.vala:489
+msgid "Resume last game?"
+msgstr "Obnovit poslední hru?"
+
+#: src/ui/display-view.vala:442 src/ui/display-view.vala:702
+msgid "Restart"
+msgstr "Od začátku"
+
+#: src/ui/display-view.vala:443
+msgid "Resume"
+msgstr "Obnovit"
+
+#: src/ui/display-view.vala:492
+msgctxt "Resuming a game failed dialog"
+msgid "Reset"
+msgstr "Od začátku"
+
+#: src/ui/display-view.vala:571
+msgid "Are you sure you want to quit?"
+msgstr "Opravdu chcete skončit?"
+
+#: src/ui/display-view.vala:574 src/ui/display-view.vala:700
+msgid "All unsaved progress will be lost."
+msgstr "Všechny neuložené postupy budou ztraceny."
+
+#: src/ui/display-view.vala:576
+msgid "Quit"
+msgstr "Ukončit"
+
+#: src/ui/display-view.vala:697
+msgid "Are you sure you want to restart?"
+msgstr "Opravdu chcete restartovat?"
 
 #: src/ui/error-display.vala:15
 #, c-format
@@ -1125,6 +1106,22 @@ msgstr "Testuje se %s"
 #, c-format
 msgid "Configuring %s"
 msgstr "Nastavuje se %s"
+
+#: src/ui/preferences-subpage-gamepad.vala:145
+#: src/ui/preferences-subpage-keyboard.vala:127
+msgid "Factory reset mapping for this controller?"
+msgstr "Nastavit u tohoto herního ovladače originální tovární mapování?"
+
+#: src/ui/preferences-subpage-gamepad.vala:148
+#: src/ui/preferences-subpage-keyboard.vala:130
+msgid "Your mapping will be lost"
+msgstr "Vaše vlastní mapování bude ztraceno."
+
+#: src/ui/preferences-subpage-gamepad.vala:150
+#: src/ui/preferences-subpage-keyboard.vala:132
+msgctxt "Confirm controller configuration factory reset"
+msgid "_Reset"
+msgstr "Tová_rní nastavení"
 
 #: src/ui/selection-action-bar.vala:49
 msgid "Remove selected games from favorites"
