@@ -1,23 +1,23 @@
 # Brazilian Portuguese translation for gnome-games.
 # Copyright (C) 2020 gnome-games's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-games package.
-# Enrico Nicoletto <liverig@gmail.com>, 2016.
+# Enrico Nicoletto <liverig@gmail.com>, 2016, 2020.
 # Rafael Fontenelle <rafaelff@gnome.org>, 2016-2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-08-25 11:12+0000\n"
-"PO-Revision-Date: 2020-08-25 09:10-0300\n"
-"Last-Translator: Rafael Fontenelle <rafaelff@gnome.org>\n"
+"POT-Creation-Date: 2020-10-17 09:18+0000\n"
+"PO-Revision-Date: 2020-11-20 16:52-0300\n"
+"Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1)\n"
-"X-Generator: Gtranslator 3.36.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 2.4.2\n"
 "X-Project-Style: gnome\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:7
@@ -73,7 +73,7 @@ msgstr "Rodar seus jogos"
 msgid "Resume your game to where you left it"
 msgstr "Continuar seu jogo de onde você parou"
 
-#: data/org.gnome.Games.appdata.xml.in.in:331
+#: data/org.gnome.Games.appdata.xml.in.in:368
 msgid "The GNOME Project"
 msgstr "O Projeto GNOME"
 
@@ -139,6 +139,210 @@ msgstr ""
 "O núcleo preferido do Libretro a ser usado para jogos. Um núcleo diferente "
 "pode ser usado se o núcleo preferido não tiver firmware."
 
+#: data/gtk/help-overlay.ui:10
+msgid "Shortcuts"
+msgstr "Atalhos"
+
+#: data/gtk/help-overlay.ui:14
+msgid "General"
+msgstr "Geral"
+
+#: data/gtk/help-overlay.ui:19
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Volta"
+
+#: data/gtk/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Sai"
+
+#: data/gtk/help-overlay.ui:34 data/gtk/help-overlay.ui:248
+msgid "Collection"
+msgstr "Coleção"
+
+#: data/gtk/help-overlay.ui:39
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Pesquisa"
+
+#: data/gtk/help-overlay.ui:46
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Mostra os atalhos"
+
+#: data/gtk/help-overlay.ui:55 data/gtk/help-overlay.ui:64
+msgctxt "shortcut window"
+msgid "Navigate"
+msgstr "Navegação"
+
+#: data/gtk/help-overlay.ui:56
+msgctxt "shortcut window"
+msgid "Left analog stick"
+msgstr "Direcional analógico esquerdo"
+
+#: data/gtk/help-overlay.ui:65
+msgctxt "shortcut window"
+msgid "Directional pad"
+msgstr "Botão direcional"
+
+#: data/gtk/help-overlay.ui:73
+msgctxt "shortcut window"
+msgid "Select view"
+msgstr "Seleciona a visão"
+
+#: data/gtk/help-overlay.ui:74
+msgctxt "shortcut window"
+msgid "Front shoulder buttons"
+msgstr "Botões superiores frontais"
+
+#: data/gtk/help-overlay.ui:82 data/gtk/help-overlay.ui:91
+msgctxt "shortcut window"
+msgid "Start game"
+msgstr "Inicia o jogo"
+
+#: data/gtk/help-overlay.ui:83
+msgctxt "shortcut window"
+msgid "Start button"
+msgstr "Botão de iniciar"
+
+#: data/gtk/help-overlay.ui:92 data/gtk/help-overlay.ui:151
+msgctxt "shortcut window"
+msgid "Bottom action button"
+msgstr "Botão de ação inferior"
+
+#: data/gtk/help-overlay.ui:99
+msgid "In Game"
+msgstr "No jogo"
+
+#: data/gtk/help-overlay.ui:104
+msgctxt "shortcut window"
+msgid "Create new snapshot"
+msgstr "Cria um novo snapshot"
+
+#: data/gtk/help-overlay.ui:111
+msgctxt "shortcut window"
+msgid "Load the latest snapshot"
+msgstr "Carrega o snapshot mais recente"
+
+#: data/gtk/help-overlay.ui:118
+msgctxt "shortcut window"
+msgid "Show snapshots"
+msgstr "Mostra os snapshots"
+
+#: data/gtk/help-overlay.ui:125
+msgctxt "shortcut window"
+msgid "Toggle fullscreen"
+msgstr "Ativa/desativa a tela cheia"
+
+#: data/gtk/help-overlay.ui:132
+msgctxt "shortcut window"
+msgid "Exit fullscreen"
+msgstr "Sai da tela cheia"
+
+#: data/gtk/help-overlay.ui:141
+msgctxt "shortcut window"
+msgid "Go back to the collection"
+msgstr "Retorna à coleção"
+
+#: data/gtk/help-overlay.ui:142
+msgctxt "shortcut window"
+msgid "Home button"
+msgstr "Botão de Home"
+
+#: data/gtk/help-overlay.ui:150
+msgctxt "shortcut window"
+msgid "Accept"
+msgstr "Aceita"
+
+#: data/gtk/help-overlay.ui:159
+msgctxt "shortcut window"
+msgid "Cancel"
+msgstr "Cancela"
+
+#: data/gtk/help-overlay.ui:160
+msgctxt "shortcut window"
+msgid "Right action button"
+msgstr "Botão de ação direito"
+
+#: data/gtk/help-overlay.ui:171
+#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:6
+msgid "Nintendo DS"
+msgstr "Nintendo DS"
+
+#. Translators: This is displayed in the shortcuts window. This corresponds to the screens layout for the Nintendo DS.
+#: data/gtk/help-overlay.ui:175
+#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:39
+msgid "Screen Layout"
+msgstr "Layout da tela"
+
+#. Translators: This describes the layout for the Nintendo DS emulator. This setting means the two screens are stacked one on top of the other
+#: data/gtk/help-overlay.ui:180
+msgctxt "shortcut window"
+msgid "Vertical"
+msgstr "Vertical"
+
+#. Translators: This describes the layout for the Nintendo DS emulator. This setting means the two screens are displayed side by side
+#. Translators: This describes the Nintendo DS screens layout, side by side
+#: data/gtk/help-overlay.ui:187 data/gtk/help-overlay.ui:195
+msgctxt "shortcut window"
+msgid "Side by side"
+msgstr "Lado a lado"
+
+#. Translators: This describes the layout for the Nintendo DS emulator when the two screens are displayed side by side and not one on top of the other. The bottom screen is displayed to the right of the top screen.
+#: data/gtk/help-overlay.ui:188
+msgctxt "shortcut window"
+msgid "Bottom to the right"
+msgstr "Parte inferior para a direita"
+
+#. Translators: This describes the layout for the Nintendo DS emulator when the two screens are displayed side by side and not one on top of the other. The bottom screen is displayed to the left of the top screen
+#: data/gtk/help-overlay.ui:196
+msgctxt "shortcut window"
+msgid "Bottom to the left"
+msgstr "Parte inferior para a esquerda"
+
+#. Translators: This describes the layout for the Nintendo DS emulator. This setting means only one screen is displayed at once. The screen displayed can then be changed in-game
+#: data/gtk/help-overlay.ui:203
+msgctxt "shortcut window"
+msgid "Single screen"
+msgstr "Tela única"
+
+#: data/gtk/help-overlay.ui:211
+msgid "Screen Switching"
+msgstr "Troca de tela"
+
+#. Translators: This describes the shortcut for showing the top screen, when the Nintendo DS emulator is single screen mode.
+#: data/gtk/help-overlay.ui:216
+msgctxt "shortcut window"
+msgid "Show top screen"
+msgstr "Mostra a tela de cima"
+
+#. Translators: This describes the shortcut for showing the bottom screen, when the Nintendo DS emulator is single screen mode.
+#: data/gtk/help-overlay.ui:223
+msgctxt "shortcut window"
+msgid "Show bottom screen"
+msgstr "Mostra a tela de baixo"
+
+#. Translators: This describes the shortcut for toggling whether the top or bottom screen is displayed, when the Nintendo DS emulator is single screen mode.
+#: data/gtk/help-overlay.ui:232
+msgctxt "shortcut window"
+msgid "Toggle screen"
+msgstr "Ativa/desativa a tela cheia"
+
+#: data/gtk/help-overlay.ui:233
+msgctxt "shortcut window"
+msgid "Press right analog stick"
+msgstr "Pressiona o direcional analógico direito"
+
+#: data/gtk/help-overlay.ui:244
+msgid "Cheats"
+msgstr "Macetes"
+
+#: data/gtk/help-overlay.ui:253
+msgctxt "shortcut window"
+msgid "Contribute"
+msgstr "Contribuir"
+
 #: data/ui/collection-action-window.ui:5 data/ui/collection-action-window.ui:22
 msgid "Add to Collection"
 msgstr "Adicionar à coleção"
@@ -159,42 +363,42 @@ msgstr "_Adicionar"
 msgid "Search"
 msgstr "Pesquisar"
 
-#: data/ui/collection-action-window.ui:144
+#: data/ui/collection-action-window.ui:150 src/ui/empty-search.vala:15
 msgid "No collections found"
 msgstr "Nenhuma coleção localizada"
 
-#: data/ui/collection-action-window.ui:160
+#: data/ui/collection-action-window.ui:169
 msgid "Add a new collection to add games to it."
 msgstr "Adicione uma nova coleção para adicionar os jogos a ele."
 
-#: data/ui/collection-action-window.ui:173
+#: data/ui/collection-action-window.ui:182
 msgid "Create Collection"
 msgstr "Criar coleção"
 
-#: data/ui/collection-action-window.ui:179
+#: data/ui/collection-action-window.ui:191
 msgid "Create a collection"
 msgstr "Criar uma coleção"
 
-#: data/ui/collection-action-window.ui:204
+#: data/ui/collection-action-window.ui:216
 msgid "Add a Collection"
 msgstr "Adicionar uma coleção"
 
-#: data/ui/collection-action-window.ui:212 data/ui/collection-view.ui:153
+#: data/ui/collection-action-window.ui:224 data/ui/collection-view.ui:153
 #: data/ui/collection-view.ui:232 data/ui/display-view.ui:34
 #: data/ui/display-view.ui:169 data/ui/preferences-subpage-gamepad.ui:33
 #: data/ui/preferences-subpage-keyboard.ui:35
 msgid "Back"
 msgstr "Voltar"
 
-#: data/ui/collection-action-window.ui:251
+#: data/ui/collection-action-window.ui:266
 msgid "Enter a collection name"
 msgstr "Digite um nome de coleção"
 
-#: data/ui/collection-action-window.ui:280
+#: data/ui/collection-action-window.ui:304
 msgid "C_reate"
 msgstr "C_riar"
 
-#: data/ui/collection-action-window.ui:289
+#: data/ui/collection-action-window.ui:316
 msgid "Create collection"
 msgstr "Criar coleção"
 
@@ -225,17 +429,15 @@ msgid "Collection menu"
 msgstr "Menu de coleção"
 
 #: data/ui/collection-view.ui:328 data/ui/preferences-subpage-gamepad.ui:102
-#: data/ui/preferences-subpage-keyboard.ui:105 data/ui/quit-dialog.ui:15
-#: data/ui/reset-controller-mapping-dialog.ui:15 data/ui/restart-dialog.ui:15
-#: data/ui/resume-failed-dialog.ui:14
+#: data/ui/preferences-subpage-keyboard.ui:105
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: data/ui/collection-view.ui:374 src/ui/collection-view.vala:533
+#: data/ui/collection-view.ui:374 src/ui/collection-view.vala:535
 msgid "Click on items to select them"
 msgstr "Clique nos itens para selecioná-los"
 
-#: data/ui/collection-view.ui:465 data/ui/preferences-window.ui:67
+#: data/ui/collection-view.ui:465 data/ui/preferences-window.ui:66
 msgid "Platforms"
 msgstr "Plataformas"
 
@@ -247,40 +449,40 @@ msgstr "Coleções"
 msgid "Loading"
 msgstr "Carregando"
 
-#: data/ui/collection-view.ui:576
+#: data/ui/collection-view.ui:579
 msgid "Rename Collection"
 msgstr "Renomear coleção"
 
-#: data/ui/collection-view.ui:597 data/ui/collection-view.ui:669
-#: data/ui/snapshots-list.ui:103 data/ui/snapshots-list.ui:153
+#: data/ui/collection-view.ui:600 data/ui/collection-view.ui:672
+#: data/ui/snapshots-list.ui:109 data/ui/snapshots-list.ui:162
 msgid "_Rename"
 msgstr "_Renomear"
 
-#: data/ui/collection-view.ui:637
+#: data/ui/collection-view.ui:640
 msgid "Pr_eferences"
 msgstr "Pr_eferências"
 
-#: data/ui/collection-view.ui:641
+#: data/ui/collection-view.ui:644
 msgid "_Keyboard Shortcuts"
 msgstr "Atalhos de _teclado"
 
-#: data/ui/collection-view.ui:645
+#: data/ui/collection-view.ui:648
 msgid "_Help"
 msgstr "Aj_uda"
 
-#: data/ui/collection-view.ui:649
+#: data/ui/collection-view.ui:652
 msgid "_About Games"
 msgstr "_Sobre o Jogos"
 
-#: data/ui/collection-view.ui:657
+#: data/ui/collection-view.ui:660
 msgid "Select All"
 msgstr "Selecionar todos"
 
-#: data/ui/collection-view.ui:661
+#: data/ui/collection-view.ui:664
 msgid "Select None"
 msgstr "Selecionar nenhum"
 
-#: data/ui/collection-view.ui:673
+#: data/ui/collection-view.ui:676
 msgid "R_emove"
 msgstr "R_emover"
 
@@ -301,7 +503,7 @@ msgid "_Snapshots"
 msgstr "_Snapshots"
 
 #. Translators: This is displayed when the games library is empty.
-#: data/ui/empty-collection.ui:23
+#: data/ui/empty-collection.ui:23 src/ui/empty-search.vala:12
 msgid "No games found"
 msgstr "Nenhum jogo localizado"
 
@@ -400,29 +602,17 @@ msgstr "Pular"
 msgid "Preferences"
 msgstr "Preferências"
 
-#: data/ui/preferences-window.ui:47
+#: data/ui/preferences-window.ui:46
 msgid "Video"
 msgstr "Vídeo"
 
-#: data/ui/preferences-window.ui:57
+#: data/ui/preferences-window.ui:56
 msgid "Controllers"
 msgstr "Controles"
 
-#: data/ui/preferences-window.ui:77
+#: data/ui/preferences-window.ui:76
 msgid "Import & Export"
 msgstr "Importar & exportar"
-
-#: data/ui/quit-dialog.ui:9
-msgid "Are you sure you want to quit?"
-msgstr "Você tem certeza de que deseja sair?"
-
-#: data/ui/quit-dialog.ui:10 data/ui/restart-dialog.ui:10
-msgid "All unsaved progress will be lost."
-msgstr "Todo o progresso não salvo será perdido."
-
-#: data/ui/quit-dialog.ui:21
-msgid "Quit"
-msgstr "Sair"
 
 #: data/ui/remote-display.ui:23
 msgid "Use the game’s own window to play it"
@@ -435,44 +625,6 @@ msgstr "Este jogo não está integrado com o GNOME Jogos."
 #: data/ui/remote-display.ui:47
 msgid "You have to use its own window to play it."
 msgstr "Para jogá-lo você precisa usar a própria janela dele."
-
-#: data/ui/reset-controller-mapping-dialog.ui:9
-msgid "Factory reset mapping for this controller?"
-msgstr "Redefinir mapeamento deste controle?"
-
-#: data/ui/reset-controller-mapping-dialog.ui:10
-msgid "Your mapping will be lost."
-msgstr "Seu mapeamento será perdido."
-
-#: data/ui/reset-controller-mapping-dialog.ui:21
-msgctxt "Confirm controller configuration factory reset"
-msgid "Reset"
-msgstr "Redefinir"
-
-#: data/ui/restart-dialog.ui:9
-msgid "Are you sure you want to restart?"
-msgstr "Você tem certeza de que deseja reiniciar?"
-
-#: data/ui/restart-dialog.ui:21 data/ui/resume-dialog.ui:13
-msgid "Restart"
-msgstr "Reiniciar"
-
-#: data/ui/resume-dialog.ui:9
-msgid "Resume last game?"
-msgstr "Continuar último jogo?"
-
-#: data/ui/resume-dialog.ui:20
-msgid "Resume"
-msgstr "Continuar"
-
-#: data/ui/resume-failed-dialog.ui:9
-msgid "Resuming failed. Do you want to restart the game?"
-msgstr "Falha ao continuar. Você deseja reiniciar o jogo?"
-
-#: data/ui/resume-failed-dialog.ui:20
-msgctxt "Resuming a game failed dialog"
-msgid "Reset"
-msgstr "Reiniciar"
 
 #: data/ui/selection-action-bar.ui:16
 msgid "Add/Remove selected games to favorite"
@@ -495,223 +647,18 @@ msgid "Remove selected games from this collection"
 msgstr "Remover os jogos selecionados desta coleção"
 
 #: data/ui/selection-action-bar.ui:84
-#| msgid "Remove selected games from this collection"
 msgid "Remove selected collections"
 msgstr "Remover as coleções selecionadas"
 
-#: data/ui/shortcuts-window.ui:11
-msgid "Shortcuts"
-msgstr "Atalhos"
-
-#: data/ui/shortcuts-window.ui:15
-msgid "General"
-msgstr "Geral"
-
-#: data/ui/shortcuts-window.ui:20
-msgctxt "shortcut window"
-msgid "Go back"
-msgstr "Volta"
-
-#: data/ui/shortcuts-window.ui:27
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Sai"
-
-#: data/ui/shortcuts-window.ui:35 data/ui/shortcuts-window.ui:249
-msgid "Collection"
-msgstr "Coleção"
-
-#: data/ui/shortcuts-window.ui:40
-msgctxt "shortcut window"
-msgid "Search"
-msgstr "Pesquisa"
-
-#: data/ui/shortcuts-window.ui:47
-msgctxt "shortcut window"
-msgid "Show Shortcuts"
-msgstr "Mostra os atalhos"
-
-#: data/ui/shortcuts-window.ui:56 data/ui/shortcuts-window.ui:65
-msgctxt "shortcut window"
-msgid "Navigate"
-msgstr "Navegação"
-
-#: data/ui/shortcuts-window.ui:57
-msgctxt "shortcut window"
-msgid "Left analog stick"
-msgstr "Direcional analógico esquerdo"
-
-#: data/ui/shortcuts-window.ui:66
-msgctxt "shortcut window"
-msgid "Directional pad"
-msgstr "Botão direcional"
-
-#: data/ui/shortcuts-window.ui:74
-msgctxt "shortcut window"
-msgid "Select view"
-msgstr "Seleciona a visão"
-
-#: data/ui/shortcuts-window.ui:75
-msgctxt "shortcut window"
-msgid "Front shoulder buttons"
-msgstr "Botões superiores frontais"
-
-#: data/ui/shortcuts-window.ui:83 data/ui/shortcuts-window.ui:92
-msgctxt "shortcut window"
-msgid "Start game"
-msgstr "Inicia o jogo"
-
-#: data/ui/shortcuts-window.ui:84
-msgctxt "shortcut window"
-msgid "Start button"
-msgstr "Botão de iniciar"
-
-#: data/ui/shortcuts-window.ui:93 data/ui/shortcuts-window.ui:152
-msgctxt "shortcut window"
-msgid "Bottom action button"
-msgstr "Botão de ação inferior"
-
-#: data/ui/shortcuts-window.ui:100
-msgid "In Game"
-msgstr "No jogo"
-
-#: data/ui/shortcuts-window.ui:105
-msgctxt "shortcut window"
-msgid "Create new snapshot"
-msgstr "Cria um novo snapshot"
-
-#: data/ui/shortcuts-window.ui:112
-msgctxt "shortcut window"
-msgid "Load the latest snapshot"
-msgstr "Carrega o snapshot mais recente"
-
-#: data/ui/shortcuts-window.ui:119
-msgctxt "shortcut window"
-msgid "Show snapshots"
-msgstr "Mostra os snapshots"
-
-#: data/ui/shortcuts-window.ui:126
-msgctxt "shortcut window"
-msgid "Toggle fullscreen"
-msgstr "Ativa/desativa a tela cheia"
-
-#: data/ui/shortcuts-window.ui:133
-msgctxt "shortcut window"
-msgid "Exit fullscreen"
-msgstr "Sai da tela cheia"
-
-#: data/ui/shortcuts-window.ui:142
-msgctxt "shortcut window"
-msgid "Go back to the collection"
-msgstr "Retorna à coleção"
-
-#: data/ui/shortcuts-window.ui:143
-msgctxt "shortcut window"
-msgid "Home button"
-msgstr "Botão de Home"
-
-#: data/ui/shortcuts-window.ui:151
-msgctxt "shortcut window"
-msgid "Accept"
-msgstr "Aceita"
-
-#: data/ui/shortcuts-window.ui:160
-msgctxt "shortcut window"
-msgid "Cancel"
-msgstr "Cancela"
-
-#: data/ui/shortcuts-window.ui:161
-msgctxt "shortcut window"
-msgid "Right action button"
-msgstr "Botão de ação direito"
-
-#: data/ui/shortcuts-window.ui:172
-#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:6
-msgid "Nintendo DS"
-msgstr "Nintendo DS"
-
-#. Translators: This is displayed in the shortcuts window. This corresponds to the screens layout for the Nintendo DS.
-#: data/ui/shortcuts-window.ui:176
-#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:39
-msgid "Screen Layout"
-msgstr "Layout da tela"
-
-#. Translators: This describes the layout for the Nintendo DS emulator. This setting means the two screens are stacked one on top of the other
-#: data/ui/shortcuts-window.ui:181
-msgctxt "shortcut window"
-msgid "Vertical"
-msgstr "Vertical"
-
-#. Translators: This describes the layout for the Nintendo DS emulator. This setting means the two screens are displayed side by side
-#. Translators: This describes the Nintendo DS screens layout, side by side
-#: data/ui/shortcuts-window.ui:188 data/ui/shortcuts-window.ui:196
-msgctxt "shortcut window"
-msgid "Side by side"
-msgstr "Lado a lado"
-
-#. Translators: This describes the layout for the Nintendo DS emulator when the two screens are displayed side by side and not one on top of the other. The bottom screen is displayed to the right of the top screen.
-#: data/ui/shortcuts-window.ui:189
-msgctxt "shortcut window"
-msgid "Bottom to the right"
-msgstr "Parte inferior para a direita"
-
-#. Translators: This describes the layout for the Nintendo DS emulator when the two screens are displayed side by side and not one on top of the other. The bottom screen is displayed to the left of the top screen
-#: data/ui/shortcuts-window.ui:197
-msgctxt "shortcut window"
-msgid "Bottom to the left"
-msgstr "Parte inferior para a esquerda"
-
-#. Translators: This describes the layout for the Nintendo DS emulator. This setting means only one screen is displayed at once. The screen displayed can then be changed in-game
-#: data/ui/shortcuts-window.ui:204
-msgctxt "shortcut window"
-msgid "Single screen"
-msgstr "Tela única"
-
-#: data/ui/shortcuts-window.ui:212
-msgid "Screen Switching"
-msgstr "Troca de tela"
-
-#. Translators: This describes the shortcut for showing the top screen, when the Nintendo DS emulator is single screen mode.
-#: data/ui/shortcuts-window.ui:217
-msgctxt "shortcut window"
-msgid "Show top screen"
-msgstr "Mostra a tela de cima"
-
-#. Translators: This describes the shortcut for showing the bottom screen, when the Nintendo DS emulator is single screen mode.
-#: data/ui/shortcuts-window.ui:224
-msgctxt "shortcut window"
-msgid "Show bottom screen"
-msgstr "Mostra a tela de baixo"
-
-#. Translators: This describes the shortcut for toggling whether the top or bottom screen is displayed, when the Nintendo DS emulator is single screen mode.
-#: data/ui/shortcuts-window.ui:233
-msgctxt "shortcut window"
-msgid "Toggle screen"
-msgstr "Ativa/desativa a tela cheia"
-
-#: data/ui/shortcuts-window.ui:234
-msgctxt "shortcut window"
-msgid "Press right analog stick"
-msgstr "Pressiona o direcional analógico direito"
-
-#: data/ui/shortcuts-window.ui:245
-msgid "Cheats"
-msgstr "Macetes"
-
-#: data/ui/shortcuts-window.ui:254
-msgctxt "shortcut window"
-msgid "Contribute"
-msgstr "Contribuir"
-
-#: data/ui/snapshots-list.ui:64
+#: data/ui/snapshots-list.ui:70
 msgid "Create new snapshot"
 msgstr "Criar novo snapshot"
 
-#: data/ui/snapshots-list.ui:89
+#: data/ui/snapshots-list.ui:95
 msgid "_Delete"
 msgstr "_Excluir"
 
-#: data/ui/snapshots-list.ui:129
+#: data/ui/snapshots-list.ui:138
 msgid "Name"
 msgstr "Nome"
 
@@ -773,34 +720,28 @@ msgstr "Vertical"
 
 #. Translators: This describes the layout for the Nintendo DS
 #. * emulator. This setting means the two screens are displayed side
-#. * by side
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:59
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:65
-msgid "Side by side"
-msgstr "Lado a lado"
+#. * by side and not one on top of the other. The bottom screen
+#. * (which is the touch screen) is displayed to the right of the top
+#. * screen, making it comfortable for right-handed persons.
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:61
+msgid "Side by side, right-handed"
+msgstr "Lado a lado, destro(a)"
+
+#. Translators: This describes the layout for the Nintendo DS
+#. * emulator. This setting means the two screens are displayed side
+#. * by side and not one on top of the other. The bottom screen
+#. * (which is the touch screen) is displayed to the left of the top
+#. * screen, making it comfortable for left-handed persons.
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:69
+msgid "Side by side, left-handed"
+msgstr "Lado a lado, canhoto(a)"
 
 #. Translators: This describes the layout for the Nintendo DS
 #. * emulator. This setting means only one screen is displayed at
 #. * once. The screen displayed can then be changed in-game.
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:71
+#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:75
 msgid "Single screen"
 msgstr "Tela única"
-
-#. Translators: This describes the layout for the Nintendo DS
-#. * emulator when the two screens are displayed side by side and not
-#. * one on top of the other. The bottom screen is displayed to the
-#. * right of the top screen.
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:85
-msgid "Bottom to the right"
-msgstr "Parte inferior para a direita"
-
-#. Translators: This describes the layout for the Nintendo DS
-#. * emulator when the two screens are displayed side by side and not
-#. * one on top of the other. The bottom screen is displayed to the
-#. * left of the top screen.
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:92
-msgid "Bottom to the left"
-msgstr "Parte inferior para a esquerda"
 
 #: plugins/playstation/src/playstation-plugin.vala:7
 msgid "PlayStation"
@@ -991,7 +932,7 @@ msgstr "Selecione arquivos de jogos"
 #: src/ui/application.vala:217
 #, c-format
 msgid "An unexpected error occurred while trying to run %s"
-msgstr "Ocorreu um erro inesperado ao tentar executar %s."
+msgstr "Ocorreu um erro inesperado ao tentar executar %s"
 
 #: src/ui/application.vala:244
 #, c-format
@@ -1024,15 +965,15 @@ msgstr ""
 
 #. Translators: This is displayed if the user tries to log out of his
 #. * GNOME session, shutdown, or reboot while Games is running
-#: src/ui/application-window.vala:271 src/ui/application-window.vala:290
+#: src/ui/application-window.vala:307 src/ui/application-window.vala:326
 msgid "Playing a game"
 msgstr "Jogar um jogo"
 
-#: src/ui/collection-action-window.vala:226 src/ui/collection-view.vala:479
+#: src/ui/collection-action-window.vala:226 src/ui/collection-view.vala:481
 msgid "Collection name cannot be empty"
 msgstr "O nome da coleção não pode estar vazio"
 
-#: src/ui/collection-action-window.vala:233 src/ui/collection-view.vala:483
+#: src/ui/collection-action-window.vala:233 src/ui/collection-view.vala:485
 msgid "A collection with this name already exists"
 msgstr "Uma coleção com este nome já existe"
 
@@ -1043,18 +984,50 @@ msgstr "%s removido"
 
 #: src/ui/collections-page.vala:195
 #, c-format
-#| msgid "Rename Collection"
 msgid "Removed %d collection"
 msgid_plural "Removed %d collections"
 msgstr[0] "%d coleção removida"
 msgstr[1] "%d coleções removidas"
 
-#: src/ui/collection-view.vala:531
+#: src/ui/collection-view.vala:533
 #, c-format
 msgid "Selected %d item"
 msgid_plural "Selected %d items"
 msgstr[0] "%d item selecionado"
 msgstr[1] "%d itens selecionados"
+
+#: src/ui/display-view.vala:439 src/ui/display-view.vala:489
+msgid "Resume last game?"
+msgstr "Continuar último jogo?"
+
+#: src/ui/display-view.vala:442 src/ui/display-view.vala:702
+msgid "Restart"
+msgstr "Reiniciar"
+
+#: src/ui/display-view.vala:443
+msgid "Resume"
+msgstr "Continuar"
+
+#: src/ui/display-view.vala:492
+msgctxt "Resuming a game failed dialog"
+msgid "Reset"
+msgstr "Reiniciar"
+
+#: src/ui/display-view.vala:571
+msgid "Are you sure you want to quit?"
+msgstr "Você tem certeza de que deseja sair?"
+
+#: src/ui/display-view.vala:574 src/ui/display-view.vala:700
+msgid "All unsaved progress will be lost."
+msgstr "Todo o progresso não salvo será perdido."
+
+#: src/ui/display-view.vala:576
+msgid "Quit"
+msgstr "Sair"
+
+#: src/ui/display-view.vala:697
+msgid "Are you sure you want to restart?"
+msgstr "Você tem certeza de que deseja reiniciar?"
 
 #: src/ui/error-display.vala:15
 #, c-format
@@ -1140,6 +1113,22 @@ msgstr "Testando %s"
 msgid "Configuring %s"
 msgstr "Configurando %s"
 
+#: src/ui/preferences-subpage-gamepad.vala:145
+#: src/ui/preferences-subpage-keyboard.vala:127
+msgid "Factory reset mapping for this controller?"
+msgstr "Redefinir mapeamento deste controle?"
+
+#: src/ui/preferences-subpage-gamepad.vala:148
+#: src/ui/preferences-subpage-keyboard.vala:130
+msgid "Your mapping will be lost"
+msgstr "Seu mapeamento será perdido"
+
+#: src/ui/preferences-subpage-gamepad.vala:150
+#: src/ui/preferences-subpage-keyboard.vala:132
+msgctxt "Confirm controller configuration factory reset"
+msgid "_Reset"
+msgstr "_Redefinir"
+
 #: src/ui/selection-action-bar.vala:49
 msgid "Remove selected games from favorites"
 msgstr "Remover os jogos selecionados dos favoritos"
@@ -1208,6 +1197,15 @@ msgstr "Erro: %s (%d)"
 #, c-format
 msgid "Error writing “%s”: %s (%d)"
 msgstr "Erro de escrita “%s”: %s (%d)"
+
+#~ msgid "Resuming failed. Do you want to restart the game?"
+#~ msgstr "Falha ao continuar. Você deseja reiniciar o jogo?"
+
+#~ msgid "Bottom to the right"
+#~ msgstr "Parte inferior para a direita"
+
+#~ msgid "Bottom to the left"
+#~ msgstr "Parte inferior para a esquerda"
 
 #~ msgid "Add/Remove games to favorite"
 #~ msgstr "Adicionar/Remover jogos aos favoritos"
