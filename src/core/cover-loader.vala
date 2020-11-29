@@ -62,8 +62,8 @@ public class Games.CoverLoader : Object {
 			return null;
 
 		try {
-			if (icon is Gdk.Pixbuf && (icon as Gdk.Pixbuf).get_width () <= TINY_ICON_SIZE)
-				pixbuf = (icon as Gdk.Pixbuf).scale_simple (size * scale_factor, size * scale_factor, Gdk.InterpType.NEAREST);
+			if (icon is Gdk.Pixbuf && ((Gdk.Pixbuf) icon).get_width () <= TINY_ICON_SIZE)
+				pixbuf = ((Gdk.Pixbuf) icon).scale_simple (size * scale_factor, size * scale_factor, Gdk.InterpType.NEAREST);
 			else
 				pixbuf = icon_info.load_icon ();
 			save_cache_to_disk (game, pixbuf, size, scale_factor, "icons");
