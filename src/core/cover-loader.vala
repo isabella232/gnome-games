@@ -3,6 +3,7 @@
 public class Games.CoverLoader : Object {
 	const double COVER_BLUR_RADIUS_FACTOR = 30.0 / 128.0;
 	const double SHADOW_FACTOR = 20.0 / 128;
+	const uint TINY_ICON_SIZE = 32;
 
 	public delegate void CoverReadyCallback (int scale_factor, int cover_size, Gdk.Pixbuf? cover_pixbuf, int icon_size, Gdk.Pixbuf? icon_pixbuf);
 
@@ -61,7 +62,10 @@ public class Games.CoverLoader : Object {
 			return null;
 
 		try {
-			pixbuf = icon_info.load_icon ();
+			if (icon is Gdk.Pixbuf && (icon as Gdk.Pixbuf).get_width () <= TINY_ICON_SIZE)
+				pixbuf = (icon as Gdk.Pixbuf).scale_simple (size * scale_factor, size * scale_factor, Gdk.InterpType.NEAREST);
+			else
+				pixbuf = icon_info.load_icon ();
 			save_cache_to_disk (game, pixbuf, size, scale_factor, "icons");
 		}
 		catch (Error e) {
