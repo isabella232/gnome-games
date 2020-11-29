@@ -4,20 +4,15 @@ public class Games.GriloCover : Object, Cover {
 	private GriloMedia media;
 	private Uid uid;
 	private File? file;
-	private bool resolving;
 	private string cover_path;
 
 	public GriloCover (GriloMedia media, Uid uid) {
 		this.media = media;
 		this.uid = uid;
 		media.resolved.connect (on_media_resolved);
-		resolving = false;
 	}
 
 	public GLib.File? get_cover () {
-		if (resolving)
-			return file;
-
 		if (file != null)
 			return file;
 
