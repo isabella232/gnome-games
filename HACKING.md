@@ -1,5 +1,5 @@
 # Compilation and Installation Procedure
-You can install this project either manually (by command line) or with [Builder](https://wiki.gnome.org/Apps/Builder "GNOME-Builder Wiki").
+You can install this project either manually (by command line) or with [Builder](https://wiki.gnome.org/Apps/Builder "GNOME Builder Wiki").
 
 ## Manual installation
 ### Get the official git repository
@@ -8,7 +8,7 @@ git clone https://gitlab.gnome.org/GNOME/gnome-games.git
 ```
 
 ### Get dependencies
-Games always requires the matching version of [retro-gtk](https://gitlab.gnome.org/GNOME/retro-gtk "Retro-GTK GitLab"), [libmanette](https:/gitlab.gnome.org/aplazas/libmanette "libmanette GitLab") and [libhandy](https://source.puri.sm/Librem5/libhandy "libhandy"), so if you use the master version of Games, you need to use the master version of retro-gtk, libmanette and libhandy.
+Games always requires the matching version of [RetroGTK](https://gitlab.gnome.org/GNOME/retro-gtk "RetroGTK GitLab"), [libmanette](https://gitlab.gnome.org/GNOME/libmanette "libmanette GitLab") and [libhandy](https://gitlab.gnome.org/GNOME/libhandy "libhandy"), so if you use the master version of Games, you need to use the master version of RetroGTK, libmanette and libhandy.
 
 ### Prepare compilation
 ```shell
