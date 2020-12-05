@@ -76,7 +76,6 @@ private class Games.NintendoDsRunner : RetroRunner {
 	}
 
 	private string get_screen_gap_width () {
-
 		try {
 			assert (media_set.get_size () == 1);
 			var uris = media_set.get_media (0).get_uris ();
