@@ -1,5 +1,7 @@
 vala_sources = [
+  'nintendo-3ds-layout.vala',
   'nintendo-3ds-plugin.vala',
+  'nintendo-3ds-runner.vala',
 ]
 
 c_args = [

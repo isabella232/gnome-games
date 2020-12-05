@@ -32,7 +32,8 @@ private class Games.Nintendo3DsPlugin : Object, Plugin {
 	}
 
 	public RunnerFactory[] get_runner_factories () {
-		var factory = new RetroRunnerFactory (platform);
+		var factory = new GenericRunnerFactory (create_runner);
+		factory.add_platform (platform);
 
 		return { factory };
 	}
@@ -49,6 +50,12 @@ private class Games.Nintendo3DsPlugin : Object, Plugin {
 		game.set_cover (cover);
 
 		return game;
+	}
+
+	private static Runner? create_runner (Game game) throws Error {
+		var core_source = new RetroCoreSource (platform);
+
+		return new Nintendo3DsRunner (game, core_source);
 	}
 }
 
