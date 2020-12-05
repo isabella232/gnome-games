@@ -1,4 +1,5 @@
 options_files = [
+  'citra.options',
   'desmume.options',
   'desmume2015.options',
   'flycast.options',
