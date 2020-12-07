@@ -34,7 +34,7 @@
         <property name="can-focus">False</property>
         <property name="popover">layout_popover</property>
         <signal name="notify::active" handler="on_menu_state_changed"/>
-          <child internal-child="accessible">
+        <child internal-child="accessible">
           <object class="AtkObject" id="a11y-display-discs">
             <property name="accessible-name" translatable="yes">Screen Layout</property>
           </object>
