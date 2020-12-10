@@ -10,6 +10,12 @@ c_args = [
   '-DG_LOG_DOMAIN="GamesDesktop"'
 ]
 
+desktop_resources = gnome.compile_resources (
+  'desktop',
+  'desktop.gresource.xml',
+  c_name: 'resources'
+)
+
 gio_unix_dep = dependency ('gio-unix-2.0')
 
 dependencies = [
