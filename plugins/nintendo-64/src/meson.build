@@ -12,6 +12,12 @@ c_args = [
   '-DG_LOG_DOMAIN="GamesNintendo64"'
 ]
 
+nintendo_64_resources = gnome.compile_resources (
+  'nintendo-64',
+  'nintendo-64.gresource.xml',
+  c_name: 'resources'
+)
+
 shared_module (
   'games-' + plugin_name + '-plugin',
   vala_sources + nintendo_64_resources,

@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-[GtkTemplate (ui = "/org/gnome/Games/plugins/nintendo-64/ui/nintendo-64-pak-switcher.ui")]
+[GtkTemplate (ui = "/org/gnome/Games/plugins/nintendo-64/nintendo-64-pak-switcher.ui")]
 private class Games.Nintendo64PakSwitcher : Gtk.Bin, HeaderBarWidget {
 	[GtkChild]
 	private Gtk.MenuButton menu_button;

@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-[GtkTemplate (ui = "/org/gnome/Games/plugins/nintendo-64/ui/nintendo-64-pak-controller.ui")]
+[GtkTemplate (ui = "/org/gnome/Games/plugins/nintendo-64/nintendo-64-pak-controller.ui")]
 private class Games.Nintendo64PakController : Gtk.Box {
 	[GtkChild]
 	private Gtk.Label title;
