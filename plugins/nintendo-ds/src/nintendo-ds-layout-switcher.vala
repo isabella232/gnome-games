@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-[GtkTemplate (ui = "/org/gnome/Games/plugins/nintendo-ds/ui/nintendo-ds-layout-switcher.ui")]
+[GtkTemplate (ui = "/org/gnome/Games/plugins/nintendo-ds/nintendo-ds-layout-switcher.ui")]
 private class Games.NintendoDsLayoutSwitcher : Gtk.Box, HeaderBarWidget {
 	[GtkChild]
 	private Gtk.Revealer change_screen_revealer;

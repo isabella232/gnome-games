@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-[GtkTemplate (ui = "/org/gnome/Games/plugins/nintendo-ds/ui/nintendo-ds-layout-item.ui")]
+[GtkTemplate (ui = "/org/gnome/Games/plugins/nintendo-ds/nintendo-ds-layout-item.ui")]
 private class Games.NintendoDsLayoutItem : Gtk.ListBoxRow {
 	[GtkChild]
 	private Gtk.Image icon;

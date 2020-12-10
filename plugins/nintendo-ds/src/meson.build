@@ -17,6 +17,12 @@ c_args = [
   '-DG_LOG_DOMAIN="GamesNintendoDS"'
 ]
 
+nintendo_ds_resources = gnome.compile_resources (
+  'nintendo-ds',
+  'nintendo-ds.gresource.xml',
+  c_name: 'resources'
+)
+
 shared_module (
   'games-' + plugin_name + '-plugin',
   vala_sources + c_sources + nintendo_ds_resources,
