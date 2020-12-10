@@ -9,6 +9,12 @@ c_args = [
   '-DG_LOG_DOMAIN="GamesMAME"'
 ]
 
+mame_resources = gnome.compile_resources (
+  'mame',
+  'mame.gresource.xml',
+  c_name: 'resources'
+)
+
 shared_module (
   'games-' + plugin_name + '-plugin',
   vala_sources + mame_resources,
