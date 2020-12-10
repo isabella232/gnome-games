@@ -88,8 +88,10 @@ vala_sources = [
   'grilo/grilo-cover.vala',
   'grilo/grilo-media.vala',
 
+  'keyboard/keyboard-mapper.vala',
   'keyboard/keyboard-mapping-builder.vala',
   'keyboard/keyboard-mapping-manager.vala',
+  'keyboard/keyboard-tester.vala',
 
   'retro/retro-core.vala',
   'retro/retro-core-manager.vala',
@@ -139,8 +141,6 @@ vala_sources = [
   'ui/gamepad-view-configuration.vala',
   'ui/header-bar-widget.vala',
   'ui/input-mode-switcher.vala',
-  'ui/keyboard-mapper.vala',
-  'ui/keyboard-tester.vala',
   'ui/konami-code.vala',
   'ui/media-menu-button.vala',
   'ui/platform-list-item.vala',

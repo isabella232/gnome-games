@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-[GtkTemplate (ui = "/org/gnome/Games/ui/keyboard-tester.ui")]
+[GtkTemplate (ui = "/org/gnome/Games/keyboard/keyboard-tester.ui")]
 private class Games.KeyboardTester : Gtk.Bin {
 	[GtkChild]
 	private GamepadView gamepad_view;
