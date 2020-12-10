@@ -74,7 +74,9 @@ vala_sources = [
 
   'gamepad/gamepad-dpad.vala',
   'gamepad/gamepad-input.vala',
+  'gamepad/gamepad-mapper.vala',
   'gamepad/gamepad-mapping-builder.vala',
+  'gamepad/gamepad-tester.vala',
 
   'generic/generic-game-uri-adapter.vala',
   'generic/generic-input-capabilities.vala',
@@ -130,8 +132,6 @@ vala_sources = [
   'ui/flash-box.vala',
   'ui/fullscreen-box.vala',
   'ui/gamepad-browse.vala',
-  'ui/gamepad-mapper.vala',
-  'ui/gamepad-tester.vala',
   'ui/gamepad-view.vala',
   'ui/games-page.vala',
   'ui/game-icon-view.vala',

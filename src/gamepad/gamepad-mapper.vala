@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-[GtkTemplate (ui = "/org/gnome/Games/ui/gamepad-mapper.ui")]
+[GtkTemplate (ui = "/org/gnome/Games/gamepad/gamepad-mapper.ui")]
 private class Games.GamepadMapper : Gtk.Bin {
 	private const double ANALOG_ANIMATION_SPEED = 166660.0;
 
