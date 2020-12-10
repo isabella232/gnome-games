@@ -1,7 +1,7 @@
 #!/bin/bash
 
 TMP_GAMEINFO_DOC='gameinfo/out/playstation.gameinfo.xml.in.tmp'
-GAMEINFO_DOC='../plugins/playstation/data/playstation.gameinfo.xml.in'
+GAMEINFO_DOC='../plugins/playstation/src/playstation.gameinfo.xml.in'
 
 gameinfo/psxdatacenter-gameinfo.py
 # Sort the existing document before merging the already sorted newly generated
