@@ -1,95 +1,95 @@
 /* This file is part of GNOME Games. License: GPL-3.0+. */
 
 .favorite-star {
-	color: white;
-	-gtk-icon-shadow: 0 1px black, 0 -1px black, 1px 0 black, -1px 0 black;
-	margin: 6px;
+  color: white;
+  -gtk-icon-shadow: 0 1px black, 0 -1px black, 1px 0 black, -1px 0 black;
+  margin: 6px;
 }
 
 .hide-stars .favorite-star {
-	opacity: 0;
+  opacity: 0;
 }
 
 .snapshot-row {
-	padding: 0;
+  padding: 0;
 }
 
 .snapshot-thumbnail {
-	color: rgba(255, 255, 255, 0.5);
-	background: rgba(0, 0, 0, .5);
-	box-shadow: 0 0 0 1px rgba(0, 0, 0, .75);
-	border-radius: 6px;
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, .5);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .75);
+  border-radius: 6px;
 }
 
 .snapshot-name {
-	font-size: large;
+  font-size: large;
 }
 
 .snapshot-date {
-	opacity: 0.5;
-	font-size: small;
+  opacity: 0.5;
+  font-size: small;
 }
 
 .snapshot-list {
-	border-left: none;
-	border-right: none;
+  border-left: none;
+  border-right: none;
 }
 
 .pill-button {
-	border-radius: 9999px;
-	-gtk-outline-radius: 9999px;
-	padding: 6px 32px;
+  border-radius: 9999px;
+  -gtk-outline-radius: 9999px;
+  padding: 6px 32px;
 }
 
 .collection-icon-view {
-	transition: opacity 250ms;
+  transition: opacity 250ms;
 }
 
 .collection-icon-view:disabled {
-	opacity: 0.2;
-	background: none;
+  opacity: 0.2;
+  background: none;
 }
 
 gamescollectionsmainpage flowboxchild stack {
-	background: mix(@theme_base_color, @theme_bg_color, 0.5);
-	border-radius: 6px;
+  background: mix(@theme_base_color, @theme_bg_color, 0.5);
+  border-radius: 6px;
 }
 
 gamescollectionsmainpage grid {
-	min-width: 116px;
-	min-height: 116px;
-	padding: 6px;
+  min-width: 116px;
+  min-height: 116px;
+  padding: 6px;
 }
 
 gamescollectionsmainpage.large grid {
-	min-width: 244px;
-	min-height: 244px;
+  min-width: 244px;
+  min-height: 244px;
 }
 
 gamescollectionsmainpage grid widget {
-	background: alpha(black, 0.2);
-	border-radius: 6px;
-	border: 1px solid @borders;
+  background: alpha(black, 0.2);
+  border-radius: 6px;
+  border: 1px solid @borders;
 }
 
 
 gamesgamethumbnail {
-	background-color: mix(@theme_base_color, @theme_bg_color, 0.5);
-	border-radius: 6px;
-	border: 1px solid @borders;
+  background-color: mix(@theme_base_color, @theme_bg_color, 0.5);
+  border-radius: 6px;
+  border: 1px solid @borders;
 }
 
 gamesgamethumbnail.cover {
-	background-color: black;
-	border: none;
+  background-color: black;
+  border: none;
 }
 
 gamesgamespage flowboxchild {
-	min-width: 128px;
+  min-width: 128px;
 }
 
 gamesgamespage.large flowboxchild {
-	min-width: 256px;
+  min-width: 256px;
 }
 
 gamesflashbox {
@@ -101,65 +101,65 @@ gamesflashbox {
  */
 
 .list-icon {
-	opacity: 0.7;
+  opacity: 0.7;
 }
 
 .combo-list-box {
-	background: none;
+  background: none;
 }
 
 box.sidebar,
 box.sidebar > list {
-	transition: all 200ms;
-	background: @theme_base_color;
-	border: 0 solid @borders;
+  transition: all 200ms;
+  background: @theme_base_color;
+  border: 0 solid @borders;
 }
 
 box.sidebar:backdrop,
 box.sidebar:backdrop > list {
-	background-color: @theme_unfocused_base_color;
-	border-color: @unfocused_borders;
+  background-color: @theme_unfocused_base_color;
+  border-color: @unfocused_borders;
 }
 
 .folded box.sidebar {
-	padding: 18px;
-	background: @theme_bg_color;
+  padding: 18px;
+  background: @theme_bg_color;
 }
 
 .folded:backdrop box.sidebar {
-	background: @theme_unfocused_bg_color;
+  background: @theme_unfocused_bg_color;
 }
 list.rounded,
 .folded box.sidebar > list {
-	background: @theme_base_color;
-	border-radius: 6px;
-	border: 1px solid @borders;
+  background: @theme_base_color;
+  border-radius: 6px;
+  border: 1px solid @borders;
 }
 
 list.rounded row:first-child,
-	.folded box.sidebar > list row:first-child {
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
-	-gtk-outline-top-left-radius: 6px;
-	-gtk-outline-top-right-radius: 6px;
+  .folded box.sidebar > list row:first-child {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  -gtk-outline-top-left-radius: 6px;
+  -gtk-outline-top-right-radius: 6px;
 }
 
 list.rounded row:last-child,
 .folded box.sidebar > list row:last-child {
-	border-bottom-left-radius: 6px;
-	border-bottom-right-radius: 6px;
-	-gtk-outline-bottom-left-radius: 6px;
-	-gtk-outline-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  -gtk-outline-bottom-left-radius: 6px;
+  -gtk-outline-bottom-right-radius: 6px;
 }
 
 list.rounded:backdrop,
 .folded:backdrop box.sidebar > list {
-	background: @theme_unfocused_base_color;
-	border-color: @unfocused_borders;
+  background: @theme_unfocused_base_color;
+  border-color: @unfocused_borders;
 }
 
 list.separators row:not(:last-child) {
-	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 window.fullscreen {
