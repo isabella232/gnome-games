@@ -97,7 +97,7 @@ private class Games.ApplicationWindow : Hdy.ApplicationWindow {
 	}
 
 	private void init_help_overlay () {
-		var builder = new Gtk.Builder.from_resource ("/org/gnome/Games/gtk/help-overlay.ui");
+		var builder = new Gtk.Builder.from_resource ("/org/gnome/Games/ui/help-overlay.ui");
 		var shortcuts_window = builder.get_object ("help_overlay") as Gtk.ShortcutsWindow;
 		var shortcut = builder.get_object ("general_shortcut_alt_left") as Gtk.ShortcutsShortcut;
 

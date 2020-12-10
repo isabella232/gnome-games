@@ -190,6 +190,12 @@ vala_sources = [
   'main.vala',
 ]
 
+resources = gnome.compile_resources(
+  'org.gnome.Games',
+  'org.gnome.Games.gresource.xml',
+  c_name: 'resources'
+)
+
 event_codes_dep = valac.find_library ('event-codes', dirs: gamepad_dir)
 
 dependencies = [

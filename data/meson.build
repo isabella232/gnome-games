@@ -1,9 +1,3 @@
-resources = gnome.compile_resources(
-  'org.gnome.Games',
-  'org.gnome.Games.gresource.xml',
-  c_name: 'resources'
-)
-
 desktop_conf = configuration_data()
 desktop_conf.set('icon', application_id)
 desktop_file = i18n.merge_file ('desktop-file',

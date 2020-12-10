@@ -60,7 +60,7 @@ namespace Games {
 		public static GamepadViewConfiguration get_default () {
 			GamepadViewConfiguration conf = {};
 
-			conf.svg_path = "/org/gnome/Games/gamepads/standard-gamepad.svg";
+			conf.svg_path = "/org/gnome/Games/gamepad/standard-gamepad.svg";
 			conf.button_paths = STANDARD_GAMEPAD_BUTTON_PATHS;
 			conf.analog_paths = STANDARD_GAMEPAD_ANALOG_PATHS;
 			conf.background_paths = BACKGROUND_PATHS;
