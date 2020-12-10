@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-[GtkTemplate (ui = "/org/gnome/Games/ui/preferences-window.ui")]
+[GtkTemplate (ui = "/org/gnome/Games/preferences/preferences-window.ui")]
 private class Games.PreferencesWindow : Hdy.Window {
 	[GtkChild]
 	private Hdy.Deck deck;

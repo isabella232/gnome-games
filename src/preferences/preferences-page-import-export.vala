@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-[GtkTemplate (ui = "/org/gnome/Games/ui/preferences-page-import-export.ui")]
+[GtkTemplate (ui = "/org/gnome/Games/preferences/preferences-page-import-export.ui")]
 private class Games.PreferencesPageImportExport : PreferencesPage {
 	[GtkCallback]
 	private void on_import_clicked () {

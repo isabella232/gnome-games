@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-[GtkTemplate (ui = "/org/gnome/Games/ui/preferences-page.ui")]
+[GtkTemplate (ui = "/org/gnome/Games/preferences/preferences-page.ui")]
 private class Games.PreferencesPage : Gtk.Bin, Gtk.Buildable {
 	public PreferencesWindow window { get; construct; }
 

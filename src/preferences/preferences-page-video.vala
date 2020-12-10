@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-[GtkTemplate (ui = "/org/gnome/Games/ui/preferences-page-video.ui")]
+[GtkTemplate (ui = "/org/gnome/Games/preferences/preferences-page-video.ui")]
 private class Games.PreferencesPageVideo : PreferencesPage {
 	private string _filter_active;
 	public string filter_active {

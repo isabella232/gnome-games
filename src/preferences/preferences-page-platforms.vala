@@ -1,6 +1,6 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-[GtkTemplate (ui = "/org/gnome/Games/ui/preferences-page-platforms.ui")]
+[GtkTemplate (ui = "/org/gnome/Games/preferences/preferences-page-platforms.ui")]
 private class Games.PreferencesPagePlatforms : PreferencesPage {
 	[GtkChild]
 	private Hdy.PreferencesGroup platforms_group;

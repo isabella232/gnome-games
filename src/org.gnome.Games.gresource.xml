@@ -18,6 +18,15 @@
     <file preprocess="xml-stripblanks">keyboard/keyboard-mapper.ui</file>
     <file preprocess="xml-stripblanks">keyboard/keyboard-tester.ui</file>
 
+    <file preprocess="xml-stripblanks">preferences/preferences-page.ui</file>
+    <file preprocess="xml-stripblanks">preferences/preferences-page-controllers.ui</file>
+    <file preprocess="xml-stripblanks">preferences/preferences-page-import-export.ui</file>
+    <file preprocess="xml-stripblanks">preferences/preferences-page-platforms.ui</file>
+    <file preprocess="xml-stripblanks">preferences/preferences-page-video.ui</file>
+    <file preprocess="xml-stripblanks">preferences/preferences-subpage-gamepad.ui</file>
+    <file preprocess="xml-stripblanks">preferences/preferences-subpage-keyboard.ui</file>
+    <file preprocess="xml-stripblanks">preferences/preferences-window.ui</file>
+
     <file preprocess="xml-stripblanks">ui/application-window.ui</file>
     <file preprocess="xml-stripblanks">ui/checkmark-item.ui</file>
     <file preprocess="xml-stripblanks">ui/collection-action-window.ui</file>
@@ -41,14 +50,6 @@
     <file preprocess="xml-stripblanks">ui/media-menu-button.ui</file>
     <file preprocess="xml-stripblanks">ui/platforms-page.ui</file>
     <file preprocess="xml-stripblanks">ui/platform-list-item.ui</file>
-    <file preprocess="xml-stripblanks">ui/preferences-page.ui</file>
-    <file preprocess="xml-stripblanks">ui/preferences-page-controllers.ui</file>
-    <file preprocess="xml-stripblanks">ui/preferences-page-import-export.ui</file>
-    <file preprocess="xml-stripblanks">ui/preferences-page-platforms.ui</file>
-    <file preprocess="xml-stripblanks">ui/preferences-page-video.ui</file>
-    <file preprocess="xml-stripblanks">ui/preferences-subpage-gamepad.ui</file>
-    <file preprocess="xml-stripblanks">ui/preferences-subpage-keyboard.ui</file>
-    <file preprocess="xml-stripblanks">ui/preferences-window.ui</file>
     <file preprocess="xml-stripblanks">ui/remote-display.ui</file>
     <file preprocess="xml-stripblanks">ui/search-bar.ui</file>
     <file preprocess="xml-stripblanks">ui/selection-action-bar.ui</file>
