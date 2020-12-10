@@ -1,0 +1,35 @@
+From 536e19b9e35fd88f60a979bcf2ff118f673b0332 Mon Sep 17 00:00:00 2001
+From: Alexander Mikhaylenko <alexm@gnome.org>
+Date: Sun, 6 Dec 2020 17:50:09 +0500
+Subject: [PATCH 2/2] Clean frame when changing screen layout to top/bottom or
+ large/small
+
+These layouts have empty areas which will contain leftover pixels otherwise.
+---
+ src/citra_libretro/emu_window/libretro_window.cpp | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/src/citra_libretro/emu_window/libretro_window.cpp b/src/citra_libretro/emu_window/libretro_window.cpp
+index d87fa8a6c..4094ca10a 100644
+--- a/src/citra_libretro/emu_window/libretro_window.cpp
++++ b/src/citra_libretro/emu_window/libretro_window.cpp
+@@ -164,6 +164,8 @@ void EmuWindow_LibRetro::UpdateLayout() {
+             baseX *= scaling;
+             baseY *= scaling;
+         }
++
++        doCleanFrame = true;
+         break;
+     case Settings::LayoutOption::SideScreen:
+         baseX = Core::kScreenBottomWidth + Core::kScreenTopWidth;
+@@ -181,6 +183,7 @@ void EmuWindow_LibRetro::UpdateLayout() {
+         baseY = Core::kScreenTopHeight + Core::kScreenBottomHeight;
+         baseX *= scaling;
+         baseY *= scaling;
++        doCleanFrame = true;
+         break;
+     }
+ 
+-- 
+2.29.2
+

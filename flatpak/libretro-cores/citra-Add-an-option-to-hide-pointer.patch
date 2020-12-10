@@ -1,0 +1,68 @@
+From e891bcbc6967738a1fd760350dd6eb718dc121c2 Mon Sep 17 00:00:00 2001
+From: Alexander Mikhaylenko <alexm@gnome.org>
+Date: Sun, 6 Dec 2020 17:28:24 +0500
+Subject: [PATCH 1/2] Add an option to hide pointer
+
+---
+ src/citra_libretro/citra_libretro.cpp             | 3 +++
+ src/citra_libretro/core_settings.h                | 1 +
+ src/citra_libretro/emu_window/libretro_window.cpp | 3 ++-
+ 3 files changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/src/citra_libretro/citra_libretro.cpp b/src/citra_libretro/citra_libretro.cpp
+index 6e9a065f7..212c4c0d8 100644
+--- a/src/citra_libretro/citra_libretro.cpp
++++ b/src/citra_libretro/citra_libretro.cpp
+@@ -102,6 +102,7 @@ void LibRetro::OnConfigureEnvironment() {
+          "Right analog function; C-Stick and Touchscreen Pointer|Touchscreen Pointer|C-Stick"},
+         {"citra_deadzone", "Emulated pointer deadzone (%); 15|20|25|30|35|0|5|10"},
+         {"citra_mouse_touchscreen", "Enable mouse input for touchscreen; enabled|disabled"},
++        {"citra_mouse_show_pointer", "Show mouse pointer for touchscreen; enabled|disabled"},
+         {"citra_use_virtual_sd", "Enable virtual SD card; enabled|disabled"},
+         {"citra_use_libretro_save_path", "Savegame location; LibRetro Default|Citra Default"},
+         {"citra_is_new_3ds", "3DS system model; Old 3DS|New 3DS"},
+@@ -187,6 +188,8 @@ void UpdateSettings() {
+         LibRetro::FetchVariable("citra_use_gdbstub", "disabled") == "enabled";
+     LibRetro::settings.mouse_touchscreen =
+         LibRetro::FetchVariable("citra_mouse_touchscreen", "enabled") == "enabled";
++    LibRetro::settings.mouse_show_pointer =
++        LibRetro::FetchVariable("citra_mouse_show_pointer", "enabled") == "enabled";
+ 
+     // These values are a bit more hard to define, unfortunately.
+     auto scaling = LibRetro::FetchVariable("citra_resolution_factor", "1x (Native)");
+diff --git a/src/citra_libretro/core_settings.h b/src/citra_libretro/core_settings.h
+index 4bb9f34b1..bac6e014f 100644
+--- a/src/citra_libretro/core_settings.h
++++ b/src/citra_libretro/core_settings.h
+@@ -19,6 +19,7 @@ struct CoreSettings {
+     LibRetro::CStickFunction analog_function;
+ 
+     bool mouse_touchscreen;
++    bool mouse_show_pointer;
+ 
+ } extern settings;
+ 
+diff --git a/src/citra_libretro/emu_window/libretro_window.cpp b/src/citra_libretro/emu_window/libretro_window.cpp
+index 3e6c66b03..d87fa8a6c 100644
+--- a/src/citra_libretro/emu_window/libretro_window.cpp
++++ b/src/citra_libretro/emu_window/libretro_window.cpp
+@@ -7,6 +7,7 @@
+ 
+ #include "audio_core/audio_types.h"
+ #include "citra_libretro/citra_libretro.h"
++#include "citra_libretro/core_settings.h"
+ #include "citra_libretro/environment.h"
+ #include "citra_libretro/input/input_factory.h"
+ #include "core/3ds.h"
+@@ -58,7 +59,7 @@ void EmuWindow_LibRetro::SwapBuffers() {
+ 
+     ResetGLState();
+ 
+-    if (tracker != nullptr) {
++    if (tracker != nullptr && LibRetro::settings.mouse_show_pointer) {
+         tracker->Render(width, height);
+     }
+ 
+-- 
+2.29.2
+
