@@ -1,2 +1,3 @@
 [Options]
 citra_analog_function=C-Stick
+citra_mouse_show_pointer=disabled
