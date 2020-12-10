@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/org/gnome/Games/plugins/nintendo-ds">
-    <file>icons/screen-layout-left-right-symbolic.svg</file>
-    <file>icons/screen-layout-quick-switch-symbolic.svg</file>
-    <file>icons/screen-layout-right-left-symbolic.svg</file>
-    <file>icons/screen-layout-top-bottom-symbolic.svg</file>
-    <file>icons/view-bottom-screen-symbolic.svg</file>
-    <file>icons/view-top-screen-symbolic.svg</file>
     <file>layout-overrides</file>
-    <file>nintendo-ds-layout-item.ui</file>
-    <file>nintendo-ds-layout-switcher.ui</file>
   </gresource>
 </gresources>

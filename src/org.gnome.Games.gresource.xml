@@ -7,6 +7,13 @@
     <file preprocess="xml-stripblanks">gamepad/gamepad-mapper.ui</file>
     <file preprocess="xml-stripblanks">gamepad/gamepad-tester.ui</file>
 
+    <file preprocess="xml-stripblanks">icons/screen-layout-left-right-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/screen-layout-quick-switch-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/screen-layout-right-left-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/screen-layout-top-bottom-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/view-bottom-screen-symbolic.svg</file>
+    <file preprocess="xml-stripblanks">icons/view-top-screen-symbolic.svg</file>
+
     <file preprocess="xml-stripblanks">gesture/button-east-symbolic.svg</file>
     <file preprocess="xml-stripblanks">gesture/button-home-symbolic.svg</file>
     <file preprocess="xml-stripblanks">gesture/button-south-symbolic.svg</file>
@@ -26,6 +33,9 @@
     <file preprocess="xml-stripblanks">preferences/preferences-subpage-gamepad.ui</file>
     <file preprocess="xml-stripblanks">preferences/preferences-subpage-keyboard.ui</file>
     <file preprocess="xml-stripblanks">preferences/preferences-window.ui</file>
+
+    <file preprocess="xml-stripblanks">screen-layout/screen-layout-item.ui</file>
+    <file preprocess="xml-stripblanks">screen-layout/screen-layout-switcher.ui</file>
 
     <file preprocess="xml-stripblanks">ui/application-window.ui</file>
     <file preprocess="xml-stripblanks">ui/checkmark-item.ui</file>

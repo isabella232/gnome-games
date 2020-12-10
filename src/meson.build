@@ -119,6 +119,10 @@ vala_sources = [
   'retro/retro-simple-type.vala',
   'retro/retro-simple-types.vala',
 
+  'screen-layout/screen-layout.vala',
+  'screen-layout/screen-layout-item.vala',
+  'screen-layout/screen-layout-switcher.vala',
+
   'tracker/mime-type-tracker-uri-query.vala',
   'tracker/tracker-error.vala',
   'tracker/tracker-uri-iterator.vala',

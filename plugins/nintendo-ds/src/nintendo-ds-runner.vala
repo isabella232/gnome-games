@@ -2,7 +2,7 @@
 
 private class Games.NintendoDsRunner : RetroRunner {
 	// Map the 1,2,3,4 key values to the 4 screen layouts of the Nintendo DS
-	private static HashTable<uint, NintendoDsLayout?> layouts;
+	private static HashTable<uint, ScreenLayout?> layouts;
 	private static HashTable<string, string> gap_overrides;
 
 	private const string SCREENS_LAYOUT_OPTION = "desmume_screens_layout";
@@ -13,8 +13,8 @@ private class Games.NintendoDsRunner : RetroRunner {
 	private const size_t HEADER_GAME_CODE_OFFSET = 12;
 	private const size_t HEADER_GAME_CODE_SIZE = 3;
 
-	private NintendoDsLayout _screen_layout;
-	public NintendoDsLayout screen_layout {
+	private ScreenLayout _screen_layout;
+	public ScreenLayout screen_layout {
 		get { return _screen_layout; }
 		set {
 			_screen_layout = value;
@@ -32,12 +32,12 @@ private class Games.NintendoDsRunner : RetroRunner {
 	}
 
 	static construct {
-		layouts = new HashTable<uint, NintendoDsLayout?> (direct_hash, direct_equal);
+		layouts = new HashTable<uint, ScreenLayout?> (direct_hash, direct_equal);
 
-		layouts[Gdk.Key.@1] = NintendoDsLayout.TOP_BOTTOM;
-		layouts[Gdk.Key.@2] = NintendoDsLayout.LEFT_RIGHT;
-		layouts[Gdk.Key.@3] = NintendoDsLayout.RIGHT_LEFT;
-		layouts[Gdk.Key.@4] = NintendoDsLayout.QUICK_SWITCH;
+		layouts[Gdk.Key.@1] = ScreenLayout.TOP_BOTTOM;
+		layouts[Gdk.Key.@2] = ScreenLayout.LEFT_RIGHT;
+		layouts[Gdk.Key.@3] = ScreenLayout.RIGHT_LEFT;
+		layouts[Gdk.Key.@4] = ScreenLayout.QUICK_SWITCH;
 
 		gap_overrides = new HashTable<string, string> (str_hash, str_equal);
 
@@ -99,13 +99,13 @@ private class Games.NintendoDsRunner : RetroRunner {
 		var core = get_core ();
 
 		var screens_layout_option = core.get_option (SCREENS_LAYOUT_OPTION);
-		var screens_layout_option_value = screen_layout.get_value ();
-		if (screen_layout == NintendoDsLayout.QUICK_SWITCH)
+		var screens_layout_option_value = NintendoDsLayout.get_value (screen_layout);
+		if (screen_layout == ScreenLayout.QUICK_SWITCH)
 			screens_layout_option_value = view_bottom_screen ? "bottom only" : "top only";
 
 		var screens_gap_option = core.get_option (SCREENS_GAP_OPTION);
 		string screens_gap;
-		if (screen_layout == NintendoDsLayout.TOP_BOTTOM)
+		if (screen_layout == ScreenLayout.TOP_BOTTOM)
 			screens_gap = get_screen_gap_width ();
 		else
 			screens_gap = SCREENS_GAP_NONE;
@@ -123,7 +123,14 @@ private class Games.NintendoDsRunner : RetroRunner {
 		if (!core_supports_layouts ())
 			return null;
 
-		return new NintendoDsLayoutSwitcher (this);
+		var switcher = new ScreenLayoutSwitcher ();
+
+		bind_property ("screen-layout", switcher, "screen-layout",
+		               BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
+		bind_property ("view-bottom-screen", switcher, "view-bottom-screen",
+		               BindingFlags.SYNC_CREATE | BindingFlags.BIDIRECTIONAL);
+
+		return switcher;
 	}
 
 	public override bool key_press_event (uint keyval, Gdk.ModifierType state) {
@@ -137,7 +144,7 @@ private class Games.NintendoDsRunner : RetroRunner {
 			}
 		}
 
-		if (screen_layout != NintendoDsLayout.QUICK_SWITCH)
+		if (screen_layout != ScreenLayout.QUICK_SWITCH)
 			return false;
 
 		var switch_keyval = view_bottom_screen ? Gdk.Key.Page_Up : Gdk.Key.Page_Down;
@@ -155,7 +162,7 @@ private class Games.NintendoDsRunner : RetroRunner {
 	}
 
 	private bool swap_screens () {
-		if (screen_layout != NintendoDsLayout.QUICK_SWITCH)
+		if (screen_layout != ScreenLayout.QUICK_SWITCH)
 			return false;
 
 		view_bottom_screen = !view_bottom_screen;
@@ -186,7 +193,7 @@ private class Games.NintendoDsRunner : RetroRunner {
 	protected override void reset_with_snapshot (Snapshot? last_snapshot) throws Error {
 		base.reset_with_snapshot (last_snapshot);
 
-		screen_layout = NintendoDsLayout.TOP_BOTTOM;
+		screen_layout = ScreenLayout.TOP_BOTTOM;
 		view_bottom_screen = false;
 	}
 }

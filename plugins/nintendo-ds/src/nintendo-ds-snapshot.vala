@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
 public class Games.NintendoDsSnapshot : Snapshot {
-	public NintendoDsLayout screen_layout { get; set; }
+	public ScreenLayout screen_layout { get; set; }
 	public bool view_bottom_screen { get; set; }
 
 	protected override void load_metadata (KeyFile keyfile) throws KeyFileError {
@@ -16,7 +16,7 @@ public class Games.NintendoDsSnapshot : Snapshot {
 	protected override void save_metadata (KeyFile keyfile) {
 		base.save_metadata (keyfile);
 
-		keyfile.set_string ("Nintendo DS", "Screen Layout", screen_layout.get_value ());
+		keyfile.set_string ("Nintendo DS", "Screen Layout", NintendoDsLayout.get_value (screen_layout));
 		keyfile.set_boolean ("Nintendo DS", "View Bottom Screen", view_bottom_screen);
 	}
 }

@@ -234,6 +234,7 @@ public class Games.Application : Gtk.Application {
 		Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
 
 		var icon_theme = Gtk.IconTheme.get_default ();
+		icon_theme.add_resource_path ("/org/gnome/Games/icons/");
 		icon_theme.add_resource_path ("/org/gnome/Games/gesture");
 	}
 

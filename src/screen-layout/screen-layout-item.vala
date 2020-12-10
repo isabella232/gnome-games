@@ -1,7 +1,7 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-[GtkTemplate (ui = "/org/gnome/Games/plugins/nintendo-ds/nintendo-ds-layout-item.ui")]
-private class Games.NintendoDsLayoutItem : Gtk.ListBoxRow {
+[GtkTemplate (ui = "/org/gnome/Games/screen-layout/screen-layout-item.ui")]
+private class Games.ScreenLayoutItem : Gtk.ListBoxRow {
 	[GtkChild]
 	private Gtk.Image icon;
 	[GtkChild]
@@ -9,11 +9,11 @@ private class Games.NintendoDsLayoutItem : Gtk.ListBoxRow {
 	[GtkChild]
 	private Gtk.Image checkmark;
 
-	public NintendoDsLayout layout { get; construct; }
+	public ScreenLayout layout { get; construct; }
 
 	public bool selected { get; set; default = false; }
 
-	public NintendoDsLayoutItem (NintendoDsLayout layout) {
+	public ScreenLayoutItem (ScreenLayout layout) {
 		Object (layout: layout);
 	}
 
