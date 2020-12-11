@@ -298,13 +298,13 @@ public class Games.RetroRunner : Object, Runner {
 		if (!core_loaded)
 			return;
 
-		if (!supports_snapshots) {
+		if (!is_error && !supports_snapshots) {
 			try {
 				var path = get_fallback_save_directory_path ();
 
 				if (core.get_memory_size (Retro.MemoryType.SAVE_RAM) > 0)
 					core.save_memory (Retro.MemoryType.SAVE_RAM,
-						              Path.build_filename (path, "save"));
+					                  Path.build_filename (path, "save"));
 
 				var tmp_dir = File.new_for_path (tmp_save_dir);
 				var dest_dir = File.new_for_path (Path.build_filename (path, "save-dir"));
