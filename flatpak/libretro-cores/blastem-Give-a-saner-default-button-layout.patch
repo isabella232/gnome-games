@@ -1,0 +1,35 @@
+From dc3a2e8fc3f9d0ea47c7775b89ee167f58a80b13 Mon Sep 17 00:00:00 2001
+From: Adrien Plazas <kekun.plazas@laposte.net>
+Date: Sat, 12 Dec 2020 09:48:29 +0100
+Subject: [PATCH] Give a saner default button layout
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+This gives a saner default layout for 99% of games as nobody wants to
+jump with the R button. This is also better for the vast majority of
+6-buttons games like Streets of Rage 3 or Ranger X, with the notable
+exception of Super Street Fighter II, but who emulates it on the Genesis
+anyways‽
+---
+ libblastem.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/libblastem.c b/libblastem.c
+index fb5979a7..280e72ef 100644
+--- a/libblastem.c
++++ b/libblastem.c
+@@ -413,8 +413,8 @@ void process_events()
+ {
+ 	static int16_t prev_state[2][RETRO_DEVICE_ID_JOYPAD_L2];
+ 	static const uint8_t map[] = {
+-		BUTTON_A, BUTTON_X, BUTTON_MODE, BUTTON_START, DPAD_UP, DPAD_DOWN,
+-		DPAD_LEFT, DPAD_RIGHT, BUTTON_B, BUTTON_Y, BUTTON_Z, BUTTON_C
++		BUTTON_B, BUTTON_A, BUTTON_MODE, BUTTON_START, DPAD_UP, DPAD_DOWN,
++		DPAD_LEFT, DPAD_RIGHT, BUTTON_C, BUTTON_Y, BUTTON_X, BUTTON_Z
+ 	};
+ 	//TODO: handle other input device types
+ 	//TODO: handle more than 2 ports when appropriate
+-- 
+2.28.0
+

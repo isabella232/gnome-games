@@ -5,15 +5,13 @@
                 "arm"
             ],
             "no-autogen": true,
-            "install-rule": "install_libretro",
             "make-args": [
-                "prefix=/app",
-                "core_installdir=/app/lib/libretro",
-                "libblastem.so"
+                "--makefile=Makefile.libretro",
+                "prefix=/app"
             ],
             "make-install-args": [
-                "prefix=/app",
-                "core_installdir=/app/lib/libretro"
+                "--makefile=Makefile.libretro",
+                "prefix=/app"
             ],
             "post-install": [
                 "mkdir -p /app/lib/libretro/",
@@ -22,8 +20,16 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://gitlab.gnome.org/aplazas/blastem.git",
-                    "branch": "gnome-games"
+                    "url": "https://github.com/libretro/blastem.git",
+                    "branch": "libretro"
+                },
+                {
+                    "type": "patch",
+                    "path": "blastem-Give-a-saner-default-button-layout.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "blastem-libretro-Correctly-calculate-the-aspect-ratio.patch"
                 },
                 {
                     "type": "file",

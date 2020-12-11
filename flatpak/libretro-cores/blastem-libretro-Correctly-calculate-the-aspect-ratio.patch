@@ -1,0 +1,52 @@
+From 8fd95a881fed8ff28b359b4c4d895fe94e7ed707 Mon Sep 17 00:00:00 2001
+From: Adrien Plazas <kekun.plazas@laposte.net>
+Date: Sat, 12 Dec 2020 09:48:29 +0100
+Subject: [PATCH] libretro: Correctly calculate the aspect ratio
+
+This ensures the aspect ratio is correctly calculated at all time, for
+W40 and W32, for NTSC and PAL, and with any overscan.
+
+The calculation was wrong in render_framebuffer_updated().
+---
+ libblastem.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
+
+diff --git a/libblastem.c b/libblastem.c
+index 819f2fad..29dc54c6 100644
+--- a/libblastem.c
++++ b/libblastem.c
+@@ -129,6 +129,13 @@ static void update_overscan(void)
+ 	}
+ }
+ 
++static float get_aspect_ratio(void)
++{
++	float aspect_width = LINEBUF_SIZE - overscan_left - overscan_right;
++	float aspect_height = (video_standard == VID_NTSC ? 243 : 294) - overscan_top - overscan_bot;
++	return aspect_width / aspect_height;
++}
++
+ static int32_t sample_rate;
+ RETRO_API void retro_get_system_av_info(struct retro_system_av_info *info)
+ {
+@@ -138,7 +145,7 @@ RETRO_API void retro_get_system_av_info(struct retro_system_av_info *info)
+ 	info->geometry.base_height = (video_standard == VID_NTSC ? 243 : 294) - (overscan_top + overscan_bot);
+ 	last_height = info->geometry.base_height;
+ 	info->geometry.max_height = info->geometry.base_height * 2;
+-	info->geometry.aspect_ratio = 0;
++	info->geometry.aspect_ratio = get_aspect_ratio();
+ 	double master_clock = video_standard == VID_NTSC ? 53693175 : 53203395;
+ 	double lines = video_standard == VID_NTSC ? 262 : 313;
+ 	info->timing.fps = master_clock / (3420.0 * lines);
+@@ -368,7 +375,7 @@ void render_framebuffer_updated(uint8_t which, int width)
+ 		struct retro_game_geometry geometry = {
+ 			.base_width = width,
+ 			.base_height = height,
+-			.aspect_ratio = (float)LINEBUF_SIZE / base_height
++			.aspect_ratio = get_aspect_ratio()
+ 		};
+ 		retro_environment(RETRO_ENVIRONMENT_SET_GEOMETRY, &geometry);
+ 		last_width = width;
+-- 
+2.28.0
+

@@ -51,6 +51,7 @@
         "shared-modules/lua5.3/lua-5.3.5.json",
         "shared-modules/SDL/SDL-1.2.15.json",
         "shared-modules/SDL/SDL_net-1.2.8.json",
+        "libretro-cores/libretro-blastem.json",
         "libretro-cores/libretro-bsnes-mercury.json",
         "libretro-cores/libretro-citra.json",
         "libretro-cores/libretro-desmume2015.json",
