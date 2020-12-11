@@ -218,7 +218,10 @@ public class Games.RetroRunner : Object, Runner {
 			var snapshot = snapshot_manager.get_latest_snapshot ();
 
 			tmp_save_dir = create_tmp_save_dir ();
-			if (!supports_snapshots) {
+
+			if (snapshot != null)
+				snapshot.copy_save_dir_to (tmp_save_dir);
+			else {
 				var path = get_fallback_save_directory_path ();
 
 				var save_ram_path = Path.build_filename (path, "save");
@@ -230,8 +233,6 @@ public class Games.RetroRunner : Object, Runner {
 
 				FileOperations.copy_contents (save_dir, File.new_for_path (tmp_save_dir));
 			}
-			else if (snapshot != null)
-				snapshot.copy_save_dir_to (tmp_save_dir);
 
 			prepare_core ();
 
