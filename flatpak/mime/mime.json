@@ -9,6 +9,10 @@
             "sources": [
                 {
                     "type": "file",
+                    "path": "dreamcast.xml"
+                },
+                {
+                    "type": "file",
                     "path": "nintendo-3ds.xml"
                 }
             ]

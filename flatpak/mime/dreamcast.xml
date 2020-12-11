@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/x-dreamcast-rom">
+    <comment>Sega Dreamcast image first track</comment>
+    <generic-icon name="application-x-executable"/>
+    <magic priority="50">
+      <match type="string" value="SEGA SEGAKATANA" offset="16"/>
+    </magic>
+    <glob pattern="*.bin"/>
+  </mime-type>
+  <mime-type type="application/x-gd-rom-cue">
+    <comment>GD-ROM image cuesheet</comment>
+    <!-- It is a non-standard cuesheet used only for Dreamcast GD-ROM images, it
+         is typically surrounded by the .bin and .raw files it lists. -->
+    <sub-class-of type="text/plain"/>
+    <generic-icon name="text-x-generic"/>
+    <glob pattern="*.gdi"/>
+  </mime-type>
+  <mime-type type="application/x-discjuggler-cd-image">
+    <comment>Padus DiscJuggler CD image</comment>
+    <glob pattern="*.cdi"/>
+  </mime-type>
+</mime-info>
