@@ -149,7 +149,8 @@ public class Games.Snapshot : Object {
 
 	public static Snapshot create_empty (Game game, string core_id, string path) throws Error {
 		var random = Random.next_int ();
-		var tmp_path = @"$(path)_$random";
+		var cache_path = Environment.get_user_cache_dir ();
+		var tmp_path = Path.build_filename (cache_path, "gnome-games", @"snapshot-$random");
 
 		var dir = File.new_for_path (tmp_path);
 		dir.make_directory ();
