@@ -43,7 +43,7 @@
   </screenshots>
 
   <releases>
-    <release version="3.38.0" type="stable" date="2020-08-12" urgency="medium">
+    <release version="3.38.0" type="stable" date="2020-09-12" urgency="medium">
       <description>
         <p>Fixes:</p>
         <ul>
