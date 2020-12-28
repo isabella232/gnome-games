@@ -38,7 +38,11 @@ public class Games.CommandRunner : Object, Runner {
 	}
 
 	public Gtk.Widget get_display () {
-		return new RemoteDisplay ();
+		return new Hdy.StatusPage () {
+			icon_name = "preferences-desktop-remote-desktop-symbolic",
+			title = _("Use the game’s own window to play it"),
+			description = _("This game isn’t integrated with GNOME Games.")
+		};
 	}
 
 	public HeaderBarWidget? get_extra_widget () {

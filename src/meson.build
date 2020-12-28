@@ -157,7 +157,6 @@ vala_sources = [
   'ui/media-menu-button.vala',
   'ui/platform-list-item.vala',
   'ui/platforms-page.vala',
-  'ui/remote-display.vala',
   'ui/search-bar.vala',
   'ui/selection-action-bar.vala',
   'ui/snapshot-row.vala',
