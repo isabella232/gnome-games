@@ -14,7 +14,7 @@ private class Games.CollectionsPage : Gtk.Bin {
 	[GtkChild]
 	private GamesPage collections_subpage;
 	[GtkChild]
-	private CollectionEmpty collection_empty_subpage;
+	private Hdy.StatusPage collection_empty_subpage;
 
 	private UserCollection[]? last_removed_collections;
 	private CollectionManager collection_manager;

@@ -36,7 +36,12 @@
               </object>
             </child>
             <child>
-              <object class="GamesCollectionEmpty" id="collection_empty_subpage"/>
+              <object class="HdyStatusPage" id="collection_empty_subpage">
+                <property name="visible">True</property>
+                <property name="icon-name">folder-symbolic</property>
+                <property name="title" translatable="yes">This collection is empty</property>
+                <property name="description" translatable="yes">Add some games to this collection to see them here.</property>
+              </object>
             </child>
           </object>
         </child>

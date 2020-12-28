@@ -133,7 +133,6 @@ vala_sources = [
   'ui/application-window.vala',
   'ui/checkmark-item.vala',
   'ui/collection-action-window.vala',
-  'ui/collection-empty.vala',
   'ui/collection-icon-view.vala',
   'ui/collection-list-item.vala',
   'ui/collection-thumbnail.vala',
