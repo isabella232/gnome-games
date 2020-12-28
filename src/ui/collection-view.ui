@@ -423,8 +423,10 @@
               </object>
             </child>
             <child>
-              <object class="GamesEmptyCollection" id="empty_collection">
+              <object class="HdyStatusPage" id="empty_collection">
                 <property name="visible">True</property>
+                <property name="title" translatable="yes" comments="Translators: This is displayed when the games library is empty.">No games found</property>
+                <property name="description" translatable="yes" comments="Translators: This is displayed when the games library is empty.">Install games or add directories containing games to your search sources.</property>
               </object>
               <packing>
                 <property name="name">empty</property>

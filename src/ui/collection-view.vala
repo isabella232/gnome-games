@@ -25,7 +25,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	[GtkChild]
 	private SearchBar search_bar;
 	[GtkChild]
-	private EmptyCollection empty_collection;
+	private Hdy.StatusPage empty_collection;
 	[GtkChild]
 	private EmptySearch empty_search;
 	[GtkChild]
@@ -164,6 +164,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 
 		var icon_name = Config.APPLICATION_ID + "-symbolic";
 		viewstack.child_set (games_page, "icon-name", icon_name);
+		empty_collection.icon_name = icon_name;
 
 		swipe_group.add_swipeable (platforms_page.get_leaflet ());
 		collections_swipe_group.add_swipeable (collections_page.get_collections_deck ());
