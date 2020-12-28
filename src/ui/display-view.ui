@@ -189,12 +189,19 @@
           <object class="GtkStack" id="stack">
             <property name="visible">True</property>
             <child>
-              <object class="GamesErrorDisplay" id="error_display">
+              <object class="HdyStatusPage" id="error_display">
                 <property name="visible">True</property>
+                <property name="icon-name">face-uncertain-symbolic</property>
+                <child>
+                  <object class="GtkButton" id="restart_btn">
+                    <property name="visible">True</property>
+                    <property name="label">_Restart Game</property>
+                    <property name="use-underline">True</property>
+                    <property name="halign">center</property>
+                    <property name="action-name">display.restart</property>
+                  </object>
+                </child>
               </object>
-              <packing>
-                <property name="name">error</property>
-              </packing>
             </child>
             <child>
               <object class="GtkOverlay" id="display_overlay">
@@ -221,9 +228,6 @@
                   </object>
                 </child>
               </object>
-              <packing>
-                <property name="name">display</property>
-              </packing>
             </child>
           </object>
         </child>

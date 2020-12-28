@@ -25,7 +25,9 @@ private class Games.DisplayView : Gtk.Box, UiView {
 	[GtkChild]
 	private Gtk.Stack stack;
 	[GtkChild]
-	private ErrorDisplay error_display;
+	private Hdy.StatusPage error_display;
+	[GtkChild]
+	private Gtk.Button restart_btn;
 	[GtkChild]
 	private Gtk.Overlay display_overlay;
 	[GtkChild]
@@ -384,7 +386,10 @@ private class Games.DisplayView : Gtk.Box, UiView {
 
 			stack.visible_child = error_display;
 			is_showing_snapshots = false;
-			error_display.game_crashed (game, message);
+
+			error_display.title = _("Oops! The game “%s” crashed unexpectedly").printf (game.name);
+			error_display.description = message;
+			restart_btn.show ();
 		});
 
 		update_actions ();
@@ -418,7 +423,14 @@ private class Games.DisplayView : Gtk.Box, UiView {
 			reset_display_page ();
 
 			stack.visible_child = error_display;
-			error_display.running_game_failed (game, e.message);
+
+			if (game != null)
+				error_display.title = _("Oops! Unable to run “%s”").printf (game.name);
+			else
+				error_display.title = _("Oops! Unable to run the game");
+
+			error_display.description = e.message;
+			restart_btn.hide ();
 
 			return null;
 		}
