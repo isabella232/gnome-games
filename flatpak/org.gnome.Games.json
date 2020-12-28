@@ -194,7 +194,8 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/retro-gtk.git"
+                    "url" : "https://gitlab.gnome.org/GNOME/retro-gtk.git",
+                    "commit" : "86c8e9a87fefc98b54390227984ed13b97bbe232"
                 }
             ]
         },
