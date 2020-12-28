@@ -27,7 +27,7 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	[GtkChild]
 	private Hdy.StatusPage empty_collection;
 	[GtkChild]
-	private EmptySearch empty_search;
+	private Hdy.StatusPage empty_search;
 	[GtkChild]
 	private GamesPage games_page;
 	[GtkChild]
@@ -608,23 +608,22 @@ private class Games.CollectionView : Gtk.Box, UiView {
 		filtering_text = search_bar.text;
 
 		bool is_search_empty;
-		EmptySearch.SearchItem search_item;
-		if (viewstack.visible_child != collections_page) {
-			is_search_empty = games_page.is_search_empty || platforms_page.is_search_empty;
-			search_item = EmptySearch.SearchItem.GAME;
-		}
-		else {
-			is_search_empty = collections_page.is_search_empty;
-			search_item = collections_page.is_subpage_open ? EmptySearch.SearchItem.GAME:
-			                                                 EmptySearch.SearchItem.COLLECTION;
-		}
 
-		if (is_search_empty) {
+		if (viewstack.visible_child != collections_page)
+			is_search_empty = games_page.is_search_empty || platforms_page.is_search_empty;
+		else
+			is_search_empty = collections_page.is_search_empty;
+
+		if (is_search_empty)
 			empty_stack.visible_child = empty_search;
-			empty_search.search_item = search_item;
-		}
 		else
 			empty_stack.visible_child = viewstack;
+
+		if (viewstack.visible_child == collections_page &&
+		    !collections_page.is_subpage_open)
+			empty_search.title = _("No collections found");
+		else
+			empty_search.title = _("No games found");
 
 		// Changing the filtering_text for the PlatformsPage might
 		// cause the currently selected sidebar row to become empty and therefore

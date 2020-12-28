@@ -418,8 +418,10 @@
               <class name="background"/>
             </style>
             <child>
-              <object class="GamesEmptySearch" id="empty_search">
+              <object class="HdyStatusPage" id="empty_search">
                 <property name="visible">True</property>
+                <property name="icon_name">edit-find-symbolic</property>
+                <property name="description" translatable="yes">Try a different search.</property>
               </object>
             </child>
             <child>
