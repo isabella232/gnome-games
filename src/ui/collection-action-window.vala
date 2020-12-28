@@ -15,7 +15,7 @@ private class Games.CollectionActionWindow : Hdy.Window {
 	[GtkChild]
 	private Gtk.ScrolledWindow list_page;
 	[GtkChild]
-	private Gtk.Box empty_page;
+	private Hdy.StatusPage empty_page;
 	[GtkChild]
 	private Gtk.Entry name_entry;
 	[GtkChild]
