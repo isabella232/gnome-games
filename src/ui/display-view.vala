@@ -387,7 +387,7 @@ private class Games.DisplayView : Gtk.Box, UiView {
 			stack.visible_child = error_display;
 			is_showing_snapshots = false;
 
-			error_display.title = _("Oops! The game “%s” crashed unexpectedly").printf (game.name);
+			error_display.title = _("Oops! The game crashed unexpectedly");
 			error_display.description = message;
 			restart_btn.show ();
 		});
@@ -424,11 +424,7 @@ private class Games.DisplayView : Gtk.Box, UiView {
 
 			stack.visible_child = error_display;
 
-			if (game != null)
-				error_display.title = _("Oops! Unable to run “%s”").printf (game.name);
-			else
-				error_display.title = _("Oops! Unable to run the game");
-
+			error_display.title = _("Oops! Unable to run the game");
 			error_display.description = e.message;
 			restart_btn.hide ();
 
