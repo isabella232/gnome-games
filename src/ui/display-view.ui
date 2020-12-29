@@ -204,26 +204,30 @@
               </object>
             </child>
             <child>
-              <object class="GtkOverlay" id="display_overlay">
+              <object class="GtkBox" id="display_box">
                 <property name="visible">True</property>
                 <child>
-                  <object class="GamesDisplayBin" id="display_bin">
+                  <object class="GtkOverlay">
                     <property name="visible">True</property>
-                    <property name="hexpand">True</property>
+                    <child>
+                      <object class="GamesDisplayBin" id="display_bin">
+                        <property name="visible">True</property>
+                        <property name="hexpand">True</property>
+                      </object>
+                    </child>
+                    <child type="overlay">
+                      <object class="GamesFlashBox" id="flash_box"/>
+                      <packing>
+                        <property name="pass-through">True</property>
+                      </packing>
+                    </child>
                   </object>
                 </child>
-                <child type="overlay">
-                  <object class="GamesFlashBox" id="flash_box"/>
-                  <packing>
-                    <property name="pass-through">True</property>
-                  </packing>
-                </child>
-                <child type="overlay">
+                <child>
                   <object class="GamesSnapshotsList" id="snapshots_list">
                     <property name="visible">True</property>
                     <property name="halign">end</property>
                     <property name="is-revealed" bind-source="GamesDisplayView" bind-property="is-showing-snapshots" bind-flags="bidirectional"/>
-                    <signal name="size-allocate" handler="on_snapshots_list_size_allocate"/>
                     <signal name="hidden" handler="on_snapshots_hidden"/>
                   </object>
                 </child>

@@ -29,7 +29,7 @@ private class Games.DisplayView : Gtk.Box, UiView {
 	[GtkChild]
 	private Gtk.Button restart_btn;
 	[GtkChild]
-	private Gtk.Overlay display_overlay;
+	private Gtk.Box display_box;
 	[GtkChild]
 	private DisplayBin display_bin;
 	[GtkChild]
@@ -82,7 +82,7 @@ private class Games.DisplayView : Gtk.Box, UiView {
 			if (runner == null)
 				return;
 
-			stack.visible_child = display_overlay;
+			stack.visible_child = display_box;
 
 			var display = runner.get_display ();
 			set_display (display);
@@ -746,9 +746,10 @@ private class Games.DisplayView : Gtk.Box, UiView {
 			display_bin.remove (child);
 	}
 
-	[GtkCallback]
-	private void on_snapshots_list_size_allocate (Gtk.Allocation allocation) {
-		display_bin.horizontal_offset = -allocation.width / 2;
+	protected override void size_allocate (Gtk.Allocation allocation) {
+		display_bin.child_width = allocation.width;
+
+		base.size_allocate (allocation);
 	}
 
 	[GtkCallback]

@@ -1,38 +1,35 @@
 // This file is part of GNOME Games. License: GPL-3.0+.
 
-public class Games.DisplayBin : Gtk.Bin {
-	private int _horizontal_offset;
-	public int horizontal_offset {
-		get { return _horizontal_offset; }
+public class Games.DisplayBin : Gtk.EventBox {
+	private int _child_width;
+	public int child_width {
+		get { return _child_width; }
 		set {
-			if (horizontal_offset == value)
+			if (child_width == value)
 				return;
 
-			_horizontal_offset = value;
-			queue_draw ();
+			_child_width = value;
+			queue_allocate ();
 		}
 	}
 
-	private int _vertical_offset;
-	public int vertical_offset {
-		get { return _vertical_offset; }
-		set {
-			if (vertical_offset == value)
-				return;
+	public override void get_preferred_width (out int minimum, out int natural) {
+		var child = get_child ();
 
-			_vertical_offset = value;
-			queue_draw ();
-		}
-	}
+		minimum = 0;
 
-	public override bool draw (Cairo.Context cr) {
-		if (get_direction () == Gtk.TextDirection.RTL)
-			cr.translate (-horizontal_offset, vertical_offset);
+		if (child != null)
+			child.get_preferred_width (null, out natural);
 		else
-			cr.translate (horizontal_offset, vertical_offset);
+			natural = 0;
+	}
 
-		base.draw (cr);
+	public override void size_allocate (Gtk.Allocation alloc) {
+		base.size_allocate (alloc);
 
-		return true;
+		int delta = alloc.width - child_width;
+		var child = get_child ();
+		if (child != null)
+			child.size_allocate ({ delta / 2, 0, child_width, alloc.height });
 	}
 }
