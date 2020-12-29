@@ -22,6 +22,7 @@ plugins/wii/src/wii-plugin.c
 src/collection/dummy-add-collection.c
 src/collection/favorites-collection.c
 src/collection/recently-played-collection.c
+src/command/command-runner.c
 src/core/snapshot-manager.c
 src/dummy/dummy-platform.c
 src/gameinfo/gameinfo-disc-id-disc-title.c
@@ -42,8 +43,6 @@ src/ui/collection-action-window.c
 src/ui/collections-page.c
 src/ui/collection-view.c
 src/ui/display-view.c
-src/ui/empty-search.c
-src/ui/error-display.c
 src/ui/media-menu-button.c
 src/ui/selection-action-bar.c
 src/ui/snapshot-row.c
