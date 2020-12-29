@@ -623,6 +623,7 @@ private class Games.DisplayView : Gtk.Box, UiView {
 		runner = null;
 		media_button.media_set = null;
 		secondary_menu_button.visible = false;
+		extra_widget = null;
 
 		update_actions ();
 	}
