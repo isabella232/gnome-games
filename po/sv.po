@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-12-12 12:11+0000\n"
-"PO-Revision-Date: 2020-12-13 04:46+0100\n"
+"POT-Creation-Date: 2020-12-29 12:43+0000\n"
+"PO-Revision-Date: 2020-12-30 17:52+0100\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:7
 #: data/org.gnome.Games.desktop.in.in:3 src/ui/application.vala:49
-#: src/ui/collection-view.ui:82 src/ui/collection-view.ui:448
+#: src/ui/collection-view.ui:82 src/ui/collection-view.ui:452
 msgid "Games"
 msgstr "Spel"
 
@@ -230,6 +230,14 @@ msgstr "Favoriter"
 msgid "Recently Played"
 msgstr "Senast spelade"
 
+#: src/command/command-runner.vala:43
+msgid "Use the game’s own window to play it"
+msgstr "Använd spelets egna fönster för att spela det"
+
+#: src/command/command-runner.vala:44
+msgid "This game isn’t integrated with GNOME Games."
+msgstr "Det här spelet är inte integrerat med GNOME Spel."
+
 #: src/core/snapshot-manager.vala:85 src/core/snapshot-manager.vala:110
 #, c-format
 msgid "New snapshot %s"
@@ -357,7 +365,7 @@ msgstr "CRT"
 
 #: src/preferences/preferences-subpage-gamepad.ui:33
 #: src/preferences/preferences-subpage-keyboard.ui:35
-#: src/ui/collection-action-window.ui:224 src/ui/collection-view.ui:153
+#: src/ui/collection-action-window.ui:164 src/ui/collection-view.ui:153
 #: src/ui/collection-view.ui:232 src/ui/display-view.ui:34
 #: src/ui/display-view.ui:169
 msgid "Back"
@@ -426,7 +434,7 @@ msgstr "Video"
 msgid "Controllers"
 msgstr "Kontroller"
 
-#: src/preferences/preferences-window.ui:66 src/ui/collection-view.ui:465
+#: src/preferences/preferences-window.ui:66 src/ui/collection-view.ui:469
 msgid "Platforms"
 msgstr "Plattformar"
 
@@ -654,51 +662,48 @@ msgstr "Lägg till i samling"
 msgid "Search"
 msgstr "Sök"
 
-#: src/ui/collection-action-window.ui:150 src/ui/empty-search.vala:15
+#: src/ui/collection-action-window.ui:128 src/ui/collection-view.vala:624
 msgid "No collections found"
 msgstr "Inga samlingar hittades"
 
-#: src/ui/collection-action-window.ui:169
+#: src/ui/collection-action-window.ui:129
 msgid "Add a new collection to add games to it."
 msgstr "Lägg till en ny samling för att lägga till spel i den."
 
-#: src/ui/collection-action-window.ui:182
+#: src/ui/collection-action-window.ui:133
 msgid "Create Collection"
 msgstr "Skapa samling"
 
-#: src/ui/collection-action-window.ui:191
+#: src/ui/collection-action-window.ui:134
+#: src/ui/collection-action-window.ui:216
 msgid "Create a collection"
 msgstr "Skapa en samling"
 
-#: src/ui/collection-action-window.ui:216
+#: src/ui/collection-action-window.ui:156
 msgid "Add a Collection"
 msgstr "Lägg till en samling"
 
-#: src/ui/collection-action-window.ui:266
+#: src/ui/collection-action-window.ui:187
 msgid "Enter a collection name"
 msgstr "Ange ett samlingsnamn"
 
-#: src/ui/collection-action-window.ui:304
+#: src/ui/collection-action-window.ui:215
 msgid "C_reate"
 msgstr "S_kapa"
 
-#: src/ui/collection-action-window.ui:316
-msgid "Create collection"
-msgstr "Skapa samling"
-
-#: src/ui/collection-action-window.vala:226 src/ui/collection-view.vala:481
+#: src/ui/collection-action-window.vala:226 src/ui/collection-view.vala:482
 msgid "Collection name cannot be empty"
 msgstr "Samlingsnamn kan inte vara tomt"
 
-#: src/ui/collection-action-window.vala:233 src/ui/collection-view.vala:485
+#: src/ui/collection-action-window.vala:233 src/ui/collection-view.vala:486
 msgid "A collection with this name already exists"
 msgstr "Det finns redan en samling med detta namn"
 
-#: src/ui/collection-empty.ui:24
+#: src/ui/collections-page.ui:42
 msgid "This collection is empty"
 msgstr "Denna samling är tom"
 
-#: src/ui/collection-empty.ui:39
+#: src/ui/collections-page.ui:43
 msgid "Add some games to this collection to see them here."
 msgstr "Lägg till några spel till denna samling för att se dem här."
 
@@ -732,56 +737,73 @@ msgstr "Välj spel"
 msgid "Collection menu"
 msgstr "Samlingsmeny"
 
-#: src/ui/collection-view.ui:374 src/ui/collection-view.vala:535
+#: src/ui/collection-view.ui:374 src/ui/collection-view.vala:536
 msgid "Click on items to select them"
 msgstr "Klicka på objekt för att markera dem"
 
-#: src/ui/collection-view.ui:480
+#: src/ui/collection-view.ui:424
+msgid "Try a different search."
+msgstr "Försök med en annan sökning."
+
+#. Translators: This is displayed when the games library is empty.
+#: src/ui/collection-view.ui:430 src/ui/collection-view.vala:626
+msgid "No games found"
+msgstr "Inga spel hittades"
+
+#. Translators: This is displayed when the games library is empty.
+#: src/ui/collection-view.ui:431
+msgid ""
+"Install games or add directories containing games to your search sources."
+msgstr ""
+"Installera spel eller lägg till kataloger som innehåller spel till dina "
+"sökkällor."
+
+#: src/ui/collection-view.ui:484
 msgid "Collections"
 msgstr "Samlingar"
 
-#: src/ui/collection-view.ui:506
+#: src/ui/collection-view.ui:510
 msgid "Loading"
 msgstr "Läser in"
 
-#: src/ui/collection-view.ui:579
+#: src/ui/collection-view.ui:583
 msgid "Rename Collection"
 msgstr "Byt namn på samling"
 
-#: src/ui/collection-view.ui:600 src/ui/collection-view.ui:672
+#: src/ui/collection-view.ui:604 src/ui/collection-view.ui:676
 #: src/ui/snapshots-list.ui:109 src/ui/snapshots-list.ui:162
 msgid "_Rename"
 msgstr "_Byt namn"
 
-#: src/ui/collection-view.ui:640
+#: src/ui/collection-view.ui:644
 msgid "Pr_eferences"
 msgstr "I_nställningar"
 
-#: src/ui/collection-view.ui:644
+#: src/ui/collection-view.ui:648
 msgid "_Keyboard Shortcuts"
 msgstr "_Tangentbordsgenvägar"
 
-#: src/ui/collection-view.ui:648
+#: src/ui/collection-view.ui:652
 msgid "_Help"
 msgstr "_Hjälp"
 
-#: src/ui/collection-view.ui:652
+#: src/ui/collection-view.ui:656
 msgid "_About Games"
 msgstr "_Om Spel"
 
-#: src/ui/collection-view.ui:660
+#: src/ui/collection-view.ui:664
 msgid "Select All"
 msgstr "Markera alla"
 
-#: src/ui/collection-view.ui:664
+#: src/ui/collection-view.ui:668
 msgid "Select None"
 msgstr "Markera inget"
 
-#: src/ui/collection-view.ui:676
+#: src/ui/collection-view.ui:680
 msgid "R_emove"
 msgstr "_Ta bort"
 
-#: src/ui/collection-view.vala:533
+#: src/ui/collection-view.vala:534
 #, c-format
 msgid "Selected %d item"
 msgid_plural "Selected %d items"
@@ -796,77 +818,54 @@ msgstr "Återställ"
 msgid "_Load"
 msgstr "_Läs in"
 
-#: src/ui/display-view.ui:236
+#: src/ui/display-view.ui:240
 msgid "_Restart"
 msgstr "Sta_rta om"
 
-#: src/ui/display-view.ui:242
+#: src/ui/display-view.ui:246
 msgid "_Snapshots"
 msgstr "Ö_gonblicksbilder"
 
-#: src/ui/display-view.vala:439 src/ui/display-view.vala:489
+#: src/ui/display-view.vala:390
+msgid "Oops! The game crashed unexpectedly"
+msgstr "Hoppsan! Spelet kraschade oväntat"
+
+#: src/ui/display-view.vala:427
+msgid "Oops! Unable to run the game"
+msgstr "Ojdå! Kunde inte köra spelet"
+
+#: src/ui/display-view.vala:447 src/ui/display-view.vala:497
 msgid "Resume last game?"
 msgstr "Återuppta senaste spel?"
 
-#: src/ui/display-view.vala:442 src/ui/display-view.vala:702
+#: src/ui/display-view.vala:450 src/ui/display-view.vala:711
 msgid "Restart"
 msgstr "Starta om"
 
-#: src/ui/display-view.vala:443
+#: src/ui/display-view.vala:451
 msgid "Resume"
 msgstr "Återuppta"
 
-#: src/ui/display-view.vala:492
+#: src/ui/display-view.vala:500
 msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Återställ"
 
-#: src/ui/display-view.vala:571
+#: src/ui/display-view.vala:579
 msgid "Are you sure you want to quit?"
 msgstr "Är du säker på att du vill avsluta?"
 
-#: src/ui/display-view.vala:574 src/ui/display-view.vala:700
+#: src/ui/display-view.vala:582 src/ui/display-view.vala:709
 msgid "All unsaved progress will be lost."
 msgstr "Alla osparade framsteg kommer gå förlorade."
 
-#: src/ui/display-view.vala:576
+#: src/ui/display-view.vala:584
 msgid "Quit"
 msgstr "Avsluta"
 
-#: src/ui/display-view.vala:697
+#: src/ui/display-view.vala:706
 msgid "Are you sure you want to restart?"
 msgstr "Är du säker på att du vill starta om?"
-
-#. Translators: This is displayed when the games library is empty.
-#: src/ui/empty-collection.ui:23 src/ui/empty-search.vala:12
-msgid "No games found"
-msgstr "Inga spel hittades"
-
-#. Translators: This is displayed when the games library is empty.
-#: src/ui/empty-collection.ui:38
-msgid ""
-"Install games or add directories containing games to your search sources."
-msgstr ""
-"Installera spel eller lägg till kataloger som innehåller spel till dina "
-"sökkällor."
-
-#: src/ui/empty-search.ui:39
-msgid "Try a different search."
-msgstr "Försök med en annan sökning."
-
-#: src/ui/error-display.vala:15
-#, c-format
-msgid "Oops! Unable to run “%s”"
-msgstr "Ojdå! Kunde inte köra ”%s”"
-
-#: src/ui/error-display.vala:17
-msgid "Oops! Unable to run the game"
-msgstr "Ojdå! Kunde inte köra spelet"
-
-#: src/ui/error-display.vala:24
-#, c-format
-msgid "Oops! The game “%s” crashed unexpectedly"
-msgstr "Hoppsan! Spelet ”%s” kraschade oväntat"
 
 #: src/ui/help-overlay.ui:10
 msgid "Shortcuts"
@@ -1082,18 +1081,6 @@ msgstr "Media"
 msgid "Media %d"
 msgstr "Media %d"
 
-#: src/ui/remote-display.ui:23
-msgid "Use the game’s own window to play it"
-msgstr "Använd spelets egna fönster för att spela det"
-
-#: src/ui/remote-display.ui:36
-msgid "This game isn’t integrated with GNOME Games."
-msgstr "Det här spelet är inte integrerat med GNOME Spel."
-
-#: src/ui/remote-display.ui:47
-msgid "You have to use its own window to play it."
-msgstr "Du måste använda dess eget fönster för att spela det."
-
 #: src/ui/selection-action-bar.ui:16
 msgid "Add/Remove selected games to favorite"
 msgstr "Lägg till / ta bort markerade spel från favoriter"
@@ -1202,6 +1189,15 @@ msgstr "Fel: %s (%d)"
 #, c-format
 msgid "Error writing “%s”: %s (%d)"
 msgstr "Fel vid skrivning av ”%s”: %s (%d)"
+
+#~ msgid "Create collection"
+#~ msgstr "Skapa samling"
+
+#~ msgid "Oops! Unable to run “%s”"
+#~ msgstr "Ojdå! Kunde inte köra ”%s”"
+
+#~ msgid "You have to use its own window to play it."
+#~ msgstr "Du måste använda dess eget fönster för att spela det."
 
 #~ msgid "Resuming failed. Do you want to restart the game?"
 #~ msgstr "Misslyckades med att återuppta. Vill du starta om spelet?"
