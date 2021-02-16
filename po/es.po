@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: unnamed project\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2021-01-14 20:23+0000\n"
-"PO-Revision-Date: 2021-02-15 11:04+0100\n"
+"POT-Creation-Date: 2021-02-15 10:09+0000\n"
+"PO-Revision-Date: 2021-02-16 16:28+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish - Spain <gnome-es-list@gnome.org>\n"
 "Language: es_ES\n"
@@ -417,14 +417,11 @@ msgstr "¿Restaurar el mapeado de fábrica de este mando?"
 
 #: src/preferences/preferences-subpage-gamepad.vala:148
 #: src/preferences/preferences-subpage-keyboard.vala:130
-#| msgid "Your mapping will be lost."
 msgid "Your mapping will be lost"
 msgstr "El mapa se perderá"
 
 #: src/preferences/preferences-subpage-gamepad.vala:150
 #: src/preferences/preferences-subpage-keyboard.vala:132
-#| msgctxt "Confirm controller configuration factory reset"
-#| msgid "Reset"
 msgctxt "Confirm controller configuration factory reset"
 msgid "_Reset"
 msgstr "_Restablecer"
@@ -584,7 +581,6 @@ msgstr "Vertical"
 #. * (which is the touch screen) is displayed to the right of the top
 #. * screen, making it comfortable for right-handed persons.
 #: src/screen-layout/screen-layout.vala:42
-#| msgid "Side by side"
 msgid "Side by side, right-handed"
 msgstr "Lado a lado, a la derecha"
 
@@ -594,7 +590,6 @@ msgstr "Lado a lado, a la derecha"
 #. * (which is the touch screen) is displayed to the left of the top
 #. * screen, making it comfortable for left-handed persons.
 #: src/screen-layout/screen-layout.vala:50
-#| msgid "Side by side"
 msgid "Side by side, left-handed"
 msgstr "Lado a lado, a la izquierda"
 
@@ -836,10 +831,9 @@ msgid "_Snapshots"
 msgstr "_Instantáneas"
 
 #: src/ui/display-view.vala:390
-#, fuzzy
 #| msgid "Oops! The game “%s” crashed unexpectedly"
 msgid "Oops! The game crashed unexpectedly"
-msgstr "EL juego «%s» ha fallado de manera inesperada"
+msgstr "EL juego ha fallado de manera inesperada"
 
 #: src/ui/display-view.vala:427
 msgid "Oops! Unable to run the game"
@@ -1006,10 +1000,9 @@ msgid "Right action button"
 msgstr "Botón de acción derecho"
 
 #: src/ui/help-overlay.ui:171
-#, fuzzy
 #| msgid "Nintendo 3DS"
 msgid "Nintendo DS and 3DS"
-msgstr "Nintendo 3DS"
+msgstr "Nintendo DS y 3DS"
 
 #. Translators: This describes the layout for the Nintendo DS and 3DS emulators. This setting means the two screens are stacked one on top of the other
 #: src/ui/help-overlay.ui:180
