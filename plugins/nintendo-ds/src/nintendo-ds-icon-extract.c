@@ -160,8 +160,8 @@ games_nintendo_ds_icon_extract (const char  *uri,
 	}
 
 	/* Get the tile and palette data for the logo */
-	tile_data = g_memdup (banner_data + TILE_DATA_OFFSET, TILE_DATA_LENGTH);
-	palette_data = g_memdup (banner_data + PALETTE_DATA_OFFSET, PALETTE_DATA_LENGTH);
+	tile_data = g_memdup2 (banner_data + TILE_DATA_OFFSET, TILE_DATA_LENGTH);
+	palette_data = g_memdup2 (banner_data + PALETTE_DATA_OFFSET, PALETTE_DATA_LENGTH);
 	g_free (banner_data);
 	pixbuf = load_icon (tile_data, palette_data);
 	g_free (palette_data);
