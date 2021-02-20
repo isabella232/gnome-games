@@ -3,9 +3,9 @@
 [GtkTemplate (ui = "/org/gnome/Games/plugins/nintendo-64/nintendo-64-pak-switcher.ui")]
 private class Games.Nintendo64PakSwitcher : Gtk.Bin, HeaderBarWidget {
 	[GtkChild]
-	private Gtk.MenuButton menu_button;
+	private unowned Gtk.MenuButton menu_button;
 	[GtkChild]
-	private Gtk.Box controllers_box;
+	private unowned Gtk.Box controllers_box;
 
 	public Nintendo64Runner runner { get; construct; }
 

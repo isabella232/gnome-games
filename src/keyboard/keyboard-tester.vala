@@ -3,7 +3,7 @@
 [GtkTemplate (ui = "/org/gnome/Games/keyboard/keyboard-tester.ui")]
 private class Games.KeyboardTester : Gtk.Bin {
 	[GtkChild]
-	private GamepadView gamepad_view;
+	private unowned GamepadView gamepad_view;
 
 	public Retro.KeyJoypadMapping mapping { get; set; }
 

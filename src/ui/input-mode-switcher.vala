@@ -23,9 +23,9 @@ private class Games.InputModeSwitcher : Gtk.Box {
 	}
 
 	[GtkChild]
-	private Gtk.RadioButton keyboard_mode;
+	private unowned Gtk.RadioButton keyboard_mode;
 	[GtkChild]
-	private Gtk.RadioButton gamepad_mode;
+	private unowned Gtk.RadioButton gamepad_mode;
 
 	[GtkCallback]
 	private void on_keyboard_button_toggled () {

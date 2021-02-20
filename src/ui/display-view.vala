@@ -7,37 +7,37 @@ private class Games.DisplayView : Gtk.Box, UiView {
 	public signal void back ();
 
 	[GtkChild]
-	private Gtk.Stack headerbar_stack;
+	private unowned Gtk.Stack headerbar_stack;
 	[GtkChild]
-	private Hdy.HeaderBar ingame_header_bar;
+	private unowned Hdy.HeaderBar ingame_header_bar;
 	[GtkChild]
-	private Gtk.Button fullscreen;
+	private unowned Gtk.Button fullscreen;
 	[GtkChild]
-	private Gtk.Button restore;
+	private unowned Gtk.Button restore;
 	[GtkChild]
-	private Gtk.MenuButton secondary_menu_button;
+	private unowned Gtk.MenuButton secondary_menu_button;
 	[GtkChild]
-	private Hdy.HeaderBar snapshots_header_bar;
+	private unowned Hdy.HeaderBar snapshots_header_bar;
 	[GtkChild]
-	private MediaMenuButton media_button;
+	private unowned MediaMenuButton media_button;
 	[GtkChild]
-	private InputModeSwitcher input_mode_switcher;
+	private unowned InputModeSwitcher input_mode_switcher;
 	[GtkChild]
-	private Gtk.Stack stack;
+	private unowned Gtk.Stack stack;
 	[GtkChild]
-	private Hdy.StatusPage error_display;
+	private unowned Hdy.StatusPage error_display;
 	[GtkChild]
-	private Gtk.Button restart_btn;
+	private unowned Gtk.Button restart_btn;
 	[GtkChild]
-	private Gtk.Box display_box;
+	private unowned Gtk.Box display_box;
 	[GtkChild]
-	private DisplayBin display_bin;
+	private unowned DisplayBin display_bin;
 	[GtkChild]
-	private FullscreenBox fullscreen_box;
+	private unowned FullscreenBox fullscreen_box;
 	[GtkChild]
-	private FlashBox flash_box;
+	private unowned FlashBox flash_box;
 	[GtkChild]
-	private SnapshotsList snapshots_list;
+	private unowned SnapshotsList snapshots_list;
 
 	private bool _is_view_active;
 	public bool is_view_active {

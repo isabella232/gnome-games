@@ -6,15 +6,15 @@ private class Games.CollectionsPage : Gtk.Bin {
 	public signal void selected_items_changed ();
 
 	[GtkChild]
-	private Hdy.Deck collections_deck;
+	private unowned Hdy.Deck collections_deck;
 	[GtkChild]
-	private CollectionsMainPage collections_main_page;
+	private unowned CollectionsMainPage collections_main_page;
 	[GtkChild]
-	private Gtk.Stack collections_subpage_stack;
+	private unowned Gtk.Stack collections_subpage_stack;
 	[GtkChild]
-	private GamesPage collections_subpage;
+	private unowned GamesPage collections_subpage;
 	[GtkChild]
-	private Hdy.StatusPage collection_empty_subpage;
+	private unowned Hdy.StatusPage collection_empty_subpage;
 
 	private UserCollection[]? last_removed_collections;
 	private CollectionManager collection_manager;

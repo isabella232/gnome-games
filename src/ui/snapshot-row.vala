@@ -3,13 +3,13 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/snapshot-row.ui")]
 private class Games.SnapshotRow : Gtk.ListBoxRow {
 	[GtkChild]
-	private SnapshotThumbnail thumbnail;
+	private unowned SnapshotThumbnail thumbnail;
 	[GtkChild]
-	private Gtk.Label name_label;
+	private unowned Gtk.Label name_label;
 	[GtkChild]
-	private Gtk.Label date_label;
+	private unowned Gtk.Label date_label;
 	[GtkChild]
-	private Gtk.Revealer revealer;
+	private unowned Gtk.Revealer revealer;
 
 	private Snapshot _snapshot;
 	public Snapshot snapshot {

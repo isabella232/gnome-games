@@ -5,11 +5,11 @@ private class Games.PreferencesPage : Gtk.Bin, Gtk.Buildable {
 	public PreferencesWindow window { get; construct; }
 
 	[GtkChild]
-	private Gtk.Label error_label;
+	private unowned Gtk.Label error_label;
 	[GtkChild]
-	private Gtk.Revealer error_notification_revealer;
+	private unowned Gtk.Revealer error_notification_revealer;
 	[GtkChild]
-	private Gtk.Box box;
+	private unowned Gtk.Box box;
 
 	[GtkCallback]
 	private void on_error_notification_closed () {

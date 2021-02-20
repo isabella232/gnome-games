@@ -7,11 +7,11 @@ private class Games.CollectionsMainPage : Gtk.Bin {
 	public signal void gamepad_accepted ();
 
 	[GtkChild]
-	private Gtk.FlowBox flow_box;
+	private unowned Gtk.FlowBox flow_box;
 	[GtkChild]
-	private GamepadBrowse gamepad_browse;
+	private unowned GamepadBrowse gamepad_browse;
 	[GtkChild]
-	private Gtk.ScrolledWindow scrolled_window;
+	private unowned Gtk.ScrolledWindow scrolled_window;
 
 	private string[] filtering_terms;
 	private Binding window_active_binding;

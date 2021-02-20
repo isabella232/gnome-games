@@ -3,7 +3,7 @@
 [GtkTemplate (ui = "/org/gnome/Games/preferences/preferences-page-platforms.ui")]
 private class Games.PreferencesPagePlatforms : PreferencesPage {
 	[GtkChild]
-	private Hdy.PreferencesGroup platforms_group;
+	private unowned Hdy.PreferencesGroup platforms_group;
 
 	construct {
 		var register = PlatformRegister.get_register ();

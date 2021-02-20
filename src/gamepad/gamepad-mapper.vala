@@ -7,7 +7,7 @@ private class Games.GamepadMapper : Gtk.Bin {
 	public signal void finished (string sdl_string);
 
 	[GtkChild]
-	private GamepadView gamepad_view;
+	private unowned GamepadView gamepad_view;
 
 	private GamepadMappingBuilder mapping_builder;
 	private GamepadInput[] mapping_inputs;

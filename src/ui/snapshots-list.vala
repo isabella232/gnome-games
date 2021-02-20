@@ -5,24 +5,24 @@ private class Games.SnapshotsList : Gtk.Box {
 	public signal void hidden ();
 
 	[GtkChild]
-	private Gtk.ListBox list_box;
+	private unowned Gtk.ListBox list_box;
 	[GtkChild]
-	private Gtk.ListBoxRow new_snapshot_row;
+	private unowned Gtk.ListBoxRow new_snapshot_row;
 	[GtkChild]
-	private Gtk.ScrolledWindow scrolled_window;
+	private unowned Gtk.ScrolledWindow scrolled_window;
 	[GtkChild]
-	private Gtk.Button delete_btn;
+	private unowned Gtk.Button delete_btn;
 	[GtkChild]
-	private Gtk.Button rename_btn;
+	private unowned Gtk.Button rename_btn;
 
 	[GtkChild]
-	private Gtk.Popover rename_popover;
+	private unowned Gtk.Popover rename_popover;
 	[GtkChild]
-	private Gtk.Entry rename_entry;
+	private unowned Gtk.Entry rename_entry;
 	[GtkChild]
-	private Gtk.Button rename_popover_btn;
+	private unowned Gtk.Button rename_popover_btn;
 	[GtkChild]
-	private Gtk.Label rename_error_label;
+	private unowned Gtk.Label rename_error_label;
 
 	private Snapshot selected_snapshot;
 

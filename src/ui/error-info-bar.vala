@@ -3,9 +3,9 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/error-info-bar.ui")]
 private class Games.ErrorInfoBar : Gtk.Bin {
 	[GtkChild]
-	private Gtk.InfoBar info_bar;
+	private unowned Gtk.InfoBar info_bar;
 	[GtkChild]
-	private Gtk.Label label;
+	private unowned Gtk.Label label;
 
 	[GtkCallback]
 	private void on_response () {

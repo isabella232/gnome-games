@@ -5,7 +5,7 @@ private class Games.KeyboardMapper : Gtk.Bin {
 	public signal void finished (Retro.KeyJoypadMapping mapping);
 
 	[GtkChild]
-	private GamepadView gamepad_view;
+	private unowned GamepadView gamepad_view;
 
 	private KeyboardMappingBuilder mapping_builder;
 	private GamepadInput[] mapping_inputs;

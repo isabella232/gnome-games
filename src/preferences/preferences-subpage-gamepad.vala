@@ -65,17 +65,17 @@ private class Games.PreferencesSubpageGamepad : Gtk.Bin, PreferencesSubpage {
 	public string info_message { get; set; }
 
 	[GtkChild]
-	private Gtk.Stack stack;
+	private unowned Gtk.Stack stack;
 	[GtkChild]
-	private Gtk.Box tester_box;
+	private unowned Gtk.Box tester_box;
 	[GtkChild]
-	private Gtk.Box mapper_box;
+	private unowned Gtk.Box mapper_box;
 	[GtkChild]
-	private Gtk.HeaderBar tester_header_bar;
+	private unowned Gtk.HeaderBar tester_header_bar;
 	[GtkChild]
-	private Gtk.HeaderBar mapper_header_bar;
+	private unowned Gtk.HeaderBar mapper_header_bar;
 	[GtkChild]
-	private Gtk.Button reset_button;
+	private unowned Gtk.Button reset_button;
 
 	private GamepadMapper mapper;
 	private GamepadTester tester;

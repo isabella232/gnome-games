@@ -3,9 +3,9 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/collection-icon-view.ui")]
 private class Games.CollectionIconView : Gtk.FlowBoxChild {
 	[GtkChild]
-	private Gtk.Label title;
+	private unowned Gtk.Label title;
 	[GtkChild]
-	private CollectionThumbnail thumbnail;
+	private unowned CollectionThumbnail thumbnail;
 
 	public bool checked { get; set; }
 	public bool is_selection_mode { get; set; }

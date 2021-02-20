@@ -7,11 +7,11 @@ private class Games.CollectionThumbnail : Gtk.Bin {
 	const uint N_COLUMNS = 2;
 
 	[GtkChild]
-	private Gtk.Stack thumbnail_stack;
+	private unowned Gtk.Stack thumbnail_stack;
 	[GtkChild]
-	private Gtk.Grid grid;
+	private unowned Gtk.Grid grid;
 	[GtkChild]
-	private Gtk.Image new_collection_image;
+	private unowned Gtk.Image new_collection_image;
 
 	private ulong games_changed_id = 0;
 

@@ -3,9 +3,9 @@
 [GtkTemplate (ui = "/org/gnome/Games/preferences/preferences-page-controllers.ui")]
 private class Games.PreferencesPageControllers : PreferencesPage {
 	[GtkChild]
-	private Hdy.PreferencesGroup gamepads_group;
+	private unowned Hdy.PreferencesGroup gamepads_group;
 	[GtkChild]
-	private Hdy.PreferencesGroup keyboard_group;
+	private unowned Hdy.PreferencesGroup keyboard_group;
 
 	private Manette.Monitor monitor;
 

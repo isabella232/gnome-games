@@ -54,12 +54,12 @@ private class Games.GamesPage : Gtk.Bin {
 	}
 
 	[GtkChild]
-	private Gtk.ScrolledWindow scrolled_window;
+	private unowned Gtk.ScrolledWindow scrolled_window;
 	[GtkChild]
-	private Gtk.FlowBox flow_box;
+	private unowned Gtk.FlowBox flow_box;
 
 	[GtkChild]
-	private GamepadBrowse gamepad_browse;
+	private unowned GamepadBrowse gamepad_browse;
 
 	public bool is_search_empty { get; set; }
 

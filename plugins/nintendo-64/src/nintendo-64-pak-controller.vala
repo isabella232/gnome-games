@@ -3,11 +3,11 @@
 [GtkTemplate (ui = "/org/gnome/Games/plugins/nintendo-64/nintendo-64-pak-controller.ui")]
 private class Games.Nintendo64PakController : Gtk.Box {
 	[GtkChild]
-	private Gtk.Label title;
+	private unowned Gtk.Label title;
 	[GtkChild]
-	private Gtk.ModelButton memory_btn;
+	private unowned Gtk.ModelButton memory_btn;
 	[GtkChild]
-	private Gtk.ModelButton rumble_btn;
+	private unowned Gtk.ModelButton rumble_btn;
 
 	public Retro.Controller gamepad { get; construct; }
 	public uint port { get; construct; }

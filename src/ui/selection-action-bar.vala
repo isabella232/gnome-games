@@ -3,9 +3,9 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/selection-action-bar.ui")]
 private class Games.SelectionActionBar : Gtk.ActionBar {
 	[GtkChild]
-	private Gtk.Stack icon_stack;
+	private unowned Gtk.Stack icon_stack;
 	[GtkChild]
-	private Gtk.Button favorite_button;
+	private unowned Gtk.Button favorite_button;
 
 	private FavoriteState _favorite_state;
 	public FavoriteState favorite_state {

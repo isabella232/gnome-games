@@ -3,7 +3,7 @@
 [GtkTemplate (ui = "/org/gnome/Games/gamepad/gamepad-tester.ui")]
 private class Games.GamepadTester : Gtk.Bin {
 	[GtkChild]
-	private GamepadView gamepad_view;
+	private unowned GamepadView gamepad_view;
 
 	private ulong gamepad_button_press_event_handler_id;
 	private ulong gamepad_button_release_event_handler_id;

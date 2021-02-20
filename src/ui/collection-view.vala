@@ -7,57 +7,57 @@ private class Games.CollectionView : Gtk.Box, UiView {
 	public signal void game_activated (Game game);
 
 	[GtkChild]
-	private Hdy.Deck platforms_deck;
+	private unowned Hdy.Deck platforms_deck;
 	[GtkChild]
-	private Hdy.Deck collections_deck;
+	private unowned Hdy.Deck collections_deck;
 	[GtkChild]
-	private Gtk.Stack header_bar_stack;
+	private unowned Gtk.Stack header_bar_stack;
 	[GtkChild]
-	private Hdy.HeaderBar header_bar;
+	private unowned Hdy.HeaderBar header_bar;
 	[GtkChild]
-	private Hdy.HeaderBar subview_header_bar;
+	private unowned Hdy.HeaderBar subview_header_bar;
 	[GtkChild]
-	private Hdy.HeaderBar selection_mode_header_bar;
+	private unowned Hdy.HeaderBar selection_mode_header_bar;
 	[GtkChild]
-	private Hdy.ViewSwitcherTitle view_switcher_title;
+	private unowned Hdy.ViewSwitcherTitle view_switcher_title;
 	[GtkChild]
-	private ErrorInfoBar error_info_bar;
+	private unowned ErrorInfoBar error_info_bar;
 	[GtkChild]
-	private SearchBar search_bar;
+	private unowned SearchBar search_bar;
 	[GtkChild]
-	private Hdy.StatusPage empty_collection;
+	private unowned Hdy.StatusPage empty_collection;
 	[GtkChild]
-	private Hdy.StatusPage empty_search;
+	private unowned Hdy.StatusPage empty_search;
 	[GtkChild]
-	private GamesPage games_page;
+	private unowned GamesPage games_page;
 	[GtkChild]
-	private PlatformsPage platforms_page;
+	private unowned PlatformsPage platforms_page;
 	[GtkChild]
-	private CollectionsPage collections_page;
+	private unowned CollectionsPage collections_page;
 	[GtkChild]
-	private Hdy.HeaderBar collection_subpage_header_bar;
+	private unowned Hdy.HeaderBar collection_subpage_header_bar;
 	[GtkChild]
-	private SelectionActionBar selection_action_bar;
+	private unowned SelectionActionBar selection_action_bar;
 	[GtkChild]
-	private Gtk.Stack empty_stack;
+	private unowned Gtk.Stack empty_stack;
 	[GtkChild]
-	private Gtk.Stack viewstack;
+	private unowned Gtk.Stack viewstack;
 	[GtkChild]
-	private Hdy.ViewSwitcherBar view_switcher_bar;
+	private unowned Hdy.ViewSwitcherBar view_switcher_bar;
 	[GtkChild]
-	private Hdy.SwipeGroup swipe_group;
+	private unowned Hdy.SwipeGroup swipe_group;
 	[GtkChild]
-	private Hdy.SwipeGroup collections_swipe_group;
+	private unowned Hdy.SwipeGroup collections_swipe_group;
 	[GtkChild]
-	private UndoNotification undo_notification;
+	private unowned UndoNotification undo_notification;
 	[GtkChild]
-	private Gtk.Entry collection_rename_entry;
+	private unowned Gtk.Entry collection_rename_entry;
 	[GtkChild]
-	private Gtk.Popover rename_popover;
+	private unowned Gtk.Popover rename_popover;
 	[GtkChild]
-	private Gtk.Label collection_rename_error_label;
+	private unowned Gtk.Label collection_rename_error_label;
 	[GtkChild]
-	private Gtk.Label selection_mode_label;
+	private unowned Gtk.Label selection_mode_label;
 
 	private bool _is_view_active;
 	public bool is_view_active {

@@ -17,7 +17,7 @@ private class Games.PreferencesPageVideo : PreferencesPage {
 	}
 
 	[GtkChild]
-	private Hdy.PreferencesGroup filter_group;
+	private unowned Hdy.PreferencesGroup filter_group;
 
 	// same as video-filters in gschema
 	/* Translators: These values are video filters applied to the screen. Smooth

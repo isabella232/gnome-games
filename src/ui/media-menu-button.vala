@@ -3,11 +3,11 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/media-menu-button.ui")]
 private class Games.MediaMenuButton : Gtk.Bin {
 	[GtkChild]
-	private Gtk.Image media_image;
+	private unowned Gtk.Image media_image;
 	[GtkChild]
-	private Gtk.Popover popover;
+	private unowned Gtk.Popover popover;
 	[GtkChild]
-	private Gtk.ListBox list_box;
+	private unowned Gtk.ListBox list_box;
 
 	public bool active { get; set; }
 

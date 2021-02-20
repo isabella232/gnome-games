@@ -3,11 +3,11 @@
 [GtkTemplate (ui = "/org/gnome/Games/screen-layout/screen-layout-item.ui")]
 private class Games.ScreenLayoutItem : Gtk.ListBoxRow {
 	[GtkChild]
-	private Gtk.Image icon;
+	private unowned Gtk.Image icon;
 	[GtkChild]
-	private Gtk.Label title;
+	private unowned Gtk.Label title;
 	[GtkChild]
-	private Gtk.Image checkmark;
+	private unowned Gtk.Image checkmark;
 
 	public ScreenLayout layout { get; construct; }
 

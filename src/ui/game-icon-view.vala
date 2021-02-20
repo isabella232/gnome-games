@@ -3,9 +3,9 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/game-icon-view.ui")]
 private class Games.GameIconView : Gtk.FlowBoxChild {
 	[GtkChild]
-	private GameThumbnail thumbnail;
+	private unowned GameThumbnail thumbnail;
 	[GtkChild]
-	private Gtk.Label title;
+	private unowned Gtk.Label title;
 
 	private ulong game_replaced_id;
 

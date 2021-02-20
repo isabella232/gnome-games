@@ -3,11 +3,11 @@
 [GtkTemplate (ui = "/org/gnome/Games/preferences/preferences-window.ui")]
 private class Games.PreferencesWindow : Hdy.Window {
 	[GtkChild]
-	private Hdy.Deck deck;
+	private unowned Hdy.Deck deck;
 	[GtkChild]
-	private Gtk.Box main_box;
+	private unowned Gtk.Box main_box;
 	[GtkChild]
-	private Gtk.Box subpage_box;
+	private unowned Gtk.Box subpage_box;
 
 	private PreferencesSubpage subpage;
 	private Binding swipe_back_binding;

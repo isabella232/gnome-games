@@ -3,7 +3,7 @@
 [GtkTemplate (ui = "/org/gnome/Games/ui/platform-list-item.ui")]
 private class Games.PlatformListItem : Gtk.ListBoxRow {
 	[GtkChild]
-	protected Gtk.Label label;
+	protected unowned Gtk.Label label;
 
 	public Platform platform { get; construct; }
 

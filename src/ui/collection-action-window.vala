@@ -5,29 +5,29 @@ private class Games.CollectionActionWindow : Hdy.Window {
 	public signal void confirmed (Collection[] collections);
 
 	[GtkChild]
-	private Hdy.Deck deck;
+	private unowned Hdy.Deck deck;
 	[GtkChild]
-	private Gtk.Box add_to_collection_page;
+	private unowned Gtk.Box add_to_collection_page;
 	[GtkChild]
-	private Gtk.Box create_collection_page;
+	private unowned Gtk.Box create_collection_page;
 	[GtkChild]
-	private Gtk.Stack user_collections_page_stack;
+	private unowned Gtk.Stack user_collections_page_stack;
 	[GtkChild]
-	private Gtk.ScrolledWindow list_page;
+	private unowned Gtk.ScrolledWindow list_page;
 	[GtkChild]
-	private Hdy.StatusPage empty_page;
+	private unowned Hdy.StatusPage empty_page;
 	[GtkChild]
-	private Gtk.Entry name_entry;
+	private unowned Gtk.Entry name_entry;
 	[GtkChild]
-	private Gtk.Label error_label;
+	private unowned Gtk.Label error_label;
 	[GtkChild]
-	private Gtk.ListBox list_box;
+	private unowned Gtk.ListBox list_box;
 	[GtkChild]
-	private Hdy.SearchBar search_bar;
+	private unowned Hdy.SearchBar search_bar;
 	[GtkChild]
-	private Gtk.SearchEntry search_entry;
+	private unowned Gtk.SearchEntry search_entry;
 	[GtkChild]
-	private Gtk.ListBoxRow add_row;
+	private unowned Gtk.ListBoxRow add_row;
 
 	private CollectionManager collection_manager;
 	private SimpleActionGroup action_group;

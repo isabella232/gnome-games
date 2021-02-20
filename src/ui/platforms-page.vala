@@ -6,13 +6,13 @@ private class Games.PlatformsPage : Gtk.Bin {
 	public signal void selected_items_changed ();
 
 	[GtkChild]
-	private Hdy.Leaflet leaflet;
+	private unowned Hdy.Leaflet leaflet;
 	[GtkChild]
-	private Gtk.ListBox list_box;
+	private unowned Gtk.ListBox list_box;
 	[GtkChild]
-	private GamesPage games_page;
+	private unowned GamesPage games_page;
 	[GtkChild]
-	private GamepadBrowse gamepad_browse;
+	private unowned GamepadBrowse gamepad_browse;
 
 	private Platform selected_platform;
 	private bool has_used_gamepad;

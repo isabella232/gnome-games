@@ -3,17 +3,17 @@
 [GtkTemplate (ui = "/org/gnome/Games/screen-layout/screen-layout-switcher.ui")]
 public class Games.ScreenLayoutSwitcher : Gtk.Box, HeaderBarWidget {
 	[GtkChild]
-	private Gtk.Revealer change_screen_revealer;
+	private unowned Gtk.Revealer change_screen_revealer;
 	[GtkChild]
-	private Gtk.Image change_screen_image;
+	private unowned Gtk.Image change_screen_image;
 	[GtkChild]
-	private Gtk.MenuButton layout_button;
+	private unowned Gtk.MenuButton layout_button;
 	[GtkChild]
-	private Gtk.Image layout_image;
+	private unowned Gtk.Image layout_image;
 	[GtkChild]
-	private Gtk.Popover layout_popover;
+	private unowned Gtk.Popover layout_popover;
 	[GtkChild]
-	private Gtk.ListBox list_box;
+	private unowned Gtk.ListBox list_box;
 
 	private HashTable<ScreenLayout, ScreenLayoutItem> items;
 

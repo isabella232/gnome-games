@@ -5,11 +5,11 @@ private class Games.ApplicationWindow : Hdy.ApplicationWindow {
 	private const uint WINDOW_SIZE_UPDATE_DELAY_MILLISECONDS = 500;
 
 	[GtkChild]
-	private Gtk.Stack stack;
+	private unowned Gtk.Stack stack;
 	[GtkChild]
-	private CollectionView collection_view;
+	private unowned CollectionView collection_view;
 	[GtkChild]
-	private DisplayView display_view;
+	private unowned DisplayView display_view;
 
 	private UiView _current_view;
 	public UiView current_view {

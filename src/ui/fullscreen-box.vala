@@ -57,7 +57,7 @@ private class Games.FullscreenBox : Gtk.EventBox, Gtk.Buildable {
 	}
 
 	[GtkChild]
-	private TitlebarBox titlebar_box;
+	private unowned TitlebarBox titlebar_box;
 
 	private uint ui_timeout_id;
 	private uint cursor_timeout_id;
