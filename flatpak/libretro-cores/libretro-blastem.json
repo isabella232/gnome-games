@@ -24,14 +24,6 @@
                     "branch": "libretro"
                 },
                 {
-                    "type": "patch",
-                    "path": "blastem-Give-a-saner-default-button-layout.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "blastem-libretro-Correctly-calculate-the-aspect-ratio.patch"
-                },
-                {
                     "type": "file",
                     "path": "blastem.libretro"
                 }
