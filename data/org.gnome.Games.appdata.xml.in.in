@@ -43,6 +43,25 @@
   </screenshots>
 
   <releases>
+    <release version="40.beta" type="development" date="2021-02-28" urgency="medium">
+      <description>
+        <p>Improvements:</p>
+        <ul>
+          <li>Support running Nintendo 3DS games</li>
+          <li>Support running Sega Dreamcast games (gdi and cdi)</li>
+          <li>Use HdyStatusPage for empty states and errors</li>
+          <li>Use nearest scaling for low-resolution icons</li>
+          <li>Polish the screen layout switcher</li>
+        </ul>
+        <p>Fixes:</p>
+        <ul>
+          <li>Support saves when the core doesn't support savestates</li>
+          <li>Don't save a corrupted snapshot if failed mid-save</li>
+          <li>Correctly remove screen layout switcher on error pages</li>
+        </ul>
+        <p>Translation updates.</p>
+      </description>
+    </release>
     <release version="3.38.0" type="stable" date="2020-09-12" urgency="medium">
       <description>
         <p>Fixes:</p>

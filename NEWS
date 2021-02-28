@@ -1,3 +1,51 @@
+===============
+Version 40.beta
+===============
+
+* Support running Nintendo 3DS games
+ - Show the same screen layout switcher as for DS
+
+* Support running Sega Dreamcast games (gdi and cdi)
+
+* UI
+ - Use HdyStatusPage for empty states and errors
+ - Use nearest scaling for low-resolution icons
+ - Polish the screen layout switcher
+
+* Fixes
+ - Support saves when the core doesn't support savestates
+ - Don't save a corrupted snapshot if failed mid-save
+ - Correctly remove screen layout switcher on error pages
+
+* Build
+ - Depend on libhandy 1.90.0
+ - Depend on meson 0.50.0
+
+* Deprecation fixes
+
+* Various cleanups
+
+* Translation updates
+ Basque
+ Brazilian Portuguese
+ British English
+ Catalan
+ Croatian
+ Czech
+ Danish
+ Finnish
+ Friulian
+ Galician
+ Hungarian
+ Indonesian
+ Polish
+ Romanian
+ Serbian
+ Slovak
+ Spanish
+ Swedish
+ Ukrainian
+
 ==============
 Version 3.38.0
 ==============
