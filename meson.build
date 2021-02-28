@@ -29,7 +29,7 @@ cc = meson.get_compiler ('c')
 valac = meson.get_compiler ('vala')
 
 glib_min_version = '2.38'
-handy_min_version = '1.0.0'
+handy_min_version = '1.1.90'
 manette_min_version = '0.2.0'
 retro_gtk_min_version = '1.0.0'
 
