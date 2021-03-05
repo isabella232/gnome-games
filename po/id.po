@@ -2,25 +2,25 @@
 # Copyright (C) 2016 gnome-games's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-games package.
 # Lorenz Adam Damara <lorenzadam@resolution-consulting.co.id>, 2016.
-# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017-2020.
+# Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017-2021.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-games gnome-3-26\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/gnome-games/issues\n"
-"POT-Creation-Date: 2020-10-30 18:33+0000\n"
-"PO-Revision-Date: 2020-11-02 08:41+0700\n"
-"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
+"POT-Creation-Date: 2021-02-18 19:01+0000\n"
+"PO-Revision-Date: 2021-03-05 19:14+0700\n"
+"Last-Translator: Kukuh Syafaat <kukuhsyafaat@gnome.org>\n"
 "Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Poedit 2.4.2\n"
 "Plural-Forms: nplurals=2; plural= n!=1;\n"
 
 #: data/org.gnome.Games.appdata.xml.in.in:7
-#: data/org.gnome.Games.desktop.in.in:3 data/ui/collection-view.ui:82
-#: data/ui/collection-view.ui:448 src/ui/application.vala:49
+#: data/org.gnome.Games.desktop.in.in:3 src/ui/application.vala:49
+#: src/ui/collection-view.ui:82 src/ui/collection-view.ui:452
 msgid "Games"
 msgstr "Permainan"
 
@@ -87,7 +87,7 @@ msgstr "Lihat dan mainkan koleksi permainan video Anda"
 msgid "game;videogame;video game;player;"
 msgstr "permainan;videogame;video game;pemain;"
 
-#: data/org.gnome.Games.gschema.xml:10 data/ui/display-view.ui:105
+#: data/org.gnome.Games.gschema.xml:10 src/ui/display-view.ui:105
 msgid "Fullscreen"
 msgstr "Layar Penuh"
 
@@ -136,538 +136,11 @@ msgstr ""
 "Inti Libretro yang disukai untuk digunakan untuk menjalankan permainan. Inti "
 "yang berbeda dapat digunakan jika inti pilihan kehilangan perangkat tegar."
 
-#: data/gtk/help-overlay.ui:10
-msgid "Shortcuts"
-msgstr "Pintasan"
-
-#: data/gtk/help-overlay.ui:14
-msgid "General"
-msgstr "Umum"
-
-#: data/gtk/help-overlay.ui:19
-msgctxt "shortcut window"
-msgid "Go back"
-msgstr "Mundur"
-
-#: data/gtk/help-overlay.ui:26
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Keluar"
-
-#: data/gtk/help-overlay.ui:34 data/gtk/help-overlay.ui:248
-msgid "Collection"
-msgstr "Koleksi"
-
-#: data/gtk/help-overlay.ui:39
-msgctxt "shortcut window"
-msgid "Search"
-msgstr "Cari"
-
-#: data/gtk/help-overlay.ui:46
-msgctxt "shortcut window"
-msgid "Show Shortcuts"
-msgstr "Tampilkan Pintasan"
-
-#: data/gtk/help-overlay.ui:55 data/gtk/help-overlay.ui:64
-msgctxt "shortcut window"
-msgid "Navigate"
-msgstr "Menavigasi"
-
-#: data/gtk/help-overlay.ui:56
-msgctxt "shortcut window"
-msgid "Left analog stick"
-msgstr "Tongkat analog kiri"
-
-#: data/gtk/help-overlay.ui:65
-msgctxt "shortcut window"
-msgid "Directional pad"
-msgstr "Pad arah"
-
-#: data/gtk/help-overlay.ui:73
-msgctxt "shortcut window"
-msgid "Select view"
-msgstr "Tampilan pilih"
-
-#: data/gtk/help-overlay.ui:74
-msgctxt "shortcut window"
-msgid "Front shoulder buttons"
-msgstr "Tombol bahu depan"
-
-#: data/gtk/help-overlay.ui:82 data/gtk/help-overlay.ui:91
-msgctxt "shortcut window"
-msgid "Start game"
-msgstr "Mulai permainan"
-
-#: data/gtk/help-overlay.ui:83
-msgctxt "shortcut window"
-msgid "Start button"
-msgstr "Tombol mulai"
-
-#: data/gtk/help-overlay.ui:92 data/gtk/help-overlay.ui:151
-msgctxt "shortcut window"
-msgid "Bottom action button"
-msgstr "Tombol aksi bawah"
-
-#: data/gtk/help-overlay.ui:99
-msgid "In Game"
-msgstr "Dalam Permainan"
-
-#: data/gtk/help-overlay.ui:104
-msgctxt "shortcut window"
-msgid "Create new snapshot"
-msgstr "Buat cuplikan baru"
-
-#: data/gtk/help-overlay.ui:111
-msgctxt "shortcut window"
-msgid "Load the latest snapshot"
-msgstr "Muat cuplikan terakhir"
-
-#: data/gtk/help-overlay.ui:118
-msgctxt "shortcut window"
-msgid "Show snapshots"
-msgstr "Tampilkan cuplikan"
-
-#: data/gtk/help-overlay.ui:125
-msgctxt "shortcut window"
-msgid "Toggle fullscreen"
-msgstr "Jungkitkan layar penuh"
-
-#: data/gtk/help-overlay.ui:132
-msgctxt "shortcut window"
-msgid "Exit fullscreen"
-msgstr "Keluar layar penuh"
-
-#: data/gtk/help-overlay.ui:141
-msgctxt "shortcut window"
-msgid "Go back to the collection"
-msgstr "Kembali ke koleksi"
-
-#: data/gtk/help-overlay.ui:142
-msgctxt "shortcut window"
-msgid "Home button"
-msgstr "Tombol beranda"
-
-#: data/gtk/help-overlay.ui:150
-msgctxt "shortcut window"
-msgid "Accept"
-msgstr "Terima"
-
-#: data/gtk/help-overlay.ui:159
-msgctxt "shortcut window"
-msgid "Cancel"
-msgstr "Batal"
-
-#: data/gtk/help-overlay.ui:160
-msgctxt "shortcut window"
-msgid "Right action button"
-msgstr "Tombol aksi kanan"
-
-#: data/gtk/help-overlay.ui:171
-#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:6
-msgid "Nintendo DS"
-msgstr "Nintendo DS"
-
-#. Translators: This is displayed in the shortcuts window. This corresponds to the screens layout for the Nintendo DS.
-#: data/gtk/help-overlay.ui:175
-#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:39
-msgid "Screen Layout"
-msgstr "Tata Letak Layar"
-
-#. Translators: This describes the layout for the Nintendo DS emulator. This setting means the two screens are stacked one on top of the other
-#: data/gtk/help-overlay.ui:180
-msgctxt "shortcut window"
-msgid "Vertical"
-msgstr "Vertikal"
-
-#. Translators: This describes the layout for the Nintendo DS emulator. This setting means the two screens are displayed side by side
-#. Translators: This describes the Nintendo DS screens layout, side by side
-#: data/gtk/help-overlay.ui:187 data/gtk/help-overlay.ui:195
-msgctxt "shortcut window"
-msgid "Side by side"
-msgstr "Bersebelahan"
-
-#. Translators: This describes the layout for the Nintendo DS emulator when the two screens are displayed side by side and not one on top of the other. The bottom screen is displayed to the right of the top screen.
-#: data/gtk/help-overlay.ui:188
-msgctxt "shortcut window"
-msgid "Bottom to the right"
-msgstr "Bawah ke kanan"
-
-#. Translators: This describes the layout for the Nintendo DS emulator when the two screens are displayed side by side and not one on top of the other. The bottom screen is displayed to the left of the top screen
-#: data/gtk/help-overlay.ui:196
-msgctxt "shortcut window"
-msgid "Bottom to the left"
-msgstr "Bawah ke kiri"
-
-#. Translators: This describes the layout for the Nintendo DS emulator. This setting means only one screen is displayed at once. The screen displayed can then be changed in-game
-#: data/gtk/help-overlay.ui:203
-msgctxt "shortcut window"
-msgid "Single screen"
-msgstr "Layar tunggal"
-
-#: data/gtk/help-overlay.ui:211
-msgid "Screen Switching"
-msgstr "Beralih layar"
-
-#. Translators: This describes the shortcut for showing the top screen, when the Nintendo DS emulator is single screen mode.
-#: data/gtk/help-overlay.ui:216
-msgctxt "shortcut window"
-msgid "Show top screen"
-msgstr "Tampilkan layar atas"
-
-#. Translators: This describes the shortcut for showing the bottom screen, when the Nintendo DS emulator is single screen mode.
-#: data/gtk/help-overlay.ui:223
-msgctxt "shortcut window"
-msgid "Show bottom screen"
-msgstr "Tampilkan layar bawah"
-
-#. Translators: This describes the shortcut for toggling whether the top or bottom screen is displayed, when the Nintendo DS emulator is single screen mode.
-#: data/gtk/help-overlay.ui:232
-msgctxt "shortcut window"
-msgid "Toggle screen"
-msgstr "Jungkitkan layar"
-
-#: data/gtk/help-overlay.ui:233
-msgctxt "shortcut window"
-msgid "Press right analog stick"
-msgstr "Tekan tongkat analog kanan"
-
-#: data/gtk/help-overlay.ui:244
-msgid "Cheats"
-msgstr "Tipuan"
-
-#: data/gtk/help-overlay.ui:253
-msgctxt "shortcut window"
-msgid "Contribute"
-msgstr "Kontribusi"
-
-#: data/ui/collection-action-window.ui:5 data/ui/collection-action-window.ui:22
-msgid "Add to Collection"
-msgstr "Tambah ke Koleksi"
-
-#: data/ui/collection-action-window.ui:27 data/ui/collection-view.ui:323
-#: src/ui/application.vala:171 src/ui/preferences-page-import-export.vala:10
-#: src/ui/preferences-page-import-export.vala:32
-msgid "_Cancel"
-msgstr "_Batal"
-
-#: data/ui/collection-action-window.ui:35 src/ui/application.vala:172
-msgid "_Add"
-msgstr "T_ambah"
-
-#: data/ui/collection-action-window.ui:61 data/ui/collection-view.ui:121
-#: data/ui/collection-view.ui:198 data/ui/collection-view.ui:297
-#: data/ui/collection-view.ui:347
-msgid "Search"
-msgstr "Cari"
-
-#: data/ui/collection-action-window.ui:150 src/ui/empty-search.vala:15
-msgid "No collections found"
-msgstr "Tidak ditemukan koleksi"
-
-#: data/ui/collection-action-window.ui:169
-msgid "Add a new collection to add games to it."
-msgstr "Tambah koleksi baru untuk menambahkan permainan ke dalamnya."
-
-#: data/ui/collection-action-window.ui:182
-msgid "Create Collection"
-msgstr "Buat Koleksi"
-
-#: data/ui/collection-action-window.ui:191
-msgid "Create a collection"
-msgstr "Buat koleksi"
-
-#: data/ui/collection-action-window.ui:216
-msgid "Add a Collection"
-msgstr "Tambah Koleksi"
-
-#: data/ui/collection-action-window.ui:224 data/ui/collection-view.ui:153
-#: data/ui/collection-view.ui:232 data/ui/display-view.ui:34
-#: data/ui/display-view.ui:169 data/ui/preferences-subpage-gamepad.ui:33
-#: data/ui/preferences-subpage-keyboard.ui:35
-msgid "Back"
-msgstr "Kembali"
-
-#: data/ui/collection-action-window.ui:266
-msgid "Enter a collection name"
-msgstr "Masukkan nama koleksi"
-
-#: data/ui/collection-action-window.ui:304
-msgid "C_reate"
-msgstr "B_uat"
-
-#: data/ui/collection-action-window.ui:316
-msgid "Create collection"
-msgstr "Buat koleksi"
-
-#: data/ui/collection-empty.ui:24
-msgid "This collection is empty"
-msgstr "Koleksi ini kosong"
-
-#: data/ui/collection-empty.ui:39
-msgid "Add some games to this collection to see them here."
-msgstr "Tambah beberapa permainan ke koleksi ini untuk melihat mereka di sini."
-
-#: data/ui/collection-view.ui:42
-msgid "Add game files…"
-msgstr "Tambah berkas permainan…"
-
-#. Translators: tooltip for the application menu button
-#: data/ui/collection-view.ui:61
-msgid "Menu"
-msgstr "Menu"
-
-#: data/ui/collection-view.ui:102 data/ui/collection-view.ui:179
-#: data/ui/collection-view.ui:278
-msgid "Select games"
-msgstr "Pilih permainan"
-
-#: data/ui/collection-view.ui:247
-msgid "Collection menu"
-msgstr "Menu koleksi"
-
-#: data/ui/collection-view.ui:328 data/ui/preferences-subpage-gamepad.ui:102
-#: data/ui/preferences-subpage-keyboard.ui:105
-msgid "Cancel"
-msgstr "Batal"
-
-#: data/ui/collection-view.ui:374 src/ui/collection-view.vala:535
-msgid "Click on items to select them"
-msgstr "Klik pada butir untuk memilih mereka"
-
-#: data/ui/collection-view.ui:465 data/ui/preferences-window.ui:66
-msgid "Platforms"
-msgstr "Platform"
-
-#: data/ui/collection-view.ui:480
-msgid "Collections"
-msgstr "Koleksi"
-
-#: data/ui/collection-view.ui:506
-msgid "Loading"
-msgstr "Memuat"
-
-#: data/ui/collection-view.ui:579
-msgid "Rename Collection"
-msgstr "Ganti nama Koleksi"
-
-#: data/ui/collection-view.ui:600 data/ui/collection-view.ui:672
-#: data/ui/snapshots-list.ui:109 data/ui/snapshots-list.ui:162
-msgid "_Rename"
-msgstr "Ubah _Nama"
-
-#: data/ui/collection-view.ui:640
-msgid "Pr_eferences"
-msgstr "Pr_eferensi"
-
-#: data/ui/collection-view.ui:644
-msgid "_Keyboard Shortcuts"
-msgstr "Pintasan Papan Ti_k"
-
-#: data/ui/collection-view.ui:648
-msgid "_Help"
-msgstr "_Bantuan"
-
-#: data/ui/collection-view.ui:652
-msgid "_About Games"
-msgstr "Tent_ang Permainan"
-
-#: data/ui/collection-view.ui:660
-msgid "Select All"
-msgstr "Pilih Semua"
-
-#: data/ui/collection-view.ui:664
-msgid "Select None"
-msgstr "Pilih Tak Satupun"
-
-#: data/ui/collection-view.ui:676
-msgid "R_emove"
-msgstr "H_apus"
-
-#: data/ui/display-view.ui:57
-msgid "Restore"
-msgstr "Pulihkan"
-
-#: data/ui/display-view.ui:148
-msgid "_Load"
-msgstr "_Muat"
-
-#: data/ui/display-view.ui:236
-msgid "_Restart"
-msgstr "_Mulai Ulang"
-
-#: data/ui/display-view.ui:242
-msgid "_Snapshots"
-msgstr "_Cuplikan"
-
-#. Translators: This is displayed when the games library is empty.
-#: data/ui/empty-collection.ui:23 src/ui/empty-search.vala:12
-msgid "No games found"
-msgstr "Tidak ada permainan yang ditemukan"
-
-#. Translators: This is displayed when the games library is empty.
-#: data/ui/empty-collection.ui:38
-msgid ""
-"Install games or add directories containing games to your search sources."
-msgstr ""
-"Pasang permainan atau tambahkan direktori yang berisi permainan ke sumber "
-"pencarian Anda."
-
-#: data/ui/empty-search.ui:39
-msgid "Try a different search."
-msgstr "Coba pencarian lain."
-
-#: data/ui/input-mode-switcher.ui:16
-msgid "Gamepad Input"
-msgstr "Masukan Gamepad"
-
-#: data/ui/input-mode-switcher.ui:36
-msgid "Keyboard Input"
-msgstr "Masukan Papan Tik"
-
-#: data/ui/media-menu-button.ui:14
-msgid "Media"
-msgstr "Media"
-
-#: data/ui/preferences-page-controllers.ui:9
-msgid "Gamepads"
-msgstr "Gamepad"
-
-#: data/ui/preferences-page-controllers.ui:15
-#: src/ui/preferences-page-controllers.vala:60
-msgid "Keyboard"
-msgstr "Papan Tik"
-
-#: data/ui/preferences-page-import-export.ui:9
-msgid ""
-"Export save states and in-game saves. This can be used for moving the data "
-"to another device or for restoring it later. Desktop, Steam and LÖVE games "
-"cannot be exported."
-msgstr ""
-"Ekspor keadaan menyimpan dan penyimpanan dalam permainan. Ini dapat "
-"digunakan untuk memindahkan data ke perangkat lain atau untuk "
-"mengembalikannya nanti. Destop, Steam dan permainan LÖVE tidak bisa diekspor."
-
-#: data/ui/preferences-page-import-export.ui:13
-#: src/ui/preferences-page-import-export.vala:30
-msgid "Export save data"
-msgstr "Ekspor data simpanan"
-
-#: data/ui/preferences-page-import-export.ui:20
-#: src/ui/preferences-page-import-export.vala:32
-msgid "_Export"
-msgstr "_Ekspor"
-
-#: data/ui/preferences-page-import-export.ui:31
-msgid ""
-"Import save data for games from existing backup. This will replace existing "
-"saves and cannot be undone."
-msgstr ""
-"Impor data simpanan untuk permainan dari cadangan yang ada. Ini akan "
-"menggantikan simpanan yang ada dan tidak dapat dibatalkan."
-
-#: data/ui/preferences-page-import-export.ui:35
-#: src/ui/preferences-page-import-export.vala:8
-msgid "Import save data"
-msgstr "Impor data simpanan"
-
-#: data/ui/preferences-page-import-export.ui:41
-#: src/ui/preferences-page-import-export.vala:10
-msgid "_Import"
-msgstr "_Impor"
-
-#: data/ui/preferences-page-video.ui:9
-msgid "Filter"
-msgstr "Penyaring"
-
-#: data/ui/preferences-subpage-gamepad.ui:58
-#: data/ui/preferences-subpage-keyboard.ui:60
-msgctxt "Keyboard configuration factory reset"
-msgid "Reset"
-msgstr "Atur Ulang"
-
-#: data/ui/preferences-subpage-gamepad.ui:71
-#: data/ui/preferences-subpage-keyboard.ui:73
-msgid "Configure"
-msgstr "Konfigurasikan"
-
-#: data/ui/preferences-subpage-gamepad.ui:119
-#: data/ui/preferences-subpage-keyboard.ui:122
-msgid "Skip"
-msgstr "Lewati"
-
-#: data/ui/preferences-window.ui:5 data/ui/preferences-window.ui:21
-msgid "Preferences"
-msgstr "Preferensi"
-
-#: data/ui/preferences-window.ui:46
-msgid "Video"
-msgstr "Video"
-
-#: data/ui/preferences-window.ui:56
-msgid "Controllers"
-msgstr "Pengendali"
-
-#: data/ui/preferences-window.ui:76
-msgid "Import & Export"
-msgstr "Impor & Ekspor"
-
-#: data/ui/remote-display.ui:23
-msgid "Use the game’s own window to play it"
-msgstr "Gunakan jendela permainan sendiri untuk memainkannya"
-
-#: data/ui/remote-display.ui:36
-msgid "This game isn’t integrated with GNOME Games."
-msgstr "Permainan ini tidak terintegrasi dengan Permainan GNOME."
-
-#: data/ui/remote-display.ui:47
-msgid "You have to use its own window to play it."
-msgstr "Anda harus menggunakan jendela sendiri untuk memainkannya."
-
-#: data/ui/selection-action-bar.ui:16
-msgid "Add/Remove selected games to favorite"
-msgstr "Tambah/Hapus permainan yang dipilih ke favorit"
-
-#: data/ui/selection-action-bar.ui:55
-msgid "_Add to Collection"
-msgstr "T_ambah ke Koleksi"
-
-#: data/ui/selection-action-bar.ui:58
-msgid "Add selected games to a collection"
-msgstr "Tambah permainan yang dipilih ke koleksi"
-
-#: data/ui/selection-action-bar.ui:64 data/ui/selection-action-bar.ui:81
-msgid "_Remove"
-msgstr "_Hapus"
-
-#: data/ui/selection-action-bar.ui:67
-msgid "Remove selected games from this collection"
-msgstr "Hapus permainan yang dipilih dari koleksi ini"
-
-#: data/ui/selection-action-bar.ui:84
-msgid "Remove selected collections"
-msgstr "Hapus koleksi yang dipilih"
-
-#: data/ui/snapshots-list.ui:70
-msgid "Create new snapshot"
-msgstr "Buat cuplikan baru"
-
-#: data/ui/snapshots-list.ui:95
-msgid "_Delete"
-msgstr "_Hapus"
-
-#: data/ui/snapshots-list.ui:138
-msgid "Name"
-msgstr "Nama"
-
-#: data/ui/undo-notification.ui:28
-msgid "_Undo"
-msgstr "_Tak Jadi"
-
 #: plugins/desktop/src/desktop-plugin.vala:6
 msgid "Desktop"
 msgstr "Destop"
 
-#: plugins/dreamcast/src/dreamcast-plugin.vala:6
+#: plugins/dreamcast/src/dreamcast-plugin.vala:8
 msgid "Dreamcast"
 msgstr "Dreamcast"
 
@@ -691,54 +164,26 @@ msgstr "Arcade"
 msgid "MS-DOS"
 msgstr "MS-DOS"
 
-#: plugins/nintendo-64/data/ui/nintendo-64-pak-switcher.ui:14
-msgid "Controller Expansion"
-msgstr "Ekspansi Pengendali"
+#: plugins/nintendo-3ds/src/nintendo-3ds-plugin.vala:7
+msgid "Nintendo 3DS"
+msgstr "Nintendo 3DS"
 
 #: plugins/nintendo-64/src/nintendo-64-pak-controller.vala:31
 #, c-format
 msgid "Player %u"
 msgstr "Pemain %u"
 
+#: plugins/nintendo-64/src/nintendo-64-pak-switcher.ui:14
+msgid "Controller Expansion"
+msgstr "Ekspansi Pengendali"
+
 #: plugins/nintendo-64/src/nintendo-64-plugin.vala:6
 msgid "Nintendo 64"
 msgstr "Nintendo 64"
 
-#: plugins/nintendo-ds/data/ui/nintendo-ds-layout-switcher.ui:19
-msgid "Change Screen"
-msgstr "Ubah Layar"
-
-#. Translators: This describes the layout for the Nintendo DS
-#. * emulator. This setting means the two screens are stacked one on
-#. * top of the other
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:53
-msgid "Vertical"
-msgstr "Vertikal"
-
-#. Translators: This describes the layout for the Nintendo DS
-#. * emulator. This setting means the two screens are displayed side
-#. * by side and not one on top of the other. The bottom screen
-#. * (which is the touch screen) is displayed to the right of the top
-#. * screen, making it comfortable for right-handed persons.
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:61
-msgid "Side by side, right-handed"
-msgstr "Berdampingan, tangan kanan"
-
-#. Translators: This describes the layout for the Nintendo DS
-#. * emulator. This setting means the two screens are displayed side
-#. * by side and not one on top of the other. The bottom screen
-#. * (which is the touch screen) is displayed to the left of the top
-#. * screen, making it comfortable for left-handed persons.
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:69
-msgid "Side by side, left-handed"
-msgstr "Berdampingan, kidal"
-
-#. Translators: This describes the layout for the Nintendo DS
-#. * emulator. This setting means only one screen is displayed at
-#. * once. The screen displayed can then be changed in-game.
-#: plugins/nintendo-ds/src/nintendo-ds-layout.vala:75
-msgid "Single screen"
-msgstr "Layar tunggal"
+#: plugins/nintendo-ds/src/nintendo-ds-plugin.vala:6
+msgid "Nintendo DS"
+msgstr "Nintendo DS"
 
 #: plugins/playstation/src/playstation-plugin.vala:7
 msgid "PlayStation"
@@ -787,7 +232,15 @@ msgstr "Favorit"
 msgid "Recently Played"
 msgstr "Baru-baru Ini Diputar"
 
-#: src/core/snapshot-manager.vala:82 src/core/snapshot-manager.vala:107
+#: src/command/command-runner.vala:43
+msgid "Use the game’s own window to play it"
+msgstr "Gunakan jendela permainan sendiri untuk memainkannya"
+
+#: src/command/command-runner.vala:44
+msgid "This game isn’t integrated with GNOME Games."
+msgstr "Permainan ini tidak terintegrasi dengan Permainan GNOME."
+
+#: src/core/snapshot-manager.vala:85 src/core/snapshot-manager.vala:110
 #, c-format
 msgid "New snapshot %s"
 msgstr "Cuplikan baru %s"
@@ -801,6 +254,196 @@ msgstr "Tidak dikenal"
 msgid "Disc %d"
 msgstr "Diska %d"
 
+#: src/gamepad/gamepad-mapper.vala:168
+msgid "Press suitable button on your gamepad"
+msgstr "Tekan tombol yang sesuai pada gamepad Anda"
+
+#: src/gamepad/gamepad-mapper.vala:173
+msgid "Move suitable axis left/right on your gamepad"
+msgstr "Pindahkan sumbu yang sesuai ke kiri/kanan pada gamepad Anda"
+
+#: src/gamepad/gamepad-mapper.vala:175
+msgid "Move suitable axis up/down on your gamepad"
+msgstr "Pindahkan sumbu yang sesuai ke atas/bawah pada gamepad Anda"
+
+#. translators: This message is displayed at the bottom of the window
+#. * when the user maps keyboard keys to controller buttons. To see it,
+#. * click on the hamburger menu, click on preferences > controllers >
+#. * keyboard, and click on the "configure" button
+#: src/keyboard/keyboard-mapper.vala:31
+msgid "Press suitable key on your keyboard"
+msgstr "Tekan tombol yang sesuai pada papan tik Anda"
+
+#: src/preferences/preferences-page-controllers.ui:9
+msgid "Gamepads"
+msgstr "Gamepad"
+
+#: src/preferences/preferences-page-controllers.ui:15
+#: src/preferences/preferences-page-controllers.vala:60
+msgid "Keyboard"
+msgstr "Papan Tik"
+
+#: src/preferences/preferences-page-import-export.ui:9
+msgid ""
+"Export save states and in-game saves. This can be used for moving the data "
+"to another device or for restoring it later. Desktop, Steam and LÖVE games "
+"cannot be exported."
+msgstr ""
+"Ekspor keadaan menyimpan dan penyimpanan dalam permainan. Ini dapat "
+"digunakan untuk memindahkan data ke perangkat lain atau untuk "
+"mengembalikannya nanti. Destop, Steam dan permainan LÖVE tidak bisa diekspor."
+
+#: src/preferences/preferences-page-import-export.ui:13
+#: src/preferences/preferences-page-import-export.vala:30
+msgid "Export save data"
+msgstr "Ekspor data simpanan"
+
+#: src/preferences/preferences-page-import-export.ui:20
+#: src/preferences/preferences-page-import-export.vala:32
+msgid "_Export"
+msgstr "_Ekspor"
+
+#: src/preferences/preferences-page-import-export.ui:31
+msgid ""
+"Import save data for games from existing backup. This will replace existing "
+"saves and cannot be undone."
+msgstr ""
+"Impor data simpanan untuk permainan dari cadangan yang ada. Ini akan "
+"menggantikan simpanan yang ada dan tidak dapat dibatalkan."
+
+#: src/preferences/preferences-page-import-export.ui:35
+#: src/preferences/preferences-page-import-export.vala:8
+msgid "Import save data"
+msgstr "Impor data simpanan"
+
+#: src/preferences/preferences-page-import-export.ui:41
+#: src/preferences/preferences-page-import-export.vala:10
+msgid "_Import"
+msgstr "_Impor"
+
+#: src/preferences/preferences-page-import-export.vala:10
+#: src/preferences/preferences-page-import-export.vala:32
+#: src/ui/application.vala:171 src/ui/collection-action-window.ui:27
+#: src/ui/collection-view.ui:323
+msgid "_Cancel"
+msgstr "_Batal"
+
+#: src/preferences/preferences-page-import-export.vala:19
+#, c-format
+msgid "Couldn’t import save data: %s"
+msgstr "Tidak dapat mengimpor data simpanan: %s"
+
+#: src/preferences/preferences-page-import-export.vala:49
+#, c-format
+msgid "Couldn’t export save data: %s"
+msgstr "Tidak dapat mengekspor data simpanan: %s"
+
+#. Translators: This is displayed under the platform name when no
+#. * core is available for this platform. To see this message, click
+#. * on the hamburger menu, click on Preferences, then on Platforms
+#: src/preferences/preferences-page-platforms-retro-row.vala:18
+msgid "None"
+msgstr "Nihil"
+
+#: src/preferences/preferences-page-video.ui:9
+msgid "Filter"
+msgstr "Penyaring"
+
+#. same as video-filters in gschema
+#. Translators: These values are video filters applied to the screen. Smooth
+#. * tries to smoothen the pixels, sharp displays the pixels square, and CRT
+#. * emulates an old TV
+#: src/preferences/preferences-page-video.vala:26
+msgid "Smooth"
+msgstr "Halus"
+
+#: src/preferences/preferences-page-video.vala:26
+msgid "Sharp"
+msgstr "Tajam"
+
+#: src/preferences/preferences-page-video.vala:26
+msgid "CRT"
+msgstr "CRT"
+
+#: src/preferences/preferences-subpage-gamepad.ui:33
+#: src/preferences/preferences-subpage-keyboard.ui:35
+#: src/ui/collection-action-window.ui:164 src/ui/collection-view.ui:153
+#: src/ui/collection-view.ui:232 src/ui/display-view.ui:34
+#: src/ui/display-view.ui:169
+msgid "Back"
+msgstr "Kembali"
+
+#: src/preferences/preferences-subpage-gamepad.ui:58
+#: src/preferences/preferences-subpage-keyboard.ui:60
+msgctxt "Keyboard configuration factory reset"
+msgid "Reset"
+msgstr "Atur Ulang"
+
+#: src/preferences/preferences-subpage-gamepad.ui:71
+#: src/preferences/preferences-subpage-keyboard.ui:73
+msgid "Configure"
+msgstr "Konfigurasikan"
+
+#: src/preferences/preferences-subpage-gamepad.ui:102
+#: src/preferences/preferences-subpage-keyboard.ui:105
+#: src/ui/collection-view.ui:328
+msgid "Cancel"
+msgstr "Batal"
+
+#: src/preferences/preferences-subpage-gamepad.ui:119
+#: src/preferences/preferences-subpage-keyboard.ui:122
+msgid "Skip"
+msgstr "Lewati"
+
+#. translators: testing a gamepad, %s is its name
+#: src/preferences/preferences-subpage-gamepad.vala:99
+#, c-format
+msgid "Testing %s"
+msgstr "Menguji %s"
+
+#. translators: configuring a gamepad, %s is its name
+#: src/preferences/preferences-subpage-gamepad.vala:101
+#, c-format
+msgid "Configuring %s"
+msgstr "Mengkonfigurasi %s"
+
+#: src/preferences/preferences-subpage-gamepad.vala:145
+#: src/preferences/preferences-subpage-keyboard.vala:127
+msgid "Factory reset mapping for this controller?"
+msgstr "Atur ulang bawaan pabrik untuk pengontrol ini?"
+
+#: src/preferences/preferences-subpage-gamepad.vala:148
+#: src/preferences/preferences-subpage-keyboard.vala:130
+msgid "Your mapping will be lost"
+msgstr "Pemetaan Anda akan hilang"
+
+#: src/preferences/preferences-subpage-gamepad.vala:150
+#: src/preferences/preferences-subpage-keyboard.vala:132
+msgctxt "Confirm controller configuration factory reset"
+msgid "_Reset"
+msgstr "_Reset"
+
+#: src/preferences/preferences-window.ui:5
+#: src/preferences/preferences-window.ui:21
+msgid "Preferences"
+msgstr "Preferensi"
+
+#: src/preferences/preferences-window.ui:46
+msgid "Video"
+msgstr "Video"
+
+#: src/preferences/preferences-window.ui:56
+msgid "Controllers"
+msgstr "Pengendali"
+
+#: src/preferences/preferences-window.ui:66 src/ui/collection-view.ui:469
+msgid "Platforms"
+msgstr "Platform"
+
+#: src/preferences/preferences-window.ui:76
+msgid "Import & Export"
+msgstr "Impor & Ekspor"
+
 #: src/retro/retro-runner.vala:124
 #, c-format
 msgid "The system “%s” isn’t supported yet, but full support is planned."
@@ -810,7 +453,7 @@ msgstr "Sistem \"%s\" tidak didukung, tapi dukungan penuh direncanakan."
 msgid "The system isn’t supported yet, but full support is planned."
 msgstr "Sistem ini belum didukung, tetapi dukungan penuh direncanakan."
 
-#: src/retro/retro-runner.vala:443
+#: src/retro/retro-runner.vala:485
 msgid "Unknown platform"
 msgstr "Platform tidak dikenal"
 
@@ -913,6 +556,47 @@ msgstr "WonderSwan"
 msgid "WonderSwan Color"
 msgstr "WonderSwan Color"
 
+#: src/screen-layout/screen-layout-switcher.ui:19
+msgid "Change Screen"
+msgstr "Ubah Layar"
+
+#. Translators: This is displayed in the shortcuts window. This corresponds to the screens layout for the Nintendo DS and 3DS.
+#: src/screen-layout/screen-layout-switcher.ui:39 src/ui/help-overlay.ui:175
+msgid "Screen Layout"
+msgstr "Tata Letak Layar"
+
+#. Translators: This describes the layout for the Nintendo DS and
+#. * 3DS emulators. This setting means the two screens are stacked one
+#. * on top of the other.
+#: src/screen-layout/screen-layout.vala:34
+msgid "Vertical"
+msgstr "Vertikal"
+
+#. Translators: This describes the layout for the Nintendo DS and
+#. * 3DS emulators. This setting means the two screens are displaye
+#. * side by side and not one on top of the other. The bottom screen
+#. * (which is the touch screen) is displayed to the right of the top
+#. * screen, making it comfortable for right-handed persons.
+#: src/screen-layout/screen-layout.vala:42
+msgid "Side by side, right-handed"
+msgstr "Berdampingan, tangan kanan"
+
+#. Translators: This describes the layout for the Nintendo DS and
+#. * 3DS emulators. This setting means the two screens are displayed
+#. * side by side and not one on top of the other. The bottom screen
+#. * (which is the touch screen) is displayed to the left of the top
+#. * screen, making it comfortable for left-handed persons.
+#: src/screen-layout/screen-layout.vala:50
+msgid "Side by side, left-handed"
+msgstr "Berdampingan, kidal"
+
+#. Translators: This describes the layout for the Nintendo DS and
+#. * 3DS emulators. This setting means only one screen is displayed at
+#. * once. The screen displayed can then be changed in-game.
+#: src/screen-layout/screen-layout.vala:56
+msgid "Single screen"
+msgstr "Layar tunggal"
+
 #: src/ui/application.vala:36
 msgid "Search term"
 msgstr "Cari istilah"
@@ -925,39 +609,43 @@ msgstr "Jalankan permainan dengan uid"
 msgid "Select game files"
 msgstr "Pilih berkas permainan"
 
+#: src/ui/application.vala:172 src/ui/collection-action-window.ui:35
+msgid "_Add"
+msgstr "T_ambah"
+
 #: src/ui/application.vala:217
 #, c-format
 msgid "An unexpected error occurred while trying to run %s"
 msgstr "Terjadi kesalahan tak terduga saat mencoba menjalankan %s"
 
-#: src/ui/application.vala:244
+#: src/ui/application.vala:245
 #, c-format
 msgid "Cannot find game with UID “%s”."
 msgstr "Tidak dapat menemukan permainan dengan UID \"%s\"."
 
-#: src/ui/application.vala:322
+#: src/ui/application.vala:323
 msgid "Couldn't find Tracker, automatic game discovery may not work."
 msgstr ""
 "Tidak dapat menemukan Pelacak, penemuan permainan secara otomatis mungkin "
 "tidak berfungsi."
 
-#: src/ui/application.vala:498
+#: src/ui/application.vala:499
 msgid "GNOME Games"
 msgstr "Permainan GNOME"
 
-#: src/ui/application.vala:500
+#: src/ui/application.vala:501
 msgid "A video game player for GNOME"
 msgstr "Pemutar video permainan untuk GNOME"
 
-#: src/ui/application.vala:504
+#: src/ui/application.vala:505
 msgid "Learn more about GNOME Games"
 msgstr "Pelajari lebih lanjut mengenai Permainan GNOME"
 
-#: src/ui/application.vala:511
+#: src/ui/application.vala:512
 msgid "translator-credits"
 msgstr ""
 "Lorenz Adam Damara <lorenzadam@resolution-consulting.co.id>, 2016.\n"
-"Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017-2020.\n"
+"Kukuh Syafaat <kukuhsyafaat@gnome.org>, 2017-2021.\n"
 "Andika Triwidada <andika@gmail.com>, 2017, 2020."
 
 #. Translators: This is displayed if the user tries to log out of his
@@ -966,13 +654,60 @@ msgstr ""
 msgid "Playing a game"
 msgstr "Mainkan permainan"
 
-#: src/ui/collection-action-window.vala:226 src/ui/collection-view.vala:481
+#: src/ui/collection-action-window.ui:5 src/ui/collection-action-window.ui:22
+msgid "Add to Collection"
+msgstr "Tambah ke Koleksi"
+
+#: src/ui/collection-action-window.ui:61 src/ui/collection-view.ui:121
+#: src/ui/collection-view.ui:198 src/ui/collection-view.ui:297
+#: src/ui/collection-view.ui:347
+msgid "Search"
+msgstr "Cari"
+
+#: src/ui/collection-action-window.ui:128 src/ui/collection-view.vala:624
+msgid "No collections found"
+msgstr "Tidak ditemukan koleksi"
+
+#: src/ui/collection-action-window.ui:129
+msgid "Add a new collection to add games to it."
+msgstr "Tambah koleksi baru untuk menambahkan permainan ke dalamnya."
+
+#: src/ui/collection-action-window.ui:133
+msgid "Create Collection"
+msgstr "Buat Koleksi"
+
+#: src/ui/collection-action-window.ui:134
+#: src/ui/collection-action-window.ui:216
+msgid "Create a collection"
+msgstr "Buat koleksi"
+
+#: src/ui/collection-action-window.ui:156
+msgid "Add a Collection"
+msgstr "Tambah Koleksi"
+
+#: src/ui/collection-action-window.ui:187
+msgid "Enter a collection name"
+msgstr "Masukkan nama koleksi"
+
+#: src/ui/collection-action-window.ui:215
+msgid "C_reate"
+msgstr "B_uat"
+
+#: src/ui/collection-action-window.vala:226 src/ui/collection-view.vala:482
 msgid "Collection name cannot be empty"
 msgstr "Nama koleksi tidak boleh kosong"
 
-#: src/ui/collection-action-window.vala:233 src/ui/collection-view.vala:485
+#: src/ui/collection-action-window.vala:233 src/ui/collection-view.vala:486
 msgid "A collection with this name already exists"
 msgstr "Koleksi dengan nama ini sudah ada"
+
+#: src/ui/collections-page.ui:42
+msgid "This collection is empty"
+msgstr "Koleksi ini kosong"
+
+#: src/ui/collections-page.ui:43
+msgid "Add some games to this collection to see them here."
+msgstr "Tambah beberapa permainan ke koleksi ini untuk melihat mereka di sini."
 
 #: src/ui/collections-page.vala:194
 #, c-format
@@ -986,145 +721,391 @@ msgid_plural "Removed %d collections"
 msgstr[0] "%d koleksi dihapus"
 msgstr[1] "%d koleksi dihapus"
 
-#: src/ui/collection-view.vala:533
+#: src/ui/collection-view.ui:42
+msgid "Add game files…"
+msgstr "Tambah berkas permainan…"
+
+#. Translators: tooltip for the application menu button
+#: src/ui/collection-view.ui:61
+msgid "Menu"
+msgstr "Menu"
+
+#: src/ui/collection-view.ui:102 src/ui/collection-view.ui:179
+#: src/ui/collection-view.ui:278
+msgid "Select games"
+msgstr "Pilih permainan"
+
+#: src/ui/collection-view.ui:247
+msgid "Collection menu"
+msgstr "Menu koleksi"
+
+#: src/ui/collection-view.ui:374 src/ui/collection-view.vala:536
+msgid "Click on items to select them"
+msgstr "Klik pada butir untuk memilih mereka"
+
+#: src/ui/collection-view.ui:424
+msgid "Try a different search."
+msgstr "Coba pencarian lain."
+
+#. Translators: This is displayed when the games library is empty.
+#: src/ui/collection-view.ui:430 src/ui/collection-view.vala:626
+msgid "No games found"
+msgstr "Tidak ada permainan yang ditemukan"
+
+#. Translators: This is displayed when the games library is empty.
+#: src/ui/collection-view.ui:431
+msgid ""
+"Install games or add directories containing games to your search sources."
+msgstr ""
+"Pasang permainan atau tambahkan direktori yang berisi permainan ke sumber "
+"pencarian Anda."
+
+#: src/ui/collection-view.ui:484
+msgid "Collections"
+msgstr "Koleksi"
+
+#: src/ui/collection-view.ui:510
+msgid "Loading"
+msgstr "Memuat"
+
+#: src/ui/collection-view.ui:583
+msgid "Rename Collection"
+msgstr "Ganti nama Koleksi"
+
+#: src/ui/collection-view.ui:604 src/ui/collection-view.ui:676
+#: src/ui/snapshots-list.ui:109 src/ui/snapshots-list.ui:162
+msgid "_Rename"
+msgstr "Ubah _Nama"
+
+#: src/ui/collection-view.ui:644
+msgid "Pr_eferences"
+msgstr "Pr_eferensi"
+
+#: src/ui/collection-view.ui:648
+msgid "_Keyboard Shortcuts"
+msgstr "Pintasan Papan Ti_k"
+
+#: src/ui/collection-view.ui:652
+msgid "_Help"
+msgstr "_Bantuan"
+
+#: src/ui/collection-view.ui:656
+msgid "_About Games"
+msgstr "Tent_ang Permainan"
+
+#: src/ui/collection-view.ui:664
+msgid "Select All"
+msgstr "Pilih Semua"
+
+#: src/ui/collection-view.ui:668
+msgid "Select None"
+msgstr "Pilih Tak Satupun"
+
+#: src/ui/collection-view.ui:680
+msgid "R_emove"
+msgstr "H_apus"
+
+#: src/ui/collection-view.vala:534
 #, c-format
 msgid "Selected %d item"
 msgid_plural "Selected %d items"
 msgstr[0] "%d butir dipilih"
 msgstr[1] "%d butir dipilih"
 
-#: src/ui/display-view.vala:439 src/ui/display-view.vala:489
+#: src/ui/display-view.ui:57
+msgid "Restore"
+msgstr "Pulihkan"
+
+#: src/ui/display-view.ui:148
+msgid "_Load"
+msgstr "_Muat"
+
+#: src/ui/display-view.ui:244
+msgid "_Restart"
+msgstr "_Mulai Ulang"
+
+#: src/ui/display-view.ui:250
+msgid "_Snapshots"
+msgstr "_Cuplikan"
+
+#: src/ui/display-view.vala:390
+msgid "Oops! The game crashed unexpectedly"
+msgstr "Ups! Permainan mogok tiba-tiba"
+
+#: src/ui/display-view.vala:427
+msgid "Oops! Unable to run the game"
+msgstr "Ups! Tidak dapat menjalankan permainan"
+
+#: src/ui/display-view.vala:447 src/ui/display-view.vala:497
 msgid "Resume last game?"
 msgstr "Lanjutkan permainan sebelumnya?"
 
-#: src/ui/display-view.vala:442 src/ui/display-view.vala:702
+#: src/ui/display-view.vala:450 src/ui/display-view.vala:711
 msgid "Restart"
 msgstr "Mulai ulang"
 
-#: src/ui/display-view.vala:443
+#: src/ui/display-view.vala:451
 msgid "Resume"
 msgstr "Lanjutkan"
 
-#: src/ui/display-view.vala:492
+#: src/ui/display-view.vala:500
 msgctxt "Resuming a game failed dialog"
 msgid "Reset"
 msgstr "Mulai Ulang"
 
-#: src/ui/display-view.vala:571
+#: src/ui/display-view.vala:579
 msgid "Are you sure you want to quit?"
 msgstr "Anda yakin ingin keluar?"
 
-#: src/ui/display-view.vala:574 src/ui/display-view.vala:700
+#: src/ui/display-view.vala:582 src/ui/display-view.vala:709
 msgid "All unsaved progress will be lost."
 msgstr "Semua hal yang belum disimpan akan hilang."
 
-#: src/ui/display-view.vala:576
+#: src/ui/display-view.vala:584
 msgid "Quit"
 msgstr "Keluar"
 
-#: src/ui/display-view.vala:697
+#: src/ui/display-view.vala:706
 msgid "Are you sure you want to restart?"
 msgstr "Anda yakin ingin memulai ulang?"
 
-#: src/ui/error-display.vala:15
-#, c-format
-msgid "Oops! Unable to run “%s”"
-msgstr "Ups! Tidak dapat menjalankan \"%s\""
+#: src/ui/help-overlay.ui:10
+msgid "Shortcuts"
+msgstr "Pintasan"
 
-#: src/ui/error-display.vala:17
-msgid "Oops! Unable to run the game"
-msgstr "Ups! Tidak dapat menjalankan permainan"
+#: src/ui/help-overlay.ui:14
+msgid "General"
+msgstr "Umum"
 
-#: src/ui/error-display.vala:24
-#, c-format
-msgid "Oops! The game “%s” crashed unexpectedly"
-msgstr "Ups! Permainan \"%s\" mogok tiba-tiba"
+#: src/ui/help-overlay.ui:19
+msgctxt "shortcut window"
+msgid "Go back"
+msgstr "Mundur"
 
-#: src/ui/gamepad-mapper.vala:168
-msgid "Press suitable button on your gamepad"
-msgstr "Tekan tombol yang sesuai pada gamepad Anda"
+#: src/ui/help-overlay.ui:26
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Keluar"
 
-#: src/ui/gamepad-mapper.vala:173
-msgid "Move suitable axis left/right on your gamepad"
-msgstr "Pindahkan sumbu yang sesuai ke kiri/kanan pada gamepad Anda"
+#: src/ui/help-overlay.ui:34 src/ui/help-overlay.ui:248
+msgid "Collection"
+msgstr "Koleksi"
 
-#: src/ui/gamepad-mapper.vala:175
-msgid "Move suitable axis up/down on your gamepad"
-msgstr "Pindahkan sumbu yang sesuai ke atas/bawah pada gamepad Anda"
+#: src/ui/help-overlay.ui:39
+msgctxt "shortcut window"
+msgid "Search"
+msgstr "Cari"
 
-#. translators: This message is displayed at the bottom of the window
-#. * when the user maps keyboard keys to controller buttons. To see it,
-#. * click on the hamburger menu, click on preferences > controllers >
-#. * keyboard, and click on the "configure" button
-#: src/ui/keyboard-mapper.vala:31
-msgid "Press suitable key on your keyboard"
-msgstr "Tekan tombol yang sesuai pada papan tik Anda"
+#: src/ui/help-overlay.ui:46
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Tampilkan Pintasan"
+
+#: src/ui/help-overlay.ui:55 src/ui/help-overlay.ui:64
+msgctxt "shortcut window"
+msgid "Navigate"
+msgstr "Menavigasi"
+
+#: src/ui/help-overlay.ui:56
+msgctxt "shortcut window"
+msgid "Left analog stick"
+msgstr "Tongkat analog kiri"
+
+#: src/ui/help-overlay.ui:65
+msgctxt "shortcut window"
+msgid "Directional pad"
+msgstr "Pad arah"
+
+#: src/ui/help-overlay.ui:73
+msgctxt "shortcut window"
+msgid "Select view"
+msgstr "Tampilan pilih"
+
+#: src/ui/help-overlay.ui:74
+msgctxt "shortcut window"
+msgid "Front shoulder buttons"
+msgstr "Tombol bahu depan"
+
+#: src/ui/help-overlay.ui:82 src/ui/help-overlay.ui:91
+msgctxt "shortcut window"
+msgid "Start game"
+msgstr "Mulai permainan"
+
+#: src/ui/help-overlay.ui:83
+msgctxt "shortcut window"
+msgid "Start button"
+msgstr "Tombol mulai"
+
+#: src/ui/help-overlay.ui:92 src/ui/help-overlay.ui:151
+msgctxt "shortcut window"
+msgid "Bottom action button"
+msgstr "Tombol aksi bawah"
+
+#: src/ui/help-overlay.ui:99
+msgid "In Game"
+msgstr "Dalam Permainan"
+
+#: src/ui/help-overlay.ui:104
+msgctxt "shortcut window"
+msgid "Create new snapshot"
+msgstr "Buat cuplikan baru"
+
+#: src/ui/help-overlay.ui:111
+msgctxt "shortcut window"
+msgid "Load the latest snapshot"
+msgstr "Muat cuplikan terakhir"
+
+#: src/ui/help-overlay.ui:118
+msgctxt "shortcut window"
+msgid "Show snapshots"
+msgstr "Tampilkan cuplikan"
+
+#: src/ui/help-overlay.ui:125
+msgctxt "shortcut window"
+msgid "Toggle fullscreen"
+msgstr "Jungkitkan layar penuh"
+
+#: src/ui/help-overlay.ui:132
+msgctxt "shortcut window"
+msgid "Exit fullscreen"
+msgstr "Keluar layar penuh"
+
+#: src/ui/help-overlay.ui:141
+msgctxt "shortcut window"
+msgid "Go back to the collection"
+msgstr "Kembali ke koleksi"
+
+#: src/ui/help-overlay.ui:142
+msgctxt "shortcut window"
+msgid "Home button"
+msgstr "Tombol beranda"
+
+#: src/ui/help-overlay.ui:150
+msgctxt "shortcut window"
+msgid "Accept"
+msgstr "Terima"
+
+#: src/ui/help-overlay.ui:159
+msgctxt "shortcut window"
+msgid "Cancel"
+msgstr "Batal"
+
+#: src/ui/help-overlay.ui:160
+msgctxt "shortcut window"
+msgid "Right action button"
+msgstr "Tombol aksi kanan"
+
+#: src/ui/help-overlay.ui:171
+msgid "Nintendo DS and 3DS"
+msgstr "Nintendo DS dan 3DS"
+
+#. Translators: This describes the layout for the Nintendo DS and 3DS emulators. This setting means the two screens are stacked one on top of the other
+#: src/ui/help-overlay.ui:180
+msgctxt "shortcut window"
+msgid "Vertical"
+msgstr "Vertikal"
+
+#. Translators: This describes the layout for the Nintendo DS and 3DS emulators. This setting means the two screens are displayed side by side
+#. Translators: This describes the Nintendo DS and 3DS screens layout, side by side
+#: src/ui/help-overlay.ui:187 src/ui/help-overlay.ui:195
+msgctxt "shortcut window"
+msgid "Side by side"
+msgstr "Bersebelahan"
+
+#. Translators: This describes the layout for the Nintendo DS and 3DS emulators when the two screens are displayed side by side and not one on top of the other. The bottom screen is displayed to the right of the top screen.
+#: src/ui/help-overlay.ui:188
+msgctxt "shortcut window"
+msgid "Bottom to the right"
+msgstr "Bawah ke kanan"
+
+#. Translators: This describes the layout for the Nintendo DS and 3DS emulators when the two screens are displayed side by side and not one on top of the other. The bottom screen is displayed to the left of the top screen
+#: src/ui/help-overlay.ui:196
+msgctxt "shortcut window"
+msgid "Bottom to the left"
+msgstr "Bawah ke kiri"
+
+#. Translators: This describes the layout for the Nintendo DS and 3DS emulators. This setting means only one screen is displayed at once. The screen displayed can then be changed in-game
+#: src/ui/help-overlay.ui:203
+msgctxt "shortcut window"
+msgid "Single screen"
+msgstr "Layar tunggal"
+
+#: src/ui/help-overlay.ui:211
+msgid "Screen Switching"
+msgstr "Beralih layar"
+
+#. Translators: This describes the shortcut for showing the top screen, when the Nintendo DS and 3DS emulators is single screen mode.
+#: src/ui/help-overlay.ui:216
+msgctxt "shortcut window"
+msgid "Show top screen"
+msgstr "Tampilkan layar atas"
+
+#. Translators: This describes the shortcut for showing the bottom screen, when the Nintendo DS and 3DS emulators is single screen mode.
+#: src/ui/help-overlay.ui:223
+msgctxt "shortcut window"
+msgid "Show bottom screen"
+msgstr "Tampilkan layar bawah"
+
+#. Translators: This describes the shortcut for toggling whether the top or bottom screen is displayed, when the Nintendo DS and 3DS emulators is single screen mode.
+#: src/ui/help-overlay.ui:232
+msgctxt "shortcut window"
+msgid "Toggle screen"
+msgstr "Jungkitkan layar"
+
+#: src/ui/help-overlay.ui:233
+msgctxt "shortcut window"
+msgid "Press right analog stick"
+msgstr "Tekan tongkat analog kanan"
+
+#: src/ui/help-overlay.ui:244
+msgid "Cheats"
+msgstr "Tipuan"
+
+#: src/ui/help-overlay.ui:253
+msgctxt "shortcut window"
+msgid "Contribute"
+msgstr "Kontribusi"
+
+#: src/ui/input-mode-switcher.ui:16
+msgid "Gamepad Input"
+msgstr "Masukan Gamepad"
+
+#: src/ui/input-mode-switcher.ui:36
+msgid "Keyboard Input"
+msgstr "Masukan Papan Tik"
+
+#: src/ui/media-menu-button.ui:14
+msgid "Media"
+msgstr "Media"
 
 #: src/ui/media-menu-button.vala:52
 #, c-format
 msgid "Media %d"
 msgstr "Media %d"
 
-#: src/ui/preferences-page-import-export.vala:19
-#, c-format
-msgid "Couldn’t import save data: %s"
-msgstr "Tidak dapat mengimpor data simpanan: %s"
+#: src/ui/selection-action-bar.ui:16
+msgid "Add/Remove selected games to favorite"
+msgstr "Tambah/Hapus permainan yang dipilih ke favorit"
 
-#: src/ui/preferences-page-import-export.vala:49
-#, c-format
-msgid "Couldn’t export save data: %s"
-msgstr "Tidak dapat mengekspor data simpanan: %s"
+#: src/ui/selection-action-bar.ui:55
+msgid "_Add to Collection"
+msgstr "T_ambah ke Koleksi"
 
-#. Translators: This is displayed under the platform name when no
-#. * core is available for this platform. To see this message, click
-#. * on the hamburger menu, click on Preferences, then on Platforms
-#: src/ui/preferences-page-platforms-retro-row.vala:18
-msgid "None"
-msgstr "Nihil"
+#: src/ui/selection-action-bar.ui:58
+msgid "Add selected games to a collection"
+msgstr "Tambah permainan yang dipilih ke koleksi"
 
-#. same as video-filters in gschema
-#. Translators: These values are video filters applied to the screen. Smooth
-#. * tries to smoothen the pixels, sharp displays the pixels square, and CRT
-#. * emulates an old TV
-#: src/ui/preferences-page-video.vala:26
-msgid "Smooth"
-msgstr "Halus"
+#: src/ui/selection-action-bar.ui:64 src/ui/selection-action-bar.ui:81
+msgid "_Remove"
+msgstr "_Hapus"
 
-#: src/ui/preferences-page-video.vala:26
-msgid "Sharp"
-msgstr "Tajam"
+#: src/ui/selection-action-bar.ui:67
+msgid "Remove selected games from this collection"
+msgstr "Hapus permainan yang dipilih dari koleksi ini"
 
-#: src/ui/preferences-page-video.vala:26
-msgid "CRT"
-msgstr "CRT"
-
-#. translators: testing a gamepad, %s is its name
-#: src/ui/preferences-subpage-gamepad.vala:99
-#, c-format
-msgid "Testing %s"
-msgstr "Menguji %s"
-
-#. translators: configuring a gamepad, %s is its name
-#: src/ui/preferences-subpage-gamepad.vala:101
-#, c-format
-msgid "Configuring %s"
-msgstr "Mengkonfigurasi %s"
-
-#: src/ui/preferences-subpage-gamepad.vala:145
-#: src/ui/preferences-subpage-keyboard.vala:127
-msgid "Factory reset mapping for this controller?"
-msgstr "Atur ulang bawaan pabrik untuk pengontrol ini?"
-
-#: src/ui/preferences-subpage-gamepad.vala:148
-#: src/ui/preferences-subpage-keyboard.vala:130
-msgid "Your mapping will be lost"
-msgstr "Pemetaan Anda akan hilang"
-
-#: src/ui/preferences-subpage-gamepad.vala:150
-#: src/ui/preferences-subpage-keyboard.vala:132
-msgctxt "Confirm controller configuration factory reset"
-msgid "_Reset"
-msgstr "_Reset"
+#: src/ui/selection-action-bar.ui:84
+msgid "Remove selected collections"
+msgstr "Hapus koleksi yang dipilih"
 
 #: src/ui/selection-action-bar.vala:49
 msgid "Remove selected games from favorites"
@@ -1174,6 +1155,18 @@ msgstr "%-e %b %X"
 msgid "%-e %b %Y %X"
 msgstr "%-e %b %Y %X"
 
+#: src/ui/snapshots-list.ui:70
+msgid "Create new snapshot"
+msgstr "Buat cuplikan baru"
+
+#: src/ui/snapshots-list.ui:95
+msgid "_Delete"
+msgstr "_Hapus"
+
+#: src/ui/snapshots-list.ui:138
+msgid "Name"
+msgstr "Nama"
+
 #. Translators: This message is shown to the user if he tried to rename
 #. * his snapshot either with an empty string, or with the name of the
 #. * autosave
@@ -1185,6 +1178,10 @@ msgstr "Nama tak valid"
 msgid "A snapshot with this name already exists"
 msgstr "Cuplikan dengan nama ini sudah ada"
 
+#: src/ui/undo-notification.ui:28
+msgid "_Undo"
+msgstr "_Tak Jadi"
+
 #: src/utils/file-operations.vala:27
 #, c-format
 msgid "Error: %s (%d)"
@@ -1194,3 +1191,12 @@ msgstr "Galat: %s (%d)"
 #, c-format
 msgid "Error writing “%s”: %s (%d)"
 msgstr "Galat menulis “%s”: %s (%d)"
+
+#~ msgid "Create collection"
+#~ msgstr "Buat koleksi"
+
+#~ msgid "You have to use its own window to play it."
+#~ msgstr "Anda harus menggunakan jendela sendiri untuk memainkannya."
+
+#~ msgid "Oops! Unable to run “%s”"
+#~ msgstr "Ups! Tidak dapat menjalankan \"%s\""
