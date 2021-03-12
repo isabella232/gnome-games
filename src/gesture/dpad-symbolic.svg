@@ -1,6 +1,1 @@
-<svg width="64" height="64" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <title>Gnome Symbolic Icon Theme</title>
-  <g transform="translate(-283,-601)">
-    <path transform="translate(283,601)" d="m20 0v20h-20v24h20v20h24v-20h20v-24h-20v-20h-24zm3 3h18v20h20v18h-20v20h-18v-20h-20v-18h20v-20z" fill="#bebebe"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" version="1.1"><title>Gnome Symbolic Icon Theme</title><g><path fill="#bebebe" d="m20 0v20h-20v24h20v20h24v-20h20v-24h-20v-20h-24zm3 3h18v20h20v18h-20v20h-18v-20h-20v-18h20v-20z" transform="translate(-283,-601) translate(283,601)"/></g></svg>
